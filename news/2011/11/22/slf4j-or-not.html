@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Netty.news: To use SLF4J or not, that is the question</title>
+    <title>Netty: To use SLF4J or not, that is the question</title>
+    <meta content='width=device-width, initial-scale=1.0' name='viewport' />
+    <link href='../../../../images/favicon.ico' rel='shortcut icon' />
+    <link href='http://feeds.feedburner.com/netty_project' rel='alternate' title='News Feed' type='application/rss+xml' />
+    <link href='http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.no-icons.min.css' media='screen' rel='stylesheet' type='text/css' />
+    <link href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.0.2/css/font-awesome.min.css' media='screen' rel='stylesheet' type='text/css' />
+    <script src='../../../../lib/sh/scripts/shCore.js' type='text/javascript'></script>
+    <script src='../../../../lib/sh/scripts/shBrushXml.js' type='text/javascript'></script>
+    <link href='../../../../lib/sh/styles/shCore.css' rel='stylesheet' type='text/css' />
+    <link href='../../../../lib/sh/styles/shThemeDefault.css' rel='stylesheet' type='text/css' />
+    <link href='../../../../lib/common.css' rel='stylesheet' type='text/css' />
+    <script src='../../../../lib/common.js' type='text/javascript'></script>
+    <!--[if lt IE 9]>
+      <script src='http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js' type='text/javascript'></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class='navbar navbar-fixed-top'>
+      <div class='navbar-inner'>
+        <div class='container'>
+          <a class='brand' href='../../../../index.html'>Netty project</a>
+          <ul class='nav'>
+            <li class='dropdown'>
+              <a href='../../../../news/2013/02/19/new-web-site-agin.html'>
+                News
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <a href='../../../../news/index.html'>
+                    <i class='icon-briefcase'></i>
+                    Archive
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class='dropdown'>
+              <a href='../../../../downloads.html'>
+                Downloads
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <a href='http://netty.googlecode.com/files/netty-4.0.0.Beta1.tar.bz2'>
+                    <i class='icon-download'></i>
+                    4.0.0.Beta1
+                    <small>&dash; 14-Feb-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href='http://netty.googlecode.com/files/netty-3.6.2.Final-dist.tar.bz2'>
+                    <i class='icon-download'></i>
+                    3.6.2.Final
+                    <small>&dash; 16-Jan-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href='http://www.tldrlegal.com/l/APACHE2'>
+                    <i class='icon-legal'></i>
+                    Apache License 2.0
+                  </a>
+                </li>
+                <li>
+                  <a href='http://code.google.com/p/netty/downloads/list'>
+                    <i class='icon-briefcase'></i>
+                    Previous Releases
+                  </a>
+                </li>
+                <li>
+                  <a href='https://netty.ci.cloudbees.com/'>
+                    <i class='icon-beaker'></i>
+                    Nightly Builds
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class='dropdown'>
+              <a href='../../../../wiki/index.html'>
+                Documentation
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <a href='../../../../wiki/all-documents.html'>
+                    <i class='icon-list'></i>
+                    All Documents
+                  </a>
+                </li>
+                <li>
+                  <a href='../../../../wiki/related-articles.html'>
+                    <i class='icon-bookmark'></i>
+                    Related Articles
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class='dropdown'>
+              <a href='../../../../community.html'>
+                Get Involved
+              </a>
+              <ul class='dropdown-menu'>
+                <li>
+                  <a href='https://github.com/netty/netty'>
+                    <i class='icon-github'></i>
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a href='http://stackoverflow.com/questions/tagged/netty'>
+                    <i class='icon-question-sign'></i>
+                    StackOverflow
+                  </a>
+                </li>
+                <li>
+                  <a href='https://twitter.com/netty_project'>
+                    <i class='icon-twitter-sign'></i>
+                    @netty_project
+                  </a>
+                </li>
+                <li>
+                  <a href='../../../../wiki/developer-guide.html'>
+                    <i class='icon-cogs'></i>
+                    Developer Guide
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href='http://feeds.feedburner.com/netty_project'>
+                <i class='icon-rss'></i>
+              </a>
+            </li>
+          </ul>
+          <form action='../../../../search.html' class='navbar-search pull-right' method='GET' onsubmit='return validateGlobalSearchQuery()'>
+            <input class='search-query' id='global-search-query' name='q' placeholder='Search' type='text' />
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='content instapaper_body'>
+        <div class='news-item'>
+  <h1>
+    To use SLF4J or not, that is the question
+  </h1>
+  <p class='byline'>
+    <small>
+      by
+      <a href='https://github.com/trustin'>trustin</a>
+      <br />
+      on
+      <time datetime='2011-11-22'>22-Nov-2011</time>
+    </small>
+  </p>
+  <div class='news-content'>
+    <div class="entry-content">
+    <p><em>UPDATE</em>: It's noteworthy that the logging layer we are discussing on is not part of user API. That is, it's not intended for use by users but by developer (committer).</p>
+    <p>There was recently <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/64">a discussion</a></span> in the community about whether we should switch from our own logging layer to something else such as <span class="wikiexternallink"><a href="http://www.slf4j.org/">SLF4J</a></span> or java.util.logging in Netty 4. The following is the list of the options we discussed and the related opinions:</p>
+    <ul>
+    <li>Keep the current thin logging layer and modernize it so that it's as easy to use as SLF4J.<ul>
+    <li>Why: Zero dependency. Netty itself does not log very much.</li>
+    <li>Drawback: It doesn't make much sense to have a logging layer. Netty should focus on I/O.</li>
+    </ul>
+    </li>
+    <li>Use SLF4J.<ul>
+    <li>Why: A lot of open source libraries already use SLF4J. Nice API. Zero dependency is not really a problem because your application's classpath will probably have SLF4J anyway because other open source libraries you depend on use it.</li>
+    <li>Drawback: Non-zero API. People not familiar with setting up SLF4J might have difficulties to run their first Netty application.</li>
+    </ul>
+    </li>
+    <li>Use java.util.logging.<ul>
+    <li>Why: Zero dependency. Netty doesn't need to provide a logging layer.</li>
+    <li>Drawback: Unfriendly API. jul-to-SLF4J bridge has <span class="wikiexternallink"><a href="http://www.slf4j.org/legacy.html#jul-to-slf4j">very poor performance</a></span>.</li>
+    </ul>
+    </li>
+    </ul>
+    <p>We are probably not going to choose java.util.logging, but we are undecided whether we should switch to SLF4J or not. What is your opinion? It is very likely for us to respect your comments as much as possible for decision making, so please feel free to leave a comment so that we listen to you and understand what you value more!</p>
+    </div>
+  </div>
+  <ul class='pager'>
+    <li class='previous'>
+      <a href='../../../../news/2011/11/17/websockets.html'>&larr; Older</a>
+    </li>
+    <li>
+      <a href='../../../index.html'>List all news items</a>
+    </li>
+    <li class='next'>
+      <a href='../../../../news/2011/11/23/3-2-7.html'>Newer &rarr;</a>
+    </li>
+  </ul>
+</div>
+<div class='comments'>
+  
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+              var disqus_shortname = 'netty0';
+              var disqus_url = "http://netty.io/news/2011/11/22/slf4j-or-not.html";
+              var disqus_developer = null;
+              var disqus_identifier = "1717291725751567689";
+              (function() {
+                var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+                dsq.src = "http://netty0.disqus.com/embed.js";
+                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+              })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+</div>
+      </div>
+      <hr />
+      <footer>
+        <p>Copyright &copy; 2013 The Netty project</p>
+      </footer>
+    </div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js' type='text/javascript'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.0/js/bootstrap.min.js' type='text/javascript'></script>
+    <script src='../../../../lib/common.footer.js' type='text/javascript'></script>
+  
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker('UA-95307-5');
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
