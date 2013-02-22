@@ -32,7 +32,7 @@
           <a class='brand' href='../index.html'>Netty project</a>
           <ul class='nav'>
             <li class='dropdown'>
-              <a href='../news/2013/02/19/new-web-site-agin.html'>
+              <a href='../news/2013/02/21/3-6-3-final.html'>
                 News
               </a>
               <ul class='dropdown-menu'>
@@ -57,10 +57,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href='http://netty.googlecode.com/files/netty-3.6.2.Final-dist.tar.bz2'>
+                  <a href='http://netty.googlecode.com/files/netty-3.6.3.Final-dist.tar.bz2'>
                     <i class='icon-download'></i>
-                    3.6.2.Final
-                    <small>&dash; 16-Jan-2013</small>
+                    3.6.3.Final
+                    <small>&dash; 21-Feb-2013</small>
                   </a>
                 </li>
                 <li>
@@ -148,85 +148,34 @@
     <div class='container'>
       <div class='content instapaper_body'>
         <div class='wiki-item'>
-  <h1>Thread model</h1>
-  <div class='alert alert-info'>
-    Did you know this page is automatically generated from
-    <a href='https://github.com/netty/netty/wiki/Thread-model'>a Github Wiki page?</a>
-    You can improve it by yourself
-    <a href='https://github.com/netty/netty/wiki/Thread-model'>here!</a>
-  </div>
-  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
-    <div class="markdown-body">
-      <p>To put simply, for a channel:</p>
-
-<ol>
-<li>Regardless of its transport and type, its all upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
-<li>All downstream (i.e. outbound) events can be triggered from any thread including the I/O thread and non-I/O threads.  However, any upstream events triggered as a side effect of the downstream event must be fired from the I/O thread. (e.g. If <code>Channel.close()</code> triggers <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>, they must be fired by the I/O thread.</li>
-</ol>
-<p>Current problems (UGLY - causes a race condition in an upstream handler, BAD - does not cause a race condition but violates the expected thread model):</p>
-
-<ul>
-<li>UGLY: The upstream events triggered as a side effect of a downstream event is triggered by the caller thread, </li>
-<li>UGLY: The local transport always uses a caller thread to trigger an event.</li>
-<li><p>BAD: <code>channelOpen</code> is triggered by the thread that called <code>ChannelFactory.newChannel()</code>, which is not an I/O thread.
-   It's kind of bad but otherwise its not possible to  limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p></li>
-<li><p>BAD: Client-side channels are run by two I/O threads.  One that makes a connection attempts and the other that does actual I/O.</p></li>
-</ul>
-<p>Action items:</p>
-
-<ul>
-<li>Merge client-side boss, server-side boss, and NioWorker into a universal I/O thread that can perform all I/O operations.  By doing this:
-
-<ul>
-<li>We solve the client-side channel problem because the thread which attempted a connection attempt can continue to perform reads and writes.</li>
-<li>We solve the problem where Netty creates as many threads as the number of open server ports.</li>
-<li>We can share a pool of NioWorkers more easily and will potentially have more flexibility in channel-worker mapping.</li>
-<li>We also need to investigate if we can make an abstract I/O thread class so that all transports (socket, datagram, SCTP, ..) can extend it.  We currently have too much duplication between socket, datagram, and SCTP.</li>
-</ul>
-</li>
-<li>If the caller thread is not the I/O thread, Netty triggers an upstream event later in the I/O thread.  Along with this change, allow a user to trigger one's own upstream event later in the I/O thread by adding the <code>sendUpstreamLater()</code> method to <code>ChannelPipeline</code> and <code>ChannelHandlerContext</code>.
-
-<ul>
-<li>However, we cannot use <code>sendUpstreamLater()</code> only if the current thread is not the I/O thread because <code>OMATPE</code> or <code>MATPE</code> will interfere with it, so we will have to let user decide. (i.e. to call <code>sendUpstream()</code> or <code>sendUpstreamLater()</code>)</li>
-</ul>
-</li>
-<li>
-<code>ChannelFactory.newChannel()</code> must not trigger an event immediately.  <code>newChannel()</code> must wait until the I/O thread notifies the channel has been registered to the I/O thread, before returning the new channel to the caller.<br>
-</li>
-<li>Rewrite the local transport.</li>
-</ul>
-<p>Questions:</p>
-
-<ul>
-<li>Can we make all these changes in v3 and keep things still backward-compatible?  Wouldn't it be easier to get this done in v4?  Fully asynchronous user application which does all I/O in an handler making heavy use of <code>ChannelFuture</code> shouldn't be affected by the current flawed thread model, which means a user can somehow work around this issue, so it might be better move on to v4 instead of making the same changes on two branches.</li>
-</ul>
-<p>Answers:</p>
-
-<ul>
-<li>I think if its to much work to "backport" it to v3 we should just move ahead and "ignore" it for v3. Maybe we can find some "easier" workaround for v3 which would at least help us to get rid of the Channel.close() race, as this is the one that will most likely hit our users. (normanmaurer)</li>
-</ul>
-</div>
-  </div>
-  <div class='text-right clearfix'>
-    <small>Last retrived on 21-Feb-2013</small>
-  </div>
-</div>
-<div class='comments'>
-  
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-              var disqus_shortname = 'netty0';
-              var disqus_url = "http://netty.io/wiki/thread-model.html";
-              var disqus_developer = null;
-              var disqus_identifier = "wiki/Thread-model";
-              (function() {
-                var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                dsq.src = "http://netty0.disqus.com/embed.js";
-                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-              })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
-</div>
+          <h1>Thread model</h1>
+          <div class='alert alert-info'>
+            Did you know this page is automatically generated from
+            <a href='https://github.com/netty/netty/wiki/Thread-model'>a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href='https://github.com/netty/netty/wiki/Thread-model'>here!</a>
+          </div>
+          
+          <div class='text-right clearfix'>
+            <small>Last retrived on 22-Feb-2013</small>
+          </div>
+        </div>
+        <div class='comments'>
+          
+                      <div id="disqus_thread"></div>
+                      <script type="text/javascript">
+                      var disqus_shortname = 'netty0';
+                      var disqus_url = "http://netty.io/wiki/thread-model.html";
+                      var disqus_developer = null;
+                      var disqus_identifier = "wiki/Thread-model";
+                      (function() {
+                        var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+                        dsq.src = "http://netty0.disqus.com/embed.js";
+                        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+                      })();
+                      </script>
+                      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+        </div>
       </div>
       <hr />
       <footer>
