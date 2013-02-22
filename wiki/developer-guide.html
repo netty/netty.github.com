@@ -148,111 +148,34 @@
     <div class='container'>
       <div class='content instapaper_body'>
         <div class='wiki-item'>
-  <h1>Developer guide</h1>
-  <div class='alert alert-info'>
-    Did you know this page is automatically generated from
-    <a href='https://github.com/netty/netty/wiki/Developer-guide'>a Github Wiki page?</a>
-    You can improve it by yourself
-    <a href='https://github.com/netty/netty/wiki/Developer-guide'>here!</a>
-  </div>
-  <div class="wiki-toc well pull-right">
-<ul class="nav nav-list">
-<li class="nav-header">Table of Contents
-</li><li><a href="#wiki-h2-0" title="Working with the source code">Working with the source code</a>
-<ul class="nav nav-list"><li><a href="#wiki-h3-1" title="Important!">Important!</a>
-</li><li><a href="#wiki-h3-2" title="Setting up IntelliJ IDEA inspection profile">Setting up IntelliJ IDEA inspection profile</a>
-</li><li><a href="#wiki-h3-3" title="Setting up Eclipse with M2E and Java 7">Setting up Eclipse with M2E and Java 7</a>
-</li><li><a href="#wiki-h3-4" title="Git line ending configuration">Git line ending configuration</a>
-</li><li><a href="#wiki-h3-5" title="Merging a pull request">Merging a pull request</a>
-</li></ul></li><li><a href="#wiki-h2-6" title="Writing a new post">Writing a new post</a>
-</li><li><a href="#wiki-h2-7" title="Design ideas">Design ideas</a>
-</li></ul>
-</div>
-<div id="wiki-body" class="gollum-markdown-content instapaper_body">
-    <div class="markdown-body">
-      <h2 id="wiki-h2-0">Working with the source code</h2>
-
-<h3 id="wiki-h3-1">Important!</h3>
-
-<p>Before pushing your commits or issuing a pull request, make sure:</p>
-
-<ul>
-<li>your work builds without any failure - run '<code>mvn test</code>' from shell.</li>
-<li>your work does not introduce any new inspection warning - see below.</li>
-</ul>
-<h3 id="wiki-h3-2">Setting up IntelliJ IDEA inspection profile</h3>
-
-<p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE. Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default for Netty project. Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
-
-<h3 id="wiki-h3-3">Setting up Eclipse with M2E and Java 7</h3>
-
-<p>Netty project can be imported into 
-<a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a>
-or later with
-<a href="http://eclipse.org/m2e/">M2E</a>
-integration out of the box.</p>
-
-<p>Netty project Maven pom.xml settings dictate use of Java SE 1.6, 
-while implicitly using Java 7 (1.7) features if present.
-This may result in compilation errors in Eclipse.</p>
-
-<p>One way to deal with this - look in <code>Eclipse -&gt; Window -&gt; Preferences -&gt; Installed JRE</code></p>
-
-<ul>
-<li>make sure you have Java 7 installation available under <code>Installed JRE</code>
-</li>
-<li>map this Java 7 installation onto Java 6 : <code>Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6</code>
-</li>
-</ul>
-<p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
-
-<h3 id="wiki-h3-4">Git line ending configuration</h3>
-
-<p>We use native line ending for all source code (i.e. '<code></code>' for *nix and MacOS X, '<code></code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
-
-<ul>
-<li>
-<a href="https://help.github.com/articles/dealing-with-line-endings">Dealing with line endings</a> by Github</li>
-<li>
-<a href="http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
-</ul>
-<h3 id="wiki-h3-5">Merging a pull request</h3>
-
-<p>A pull request often contains multiple comments.  Those commits must be squashed into smaller number of commits with explanatory comments.</p>
-
-<p>Do not merge a pull request via the web UI unless there's a good reason doing that. Refer to the 'Patch and Apply' section in <a href="https://help.github.com/articles/using-pull-requests#merging-a-pull-request">the Github help page</a>.</p>
-
-<h2 id="wiki-h2-6">Writing a new post</h2>
-
-<p>Our web site is generated from an Awestruct project <a href="https://github.com/netty/netty-website">here</a>.  To post a new article, create a new branch, write a new post, and issue a pull request like usual contributions.</p>
-
-<h2 id="wiki-h2-7">Design ideas</h2>
-
-<ul>
-<li><a class="internal present" href="thread-model.html">Thread model in 4.x</a></li>
-</ul>
-</div>
-  </div>
-  <div class='text-right clearfix'>
-    <small>Last retrived on 22-Feb-2013</small>
-  </div>
-</div>
-<div class='comments'>
-  
-              <div id="disqus_thread"></div>
-              <script type="text/javascript">
-              var disqus_shortname = 'netty0';
-              var disqus_url = "http://netty.io/wiki/developer-guide.html";
-              var disqus_developer = null;
-              var disqus_identifier = "wiki/Developer-guide";
-              (function() {
-                var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                dsq.src = "http://netty0.disqus.com/embed.js";
-                (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-              })();
-              </script>
-              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
-</div>
+          <h1>Developer guide</h1>
+          <div class='alert alert-info'>
+            Did you know this page is automatically generated from
+            <a href='https://github.com/netty/netty/wiki/Developer-guide'>a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href='https://github.com/netty/netty/wiki/Developer-guide'>here!</a>
+          </div>
+          
+          <div class='text-right clearfix'>
+            <small>Last retrived on 22-Feb-2013</small>
+          </div>
+        </div>
+        <div class='comments'>
+          
+                      <div id="disqus_thread"></div>
+                      <script type="text/javascript">
+                      var disqus_shortname = 'netty0';
+                      var disqus_url = "http://netty.io/wiki/developer-guide.html";
+                      var disqus_developer = null;
+                      var disqus_identifier = "wiki/Developer-guide";
+                      (function() {
+                        var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+                        dsq.src = "http://netty0.disqus.com/embed.js";
+                        (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+                      })();
+                      </script>
+                      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+        </div>
       </div>
       <hr />
       <footer>
