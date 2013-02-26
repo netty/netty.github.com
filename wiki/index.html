@@ -155,28 +155,14 @@
     You can improve it by yourself
     <a href='https://github.com/netty/netty/wiki/Home'>here!</a>
   </div>
-  <div class="wiki-toc well pull-right">
-<ul class="nav nav-list">
-<li class="nav-header">Table of Contents
-</li><li>
-<ul class="nav nav-list"><li><a href="#wiki-h3-0" title="3rd-party Articles">3rd-party Articles</a>
-</li></ul></li><li><a href="#wiki-h2-1" title="Examples (v 4.0)">Examples (v 4.0)</a>
-<ul class="nav nav-list"><li><a href="#wiki-h3-2" title="UDT">UDT</a>
-</li></ul></li><li><a href="#wiki-h2-3" title="Examples (v 3.6)">Examples (v 3.6)</a>
-<ul class="nav nav-list"><li><a href="#wiki-h3-4" title="Fundamental">Fundamental</a>
-</li><li><a href="#wiki-h3-5" title="Text protocols">Text protocols</a>
-</li><li><a href="#wiki-h3-6" title="Binary protocols">Binary protocols</a>
-</li><li><a href="#wiki-h3-7" title="HTTP">HTTP</a>
-</li><li><a href="#wiki-h3-8" title="Advanced">Advanced</a>
-</li></ul>
-</li></ul>
-</div>
-<div id="wiki-body" class="gollum-markdown-content instapaper_body">
+  <div id="wiki-body" class="gollum-markdown-content instapaper_body">
     <div class="markdown-body">
-      <p>Get started with the user guide and the API reference. Also, <a href="http://netty.io/community.html">join the community</a> to get more information.</p>
+      <div id="wiki-notoc"></div>
+
+<p>Get started with the user guide and the API reference. Also, <a href="http://netty.io/community.html">join the community</a> to get more information.</p>
 
 <ul>
-<li>v 4.0
+<li>Version 4.0
 
 <ul>
 <li><a class="internal present" href="user-guide-for-4.x.html">User Guide</a></li>
@@ -187,7 +173,7 @@
 <li><a class="internal present" href="new-and-noteworthy.html">New and Noteworthy</a></li>
 </ul>
 </li>
-<li>v 3.6
+<li>Version 3.6
 
 <ul>
 <li><a class="internal present" href="user-guide-for-3.x.html">User Guide</a></li>
@@ -198,16 +184,111 @@
 </ul>
 </li>
 </ul>
-<h3 id="wiki-h3-0">3rd-party Articles</h3>
+<h3>3rd-party Articles</h3>
 
 <p>We often find there are people in the world who are much more talented in technical writing than we, and they kindly wrote <a class="internal present" href="related-articles.html">great articles</a> for the community.</p>
 
-<h2 id="wiki-h2-1">Examples (v 4.0)</h2>
+<h2>Examples</h2>
 
-<h3 id="wiki-h3-2">UDT</h3>
+<p>There are several examples to help your experience with Netty. It is recommended to start from the first one and to finish to the last one.  You also might want to browse the complete list of examples (<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example">3.6</a> and <a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example">4.0</a>.)</p>
 
-<p>UDT is <a href="http://en.wikipedia.org/wiki/UDP-based_Data_Transfer_Protocol">UDP-based Data Transfer Protocol</a></p>
+<div class="tabbable">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#wiki-example-3" data-toggle="tab">3.6</a></li>
+<li><a href="#wiki-example-4" data-toggle="tab">4.0</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="wiki-example-3">
+<h3>Examples for version 3.6</h3>
+<h4>Fundamental</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/echo">Echo</a> - the very basic client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/discard">Discard</a> - prevent <tt>OutOfMemoryError</tt> which is caused by writing too fast</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/uptime">UpTime</a> - implement reliable client-side reconnection</li>
+</ul>
+<h4>Text protocols</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/telnet">Telnet</a> - a classic line-based network application</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/qotm">Quote</a> of the Moment - broadcast UDP/IP client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/securechat">SecureChat</a> - an SSL-based chat server derived from the Telnet example</li>
+</ul>
+<h4>Binary protocols</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/objectecho">ObjectEcho</a> - exchange serializable Java objects</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/objectecho">Factorial</a> - write a stateful client / server based on custom binary protocol</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/localtime">LocalTime</a> - rapid protocol prototyping with Google Protocol Buffers integration</li>
+</ul>
+<h4>HTTP</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/http/snoop">HTTP (Snoop)</a> - build your own extremely light-weight HTTP client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/http/file">HTTP (File Server)</a> - asynchronous large file streaming in HTTP</li>
+<li>Web Socket <a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/http/websocketx/client">Client</a> &amp; <a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/http/websocketx/server">Server</a> - add two-way full-duplex communication channels to HTTP using Web Sockets protocol</li>
+</ul>
+<h4>Advanced</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/proxy">Proxy Server</a> - write a highly efficient NIO proxy server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/portunification">Port Unification</a> - run heterogeneous services listening on a single port</li>
+</ul>
+</div>
 
+<div class="tab-pane" id="wiki-example-4">
+<h3>Examples for version 4.0</h3>
+<h4>Fundamental</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/echo">Echo</a> - the very basic client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/discard">Discard</a> - prevent OutOfMemoryError which is caused by writing too fast</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/uptime">UpTime</a> - implement reliable client-side reconnection</li>
+</ul>
+<h4>Text protocols</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/telnet">Telnet</a> - a classic line-based network application</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/qotm">Quote</a> of the Moment - broadcast UDP/IP client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/securechat">SecureChat</a> - an SSL-based chat server derived from the Telnet example</li>
+</ul>
+<h4>Binary protocols</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/objectecho">ObjectEcho</a> - exchange serializable Java objects</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/objectecho">Factorial</a> - write a stateful client / server based on custom binary protocol</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/worldclock">WorldClock</a> - rapid protocol prototyping with Google Protocol Buffers integration</li>
+</ul>
+<h4>HTTP</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/http/snoop">HTTP (Snoop)</a> - build your own extremely light-weight HTTP client and server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/http/file">HTTP (File Server)</a> - asynchronous large file streaming in HTTP</li>
+<li>Web Socket <a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/http/websocketx/client">Client</a> &amp; <a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/http/websocketx/server">Server</a> - add two-way full-duplex communication channels to HTTP using Web Sockets protocol</li>
+</ul>
+<h4>Advanced</h4>
+<ul>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/proxy">Proxy Server</a> - write a highly efficient NIO proxy server</li>
+<li>
+<a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/portunification">Port Unification</a> - run heterogeneous services listening on a single port</li>
+</ul>
+<h4><a href="http://en.wikipedia.org/wiki/UDP-based_Data_Transfer_Protocol">UDT</a></h4>
 <ul>
 <li>
 <a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/udt/echo/bytes">Byte Streams</a> - use UDT in TCP-like bytes streaming mode</li>
@@ -216,61 +297,15 @@
 <li>
 <a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example/udt/echo/rendevous">Rendezvous Connect</a> - use UDT in symmetric peer-to-peer rendezvous connect mode</li>
 </ul>
-<h2 id="wiki-h2-3">Examples (v 3.6)</h2>
-
-<p>There are several examples to help your experience with Netty. It is recommended to start from the first one and to finish to the last one.</p>
-
-<h3 id="wiki-h3-4">Fundamental</h3>
-
-<ul>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/echo/package-summary.html">Echo</a> - the very basic client and server</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/discard/package-summary.html">Discard</a> - prevent OutOfMemoryError which is caused by writing too fast</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/uptime/package-summary.html">UpTime</a> - implement reliable client-side reconnection</li>
-</ul>
-<h3 id="wiki-h3-5">Text protocols</h3>
-
-<ul>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/telnet/package-summary.html">Telnet</a> - a classic line-based network application</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/qotm/package-summary.html">Quote</a> of the Moment - broadcast UDP/IP client and server</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/securechat/package-summary.html">SecureChat</a> - an SSL-based chat server derived from the Telnet example</li>
-</ul>
-<h3 id="wiki-h3-6">Binary protocols</h3>
-
-<ul>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/objectecho/package-summary.html">ObjectEcho</a> - exchange serializable Java objects</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/objectecho/package-summary.html">Factorial</a> - write a stateful client / server based on custom binary protocol</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/localtime/package-summary.html">LocalTime</a> - rapid protocol prototyping with Google Protocol Buffers integration</li>
-</ul>
-<h3 id="wiki-h3-7">HTTP</h3>
-
-<ul>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/http/snoop/package-summary.html">HTTP (Snoop)</a> - build your own extremely light-weight HTTP client and server</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/http/file/package-summary.html">HTTP (File Server)</a> - asynchronous large file streaming in HTTP</li>
-<li>Web Socket <a href="http://netty.io/3.6/xref/org/jboss/netty/example/http/websocketx/client/package-summary.html">Client</a> &amp; <a href="http://netty.io/3.6/xref/org/jboss/netty/example/http/websocketx/server/package-summary.html">Server</a> - add two-way full-duplex communication channels to HTTP using Web Sockets protocol</li>
-</ul>
-<h3 id="wiki-h3-8">Advanced</h3>
-
-<ul>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/proxy/package-summary.html">Proxy Server</a> - write a highly efficient NIO proxy server</li>
-<li>
-<a href="http://netty.io/3.6/xref/org/jboss/netty/example/portunification/package-summary.html">Port Unification</a> - run heterogenous services listening on a single port</li>
-</ul>
 </div>
+
+
+</div>
+</div>
+    </div>
   </div>
   <div class='text-right clearfix'>
-    <small>Last retrived on 22-Feb-2013</small>
+    <small>Last retrived on 26-Feb-2013</small>
   </div>
 </div>
 <div class='comments'>
