@@ -2,8 +2,8 @@
 <html lang='en'>
   <head>
     <meta charset='UTF-8' />
-    <title>Netty.news: Netty 3.4.0.Beta1 released!</title>
-    <title>Netty: Netty 3.4.0.Beta1 released!</title>
+    <title>Netty.news: Netty 4.0.0.Beta2 released</title>
+    <title>Netty: Netty 4.0.0.Beta2 released</title>
     <meta content='width=device-width, initial-scale=1.0' name='viewport' />
     <link href='../../../../images/favicon.ico' rel='shortcut icon' />
     <link href='http://feeds.feedburner.com/netty_project' rel='alternate' title='News Feed' type='application/rss+xml' />
@@ -150,7 +150,7 @@
       <div class='content instapaper_body'>
         <div class='news-item'>
   <h1>
-    Netty 3.4.0.Beta1 released!
+    Netty 4.0.0.Beta2 released
   </h1>
   <p class='byline'>
     <small>
@@ -158,26 +158,34 @@
       <a href='https://github.com/trustin'>trustin</a>
       <br />
       on
-      <time datetime='2012-04-04'>04-Apr-2012</time>
+      <time datetime='2013-02-26'>26-Feb-2013</time>
     </small>
   </p>
   <div class='news-content'>
-    <div class="entry-content">
-<p>The Netty project team is proud to announce the first beta release of Netty 3.4.0. Please note that it is a beta release, so you might need to test it thoroughly before putting it into production. We hope that this will be the last and only beta release of the 3.4.0 series before we cut a final release.</p>
-<p>The JAR file is already on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.4.0.Beta1%7Cbundle">Maven central repository</a></span>. You can also get the full tarball from <span class="wikilink"><a href="http://netty.io/downloads.html">the download page</a></span>.</p>
-<p>This version contains only bugfixes and no new features compared to the previous 3.4.0.Alpha2 release. One critical but that was fixed is the UDP nio support that got broken in the alpha releases before.</p>
-<p>For the detailed list of the changes, please refer to <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?milestone=9&amp;state=closed">the issue tracker page</a></span>.</p>
-</div>
+    <p>Less than a week have passed since we released the first beta version of Netty 4.  We wished to release this beta with a larger list of improvements and features, but we decided to release it sooner than usual to address various bugs reported by community before we move on to the next batch of relatively large changes.  If you were hesistant becoming a guinea pig, you might want to try it now because it's not the first beta.  So, why don't you just <a href="../../../../downloads.html">grab it now</a>? :-)</p>
+
+<h2>Notable changes</h2>
+
+<ul>
+<li>Memory footprint of <code>ChannelFuture</code>, <code>ChannelPromise</code>, and <code>ChannelHandlerContext</code> have been reduced significantly. (<a href="https://github.com/netty/netty/issues/1074">#1074</a> and <a href="https://github.com/netty/netty/issues/58">#58</a>)</li>
+<li>Replaced <code>java.util.concurrent.ConcurrentHashMap</code> with <a href="http://cs.oswego.edu/pipermail/concurrency-interest/2011-August/008176.html"><code>ConcurrentHashMapV8</code></a> wherever possible for better performance and less memory footprint. This is only used when your JDK has <code>sun.misc.Unsafe</code> and the JDK version is older than 8 because it uses unsafe operations and JDK 8 ships the same <code>ConcurrentHashMap</code> implementation already. (<a href="https://github.com/netty/netty/issues/1052">#1052</a>)</li>
+<li>Netty does not ship its own jzlib fork anymore. If you use gzip/zlib/deflate compression, your project must depend on <a href="https://github.com/ymnk/jzlib">the latest jzlib</a>.</li>
+<li>RXTX transport has been ported finally thanks to <a href="https://github.com/lw346">Luke Wood</a>. (Did you know he is also a key contributor of our <a href="http://code.google.com/p/snappy/">Snappy</a> compression codec?)</li>
+<li>Fixed 12 bugs</li>
+</ul>
+
+
+<p>Visit <a href="https://github.com/netty/netty/issues?milestone=39&amp;page=1&amp;state=closed">here</a> for the complete list of the changes.</p>
   </div>
   <ul class='pager'>
     <li class='previous'>
-      <a href='../../../../news/2012/03/26/3-4-0-alpha2.html'>&larr; Older</a>
+      <a href='../../../../news/2013/02/21/3-6-3-final.html'>&larr; Older</a>
     </li>
     <li>
       <a href='../../../index.html'>List all news items</a>
     </li>
-    <li class='next'>
-      <a href='../../../../news/2012/04/12/3-4-0-final.html'>Newer &rarr;</a>
+    <li class='next disabled'>
+      <a href='#'>Newer &rarr;</a>
     </li>
   </ul>
 </div>
@@ -186,9 +194,9 @@
               <div id="disqus_thread"></div>
               <script type="text/javascript">
               var disqus_shortname = 'netty0';
-              var disqus_url = "http://netty.io/news/2012/04/04/3-4-0-beta1.html";
+              var disqus_url = "http://netty.io/news/2013/02/26/4-0-0-beta2.html";
               var disqus_developer = null;
-              var disqus_identifier = "4482684197451355832";
+              var disqus_identifier = "news/2013-02-26-4-0-0-beta2.html";
               (function() {
                 var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                 dsq.src = "http://netty0.disqus.com/embed.js";
