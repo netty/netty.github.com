@@ -2,9 +2,73 @@
 <feed xml:lang='en-US' xmlns='http://www.w3.org/2005/Atom'>
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-04-03T22:43:47+09:00</updated>
+  <updated>2013-04-05T10:16:56+09:00</updated>
   <link href='../news/index.atom' rel='self' type='application/atom+xml' />
   <link href='http://netty.io/' rel='alternate' type='text/html' />
+  <entry>
+    <id>../news/2013/04/05/3-6-4-Final.html</id>
+    <title>Netty 3.6.4.Final released</title>
+    <updated>2013-04-05T10:16:56+09:00</updated>
+    <published>2013-04-05T00:00:00Z</published>
+    <link href='../news/2013/04/05/3-6-4-Final.html' rel='alternate' type='text/html' />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      Here&#39;s another stable release from the 3.x branch.  You can get it from the downloads page and the Maven central repository.  Please report any regressions or bugs via the issue tracker.
+
+Notable changes
+
+
+You can specify ThreadNameDeterminer as a parameter when you construct Oio*ChannelFactory and HashedWheelTimer. (#1176 by @hgschmie)
+ProtobufDecoder takes advantage of the performance improvements in protobuf 2.5.0. (#1146 ported by @hepin1989)
+The message of a ConnectException now contains the remote address where the connection attempt was made to. (#1082 by @trustin)
+NIO transport raises a ConnectTimeoutException, which extends ConnectException, when a connection attempt timed out. (#1036 by @normanmaurer)
+
+
+
+Visit here for the...
+    </summary>
+    <content type='html'>
+      &lt;p&gt;Here&amp;#39;s another stable release from &lt;a href=&quot;https://github.com/netty/netty/tree/3&quot;&gt;the 3.x branch&lt;/a&gt;.  You can get it from &lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the downloads page&lt;/a&gt; and the Maven central repository.  Please report any regressions or bugs via &lt;a href=&quot;https://github.com/netty/netty/issues&quot;&gt;the issue tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Notable changes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;You can specify &lt;code&gt;ThreadNameDeterminer&lt;/code&gt; as a parameter when you construct &lt;code&gt;Oio*ChannelFactory&lt;/code&gt; and &lt;code&gt;HashedWheelTimer&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/pull/1176&quot;&gt;#1176&lt;/a&gt; by &lt;a href=&quot;https://github.com/hgschmie&quot;&gt;@hgschmie&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ProtobufDecoder&lt;/code&gt; takes advantage of the performance improvements in protobuf 2.5.0. (&lt;a href=&quot;https://github.com/netty/netty/pull/1146&quot;&gt;#1146&lt;/a&gt; ported by &lt;a href=&quot;https://github.com/hepin1989&quot;&gt;@hepin1989&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The message of a &lt;code&gt;ConnectException&lt;/code&gt; now contains the remote address where the connection attempt was made to. (&lt;a href=&quot;https://github.com/netty/netty/issues/1082&quot;&gt;#1082&lt;/a&gt; by &lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;NIO transport raises a &lt;code&gt;ConnectTimeoutException&lt;/code&gt;, which extends &lt;code&gt;ConnectException&lt;/code&gt;, when a connection attempt timed out. (&lt;a href=&quot;https://github.com/netty/netty/issues/1036&quot;&gt;#1036&lt;/a&gt; by &lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=44&amp;amp;page=1&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+
+&lt;h2&gt;Acknowledge&lt;/h2&gt;
+
+&lt;p&gt;Every idea counts; the following people participated in the development of this release. Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ankurcha&quot;&gt;@ankurcha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dajac&quot;&gt;@dajac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dehmer&quot;&gt;@dehmer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/demarsi&quot;&gt;@demarsi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/haremyak&quot;&gt;@haremyak&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hepin1989&quot;&gt;@hepin1989&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hgschmie&quot;&gt;@hgschmie&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/infynyxx&quot;&gt;@infynyxx&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lucky&quot;&gt;@lucky&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/martin-robo&quot;&gt;@martin-robo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/osanha&quot;&gt;@osanha&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pracucci&quot;&gt;@pracucci&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/purplefox&quot;&gt;@purplefox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ThE-MaRaC&quot;&gt;@ThE-MaRaC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>../news/2013/03/22/4-0-0-CR1.html</id>
     <title>Netty 4.0.0.RC1 released</title>
