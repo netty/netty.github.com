@@ -290,7 +290,7 @@
           
           <p>The binary JAR has been split into multiple submodules so that a user can exclude unnecessary features from the class path.  The current structure looks like this following:</p>
           
-          <table>
+          <table class="table table-hover">
           <thead><tr>
           <th>Module</th>
           <th>Description</th>
@@ -620,7 +620,7 @@
           <p>There is no well-defined thread model in 3.x although there was an attempt to fix its inconsistency in 3.5.  4.0 defines a strict thread model that helps a user write a ChannelHandler without worrying too much about thread safety.</p>
           
           <ul>
-          <li>Netty will never call a <code>ChannelHandler</code>'s methods concurrently, unless the <code>ChannelHandler</code> is annotated with <code>@Shareable</code>. This is regardless of the type of handler methods - inbound, outbound, or life cycle event handler methods.
+          <li>Netty will never call a <code>ChannelHandler</code>'s methods concurrently (except for <code>newInbound/OutboundBuffer()</code> and <code>freeInbound/OutboundBuffer()</code> methods), unless the <code>ChannelHandler</code> is annotated with <code>@Shareable</code>. This is regardless of the type of handler methods - inbound, outbound, or life cycle event handler methods.
           
           <ul>
           <li>A user does not need to synchronize either inbound or outbound event handler methods anymore.</li>
@@ -757,7 +757,7 @@
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 09-Apr-2013</small>
+            <small>Last retrived on 23-Apr-2013</small>
           </div>
         </div>
         <div class="comments">
