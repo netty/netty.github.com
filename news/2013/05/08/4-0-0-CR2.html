@@ -166,84 +166,88 @@
             </small>
           </p>
           <div class="news-content">
-            <p>Its my pleasure announcing the second RC release of Netty 4.0.0. Unfortunatelly there is some api-breakage when upgrading from RC1. We had to do this to eliminate some issues / limitations which was found by users using RC1. So when upgrade please read the upgrade section.</p>
+            <p>It&#39;s my pleasure to announce the second release candidate for Netty 4.0.0. Unfortunatelly, there is some API-breakage when upgrading from the previous release. We had to do this to eliminate some design issues which were found by users. Please read this post before an upgrade.</p>
             
-            <p>Thanks again to everyone who helped us to fix issues and make the release even more stable.</p>
+            <p>Thanks again to everyone who helped us fix issues and make the release even more stable.</p>
             
-            <p>You can grab the release from our <a href="http://netty.io/downloads.html">download page</a> and from maven central.</p>
+            <p>You can grab the release from our <a href="http://netty.io/downloads.html">download page</a> and from the Maven central repository.</p>
             
             <p>If you have any feedback please let us know, we love to receive it.</p>
             
-            <h2>Upgrade</h2>
+            <h2>Backward-incompatible changes</h2>
             
-            <p>Please read this section before upgrade to CR2.</p>
+            <p>Please read this section before upgrading to CR2.</p>
             
-            <h3>ChannelHandler and sub-types</h3>
+            <h3><code>ChannelHandler</code> and its sub-types</h3>
             
             <ul>
-            <li>ChannelHandler.beforeAdd(...) and beforeRemove(...) was removed because it made it very difficult to fullfill the Thread-Model and not block at all.</li>
-            <li>ChannelHandler.afterAdd(...) was renamed to handlerAdded(...) and afterRemove to handlerRemoved(...)
-            This may not affect any of your code if you not made use of those and just extended the Adapter classes.</li>
+            <li><code>ChannelHandler.beforeAdd/Remove(...)</code> was removed because it made it very difficult to fullfill the thread model while not blocking at all.</li>
+            <li><code>ChannelHandler.afterAdd/Remove(...)</code> was renamed to <code>handlerAdded/Removed(...)</code>.</li>
             </ul>
             
             
-            <h3>ChannelInboundHandler / ChannelOutboundHandler and sub-types</h3>
+            <p>This may not affect any of your code if you not made use of those and just extended the Adapter classes.</p>
+            
+            <h3><code>ChannelInbound/OutboundHandler</code> and its sub-types</h3>
             
             <ul>
-            <li>Removed ChannelInboundHandler.freeInboundBuffer() and ChannelOutboundHandler.freeOutboundBuffer() as its not needed anymore
-            This may not affect any of your code as usually you use an Adapter class and not provide your own implementation of the method. In most cases only direct implementing classes of the the interfaces are affected.</li>
+            <li>Removed <code>ChannelInboundHandler.freeInboundBuffer()</code> and <code>ChannelOutboundHandler.freeOutboundBuffer()</code> because it&#39;s not useful anymore since we introduced reference counting in the previous releases.</li>
             </ul>
             
             
-            <h3>*ToMessageDecoder, *ToMessageEncoder, *ToMessageCodec</h3>
+            <p>This may not affect any of your code because you usually extend <code>*Adapter</code>s and don&#39;t override the mentioned methods.</p>
+            
+            <h3>Codec framework</h3>
             
             <ul>
-            <li>encode(...)  / decode(...) now takes a MessageBuf<Object> as parameter and use void as return type. So once you are done with encode/decode messages you will add them the the MessageBuf by call MessageBuf.add(...). This was done to eliminate the ugly handling / support of folded messages.
-            This will most likely affect you if you wrote a decoder / encode / codec that will output Objects.</li>
+            <li><code>encode(...)</code> and <code>decode(...)</code> now take a <code>MessageBuf&lt;Object&gt;</code> as a parameter and return <code>void</code>.  Therefore, once you encoded or decoded a message, you have to add the message to the <code>MessageBuf&lt;Object&gt;</code> given as a parameter.  This change simplifies message handling by enabling the removal of automatic array unfolding.</li>
             </ul>
             
             
-            <h3>SslHandler</h3>
+            <p>This will most likely affect you if you wrote a codec based on the codec framework.</p>
+            
+            <h3><code>SslHandler</code></h3>
             
             <ul>
-            <li>SslHandler.handshake() was renamed to SslHandler.handshakeFuture() as it is more consistent. Also it now returns a Future<Channel> and not anymore a ChannelFuture.</li>
-            <li>SslHandler.closeNotifyFutre() returns a Future<Channel> and not anymore a ChannelFuture.</li>
+            <li><code>SslHandler.handshake()</code> was renamed to <code>handshakeFuture()</code> for consistency.  Also, it now returns a <code>Future&lt;Channel&gt;</code> instead of a <code>ChannelFuture</code>.</li>
+            <li><code>SslHandler.closeNotifyFutre()</code> returns a <code>Future&lt;Channel&gt;</code> instead of a <code>ChannelFuture</code>.</li>
             </ul>
             
             
-            <h3>ByteBufHolder and sub-types</h3>
+            <h3><code>ByteBufHolder</code> and its sub-types</h3>
             
             <ul>
-            <li>ByteBufHolder.data() was renamed to content(). This also means other interfaces that extend it are effected. This includes HttpContent (and sub-types), DatagramPacket, SctpMessage, SpdyDataFrame, WebSocketFrame</li>
+            <li><code>ByteBufHolder.data()</code> was renamed to <code>content()</code>.  The sub-types, for instance, include <code>HttpContent</code>, <code>SctpMessage</code>, <code>SpdyDataFrame</code>, and <code>WebSocketFrame</code>.</li>
             </ul>
             
             
-            <h3>ChannelPipeline</h3>
+            <h3><code>ChannelPipeline</code></h3>
             
             <ul>
-            <li>Remove ChannelPipeline.removeForward(...) and ChannePipline.replaceForward(...) as stuff is now forwarded on remove(...) / replace(...).</li>
+            <li><code>ChannelPipeline.remove/replaceAndForward(...)</code> has been merged into <code>remove/replace()</code>.</li>
             </ul>
             
             
-            <h3>ServerBootstrap / Bootstap</h3>
+            <h3><code>Bootstrap</code> and <code>ServerBootstrap</code></h3>
             
             <ul>
-            <li>ServerBootstrap.shutdown() and Bootstrap.shutdown() were @deprecated. Please use the EventLoopGroup.shutdownGracefully() method to shutdown the EventLoopGroup once not needed anymore</li>
+            <li><code>ServerBootstrap.shutdown()</code> and <code>Bootstrap.shutdown()</code> were deprecated.  Please use the <code>EventExecutorGroup.shutdownGracefully()</code> method instead.  See the next section for more information.</li>
             </ul>
             
             
-            <h3>EventLoopGroup</h3>
+            <h3><code>EventExecutorGroup</code> and <code>EventLoopGroup</code></h3>
             
             <ul>
-            <li>EventLoopGroup.shutdown() was @deprecated and a new shutdownGracefully() method was added. Please use the new method to make sure the EventLoopGroup is shutdown gracefully.</li>
+            <li>Fixed the API contract violation against <code>java.util.concurrent.ExecutorService</code> with respect to the <code>Executor</code> life cycle.</li>
+            <li><code>EventExecutorGroup.shutdown()</code> has been deprecated by <code>shutdownGracefully()</code>.  Use <code>shutdownGracefully()</code> wherever possible to avoid any trouble such as resource leak during a shutdown.</li>
             </ul>
             
             
             <h2>Changes in general</h2>
             
-            <p>This release fixed 90 issues / tasks and so it's highly recommend to upgrade as soon as possible. We understand that the upgrade is not as easy as "drop-in" the new jar, but we thought all the api changes really worth the pain before go final.</p>
+            <p>This release fixed 90 issues.  It&#39;s highly recommended to upgrade as soon as possible.  We&#39;d like to apologize that the upgrade process might not be as smooth as &#39;dropping the new JAR&#39;, but we believe all the changes were really worth the pain before going final.</p>
             
-            <p>Beside fixed it also ships with a few new features which may worth some more details:</p>
+            <p>Besides all the fixes, this release also ships with a few new features which may be worth some more details:</p>
             
             <ul>
             <li><a href="https://github.com/netty/netty/issues/762">#762</a> Added a WebSockeClientHandler which makes it super easy to write WebSocket clients with Netty. See the apidocs for more details.</li>
