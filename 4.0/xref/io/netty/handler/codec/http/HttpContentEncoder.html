@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>HttpContentEncoder xref</title>
@@ -64,7 +64,7 @@
 <a class="jxr_linenumber" name="54" href="#54">54</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="55" href="#55">55</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">abstract</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">HttpContentEncoder</a> <strong class="jxr_keyword">extends</strong> MessageToMessageCodec&lt;HttpRequest, HttpObject&gt; {
 <a class="jxr_linenumber" name="56" href="#56">56</a>  
-<a class="jxr_linenumber" name="57" href="#57">57</a>      <strong class="jxr_keyword">private</strong> enum <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> {
+<a class="jxr_linenumber" name="57" href="#57">57</a>      <strong class="jxr_keyword">private</strong> enum <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> {
 <a class="jxr_linenumber" name="58" href="#58">58</a>          PASS_THROUGH,
 <a class="jxr_linenumber" name="59" href="#59">59</a>          AWAIT_HEADERS,
 <a class="jxr_linenumber" name="60" href="#60">60</a>          AWAIT_CONTENT
@@ -73,7 +73,7 @@
 <a class="jxr_linenumber" name="63" href="#63">63</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Queue&lt;String&gt; acceptEncodingQueue = <strong class="jxr_keyword">new</strong> ArrayDeque&lt;String&gt;();
 <a class="jxr_linenumber" name="64" href="#64">64</a>      <strong class="jxr_keyword">private</strong> String acceptEncoding;
 <a class="jxr_linenumber" name="65" href="#65">65</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedByteChannel.html">EmbeddedByteChannel</a> encoder;
-<a class="jxr_linenumber" name="66" href="#66">66</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> state = State.AWAIT_HEADERS;
+<a class="jxr_linenumber" name="66" href="#66">66</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> state = State.AWAIT_HEADERS;
 <a class="jxr_linenumber" name="67" href="#67">67</a>  
 <a class="jxr_linenumber" name="68" href="#68">68</a>      @Override
 <a class="jxr_linenumber" name="69" href="#69">69</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> acceptOutboundMessage(Object msg) <strong class="jxr_keyword">throws</strong> Exception {

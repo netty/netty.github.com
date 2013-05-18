@@ -2,9 +2,41 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-05-15T08:43:41+02:00</updated>
+  <updated>2013-05-18T12:08:23+02:00</updated>
   <link href="../news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>../news/2013/05/18/4-0-0-CR3.html</id>
+    <title>Netty 4.0.0.CR3 released</title>
+    <updated>2013-05-18T12:08:23+02:00</updated>
+    <published>2013-05-18T00:00:00+00:00</published>
+    <link href="../news/2013/05/18/4-0-0-CR3.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I&#39;m happy to announce the third and last release candidate for Netty 4.0.0. No API breakage was done so upgrading from CR2 should be as easy as replace the jar file. Only a few minor issues are left and so we are aiming for Final now, which means now is the perfect time to test-drive Netty 4.0.0.
+      
+      Thanks again to everyone who helped us fix issues and make the release even more stable.
+      
+      You can grab the release from our download page and from the Maven central repository.
+      
+      If you have any feedback please let us know, we really appreciate them.
+      
+      This release fixes...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the third and last release candidate for Netty 4.0.0. No API breakage was done so upgrading from CR2 should be as easy as replace the jar file. Only a few minor issues are left and so we are aiming for Final now, which means now is the perfect time to test-drive Netty 4.0.0.&lt;/p&gt;
+      
+      &lt;p&gt;Thanks again to everyone who helped us fix issues and make the release even more stable.&lt;/p&gt;
+      
+      &lt;p&gt;You can grab the release from our &lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;download page&lt;/a&gt; and from the Maven central repository.&lt;/p&gt;
+      
+      &lt;p&gt;If you have any feedback please let us know, we really appreciate them.&lt;/p&gt;
+      
+      &lt;p&gt;This release fixes 19 issues. Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=51&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+    </content>
+  </entry>
   <entry>
     <id>../news/2013/05/15/3-6-6-Final.html</id>
     <title>Netty 3.6.6.Final released</title>
@@ -2138,49 +2170,6 @@
       &lt;p&gt;For the detailed list of the changes, please refer to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=1&amp;amp;state=closed&quot;&gt;the issue tracker page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
       &lt;p&gt;Looking back, it was a very exciting iteration. I granted push permission to various people who sent high-quality pull requests frequently, and I believe it leads us to faster yet open and sustainable development of the project. I'd like to appreciate everyone involved into this effort for their faith on the project and myself.&lt;/p&gt;
       &lt;p&gt;If you didn't have a chance to &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/community.html&quot;&gt;contribute&lt;/a&gt;&lt;/span&gt;, it's better late than never. Actually, you can contribute a lot more than you think!&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>../news/2011/11/22/slf4j-or-not.html</id>
-    <title>To use SLF4J or not, that is the question</title>
-    <updated>2013-03-22T21:43:43+01:00</updated>
-    <published>2011-11-22T00:00:00+00:00</published>
-    <link href="../news/2011/11/22/slf4j-or-not.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      
-      UPDATE: It's noteworthy that the logging layer we are discussing on is not part of user API. That is, it's not intended for use by users but by developer (committer).
-      There was recently a discussion in the community about whether we should switch from our own logging layer to something else such as SLF4J or java.util.logging in Netty 4. The following is the list of the options we discussed and the related opinions:
-      
-      Keep the current thin logging layer and modernize it so that it's as easy to use as SLF4J.
-      Why: Zero dependency. Netty itself does not log very much.
-      Drawback: It doesn't...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;&lt;em&gt;UPDATE&lt;/em&gt;: It's noteworthy that the logging layer we are discussing on is not part of user API. That is, it's not intended for use by users but by developer (committer).&lt;/p&gt;
-      &lt;p&gt;There was recently &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/64&quot;&gt;a discussion&lt;/a&gt;&lt;/span&gt; in the community about whether we should switch from our own logging layer to something else such as &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://www.slf4j.org/&quot;&gt;SLF4J&lt;/a&gt;&lt;/span&gt; or java.util.logging in Netty 4. The following is the list of the options we discussed and the related opinions:&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Keep the current thin logging layer and modernize it so that it's as easy to use as SLF4J.&lt;ul&gt;
-      &lt;li&gt;Why: Zero dependency. Netty itself does not log very much.&lt;/li&gt;
-      &lt;li&gt;Drawback: It doesn't make much sense to have a logging layer. Netty should focus on I/O.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Use SLF4J.&lt;ul&gt;
-      &lt;li&gt;Why: A lot of open source libraries already use SLF4J. Nice API. Zero dependency is not really a problem because your application's classpath will probably have SLF4J anyway because other open source libraries you depend on use it.&lt;/li&gt;
-      &lt;li&gt;Drawback: Non-zero API. People not familiar with setting up SLF4J might have difficulties to run their first Netty application.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Use java.util.logging.&lt;ul&gt;
-      &lt;li&gt;Why: Zero dependency. Netty doesn't need to provide a logging layer.&lt;/li&gt;
-      &lt;li&gt;Drawback: Unfriendly API. jul-to-SLF4J bridge has &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://www.slf4j.org/legacy.html#jul-to-slf4j&quot;&gt;very poor performance&lt;/a&gt;&lt;/span&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;We are probably not going to choose java.util.logging, but we are undecided whether we should switch to SLF4J or not. What is your opinion? It is very likely for us to respect your comments as much as possible for decision making, so please feel free to leave a comment so that we listen to you and understand what you value more!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
