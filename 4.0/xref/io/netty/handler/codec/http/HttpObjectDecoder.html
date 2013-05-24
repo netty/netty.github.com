@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>HttpObjectDecoder xref</title>
@@ -123,7 +123,7 @@
 <a class="jxr_linenumber" name="113" href="#113">113</a> <em class="jxr_javadoccomment">     * The internal state of {@link HttpObjectDecoder}.</em>
 <a class="jxr_linenumber" name="114" href="#114">114</a> <em class="jxr_javadoccomment">     * &lt;em&gt;Internal use only&lt;/em&gt;.</em>
 <a class="jxr_linenumber" name="115" href="#115">115</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="116" href="#116">116</a>     enum <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> {
+<a class="jxr_linenumber" name="116" href="#116">116</a>     enum <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> {
 <a class="jxr_linenumber" name="117" href="#117">117</a>         SKIP_CONTROL_CHARS,
 <a class="jxr_linenumber" name="118" href="#118">118</a>         READ_INITIAL,
 <a class="jxr_linenumber" name="119" href="#119">119</a>         READ_HEADER,
@@ -204,7 +204,7 @@
 <a class="jxr_linenumber" name="194" href="#194">194</a>             <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="195" href="#195">195</a>         }
 <a class="jxr_linenumber" name="196" href="#196">196</a>         <strong class="jxr_keyword">case</strong> READ_HEADER: <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="197" href="#197">197</a>             <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> nextState = readHeaders(buffer);
+<a class="jxr_linenumber" name="197" href="#197">197</a>             <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> nextState = readHeaders(buffer);
 <a class="jxr_linenumber" name="198" href="#198">198</a>             checkpoint(nextState);
 <a class="jxr_linenumber" name="199" href="#199">199</a>             <strong class="jxr_keyword">if</strong> (nextState == State.READ_CHUNK_SIZE) {
 <a class="jxr_linenumber" name="200" href="#200">200</a>                 <strong class="jxr_keyword">if</strong> (!chunkedSupported) {
@@ -536,7 +536,7 @@
 <a class="jxr_linenumber" name="526" href="#526">526</a>         <strong class="jxr_keyword">return</strong> reset();
 <a class="jxr_linenumber" name="527" href="#527">527</a>     }
 <a class="jxr_linenumber" name="528" href="#528">528</a> 
-<a class="jxr_linenumber" name="529" href="#529">529</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> readHeaders(<a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
+<a class="jxr_linenumber" name="529" href="#529">529</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> readHeaders(<a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
 <a class="jxr_linenumber" name="530" href="#530">530</a>         headerSize = 0;
 <a class="jxr_linenumber" name="531" href="#531">531</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/handler/codec/http/HttpMessage.html">HttpMessage</a> message = <strong class="jxr_keyword">this</strong>.message;
 <a class="jxr_linenumber" name="532" href="#532">532</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/handler/codec/http/HttpHeaders.html">HttpHeaders</a> headers = message.headers();
@@ -568,7 +568,7 @@
 <a class="jxr_linenumber" name="558" href="#558">558</a>             }
 <a class="jxr_linenumber" name="559" href="#559">559</a>         }
 <a class="jxr_linenumber" name="560" href="#560">560</a> 
-<a class="jxr_linenumber" name="561" href="#561">561</a>         <a href="../../../../../io/netty/handler/codec/http/HttpContentEncoder.html">State</a> nextState;
+<a class="jxr_linenumber" name="561" href="#561">561</a>         <a href="../../../../../io/netty/handler/codec/http/HttpObjectDecoder.html">State</a> nextState;
 <a class="jxr_linenumber" name="562" href="#562">562</a> 
 <a class="jxr_linenumber" name="563" href="#563">563</a>         <strong class="jxr_keyword">if</strong> (isContentAlwaysEmpty(message)) {
 <a class="jxr_linenumber" name="564" href="#564">564</a>             HttpHeaders.removeTransferEncodingChunked(message);

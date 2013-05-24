@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>NioEventLoop xref</title>
@@ -253,7 +253,7 @@
 <a class="jxr_linenumber" name="243" href="#243">243</a>                         logger.warn(<span class="jxr_string">"Failed to re-register a Channel to the new Selector."</span>, e);
 <a class="jxr_linenumber" name="244" href="#244">244</a>                         <strong class="jxr_keyword">if</strong> (a instanceof AbstractNioChannel) {
 <a class="jxr_linenumber" name="245" href="#245">245</a>                             <a href="../../../../io/netty/channel/nio/AbstractNioChannel.html">AbstractNioChannel</a> ch = (AbstractNioChannel) a;
-<a class="jxr_linenumber" name="246" href="#246">246</a>                             ch.unsafe().close(ch.voidPromise());
+<a class="jxr_linenumber" name="246" href="#246">246</a>                             ch.unsafe().close(ch.unsafe().voidFuture());
 <a class="jxr_linenumber" name="247" href="#247">247</a>                         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="248" href="#248">248</a>                             @SuppressWarnings(<span class="jxr_string">"unchecked"</span>)
 <a class="jxr_linenumber" name="249" href="#249">249</a>                             NioTask&lt;SelectableChannel&gt; task = (NioTask&lt;SelectableChannel&gt;) a;
@@ -428,7 +428,7 @@
 <a class="jxr_linenumber" name="418" href="#418">418</a>         <strong class="jxr_keyword">final</strong> <a href="../../../../io/netty/channel/nio/AbstractNioChannel.html">NioUnsafe</a> unsafe = ch.unsafe();
 <a class="jxr_linenumber" name="419" href="#419">419</a>         <strong class="jxr_keyword">if</strong> (!k.isValid()) {
 <a class="jxr_linenumber" name="420" href="#420">420</a>             <em class="jxr_comment">// close the channel if the key is not valid anymore</em>
-<a class="jxr_linenumber" name="421" href="#421">421</a>             unsafe.close(ch.voidPromise());
+<a class="jxr_linenumber" name="421" href="#421">421</a>             unsafe.close(unsafe.voidFuture());
 <a class="jxr_linenumber" name="422" href="#422">422</a>             <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="423" href="#423">423</a>         }
 <a class="jxr_linenumber" name="424" href="#424">424</a> 
@@ -458,7 +458,7 @@
 <a class="jxr_linenumber" name="448" href="#448">448</a>             <strong class="jxr_keyword">if</strong> (readyOps != -1 &amp;&amp; (readyOps &amp; SelectionKey.OP_WRITE) != 0) {
 <a class="jxr_linenumber" name="449" href="#449">449</a>                 unregisterWritableTasks(ch);
 <a class="jxr_linenumber" name="450" href="#450">450</a>             }
-<a class="jxr_linenumber" name="451" href="#451">451</a>             unsafe.close(ch.voidPromise());
+<a class="jxr_linenumber" name="451" href="#451">451</a>             unsafe.close(unsafe.voidFuture());
 <a class="jxr_linenumber" name="452" href="#452">452</a>         }
 <a class="jxr_linenumber" name="453" href="#453">453</a>     }
 <a class="jxr_linenumber" name="454" href="#454">454</a> 
@@ -528,7 +528,7 @@
 <a class="jxr_linenumber" name="518" href="#518">518</a> 
 <a class="jxr_linenumber" name="519" href="#519">519</a>         <strong class="jxr_keyword">for</strong> (AbstractNioChannel ch: channels) {
 <a class="jxr_linenumber" name="520" href="#520">520</a>             unregisterWritableTasks(ch);
-<a class="jxr_linenumber" name="521" href="#521">521</a>             ch.unsafe().close(ch.voidPromise());
+<a class="jxr_linenumber" name="521" href="#521">521</a>             ch.unsafe().close(ch.unsafe().voidFuture());
 <a class="jxr_linenumber" name="522" href="#522">522</a>         }
 <a class="jxr_linenumber" name="523" href="#523">523</a>     }
 <a class="jxr_linenumber" name="524" href="#524">524</a> 
