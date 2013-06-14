@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>SpdySessionStatus xref</title>
@@ -9,7 +9,7 @@
 <div id="overview"><a href="../../../../../../api/io/netty/handler/codec/spdy/SpdySessionStatus.html">View Javadoc</a></div><pre>
 
 <a class="jxr_linenumber" name="1" href="#1">1</a>   <em class="jxr_comment">/*</em>
-<a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2012 The Netty Project</em>
+<a class="jxr_linenumber" name="2" href="#2">2</a>   <em class="jxr_comment"> * Copyright 2013 The Netty Project</em>
 <a class="jxr_linenumber" name="3" href="#3">3</a>   <em class="jxr_comment"> *</em>
 <a class="jxr_linenumber" name="4" href="#4">4</a>   <em class="jxr_comment"> * The Netty Project licenses this file to you under the Apache License,</em>
 <a class="jxr_linenumber" name="5" href="#5">5</a>   <em class="jxr_comment"> * version 2.0 (the "License"); you may not use this file except in compliance</em>
@@ -26,7 +26,7 @@
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.codec.spdy;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment"> * The SPDY session getStatus code and its description.</em>
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <em class="jxr_javadoccomment"> * The SPDY session status code and its description.</em>
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdySessionStatus.html">SpdySessionStatus</a> <strong class="jxr_keyword">implements</strong> Comparable&lt;SpdySessionStatus&gt; {
 <a class="jxr_linenumber" name="22" href="#22">22</a>  
@@ -50,7 +50,7 @@
 <a class="jxr_linenumber" name="40" href="#40">40</a>  
 <a class="jxr_linenumber" name="41" href="#41">41</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="42" href="#42">42</a>  <em class="jxr_javadoccomment">     * Returns the {@link SpdySessionStatus} represented by the specified code.</em>
-<a class="jxr_linenumber" name="43" href="#43">43</a>  <em class="jxr_javadoccomment">     * If the specified code is a defined SPDY getStatus code, a cached instance</em>
+<a class="jxr_linenumber" name="43" href="#43">43</a>  <em class="jxr_javadoccomment">     * If the specified code is a defined SPDY status code, a cached instance</em>
 <a class="jxr_linenumber" name="44" href="#44">44</a>  <em class="jxr_javadoccomment">     * will be returned.  Otherwise, a new instance will be returned.</em>
 <a class="jxr_linenumber" name="45" href="#45">45</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="46" href="#46">46</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdySessionStatus.html">SpdySessionStatus</a> valueOf(<strong class="jxr_keyword">int</strong> code) {
@@ -84,14 +84,14 @@
 <a class="jxr_linenumber" name="74" href="#74">74</a>      }
 <a class="jxr_linenumber" name="75" href="#75">75</a>  
 <a class="jxr_linenumber" name="76" href="#76">76</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="77" href="#77">77</a>  <em class="jxr_javadoccomment">     * Returns the code of this getStatus.</em>
+<a class="jxr_linenumber" name="77" href="#77">77</a>  <em class="jxr_javadoccomment">     * Returns the code of this status.</em>
 <a class="jxr_linenumber" name="78" href="#78">78</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="79" href="#79">79</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> getCode() {
 <a class="jxr_linenumber" name="80" href="#80">80</a>          <strong class="jxr_keyword">return</strong> code;
 <a class="jxr_linenumber" name="81" href="#81">81</a>      }
 <a class="jxr_linenumber" name="82" href="#82">82</a>  
 <a class="jxr_linenumber" name="83" href="#83">83</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="84" href="#84">84</a>  <em class="jxr_javadoccomment">     * Returns the getStatus phrase of this getStatus.</em>
+<a class="jxr_linenumber" name="84" href="#84">84</a>  <em class="jxr_javadoccomment">     * Returns the status phrase of this status.</em>
 <a class="jxr_linenumber" name="85" href="#85">85</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="86" href="#86">86</a>      <strong class="jxr_keyword">public</strong> String getStatusPhrase() {
 <a class="jxr_linenumber" name="87" href="#87">87</a>          <strong class="jxr_keyword">return</strong> statusPhrase;

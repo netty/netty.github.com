@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>HttpContentDecompressor xref</title>
@@ -25,7 +25,7 @@
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.codec.http;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.embedded.EmbeddedByteChannel;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.embedded.EmbeddedChannel;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.compression.ZlibCodecFactory;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.compression.ZlibWrapper;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  
@@ -36,13 +36,13 @@
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/http/HttpContentDecompressor.html">HttpContentDecompressor</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../io/netty/handler/codec/http/HttpContentDecoder.html">HttpContentDecoder</a> {
 <a class="jxr_linenumber" name="28" href="#28">28</a>      @Override
-<a class="jxr_linenumber" name="29" href="#29">29</a>      <strong class="jxr_keyword">protected</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedByteChannel.html">EmbeddedByteChannel</a> newContentDecoder(String contentEncoding) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="29" href="#29">29</a>      <strong class="jxr_keyword">protected</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedChannel.html">EmbeddedChannel</a> newContentDecoder(String contentEncoding) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="30" href="#30">30</a>          <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"gzip"</span>.equalsIgnoreCase(contentEncoding) || <span class="jxr_string">"x-gzip"</span>.equalsIgnoreCase(contentEncoding)) {
-<a class="jxr_linenumber" name="31" href="#31">31</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedByteChannel.html">EmbeddedByteChannel</a>(ZlibCodecFactory.newZlibDecoder(ZlibWrapper.GZIP));
+<a class="jxr_linenumber" name="31" href="#31">31</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedChannel.html">EmbeddedChannel</a>(ZlibCodecFactory.newZlibDecoder(ZlibWrapper.GZIP));
 <a class="jxr_linenumber" name="32" href="#32">32</a>          }
 <a class="jxr_linenumber" name="33" href="#33">33</a>          <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"deflate"</span>.equalsIgnoreCase(contentEncoding) || <span class="jxr_string">"x-deflate"</span>.equalsIgnoreCase(contentEncoding)) {
 <a class="jxr_linenumber" name="34" href="#34">34</a>              <em class="jxr_comment">// To be strict, 'deflate' means ZLIB, but some servers were not implemented correctly.</em>
-<a class="jxr_linenumber" name="35" href="#35">35</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedByteChannel.html">EmbeddedByteChannel</a>(ZlibCodecFactory.newZlibDecoder(ZlibWrapper.ZLIB_OR_NONE));
+<a class="jxr_linenumber" name="35" href="#35">35</a>              <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/embedded/EmbeddedChannel.html">EmbeddedChannel</a>(ZlibCodecFactory.newZlibDecoder(ZlibWrapper.ZLIB_OR_NONE));
 <a class="jxr_linenumber" name="36" href="#36">36</a>          }
 <a class="jxr_linenumber" name="37" href="#37">37</a>  
 <a class="jxr_linenumber" name="38" href="#38">38</a>          <em class="jxr_comment">// 'identity' or unsupported</em>

@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>AbstractMemoryHttpData xref</title>
@@ -220,23 +220,31 @@
 <a class="jxr_linenumber" name="210" href="#210">210</a>         <strong class="jxr_keyword">int</strong> length = byteBuf.readableBytes();
 <a class="jxr_linenumber" name="211" href="#211">211</a>         FileOutputStream outputStream = <strong class="jxr_keyword">new</strong> FileOutputStream(dest);
 <a class="jxr_linenumber" name="212" href="#212">212</a>         FileChannel fileChannel = outputStream.getChannel();
-<a class="jxr_linenumber" name="213" href="#213">213</a>         ByteBuffer byteBuffer = byteBuf.nioBuffer();
-<a class="jxr_linenumber" name="214" href="#214">214</a>         <strong class="jxr_keyword">int</strong> written = 0;
-<a class="jxr_linenumber" name="215" href="#215">215</a>         <strong class="jxr_keyword">while</strong> (written &lt; length) {
-<a class="jxr_linenumber" name="216" href="#216">216</a>             written += fileChannel.write(byteBuffer);
-<a class="jxr_linenumber" name="217" href="#217">217</a>         }
-<a class="jxr_linenumber" name="218" href="#218">218</a>         fileChannel.force(false);
-<a class="jxr_linenumber" name="219" href="#219">219</a>         fileChannel.close();
-<a class="jxr_linenumber" name="220" href="#220">220</a>         outputStream.close();
-<a class="jxr_linenumber" name="221" href="#221">221</a>         isRenamed = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="222" href="#222">222</a>         <strong class="jxr_keyword">return</strong> written == length;
-<a class="jxr_linenumber" name="223" href="#223">223</a>     }
-<a class="jxr_linenumber" name="224" href="#224">224</a> 
-<a class="jxr_linenumber" name="225" href="#225">225</a>     @Override
-<a class="jxr_linenumber" name="226" href="#226">226</a>     <strong class="jxr_keyword">public</strong> File getFile() <strong class="jxr_keyword">throws</strong> IOException {
-<a class="jxr_linenumber" name="227" href="#227">227</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(<span class="jxr_string">"Not represented by a file"</span>);
-<a class="jxr_linenumber" name="228" href="#228">228</a>     }
-<a class="jxr_linenumber" name="229" href="#229">229</a> }
+<a class="jxr_linenumber" name="213" href="#213">213</a>         <strong class="jxr_keyword">int</strong> written = 0;
+<a class="jxr_linenumber" name="214" href="#214">214</a>         <strong class="jxr_keyword">if</strong> (byteBuf.nioBufferCount() == 1) {
+<a class="jxr_linenumber" name="215" href="#215">215</a>             ByteBuffer byteBuffer = byteBuf.nioBuffer();
+<a class="jxr_linenumber" name="216" href="#216">216</a>             <strong class="jxr_keyword">while</strong> (written &lt; length) {
+<a class="jxr_linenumber" name="217" href="#217">217</a>                 written += fileChannel.write(byteBuffer);
+<a class="jxr_linenumber" name="218" href="#218">218</a>             }
+<a class="jxr_linenumber" name="219" href="#219">219</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="220" href="#220">220</a>             ByteBuffer[] byteBuffers = byteBuf.nioBuffers();
+<a class="jxr_linenumber" name="221" href="#221">221</a>             <strong class="jxr_keyword">while</strong> (written &lt; length) {
+<a class="jxr_linenumber" name="222" href="#222">222</a>                 written += fileChannel.write(byteBuffers);
+<a class="jxr_linenumber" name="223" href="#223">223</a>             }
+<a class="jxr_linenumber" name="224" href="#224">224</a>         }
+<a class="jxr_linenumber" name="225" href="#225">225</a> 
+<a class="jxr_linenumber" name="226" href="#226">226</a>         fileChannel.force(false);
+<a class="jxr_linenumber" name="227" href="#227">227</a>         fileChannel.close();
+<a class="jxr_linenumber" name="228" href="#228">228</a>         outputStream.close();
+<a class="jxr_linenumber" name="229" href="#229">229</a>         isRenamed = <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="230" href="#230">230</a>         <strong class="jxr_keyword">return</strong> written == length;
+<a class="jxr_linenumber" name="231" href="#231">231</a>     }
+<a class="jxr_linenumber" name="232" href="#232">232</a> 
+<a class="jxr_linenumber" name="233" href="#233">233</a>     @Override
+<a class="jxr_linenumber" name="234" href="#234">234</a>     <strong class="jxr_keyword">public</strong> File getFile() <strong class="jxr_keyword">throws</strong> IOException {
+<a class="jxr_linenumber" name="235" href="#235">235</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IOException(<span class="jxr_string">"Not represented by a file"</span>);
+<a class="jxr_linenumber" name="236" href="#236">236</a>     }
+<a class="jxr_linenumber" name="237" href="#237">237</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

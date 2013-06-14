@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>SpdyFrameDecoder xref</title>
@@ -26,16 +26,16 @@
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.codec.spdy;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBuf;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.MessageBuf;
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.Unpooled;
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.Unpooled;
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.ByteToMessageDecoder;
 <a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.TooLongFrameException;
 <a class="jxr_linenumber" name="24" href="#24">24</a>  
 <a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> io.netty.handler.codec.spdy.SpdyCodecUtil.*;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment"> * Decodes {@link ByteBuf}s into SPDY Data and Control Frames.</em>
+<a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment"> * Decodes {@link ByteBuf}s into SPDY Frames.</em>
 <a class="jxr_linenumber" name="29" href="#29">29</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="30" href="#30">30</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyFrameDecoder.html">SpdyFrameDecoder</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../../io/netty/handler/codec/ByteToMessageDecoder.html">ByteToMessageDecoder</a> {
 <a class="jxr_linenumber" name="31" href="#31">31</a>  
@@ -47,7 +47,7 @@
 <a class="jxr_linenumber" name="37" href="#37">37</a>  
 <a class="jxr_linenumber" name="38" href="#38">38</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyFrameDecoder.html">State</a> state;
 <a class="jxr_linenumber" name="39" href="#39">39</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdySettingsFrame.html">SpdySettingsFrame</a> spdySettingsFrame;
-<a class="jxr_linenumber" name="40" href="#40">40</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyHeaderBlock.html">SpdyHeaderBlock</a> spdyHeaderBlock;
+<a class="jxr_linenumber" name="40" href="#40">40</a>      <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyHeadersFrame.html">SpdyHeadersFrame</a> spdyHeadersFrame;
 <a class="jxr_linenumber" name="41" href="#41">41</a>  
 <a class="jxr_linenumber" name="42" href="#42">42</a>      <em class="jxr_comment">// SPDY common header fields</em>
 <a class="jxr_linenumber" name="43" href="#43">43</a>      <strong class="jxr_keyword">private</strong> byte flags;
@@ -104,7 +104,7 @@
 <a class="jxr_linenumber" name="94" href="#94">94</a>      }
 <a class="jxr_linenumber" name="95" href="#95">95</a>  
 <a class="jxr_linenumber" name="96" href="#96">96</a>      @Override
-<a class="jxr_linenumber" name="97" href="#97">97</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> decodeLast(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> in, MessageBuf&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="97" href="#97">97</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> decodeLast(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> in, MessageList&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="98" href="#98">98</a>          <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="99" href="#99">99</a>              decode(ctx, in, out);
 <a class="jxr_linenumber" name="100" href="#100">100</a>         } <strong class="jxr_keyword">finally</strong> {
@@ -113,7 +113,7 @@
 <a class="jxr_linenumber" name="103" href="#103">103</a>     }
 <a class="jxr_linenumber" name="104" href="#104">104</a> 
 <a class="jxr_linenumber" name="105" href="#105">105</a>     @Override
-<a class="jxr_linenumber" name="106" href="#106">106</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> decode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer, MessageBuf&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="106" href="#106">106</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> decode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer, MessageList&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="107" href="#107">107</a>         <strong class="jxr_keyword">switch</strong>(state) {
 <a class="jxr_linenumber" name="108" href="#108">108</a>         <strong class="jxr_keyword">case</strong> READ_COMMON_HEADER:
 <a class="jxr_linenumber" name="109" href="#109">109</a>             state = readCommonHeader(buffer);
@@ -231,12 +231,12 @@
 <a class="jxr_linenumber" name="221" href="#221">221</a> 
 <a class="jxr_linenumber" name="222" href="#222">222</a>         <strong class="jxr_keyword">case</strong> READ_HEADER_BLOCK_FRAME:
 <a class="jxr_linenumber" name="223" href="#223">223</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="224" href="#224">224</a>                 spdyHeaderBlock = readHeaderBlockFrame(buffer);
-<a class="jxr_linenumber" name="225" href="#225">225</a>                 <strong class="jxr_keyword">if</strong> (spdyHeaderBlock != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="224" href="#224">224</a>                 spdyHeadersFrame = readHeaderBlockFrame(buffer);
+<a class="jxr_linenumber" name="225" href="#225">225</a>                 <strong class="jxr_keyword">if</strong> (spdyHeadersFrame != <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="226" href="#226">226</a>                     <strong class="jxr_keyword">if</strong> (length == 0) {
 <a class="jxr_linenumber" name="227" href="#227">227</a>                         state = State.READ_COMMON_HEADER;
-<a class="jxr_linenumber" name="228" href="#228">228</a>                         Object frame = spdyHeaderBlock;
-<a class="jxr_linenumber" name="229" href="#229">229</a>                         spdyHeaderBlock = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="228" href="#228">228</a>                         Object frame = spdyHeadersFrame;
+<a class="jxr_linenumber" name="229" href="#229">229</a>                         spdyHeadersFrame = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="230" href="#230">230</a>                         out.add(frame);
 <a class="jxr_linenumber" name="231" href="#231">231</a>                         <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="232" href="#232">232</a>                     }
@@ -257,15 +257,15 @@
 <a class="jxr_linenumber" name="247" href="#247">247</a>                 decodeHeaderBlock(buffer.readSlice(compressedBytes));
 <a class="jxr_linenumber" name="248" href="#248">248</a>             } <strong class="jxr_keyword">catch</strong> (Exception e) {
 <a class="jxr_linenumber" name="249" href="#249">249</a>                 state = State.FRAME_ERROR;
-<a class="jxr_linenumber" name="250" href="#250">250</a>                 spdyHeaderBlock = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="250" href="#250">250</a>                 spdyHeadersFrame = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="251" href="#251">251</a>                 decompressed = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="252" href="#252">252</a>                 ctx.fireExceptionCaught(e);
 <a class="jxr_linenumber" name="253" href="#253">253</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="254" href="#254">254</a>             }
 <a class="jxr_linenumber" name="255" href="#255">255</a> 
-<a class="jxr_linenumber" name="256" href="#256">256</a>             <strong class="jxr_keyword">if</strong> (spdyHeaderBlock != <strong class="jxr_keyword">null</strong> &amp;&amp; spdyHeaderBlock.isInvalid()) {
-<a class="jxr_linenumber" name="257" href="#257">257</a>                 Object frame = spdyHeaderBlock;
-<a class="jxr_linenumber" name="258" href="#258">258</a>                 spdyHeaderBlock = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="256" href="#256">256</a>             <strong class="jxr_keyword">if</strong> (spdyHeadersFrame != <strong class="jxr_keyword">null</strong> &amp;&amp; spdyHeadersFrame.isInvalid()) {
+<a class="jxr_linenumber" name="257" href="#257">257</a>                 Object frame = spdyHeadersFrame;
+<a class="jxr_linenumber" name="258" href="#258">258</a>                 spdyHeadersFrame = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="259" href="#259">259</a>                 decompressed = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="260" href="#260">260</a>                 <strong class="jxr_keyword">if</strong> (length == 0) {
 <a class="jxr_linenumber" name="261" href="#261">261</a>                     state = State.READ_COMMON_HEADER;
@@ -275,8 +275,8 @@
 <a class="jxr_linenumber" name="265" href="#265">265</a>             }
 <a class="jxr_linenumber" name="266" href="#266">266</a> 
 <a class="jxr_linenumber" name="267" href="#267">267</a>             <strong class="jxr_keyword">if</strong> (length == 0) {
-<a class="jxr_linenumber" name="268" href="#268">268</a>                 Object frame = spdyHeaderBlock;
-<a class="jxr_linenumber" name="269" href="#269">269</a>                 spdyHeaderBlock = <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="268" href="#268">268</a>                 Object frame = spdyHeadersFrame;
+<a class="jxr_linenumber" name="269" href="#269">269</a>                 spdyHeadersFrame = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="270" href="#270">270</a>                 state = State.READ_COMMON_HEADER;
 <a class="jxr_linenumber" name="271" href="#271">271</a>                 out.add(frame);
 <a class="jxr_linenumber" name="272" href="#272">272</a>                 <strong class="jxr_keyword">return</strong>;
@@ -446,7 +446,7 @@
 <a class="jxr_linenumber" name="436" href="#436">436</a>         }
 <a class="jxr_linenumber" name="437" href="#437">437</a>     }
 <a class="jxr_linenumber" name="438" href="#438">438</a> 
-<a class="jxr_linenumber" name="439" href="#439">439</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyHeaderBlock.html">SpdyHeaderBlock</a> readHeaderBlockFrame(<a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
+<a class="jxr_linenumber" name="439" href="#439">439</a>     <strong class="jxr_keyword">private</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyHeadersFrame.html">SpdyHeadersFrame</a> readHeaderBlockFrame(<a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
 <a class="jxr_linenumber" name="440" href="#440">440</a>         <strong class="jxr_keyword">int</strong> minLength;
 <a class="jxr_linenumber" name="441" href="#441">441</a>         <strong class="jxr_keyword">int</strong> streamID;
 <a class="jxr_linenumber" name="442" href="#442">442</a>         <strong class="jxr_keyword">switch</strong> (type) {
@@ -577,7 +577,7 @@
 <a class="jxr_linenumber" name="567" href="#567">567</a>         headerBlockDecompressor.setInput(buffer);
 <a class="jxr_linenumber" name="568" href="#568">568</a>         headerBlockDecompressor.decode(decompressed);
 <a class="jxr_linenumber" name="569" href="#569">569</a> 
-<a class="jxr_linenumber" name="570" href="#570">570</a>         <strong class="jxr_keyword">if</strong> (spdyHeaderBlock == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="570" href="#570">570</a>         <strong class="jxr_keyword">if</strong> (spdyHeadersFrame == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="571" href="#571">571</a>             <em class="jxr_comment">// Only decompressing data to keep decompression context in sync</em>
 <a class="jxr_linenumber" name="572" href="#572">572</a>             decompressed = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="573" href="#573">573</a>             <strong class="jxr_keyword">return</strong>;
@@ -592,7 +592,7 @@
 <a class="jxr_linenumber" name="582" href="#582">582</a>             }
 <a class="jxr_linenumber" name="583" href="#583">583</a>             numHeaders = readLengthField();
 <a class="jxr_linenumber" name="584" href="#584">584</a>             <strong class="jxr_keyword">if</strong> (numHeaders &lt; 0) {
-<a class="jxr_linenumber" name="585" href="#585">585</a>                 spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="585" href="#585">585</a>                 spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="586" href="#586">586</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="587" href="#587">587</a>             }
 <a class="jxr_linenumber" name="588" href="#588">588</a>         }
@@ -611,7 +611,7 @@
 <a class="jxr_linenumber" name="601" href="#601">601</a> 
 <a class="jxr_linenumber" name="602" href="#602">602</a>             <em class="jxr_comment">// Recipients of a zero-length name must issue a stream error</em>
 <a class="jxr_linenumber" name="603" href="#603">603</a>             <strong class="jxr_keyword">if</strong> (nameLength &lt;= 0) {
-<a class="jxr_linenumber" name="604" href="#604">604</a>                 spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="604" href="#604">604</a>                 spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="605" href="#605">605</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="606" href="#606">606</a>             }
 <a class="jxr_linenumber" name="607" href="#607">607</a>             headerSize += nameLength;
@@ -631,8 +631,8 @@
 <a class="jxr_linenumber" name="621" href="#621">621</a>             String name = <strong class="jxr_keyword">new</strong> String(nameBytes, <span class="jxr_string">"UTF-8"</span>);
 <a class="jxr_linenumber" name="622" href="#622">622</a> 
 <a class="jxr_linenumber" name="623" href="#623">623</a>             <em class="jxr_comment">// Check for identically named headers</em>
-<a class="jxr_linenumber" name="624" href="#624">624</a>             <strong class="jxr_keyword">if</strong> (spdyHeaderBlock.headers().contains(name)) {
-<a class="jxr_linenumber" name="625" href="#625">625</a>                 spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="624" href="#624">624</a>             <strong class="jxr_keyword">if</strong> (spdyHeadersFrame.headers().contains(name)) {
+<a class="jxr_linenumber" name="625" href="#625">625</a>                 spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="626" href="#626">626</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="627" href="#627">627</a>             }
 <a class="jxr_linenumber" name="628" href="#628">628</a> 
@@ -646,17 +646,17 @@
 <a class="jxr_linenumber" name="636" href="#636">636</a> 
 <a class="jxr_linenumber" name="637" href="#637">637</a>             <em class="jxr_comment">// Recipients of illegal value fields must issue a stream error</em>
 <a class="jxr_linenumber" name="638" href="#638">638</a>             <strong class="jxr_keyword">if</strong> (valueLength &lt; 0) {
-<a class="jxr_linenumber" name="639" href="#639">639</a>                 spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="639" href="#639">639</a>                 spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="640" href="#640">640</a>                 <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="641" href="#641">641</a>             }
 <a class="jxr_linenumber" name="642" href="#642">642</a> 
 <a class="jxr_linenumber" name="643" href="#643">643</a>             <em class="jxr_comment">// SPDY/3 allows zero-length (empty) header values</em>
 <a class="jxr_linenumber" name="644" href="#644">644</a>             <strong class="jxr_keyword">if</strong> (valueLength == 0) {
 <a class="jxr_linenumber" name="645" href="#645">645</a>                 <strong class="jxr_keyword">if</strong> (version &lt; 3) {
-<a class="jxr_linenumber" name="646" href="#646">646</a>                     spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="646" href="#646">646</a>                     spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="647" href="#647">647</a>                     <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="648" href="#648">648</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="649" href="#649">649</a>                     spdyHeaderBlock.headers().add(name, <span class="jxr_string">""</span>);
+<a class="jxr_linenumber" name="649" href="#649">649</a>                     spdyHeadersFrame.headers().add(name, <span class="jxr_string">""</span>);
 <a class="jxr_linenumber" name="650" href="#650">650</a>                     numHeaders --;
 <a class="jxr_linenumber" name="651" href="#651">651</a>                     <strong class="jxr_keyword">this</strong>.headerSize = headerSize;
 <a class="jxr_linenumber" name="652" href="#652">652</a>                     <strong class="jxr_keyword">continue</strong>;
@@ -688,16 +688,16 @@
 <a class="jxr_linenumber" name="678" href="#678">678</a>                 <strong class="jxr_keyword">if</strong> (index &lt; valueBytes.length &amp;&amp; valueBytes[index + 1] == (byte) 0) {
 <a class="jxr_linenumber" name="679" href="#679">679</a>                     <em class="jxr_comment">// Received multiple, in-sequence NULL characters</em>
 <a class="jxr_linenumber" name="680" href="#680">680</a>                     <em class="jxr_comment">// Recipients of illegal value fields must issue a stream error</em>
-<a class="jxr_linenumber" name="681" href="#681">681</a>                     spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="681" href="#681">681</a>                     spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="682" href="#682">682</a>                     <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="683" href="#683">683</a>                 }
 <a class="jxr_linenumber" name="684" href="#684">684</a>                 String value = <strong class="jxr_keyword">new</strong> String(valueBytes, offset, index - offset, <span class="jxr_string">"UTF-8"</span>);
 <a class="jxr_linenumber" name="685" href="#685">685</a> 
 <a class="jxr_linenumber" name="686" href="#686">686</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="687" href="#687">687</a>                     spdyHeaderBlock.headers().add(name, value);
+<a class="jxr_linenumber" name="687" href="#687">687</a>                     spdyHeadersFrame.headers().add(name, value);
 <a class="jxr_linenumber" name="688" href="#688">688</a>                 } <strong class="jxr_keyword">catch</strong> (IllegalArgumentException e) {
 <a class="jxr_linenumber" name="689" href="#689">689</a>                     <em class="jxr_comment">// Name contains NULL or non-ascii characters</em>
-<a class="jxr_linenumber" name="690" href="#690">690</a>                     spdyHeaderBlock.setInvalid();
+<a class="jxr_linenumber" name="690" href="#690">690</a>                     spdyHeadersFrame.setInvalid();
 <a class="jxr_linenumber" name="691" href="#691">691</a>                     <strong class="jxr_keyword">return</strong>;
 <a class="jxr_linenumber" name="692" href="#692">692</a>                 }
 <a class="jxr_linenumber" name="693" href="#693">693</a>                 index ++;

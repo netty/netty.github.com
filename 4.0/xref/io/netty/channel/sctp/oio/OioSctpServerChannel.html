@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>OioSctpServerChannel xref</title>
@@ -27,12 +27,12 @@
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> com.sun.nio.sctp.SctpChannel;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> com.sun.nio.sctp.SctpServerChannel;
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.BufType;
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.MessageBuf;
-<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelException;
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelFuture;
-<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelMetadata;
-<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPromise;
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBufUtil;
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelException;
+<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelFuture;
+<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelMetadata;
+<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPromise;
+<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.oio.AbstractOioMessageChannel;
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.sctp.DefaultSctpServerChannelConfig;
 <a class="jxr_linenumber" name="28" href="#28">28</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.sctp.SctpServerChannelConfig;
@@ -63,7 +63,7 @@
 <a class="jxr_linenumber" name="53" href="#53">53</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/util/internal/logging/InternalLogger.html">InternalLogger</a> logger =
 <a class="jxr_linenumber" name="54" href="#54">54</a>              InternalLoggerFactory.getInstance(OioSctpServerChannel.<strong class="jxr_keyword">class</strong>);
 <a class="jxr_linenumber" name="55" href="#55">55</a>  
-<a class="jxr_linenumber" name="56" href="#56">56</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelMetadata.html">ChannelMetadata</a> METADATA = <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/ChannelMetadata.html">ChannelMetadata</a>(BufType.MESSAGE, false);
+<a class="jxr_linenumber" name="56" href="#56">56</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelMetadata.html">ChannelMetadata</a> METADATA = <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/ChannelMetadata.html">ChannelMetadata</a>(false);
 <a class="jxr_linenumber" name="57" href="#57">57</a>  
 <a class="jxr_linenumber" name="58" href="#58">58</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <a href="../../../../../io/netty/channel/sctp/SctpServerChannel.html">SctpServerChannel</a> newServerSocket() {
 <a class="jxr_linenumber" name="59" href="#59">59</a>          <strong class="jxr_keyword">try</strong> {
@@ -199,112 +199,121 @@
 <a class="jxr_linenumber" name="189" href="#189">189</a>     }
 <a class="jxr_linenumber" name="190" href="#190">190</a> 
 <a class="jxr_linenumber" name="191" href="#191">191</a>     @Override
-<a class="jxr_linenumber" name="192" href="#192">192</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">int</strong> doReadMessages(MessageBuf&lt;Object&gt; buf) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="192" href="#192">192</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">int</strong> doReadMessages(MessageList&lt;Object&gt; buf) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="193" href="#193">193</a>         <strong class="jxr_keyword">if</strong> (!isActive()) {
 <a class="jxr_linenumber" name="194" href="#194">194</a>             <strong class="jxr_keyword">return</strong> -1;
 <a class="jxr_linenumber" name="195" href="#195">195</a>         }
 <a class="jxr_linenumber" name="196" href="#196">196</a> 
 <a class="jxr_linenumber" name="197" href="#197">197</a>         <a href="../../../../../io/netty/channel/sctp/SctpChannel.html">SctpChannel</a> s = <strong class="jxr_keyword">null</strong>;
-<a class="jxr_linenumber" name="198" href="#198">198</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="199" href="#199">199</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> selectedKeys = selector.select(SO_TIMEOUT);
-<a class="jxr_linenumber" name="200" href="#200">200</a>             <strong class="jxr_keyword">if</strong> (selectedKeys &gt; 0) {
-<a class="jxr_linenumber" name="201" href="#201">201</a>                 <strong class="jxr_keyword">final</strong> Set&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys();
-<a class="jxr_linenumber" name="202" href="#202">202</a>                 <strong class="jxr_keyword">for</strong> (SelectionKey key : selectionKeys) {
-<a class="jxr_linenumber" name="203" href="#203">203</a>                    <strong class="jxr_keyword">if</strong> (key.isAcceptable()) {
-<a class="jxr_linenumber" name="204" href="#204">204</a>                        s = sch.accept();
-<a class="jxr_linenumber" name="205" href="#205">205</a>                        <strong class="jxr_keyword">if</strong> (s != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="206" href="#206">206</a>                            buf.add(<strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/sctp/oio/OioSctpChannel.html">OioSctpChannel</a>(<strong class="jxr_keyword">this</strong>, <strong class="jxr_keyword">null</strong>, s));
-<a class="jxr_linenumber" name="207" href="#207">207</a>                        }
-<a class="jxr_linenumber" name="208" href="#208">208</a>                    }
-<a class="jxr_linenumber" name="209" href="#209">209</a>                 }
-<a class="jxr_linenumber" name="210" href="#210">210</a>                 <strong class="jxr_keyword">return</strong> selectedKeys;
-<a class="jxr_linenumber" name="211" href="#211">211</a>             }
-<a class="jxr_linenumber" name="212" href="#212">212</a> 
-<a class="jxr_linenumber" name="213" href="#213">213</a>         } <strong class="jxr_keyword">catch</strong> (Throwable t) {
-<a class="jxr_linenumber" name="214" href="#214">214</a>             logger.warn(<span class="jxr_string">"Failed to create a new channel from an accepted sctp channel."</span>, t);
-<a class="jxr_linenumber" name="215" href="#215">215</a>             <strong class="jxr_keyword">if</strong> (s != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="216" href="#216">216</a>                 <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="217" href="#217">217</a>                     s.close();
-<a class="jxr_linenumber" name="218" href="#218">218</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable t2) {
-<a class="jxr_linenumber" name="219" href="#219">219</a>                     logger.warn(<span class="jxr_string">"Failed to close a sctp channel."</span>, t2);
-<a class="jxr_linenumber" name="220" href="#220">220</a>                 }
-<a class="jxr_linenumber" name="221" href="#221">221</a>             }
-<a class="jxr_linenumber" name="222" href="#222">222</a>         }
-<a class="jxr_linenumber" name="223" href="#223">223</a> 
-<a class="jxr_linenumber" name="224" href="#224">224</a>         <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="225" href="#225">225</a>     }
-<a class="jxr_linenumber" name="226" href="#226">226</a> 
-<a class="jxr_linenumber" name="227" href="#227">227</a>     @Override
-<a class="jxr_linenumber" name="228" href="#228">228</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> bindAddress(InetAddress localAddress) {
-<a class="jxr_linenumber" name="229" href="#229">229</a>         <strong class="jxr_keyword">return</strong> bindAddress(localAddress, newPromise());
+<a class="jxr_linenumber" name="198" href="#198">198</a>         <strong class="jxr_keyword">int</strong> acceptedChannels = 0;
+<a class="jxr_linenumber" name="199" href="#199">199</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="200" href="#200">200</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> selectedKeys = selector.select(SO_TIMEOUT);
+<a class="jxr_linenumber" name="201" href="#201">201</a>             <strong class="jxr_keyword">if</strong> (selectedKeys &gt; 0) {
+<a class="jxr_linenumber" name="202" href="#202">202</a>                 <strong class="jxr_keyword">final</strong> Iterator&lt;SelectionKey&gt; selectionKeys = selector.selectedKeys().iterator();
+<a class="jxr_linenumber" name="203" href="#203">203</a>                 <strong class="jxr_keyword">for</strong> (;;) {
+<a class="jxr_linenumber" name="204" href="#204">204</a>                     SelectionKey key = selectionKeys.next();
+<a class="jxr_linenumber" name="205" href="#205">205</a>                     selectionKeys.remove();
+<a class="jxr_linenumber" name="206" href="#206">206</a>                     <strong class="jxr_keyword">if</strong> (key.isAcceptable()) {
+<a class="jxr_linenumber" name="207" href="#207">207</a>                         s = sch.accept();
+<a class="jxr_linenumber" name="208" href="#208">208</a>                         <strong class="jxr_keyword">if</strong> (s != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="209" href="#209">209</a>                             buf.add(<strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/channel/sctp/oio/OioSctpChannel.html">OioSctpChannel</a>(<strong class="jxr_keyword">this</strong>, <strong class="jxr_keyword">null</strong>, s));
+<a class="jxr_linenumber" name="210" href="#210">210</a>                             acceptedChannels ++;
+<a class="jxr_linenumber" name="211" href="#211">211</a>                         }
+<a class="jxr_linenumber" name="212" href="#212">212</a>                     }
+<a class="jxr_linenumber" name="213" href="#213">213</a>                     <strong class="jxr_keyword">if</strong> (!selectionKeys.hasNext()) {
+<a class="jxr_linenumber" name="214" href="#214">214</a>                         <strong class="jxr_keyword">return</strong> acceptedChannels;
+<a class="jxr_linenumber" name="215" href="#215">215</a>                     }
+<a class="jxr_linenumber" name="216" href="#216">216</a>                 }
+<a class="jxr_linenumber" name="217" href="#217">217</a>             }
+<a class="jxr_linenumber" name="218" href="#218">218</a>         } <strong class="jxr_keyword">catch</strong> (Throwable t) {
+<a class="jxr_linenumber" name="219" href="#219">219</a>             logger.warn(<span class="jxr_string">"Failed to create a new channel from an accepted sctp channel."</span>, t);
+<a class="jxr_linenumber" name="220" href="#220">220</a>             <strong class="jxr_keyword">if</strong> (s != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="221" href="#221">221</a>                 <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="222" href="#222">222</a>                     s.close();
+<a class="jxr_linenumber" name="223" href="#223">223</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable t2) {
+<a class="jxr_linenumber" name="224" href="#224">224</a>                     logger.warn(<span class="jxr_string">"Failed to close a sctp channel."</span>, t2);
+<a class="jxr_linenumber" name="225" href="#225">225</a>                 }
+<a class="jxr_linenumber" name="226" href="#226">226</a>             }
+<a class="jxr_linenumber" name="227" href="#227">227</a>         }
+<a class="jxr_linenumber" name="228" href="#228">228</a> 
+<a class="jxr_linenumber" name="229" href="#229">229</a>         <strong class="jxr_keyword">return</strong> acceptedChannels;
 <a class="jxr_linenumber" name="230" href="#230">230</a>     }
 <a class="jxr_linenumber" name="231" href="#231">231</a> 
 <a class="jxr_linenumber" name="232" href="#232">232</a>     @Override
-<a class="jxr_linenumber" name="233" href="#233">233</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> bindAddress(<strong class="jxr_keyword">final</strong> InetAddress localAddress, <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelPromise.html">ChannelPromise</a> promise) {
-<a class="jxr_linenumber" name="234" href="#234">234</a>         <strong class="jxr_keyword">if</strong> (eventLoop().inEventLoop()) {
-<a class="jxr_linenumber" name="235" href="#235">235</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="236" href="#236">236</a>                 sch.bindAddress(localAddress);
-<a class="jxr_linenumber" name="237" href="#237">237</a>                 promise.setSuccess();
-<a class="jxr_linenumber" name="238" href="#238">238</a>             } <strong class="jxr_keyword">catch</strong> (Throwable t) {
-<a class="jxr_linenumber" name="239" href="#239">239</a>                 promise.setFailure(t);
-<a class="jxr_linenumber" name="240" href="#240">240</a>             }
-<a class="jxr_linenumber" name="241" href="#241">241</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="242" href="#242">242</a>             eventLoop().execute(<strong class="jxr_keyword">new</strong> Runnable() {
-<a class="jxr_linenumber" name="243" href="#243">243</a>                 @Override
-<a class="jxr_linenumber" name="244" href="#244">244</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
-<a class="jxr_linenumber" name="245" href="#245">245</a>                     bindAddress(localAddress, promise);
-<a class="jxr_linenumber" name="246" href="#246">246</a>                 }
-<a class="jxr_linenumber" name="247" href="#247">247</a>             });
-<a class="jxr_linenumber" name="248" href="#248">248</a>         }
-<a class="jxr_linenumber" name="249" href="#249">249</a>         <strong class="jxr_keyword">return</strong> promise;
-<a class="jxr_linenumber" name="250" href="#250">250</a>     }
-<a class="jxr_linenumber" name="251" href="#251">251</a> 
-<a class="jxr_linenumber" name="252" href="#252">252</a>     @Override
-<a class="jxr_linenumber" name="253" href="#253">253</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> unbindAddress(InetAddress localAddress) {
-<a class="jxr_linenumber" name="254" href="#254">254</a>         <strong class="jxr_keyword">return</strong> unbindAddress(localAddress, newPromise());
+<a class="jxr_linenumber" name="233" href="#233">233</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> bindAddress(InetAddress localAddress) {
+<a class="jxr_linenumber" name="234" href="#234">234</a>         <strong class="jxr_keyword">return</strong> bindAddress(localAddress, newPromise());
+<a class="jxr_linenumber" name="235" href="#235">235</a>     }
+<a class="jxr_linenumber" name="236" href="#236">236</a> 
+<a class="jxr_linenumber" name="237" href="#237">237</a>     @Override
+<a class="jxr_linenumber" name="238" href="#238">238</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> bindAddress(<strong class="jxr_keyword">final</strong> InetAddress localAddress, <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelPromise.html">ChannelPromise</a> promise) {
+<a class="jxr_linenumber" name="239" href="#239">239</a>         <strong class="jxr_keyword">if</strong> (eventLoop().inEventLoop()) {
+<a class="jxr_linenumber" name="240" href="#240">240</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="241" href="#241">241</a>                 sch.bindAddress(localAddress);
+<a class="jxr_linenumber" name="242" href="#242">242</a>                 promise.setSuccess();
+<a class="jxr_linenumber" name="243" href="#243">243</a>             } <strong class="jxr_keyword">catch</strong> (Throwable t) {
+<a class="jxr_linenumber" name="244" href="#244">244</a>                 promise.setFailure(t);
+<a class="jxr_linenumber" name="245" href="#245">245</a>             }
+<a class="jxr_linenumber" name="246" href="#246">246</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="247" href="#247">247</a>             eventLoop().execute(<strong class="jxr_keyword">new</strong> Runnable() {
+<a class="jxr_linenumber" name="248" href="#248">248</a>                 @Override
+<a class="jxr_linenumber" name="249" href="#249">249</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a class="jxr_linenumber" name="250" href="#250">250</a>                     bindAddress(localAddress, promise);
+<a class="jxr_linenumber" name="251" href="#251">251</a>                 }
+<a class="jxr_linenumber" name="252" href="#252">252</a>             });
+<a class="jxr_linenumber" name="253" href="#253">253</a>         }
+<a class="jxr_linenumber" name="254" href="#254">254</a>         <strong class="jxr_keyword">return</strong> promise;
 <a class="jxr_linenumber" name="255" href="#255">255</a>     }
 <a class="jxr_linenumber" name="256" href="#256">256</a> 
 <a class="jxr_linenumber" name="257" href="#257">257</a>     @Override
-<a class="jxr_linenumber" name="258" href="#258">258</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> unbindAddress(<strong class="jxr_keyword">final</strong> InetAddress localAddress, <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelPromise.html">ChannelPromise</a> promise) {
-<a class="jxr_linenumber" name="259" href="#259">259</a>         <strong class="jxr_keyword">if</strong> (eventLoop().inEventLoop()) {
-<a class="jxr_linenumber" name="260" href="#260">260</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="261" href="#261">261</a>                 sch.unbindAddress(localAddress);
-<a class="jxr_linenumber" name="262" href="#262">262</a>                 promise.setSuccess();
-<a class="jxr_linenumber" name="263" href="#263">263</a>             } <strong class="jxr_keyword">catch</strong> (Throwable t) {
-<a class="jxr_linenumber" name="264" href="#264">264</a>                 promise.setFailure(t);
-<a class="jxr_linenumber" name="265" href="#265">265</a>             }
-<a class="jxr_linenumber" name="266" href="#266">266</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="267" href="#267">267</a>             eventLoop().execute(<strong class="jxr_keyword">new</strong> Runnable() {
-<a class="jxr_linenumber" name="268" href="#268">268</a>                 @Override
-<a class="jxr_linenumber" name="269" href="#269">269</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
-<a class="jxr_linenumber" name="270" href="#270">270</a>                     unbindAddress(localAddress, promise);
-<a class="jxr_linenumber" name="271" href="#271">271</a>                 }
-<a class="jxr_linenumber" name="272" href="#272">272</a>             });
-<a class="jxr_linenumber" name="273" href="#273">273</a>         }
-<a class="jxr_linenumber" name="274" href="#274">274</a>         <strong class="jxr_keyword">return</strong> promise;
-<a class="jxr_linenumber" name="275" href="#275">275</a>     }
-<a class="jxr_linenumber" name="276" href="#276">276</a> 
-<a class="jxr_linenumber" name="277" href="#277">277</a>     @Override
-<a class="jxr_linenumber" name="278" href="#278">278</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> doConnect(
-<a class="jxr_linenumber" name="279" href="#279">279</a>             SocketAddress remoteAddress, SocketAddress localAddress) <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="280" href="#280">280</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
-<a class="jxr_linenumber" name="281" href="#281">281</a>     }
-<a class="jxr_linenumber" name="282" href="#282">282</a> 
-<a class="jxr_linenumber" name="283" href="#283">283</a>     @Override
-<a class="jxr_linenumber" name="284" href="#284">284</a>     <strong class="jxr_keyword">protected</strong> SocketAddress remoteAddress0() {
-<a class="jxr_linenumber" name="285" href="#285">285</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
+<a class="jxr_linenumber" name="258" href="#258">258</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> unbindAddress(InetAddress localAddress) {
+<a class="jxr_linenumber" name="259" href="#259">259</a>         <strong class="jxr_keyword">return</strong> unbindAddress(localAddress, newPromise());
+<a class="jxr_linenumber" name="260" href="#260">260</a>     }
+<a class="jxr_linenumber" name="261" href="#261">261</a> 
+<a class="jxr_linenumber" name="262" href="#262">262</a>     @Override
+<a class="jxr_linenumber" name="263" href="#263">263</a>     <strong class="jxr_keyword">public</strong> <a href="../../../../../io/netty/channel/ChannelFuture.html">ChannelFuture</a> unbindAddress(<strong class="jxr_keyword">final</strong> InetAddress localAddress, <strong class="jxr_keyword">final</strong> <a href="../../../../../io/netty/channel/ChannelPromise.html">ChannelPromise</a> promise) {
+<a class="jxr_linenumber" name="264" href="#264">264</a>         <strong class="jxr_keyword">if</strong> (eventLoop().inEventLoop()) {
+<a class="jxr_linenumber" name="265" href="#265">265</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="266" href="#266">266</a>                 sch.unbindAddress(localAddress);
+<a class="jxr_linenumber" name="267" href="#267">267</a>                 promise.setSuccess();
+<a class="jxr_linenumber" name="268" href="#268">268</a>             } <strong class="jxr_keyword">catch</strong> (Throwable t) {
+<a class="jxr_linenumber" name="269" href="#269">269</a>                 promise.setFailure(t);
+<a class="jxr_linenumber" name="270" href="#270">270</a>             }
+<a class="jxr_linenumber" name="271" href="#271">271</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="272" href="#272">272</a>             eventLoop().execute(<strong class="jxr_keyword">new</strong> Runnable() {
+<a class="jxr_linenumber" name="273" href="#273">273</a>                 @Override
+<a class="jxr_linenumber" name="274" href="#274">274</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> run() {
+<a class="jxr_linenumber" name="275" href="#275">275</a>                     unbindAddress(localAddress, promise);
+<a class="jxr_linenumber" name="276" href="#276">276</a>                 }
+<a class="jxr_linenumber" name="277" href="#277">277</a>             });
+<a class="jxr_linenumber" name="278" href="#278">278</a>         }
+<a class="jxr_linenumber" name="279" href="#279">279</a>         <strong class="jxr_keyword">return</strong> promise;
+<a class="jxr_linenumber" name="280" href="#280">280</a>     }
+<a class="jxr_linenumber" name="281" href="#281">281</a> 
+<a class="jxr_linenumber" name="282" href="#282">282</a>     @Override
+<a class="jxr_linenumber" name="283" href="#283">283</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> doConnect(
+<a class="jxr_linenumber" name="284" href="#284">284</a>             SocketAddress remoteAddress, SocketAddress localAddress) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="285" href="#285">285</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
 <a class="jxr_linenumber" name="286" href="#286">286</a>     }
 <a class="jxr_linenumber" name="287" href="#287">287</a> 
 <a class="jxr_linenumber" name="288" href="#288">288</a>     @Override
-<a class="jxr_linenumber" name="289" href="#289">289</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> doDisconnect() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="290" href="#290">290</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
+<a class="jxr_linenumber" name="289" href="#289">289</a>     <strong class="jxr_keyword">protected</strong> SocketAddress remoteAddress0() {
+<a class="jxr_linenumber" name="290" href="#290">290</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="291" href="#291">291</a>     }
 <a class="jxr_linenumber" name="292" href="#292">292</a> 
 <a class="jxr_linenumber" name="293" href="#293">293</a>     @Override
-<a class="jxr_linenumber" name="294" href="#294">294</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> doWriteMessages(MessageBuf&lt;Object&gt; buf) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="294" href="#294">294</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> doDisconnect() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="295" href="#295">295</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
 <a class="jxr_linenumber" name="296" href="#296">296</a>     }
-<a class="jxr_linenumber" name="297" href="#297">297</a> }
+<a class="jxr_linenumber" name="297" href="#297">297</a> 
+<a class="jxr_linenumber" name="298" href="#298">298</a>     @Override
+<a class="jxr_linenumber" name="299" href="#299">299</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">int</strong> doWrite(MessageList&lt;Object&gt; msgs, <strong class="jxr_keyword">int</strong> index) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="300" href="#300">300</a>         <strong class="jxr_keyword">int</strong> size = msgs.size();
+<a class="jxr_linenumber" name="301" href="#301">301</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = index; i &lt; size; i ++) {
+<a class="jxr_linenumber" name="302" href="#302">302</a>             ByteBufUtil.release(msgs.get(i));
+<a class="jxr_linenumber" name="303" href="#303">303</a>         }
+<a class="jxr_linenumber" name="304" href="#304">304</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
+<a class="jxr_linenumber" name="305" href="#305">305</a>     }
+<a class="jxr_linenumber" name="306" href="#306">306</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

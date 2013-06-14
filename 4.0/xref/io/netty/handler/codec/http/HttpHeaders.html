@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>HttpHeaders xref</title>
@@ -760,7 +760,7 @@
 <a class="jxr_linenumber" name="750" href="#750">750</a>         <strong class="jxr_keyword">if</strong> (value == <strong class="jxr_keyword">null</strong>) {
 <a class="jxr_linenumber" name="751" href="#751">751</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> ParseException(<span class="jxr_string">"header not found: "</span> + name, 0);
 <a class="jxr_linenumber" name="752" href="#752">752</a>         }
-<a class="jxr_linenumber" name="753" href="#753">753</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/handler/codec/http/HttpHeaderDateFormat.html">HttpHeaderDateFormat</a>().parse(value);
+<a class="jxr_linenumber" name="753" href="#753">753</a>         <strong class="jxr_keyword">return</strong> HttpHeaderDateFormat.get().parse(value);
 <a class="jxr_linenumber" name="754" href="#754">754</a>     }
 <a class="jxr_linenumber" name="755" href="#755">755</a> 
 <a class="jxr_linenumber" name="756" href="#756">756</a>     <em class="jxr_javadoccomment">/**</em>
@@ -778,7 +778,7 @@
 <a class="jxr_linenumber" name="768" href="#768">768</a>         }
 <a class="jxr_linenumber" name="769" href="#769">769</a> 
 <a class="jxr_linenumber" name="770" href="#770">770</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="771" href="#771">771</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../io/netty/handler/codec/http/HttpHeaderDateFormat.html">HttpHeaderDateFormat</a>().parse(value);
+<a class="jxr_linenumber" name="771" href="#771">771</a>             <strong class="jxr_keyword">return</strong> HttpHeaderDateFormat.get().parse(value);
 <a class="jxr_linenumber" name="772" href="#772">772</a>         } <strong class="jxr_keyword">catch</strong> (ParseException e) {
 <a class="jxr_linenumber" name="773" href="#773">773</a>             <strong class="jxr_keyword">return</strong> defaultValue;
 <a class="jxr_linenumber" name="774" href="#774">774</a>         }
@@ -792,7 +792,7 @@
 <a class="jxr_linenumber" name="782" href="#782">782</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="783" href="#783">783</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> setDateHeader(<a href="../../../../../io/netty/handler/codec/http/HttpMessage.html">HttpMessage</a> message, String name, Date value) {
 <a class="jxr_linenumber" name="784" href="#784">784</a>         <strong class="jxr_keyword">if</strong> (value != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="785" href="#785">785</a>             message.headers().set(name, <strong class="jxr_keyword">new</strong> HttpHeaderDateFormat().format(value));
+<a class="jxr_linenumber" name="785" href="#785">785</a>             message.headers().set(name, HttpHeaderDateFormat.get().format(value));
 <a class="jxr_linenumber" name="786" href="#786">786</a>         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="787" href="#787">787</a>             message.headers().set(name, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="788" href="#788">788</a>         }
@@ -957,7 +957,7 @@
 <a class="jxr_linenumber" name="947" href="#947">947</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="948" href="#948">948</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> setDate(<a href="../../../../../io/netty/handler/codec/http/HttpMessage.html">HttpMessage</a> message, Date value) {
 <a class="jxr_linenumber" name="949" href="#949">949</a>         <strong class="jxr_keyword">if</strong> (value != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="950" href="#950">950</a>             message.headers().set(Names.DATE, <strong class="jxr_keyword">new</strong> HttpHeaderDateFormat().format(value));
+<a class="jxr_linenumber" name="950" href="#950">950</a>             message.headers().set(Names.DATE, HttpHeaderDateFormat.get().format(value));
 <a class="jxr_linenumber" name="951" href="#951">951</a>         } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="952" href="#952">952</a>             message.headers().set(Names.DATE, <strong class="jxr_keyword">null</strong>);
 <a class="jxr_linenumber" name="953" href="#953">953</a>         }

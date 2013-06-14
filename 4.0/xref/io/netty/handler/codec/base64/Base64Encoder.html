@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>Base64Encoder xref</title>
@@ -28,11 +28,11 @@
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBuf;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler.Sharable;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerUtil;
-<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelOutboundMessageHandlerAdapter;
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPipeline;
-<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.DelimiterBasedFrameDecoder;
-<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.Delimiters;
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPipeline;
+<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
+<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.DelimiterBasedFrameDecoder;
+<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.Delimiters;
+<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.MessageToMessageEncoder;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="28" href="#28">28</a>  <em class="jxr_javadoccomment"> * Encodes a {@link ByteBuf} into a Base64-encoded {@link ByteBuf}.</em>
@@ -49,7 +49,7 @@
 <a class="jxr_linenumber" name="39" href="#39">39</a>  <em class="jxr_javadoccomment"> * &lt;/pre&gt;</em>
 <a class="jxr_linenumber" name="40" href="#40">40</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="41" href="#41">41</a>  @Sharable
-<a class="jxr_linenumber" name="42" href="#42">42</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Base64Encoder <strong class="jxr_keyword">extends</strong> ChannelOutboundMessageHandlerAdapter&lt;ByteBuf&gt; {
+<a class="jxr_linenumber" name="42" href="#42">42</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> Base64Encoder <strong class="jxr_keyword">extends</strong> MessageToMessageEncoder&lt;ByteBuf&gt; {
 <a class="jxr_linenumber" name="43" href="#43">43</a>  
 <a class="jxr_linenumber" name="44" href="#44">44</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> breakLines;
 <a class="jxr_linenumber" name="45" href="#45">45</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Base64Dialect dialect;
@@ -72,12 +72,10 @@
 <a class="jxr_linenumber" name="62" href="#62">62</a>      }
 <a class="jxr_linenumber" name="63" href="#63">63</a>  
 <a class="jxr_linenumber" name="64" href="#64">64</a>      @Override
-<a class="jxr_linenumber" name="65" href="#65">65</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> flush(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx,
-<a class="jxr_linenumber" name="66" href="#66">66</a>              <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> msg) <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="67" href="#67">67</a>          <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buf = Base64.encode(msg, msg.readerIndex(), msg.readableBytes(), breakLines, dialect);
-<a class="jxr_linenumber" name="68" href="#68">68</a>          ChannelHandlerUtil.addToNextOutboundBuffer(ctx, buf);
-<a class="jxr_linenumber" name="69" href="#69">69</a>      }
-<a class="jxr_linenumber" name="70" href="#70">70</a>  }
+<a class="jxr_linenumber" name="65" href="#65">65</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> encode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> msg, MessageList&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="66" href="#66">66</a>          out.add(Base64.encode(msg, msg.readerIndex(), msg.readableBytes(), breakLines, dialect));
+<a class="jxr_linenumber" name="67" href="#67">67</a>      }
+<a class="jxr_linenumber" name="68" href="#68">68</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

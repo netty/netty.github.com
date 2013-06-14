@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>PoolArena xref</title>
@@ -355,7 +355,7 @@
 <a class="jxr_linenumber" name="345" href="#345">345</a> 
 <a class="jxr_linenumber" name="346" href="#346">346</a>         @Override
 <a class="jxr_linenumber" name="347" href="#347">347</a>         <strong class="jxr_keyword">protected</strong> PooledByteBuf&lt;byte[]&gt; newByteBuf(<strong class="jxr_keyword">int</strong> maxCapacity) {
-<a class="jxr_linenumber" name="348" href="#348">348</a>             <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../io/netty/buffer/PooledHeapByteBuf.html">PooledHeapByteBuf</a>(maxCapacity);
+<a class="jxr_linenumber" name="348" href="#348">348</a>             <strong class="jxr_keyword">return</strong> PooledHeapByteBuf.newInstance(maxCapacity);
 <a class="jxr_linenumber" name="349" href="#349">349</a>         }
 <a class="jxr_linenumber" name="350" href="#350">350</a> 
 <a class="jxr_linenumber" name="351" href="#351">351</a>         @Override
@@ -395,9 +395,9 @@
 <a class="jxr_linenumber" name="385" href="#385">385</a>         @Override
 <a class="jxr_linenumber" name="386" href="#386">386</a>         <strong class="jxr_keyword">protected</strong> PooledByteBuf&lt;ByteBuffer&gt; newByteBuf(<strong class="jxr_keyword">int</strong> maxCapacity) {
 <a class="jxr_linenumber" name="387" href="#387">387</a>             <strong class="jxr_keyword">if</strong> (HAS_UNSAFE) {
-<a class="jxr_linenumber" name="388" href="#388">388</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../io/netty/buffer/PooledUnsafeDirectByteBuf.html">PooledUnsafeDirectByteBuf</a>(maxCapacity);
+<a class="jxr_linenumber" name="388" href="#388">388</a>                 <strong class="jxr_keyword">return</strong> PooledUnsafeDirectByteBuf.newInstance(maxCapacity);
 <a class="jxr_linenumber" name="389" href="#389">389</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="390" href="#390">390</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../io/netty/buffer/PooledDirectByteBuf.html">PooledDirectByteBuf</a>(maxCapacity);
+<a class="jxr_linenumber" name="390" href="#390">390</a>                 <strong class="jxr_keyword">return</strong> PooledDirectByteBuf.newInstance(maxCapacity);
 <a class="jxr_linenumber" name="391" href="#391">391</a>             }
 <a class="jxr_linenumber" name="392" href="#392">392</a>         }
 <a class="jxr_linenumber" name="393" href="#393">393</a> 

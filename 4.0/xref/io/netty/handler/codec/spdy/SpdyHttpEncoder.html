@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>SpdyHttpEncoder xref</title>
@@ -25,8 +25,8 @@
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.codec.spdy;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.MessageBuf;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.MessageToMessageEncoder;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.UnsupportedMessageTypeException;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.http.FullHttpRequest;
@@ -133,7 +133,7 @@
 <a class="jxr_linenumber" name="123" href="#123">123</a> <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/spdy/SpdyHttpEncoder.html">SpdyHttpEncoder</a> <strong class="jxr_keyword">extends</strong> MessageToMessageEncoder&lt;HttpObject&gt; {
 <a class="jxr_linenumber" name="124" href="#124">124</a> 
 <a class="jxr_linenumber" name="125" href="#125">125</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> spdyVersion;
-<a class="jxr_linenumber" name="126" href="#126">126</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">volatile</strong> <strong class="jxr_keyword">int</strong> currentStreamId;
+<a class="jxr_linenumber" name="126" href="#126">126</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> currentStreamId;
 <a class="jxr_linenumber" name="127" href="#127">127</a> 
 <a class="jxr_linenumber" name="128" href="#128">128</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="129" href="#129">129</a> <em class="jxr_javadoccomment">     * Creates a new instance.</em>
@@ -149,7 +149,7 @@
 <a class="jxr_linenumber" name="139" href="#139">139</a>     }
 <a class="jxr_linenumber" name="140" href="#140">140</a> 
 <a class="jxr_linenumber" name="141" href="#141">141</a>     @Override
-<a class="jxr_linenumber" name="142" href="#142">142</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> encode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/handler/codec/http/HttpObject.html">HttpObject</a> msg, MessageBuf&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="142" href="#142">142</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> encode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../../io/netty/handler/codec/http/HttpObject.html">HttpObject</a> msg, MessageList&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="143" href="#143">143</a> 
 <a class="jxr_linenumber" name="144" href="#144">144</a>         <strong class="jxr_keyword">boolean</strong> valid = false;
 <a class="jxr_linenumber" name="145" href="#145">145</a> 
@@ -276,7 +276,7 @@
 <a class="jxr_linenumber" name="266" href="#266">266</a>         <strong class="jxr_keyword">int</strong> streamID = SpdyHttpHeaders.getStreamId(httpResponse);
 <a class="jxr_linenumber" name="267" href="#267">267</a>         SpdyHttpHeaders.removeStreamId(httpResponse);
 <a class="jxr_linenumber" name="268" href="#268">268</a> 
-<a class="jxr_linenumber" name="269" href="#269">269</a>         <em class="jxr_comment">// The Connection, Keep-Alive, Proxy-Connection, and Transfer-ENcoding</em>
+<a class="jxr_linenumber" name="269" href="#269">269</a>         <em class="jxr_comment">// The Connection, Keep-Alive, Proxy-Connection, and Transfer-Encoding</em>
 <a class="jxr_linenumber" name="270" href="#270">270</a>         <em class="jxr_comment">// headers are not valid and MUST not be sent.</em>
 <a class="jxr_linenumber" name="271" href="#271">271</a>         httpResponse.headers().remove(HttpHeaders.Names.CONNECTION);
 <a class="jxr_linenumber" name="272" href="#272">272</a>         httpResponse.headers().remove(<span class="jxr_string">"Keep-Alive"</span>);

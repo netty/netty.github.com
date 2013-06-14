@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>ProtobufEncoder xref</title>
@@ -29,10 +29,10 @@
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> com.google.protobuf.MessageLite;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> com.google.protobuf.MessageLiteOrBuilder;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBuf;
-<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.MessageBuf;
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler.Sharable;
-<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPipeline;
+<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler.Sharable;
+<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPipeline;
+<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.LengthFieldPrepender;
 <a class="jxr_linenumber" name="28" href="#28">28</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.MessageToMessageEncoder;
@@ -68,19 +68,18 @@
 <a class="jxr_linenumber" name="58" href="#58">58</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="59" href="#59">59</a>  @Sharable
 <a class="jxr_linenumber" name="60" href="#60">60</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../../io/netty/handler/codec/protobuf/ProtobufEncoder.html">ProtobufEncoder</a> <strong class="jxr_keyword">extends</strong> MessageToMessageEncoder&lt;MessageLiteOrBuilder&gt; {
-<a class="jxr_linenumber" name="61" href="#61">61</a>  
-<a class="jxr_linenumber" name="62" href="#62">62</a>      @Override
-<a class="jxr_linenumber" name="63" href="#63">63</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> encode(<a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, MessageLiteOrBuilder msg, MessageBuf&lt;Object&gt; out)
-<a class="jxr_linenumber" name="64" href="#64">64</a>              <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="65" href="#65">65</a>          <strong class="jxr_keyword">if</strong> (msg instanceof MessageLite) {
-<a class="jxr_linenumber" name="66" href="#66">66</a>              out.add(wrappedBuffer(((MessageLite) msg).toByteArray()));
-<a class="jxr_linenumber" name="67" href="#67">67</a>              <strong class="jxr_keyword">return</strong>;
-<a class="jxr_linenumber" name="68" href="#68">68</a>          }
-<a class="jxr_linenumber" name="69" href="#69">69</a>          <strong class="jxr_keyword">if</strong> (msg instanceof MessageLite.Builder) {
-<a class="jxr_linenumber" name="70" href="#70">70</a>              out.add(wrappedBuffer(((MessageLite.Builder) msg).build().toByteArray()));
-<a class="jxr_linenumber" name="71" href="#71">71</a>          }
-<a class="jxr_linenumber" name="72" href="#72">72</a>      }
-<a class="jxr_linenumber" name="73" href="#73">73</a>  }
+<a class="jxr_linenumber" name="61" href="#61">61</a>      @Override
+<a class="jxr_linenumber" name="62" href="#62">62</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> encode(
+<a class="jxr_linenumber" name="63" href="#63">63</a>              <a href="../../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, MessageLiteOrBuilder msg, MessageList&lt;Object&gt; out) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="64" href="#64">64</a>          <strong class="jxr_keyword">if</strong> (msg instanceof MessageLite) {
+<a class="jxr_linenumber" name="65" href="#65">65</a>              out.add(wrappedBuffer(((MessageLite) msg).toByteArray()));
+<a class="jxr_linenumber" name="66" href="#66">66</a>              <strong class="jxr_keyword">return</strong>;
+<a class="jxr_linenumber" name="67" href="#67">67</a>          }
+<a class="jxr_linenumber" name="68" href="#68">68</a>          <strong class="jxr_keyword">if</strong> (msg instanceof MessageLite.Builder) {
+<a class="jxr_linenumber" name="69" href="#69">69</a>              out.add(wrappedBuffer(((MessageLite.Builder) msg).build().toByteArray()));
+<a class="jxr_linenumber" name="70" href="#70">70</a>          }
+<a class="jxr_linenumber" name="71" href="#71">71</a>      }
+<a class="jxr_linenumber" name="72" href="#72">72</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

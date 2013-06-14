@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>UptimeClientHandler xref</title>
@@ -26,11 +26,11 @@
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.example.uptime;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.bootstrap.Bootstrap;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBuf;
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler.Sharable;
-<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundByteHandlerAdapter;
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.EventLoop;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler.Sharable;
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundHandlerAdapter;
+<a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.EventLoop;
+<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.timeout.IdleState;
 <a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.timeout.IdleStateEvent;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  
@@ -42,7 +42,7 @@
 <a class="jxr_linenumber" name="32" href="#32">32</a>  <em class="jxr_javadoccomment"> * connection attempt getStatus.</em>
 <a class="jxr_linenumber" name="33" href="#33">33</a>  <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="34" href="#34">34</a>  @Sharable
-<a class="jxr_linenumber" name="35" href="#35">35</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../io/netty/example/uptime/UptimeClientHandler.html">UptimeClientHandler</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../io/netty/channel/ChannelInboundByteHandlerAdapter.html">ChannelInboundByteHandlerAdapter</a> {
+<a class="jxr_linenumber" name="35" href="#35">35</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../io/netty/example/uptime/UptimeClientHandler.html">UptimeClientHandler</a> <strong class="jxr_keyword">extends</strong> <a href="../../../../io/netty/channel/ChannelInboundHandlerAdapter.html">ChannelInboundHandlerAdapter</a> {
 <a class="jxr_linenumber" name="36" href="#36">36</a>  
 <a class="jxr_linenumber" name="37" href="#37">37</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a href="../../../../io/netty/example/uptime/UptimeClient.html">UptimeClient</a> client;
 <a class="jxr_linenumber" name="38" href="#38">38</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">long</strong> startTime = -1;
@@ -60,9 +60,9 @@
 <a class="jxr_linenumber" name="50" href="#50">50</a>      }
 <a class="jxr_linenumber" name="51" href="#51">51</a>  
 <a class="jxr_linenumber" name="52" href="#52">52</a>      @Override
-<a class="jxr_linenumber" name="53" href="#53">53</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> inboundBufferUpdated(<a href="../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, <a href="../../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> in) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="53" href="#53">53</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> messageReceived(<a href="../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, MessageList&lt;Object&gt; msgs) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="54" href="#54">54</a>          <em class="jxr_comment">// Discard received data</em>
-<a class="jxr_linenumber" name="55" href="#55">55</a>          in.clear();
+<a class="jxr_linenumber" name="55" href="#55">55</a>          msgs.releaseAllAndRecycle();
 <a class="jxr_linenumber" name="56" href="#56">56</a>      }
 <a class="jxr_linenumber" name="57" href="#57">57</a>  
 <a class="jxr_linenumber" name="58" href="#58">58</a>      @Override

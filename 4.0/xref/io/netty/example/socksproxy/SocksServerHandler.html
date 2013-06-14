@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>SocksServerHandler xref</title>
@@ -27,7 +27,7 @@
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
 <a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandler;
 <a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundMessageHandlerAdapter;
+<a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.SimpleChannelInboundHandler;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.socks.SocksAuthResponse;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.socks.SocksAuthScheme;
 <a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.socks.SocksAuthStatus;
@@ -39,7 +39,7 @@
 <a class="jxr_linenumber" name="29" href="#29">29</a>  
 <a class="jxr_linenumber" name="30" href="#30">30</a>  
 <a class="jxr_linenumber" name="31" href="#31">31</a>  @ChannelHandler.Sharable
-<a class="jxr_linenumber" name="32" href="#32">32</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../io/netty/example/socksproxy/SocksServerHandler.html">SocksServerHandler</a> <strong class="jxr_keyword">extends</strong> ChannelInboundMessageHandlerAdapter&lt;SocksRequest&gt; {
+<a class="jxr_linenumber" name="32" href="#32">32</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> <a href="../../../../io/netty/example/socksproxy/SocksServerHandler.html">SocksServerHandler</a> <strong class="jxr_keyword">extends</strong> SimpleChannelInboundHandler&lt;SocksRequest&gt; {
 <a class="jxr_linenumber" name="33" href="#33">33</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> String name = <span class="jxr_string">"SOCKS_SERVER_HANDLER"</span>;
 <a class="jxr_linenumber" name="34" href="#34">34</a>  
 <a class="jxr_linenumber" name="35" href="#35">35</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> String getName() {
@@ -66,24 +66,23 @@
 <a class="jxr_linenumber" name="56" href="#56">56</a>                  <strong class="jxr_keyword">if</strong> (req.cmdType() == SocksCmdType.CONNECT) {
 <a class="jxr_linenumber" name="57" href="#57">57</a>                      ctx.pipeline().addLast(SocksServerConnectHandler.getName(), <strong class="jxr_keyword">new</strong> SocksServerConnectHandler());
 <a class="jxr_linenumber" name="58" href="#58">58</a>                      ctx.pipeline().remove(<strong class="jxr_keyword">this</strong>);
-<a class="jxr_linenumber" name="59" href="#59">59</a>                      ctx.nextInboundMessageBuffer().add(socksRequest);
-<a class="jxr_linenumber" name="60" href="#60">60</a>                      ctx.fireInboundBufferUpdated();
-<a class="jxr_linenumber" name="61" href="#61">61</a>                  } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="62" href="#62">62</a>                      ctx.close();
-<a class="jxr_linenumber" name="63" href="#63">63</a>                  }
-<a class="jxr_linenumber" name="64" href="#64">64</a>                  <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="65" href="#65">65</a>              <strong class="jxr_keyword">case</strong> UNKNOWN:
-<a class="jxr_linenumber" name="66" href="#66">66</a>                  ctx.close();
-<a class="jxr_linenumber" name="67" href="#67">67</a>                  <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="68" href="#68">68</a>          }
-<a class="jxr_linenumber" name="69" href="#69">69</a>      }
-<a class="jxr_linenumber" name="70" href="#70">70</a>  
-<a class="jxr_linenumber" name="71" href="#71">71</a>      @Override
-<a class="jxr_linenumber" name="72" href="#72">72</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> exceptionCaught(<a href="../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, Throwable throwable) <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="73" href="#73">73</a>          throwable.printStackTrace();
-<a class="jxr_linenumber" name="74" href="#74">74</a>          SocksServerUtils.closeOnFlush(ctx.channel());
-<a class="jxr_linenumber" name="75" href="#75">75</a>      }
-<a class="jxr_linenumber" name="76" href="#76">76</a>  }
+<a class="jxr_linenumber" name="59" href="#59">59</a>                      ctx.fireMessageReceived(socksRequest);
+<a class="jxr_linenumber" name="60" href="#60">60</a>                  } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="61" href="#61">61</a>                      ctx.close();
+<a class="jxr_linenumber" name="62" href="#62">62</a>                  }
+<a class="jxr_linenumber" name="63" href="#63">63</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="64" href="#64">64</a>              <strong class="jxr_keyword">case</strong> UNKNOWN:
+<a class="jxr_linenumber" name="65" href="#65">65</a>                  ctx.close();
+<a class="jxr_linenumber" name="66" href="#66">66</a>                  <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="67" href="#67">67</a>          }
+<a class="jxr_linenumber" name="68" href="#68">68</a>      }
+<a class="jxr_linenumber" name="69" href="#69">69</a>  
+<a class="jxr_linenumber" name="70" href="#70">70</a>      @Override
+<a class="jxr_linenumber" name="71" href="#71">71</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> exceptionCaught(<a href="../../../../io/netty/channel/ChannelHandlerContext.html">ChannelHandlerContext</a> ctx, Throwable throwable) <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="72" href="#72">72</a>          throwable.printStackTrace();
+<a class="jxr_linenumber" name="73" href="#73">73</a>          SocksServerUtils.closeOnFlush(ctx.channel());
+<a class="jxr_linenumber" name="74" href="#74">74</a>      }
+<a class="jxr_linenumber" name="75" href="#75">75</a>  }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

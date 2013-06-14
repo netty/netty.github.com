@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>WebSocketServerHandshaker08 xref</title>
@@ -25,8 +25,8 @@
 <a class="jxr_linenumber" name="15" href="#15">15</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="16" href="#16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.codec.http.websocketx;
 <a class="jxr_linenumber" name="17" href="#17">17</a>  
-<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundByteHandler;
-<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelOutboundMessageHandler;
+<a class="jxr_linenumber" name="18" href="#18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundHandler;
+<a class="jxr_linenumber" name="19" href="#19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelOutboundHandler;
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.http.DefaultFullHttpResponse;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.http.FullHttpRequest;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.handler.codec.http.FullHttpResponse;
@@ -135,22 +135,21 @@
 <a class="jxr_linenumber" name="125" href="#125">125</a>                 <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a href="../../../../../../io/netty/handler/codec/http/websocketx/WebSocketHandshakeException.html">WebSocketHandshakeException</a>(<span class="jxr_string">"Requested subprotocol(s) not supported: "</span> + subprotocols);
 <a class="jxr_linenumber" name="126" href="#126">126</a>             } <strong class="jxr_keyword">else</strong> {
 <a class="jxr_linenumber" name="127" href="#127">127</a>                 res.headers().add(Names.SEC_WEBSOCKET_PROTOCOL, selectedSubprotocol);
-<a class="jxr_linenumber" name="128" href="#128">128</a>                 setSelectedSubprotocol(selectedSubprotocol);
-<a class="jxr_linenumber" name="129" href="#129">129</a>             }
-<a class="jxr_linenumber" name="130" href="#130">130</a>         }
-<a class="jxr_linenumber" name="131" href="#131">131</a>         <strong class="jxr_keyword">return</strong> res;
-<a class="jxr_linenumber" name="132" href="#132">132</a>     }
-<a class="jxr_linenumber" name="133" href="#133">133</a> 
-<a class="jxr_linenumber" name="134" href="#134">134</a>     @Override
-<a class="jxr_linenumber" name="135" href="#135">135</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../../io/netty/channel/ChannelInboundByteHandler.html">ChannelInboundByteHandler</a> newWebsocketDecoder() {
-<a class="jxr_linenumber" name="136" href="#136">136</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> WebSocket08FrameDecoder(<strong class="jxr_keyword">true</strong>, allowExtensions, maxFramePayloadLength());
-<a class="jxr_linenumber" name="137" href="#137">137</a>     }
-<a class="jxr_linenumber" name="138" href="#138">138</a> 
-<a class="jxr_linenumber" name="139" href="#139">139</a>     @Override
-<a class="jxr_linenumber" name="140" href="#140">140</a>     <strong class="jxr_keyword">protected</strong> ChannelOutboundMessageHandler&lt;WebSocketFrame&gt; newWebSocketEncoder() {
-<a class="jxr_linenumber" name="141" href="#141">141</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> WebSocket08FrameEncoder(false);
-<a class="jxr_linenumber" name="142" href="#142">142</a>     }
-<a class="jxr_linenumber" name="143" href="#143">143</a> }
+<a class="jxr_linenumber" name="128" href="#128">128</a>             }
+<a class="jxr_linenumber" name="129" href="#129">129</a>         }
+<a class="jxr_linenumber" name="130" href="#130">130</a>         <strong class="jxr_keyword">return</strong> res;
+<a class="jxr_linenumber" name="131" href="#131">131</a>     }
+<a class="jxr_linenumber" name="132" href="#132">132</a> 
+<a class="jxr_linenumber" name="133" href="#133">133</a>     @Override
+<a class="jxr_linenumber" name="134" href="#134">134</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../../io/netty/channel/ChannelInboundHandler.html">ChannelInboundHandler</a> newWebsocketDecoder() {
+<a class="jxr_linenumber" name="135" href="#135">135</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> WebSocket08FrameDecoder(<strong class="jxr_keyword">true</strong>, allowExtensions, maxFramePayloadLength());
+<a class="jxr_linenumber" name="136" href="#136">136</a>     }
+<a class="jxr_linenumber" name="137" href="#137">137</a> 
+<a class="jxr_linenumber" name="138" href="#138">138</a>     @Override
+<a class="jxr_linenumber" name="139" href="#139">139</a>     <strong class="jxr_keyword">protected</strong> <a href="../../../../../../io/netty/channel/ChannelOutboundHandler.html">ChannelOutboundHandler</a> newWebSocketEncoder() {
+<a class="jxr_linenumber" name="140" href="#140">140</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> WebSocket08FrameEncoder(false);
+<a class="jxr_linenumber" name="141" href="#141">141</a>     }
+<a class="jxr_linenumber" name="142" href="#142">142</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

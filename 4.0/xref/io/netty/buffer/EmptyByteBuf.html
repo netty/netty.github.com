@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>EmptyByteBuf xref</title>
@@ -771,144 +771,134 @@
 <a class="jxr_linenumber" name="761" href="#761">761</a>     }
 <a class="jxr_linenumber" name="762" href="#762">762</a> 
 <a class="jxr_linenumber" name="763" href="#763">763</a>     @Override
-<a class="jxr_linenumber" name="764" href="#764">764</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasArray() {
-<a class="jxr_linenumber" name="765" href="#765">765</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
+<a class="jxr_linenumber" name="764" href="#764">764</a>     <strong class="jxr_keyword">public</strong> ByteBuffer internalNioBuffer(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
+<a class="jxr_linenumber" name="765" href="#765">765</a>         <strong class="jxr_keyword">return</strong> EMPTY_BYTE_BUFFER;
 <a class="jxr_linenumber" name="766" href="#766">766</a>     }
 <a class="jxr_linenumber" name="767" href="#767">767</a> 
 <a class="jxr_linenumber" name="768" href="#768">768</a>     @Override
-<a class="jxr_linenumber" name="769" href="#769">769</a>     <strong class="jxr_keyword">public</strong> byte[] array() {
-<a class="jxr_linenumber" name="770" href="#770">770</a>         <strong class="jxr_keyword">return</strong> EmptyArrays.EMPTY_BYTES;
+<a class="jxr_linenumber" name="769" href="#769">769</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasArray() {
+<a class="jxr_linenumber" name="770" href="#770">770</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">true</strong>;
 <a class="jxr_linenumber" name="771" href="#771">771</a>     }
 <a class="jxr_linenumber" name="772" href="#772">772</a> 
 <a class="jxr_linenumber" name="773" href="#773">773</a>     @Override
-<a class="jxr_linenumber" name="774" href="#774">774</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> arrayOffset() {
-<a class="jxr_linenumber" name="775" href="#775">775</a>         <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="774" href="#774">774</a>     <strong class="jxr_keyword">public</strong> byte[] array() {
+<a class="jxr_linenumber" name="775" href="#775">775</a>         <strong class="jxr_keyword">return</strong> EmptyArrays.EMPTY_BYTES;
 <a class="jxr_linenumber" name="776" href="#776">776</a>     }
 <a class="jxr_linenumber" name="777" href="#777">777</a> 
 <a class="jxr_linenumber" name="778" href="#778">778</a>     @Override
-<a class="jxr_linenumber" name="779" href="#779">779</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasMemoryAddress() {
-<a class="jxr_linenumber" name="780" href="#780">780</a>         <strong class="jxr_keyword">return</strong> EMPTY_BYTE_BUFFER_ADDRESS != 0;
+<a class="jxr_linenumber" name="779" href="#779">779</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> arrayOffset() {
+<a class="jxr_linenumber" name="780" href="#780">780</a>         <strong class="jxr_keyword">return</strong> 0;
 <a class="jxr_linenumber" name="781" href="#781">781</a>     }
 <a class="jxr_linenumber" name="782" href="#782">782</a> 
 <a class="jxr_linenumber" name="783" href="#783">783</a>     @Override
-<a class="jxr_linenumber" name="784" href="#784">784</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">long</strong> memoryAddress() {
-<a class="jxr_linenumber" name="785" href="#785">785</a>         <strong class="jxr_keyword">if</strong> (hasMemoryAddress()) {
-<a class="jxr_linenumber" name="786" href="#786">786</a>             <strong class="jxr_keyword">return</strong> EMPTY_BYTE_BUFFER_ADDRESS;
-<a class="jxr_linenumber" name="787" href="#787">787</a>         } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="788" href="#788">788</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
-<a class="jxr_linenumber" name="789" href="#789">789</a>         }
-<a class="jxr_linenumber" name="790" href="#790">790</a>     }
-<a class="jxr_linenumber" name="791" href="#791">791</a> 
-<a class="jxr_linenumber" name="792" href="#792">792</a>     @Override
-<a class="jxr_linenumber" name="793" href="#793">793</a>     <strong class="jxr_keyword">public</strong> String toString(Charset charset) {
-<a class="jxr_linenumber" name="794" href="#794">794</a>         <strong class="jxr_keyword">return</strong> <span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="784" href="#784">784</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> hasMemoryAddress() {
+<a class="jxr_linenumber" name="785" href="#785">785</a>         <strong class="jxr_keyword">return</strong> EMPTY_BYTE_BUFFER_ADDRESS != 0;
+<a class="jxr_linenumber" name="786" href="#786">786</a>     }
+<a class="jxr_linenumber" name="787" href="#787">787</a> 
+<a class="jxr_linenumber" name="788" href="#788">788</a>     @Override
+<a class="jxr_linenumber" name="789" href="#789">789</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">long</strong> memoryAddress() {
+<a class="jxr_linenumber" name="790" href="#790">790</a>         <strong class="jxr_keyword">if</strong> (hasMemoryAddress()) {
+<a class="jxr_linenumber" name="791" href="#791">791</a>             <strong class="jxr_keyword">return</strong> EMPTY_BYTE_BUFFER_ADDRESS;
+<a class="jxr_linenumber" name="792" href="#792">792</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="793" href="#793">793</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> UnsupportedOperationException();
+<a class="jxr_linenumber" name="794" href="#794">794</a>         }
 <a class="jxr_linenumber" name="795" href="#795">795</a>     }
 <a class="jxr_linenumber" name="796" href="#796">796</a> 
 <a class="jxr_linenumber" name="797" href="#797">797</a>     @Override
-<a class="jxr_linenumber" name="798" href="#798">798</a>     <strong class="jxr_keyword">public</strong> String toString(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length, Charset charset) {
-<a class="jxr_linenumber" name="799" href="#799">799</a>         checkIndex(index, length);
-<a class="jxr_linenumber" name="800" href="#800">800</a>         <strong class="jxr_keyword">return</strong> toString(charset);
-<a class="jxr_linenumber" name="801" href="#801">801</a>     }
-<a class="jxr_linenumber" name="802" href="#802">802</a> 
-<a class="jxr_linenumber" name="803" href="#803">803</a>     @Override
-<a class="jxr_linenumber" name="804" href="#804">804</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> suspendIntermediaryDeallocations() {
-<a class="jxr_linenumber" name="805" href="#805">805</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="798" href="#798">798</a>     <strong class="jxr_keyword">public</strong> String toString(Charset charset) {
+<a class="jxr_linenumber" name="799" href="#799">799</a>         <strong class="jxr_keyword">return</strong> <span class="jxr_string">""</span>;
+<a class="jxr_linenumber" name="800" href="#800">800</a>     }
+<a class="jxr_linenumber" name="801" href="#801">801</a> 
+<a class="jxr_linenumber" name="802" href="#802">802</a>     @Override
+<a class="jxr_linenumber" name="803" href="#803">803</a>     <strong class="jxr_keyword">public</strong> String toString(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length, Charset charset) {
+<a class="jxr_linenumber" name="804" href="#804">804</a>         checkIndex(index, length);
+<a class="jxr_linenumber" name="805" href="#805">805</a>         <strong class="jxr_keyword">return</strong> toString(charset);
 <a class="jxr_linenumber" name="806" href="#806">806</a>     }
 <a class="jxr_linenumber" name="807" href="#807">807</a> 
 <a class="jxr_linenumber" name="808" href="#808">808</a>     @Override
-<a class="jxr_linenumber" name="809" href="#809">809</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> resumeIntermediaryDeallocations() {
-<a class="jxr_linenumber" name="810" href="#810">810</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="809" href="#809">809</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
+<a class="jxr_linenumber" name="810" href="#810">810</a>         <strong class="jxr_keyword">return</strong> 0;
 <a class="jxr_linenumber" name="811" href="#811">811</a>     }
 <a class="jxr_linenumber" name="812" href="#812">812</a> 
 <a class="jxr_linenumber" name="813" href="#813">813</a>     @Override
-<a class="jxr_linenumber" name="814" href="#814">814</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> hashCode() {
-<a class="jxr_linenumber" name="815" href="#815">815</a>         <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="814" href="#814">814</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> equals(Object obj) {
+<a class="jxr_linenumber" name="815" href="#815">815</a>         <strong class="jxr_keyword">return</strong> obj instanceof <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> &amp;&amp; !((ByteBuf) obj).isReadable();
 <a class="jxr_linenumber" name="816" href="#816">816</a>     }
 <a class="jxr_linenumber" name="817" href="#817">817</a> 
 <a class="jxr_linenumber" name="818" href="#818">818</a>     @Override
-<a class="jxr_linenumber" name="819" href="#819">819</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> equals(Object obj) {
-<a class="jxr_linenumber" name="820" href="#820">820</a>         <strong class="jxr_keyword">return</strong> obj instanceof <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> &amp;&amp; !((ByteBuf) obj).isReadable();
+<a class="jxr_linenumber" name="819" href="#819">819</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(<a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
+<a class="jxr_linenumber" name="820" href="#820">820</a>         <strong class="jxr_keyword">return</strong> buffer.isReadable()? -1 : 0;
 <a class="jxr_linenumber" name="821" href="#821">821</a>     }
 <a class="jxr_linenumber" name="822" href="#822">822</a> 
 <a class="jxr_linenumber" name="823" href="#823">823</a>     @Override
-<a class="jxr_linenumber" name="824" href="#824">824</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> compareTo(<a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> buffer) {
-<a class="jxr_linenumber" name="825" href="#825">825</a>         <strong class="jxr_keyword">return</strong> buffer.isReadable()? -1 : 0;
+<a class="jxr_linenumber" name="824" href="#824">824</a>     <strong class="jxr_keyword">public</strong> String toString() {
+<a class="jxr_linenumber" name="825" href="#825">825</a>         <strong class="jxr_keyword">return</strong> str;
 <a class="jxr_linenumber" name="826" href="#826">826</a>     }
 <a class="jxr_linenumber" name="827" href="#827">827</a> 
 <a class="jxr_linenumber" name="828" href="#828">828</a>     @Override
-<a class="jxr_linenumber" name="829" href="#829">829</a>     <strong class="jxr_keyword">public</strong> String toString() {
-<a class="jxr_linenumber" name="830" href="#830">830</a>         <strong class="jxr_keyword">return</strong> str;
-<a class="jxr_linenumber" name="831" href="#831">831</a>     }
-<a class="jxr_linenumber" name="832" href="#832">832</a> 
-<a class="jxr_linenumber" name="833" href="#833">833</a>     @Override
-<a class="jxr_linenumber" name="834" href="#834">834</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/BufType.html">BufType</a> type() {
-<a class="jxr_linenumber" name="835" href="#835">835</a>         <strong class="jxr_keyword">return</strong> BufType.BYTE;
-<a class="jxr_linenumber" name="836" href="#836">836</a>     }
-<a class="jxr_linenumber" name="837" href="#837">837</a> 
-<a class="jxr_linenumber" name="838" href="#838">838</a>     @Override
-<a class="jxr_linenumber" name="839" href="#839">839</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isReadable(<strong class="jxr_keyword">int</strong> size) {
-<a class="jxr_linenumber" name="840" href="#840">840</a>         checkLength(size);
-<a class="jxr_linenumber" name="841" href="#841">841</a>         <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="842" href="#842">842</a>     }
-<a class="jxr_linenumber" name="843" href="#843">843</a> 
-<a class="jxr_linenumber" name="844" href="#844">844</a>     @Override
-<a class="jxr_linenumber" name="845" href="#845">845</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isWritable(<strong class="jxr_keyword">int</strong> size) {
-<a class="jxr_linenumber" name="846" href="#846">846</a>         checkLength(size);
-<a class="jxr_linenumber" name="847" href="#847">847</a>         <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="829" href="#829">829</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isReadable(<strong class="jxr_keyword">int</strong> size) {
+<a class="jxr_linenumber" name="830" href="#830">830</a>         checkLength(size);
+<a class="jxr_linenumber" name="831" href="#831">831</a>         <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="832" href="#832">832</a>     }
+<a class="jxr_linenumber" name="833" href="#833">833</a> 
+<a class="jxr_linenumber" name="834" href="#834">834</a>     @Override
+<a class="jxr_linenumber" name="835" href="#835">835</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> isWritable(<strong class="jxr_keyword">int</strong> size) {
+<a class="jxr_linenumber" name="836" href="#836">836</a>         checkLength(size);
+<a class="jxr_linenumber" name="837" href="#837">837</a>         <strong class="jxr_keyword">return</strong> false;
+<a class="jxr_linenumber" name="838" href="#838">838</a>     }
+<a class="jxr_linenumber" name="839" href="#839">839</a> 
+<a class="jxr_linenumber" name="840" href="#840">840</a>     @Override
+<a class="jxr_linenumber" name="841" href="#841">841</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> refCnt() {
+<a class="jxr_linenumber" name="842" href="#842">842</a>         <strong class="jxr_keyword">return</strong> 1;
+<a class="jxr_linenumber" name="843" href="#843">843</a>     }
+<a class="jxr_linenumber" name="844" href="#844">844</a> 
+<a class="jxr_linenumber" name="845" href="#845">845</a>     @Override
+<a class="jxr_linenumber" name="846" href="#846">846</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> retain() {
+<a class="jxr_linenumber" name="847" href="#847">847</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
 <a class="jxr_linenumber" name="848" href="#848">848</a>     }
 <a class="jxr_linenumber" name="849" href="#849">849</a> 
 <a class="jxr_linenumber" name="850" href="#850">850</a>     @Override
-<a class="jxr_linenumber" name="851" href="#851">851</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">int</strong> refCnt() {
-<a class="jxr_linenumber" name="852" href="#852">852</a>         <strong class="jxr_keyword">return</strong> 1;
+<a class="jxr_linenumber" name="851" href="#851">851</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> retain(<strong class="jxr_keyword">int</strong> increment) {
+<a class="jxr_linenumber" name="852" href="#852">852</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
 <a class="jxr_linenumber" name="853" href="#853">853</a>     }
 <a class="jxr_linenumber" name="854" href="#854">854</a> 
 <a class="jxr_linenumber" name="855" href="#855">855</a>     @Override
-<a class="jxr_linenumber" name="856" href="#856">856</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> retain() {
-<a class="jxr_linenumber" name="857" href="#857">857</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="856" href="#856">856</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> release() {
+<a class="jxr_linenumber" name="857" href="#857">857</a>         <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="858" href="#858">858</a>     }
 <a class="jxr_linenumber" name="859" href="#859">859</a> 
 <a class="jxr_linenumber" name="860" href="#860">860</a>     @Override
-<a class="jxr_linenumber" name="861" href="#861">861</a>     <strong class="jxr_keyword">public</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> retain(<strong class="jxr_keyword">int</strong> increment) {
-<a class="jxr_linenumber" name="862" href="#862">862</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="861" href="#861">861</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> release(<strong class="jxr_keyword">int</strong> decrement) {
+<a class="jxr_linenumber" name="862" href="#862">862</a>         <strong class="jxr_keyword">return</strong> false;
 <a class="jxr_linenumber" name="863" href="#863">863</a>     }
 <a class="jxr_linenumber" name="864" href="#864">864</a> 
-<a class="jxr_linenumber" name="865" href="#865">865</a>     @Override
-<a class="jxr_linenumber" name="866" href="#866">866</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> release() {
-<a class="jxr_linenumber" name="867" href="#867">867</a>         <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="868" href="#868">868</a>     }
-<a class="jxr_linenumber" name="869" href="#869">869</a> 
-<a class="jxr_linenumber" name="870" href="#870">870</a>     @Override
-<a class="jxr_linenumber" name="871" href="#871">871</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">boolean</strong> release(<strong class="jxr_keyword">int</strong> decrement) {
-<a class="jxr_linenumber" name="872" href="#872">872</a>         <strong class="jxr_keyword">return</strong> false;
-<a class="jxr_linenumber" name="873" href="#873">873</a>     }
-<a class="jxr_linenumber" name="874" href="#874">874</a> 
-<a class="jxr_linenumber" name="875" href="#875">875</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkIndex(<strong class="jxr_keyword">int</strong> index) {
-<a class="jxr_linenumber" name="876" href="#876">876</a>         <strong class="jxr_keyword">if</strong> (index != 0) {
+<a class="jxr_linenumber" name="865" href="#865">865</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkIndex(<strong class="jxr_keyword">int</strong> index) {
+<a class="jxr_linenumber" name="866" href="#866">866</a>         <strong class="jxr_keyword">if</strong> (index != 0) {
+<a class="jxr_linenumber" name="867" href="#867">867</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IndexOutOfBoundsException();
+<a class="jxr_linenumber" name="868" href="#868">868</a>         }
+<a class="jxr_linenumber" name="869" href="#869">869</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
+<a class="jxr_linenumber" name="870" href="#870">870</a>     }
+<a class="jxr_linenumber" name="871" href="#871">871</a> 
+<a class="jxr_linenumber" name="872" href="#872">872</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkIndex(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
+<a class="jxr_linenumber" name="873" href="#873">873</a>         <strong class="jxr_keyword">if</strong> (length &lt; 0) {
+<a class="jxr_linenumber" name="874" href="#874">874</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"length: "</span> + length);
+<a class="jxr_linenumber" name="875" href="#875">875</a>         }
+<a class="jxr_linenumber" name="876" href="#876">876</a>         <strong class="jxr_keyword">if</strong> (index != 0 || length != 0) {
 <a class="jxr_linenumber" name="877" href="#877">877</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IndexOutOfBoundsException();
 <a class="jxr_linenumber" name="878" href="#878">878</a>         }
 <a class="jxr_linenumber" name="879" href="#879">879</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
 <a class="jxr_linenumber" name="880" href="#880">880</a>     }
 <a class="jxr_linenumber" name="881" href="#881">881</a> 
-<a class="jxr_linenumber" name="882" href="#882">882</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkIndex(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
+<a class="jxr_linenumber" name="882" href="#882">882</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkLength(<strong class="jxr_keyword">int</strong> length) {
 <a class="jxr_linenumber" name="883" href="#883">883</a>         <strong class="jxr_keyword">if</strong> (length &lt; 0) {
-<a class="jxr_linenumber" name="884" href="#884">884</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"length: "</span> + length);
+<a class="jxr_linenumber" name="884" href="#884">884</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"length: "</span> + length + <span class="jxr_string">" (expected: &gt;= 0)"</span>);
 <a class="jxr_linenumber" name="885" href="#885">885</a>         }
-<a class="jxr_linenumber" name="886" href="#886">886</a>         <strong class="jxr_keyword">if</strong> (index != 0 || length != 0) {
+<a class="jxr_linenumber" name="886" href="#886">886</a>         <strong class="jxr_keyword">if</strong> (length != 0) {
 <a class="jxr_linenumber" name="887" href="#887">887</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IndexOutOfBoundsException();
 <a class="jxr_linenumber" name="888" href="#888">888</a>         }
 <a class="jxr_linenumber" name="889" href="#889">889</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
 <a class="jxr_linenumber" name="890" href="#890">890</a>     }
-<a class="jxr_linenumber" name="891" href="#891">891</a> 
-<a class="jxr_linenumber" name="892" href="#892">892</a>     <strong class="jxr_keyword">private</strong> <a href="../../../io/netty/buffer/ByteBuf.html">ByteBuf</a> checkLength(<strong class="jxr_keyword">int</strong> length) {
-<a class="jxr_linenumber" name="893" href="#893">893</a>         <strong class="jxr_keyword">if</strong> (length &lt; 0) {
-<a class="jxr_linenumber" name="894" href="#894">894</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"length: "</span> + length + <span class="jxr_string">" (expected: &gt;= 0)"</span>);
-<a class="jxr_linenumber" name="895" href="#895">895</a>         }
-<a class="jxr_linenumber" name="896" href="#896">896</a>         <strong class="jxr_keyword">if</strong> (length != 0) {
-<a class="jxr_linenumber" name="897" href="#897">897</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IndexOutOfBoundsException();
-<a class="jxr_linenumber" name="898" href="#898">898</a>         }
-<a class="jxr_linenumber" name="899" href="#899">899</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>;
-<a class="jxr_linenumber" name="900" href="#900">900</a>     }
-<a class="jxr_linenumber" name="901" href="#901">901</a> }
+<a class="jxr_linenumber" name="891" href="#891">891</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

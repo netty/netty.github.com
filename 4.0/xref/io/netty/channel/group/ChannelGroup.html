@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>ChannelGroup xref</title>
@@ -30,9 +30,9 @@
 <a class="jxr_linenumber" name="20" href="#20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.Unpooled;
 <a class="jxr_linenumber" name="21" href="#21">21</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.Channel;
 <a class="jxr_linenumber" name="22" href="#22">22</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelStateHandlerAdapter;
+<a class="jxr_linenumber" name="23" href="#23">23</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelInboundHandlerAdapter;
 <a class="jxr_linenumber" name="24" href="#24">24</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.EventLoop;
-<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.FileRegion;
+<a class="jxr_linenumber" name="25" href="#25">25</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.MessageList;
 <a class="jxr_linenumber" name="26" href="#26">26</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ServerChannel;
 <a class="jxr_linenumber" name="27" href="#27">27</a>  <strong class="jxr_keyword">import</strong> io.netty.util.CharsetUtil;
 <a class="jxr_linenumber" name="28" href="#28">28</a>  
@@ -88,7 +88,7 @@
 <a class="jxr_linenumber" name="78" href="#78">78</a>  <em class="jxr_javadoccomment"> *     b.releaseExternalResources();</em>
 <a class="jxr_linenumber" name="79" href="#79">79</a>  <em class="jxr_javadoccomment"> * }</em>
 <a class="jxr_linenumber" name="80" href="#80">80</a>  <em class="jxr_javadoccomment"> *</em>
-<a class="jxr_linenumber" name="81" href="#81">81</a>  <em class="jxr_javadoccomment"> * public class MyHandler extends {@link ChannelStateHandlerAdapter} {</em>
+<a class="jxr_linenumber" name="81" href="#81">81</a>  <em class="jxr_javadoccomment"> * public class MyHandler extends {@link ChannelInboundHandlerAdapter} {</em>
 <a class="jxr_linenumber" name="82" href="#82">82</a>  <em class="jxr_javadoccomment"> *     {@code @Override}</em>
 <a class="jxr_linenumber" name="83" href="#83">83</a>  <em class="jxr_javadoccomment"> *     public void channelActive({@link ChannelHandlerContext} ctx) {</em>
 <a class="jxr_linenumber" name="84" href="#84">84</a>  <em class="jxr_javadoccomment"> *         // closed on shutdown.</em>
@@ -127,51 +127,45 @@
 <a class="jxr_linenumber" name="117" href="#117">117</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> write(Object message);
 <a class="jxr_linenumber" name="118" href="#118">118</a> 
 <a class="jxr_linenumber" name="119" href="#119">119</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * Writes the specified {@link FileRegion} to all {@link Channel}s in this</em>
-<a class="jxr_linenumber" name="121" href="#121">121</a> <em class="jxr_javadoccomment">     * group. Please note that this operation is asynchronous as</em>
-<a class="jxr_linenumber" name="122" href="#122">122</a> <em class="jxr_javadoccomment">     * {@link Channel#sendFile(FileRegion)} is.</em>
-<a class="jxr_linenumber" name="123" href="#123">123</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="124" href="#124">124</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
-<a class="jxr_linenumber" name="125" href="#125">125</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
-<a class="jxr_linenumber" name="126" href="#126">126</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="127" href="#127">127</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> sendFile(<a href="../../../../io/netty/channel/FileRegion.html">FileRegion</a> region);
-<a class="jxr_linenumber" name="128" href="#128">128</a> 
-<a class="jxr_linenumber" name="129" href="#129">129</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="130" href="#130">130</a> <em class="jxr_javadoccomment">     * Flush all {@link Channel} in this group. Please note that this operation</em>
-<a class="jxr_linenumber" name="131" href="#131">131</a> <em class="jxr_javadoccomment">     * is asynchronous as {@link Channel#flush()} is.</em>
-<a class="jxr_linenumber" name="132" href="#132">132</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="133" href="#133">133</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
-<a class="jxr_linenumber" name="134" href="#134">134</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
-<a class="jxr_linenumber" name="135" href="#135">135</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="136" href="#136">136</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> flush();
-<a class="jxr_linenumber" name="137" href="#137">137</a> 
-<a class="jxr_linenumber" name="138" href="#138">138</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="139" href="#139">139</a> <em class="jxr_javadoccomment">     * Disconnects all {@link Channel}s in this group from their remote peers.</em>
-<a class="jxr_linenumber" name="140" href="#140">140</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="141" href="#141">141</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
-<a class="jxr_linenumber" name="142" href="#142">142</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
-<a class="jxr_linenumber" name="143" href="#143">143</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="144" href="#144">144</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> disconnect();
-<a class="jxr_linenumber" name="145" href="#145">145</a> 
-<a class="jxr_linenumber" name="146" href="#146">146</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="147" href="#147">147</a> <em class="jxr_javadoccomment">     * Closes all {@link Channel}s in this group.  If the {@link Channel} is</em>
-<a class="jxr_linenumber" name="148" href="#148">148</a> <em class="jxr_javadoccomment">     * connected to a remote peer or bound to a local address, it is</em>
-<a class="jxr_linenumber" name="149" href="#149">149</a> <em class="jxr_javadoccomment">     * automatically disconnected and unbound.</em>
-<a class="jxr_linenumber" name="150" href="#150">150</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="151" href="#151">151</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
-<a class="jxr_linenumber" name="152" href="#152">152</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
-<a class="jxr_linenumber" name="153" href="#153">153</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="154" href="#154">154</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> close();
-<a class="jxr_linenumber" name="155" href="#155">155</a> 
-<a class="jxr_linenumber" name="156" href="#156">156</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="157" href="#157">157</a> <em class="jxr_javadoccomment">     * Deregister all {@link Channel}s in this group from their {@link EventLoop}.</em>
-<a class="jxr_linenumber" name="158" href="#158">158</a> <em class="jxr_javadoccomment">     * Please note that this operation is asynchronous as {@link Channel#deregister()} is.</em>
-<a class="jxr_linenumber" name="159" href="#159">159</a> <em class="jxr_javadoccomment">     *</em>
-<a class="jxr_linenumber" name="160" href="#160">160</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
-<a class="jxr_linenumber" name="161" href="#161">161</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
-<a class="jxr_linenumber" name="162" href="#162">162</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="163" href="#163">163</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> deregister();
-<a class="jxr_linenumber" name="164" href="#164">164</a> }
+<a class="jxr_linenumber" name="120" href="#120">120</a> <em class="jxr_javadoccomment">     * Writes the specified {@code messages} to all {@link Channel}s in this</em>
+<a class="jxr_linenumber" name="121" href="#121">121</a> <em class="jxr_javadoccomment">     * group. If the specified {@code messages} are an instance of</em>
+<a class="jxr_linenumber" name="122" href="#122">122</a> <em class="jxr_javadoccomment">     * {@link ByteBuf}, it is automatically</em>
+<a class="jxr_linenumber" name="123" href="#123">123</a> <em class="jxr_javadoccomment">     * {@linkplain ByteBuf#duplicate() duplicated} to avoid a race</em>
+<a class="jxr_linenumber" name="124" href="#124">124</a> <em class="jxr_javadoccomment">     * condition. Please note that this operation is asynchronous as</em>
+<a class="jxr_linenumber" name="125" href="#125">125</a> <em class="jxr_javadoccomment">     * {@link Channel#write(Object)} is.</em>
+<a class="jxr_linenumber" name="126" href="#126">126</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="127" href="#127">127</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
+<a class="jxr_linenumber" name="128" href="#128">128</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
+<a class="jxr_linenumber" name="129" href="#129">129</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="130" href="#130">130</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> write(MessageList&lt;Object&gt; messages);
+<a class="jxr_linenumber" name="131" href="#131">131</a> 
+<a class="jxr_linenumber" name="132" href="#132">132</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="133" href="#133">133</a> <em class="jxr_javadoccomment">     * Disconnects all {@link Channel}s in this group from their remote peers.</em>
+<a class="jxr_linenumber" name="134" href="#134">134</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="135" href="#135">135</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
+<a class="jxr_linenumber" name="136" href="#136">136</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
+<a class="jxr_linenumber" name="137" href="#137">137</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="138" href="#138">138</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> disconnect();
+<a class="jxr_linenumber" name="139" href="#139">139</a> 
+<a class="jxr_linenumber" name="140" href="#140">140</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="141" href="#141">141</a> <em class="jxr_javadoccomment">     * Closes all {@link Channel}s in this group.  If the {@link Channel} is</em>
+<a class="jxr_linenumber" name="142" href="#142">142</a> <em class="jxr_javadoccomment">     * connected to a remote peer or bound to a local address, it is</em>
+<a class="jxr_linenumber" name="143" href="#143">143</a> <em class="jxr_javadoccomment">     * automatically disconnected and unbound.</em>
+<a class="jxr_linenumber" name="144" href="#144">144</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="145" href="#145">145</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
+<a class="jxr_linenumber" name="146" href="#146">146</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
+<a class="jxr_linenumber" name="147" href="#147">147</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="148" href="#148">148</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> close();
+<a class="jxr_linenumber" name="149" href="#149">149</a> 
+<a class="jxr_linenumber" name="150" href="#150">150</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="151" href="#151">151</a> <em class="jxr_javadoccomment">     * Deregister all {@link Channel}s in this group from their {@link EventLoop}.</em>
+<a class="jxr_linenumber" name="152" href="#152">152</a> <em class="jxr_javadoccomment">     * Please note that this operation is asynchronous as {@link Channel#deregister()} is.</em>
+<a class="jxr_linenumber" name="153" href="#153">153</a> <em class="jxr_javadoccomment">     *</em>
+<a class="jxr_linenumber" name="154" href="#154">154</a> <em class="jxr_javadoccomment">     * @return the {@link ChannelGroupFuture} instance that notifies when</em>
+<a class="jxr_linenumber" name="155" href="#155">155</a> <em class="jxr_javadoccomment">     *         the operation is done for all channels</em>
+<a class="jxr_linenumber" name="156" href="#156">156</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="157" href="#157">157</a>     <a href="../../../../io/netty/channel/group/ChannelGroupFuture.html">ChannelGroupFuture</a> deregister();
+<a class="jxr_linenumber" name="158" href="#158">158</a> }
 </pre>
 <hr/><div id="footer">This page was automatically generated by <a href="http://maven.apache.org/">Maven</a></div>
 <script type="text/javascript">

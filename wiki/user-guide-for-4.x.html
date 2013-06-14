@@ -48,14 +48,14 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://netty.googlecode.com/files/netty-4.0.0.CR2.tar.bz2">
+                  <a href="http://dl.bintray.com/trustin/downloads/netty-4.0.0.CR5.tar.bz2?direct">
                     <i class="icon-download"></i>
-                    4.0.0.CR2
-                    <small>&dash; 08-May-2013</small>
+                    4.0.0.CR5
+                    <small>&dash; 14-Jun-2013</small>
                   </a>
                 </li>
                 <li>
-                  <a href="http://netty.googlecode.com/files/netty-3.6.6.Final-dist.tar.bz2">
+                  <a href="http://dl.bintray.com/trustin/downloads/netty-3.6.6.Final-dist.tar.bz2?direct">
                     <i class="icon-download"></i>
                     3.6.6.Final
                     <small>&dash; 15-May-2013</small>
@@ -68,7 +68,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://code.google.com/p/netty/downloads/list">
+                  <a href="https://bintray.com/trustin/downloads/netty/">
                     <i class="icon-briefcase"></i>
                     Previous Releases
                   </a>
@@ -159,16 +159,111 @@
             You can improve it by yourself
             <a href="https://github.com/netty/netty/wiki/User-guide-for-4.x">here!</a>
           </div>
+          <div class="wiki-toc well pull-right">
+          <ul class="nav nav-list">
+          <li class="nav-header">Table of Contents
+          </li><li><a href="#wiki-h2-0" title="
+          This page needs work!">
+          This page needs work!</a>
+          </li><li><a href="#wiki-h2-1" title="
+          Preface">
+          Preface</a>
+          <ul class="nav nav-list"><li><a href="#wiki-h3-2" title="
+          The Problem">
+          The Problem</a>
+          </li></ul></li><li><a href="#wiki-h2-3" title="
+          The Solution">
+          The Solution</a>
+          </li><li><a href="#wiki-h2-4" title="
+          Getting Started">
+          Getting Started</a>
+          <ul class="nav nav-list"><li><a href="#wiki-h3-5" title="
+          Before Getting Started">
+          Before Getting Started</a>
+          </li><li><a href="#wiki-h3-6" title="
+          Writing a Discard Server">
+          Writing a Discard Server</a>
+          </li></ul>
+          </li></ul>
+          </div>
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <h2>
+                <h2 id="wiki-h2-0">
           <a name="this-page-needs-work" class="anchor" href="#this-page-needs-work"><span class="octicon octicon-link"></span></a>This page needs work!</h2>
           
-          <p>Please read <a href="http://netty.io/4.0/guide/">this</a> until the user guide is moved to the wiki.</p>
+          <p>Please read <a href="http://netty.io/4.0/guide/">this</a> until the user guide is fully moved to the wiki.</p>
+          
+          <h2 id="wiki-h2-1">
+          <a name="preface" class="anchor" href="#preface"><span class="octicon octicon-link"></span></a>Preface</h2>
+          
+          <h3 id="wiki-h3-2">
+          <a name="the-problem" class="anchor" href="#the-problem"><span class="octicon octicon-link"></span></a>The Problem</h3>
+          
+          <p>Nowadays we use general purpose applications or libraries to communicate with each other. For example, we often use an HTTP client library to retrieve information from a web server and to invoke a remote procedure call via web services.</p>
+          
+          <p>However, a general purpose protocol or its implementation sometimes does not scale very well. It is like we don't use a general purpose HTTP server to exchange huge files, e-mail messages, and near-realtime messages such as financial information and multiplayer game data. What's required is a highly optimized protocol implementation which is dedicated to a special purpose. For example, you might want to implement an HTTP server which is optimized for AJAX-based chat application, media streaming, or large file transfer. You could even want to design and implement a whole new protocol which is precisely tailored to your need.</p>
+          
+          <p>Another inevitable case is when you have to deal with a legacy proprietary protocol to ensure the interoperability with an old system. What matters in this case is how quickly we can implement that protocol while not sacrificing the stability and performance of the resulting application.</p>
+          
+          <h2 id="wiki-h2-3">
+          <a name="the-solution" class="anchor" href="#the-solution"><span class="octicon octicon-link"></span></a>The Solution</h2>
+          
+          <p><a href="http://netty.io/">The Netty project</a> is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.</p>
+          
+          <p>In other words, Netty is a NIO client server framework which enables quick and easy development of network applications such as protocol servers and clients. It greatly simplifies and streamlines network programming such as TCP and UDP socket server development.</p>
+          
+          <p>'Quick and easy' does not mean that a resulting application will suffer from a maintainability or a performance issue. Netty has been designed carefully with the experiences earned from the implementation of a lot of protocols such as FTP, SMTP, HTTP, and various binary and text-based legacy protocols. As a result, Netty has succeeded to find a way to achieve ease of development, performance, stability, and flexibility without a compromise.</p>
+          
+          <p>Some users might already have found other network application framework that claims to have the same advantage, and you might want to ask what makes Netty so different from them. The answer is the philosophy where it is built on. Netty is designed to give you the most comfortable experience both in terms of the API and the implementation from the day one. It is not something tangible but you will realize that this philosophy will make your life much easier as you read this guide and play with Netty.</p>
+          
+          <h2 id="wiki-h2-4">
+          <a name="getting-started" class="anchor" href="#getting-started"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+          
+          <p>This chapter tours around the core constructs of Netty with simple examples to let you get started quickly. You will be able to write a client and a server on top of Netty right away when you are at the end of this chapter.</p>
+          
+          <p>If you prefer top-down approach in learning something, you might want to start from Chapter 2, Architectural Overview and get back here.</p>
+          
+          <h3 id="wiki-h3-5">
+          <a name="before-getting-started" class="anchor" href="#before-getting-started"><span class="octicon octicon-link"></span></a>Before Getting Started</h3>
+          
+          <p>The minimum requirements to run the examples which are introduced in this chapter are only two; the latest version of Netty and JDK 1.6 or above. The latest version of Netty is available in <a href="http://netty.io/downloads">the project download page</a>. To download the right version of JDK, please refer to your preferred JDK vendor's web site.</p>
+          
+          <p>As you read, you might have more questions about the classes introduced in this chapter. Please refer to the API reference whenever you want to know more about them. All class names in this document are linked to the online API reference for your convenience. Also, please don't hesitate to <a href="http://netty.io/community.html">contact the Netty project community</a> and let us know if there's any incorrect information, errors in grammar and typo, and if you have a good idea to improve the documentation.</p>
+          
+          <h3 id="wiki-h3-6">
+          <a name="writing-a-discard-server" class="anchor" href="#writing-a-discard-server"><span class="octicon octicon-link"></span></a>Writing a Discard Server</h3>
+          
+          <p>The most simplistic protocol in the world is not 'Hello, World!' but <a href="http://tools.ietf.org/html/rfc863"><code>DISCARD</code></a>. It's a protocol which discards any received data without any response.</p>
+          
+          <p>To implement the <code>DISCARD</code> protocol, the only thing you need to do is to ignore all received data. Let us start straight from the handler implementation, which handles I/O events generated by Netty.</p>
+          
+          <pre><code>package io.netty.example.discard;&#x000A;&#x000A;import io.netty.buffer.ByteBuf;&#x000A;import io.netty.channel.ChannelHandlerContext;&#x000A;import io.netty.channel.ChannelInboundByteHandlerAdapter;&#x000A;&#x000A;public class DiscardServerHandler extends ChannelInboundByteHandlerAdapter {&#x000A;    @Override&#x000A;    protected void inboundBufferUpdated(ChannelHandlerContext ctx, ByteBuf in) {&#x000A;        in.clear();&#x000A;    }&#x000A;&#x000A;    @Override&#x000A;    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {&#x000A;        cause.printStackTrace();&#x000A;&#x000A;        ctx.close();&#x000A;    }&#x000A;}&#x000A;</code></pre>
+          
+          <ul>
+          <li>
+          <code>DiscardServerHandler</code> extends <a href="http://netty.io/4.0/api/io/netty/channel/ChannelInboundByteHandlerAdapter.html"><code>ChannelInboundByteHandlerAdapter</code></a>, which is an implementation of <a href="http://netty.io/4.0/api/io/netty/channel/ChannelInboundByteHandler.html"><code>ChannelInboundByteHandler</code></a>. <code>ChannelInboundByteHandler</code> provides various event handler methods that you can override. For now, it is just enough to extend <code>ChannelInboundByteHandlerAdapter</code> rather than to implement the handler interface by yourself.</li>
+          <li>We override the <code>inboundBufferUpdate()</code> event handler method here. This method is called with a <a href="http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>, which contains the received data, whenever new data is received from a client. In this example, we just discard the received data by calling <code>clear()</code> on the <code>ByteBuf</code> to implement the <code>DISCARD</code> protocol.</li>
+          <li>The <code>exceptionCaught()</code> event handler method is called with a Throwable when an exception was raised by Netty due to I/O error or by a handler implementation due to the exception thrown while processing events. In most cases, the caught exception should be logged and its associated channel should be closed here, although the implementation of this method can be different depending on what you want to do to deal with an exceptional situation. For example, you might want to send a response message with an error code before closing the connection.</li>
+          </ul>
+          <p>So far so good. We have implemented the first half of the <code>DISCARD</code> server. What's left now is to write the <code>main()</code> method which starts the server with the <code>DiscardServerHandler</code>.</p>
+          
+          <pre><code>package io.netty.example.discard;&#x000A;&#x000A;import java.net.InetSocketAddress;&#x000A;&#x000A;import io.netty.bootstrap.ServerBootstrap;&#x000A;import io.netty.channel.ChannelFuture;&#x000A;import io.netty.channel.ChannelInitializer;&#x000A;import io.netty.channel.ChannelOption;&#x000A;import io.netty.channel.nio.NioEventLoopGroup;&#x000A;import io.netty.channel.socket.SocketChannel;&#x000A;import io.netty.channel.socket.nio.NioServerSocketChannel;&#x000A;&#x000A;public class DiscardServer {&#x000A;    public static void main(String[] args) throws Exception {&#x000A;        ServerBootstrap bootstrap = new ServerBootstrap();&#x000A;        try {&#x000A;            bootstrap.group(new NioEventLoopGroup(), new NioEventLoopGroup())&#x000A;                .channel(NioServerSocketChannel.class)&#x000A;                .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {&#x000A;                    @Override&#x000A;                    protected void initChannel(SocketChannel channel) {&#x000A;                        channel.pipeline().addLast(new DiscardServerHandler());&#x000A;                    }&#x000A;                })&#x000A;                .childOption(ChannelOption.TCP_NODELAY, true)&#x000A;                .childOption(ChannelOption.SO_KEEPALIVE, true);&#x000A;&#x000A;            ChannelFuture future = bootstrap.bind(new InetSocketAddress(8080)).sync();&#x000A;&#x000A;            future.channel().closeFuture().sync();&#x000A;        } finally {&#x000A;            bootstrap.shutdown();&#x000A;        }&#x000A;    }&#x000A;}&#x000A;</code></pre>
+          
+          <ul>
+          <li>
+          <a href="http://netty.io/4.0/api/io/netty/bootstrap/ServerBootstrap.html"><code>ServerBootstrap</code></a> is a helper class that sets up a server. You can set up the server using a <a href="http://netty.io/4.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> directly. However, please note that this is a tedious process and you do not need to do that in most cases.</li>
+          <li>
+          <a href="http://netty.io/4.0/api/io/netty/channel/nio/NioEventLoopGroup.html"><code>NioEventLoopGroup</code></a> processes all I/O requests and performs I/O. Netty provides various <a href="http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html"><code>EventLoopGroup</code></a> implementations for different kind of transports. We are implementing a server-side application in this example, and therefore two <code>NioEventLoopGroup</code> will be used. The first is used to handle the accept of new connections and the second will serve the I/O of them. The used <code>EventLoopGroup</code> implementation is resposible to manage its used threads. How many Threads are used and how they are mapped to the created <code>Channel</code>s depends on the implementation and may be even configurable via the constructor. Please refer to the apidocs.</li>
+          <li>Here, we specify to use the <code>NioServerSocketChannel</code> class which will be used to instance a new <code>Channel</code> that will accept new connections.</li>
+          <li>Here, we configure the <a href="http://static.netty.io/4.0/api/io/netty/channel/ChannelInitializer.html"><code>ChannelInitializer</code></a>. Whenever a new connection is accepted by the server, it will be called. Most of the times you want to add <a href="http://static.netty.io/4.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandlers</code></a> to the pipeline of the accepted connection. In this example we add the <code>DiscardServerHandler</code>. As the application gets complicated, it is likely that you will add more handlers to the pipeline and extract this anonymous class into a top level class eventually.</li>
+          <li>You can also set the parameters which are specific to the <code>Channel</code> implementation. We are writing a TCP/IP server, so we are allowed to set the socket options such as <code>tcpNoDelay</code> and <code>keepAlive</code>. Please refer to the apidocs of <a href="http://netty.io/4.0/api/io/netty/channel/ChannelOption.html"><code>ChannelOption</code></a> and the specific <a href="http://netty.io/4.0/api/io/netty/channel/ChannelConfig.html"><code>ChannelConfig</code></a> implementations to get an overview about the supported <code>ChannelOption</code>s.</li>
+          <li>We are ready to go now. What's left is to bind to the port and to start the server. Here, we bind to the port <code>8080</code> of all NICs (network interface cards) in the machine. You can now call the <code>bind()</code> method as many times as you want (with different bind addresses.)</li>
+          </ul>
+          <p>Congratulations! You've just finished your first server on top of Netty.</p>
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 24-May-2013</small>
+            <small>Last retrived on 14-Jun-2013</small>
           </div>
         </div>
         <div class="comments">
