@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: To use SLF4J or not, that is the question</title>
-    <title>Netty: To use SLF4J or not, that is the question</title>
+    <title>Netty.news: Netty 4.0.0.CR5 released with new-new API</title>
+    <title>Netty: Netty 4.0.0.CR5 released with new-new API</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -154,7 +154,7 @@
       <div class="content instapaper_body">
         <div class="news-item">
           <h1>
-            To use SLF4J or not, that is the question
+            Netty 4.0.0.CR5 released with new-new API
           </h1>
           <p class="byline">
             <small>
@@ -162,42 +162,111 @@
               <a href="https://github.com/trustin">trustin</a>
               <br>
               on
-              <time datetime="2011-11-22">22-Nov-2011</time>
+              <time datetime="2013-06-18">18-Jun-2013</time>
             </small>
           </p>
           <div class="news-content">
-            <div class="entry-content">
-            <p><em>UPDATE</em>: It's noteworthy that the logging layer we are discussing on is not part of user API. That is, it's not intended for use by users but by developer (committer).</p>
-            <p>There was recently <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/64">a discussion</a></span> in the community about whether we should switch from our own logging layer to something else such as <span class="wikiexternallink"><a href="http://www.slf4j.org/">SLF4J</a></span> or java.util.logging in Netty 4. The following is the list of the options we discussed and the related opinions:</p>
+            <p>You might already have seen we tagged 4.0.0.CR5 (and CR4) recently and wondered why no release announcement was coming along.  Here's the announcement finally with choke full of changes.</p>
+            
+            <p>This release is different from others because of its huge change in the API.  I'd like to apologize for the broken backward compatibility again and explain why this change was required.  Also, please read <a href="http://netty.io/wiki/user-guide-for-4.x.html">the revised user guide</a> and <a href="http://netty.io/wiki/new-and-noteworthy.html">the complete list of the changes in 4</a>.</p>
+            
+            <h2>Why breakage again?</h2>
+            
+            <p>The API changes made so far turned out to increase the memory footprint and consumption while our intention was actually decreasing them.</p>
+            
+            <h3>Memory consumption issue</h3>
+            
+            <p>When there are many connections which does not exchange data frequently, the old Netty 4 API spent a lot more memory than 3 because it always allocates per-handler buffer for each connection unless otherwise explicitly stated by a user.  In a usual real world load, a client doesn't always send requests without pausing, so the idea of having a buffer whose life cycle if bound to the life cycle of a connection didn't work as expected.</p>
+            
+            <h3>Memory footprint issue</h3>
+            
+            <p>The old Netty 4 API decreased overall memory footprint by a great deal in many cases.  It was mainly because the old Netty 4 API did not allocate a new buffer and event object for each read.  Instead, it created a new buffer for each handler in a pipeline.  This works pretty well as long as the number of handlers in a pipeline is only a few.  However, for a highly modular application with many handlers which handles connections which lasts for relatively short period, it actually makes the memory footprint issue much worse.</p>
+            
+            <h2>How did we fix them this time?</h2>
+            
+            <p>All in all, this is about retaining all the good changes we made in 4 so far such as better thread model and going back to the way how we dealt with message events in 3.  The distinction of <code>MessageBuf</code> and <code>ByteBuf</code> is now gone, and Netty simply treats a <code>ByteBuf</code> as a message just like Netty 3 did.  A <code>ByteBuf</code> is not allocated per handler anymore.</p>
+            
+            <p>To follow the change, the type hierarchy of <code>ChannelHandler</code> became very similar to that of Netty 3:</p>
+            
+            <p><img src="http://img.motd.kr/uml/gist/188244c4b3d6b01c0156" alt="ChannelHandler type hierarchy diagram" /></p>
+            
+            <p>Consequently, <code>inboundBufferUpdated()</code> and <code>flush()</code> were replaced by <code>messageReceived()</code> and <code>write()</code> (similar to <code>filterWrite()</code> in 3) respectively.</p>
+            
+            <p>Another change to note is that <code>MessageBuf</code> is gone and a new type called <code>MessageList</code> is used as a parameter of <code>messageReceived()</code> and <code>write()</code>.  It is basically a light-weight container of multiple messages.</p>
+            
+            <p>Due to the changes above, some handler implementations have no value anymore and thus were removed: <code>ByteToByteEncoder/Decoder/Codec</code>. Please use <code>MessageToByteEncoder&lt;ByteBuf&gt;</code>, <code>ByteToMessageDecoder&lt;ByteBuf&gt;</code>, and <code>ByteToMessageCodec&lt;ByteBuf&gt;</code> instead.</p>
+            
+            <p>Here are some other changes that might interest you:</p>
+            
             <ul>
-            <li>Keep the current thin logging layer and modernize it so that it's as easy to use as SLF4J.<ul>
-            <li>Why: Zero dependency. Netty itself does not log very much.</li>
-            <li>Drawback: It doesn't make much sense to have a logging layer. Netty should focus on I/O.</li>
+            <li><code>EmbeddedByteChannel</code> and <code>EmbeddedMessageChannel</code> has been merged into <code>EmbeddedChannel</code>.</li>
+            <li><code>Channel.isWritable()</code> in 3 has been brought back.
+            
+            <ul>
+            <li>Added <code>ChannelInboundHandler.channelWritabilityChanges()</code> event which is similar to <code>channelInterestOpsChanged()</code> in 3.</li>
             </ul>
             </li>
-            <li>Use SLF4J.<ul>
-            <li>Why: A lot of open source libraries already use SLF4J. Nice API. Zero dependency is not really a problem because your application's classpath will probably have SLF4J anyway because other open source libraries you depend on use it.</li>
-            <li>Drawback: Non-zero API. People not familiar with setting up SLF4J might have difficulties to run their first Netty application.</li>
+            <li>Because a handler does not have its own buffer, Netty has to allocate a new buffer whenever it reads something.  To get the optimal size of the new buffer, <code>RecvByteBufAllocator</code> has been added as a configuration property.
+            
+            <ul>
+            <li>It is similar to <code>ReceiveBufferSizePredictor</code>.</li>
+            <li>Some existing configuration properties such as
+            <code>DatagramChannelConfig.receivePacketSize</code> is gone now.</li>
             </ul>
             </li>
-            <li>Use java.util.logging.<ul>
-            <li>Why: Zero dependency. Netty doesn't need to provide a logging layer.</li>
-            <li>Drawback: Unfriendly API. jul-to-SLF4J bridge has <span class="wikiexternallink"><a href="http://www.slf4j.org/legacy.html#jul-to-slf4j">very poor performance</a></span>.</li>
             </ul>
-            </li>
+            
+            
+            <h2>Other noteworthy changes</h2>
+            
+            <ul>
+            <li><code>io.netty.buffer.ReferenceCounted</code> has been moved to <code>io.netty.util</code>. (<a href="https://github.com/netty/netty/issues/1441">#1441</a>)</li>
+            <li>Resource leak detection has been turned on by default.</li>
+            <li>The <code>ByteBuf</code> created by <code>PooledByteBufAllocator</code> produces zero garbage now if resource leak detection is turned off by <code>-Dio.netty.noResourceLeakDetection</code> JVM flag.</li>
+            <li>The cancellation of <code>Future</code> and <code>Promise</code> works as expected now. (<a href="https://github.com/netty/netty/issues/1432">#1432</a>)</li>
+            <li><code>GlobalEventExecutor</code> has been added to allow a user to execute an arbitrary task from a global singleton thread. (<a href="https://github.com/netty/netty/issues/1389">#1389</a>)</li>
+            <li><code>Bootstrap.group()</code> getter method has been added for easier access to its underlying <code>EventLoopGroup</code>. (<a href="https://github.com/netty/netty/issues/1425">#1425</a>)</li>
+            <li>Message type hierarchy of SPDY has been revised. (<a href="https://github.com/netty/netty/issues/1418">#1418</a>)</li>
             </ul>
-            <p>We are probably not going to choose java.util.logging, but we are undecided whether we should switch to SLF4J or not. What is your opinion? It is very likely for us to respect your comments as much as possible for decision making, so please feel free to leave a comment so that we listen to you and understand what you value more!</p>
-            </div>
+            
+            
+            <p>Visit <a href="https://github.com/netty/netty/issues?milestone=53&amp;state=closed">here</a> for the complete list of the changes.</p>
+            
+            <h2>Acknowledgement</h2>
+            
+            <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+            
+            <ul>
+            <li><a href="https://github.com/coops">@coops</a></li>
+            <li><a href="https://github.com/d-t-w">@d-t-w</a></li>
+            <li><a href="https://github.com/DmitryLobachov">@DmitryLobachov</a></li>
+            <li><a href="https://github.com/dpx-infinity">@dpx-infinity</a></li>
+            <li><a href="https://github.com/hepin1989">@hepin1989</a></li>
+            <li><a href="https://github.com/icafe">@icafe</a></li>
+            <li><a href="https://github.com/jaens">@jaens</a></li>
+            <li><a href="https://github.com/jpinner">@jpinner</a></li>
+            <li><a href="https://github.com/listplot3d">@listplot3d</a></li>
+            <li><a href="https://github.com/lurongbin">@lurongbin</a></li>
+            <li><a href="https://github.com/mgiannini">@mgiannini</a></li>
+            <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+            <li><a href="https://github.com/profer">@profer</a></li>
+            <li><a href="https://github.com/skayred">@skayred</a></li>
+            <li><a href="https://github.com/sscarduzio">@sscarduzio</a></li>
+            <li><a href="https://github.com/trustin">@trustin</a></li>
+            </ul>
+            
+            
+            <p>Last but not least, this change would have been impossible without @normanmaurer's help. He fixed, ported, and improved many parts of my changes.</p>
           </div>
           <ul class="pager">
             <li class="previous">
-              <a href="../../../../news/2011/11/17/websockets.html">&larr; Older</a>
+              <a href="../../../../news/2013/05/15/3-6-6-Final.html">&larr; Older</a>
             </li>
             <li>
               <a href="../../../index.html">List all news items</a>
             </li>
-            <li class="next">
-              <a href="../../../../news/2011/11/23/3-2-7.html">Newer &rarr;</a>
+            <li class="next disabled">
+              <a href="#">Newer &rarr;</a>
             </li>
           </ul>
         </div>
@@ -206,9 +275,9 @@
                       <div id="disqus_thread"></div>
                       <script type="text/javascript">
                       var disqus_shortname = 'netty0';
-                      var disqus_url = "http://netty.io/news/2011/11/22/slf4j-or-not.html";
+                      var disqus_url = "http://netty.io/news/2013/06/18/4-0-0-CR5.html";
                       var disqus_developer = null;
-                      var disqus_identifier = "1717291725751567689";
+                      var disqus_identifier = "news/2013-06-18-4-0-0-CR5.html";
                       (function() {
                         var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                         dsq.src = "http://netty0.disqus.com/embed.js";
