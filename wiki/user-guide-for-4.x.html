@@ -48,10 +48,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/trustin/downloads/netty-4.0.0.CR5.tar.bz2?direct">
+                  <a href="http://dl.bintray.com/trustin/downloads/netty-4.0.0.CR6.tar.bz2?direct">
                     <i class="icon-download"></i>
-                    4.0.0.CR5
-                    <small>&dash; 14-Jun-2013</small>
+                    4.0.0.CR6
+                    <small>&dash; 21-Jun-2013</small>
                   </a>
                 </li>
                 <li>
@@ -298,7 +298,7 @@
           
           <p>We already know that <a href="http://netty.io/4.0/api/io/netty/channel/MessageList.html"><code>MessageList</code></a> is filled whenever data is received and the <code>messageReceived</code> handler method will be invoked. Let us put some code into the <code>messageReceived</code> method of the <code>DiscardServerHandler</code>:</p>
           
-          <div class="highlight"><pre><span class="nd">@Override</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">messageReceived</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">ByteBuf</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">msgs</span><span class="o">.</span><span class="na">cast</span><span class="o">();</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="k">for</span> <span class="o">(</span><span class="n">ByteBuf</span> <span class="nl">in:</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>&#x000A;            <span class="k">while</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readable</span><span class="o">())</span> <span class="o">{</span> <span class="c1">// (1)</span>&#x000A;                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="n">buf</span><span class="o">.</span><span class="na">readByte</span><span class="o">());</span>&#x000A;                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>&#x000A;            <span class="o">}</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">msgs</span><span class="o">.</span><span class="na">releaseAllAndRecycle</span><span class="o">();</span> <span class="c1">// (2)</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          <div class="highlight"><pre><span class="nd">@Override</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">messageReceived</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">ByteBuf</span><span class="o">&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">msgs</span><span class="o">.</span><span class="na">cast</span><span class="o">();</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="k">for</span> <span class="o">(</span><span class="n">ByteBuf</span> <span class="n">in</span> <span class="o">:</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>&#x000A;            <span class="k">while</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">readable</span><span class="o">())</span> <span class="o">{</span> <span class="c1">// (1)</span>&#x000A;                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="n">in</span><span class="o">.</span><span class="na">readByte</span><span class="o">());</span>&#x000A;                <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>&#x000A;            <span class="o">}</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">msgs</span><span class="o">.</span><span class="na">releaseAllAndRecycle</span><span class="o">();</span> <span class="c1">// (2)</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
           <ol>
           <li>This inefficient loop can actually be simplified to: <code>System.out.println(buf.toString(io.netty.util.CharsetUtil.US_ASCII))</code>
@@ -520,7 +520,7 @@
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 20-Jun-2013</small>
+            <small>Last retrived on 21-Jun-2013</small>
           </div>
         </div>
         <div class="comments">
