@@ -48,10 +48,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.0.CR6.tar.bz2?direct">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.0.CR7.tar.bz2?direct">
                     <i class="icon-download-alt"></i>
-                    4.0.0.CR6
-                    <small>&dash; 21-Jun-2013</small>
+                    4.0.0.CR7
+                    <small>&dash; 28-Jun-2013</small>
                   </a>
                 </li>
                 <li>
@@ -174,140 +174,143 @@
           <div class="wiki-toc well pull-right">
           <ul class="nav nav-list">
           <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="
+          </li><li>
+          <ul class="nav nav-list"><li><a href="#wiki-h3-0" title="HTTPS clone URL">HTTPS clone URL</a>
+          </li><li><a href="#wiki-h3-1" title="Subversion checkout URL">Subversion checkout URL</a>
+          </li></ul></li><li><a href="#wiki-h2-2" title="
           Project structure changes">
           Project structure changes</a>
-          </li><li><a href="#wiki-h2-1" title="
+          </li><li><a href="#wiki-h2-3" title="
           General API changes">
           General API changes</a>
-          </li><li><a href="#wiki-h2-2" title="
+          </li><li><a href="#wiki-h2-4" title="
           Buffer API changes">
           Buffer API changes</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h3-3" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h3-5" title="
           
           ChannelBuffer → ByteBuf
           ">
           
           ChannelBuffer → ByteBuf
-          </a>
-          </li><li><a href="#wiki-h3-4" title="
-          Most buffers are dynamic with maximum capacity">
-          Most buffers are dynamic with maximum capacity</a>
-          </li><li><a href="#wiki-h3-5" title="
-          New interface: CompositeByteBuf
-          ">
-          New interface: CompositeByteBuf
           </a>
           </li><li><a href="#wiki-h3-6" title="
+          Most buffers are dynamic with maximum capacity">
+          Most buffers are dynamic with maximum capacity</a>
+          </li><li><a href="#wiki-h3-7" title="
+          New interface: CompositeByteBuf
+          ">
+          New interface: CompositeByteBuf
+          </a>
+          </li><li><a href="#wiki-h3-8" title="
           Predictable NIO buffer conversion">
           Predictable NIO buffer conversion</a>
-          </li><li><a href="#wiki-h3-7" title="
+          </li><li><a href="#wiki-h3-9" title="
           Little endian support changes">
           Little endian support changes</a>
-          </li><li><a href="#wiki-h3-8" title="
+          </li><li><a href="#wiki-h3-10" title="
           Pooled buffers">
           Pooled buffers</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h4-9" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h4-11" title="
           
           ByteBuf is always reference counted">
           
           ByteBuf is always reference counted</a>
-          </li><li><a href="#wiki-h4-10" title="
+          </li><li><a href="#wiki-h4-12" title="
           Automatic buffer leak detection">
           Automatic buffer leak detection</a>
-          </li></ul></li><li><a href="#wiki-h3-13" title="
+          </li></ul></li><li><a href="#wiki-h3-15" title="
           Revamped ChannelHandler interface">
           Revamped ChannelHandler interface</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h4-14" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h4-16" title="
           Upstream → Inbound, Downstream → Outbound">
           Upstream → Inbound, Downstream → Outbound</a>
-          </li><li><a href="#wiki-h4-15" title="
+          </li><li><a href="#wiki-h4-17" title="
           New ChannelHandler type hierarchy">
           New ChannelHandler type hierarchy</a>
-          </li><li><a href="#wiki-h4-16" title="
+          </li><li><a href="#wiki-h4-18" title="
           
           ChannelHandler with no event object">
           
           ChannelHandler with no event object</a>
-          </li><li><a href="#wiki-h4-17" title="
+          </li><li><a href="#wiki-h4-19" title="
           Simplified channel state model">
           Simplified channel state model</a>
-          </li></ul></li><li><a href="#wiki-h3-18" title="
+          </li></ul></li><li><a href="#wiki-h3-20" title="
           Sensible and less error-prone inbound traffic suspension">
           Sensible and less error-prone inbound traffic suspension</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h4-19" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h4-21" title="
           Suspension of accepting incoming connections">
           Suspension of accepting incoming connections</a>
-          </li></ul></li><li><a href="#wiki-h3-20" title="
+          </li></ul></li><li><a href="#wiki-h3-22" title="
           Half-closed sockets">
           Half-closed sockets</a>
-          </li><li><a href="#wiki-h3-21" title="
+          </li><li><a href="#wiki-h3-23" title="
           Flexible I/O thread allocation">
           Flexible I/O thread allocation</a>
-          </li><li><a href="#wiki-h3-22" title="
+          </li><li><a href="#wiki-h3-24" title="
           Ability to create a Channel from an existing JDK socket">
           Ability to create a Channel from an existing JDK socket</a>
-          </li><li><a href="#wiki-h3-23" title="
+          </li><li><a href="#wiki-h3-25" title="
           Deregistration and re-registration of a Channel from·to an I/O thread">
           Deregistration and re-registration of a Channel from·to an I/O thread</a>
-          </li><li><a href="#wiki-h3-24" title="
+          </li><li><a href="#wiki-h3-26" title="
           Scheduling an arbitrary task to be run by an I/O thread">
           Scheduling an arbitrary task to be run by an I/O thread</a>
-          </li><li><a href="#wiki-h3-25" title="
+          </li><li><a href="#wiki-h3-27" title="
           Simplified shutdown">
           Simplified shutdown</a>
-          </li><li><a href="#wiki-h3-26" title="
+          </li><li><a href="#wiki-h3-28" title="
           Type-safe ChannelOption
           ">
           Type-safe ChannelOption
           </a>
-          </li><li><a href="#wiki-h3-27" title="
+          </li><li><a href="#wiki-h3-29" title="
           AttributeMap">
           AttributeMap</a>
-          </li><li><a href="#wiki-h3-28" title="
+          </li><li><a href="#wiki-h3-30" title="
           New bootstrap API">
           New bootstrap API</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h4-29" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h4-31" title="
           
           ChannelPipelineFactory → ChannelInitializer
           ">
           
           ChannelPipelineFactory → ChannelInitializer
           </a>
-          </li></ul></li><li><a href="#wiki-h3-30" title="
+          </li></ul></li><li><a href="#wiki-h3-32" title="
           
           ChannelFuture → ChannelFuture and ChannelPromise
           ">
           
           ChannelFuture → ChannelFuture and ChannelPromise
           </a>
-          </li></ul></li><li><a href="#wiki-h2-31" title="
+          </li></ul></li><li><a href="#wiki-h2-33" title="
           Well-defined thread model">
           Well-defined thread model</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h3-32" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h3-34" title="
           No more ExecutionHandler - it&apos;s in the core.">
           No more ExecutionHandler - it&apos;s in the core.</a>
-          </li></ul></li><li><a href="#wiki-h2-33" title="
+          </li></ul></li><li><a href="#wiki-h2-35" title="
           Codec framework changes">
           Codec framework changes</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h3-34" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h3-36" title="
           Codec embedder → EmbeddedChannel
           ">
           Codec embedder → EmbeddedChannel
           </a>
-          </li><li><a href="#wiki-h3-35" title="
+          </li><li><a href="#wiki-h3-37" title="
           HTTP codec">
           HTTP codec</a>
-          </li><li><a href="#wiki-h3-36" title="
+          </li><li><a href="#wiki-h3-38" title="
           Changes in transport implementations">
           Changes in transport implementations</a>
-          </li></ul></li><li><a href="#wiki-h2-37" title="
+          </li></ul></li><li><a href="#wiki-h2-39" title="
           Case study: porting the Factorial example">
           Case study: porting the Factorial example</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h3-38" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h3-40" title="
           Porting the server">
           Porting the server</a>
-          </li><li><a href="#wiki-h3-39" title="
+          </li><li><a href="#wiki-h3-41" title="
           Porting the client">
           Porting the client</a>
           </li></ul>
@@ -317,7 +320,7 @@
               <div class="markdown-body">
                 <p>This document walks you through the list of notable changes and new features in the major Netty release to give you an idea to port your application to the new version.</p>
           
-          <h2 id="wiki-h2-0">
+          <h2 id="wiki-h2-2">
           <a name="project-structure-changes" class="anchor" href="#project-structure-changes"><span class="octicon octicon-link"></span></a>Project structure changes</h2>
           
           <p>The package name of Netty has been changed from <code>org.jboss.netty</code> to <code>io.netty</code> since <a href="http://netty.io/news/2011/11/04/new-web-site.html">we are not part of JBoss.org anymore</a>.</p>
@@ -403,7 +406,7 @@
           </table>
           <p>All artifacts (except for <code>netty-all.jar</code>) are now OSGi bundles and can be used in your favorite OSGi container.</p>
           
-          <h2 id="wiki-h2-1">
+          <h2 id="wiki-h2-3">
           <a name="general-api-changes" class="anchor" href="#general-api-changes"><span class="octicon octicon-link"></span></a>General API changes</h2>
           
           <ul>
@@ -417,10 +420,10 @@
           <li>For API changes between 4.0 CR4 and 4.0 CR5 see <a href="http://netty.io/news/2013/06/18/4-0-0-CR5.html">Netty 4.0.0.CR5 released with new-new API</a>
           </li>
           </ul>
-          <h2 id="wiki-h2-2">
+          <h2 id="wiki-h2-4">
           <a name="buffer-api-changes" class="anchor" href="#buffer-api-changes"><span class="octicon octicon-link"></span></a>Buffer API changes</h2>
           
-          <h3 id="wiki-h3-3">
+          <h3 id="wiki-h3-5">
           <a name="channelbuffer--bytebuf" class="anchor" href="#channelbuffer--bytebuf"><span class="octicon octicon-link"></span></a>
           <code>ChannelBuffer</code> → <code>ByteBuf</code>
           </h3>
@@ -429,7 +432,7 @@
           
           <p>The utility class <code>ChannelBuffers</code>, which creates a new buffer, has been split into two utility classes, <code>Unpooled</code> and <code>ByteBufUtil</code>.  As can be guessed from its name <code>Unpooled</code>, 4.0 introduced pooled <code>ByteBuf</code>s which can be allocated via <code>ByteBufAllocator</code> implementations.</p>
           
-          <h3 id="wiki-h3-4">
+          <h3 id="wiki-h3-6">
           <a name="most-buffers-are-dynamic-with-maximum-capacity" class="anchor" href="#most-buffers-are-dynamic-with-maximum-capacity"><span class="octicon octicon-link"></span></a>Most buffers are dynamic with maximum capacity</h3>
           
           <p>In 3.x, buffers were fixed or dynamic.  The capacity of a fixed buffer does not change once it is created while the capacity of a dynamic buffer changes whenever its <code>write*(...)</code> method requires more space.</p>
@@ -440,25 +443,25 @@
           
           <p>The only exception is the buffer which wraps a single buffer or a single byte array, created by <code>wrappedBuffer()</code>.  You cannot increase its capacity because it invalidates the whole point of wrapping an existing buffer - saving memory copies.  If you want to change the capacity after you wrap a buffer, you should just create a new buffer with enough capacity and copy the buffer you wanted to wrap.</p>
           
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-7">
           <a name="new-interface-compositebytebuf" class="anchor" href="#new-interface-compositebytebuf"><span class="octicon octicon-link"></span></a>New interface: <code>CompositeByteBuf</code>
           </h3>
           
           <p>A new interface named <code>CompositeByteBuf</code> defines various advanced operations for composite buffer implementations.  A user can save bulk memory copy operations using a composite buffer at the cost of relatively expensive random access.  To create a new composite buffer, use either <code>Unpooled.wrappedBuffer(...)</code> like before, <code>Unpooled.compositeBuffer(...)</code>, or <code>ByteBufAllocator.compositeBuffer()</code>.</p>
           
-          <h3 id="wiki-h3-6">
+          <h3 id="wiki-h3-8">
           <a name="predictable-nio-buffer-conversion" class="anchor" href="#predictable-nio-buffer-conversion"><span class="octicon octicon-link"></span></a>Predictable NIO buffer conversion</h3>
           
           <p>The contract of <code>ChannelBuffer.toByteBuffer()</code> and its variants were not deterministic enough in 3.x.  It was impossible for a user to know if they would return a view buffer with shared data or a copied buffer with separate data.  4.0 replaces <code>toByteBuffer()</code> with <code>ByteBuf.nioBufferCount()</code>, <code>nioBuffer()</code>, and <code>nioBuffers()</code>.  If <code>nioBufferCount()</code> returns <code>0</code>, a user can always get a copied buffer by calling <code>copy().nioBuffer()</code>.</p>
           
-          <h3 id="wiki-h3-7">
+          <h3 id="wiki-h3-9">
           <a name="little-endian-support-changes" class="anchor" href="#little-endian-support-changes"><span class="octicon octicon-link"></span></a>Little endian support changes</h3>
           
           <p>Little endian support has been changed significantly.  Previously, a user was supposed to specify a <code>LittleEndianHeapChannelBufferFactory</code> or wrap an existing buffer with the desired byte order to get a little endian buffer.  4.0 adds a new method: <code>ByteBuf.order(ByteOrder)</code>.  It returns a view of the callee with the desired byte order:</p>
           
           <div class="highlight"><pre><span class="kn">import</span> <span class="nn">io.netty.buffer.ByteBuf</span><span class="o">;</span>&#x000A;<span class="kn">import</span> <span class="nn">io.netty.buffer.Unpooled</span><span class="o">;</span>&#x000A;<span class="kn">import</span> <span class="nn">java.nio.ByteOrder</span><span class="o">;</span>&#x000A; &#x000A;<span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">Unpooled</span><span class="o">.</span><span class="na">buffer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span>&#x000A;<span class="n">buf</span><span class="o">.</span><span class="na">setInt</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>&#x000A;<span class="c1">// Prints '00000001'</span>&#x000A;<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%08x%n"</span><span class="o">,</span> <span class="n">buf</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span> &#x000A; &#x000A;<span class="n">ByteBuf</span> <span class="n">leBuf</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="na">order</span><span class="o">(</span><span class="n">ByteOrder</span><span class="o">.</span><span class="na">LITTLE_ENDIAN</span><span class="o">);</span>&#x000A;<span class="c1">// Prints '01000000'</span>&#x000A;<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">format</span><span class="o">(</span><span class="s">"%08x%n"</span><span class="o">,</span> <span class="n">leBuf</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="mi">0</span><span class="o">));</span>&#x000A; &#x000A;<span class="k">assert</span> <span class="n">buf</span> <span class="o">!=</span> <span class="n">leBuf</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span> <span class="o">==</span> <span class="n">buf</span><span class="o">.</span><span class="na">order</span><span class="o">(</span><span class="n">ByteOrder</span><span class="o">.</span><span class="na">BIG_ENDIAN</span><span class="o">);</span></pre></div>
           
-          <h3 id="wiki-h3-8">
+          <h3 id="wiki-h3-10">
           <a name="pooled-buffers" class="anchor" href="#pooled-buffers"><span class="octicon octicon-link"></span></a>Pooled buffers</h3>
           
           <p>Netty 4 introduces a high-performance buffer pool which is a variant of <a href="http://www.canonware.com/jemalloc/">jemalloc</a> that combines <a href="http://en.wikipedia.org/wiki/Buddy_memory_allocation">buddy allocation</a> and <a href="http://en.wikipedia.org/wiki/Slab_allocation">slab allocation</a>. It gives the following benefits:</p>
@@ -476,7 +479,7 @@
           
           <p>The default <code>ByteBufAllocator</code> is <code>PooledByteBufAllocator</code>. If you do not wish to use buffer pooling or use your own allocator, use <code>Channel.config().setAllocator(...)</code> with an alternative allocator such as <code>UnpooledByteBufAllocator</code>.</p>
           
-          <h4 id="wiki-h4-9">
+          <h4 id="wiki-h4-11">
           <a name="bytebuf-is-always-reference-counted" class="anchor" href="#bytebuf-is-always-reference-counted"><span class="octicon octicon-link"></span></a>
           <code>ByteBuf</code> is always reference counted</h4>
           
@@ -506,7 +509,7 @@
           </li>
           <li>When an outbound (a.k.a. downstream) message reaches at the beginning of the pipeline, Netty will release it after writing it out.</li>
           </ul>
-          <h4 id="wiki-h4-10">
+          <h4 id="wiki-h4-12">
           <a name="automatic-buffer-leak-detection" class="anchor" href="#automatic-buffer-leak-detection"><span class="octicon octicon-link"></span></a>Automatic buffer leak detection</h4>
           
           <p>Although reference counting is very powerful, it is also error-prone.  To help a user find where he or she forgot to release the buffers, the leak detector logs the stack trace of the location where the leaked buffer was allocated automatically.</p>
@@ -515,7 +518,7 @@
           
           <p>Once all leaks are found and fixed.  You can turn this feature off to remove its runtime overhead completely by specifying the <code>-Dio.netty.noResourceLeakDetection</code> JVM option.</p>
           
-          <h2 id="wiki-h2-11">
+          <h2 id="wiki-h2-13">
           <a name="ionettyutilconcurrent" class="anchor" href="#ionettyutilconcurrent"><span class="octicon octicon-link"></span></a><code>io.netty.util.concurrent</code>
           </h2>
           
@@ -532,20 +535,20 @@
           
           <p><img src="https://a248.e.akamai.net/camo.github.com/1b1698d52099ec568fc82790efc17bda57325f53/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3861366333633437383030333730656538393861" alt="Event loop type hierarchy diagram"></p>
           
-          <h2 id="wiki-h2-12">
+          <h2 id="wiki-h2-14">
           <a name="channel-api-changes" class="anchor" href="#channel-api-changes"><span class="octicon octicon-link"></span></a>Channel API changes</h2>
           
           <p>In 4.0, many classes under the <code>io.netty.channel</code> package have gone through a major overhaul, and thus simple text search-and-replace will not make your 3.x application work with 4.0.  This section will try to show the thought process behind such a big change, rather than being an exhaustive resource for all the changes.</p>
           
-          <h3 id="wiki-h3-13">
+          <h3 id="wiki-h3-15">
           <a name="revamped-channelhandler-interface" class="anchor" href="#revamped-channelhandler-interface"><span class="octicon octicon-link"></span></a>Revamped ChannelHandler interface</h3>
           
-          <h4 id="wiki-h4-14">
+          <h4 id="wiki-h4-16">
           <a name="upstream--inbound-downstream--outbound" class="anchor" href="#upstream--inbound-downstream--outbound"><span class="octicon octicon-link"></span></a>Upstream → Inbound, Downstream → Outbound</h4>
           
           <p>The terms 'upstream' and 'downstream' were pretty confusing to beginners.  4.0 uses 'inbound' and 'outbound' wherever possible.</p>
           
-          <h4 id="wiki-h4-15">
+          <h4 id="wiki-h4-17">
           <a name="new-channelhandler-type-hierarchy" class="anchor" href="#new-channelhandler-type-hierarchy"><span class="octicon octicon-link"></span></a>New <code>ChannelHandler</code> type hierarchy</h4>
           
           <p>In 3.x, <code>ChannelHandler</code> was just a tag interface, and <code>ChannelUpstreamHandler</code>, <code>ChannelDownstreamHandler</code>, and <code>LifeCycleAwareChannelHandler</code> defined the actual handler methods.  In Netty 4, <code>ChannelHandler</code> merges <code>LifeCycleAwareChannelHandler</code> along with a couple more methods which are useful to both an inbound and an outbound handler:</p>
@@ -556,7 +559,7 @@
           
           <p><img src="https://a248.e.akamai.net/camo.github.com/0086d553376a89a8e55ab1c6658d691737ae8323/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3138383234346334623364366230316330313536" alt="ChannelHandler type hierarchy diagram"></p>
           
-          <h4 id="wiki-h4-16">
+          <h4 id="wiki-h4-18">
           <a name="channelhandler-with-no-event-object" class="anchor" href="#channelhandler-with-no-event-object"><span class="octicon octicon-link"></span></a>
           <code>ChannelHandler</code> with no event object</h4>
           
@@ -572,7 +575,7 @@
           
           <p>All these changes mean a user cannot extend the non-existing <code>ChannelEvent</code> interface anymore.  How then does a user define his or her own event type such as <code>IdleStateEvent</code>?  <code>ChannelInboundHandler</code> in 4.0 has a handler method called <code>userEventTriggered()</code> which is dedicated to this specific user case.</p>
           
-          <h4 id="wiki-h4-17">
+          <h4 id="wiki-h4-19">
           <a name="simplified-channel-state-model" class="anchor" href="#simplified-channel-state-model"><span class="octicon octicon-link"></span></a>Simplified channel state model</h4>
           
           <p>When a new connected <code>Channel</code> is created in 3.x, at least three <code>ChannelStateEvent</code>s are triggered: <code>channelOpen</code>, <code>channelBound</code>, and <code>channelConnected</code>.  When a <code>Channel</code> is closed, at least 3 more: <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>.</p>
@@ -599,19 +602,19 @@
           
           <p>Alternatively, a user can trigger such event for every single inbound (or outbound) message to emulate the old behavior although it is most likely less efficient.</p>
           
-          <h3 id="wiki-h3-18">
+          <h3 id="wiki-h3-20">
           <a name="sensible-and-less-error-prone-inbound-traffic-suspension" class="anchor" href="#sensible-and-less-error-prone-inbound-traffic-suspension"><span class="octicon octicon-link"></span></a>Sensible and less error-prone inbound traffic suspension</h3>
           
           <p>3.x had an unintuitive inbound traffic suspension mechanism provided by <code>Channel.setReadable(boolean)</code>.  It introduced complicated interactions between ChannelHandlers and the handlers were easy to interfere with each other if implemented incorrectly.</p>
           
           <p>In 4.0, a new outbound operation called <code>read()</code> has been added.  If you turn off the default auto-read flag with <code>Channel.config().setAutoRead(false)</code>, Netty will not read anything until you explicitly invoke the <code>read()</code> operation.  Once the <code>read()</code> operation you issue is complete and the channel again stops reading, an inbound event called <code>channelReadSuspended()</code> will be triggered so that you can re-issue another <code>read()</code> operation.  You can also intercept a <code>read()</code> operation to perform more advanced traffic control.</p>
           
-          <h4 id="wiki-h4-19">
+          <h4 id="wiki-h4-21">
           <a name="suspension-of-accepting-incoming-connections" class="anchor" href="#suspension-of-accepting-incoming-connections"><span class="octicon octicon-link"></span></a>Suspension of accepting incoming connections</h4>
           
           <p>There was no way for a user to tell Netty 3.x to stop accepting incoming connections except for blocking the I/O thread or closing the server socket.  4.0 respects the <code>read()</code> operation when the auto-read flag is not set, just like an ordinary channel.</p>
           
-          <h3 id="wiki-h3-20">
+          <h3 id="wiki-h3-22">
           <a name="half-closed-sockets" class="anchor" href="#half-closed-sockets"><span class="octicon octicon-link"></span></a>Half-closed sockets</h3>
           
           <p>TCP and SCTP allow a user to shut down the outbound traffic of a socket without closing it completely.  Such a socket is called 'a half-closed socket', and a user can make a half-closed socket by calling <code>SocketChannel.shutdownOutput() method</code>. If a remote peer shuts down the outbound traffic, <code>SocketChannel.read(..)</code> will return <code>-1</code>, which was seemingly indistinguishable from a closed connection.</p>
@@ -620,38 +623,38 @@
           
           <p>To support a half-closed socket, 4.0 adds <code>SocketChannel.shutdownOutput()</code> method, and a user can set the '<code>ALLOW_HALF_CLOSURE</code>' <code>ChannelOption</code> to prevent Netty from closing the connection automatically even if <code>SocketChannel.read(..)</code> returns <code>-1</code>.</p>
           
-          <h3 id="wiki-h3-21">
+          <h3 id="wiki-h3-23">
           <a name="flexible-io-thread-allocation" class="anchor" href="#flexible-io-thread-allocation"><span class="octicon octicon-link"></span></a>Flexible I/O thread allocation</h3>
           
           <p>In 3.x, a <code>Channel</code> is created by a <code>ChannelFactory</code> and the newly created <code>Channel</code> is automatically registered to a hidden I/O thread.  4.0 replaces <code>ChannelFactory</code> with a new interface called <code>EventLoopGroup</code> which consists of one or more <code>EventLoop</code>s.  Also, a new <code>Channel</code> is not registered to the <code>EventLoopGroup</code> automatically but a user has to call <code>EventLoopGroup.register()</code> explicitly.  </p>
           
           <p>Thanks to this change (i.e. separation of <code>ChannelFactory</code> and I/O threads), a user can register different <code>Channel</code> implementations to the same <code>EventLoopGroup</code>, or same <code>Channel</code> implementations to different <code>EventLoopGroup</code>s.  For example,  you can run a NIO server socket, NIO client sockets, NIO UDP sockets, and in-VM local channels in the same I/O thread.  It should be very useful when writing a proxy server which requires minimal latency.</p>
           
-          <h3 id="wiki-h3-22">
+          <h3 id="wiki-h3-24">
           <a name="ability-to-create-a-channel-from-an-existing-jdk-socket" class="anchor" href="#ability-to-create-a-channel-from-an-existing-jdk-socket"><span class="octicon octicon-link"></span></a>Ability to create a <code>Channel</code> from an existing JDK socket</h3>
           
           <p>3.x provided no way to create a new Channel from an existing JDK socket such as <code>java.nio.channels.SocketChannel</code>.  You can with 4.0.</p>
           
-          <h3 id="wiki-h3-23">
+          <h3 id="wiki-h3-25">
           <a name="deregistration-and-re-registration-of-a-channel-fromto-an-io-thread" class="anchor" href="#deregistration-and-re-registration-of-a-channel-fromto-an-io-thread"><span class="octicon octicon-link"></span></a>Deregistration and re-registration of a Channel from·to an I/O thread</h3>
           
           <p>Once a new <code>Channel</code> is created in 3.x, it is completely tied to a single I/O thread until its underlying socket is closed.  In 4.0, a user can deregister a <code>Channel</code> from its I/O thread to gain the full control of its underlying JDK socket.  For example, you can take advantage of high-level non-blocking I/O Netty provides to deal with complex protocols, and then later deregister the <code>Channel</code> and switch to blocking mode to transfer a file at possible maximum throughput.  Of course, it is possible to register the deregistered <code>Channel</code> back again.</p>
           
           <div class="highlight"><pre><span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">FileChannel</span> <span class="n">myFile</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span> <span class="n">mySocket</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>&#x000A; &#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="o">...</span>&#x000A; &#x000A;<span class="c1">// Netty takes over.</span>&#x000A;<span class="n">SocketChannel</span> <span class="n">ch</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioSocketChannel</span><span class="o">(</span><span class="n">mySocket</span><span class="o">);</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">group</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>&#x000A;<span class="o">...</span>&#x000A; &#x000A;<span class="c1">// Deregister from Netty.</span>&#x000A;<span class="n">ch</span><span class="o">.</span><span class="na">deregister</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>&#x000A; &#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="n">mySocket</span><span class="o">.</span><span class="na">configureBlocking</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>&#x000A;<span class="n">myFile</span><span class="o">.</span><span class="na">transferFrom</span><span class="o">(</span><span class="n">mySocket</span><span class="o">,</span> <span class="o">...);</span>&#x000A; &#x000A;<span class="c1">// Register back again to another event loop group.</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">anotherGroup</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">anotherGroup</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span></pre></div>
           
-          <h3 id="wiki-h3-24">
+          <h3 id="wiki-h3-26">
           <a name="scheduling-an-arbitrary-task-to-be-run-by-an-io-thread" class="anchor" href="#scheduling-an-arbitrary-task-to-be-run-by-an-io-thread"><span class="octicon octicon-link"></span></a>Scheduling an arbitrary task to be run by an I/O thread</h3>
           
           <p>When a <code>Channel</code> is registered to an <code>EventLoopGroup</code>, the <code>Channel</code> is actually registered to one of the <code>EventLoop</code>s which is managed by the <code>EventLoopGroup</code>.  <code>EventLoop</code> implements <code>java.util.concurrent.ScheduledExecutorService</code>.  It means a user can execute or schedule an arbitrary <code>Runnable</code> or <code>Callable</code> in an I/O thread where the user's channel belongs to.  Along with the new well-defined thread model, which will be explained later, it became extremely easier to write a thread-safe handler.</p>
           
           <div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyHandler</span> <span class="kd">extends</span> <span class="n">ChannelOutboundHandlerAdapter</span> <span class="o">{</span>&#x000A;    <span class="o">...</span>&#x000A;    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">,</span> <span class="n">ChannelPromise</span> <span class="n">p</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="o">...</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">msgs</span><span class="o">,</span> <span class="n">p</span><span class="o">);</span>&#x000A;        &#x000A;        <span class="c1">// Schedule a write timeout.</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">executor</span><span class="o">().</span><span class="na">schedule</span><span class="o">(</span><span class="k">new</span> <span class="n">MyWriteTimeoutTask</span><span class="o">(</span><span class="n">p</span><span class="o">),</span> <span class="mi">30</span><span class="o">,</span> <span class="n">TimeUnit</span><span class="o">.</span><span class="na">SECONDS</span><span class="o">);</span>&#x000A;        <span class="o">...</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span>&#x000A; &#x000A;<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Main</span> <span class="o">{</span>&#x000A;    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;        <span class="c1">// Run an arbitrary task from an I/O thread.</span>&#x000A;        <span class="n">Channel</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;        <span class="n">ch</span><span class="o">.</span><span class="na">executor</span><span class="o">().</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
-          <h3 id="wiki-h3-25">
+          <h3 id="wiki-h3-27">
           <a name="simplified-shutdown" class="anchor" href="#simplified-shutdown"><span class="octicon octicon-link"></span></a>Simplified shutdown</h3>
           
           <p>There's no more <code>releaseExternalResources()</code>.  You can close all open channels immediately and make all I/O threads stop themselves by calling <code>EventLoopGroup.shutdownGracefully()</code>.</p>
           
-          <h3 id="wiki-h3-26">
+          <h3 id="wiki-h3-28">
           <a name="type-safe-channeloption" class="anchor" href="#type-safe-channeloption"><span class="octicon octicon-link"></span></a>Type-safe <code>ChannelOption</code>
           </h3>
           
@@ -661,14 +664,14 @@
           
           <div class="highlight"><pre><span class="n">ChannelConfig</span> <span class="n">cfg</span> <span class="o">=</span> <span class="o">...;</span>&#x000A; &#x000A;<span class="c1">// Before:</span>&#x000A;<span class="n">cfg</span><span class="o">.</span><span class="na">setOption</span><span class="o">(</span><span class="s">"tcpNoDelay"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>&#x000A;<span class="n">cfg</span><span class="o">.</span><span class="na">setOption</span><span class="o">(</span><span class="s">"tcpNoDelay"</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span>  <span class="c1">// Runtime ClassCastException</span>&#x000A;<span class="n">cfg</span><span class="o">.</span><span class="na">setOption</span><span class="o">(</span><span class="s">"tcpNoDelays"</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span> <span class="c1">// Typo in the option name - ignored silently</span>&#x000A; &#x000A;<span class="c1">// After:</span>&#x000A;<span class="n">cfg</span><span class="o">.</span><span class="na">setOption</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">TCP_NODELAY</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>&#x000A;<span class="n">cfg</span><span class="o">.</span><span class="na">setOption</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">TCP_NODELAY</span><span class="o">,</span> <span class="mi">0</span><span class="o">);</span> <span class="c1">// Compile error</span></pre></div>
           
-          <h3 id="wiki-h3-27">
+          <h3 id="wiki-h3-29">
           <a name="attributemap" class="anchor" href="#attributemap"><span class="octicon octicon-link"></span></a>AttributeMap</h3>
           
           <p>In response to user demand, you can attach any object to <code>Channel</code> and <code>ChannelHandlerContext</code>.  A new interface called <code>AttributeMap</code>, which <code>Channel</code> and <code>ChannelHandlerContext</code> extend, has been added.  Instead, <code>ChannelLocal</code> and <code>Channel.attachment</code> are removed.  The attributes are garbage-collected when their associated <code>Channel</code> is garbage-collected.</p>
           
           <div class="highlight"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyHandler</span> <span class="kd">extends</span> <span class="n">ChannelInboundHandlerAdapter</span> <span class="o">{</span>&#x000A; &#x000A;    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">AttributeKey</span><span class="o">&lt;</span><span class="n">MyState</span><span class="o">&gt;</span> <span class="n">STATE</span> <span class="o">=</span>&#x000A;            <span class="k">new</span> <span class="n">AttributeKey</span><span class="o">&lt;</span><span class="n">MyState</span><span class="o">&gt;(</span><span class="s">"MyHandler.state"</span><span class="o">);</span>&#x000A; &#x000A;    <span class="nd">@Override</span>&#x000A;    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRegistered</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="n">STATE</span><span class="o">).</span><span class="na">set</span><span class="o">(</span><span class="k">new</span> <span class="n">MyState</span><span class="o">());</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">fireChannelRegistered</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A; &#x000A;    <span class="nd">@Override</span>&#x000A;    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">messageReceived</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">MessageList</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span> <span class="n">msgs</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="n">MyState</span> <span class="n">state</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">attr</span><span class="o">(</span><span class="n">STATE</span><span class="o">).</span><span class="na">get</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A;    <span class="o">...</span>&#x000A;<span class="o">}</span></pre></div>
           
-          <h3 id="wiki-h3-28">
+          <h3 id="wiki-h3-30">
           <a name="new-bootstrap-api" class="anchor" href="#new-bootstrap-api"><span class="octicon octicon-link"></span></a>New bootstrap API</h3>
           
           <p>The bootstrap API has been rewritten from scratch although its purpose stays same; it performs the typical steps required to make a server or a client up and running, often found in boilerplate code.</p>
@@ -677,7 +680,7 @@
           
           <div class="highlight"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;    <span class="c1">// Configure the server.</span>&#x000A;    <span class="n">EventLoopGroup</span> <span class="n">bossGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">();</span>&#x000A;    <span class="n">EventLoopGroup</span> <span class="n">workerGroup</span> <span class="o">=</span> <span class="k">new</span> <span class="n">NioEventLoopGroup</span><span class="o">();</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="n">ServerBootstrap</span> <span class="n">b</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServerBootstrap</span><span class="o">();</span>&#x000A;        <span class="n">b</span><span class="o">.</span><span class="na">group</span><span class="o">(</span><span class="n">bossGroup</span><span class="o">,</span> <span class="n">workerGroup</span><span class="o">)</span>&#x000A;         <span class="o">.</span><span class="na">channel</span><span class="o">(</span><span class="n">NioServerSocketChannel</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>&#x000A;         <span class="o">.</span><span class="na">option</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">SO_BACKLOG</span><span class="o">,</span> <span class="mi">100</span><span class="o">)</span>&#x000A;         <span class="o">.</span><span class="na">localAddress</span><span class="o">(</span><span class="mi">8080</span><span class="o">)</span>&#x000A;         <span class="o">.</span><span class="na">childOption</span><span class="o">(</span><span class="n">ChannelOption</span><span class="o">.</span><span class="na">TCP_NODELAY</span><span class="o">,</span> <span class="kc">true</span><span class="o">)</span>&#x000A;         <span class="o">.</span><span class="na">childHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;()</span> <span class="o">{</span>&#x000A;             <span class="nd">@Override</span>&#x000A;             <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initChannel</span><span class="o">(</span><span class="n">SocketChannel</span> <span class="n">ch</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;                 <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">().</span><span class="na">addLast</span><span class="o">(</span><span class="n">handler1</span><span class="o">,</span> <span class="n">handler2</span><span class="o">,</span> <span class="o">...);</span>&#x000A;             <span class="o">}</span>&#x000A;         <span class="o">});</span>&#x000A; &#x000A;        <span class="c1">// Start the server.</span>&#x000A;        <span class="n">ChannelFuture</span> <span class="n">f</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="na">bind</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>&#x000A; &#x000A;        <span class="c1">// Wait until the server socket is closed.</span>&#x000A;        <span class="n">f</span><span class="o">.</span><span class="na">channel</span><span class="o">().</span><span class="na">closeFuture</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="c1">// Shut down all event loops to terminate all threads.</span>&#x000A;        <span class="n">bossGroup</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>&#x000A;        <span class="n">workerGroup</span><span class="o">.</span><span class="na">shutdownGracefully</span><span class="o">();</span>&#x000A;        &#x000A;        <span class="c1">// Wait until all threads are terminated.</span>&#x000A;        <span class="n">bossGroup</span><span class="o">.</span><span class="na">terminationFuture</span><span class="o">.</span><span class="na">sync</span><span class="o">();</span>&#x000A;        <span class="n">workerGroup</span><span class="o">.</span><span class="na">terminationFuture</span><span class="o">.</span><span class="na">sync</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
-          <h4 id="wiki-h4-29">
+          <h4 id="wiki-h4-31">
           <a name="channelpipelinefactory--channelinitializer" class="anchor" href="#channelpipelinefactory--channelinitializer"><span class="octicon octicon-link"></span></a>
           <code>ChannelPipelineFactory</code> → <code>ChannelInitializer</code>
           </h4>
@@ -686,7 +689,7 @@
           
           <p>Please note that you don't create a new <code>ChannelPipeline</code> by yourself.  After observing many use cases reported so far, the Netty project team concluded that it has no benefit for a user to create his or her own pipeline implementation or to extend the default implementation.  Therefore, <code>ChannelPipeline</code> is not created by a user anymore.  <code>ChannelPipeline</code> is automatically created by a <code>Channel</code>.</p>
           
-          <h3 id="wiki-h3-30">
+          <h3 id="wiki-h3-32">
           <a name="channelfuture--channelfuture-and-channelpromise" class="anchor" href="#channelfuture--channelfuture-and-channelpromise"><span class="octicon octicon-link"></span></a>
           <code>ChannelFuture</code> → <code>ChannelFuture</code> and <code>ChannelPromise</code>
           </h3>
@@ -695,7 +698,7 @@
           
           <p>Due to this change, some methods now accept <code>ChannelPromise</code> rather than <code>ChannelFuture</code> to modify its state.</p>
           
-          <h2 id="wiki-h2-31">
+          <h2 id="wiki-h2-33">
           <a name="well-defined-thread-model" class="anchor" href="#well-defined-thread-model"><span class="octicon octicon-link"></span></a>Well-defined thread model</h2>
           
           <p>There is no well-defined thread model in 3.x although there was an attempt to fix its inconsistency in 3.5.  4.0 defines a strict thread model that helps a user write a ChannelHandler without worrying too much about thread safety.</p>
@@ -732,14 +735,14 @@
           </li>
           <li>The <code>ChannelFutureListeners</code> added to <code>ChannelFuture</code> are always invoked by the <code>EventLoop</code> thread assigned to the future's associated <code>Channel</code>.</li>
           </ul>
-          <h3 id="wiki-h3-32">
+          <h3 id="wiki-h3-34">
           <a name="no-more-executionhandler---its-in-the-core" class="anchor" href="#no-more-executionhandler---its-in-the-core"><span class="octicon octicon-link"></span></a>No more <code>ExecutionHandler</code> - it's in the core.</h3>
           
           <p>You can specify an <code>EventExecutor</code> when you add a <code>ChannelHandler</code> to a <code>ChannelPipeline</code> to tell the pipeline to always invoke the handler methods of the added <code>ChannelHandler</code> via the specified <code>EventExecutor</code>.</p>
           
           <div class="highlight"><pre><span class="n">Channel</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">ChannelPipeline</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">();</span>&#x000A;<span class="n">EventExecutor</span> <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultEventExecutor</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>&#x000A;<span class="n">EventExecutor</span> <span class="n">e2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultEventExecutor</span><span class="o">(</span><span class="mi">8</span><span class="o">);</span>&#x000A; &#x000A;<span class="n">p</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="k">new</span> <span class="n">MyProtocolCodec</span><span class="o">());</span>&#x000A;<span class="n">p</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">e1</span><span class="o">,</span> <span class="k">new</span> <span class="n">MyDatabaseAccessingHandler</span><span class="o">());</span>&#x000A;<span class="n">p</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">e2</span><span class="o">,</span> <span class="k">new</span> <span class="n">MyHardDiskAccessingHandler</span><span class="o">());</span></pre></div>
           
-          <h2 id="wiki-h2-33">
+          <h2 id="wiki-h2-35">
           <a name="codec-framework-changes" class="anchor" href="#codec-framework-changes"><span class="octicon octicon-link"></span></a>Codec framework changes</h2>
           
           <p>There were substantial internal changes in the codec framework because 4.0 requires a handler to create and manage its buffer (see Per-handler buffer section in this document.)  However, the changes from a user's perspective are not very big.</p>
@@ -752,13 +755,13 @@
           <code>OneToOneEncoder</code> and <code>OneToOneDecoder</code> were replaced with <code>MessageToMessageEncoder</code> and <code>MessageToMessageDecoder</code>.</li>
           <li>The method signatures of <code>decode()</code>, <code>decodeLast()</code>, <code>encode()</code> were changed slightly to support generics and to remove redundant parameters.</li>
           </ul>
-          <h3 id="wiki-h3-34">
+          <h3 id="wiki-h3-36">
           <a name="codec-embedder--embeddedchannel" class="anchor" href="#codec-embedder--embeddedchannel"><span class="octicon octicon-link"></span></a>Codec embedder → <code>EmbeddedChannel</code>
           </h3>
           
           <p>Codec embedder has been replaced by <code>io.netty.channel.embedded.EmbeddedChannel</code> to allow a user to test any kind of pipeline including a codec.</p>
           
-          <h3 id="wiki-h3-35">
+          <h3 id="wiki-h3-37">
           <a name="http-codec" class="anchor" href="#http-codec"><span class="octicon octicon-link"></span></a>HTTP codec</h3>
           
           <p>HTTP decoders now always generates multiple message objects per a single HTTP message:</p>
@@ -767,7 +770,7 @@
           
           <p>For more detail, please refer to the updated <code>HttpSnoopServer</code> example.  If you wish not to deal with multiple messages for a single HTTP message, you can put an <code>HttpObjectAggregator</code> in the pipeline.  <code>HttpObjectAggregator</code> will transform multiple messages into a single <code>FullHttpRequest</code> or <code>FullHttpResponse</code>.</p>
           
-          <h3 id="wiki-h3-36">
+          <h3 id="wiki-h3-38">
           <a name="changes-in-transport-implementations" class="anchor" href="#changes-in-transport-implementations"><span class="octicon octicon-link"></span></a>Changes in transport implementations</h3>
           
           <p>The following transports were newly added:</p>
@@ -776,12 +779,12 @@
           <li>OIO SCTP transport</li>
           <li>UDT transport</li>
           </ul>
-          <h2 id="wiki-h2-37">
+          <h2 id="wiki-h2-39">
           <a name="case-study-porting-the-factorial-example" class="anchor" href="#case-study-porting-the-factorial-example"><span class="octicon octicon-link"></span></a>Case study: porting the Factorial example</h2>
           
           <p>This section shows rough steps to port the Factorial example from 3.x to 4.0.  The Factorial example has been ported to 4.0 already in the <code>io.netty.example.factorial</code> package.  Please browse the source code of the example to find every bits changed.</p>
           
-          <h3 id="wiki-h3-38">
+          <h3 id="wiki-h3-40">
           <a name="porting-the-server" class="anchor" href="#porting-the-server"><span class="octicon octicon-link"></span></a>Porting the server</h3>
           
           <ol>
@@ -814,7 +817,7 @@
           </ol>
           </li>
           </ol>
-          <h3 id="wiki-h3-39">
+          <h3 id="wiki-h3-41">
           <a name="porting-the-client" class="anchor" href="#porting-the-client"><span class="octicon octicon-link"></span></a>Porting the client</h3>
           
           <p>Mostly same with porting the server, but you need to pay attention when you write a potentially large stream.</p>
@@ -828,7 +831,7 @@
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 27-Jun-2013</small>
+            <small>Last retrived on 28-Jun-2013</small>
           </div>
         </div>
         <div class="comments">

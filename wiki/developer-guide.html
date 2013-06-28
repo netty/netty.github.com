@@ -48,10 +48,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.0.CR6.tar.bz2?direct">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.0.CR7.tar.bz2?direct">
                     <i class="icon-download-alt"></i>
-                    4.0.0.CR6
-                    <small>&dash; 21-Jun-2013</small>
+                    4.0.0.CR7
+                    <small>&dash; 28-Jun-2013</small>
                   </a>
                 </li>
                 <li>
@@ -174,28 +174,31 @@
           <div class="wiki-toc well pull-right">
           <ul class="nav nav-list">
           <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="
+          </li><li>
+          <ul class="nav nav-list"><li><a href="#wiki-h3-0" title="HTTPS clone URL">HTTPS clone URL</a>
+          </li><li><a href="#wiki-h3-1" title="Subversion checkout URL">Subversion checkout URL</a>
+          </li></ul></li><li><a href="#wiki-h2-2" title="
           Working with the source code">
           Working with the source code</a>
-          <ul class="nav nav-list"><li><a href="#wiki-h3-1" title="
+          <ul class="nav nav-list"><li><a href="#wiki-h3-3" title="
           Important!">
           Important!</a>
-          </li><li><a href="#wiki-h3-2" title="
+          </li><li><a href="#wiki-h3-4" title="
           Setting up IntelliJ IDEA inspection profile">
           Setting up IntelliJ IDEA inspection profile</a>
-          </li><li><a href="#wiki-h3-3" title="
+          </li><li><a href="#wiki-h3-5" title="
           Setting up Eclipse with M2E and Java 7">
           Setting up Eclipse with M2E and Java 7</a>
-          </li><li><a href="#wiki-h3-4" title="
+          </li><li><a href="#wiki-h3-6" title="
           Git line ending configuration">
           Git line ending configuration</a>
-          </li><li><a href="#wiki-h3-5" title="
+          </li><li><a href="#wiki-h3-7" title="
           Merging a pull request">
           Merging a pull request</a>
-          </li></ul></li><li><a href="#wiki-h2-6" title="
+          </li></ul></li><li><a href="#wiki-h2-8" title="
           Writing a new post">
           Writing a new post</a>
-          </li><li><a href="#wiki-h2-7" title="
+          </li><li><a href="#wiki-h2-9" title="
           Design ideas">
           Design ideas</a>
           </li></ul>
@@ -205,10 +208,10 @@
                 <div class="alert">
           <strong>Looking for a user guide?</strong> Please note that this guide is <strong>not</strong> a 'user guide'.  It is not intended for the 'users' who build an application using Netty but for the contributors ('dev') who want to develop Netty itself.  If you are looking for the documentation for users, please visit <a class="internal present" href="index.html">the documentation home</a>.</div>
           
-          <h2 id="wiki-h2-0">
+          <h2 id="wiki-h2-2">
           <a name="working-with-the-source-code" class="anchor" href="#working-with-the-source-code"><span class="octicon octicon-link"></span></a>Working with the source code</h2>
           
-          <h3 id="wiki-h3-1">
+          <h3 id="wiki-h3-3">
           <a name="important" class="anchor" href="#important"><span class="octicon octicon-link"></span></a>Important!</h3>
           
           <p>Before pushing your commits or issuing a pull request, make sure:</p>
@@ -217,12 +220,12 @@
           <li>your work builds without any failure - run '<code>mvn test</code>' from shell.</li>
           <li>your work does not introduce any new inspection warning - see below.</li>
           </ul>
-          <h3 id="wiki-h3-2">
+          <h3 id="wiki-h3-4">
           <a name="setting-up-intellij-idea-inspection-profile" class="anchor" href="#setting-up-intellij-idea-inspection-profile"><span class="octicon octicon-link"></span></a>Setting up IntelliJ IDEA inspection profile</h3>
           
           <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE. Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default for Netty project. Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
           
-          <h3 id="wiki-h3-3">
+          <h3 id="wiki-h3-5">
           <a name="setting-up-eclipse-with-m2e-and-java-7" class="anchor" href="#setting-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Setting up Eclipse with M2E and Java 7</h3>
           
           <p>Netty project can be imported into 
@@ -245,7 +248,7 @@
           </ul>
           <p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
           
-          <h3 id="wiki-h3-4">
+          <h3 id="wiki-h3-6">
           <a name="git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h3>
           
           <p>We use native line ending for all source code (i.e. '<code>\r</code>' for *nix and MacOS X, '<code>\r\n</code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
@@ -256,19 +259,19 @@
           <li>
           <a href="http://timclem.wordpress.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
           </ul>
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-7">
           <a name="merging-a-pull-request" class="anchor" href="#merging-a-pull-request"><span class="octicon octicon-link"></span></a>Merging a pull request</h3>
           
           <p>A pull request often contains multiple comments.  Those commits must be squashed into smaller number of commits with explanatory comments.</p>
           
           <p>Do not merge a pull request via the web UI unless there's a good reason doing that. Refer to the 'Patch and Apply' section in <a href="https://help.github.com/articles/using-pull-requests#merging-a-pull-request">the Github help page</a>.</p>
           
-          <h2 id="wiki-h2-6">
+          <h2 id="wiki-h2-8">
           <a name="writing-a-new-post" class="anchor" href="#writing-a-new-post"><span class="octicon octicon-link"></span></a>Writing a new post</h2>
           
           <p>Our web site is generated from an Awestruct project <a href="https://github.com/netty/netty-website">here</a>.  To post a new article, create a new branch, write a new post, and issue a pull request like usual contributions.</p>
           
-          <h2 id="wiki-h2-7">
+          <h2 id="wiki-h2-9">
           <a name="design-ideas" class="anchor" href="#design-ideas"><span class="octicon octicon-link"></span></a>Design ideas</h2>
           
           <ul>
@@ -277,7 +280,7 @@
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 27-Jun-2013</small>
+            <small>Last retrived on 28-Jun-2013</small>
           </div>
         </div>
         <div class="comments">
