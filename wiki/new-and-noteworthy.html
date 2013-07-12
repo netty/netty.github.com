@@ -533,7 +533,7 @@
           </ul>
           <p>They are used as the base of the channel API which will be explained later in this document.  For example, <code>ChannelFuture</code> extends <code>io.netty.util.concurrent.Future</code> and <code>EventLoopGroup</code> extends <code>EventExecutorGroup</code>.</p>
           
-          <p><img src="https://a248.e.akamai.net/camo.github.com/1b1698d52099ec568fc82790efc17bda57325f53/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3861366333633437383030333730656538393861" alt="Event loop type hierarchy diagram"></p>
+          <p><img src="https://github-camo.global.ssl.fastly.net/1b1698d52099ec568fc82790efc17bda57325f53/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3861366333633437383030333730656538393861" alt="Event loop type hierarchy diagram"></p>
           
           <h2 id="wiki-h2-14">
           <a name="channel-api-changes" class="anchor" href="#channel-api-changes"><span class="octicon octicon-link"></span></a>Channel API changes</h2>
@@ -557,7 +557,7 @@
           
           <p>The following diagram depicts the new type hierarchy:</p>
           
-          <p><img src="https://a248.e.akamai.net/camo.github.com/0086d553376a89a8e55ab1c6658d691737ae8323/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3138383234346334623364366230316330313536" alt="ChannelHandler type hierarchy diagram"></p>
+          <p><img src="https://github-camo.global.ssl.fastly.net/0086d553376a89a8e55ab1c6658d691737ae8323/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3138383234346334623364366230316330313536" alt="ChannelHandler type hierarchy diagram"></p>
           
           <h4 id="wiki-h4-18">
           <a name="channelhandler-with-no-event-object" class="anchor" href="#channelhandler-with-no-event-object"><span class="octicon octicon-link"></span></a>
@@ -580,17 +580,17 @@
           
           <p>When a new connected <code>Channel</code> is created in 3.x, at least three <code>ChannelStateEvent</code>s are triggered: <code>channelOpen</code>, <code>channelBound</code>, and <code>channelConnected</code>.  When a <code>Channel</code> is closed, at least 3 more: <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>.</p>
           
-          <p><img src="https://a248.e.akamai.net/camo.github.com/30d7b1e311e6dacb42caae3ea9e2f9b08aa6a7a0/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3433333564363363353330623665316335653265" alt="Netty 3 Channel state diagram"></p>
+          <p><img src="https://github-camo.global.ssl.fastly.net/30d7b1e311e6dacb42caae3ea9e2f9b08aa6a7a0/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3433333564363363353330623665316335653265" alt="Netty 3 Channel state diagram"></p>
           
           <p>However, it's of dubious value to trigger that many events.  It is more useful for a user to get notified when a <code>Channel</code> enters the state where it can perform reads and writes.</p>
           
-          <p><img src="https://a248.e.akamai.net/camo.github.com/4219077c11ad286784f7deb96b1e16a8e1ba2f29/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3665666662363861643235313563613064363138" alt="Netty 4 Channel state diagram"></p>
+          <p><img src="https://github-camo.global.ssl.fastly.net/4219077c11ad286784f7deb96b1e16a8e1ba2f29/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3665666662363861643235313563613064363138" alt="Netty 4 Channel state diagram"></p>
           
           <p><code>channelOpen</code>, <code>channelBound</code>, and <code>channelConnected</code> have been merged to <code>channelActive</code>.  <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code> have been merged to <code>channelInactive</code>.  Likewise, <code>Channel.isBound()</code> and <code>isConnected()</code> have been merged to <code>isActive()</code>.</p>
           
           <p>Note that <code>channelRegistered</code> and <code>channelUnregistered</code> are not equivalent to <code>channelOpen</code> and <code>channelClosed</code>.  They are new states introduced to support dynamic registration, deregistration, and re-registration of a <code>Channel</code>, as illustrated below:</p>
           
-          <p><img src="https://a248.e.akamai.net/camo.github.com/e69a25abdf8724dcf9af22fca5d209ca1bda9d4f/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3633383235333066373839306239663136343732" alt="Netty 4 Channel state diagram for re-registration"></p>
+          <p><img src="https://github-camo.global.ssl.fastly.net/e69a25abdf8724dcf9af22fca5d209ca1bda9d4f/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3633383235333066373839306239663136343732" alt="Netty 4 Channel state diagram for re-registration"></p>
           
           <h5>
           <a name="not-necessarily-one-message-per-messagereceived" class="anchor" href="#not-necessarily-one-message-per-messagereceived"><span class="octicon octicon-link"></span></a>Not necessarily one message per <code>messageReceived</code>
@@ -828,10 +828,10 @@
           <li>Make <code>FactorialClientHandler</code> extends <code>ChannelInboundHandlerAdapter</code>
           ```</li>
           </ol>
-          </div>
+              </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 04-Jul-2013</small>
+            <small>Last retrived on 12-Jul-2013</small>
           </div>
         </div>
         <div class="comments">
