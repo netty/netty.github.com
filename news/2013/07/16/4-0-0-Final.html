@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 3.5.0.Beta1 released!</title>
-    <title>Netty: Netty 3.5.0.Beta1 released!</title>
+    <title>Netty.news: Netty 4.0.0.Final released</title>
+    <title>Netty: Netty 4.0.0.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -166,7 +166,7 @@
       <div class="content instapaper_body">
         <div class="news-item">
           <h1>
-            Netty 3.5.0.Beta1 released!
+            Netty 4.0.0.Final released
           </h1>
           <p class="byline">
             <small>
@@ -174,46 +174,70 @@
               <a href="https://github.com/trustin">trustin</a>
               <br>
               on
-              <time datetime="2012-05-25">25-May-2012</time>
+              <time datetime="2013-07-16">16-Jul-2013</time>
             </small>
           </p>
           <div class="news-content">
-            <div class="entry-content">
-            <p>The Netty project team is proud to announce the first beta release of Netty 3.5.0. Please note that it's a beta release, so you might need to test it thoroughly before putting it into production.</p>
-            <p>The JAR file is already on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.0.Beta1%7Cbundle">Maven central repository</a></span>. You can also get the full tarball from <span class="wikilink"><a href="http://netty.io/downloads.html">the download page</a></span>.</p>
-            <p>This version introduces various features. The most important are:</p>
+            <p>After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with <a href="http://netty.io/wiki/new-and-noteworthy.html">the vast number of changes</a>.</p>
+            
+            <p>I'd like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adoptors were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version.  If this release is unusually rock-solid and high-performing, it's thanks to all of those great people for sure.</p>
+            
+            <p>What would be waiting in front of us?  We are excited that we are going to make the version 4 much more stable, to improve documentation, to give advise to help those who migrate 3.x-based apps to 4, and to make Netty faster than ever.  I hope you <a href="http://netty.io/community.html">become a part of all these efforts</a>.</p>
+            
+            <h2>Changes since 4.0.0.CR9</h2>
+            
+            <h3>Removal of <code>MessageList</code></h3>
+            
+            <p>I must admit <code>MesageList</code> was pain in the butt.  Instead of forcing a handler always loop over the list of messages, I split <code>ChannelInboundHandler.messageReceived(ctx, list)</code> into two event handler methods:</p>
+            
             <ul>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/353">SPDY3</a></span> support. Thanks again to our friends at twitter!</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/216">NIO UDP Multicast</a></span> support (only available when using jdk7)</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/271">Gathering Writes</a></span> support (only available when using jdk7)</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/286">HTTP POST</a></span> support</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/340">Handler</a></span> for traffic shaping</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/340">Handler</a></span> for IP based filtering</li>
-            <li>
-            <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/324">Encoder/Decoder</a></span> that supports marshall / unmarshall of java objects via JBoss Marshalling (can be used as replacement for <tt>ObjectEncoder</tt>/<tt>ObjectDecoder</tt>)</li>
+            <li>channelRead(ctx, msg)</li>
+            <li>channelReadComplete(ctx)</li>
             </ul>
-            <p><strong>API Breakage in SPDY</strong></p>
-            <p>Please note that this release includes some "small" API Breakage in the spdy package, which should not effect most of you. All static field values that were located in the <tt>SpdyHeaders.HttpNames</tt> class were moved to the <tt>Spdy2Headers.HttpNames</tt> class. The ones that are now in <tt>SpdyHeaders.HttpNames</tt> are related to SPDY3. The ones in <tt>Spdy2Headers</tt> are the old ones that are related to SPDY2.</p>
-            <p>Along with the new features mentioned above, this release also includes many other bugfixes.</p>
-            <p>For the detailed list of the changes, please refer to <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?milestone=11&amp;page=1&amp;state=closed">the issue tracker page</a></span>.</p>
-            <p>Enjoy!</p>
-            </div>
+            
+            
+            <p>When Netty reads one or more messages, <code>channelRead()</code> event is triggered for each message.  Once the current read operation is finished, <code>channelReadComplete()</code> is triggered to tell the handler that the last <code>channelRead()</code> was the last message in the current batch.</p>
+            
+            <p>Similarly, for outbound, write(ctx, list) has been split into the following:</p>
+            
+            <ul>
+            <li>write(ctx, msg, promise)</li>
+            <li>flush(ctx)</li>
+            </ul>
+            
+            
+            <p>Instead of writing a list of messages with a promise, a user is now supposed to call <code>write(msg)</code> multiple times and then call <code>flush()</code> to actually flush the buffered messages.</p>
+            
+            <p>Please note that <code>flush()</code> doesn't have a promise with it.  You must write something to get notified on completion.  As you did in 3.x, the trick of writing an empty buffer works here, too.</p>
+            
+            <h4>Related miscellaneous changes</h4>
+            
+            <ul>
+            <li><code>ChannelInboundHandler.channelReadSuspended()</code> has been replaced by <code>channelReadComplete()</code> introduced above, because they are essentially same.</li>
+            <li>Because <code>MessageList</code> is gone, codec framework now uses <code>List&lt;Object&gt;</code> instead of <code>MessageList</code> as an output parameter.</li>
+            </ul>
+            
+            
+            <h3>Other changes</h3>
+            
+            <ul>
+            <li><code>UnpooledByteBufAllocator</code> is the default allocator.  We suspect there might be a leak in the <code>PooledByteBufAllocator</code>.  Until the investigation is complete and any bugs found are fixed, we are defaulting to <code>UnpooledByteBufAllocator</code>.</li>
+            <li><code>ByteBuf</code> is now an abstract class rather than an interface. I found that converting <code>ByteBuf</code> from an interface to an abstract class gives the nice performance boost of around 5%.  Hence <code>ByteBuf</code> was converted to an abstract class.</li>
+            <li><code>Channel.id()</code> has been removed.  It was practically impossible to generate a unique ID of a <code>Channel</code> with the new API because there is no way to manage the global map of the taken IDs</li>
+            </ul>
+            
+            
+            <p>Visit <a href="https://github.com/netty/netty/issues?milestone=42&amp;state=closed">here</a> for the complete list of the changes.</p>
           </div>
           <ul class="pager">
             <li class="previous">
-              <a href="../../../../news/2012/05/16/3-4-5-final.html">&larr; Older</a>
+              <a href="../../../../news/2013/07/02/4-0-0-CR9.html">&larr; Older</a>
             </li>
             <li>
               <a href="../../../index.html">List all news items</a>
             </li>
-            <li class="next">
-              <a href="../../../../news/2012/05/29/3-4-6-final.html">Newer &rarr;</a>
+            <li class="next disabled">
+              <a href="#">Newer &rarr;</a>
             </li>
           </ul>
         </div>
@@ -222,9 +246,9 @@
                       <div id="disqus_thread"></div>
                       <script type="text/javascript">
                       var disqus_shortname = 'netty0';
-                      var disqus_url = "http://netty.io/news/2012/05/25/3-5-0-beta1.html";
+                      var disqus_url = "http://netty.io/news/2013/07/16/4-0-0-Final.html";
                       var disqus_developer = null;
-                      var disqus_identifier = "6721345938511975155";
+                      var disqus_identifier = "news/2013-07-16-4-0-0-Final.html";
                       (function() {
                         var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                         dsq.src = "http://netty0.disqus.com/embed.js";
