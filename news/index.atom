@@ -2,13 +2,13 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-07-17T19:44:38+02:00</updated>
+  <updated>2013-07-18T10:04:31+02:00</updated>
   <link href="../news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
     <id>../news/2013/07/17/4-0-2-Final.html</id>
     <title>Netty 4.0.2.Final released</title>
-    <updated>2013-07-17T19:44:38+02:00</updated>
+    <updated>2013-07-18T10:04:31+02:00</updated>
     <published>2013-07-17T00:00:00+00:00</published>
     <link href="../news/2013/07/17/4-0-2-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -53,9 +53,69 @@
     </content>
   </entry>
   <entry>
+    <id>../news/2013/07/16/4-0-0-Final.html</id>
+    <title>Netty 4.0.0.Final released</title>
+    <updated>2013-07-18T10:05:33+02:00</updated>
+    <published>2013-07-16T00:00:00+00:00</published>
+    <link href="../news/2013/07/16/4-0-0-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with the vast number of changes.
+      
+      I'd like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adoptors were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version....
+    </summary>
+    <content type="html">
+      &lt;p&gt;After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;the vast number of changes&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;I'd like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adoptors were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version.  If this release is unusually rock-solid and high-performing, it's thanks to all of those great people for sure.&lt;/p&gt;
+      
+      &lt;p&gt;What would be waiting in front of us?  We are excited that we are going to make the version 4 much more stable, to improve documentation, to give advise to help those who migrate 3.x-based apps to 4, and to make Netty faster than ever.  I hope you &lt;a href=&quot;http://netty.io/community.html&quot;&gt;become a part of all these efforts&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h2&gt;Changes since 4.0.0.CR9&lt;/h2&gt;
+      
+      &lt;h3&gt;Removal of &lt;code&gt;MessageList&lt;/code&gt;
+      &lt;/h3&gt;
+      
+      &lt;p&gt;I must admit &lt;code&gt;MesageList&lt;/code&gt; was pain in the butt.  Instead of forcing a handler always loop over the list of messages, I split &lt;code&gt;ChannelInboundHandler.messageReceived(ctx, list)&lt;/code&gt; into two event handler methods:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;channelRead(ctx, msg)&lt;/li&gt;
+      &lt;li&gt;channelReadComplete(ctx)&lt;/li&gt;
+      &lt;/ul&gt;&lt;p&gt;When Netty reads one or more messages, &lt;code&gt;channelRead()&lt;/code&gt; event is triggered for each message.  Once the current read operation is finished, &lt;code&gt;channelReadComplete()&lt;/code&gt; is triggered to tell the handler that the last &lt;code&gt;channelRead()&lt;/code&gt; was the last message in the current batch.&lt;/p&gt;
+      
+      &lt;p&gt;Similarly, for outbound, write(ctx, list) has been split into the following:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;write(ctx, msg, promise)&lt;/li&gt;
+      &lt;li&gt;flush(ctx)&lt;/li&gt;
+      &lt;/ul&gt;&lt;p&gt;Instead of writing a list of messages with a promise, a user is now supposed to call &lt;code&gt;write(msg)&lt;/code&gt; multiple times and then call &lt;code&gt;flush()&lt;/code&gt; to actually flush the buffered messages.&lt;/p&gt;
+      
+      &lt;p&gt;Please note that &lt;code&gt;flush()&lt;/code&gt; doesn't have a promise with it.  You must write something to get notified on completion.  As you did in 3.x, the trick of writing an empty buffer works here, too.&lt;/p&gt;
+      
+      &lt;h4&gt;Related miscellaneous changes&lt;/h4&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;code&gt;ChannelInboundHandler.channelReadSuspended()&lt;/code&gt; has been replaced by &lt;code&gt;channelReadComplete()&lt;/code&gt; introduced above, because they are essentially same.&lt;/li&gt;
+      &lt;li&gt;Because &lt;code&gt;MessageList&lt;/code&gt; is gone, codec framework now uses &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt; instead of &lt;code&gt;MessageList&lt;/code&gt; as an output parameter.&lt;/li&gt;
+      &lt;/ul&gt;&lt;h3&gt;Other changes&lt;/h3&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt; is the default allocator.  We suspect there might be a leak in the &lt;code&gt;PooledByteBufAllocator&lt;/code&gt;.  Until the investigation is complete and any bugs found are fixed, we are defaulting to &lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;
+      &lt;code&gt;ByteBuf&lt;/code&gt; is now an abstract class rather than an interface. I found that converting &lt;code&gt;ByteBuf&lt;/code&gt; from an interface to an abstract class gives the nice performance boost of around 5%.  Hence &lt;code&gt;ByteBuf&lt;/code&gt; was converted to an abstract class.&lt;/li&gt;
+      &lt;li&gt;
+      &lt;code&gt;Channel.id()&lt;/code&gt; has been removed.  It was practically impossible to generate a unique ID of a &lt;code&gt;Channel&lt;/code&gt; with the new API because there is no way to manage the global map of the taken IDs&lt;/li&gt;
+      &lt;/ul&gt;&lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=42&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+    </content>
+  </entry>
+  <entry>
     <id>../news/2013/07/16/4-0-1-Final.html</id>
-    <title>Netty 4.0.2.Final released</title>
-    <updated>2013-07-17T19:50:47+02:00</updated>
+    <title>Netty 4.0.1.Final released</title>
+    <updated>2013-07-18T10:04:31+02:00</updated>
     <published>2013-07-16T00:00:00+00:00</published>
     <link href="../news/2013/07/16/4-0-1-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -91,117 +151,9 @@
     </content>
   </entry>
   <entry>
-    <id>../news/2013/07/15/4-0-0-Final.html</id>
-    <title>Netty 4.0.0.CR5 released with new-new API</title>
-    <updated>2013-07-17T15:55:05+02:00</updated>
-    <published>2013-07-15T00:00:00+00:00</published>
-    <link href="../news/2013/07/15/4-0-0-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      You might already have seen we tagged 4.0.0.CR5 (and CR4) recently and wondered why no release announcement was coming along.  Here's the announcement finally with choke full of changes.
-      
-      This release is different from others because of its huge change in the API.  I'd like to apologize for the broken backward compatibility again and explain why this change was required.  Also, please read the revised user guide and the complete list of the changes in 4.
-      
-      Why breakage again?
-      
-      The API changes made so far turned out to increase the memory footprint and consumption while our intention was actually decreasing...
-    </summary>
-    <content type="html">
-      &lt;p&gt;You might already have seen we tagged 4.0.0.CR5 (and CR4) recently and wondered why no release announcement was coming along.  Here's the announcement finally with choke full of changes.&lt;/p&gt;
-      
-      &lt;p&gt;This release is different from others because of its huge change in the API.  I'd like to apologize for the broken backward compatibility again and explain why this change was required.  Also, please read &lt;a href=&quot;http://netty.io/wiki/user-guide-for-4.x.html&quot;&gt;the revised user guide&lt;/a&gt; and &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;the complete list of the changes in 4&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;h2&gt;Why breakage again?&lt;/h2&gt;
-      
-      &lt;p&gt;The API changes made so far turned out to increase the memory footprint and consumption while our intention was actually decreasing them.&lt;/p&gt;
-      
-      &lt;h3&gt;Memory consumption issue&lt;/h3&gt;
-      
-      &lt;p&gt;When there are many connections which does not exchange data frequently, the old Netty 4 API spent a lot more memory than 3 because it always allocates per-handler buffer for each connection unless otherwise explicitly stated by a user.  In a usual real world load, a client doesn't always send requests without pausing, so the idea of having a buffer whose life cycle if bound to the life cycle of a connection didn't work as expected.&lt;/p&gt;
-      
-      &lt;h3&gt;Memory footprint issue&lt;/h3&gt;
-      
-      &lt;p&gt;The old Netty 4 API decreased overall memory footprint by a great deal in many cases.  It was mainly because the old Netty 4 API did not allocate a new buffer and event object for each read.  Instead, it created a new buffer for each handler in a pipeline.  This works pretty well as long as the number of handlers in a pipeline is only a few.  However, for a highly modular application with many handlers which handles connections which lasts for relatively short period, it actually makes the memory footprint issue much worse.&lt;/p&gt;
-      
-      &lt;h2&gt;How did we fix them this time?&lt;/h2&gt;
-      
-      &lt;p&gt;All in all, this is about retaining all the good changes we made in 4 so far such as better thread model and going back to the way how we dealt with message events in 3.  The distinction of &lt;code&gt;MessageBuf&lt;/code&gt; and &lt;code&gt;ByteBuf&lt;/code&gt; is now gone, and Netty simply treats a &lt;code&gt;ByteBuf&lt;/code&gt; as a message just like Netty 3 did.  A &lt;code&gt;ByteBuf&lt;/code&gt; is not allocated per handler anymore.&lt;/p&gt;
-      
-      &lt;p&gt;To follow the change, the type hierarchy of &lt;code&gt;ChannelHandler&lt;/code&gt; became very similar to that of Netty 3:&lt;/p&gt;
-      
-      &lt;p&gt;&lt;img src=&quot;http://img.motd.kr/uml/gist/188244c4b3d6b01c0156&quot; alt=&quot;ChannelHandler type hierarchy diagram&quot;&gt;&lt;/p&gt;
-      
-      &lt;p&gt;Consequently, &lt;code&gt;inboundBufferUpdated()&lt;/code&gt; and &lt;code&gt;flush()&lt;/code&gt; were replaced by &lt;code&gt;messageReceived()&lt;/code&gt; and &lt;code&gt;write()&lt;/code&gt; (similar to &lt;code&gt;filterWrite()&lt;/code&gt; in 3) respectively.&lt;/p&gt;
-      
-      &lt;p&gt;Another change to note is that &lt;code&gt;MessageBuf&lt;/code&gt; is gone and a new type called &lt;code&gt;MessageList&lt;/code&gt; is used as a parameter of &lt;code&gt;messageReceived()&lt;/code&gt; and &lt;code&gt;write()&lt;/code&gt;.  It is basically a light-weight container of multiple messages.&lt;/p&gt;
-      
-      &lt;p&gt;Due to the changes above, some handler implementations have no value anymore and thus were removed: &lt;code&gt;ByteToByteEncoder/Decoder/Codec&lt;/code&gt;. Please use &lt;code&gt;MessageToByteEncoder&amp;lt;ByteBuf&amp;gt;&lt;/code&gt;, &lt;code&gt;ByteToMessageDecoder&amp;lt;ByteBuf&amp;gt;&lt;/code&gt;, and &lt;code&gt;ByteToMessageCodec&amp;lt;ByteBuf&amp;gt;&lt;/code&gt; instead.&lt;/p&gt;
-      
-      &lt;p&gt;Here are some other changes that might interest you:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;EmbeddedByteChannel&lt;/code&gt; and &lt;code&gt;EmbeddedMessageChannel&lt;/code&gt; has been merged into &lt;code&gt;EmbeddedChannel&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;Channel.isWritable()&lt;/code&gt; in 3 has been brought back.
-      
-      &lt;ul&gt;
-      &lt;li&gt;Added &lt;code&gt;ChannelInboundHandler.channelWritabilityChanges()&lt;/code&gt; event which is similar to &lt;code&gt;channelInterestOpsChanged()&lt;/code&gt; in 3.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Because a handler does not have its own buffer, Netty has to allocate a new buffer whenever it reads something.  To get the optimal size of the new buffer, &lt;code&gt;RecvByteBufAllocator&lt;/code&gt; has been added as a configuration property.
-      
-      &lt;ul&gt;
-      &lt;li&gt;It is similar to &lt;code&gt;ReceiveBufferSizePredictor&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Some existing configuration properties such as
-      &lt;code&gt;DatagramChannelConfig.receivePacketSize&lt;/code&gt; is gone now.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;&lt;h2&gt;Other noteworthy changes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;io.netty.buffer.ReferenceCounted&lt;/code&gt; has been moved to &lt;code&gt;io.netty.util&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/issues/1441&quot;&gt;#1441&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Resource leak detection has been turned on by default.&lt;/li&gt;
-      &lt;li&gt;The &lt;code&gt;ByteBuf&lt;/code&gt; created by &lt;code&gt;PooledByteBufAllocator&lt;/code&gt; produces zero garbage now if resource leak detection is turned off by &lt;code&gt;-Dio.netty.noResourceLeakDetection&lt;/code&gt; JVM flag.&lt;/li&gt;
-      &lt;li&gt;The cancellation of &lt;code&gt;Future&lt;/code&gt; and &lt;code&gt;Promise&lt;/code&gt; works as expected now. (&lt;a href=&quot;https://github.com/netty/netty/issues/1432&quot;&gt;#1432&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;GlobalEventExecutor&lt;/code&gt; has been added to allow a user to execute an arbitrary task from a global singleton thread. (&lt;a href=&quot;https://github.com/netty/netty/issues/1389&quot;&gt;#1389&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;Bootstrap.group()&lt;/code&gt; getter method has been added for easier access to its underlying &lt;code&gt;EventLoopGroup&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/issues/1425&quot;&gt;#1425&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Message type hierarchy of SPDY has been revised. (&lt;a href=&quot;https://github.com/netty/netty/issues/1418&quot;&gt;#1418&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;&lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=53&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;h2&gt;Acknowledgement&lt;/h2&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/coops&quot;&gt;@coops&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/DmitryLobachov&quot;&gt;@DmitryLobachov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dpx-infinity&quot;&gt;@dpx-infinity&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/hepin1989&quot;&gt;@hepin1989&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/icafe&quot;&gt;@icafe&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jaens&quot;&gt;@jaens&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/listplot3d&quot;&gt;@listplot3d&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lurongbin&quot;&gt;@lurongbin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mgiannini&quot;&gt;@mgiannini&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/profer&quot;&gt;@profer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/skayred&quot;&gt;@skayred&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sscarduzio&quot;&gt;@sscarduzio&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;&lt;p&gt;Last but not least, this change would have been impossible without &lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;'s help. He fixed, ported, and improved many parts of my changes.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
     <id>../news/2013/07/02/4-0-0-CR9.html</id>
     <title>Netty 4.0.0.CR9 released</title>
-    <updated>2013-07-17T15:55:05+02:00</updated>
+    <updated>2013-07-18T10:04:31+02:00</updated>
     <published>2013-07-02T00:00:00+00:00</published>
     <link href="../news/2013/07/02/4-0-0-CR9.html" rel="alternate" type="text/html" />
     <author>
