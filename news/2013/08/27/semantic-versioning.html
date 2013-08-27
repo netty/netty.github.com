@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.1.Final released</title>
-    <title>Netty: Netty 4.0.1.Final released</title>
+    <title>Netty.news: Netty adopts the modified Semantic Versioning</title>
+    <title>Netty: Netty adopts the modified Semantic Versioning</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -166,41 +166,59 @@
       <div class="content instapaper_body">
         <div class="news-item">
           <h1>
-            Netty 4.0.1.Final released
+            Netty adopts the modified Semantic Versioning
           </h1>
           <p class="byline">
             <small>
               by
-              <a href="https://github.com/normanmaurer">normanmaurer</a>
+              <a href="https://github.com/trustin">trustin</a>
               <br>
               on
-              <time datetime="2013-07-16">16-Jul-2013</time>
+              <time datetime="2013-08-27">27-Aug-2013</time>
             </small>
           </p>
           <div class="news-content">
-            <p>Only one day after our Final release of Netty 4.0.0, we bring you the first bug-fix release out of the 4.x tree. This release fixes a resource leak in WebSockets code base and SPDY handling.</p>
+            <p>As you might already have been following <a href="https://groups.google.com/forum/#!topic/netty/wZz6BvAqwxc">the discussion</a> about adopting <a href="http://semver.org/">Semantic Versioning</a> in <a href="https://groups.google.com/forum/#!forum/netty">our discussion group</a>, we are adopting the slightly modified Semantic Versioning for all the subsequent releases as of today.</p>
             
-            <h2>Important changes</h2>
-            
-            <p>As noted above this release contains important fixes / changes. Those are listed below.</p>
+            <h4>What does this really mean?</h4>
             
             <ul>
-            <li>Fix resource leakage in WebSocketUtil.base64(...). (<a href="https://github.com/netty/netty/issues/1579">#1579</a>)</li>
-            <li>SpdySessionHandler pending writes broken. (<a href="https://github.com/netty/netty/issues/1580">#1580</a>) and <a href="https://github.com/netty/netty/pull/1582">#1582</a>)</li>
+            <li>No more <code>.Final</code> in non-prelease versions. e.g. 4.0.9.Final becomes 4.0.9.  Besides that, version naming rule doesn't change. e.g. 5.0.0.Alpha1 remains unchanged.</li>
+            <li>The micro version number (a.k.a. patch number) is increased only when <a href="http://docs.oracle.com/javase/specs/jls/se7/html/jls-13.html">the binary compatibility</a> (or see <a href="http://stackoverflow.com/questions/14973380/what-is-binary-compatibility">here</a>) is preserved.
+            
+            <ul>
+            <li>This is different from the original Semantic Versioning, which prohibits introducing binary-compatible improvements (i.e. non-bug-fixes) and deprecating the public API.  We are going to introduce reasonably simple yet binary-compatible improvements and to mark the pooly designed API as deprecated when we increase the micro version number.</li>
+            </ul>
+            </li>
+            <li>The minor version number is increased when new yet backward-compatible functionality is introduced to the public API.  It is not necessarily binary-compatible.  It is usually source-compatible, but you might need to modify your code if you extended the public API (e.g. implementing your own transport.)</li>
+            <li>The major version number is increased when the source compatibility is broken even if you did not extend the public API.  It usually means the removal of some features or the rewrites of some or all portions of the public API.</li>
+            <li>We obviously don't care about the source or binary compatibility of non-public API, such as the classes in <code>io.netty.util.internal</code> and package-private classes and methods.</li>
             </ul>
             
             
-            <p>Visit <a href="https://github.com/netty/netty/issues?milestone=61&amp;state=closed">here</a> for the complete list of the changes.</p>
+            <h4>Why do we adopt this changes?</h4>
+            
+            <p>It's because we do not want to surprise anyone who depends on Netty.  In theory, this change should allow you to replace the old Netty JAR with the newer version without recompiling your code at all in most cases.  Also, we do not plan to push non-trivial changes when we bump the micro version number, so it is likely that you'll see less regression than before.</p>
+            
+            <h4>Why do we adopt the 'modified' version of the Semantic Versioning?</h4>
+            
+            <p>As to version format, we decided to be OSGi-compatible.  The version format in Semantic Versioning 2.0.0 doesn't conform to OSGi version format.</p>
+            
+            <p>Although it might be controversial, we believe it is sometimes beneficial to include relatively simple improvements in a micro version bump.  Also, deprecation doesn't really break the binary compatibility, and thus it sounded better for us to give the earliest signal to a user.</p>
+            
+            <h4>How will you ensure the binary compatibility between releases?</h4>
+            
+            <p>We are going to integrate the automated binary compatibility checker into our build so that <a href="http://ci.motd.kr/">our CI server</a> warns us whenever we break the binary compatibility.  It is not implemented in our <code>pom.xml</code> yet, so you might want to contribute some by <a href="https://github.com/netty/netty/pulls">issuing a pull request</a> if you have an experience in this area.</p>
           </div>
           <ul class="pager">
             <li class="previous">
-              <a href="../../../../news/2013/07/16/4-0-0-Final.html">&larr; Older</a>
+              <a href="../../../../news/2013/08/26/4-0-8-Final.html">&larr; Older</a>
             </li>
             <li>
               <a href="../../../index.html">List all news items</a>
             </li>
-            <li class="next">
-              <a href="../../../../news/2013/07/17/4-0-2-Final.html">Newer &rarr;</a>
+            <li class="next disabled">
+              <a href="#">Newer &rarr;</a>
             </li>
           </ul>
         </div>
@@ -209,9 +227,9 @@
                       <div id="disqus_thread"></div>
                       <script type="text/javascript">
                       var disqus_shortname = 'netty0';
-                      var disqus_url = "http://netty.io/news/2013/07/16/4-0-1-Final.html";
+                      var disqus_url = "http://netty.io/news/2013/08/27/semantic-versioning.html";
                       var disqus_developer = null;
-                      var disqus_identifier = "news/2013-07-16-4-0-1-Final.html";
+                      var disqus_identifier = "news/2013-08-27-semantic-versioning.html";
                       (function() {
                         var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                         dsq.src = "http://netty0.disqus.com/embed.js";
