@@ -48,10 +48,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.7.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.8.Final.tar.bz2">
                     <i class="icon-download-alt"></i>
-                    4.0.7.Final
-                    <small>&dash; 08-Aug-2013</small>
+                    4.0.8.Final
+                    <small>&dash; 26-Aug-2013</small>
                   </a>
                 </li>
                 <li>
@@ -319,7 +319,7 @@
           <div class="highlight"><pre><span class="kn">package</span> <span class="n">io</span><span class="o">.</span><span class="na">netty</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">time</span><span class="o">;</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kd">class</span> <span class="nc">TimeServerHandler</span> <span class="kd">extends</span> <span class="n">ChannelInboundHandlerAdapter</span> <span class="o">{</span>&#x000A;&#x000A;    <span class="nd">@Override</span>&#x000A;    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelActive</span><span class="o">(</span><span class="kd">final</span> <span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">)</span> <span class="o">{</span> <span class="c1">// (1)</span>&#x000A;        <span class="kd">final</span> <span class="n">ByteBuf</span> <span class="n">time</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">buffer</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// (2)</span>&#x000A;        <span class="n">time</span><span class="o">.</span><span class="na">writeInt</span><span class="o">((</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">System</span><span class="o">.</span><span class="na">currentTimeMillis</span><span class="o">()</span> <span class="o">/</span> <span class="mi">1000L</span> <span class="o">+</span> <span class="mi">2208988800L</span><span class="o">));</span>&#x000A;        &#x000A;        <span class="kd">final</span> <span class="n">ChannelFuture</span> <span class="n">f</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">writeAndFlush</span><span class="o">(</span><span class="n">time</span><span class="o">);</span> <span class="c1">// (3)</span>&#x000A;        <span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">ChannelFutureListener</span><span class="o">()</span> <span class="o">{</span>&#x000A;            <span class="nd">@Override</span>&#x000A;            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">ChannelFuture</span> <span class="n">future</span><span class="o">)</span> <span class="o">{</span>&#x000A;                <span class="k">assert</span> <span class="n">f</span> <span class="o">==</span> <span class="n">future</span><span class="o">;</span>&#x000A;                <span class="n">ctx</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>&#x000A;            <span class="o">}</span>&#x000A;        <span class="o">});</span> <span class="c1">// (4)</span>&#x000A;    <span class="o">}</span>&#x000A;    &#x000A;    <span class="nd">@Override</span>&#x000A;    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">exceptionCaught</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Throwable</span> <span class="n">cause</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="n">cause</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">close</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
           <ol>
-          <li>As explained, the <code>channelActive()</code> method will be invoked when a connection is established and ready to generate traffic.  Let's write a 32-bit integer that represents the current time in thie method.</li>
+          <li>As explained, the <code>channelActive()</code> method will be invoked when a connection is established and ready to generate traffic.  Let's write a 32-bit integer that represents the current time in this method.</li>
           <li>To send a new message, we need to allocate a new buffer which will contain the message. We are going to write a 32-bit integer, and therefore we need a <a href="http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> whose capacity is at least 4 bytes. Get the current <a href="http://netty.io/4.0/api/io/netty/buffer/ByteBufAllocator.html"><code>ByteBufAllocator</code></a> via <code>ChannelHandlerContext.alloc()</code> and allocate a new buffer.</li>
           <li>
           <p>As usual, we write the constructed message.</p>
@@ -383,15 +383,15 @@
           
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets: </p>
           
-          <p><img src="https://github-camo.global.ssl.fastly.net/9b6aadee43a4fa15d603a2c4a7695359dad7fdfe/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3063643963633636373461366238393561306365" alt="Three packets received as they were sent"></p>
+          <p><img src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce" alt="Three packets received as they were sent"></p>
           
           <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
           
-          <p><img src="https://github-camo.global.ssl.fastly.net/7b68f601941f48944e51524ed2ba16dcd4608667/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers"></p>
+          <p><img src="http://img.motd.kr/uml/gist/b31c0bd7bbfc69fd82d6" alt="Three packets split and merged into four buffers"></p>
           
           <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
           
-          <p><img src="https://github-camo.global.ssl.fastly.net/9b6aadee43a4fa15d603a2c4a7695359dad7fdfe/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3063643963633636373461366238393561306365" alt="Four buffers defragged into three"></p>
+          <p><img src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce" alt="Four buffers defragged into three"></p>
           
           <h4 id="wiki-h4-12">
           <a name="the-first-solution" class="anchor" href="#the-first-solution"><span class="octicon octicon-link"></span></a>The First Solution</h4>
@@ -507,7 +507,7 @@
               </div>
             </div>
           <div class="text-right clearfix">
-            <small>Last retrived on 27-Aug-2013</small>
+            <small>Last retrived on 29-Aug-2013</small>
           </div>
         </div>
         <div class="comments">
