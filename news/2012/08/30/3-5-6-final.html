@@ -12,7 +12,7 @@
         padding-top: 60px;
       }
     </style>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" media="screen" rel="stylesheet" type="text/css">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
     <script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
     <script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
@@ -21,15 +21,28 @@
     <link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
     <script src="../../../../lib/common.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.min.js" type="text/javascript"></script>
     <![endif]-->
   </head>
   <body>
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="brand" href="../../../../index.html">Netty project</a>
-          <ul class="nav">
+    <a class="sr-only" href="#content">Skip navigation</a>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../../../../index.html">
+            <span class="navbar-brand-logo"></span>
+            Netty project
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="../../../../news/2013/09/05/3-7-0-Final.html">
                 News
@@ -156,14 +169,16 @@
               </a>
             </li>
           </ul>
-          <form action="../../../../search.html" class="navbar-search pull-right" method="GET" onsubmit="return validateGlobalSearchQuery()">
-            <input class="search-query" id="global-search-query" name="q" placeholder="Search" type="text">
+          <form action="../../../../search.html" class="navbar-form navbar-right" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+            <div class="form-group">
+              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+            </div>
           </form>
         </div>
       </div>
-    </div>
-    <div class="container">
-      <div class="content instapaper_body">
+    </nav>
+    <div id="content">
+      <div class="container">
         <div class="news-item">
           <h1>
             Netty 3.5.6.Final released
@@ -222,6 +237,8 @@
                       <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
         </div>
       </div>
+    </div>
+    <div class="container">
       <hr>
       <footer>
         <p>
@@ -230,8 +247,8 @@
         </p>
       </footer>
     </div>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../../../../lib/common.footer.js" type="text/javascript"></script>
   
 <script type="text/javascript">
