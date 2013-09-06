@@ -186,53 +186,8 @@
             You can improve it by yourself
             <a href="https://github.com/netty/netty/wiki/New-and-noteworthy">here!</a>
           </div>
-          <div class="wiki-toc col-md-3 well pull-right hidden-xs hidden-sm hidden-print" role="complementary">
-          <ul class="nav nav-list nav-stacked">
-          <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Project structure changes">Project structure changes</a>
-          </li><li><a href="#wiki-h2-1" title="General API changes">General API changes</a>
-          </li><li><a href="#wiki-h2-2" title="Buffer API changes">Buffer API changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="ChannelBuffer → ByteBuf">ChannelBuffer → ByteBuf</a>
-          </li><li><a href="#wiki-h3-4" title="ByteBuf is not an interface but an abstract class">ByteBuf is not an interface but an abstract class</a>
-          </li><li><a href="#wiki-h3-5" title="Most buffers are dynamic with maximum capacity">Most buffers are dynamic with maximum capacity</a>
-          </li><li><a href="#wiki-h3-6" title="New buffer type: CompositeByteBuf">New buffer type: CompositeByteBuf</a>
-          </li><li><a href="#wiki-h3-7" title="Predictable NIO buffer conversion">Predictable NIO buffer conversion</a>
-          </li><li><a href="#wiki-h3-8" title="Little endian support changes">Little endian support changes</a>
-          </li><li><a href="#wiki-h3-9" title="Pooled buffers">Pooled buffers</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-10" title="ByteBuf is always reference counted">ByteBuf is always reference counted</a>
-          </li><li><a href="#wiki-h4-11" title="Automatic buffer leak detection">Automatic buffer leak detection</a>
-          </li></ul></li></ul></li><li><a href="#wiki-h2-12" title="io.netty.util.concurrent">io.netty.util.concurrent</a>
-          </li><li><a href="#wiki-h2-13" title="Channel API changes">Channel API changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="Revamped ChannelHandler interface">Revamped ChannelHandler interface</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-15" title="Upstream → Inbound, Downstream → Outbound">Upstream → Inbound, Downstream → Outbound</a>
-          </li><li><a href="#wiki-h4-16" title="New ChannelHandler type hierarchy">New ChannelHandler type hierarchy</a>
-          </li><li><a href="#wiki-h4-17" title="ChannelHandler with no event object">ChannelHandler with no event object</a>
-          </li><li><a href="#wiki-h4-18" title="Simplified channel state model">Simplified channel state model</a>
-          </li></ul></li><li><a href="#wiki-h3-19" title="Sensible and less error-prone inbound traffic suspension">Sensible and less error-prone inbound traffic suspension</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-20" title="Suspension of accepting incoming connections">Suspension of accepting incoming connections</a>
-          </li></ul></li><li><a href="#wiki-h3-21" title="Half-closed sockets">Half-closed sockets</a>
-          </li><li><a href="#wiki-h3-22" title="Flexible I/O thread allocation">Flexible I/O thread allocation</a>
-          </li><li><a href="#wiki-h3-23" title="Ability to create a Channel from an existing JDK socket">Ability to create a Channel from an existing JDK socket</a>
-          </li><li><a href="#wiki-h3-24" title="Deregistration and re-registration of a Channel from·to an I/O thread">Deregistration and re-registration of a Channel from·to an I/O thread</a>
-          </li><li><a href="#wiki-h3-25" title="Scheduling an arbitrary task to be run by an I/O thread">Scheduling an arbitrary task to be run by an I/O thread</a>
-          </li><li><a href="#wiki-h3-26" title="Simplified shutdown">Simplified shutdown</a>
-          </li><li><a href="#wiki-h3-27" title="Type-safe ChannelOption">Type-safe ChannelOption</a>
-          </li><li><a href="#wiki-h3-28" title="AttributeMap">AttributeMap</a>
-          </li><li><a href="#wiki-h3-29" title="New bootstrap API">New bootstrap API</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-30" title="ChannelPipelineFactory → ChannelInitializer">ChannelPipelineFactory → ChannelInitializer</a>
-          </li></ul></li><li><a href="#wiki-h3-31" title="ChannelFuture → ChannelFuture and ChannelPromise">ChannelFuture → ChannelFuture and ChannelPromise</a>
-          </li></ul></li><li><a href="#wiki-h2-32" title="Well-defined thread model">Well-defined thread model</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-33" title="No more ExecutionHandler - it&apos;s in the core.">No more ExecutionHandler - it&apos;s in the core.</a>
-          </li></ul></li><li><a href="#wiki-h2-34" title="Codec framework changes">Codec framework changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-35" title="Codec embedder → EmbeddedChannel">Codec embedder → EmbeddedChannel</a>
-          </li><li><a href="#wiki-h3-36" title="HTTP codec">HTTP codec</a>
-          </li><li><a href="#wiki-h3-37" title="Changes in transport implementations">Changes in transport implementations</a>
-          </li></ul></li><li><a href="#wiki-h2-38" title="Case study: porting the Factorial example">Case study: porting the Factorial example</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-39" title="Porting the server">Porting the server</a>
-          </li><li><a href="#wiki-h3-40" title="Porting the client">Porting the client</a>
-          </li></ul>
-          </li></ul>
-          </div>
+          <div class="row">
+          <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
                 <p>This document walks you through the list of notable changes and new features in the major Netty release to give you an idea to port your application to the new version.</p>
@@ -754,7 +709,57 @@
           </li>
           </ol>
               </div>
-            </div>
+            </div></div>
+          <div class="col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li><a href="#wiki-h2-0" title="Project structure changes">Project structure changes</a>
+          </li><li><a href="#wiki-h2-1" title="General API changes">General API changes</a>
+          </li><li><a href="#wiki-h2-2" title="Buffer API changes">Buffer API changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="ChannelBuffer → ByteBuf">ChannelBuffer → ByteBuf</a>
+          </li><li><a href="#wiki-h3-4" title="ByteBuf is not an interface but an abstract class">ByteBuf is not an interface but an abstract class</a>
+          </li><li><a href="#wiki-h3-5" title="Most buffers are dynamic with maximum capacity">Most buffers are dynamic with maximum capacity</a>
+          </li><li><a href="#wiki-h3-6" title="New buffer type: CompositeByteBuf">New buffer type: CompositeByteBuf</a>
+          </li><li><a href="#wiki-h3-7" title="Predictable NIO buffer conversion">Predictable NIO buffer conversion</a>
+          </li><li><a href="#wiki-h3-8" title="Little endian support changes">Little endian support changes</a>
+          </li><li><a href="#wiki-h3-9" title="Pooled buffers">Pooled buffers</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-10" title="ByteBuf is always reference counted">ByteBuf is always reference counted</a>
+          </li><li><a href="#wiki-h4-11" title="Automatic buffer leak detection">Automatic buffer leak detection</a>
+          </li></ul></li></ul></li><li><a href="#wiki-h2-12" title="io.netty.util.concurrent">io.netty.util.concurrent</a>
+          </li><li><a href="#wiki-h2-13" title="Channel API changes">Channel API changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="Revamped ChannelHandler interface">Revamped ChannelHandler interface</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-15" title="Upstream → Inbound, Downstream → Outbound">Upstream → Inbound, Downstream → Outbound</a>
+          </li><li><a href="#wiki-h4-16" title="New ChannelHandler type hierarchy">New ChannelHandler type hierarchy</a>
+          </li><li><a href="#wiki-h4-17" title="ChannelHandler with no event object">ChannelHandler with no event object</a>
+          </li><li><a href="#wiki-h4-18" title="Simplified channel state model">Simplified channel state model</a>
+          </li></ul></li><li><a href="#wiki-h3-19" title="Sensible and less error-prone inbound traffic suspension">Sensible and less error-prone inbound traffic suspension</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-20" title="Suspension of accepting incoming connections">Suspension of accepting incoming connections</a>
+          </li></ul></li><li><a href="#wiki-h3-21" title="Half-closed sockets">Half-closed sockets</a>
+          </li><li><a href="#wiki-h3-22" title="Flexible I/O thread allocation">Flexible I/O thread allocation</a>
+          </li><li><a href="#wiki-h3-23" title="Ability to create a Channel from an existing JDK socket">Ability to create a Channel from an existing JDK socket</a>
+          </li><li><a href="#wiki-h3-24" title="Deregistration and re-registration of a Channel from·to an I/O thread">Deregistration and re-registration of a Channel from·to an I/O thread</a>
+          </li><li><a href="#wiki-h3-25" title="Scheduling an arbitrary task to be run by an I/O thread">Scheduling an arbitrary task to be run by an I/O thread</a>
+          </li><li><a href="#wiki-h3-26" title="Simplified shutdown">Simplified shutdown</a>
+          </li><li><a href="#wiki-h3-27" title="Type-safe ChannelOption">Type-safe ChannelOption</a>
+          </li><li><a href="#wiki-h3-28" title="AttributeMap">AttributeMap</a>
+          </li><li><a href="#wiki-h3-29" title="New bootstrap API">New bootstrap API</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-30" title="ChannelPipelineFactory → ChannelInitializer">ChannelPipelineFactory → ChannelInitializer</a>
+          </li></ul></li><li><a href="#wiki-h3-31" title="ChannelFuture → ChannelFuture and ChannelPromise">ChannelFuture → ChannelFuture and ChannelPromise</a>
+          </li></ul></li><li><a href="#wiki-h2-32" title="Well-defined thread model">Well-defined thread model</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-33" title="No more ExecutionHandler - it&apos;s in the core.">No more ExecutionHandler - it&apos;s in the core.</a>
+          </li></ul></li><li><a href="#wiki-h2-34" title="Codec framework changes">Codec framework changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-35" title="Codec embedder → EmbeddedChannel">Codec embedder → EmbeddedChannel</a>
+          </li><li><a href="#wiki-h3-36" title="HTTP codec">HTTP codec</a>
+          </li><li><a href="#wiki-h3-37" title="Changes in transport implementations">Changes in transport implementations</a>
+          </li></ul></li><li><a href="#wiki-h2-38" title="Case study: porting the Factorial example">Case study: porting the Factorial example</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-39" title="Porting the server">Porting the server</a>
+          </li><li><a href="#wiki-h3-40" title="Porting the client">Porting the client</a>
+          </li></ul>
+          </li></ul>
+          </div>
+          </div>
+          </div>
           <div class="text-right clearfix">
             <small>Last retrived on 06-Sep-2013</small>
           </div>
