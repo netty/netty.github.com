@@ -349,7 +349,7 @@
 <a class="jxr_linenumber" name="339" href="#339">339</a>     <strong class="jxr_keyword">public</strong> ByteBuffer nioBuffer(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
 <a class="jxr_linenumber" name="340" href="#340">340</a>         checkIndex(index, length);
 <a class="jxr_linenumber" name="341" href="#341">341</a>         index = idx(index);
-<a class="jxr_linenumber" name="342" href="#342">342</a>         <strong class="jxr_keyword">return</strong> (ByteBuffer) memory.duplicate().position(index).limit(index + length);
+<a class="jxr_linenumber" name="342" href="#342">342</a>         <strong class="jxr_keyword">return</strong> ((ByteBuffer) memory.duplicate().position(index).limit(index + length)).slice();
 <a class="jxr_linenumber" name="343" href="#343">343</a>     }
 <a class="jxr_linenumber" name="344" href="#344">344</a> 
 <a class="jxr_linenumber" name="345" href="#345">345</a>     @Override

@@ -2,9 +2,73 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-10-03T19:35:52+02:00</updated>
+  <updated>2013-10-21T09:57:48+02:00</updated>
   <link href="../news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>../news/2013/10/21/4-0-11-Final.html</id>
+    <title>Netty 4.0.11.Final released</title>
+    <updated>2013-10-21T09:57:48+02:00</updated>
+    <published>2013-10-21T00:00:00+00:00</published>
+    <link href="../news/2013/10/21/4-0-11-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we are happy to announce the release of Netty 4.0.11.Final. This is mostly a bug-fix release but also include some small performance improvements. Please refer to the next section for more details. The release closes 24 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.
+      
+      Most important changes / fixes
+      
+      
+      Websocket: an exception could be raised if the client sends message after it thinks the handshake is complete (#1941)
+      JdkZLibEncoder/Decoder hanging when payload length long (#1893)
+      ArrayIndexOutOfBoundsException in ChannelOutboundBuffer (#1890)
+      HttpPostRequestDecoder can return zero-ed out attributes (#1848)
+      More efficient handling of incomplete...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we are happy to announce the release of Netty 4.0.11.Final. This is mostly a bug-fix release but also include some small performance improvements. Please refer to the next section for more details. The release closes 24 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.&lt;/p&gt;
+      
+      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Websocket: an exception could be raised if the client sends message after it thinks the handshake is complete (&lt;a href=&quot;https://github.com/netty/netty/issues/1941&quot;&gt;#1941&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;JdkZLibEncoder/Decoder hanging when payload length long (&lt;a href=&quot;https://github.com/netty/netty/issues/1893&quot;&gt;#1893&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ArrayIndexOutOfBoundsException in ChannelOutboundBuffer (&lt;a href=&quot;https://github.com/netty/netty/issues/1890&quot;&gt;#1890&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HttpPostRequestDecoder can return zero-ed out attributes (&lt;a href=&quot;https://github.com/netty/netty/issues/1848&quot;&gt;#1848&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;More efficient handling of incomplete writes. (&lt;a href=&quot;https://github.com/netty/netty/pull/1839&quot;&gt;#1839&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=73&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+      
+      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Acknowledge&lt;/h2&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Amitunreal&quot;&gt;@Amitunreal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chandru2012&quot;&gt;@chandru2012&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chenjianjx&quot;&gt;@chenjianjx&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/darionyaphet&quot;&gt;@darionyaphet&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gewy&quot;&gt;@gewy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/git001&quot;&gt;@git001&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mhgrove&quot;&gt;@mhgrove&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mortan&quot;&gt;@mortan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/oxtoacart&quot;&gt;@oxtoacart&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/perrinz&quot;&gt;@perrinz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pjklauser&quot;&gt;@pjklauser&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/stinkyorangesock&quot;&gt;@stinkyorangesock&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tianyuanzhonglu&quot;&gt;@tianyuanzhonglu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wgallagher&quot;&gt;@wgallagher&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>../news/2013/10/03/4-0-10-Final.html</id>
     <title>Netty 4.0.10.Final released</title>
@@ -2643,33 +2707,6 @@
       &lt;p&gt;The migration guide will be out and explain the new concepts and changes in 4.0, but basically you will find the code looks similar in most examples. For the rough list of changes in 4.0, please read &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/topic/netty/PFhK9oFRpvA&quot;&gt;this&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/topic/netty/6dTbdXmHvD0&quot;&gt;this&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
       &lt;p&gt;I would recommend you to load the whole project into your IDE and enjoy easier navigation. It does not build completely yet, but you can run many of the examples such as HTTP and WebSockets by yourself if your IDE allows running a project with compilation errors (Eclipse does.)&lt;/p&gt;
       &lt;p&gt;If you feel like participating into what is happening in Netty 4.0, it is really good time to join &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/forum/netty&quot;&gt;the developer group&lt;/a&gt;&lt;/span&gt; to give a quick feed back, ask questions, and suggest an idea. We are going to release the first alpha pretty soon!&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>../news/2012/05/29/3-4-6-final.html</id>
-    <title>Netty 3.4.6.Final released!</title>
-    <updated>2013-09-06T12:21:38+02:00</updated>
-    <published>2012-05-29T00:00:00+00:00</published>
-    <link href="../news/2012/05/29/3-4-6-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      
-      The Netty project team is proud to announce Bugfix release of the 3.4.x series.
-      The JAR file is already on Maven central repository. You can also get the full tarball from the download page.
-      This release contains only bugfixes. For the detailed list of the changes, please refer to the issue tracker page.
-      Enjoy!
-      
-      ...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;The Netty project team is proud to announce Bugfix release of the 3.4.x series.&lt;/p&gt;
-      &lt;p&gt;The JAR file is already on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.4.6.Final%7Cbundle&quot;&gt;Maven central repository&lt;/a&gt;&lt;/span&gt;. You can also get the full tarball from &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;This release contains only bugfixes. For the detailed list of the changes, please refer to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=17&amp;amp;state=closed&quot;&gt;the issue tracker page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;Enjoy!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
