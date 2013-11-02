@@ -1035,7 +1035,7 @@
 <a class="jxr_linenumber" name="1025" href="#1025">1025</a>                 @Override
 <a class="jxr_linenumber" name="1026" href="#1026">1026</a>                 <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> operationComplete(Future&lt;Channel&gt; future) <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="1027" href="#1027">1027</a>                     <strong class="jxr_keyword">if</strong> (!future.isSuccess()) {
-<a class="jxr_linenumber" name="1028" href="#1028">1028</a>                         logger.debug(<span class="jxr_string">"Failed to complete handshake"</span>, future.cause());
+<a class="jxr_linenumber" name="1028" href="#1028">1028</a>                         future.cause().printStackTrace();
 <a class="jxr_linenumber" name="1029" href="#1029">1029</a>                         ctx.close();
 <a class="jxr_linenumber" name="1030" href="#1030">1030</a>                     }
 <a class="jxr_linenumber" name="1031" href="#1031">1031</a>                 }

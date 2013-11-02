@@ -585,7 +585,7 @@
 <a class="jxr_linenumber" name="575" href="#575">575</a> 
 <a class="jxr_linenumber" name="576" href="#576">576</a>     @Override
 <a class="jxr_linenumber" name="577" href="#577">577</a>     <strong class="jxr_keyword">public</strong> ByteBuffer nioBuffer(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
-<a class="jxr_linenumber" name="578" href="#578">578</a>         <strong class="jxr_keyword">return</strong> ((ByteBuffer) buffer.duplicate().position(index).limit(index + length)).slice();
+<a class="jxr_linenumber" name="578" href="#578">578</a>         <strong class="jxr_keyword">return</strong> (ByteBuffer) buffer.duplicate().position(index).limit(index + length);
 <a class="jxr_linenumber" name="579" href="#579">579</a>     }
 <a class="jxr_linenumber" name="580" href="#580">580</a> 
 <a class="jxr_linenumber" name="581" href="#581">581</a>     @Override
