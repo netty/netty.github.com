@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en_US" lang="en_US">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="de_DE" lang="de_DE">
 <head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <title>UnpooledUnsafeDirectByteBuf xref</title>
@@ -155,8 +155,8 @@
 <a class="jxr_linenumber" name="145" href="#145">145</a>         <strong class="jxr_keyword">if</strong> (newCapacity &gt; oldCapacity) {
 <a class="jxr_linenumber" name="146" href="#146">146</a>             ByteBuffer oldBuffer = buffer;
 <a class="jxr_linenumber" name="147" href="#147">147</a>             ByteBuffer newBuffer = ByteBuffer.allocateDirect(newCapacity);
-<a class="jxr_linenumber" name="148" href="#148">148</a>             oldBuffer.position(readerIndex).limit(writerIndex);
-<a class="jxr_linenumber" name="149" href="#149">149</a>             newBuffer.position(readerIndex).limit(writerIndex);
+<a class="jxr_linenumber" name="148" href="#148">148</a>             oldBuffer.position(0).limit(oldBuffer.capacity());
+<a class="jxr_linenumber" name="149" href="#149">149</a>             newBuffer.position(0).limit(oldBuffer.capacity());
 <a class="jxr_linenumber" name="150" href="#150">150</a>             newBuffer.put(oldBuffer);
 <a class="jxr_linenumber" name="151" href="#151">151</a>             newBuffer.clear();
 <a class="jxr_linenumber" name="152" href="#152">152</a>             setByteBuffer(newBuffer);
@@ -485,7 +485,7 @@
 <a class="jxr_linenumber" name="475" href="#475">475</a> 
 <a class="jxr_linenumber" name="476" href="#476">476</a>     @Override
 <a class="jxr_linenumber" name="477" href="#477">477</a>     <strong class="jxr_keyword">public</strong> ByteBuffer nioBuffer(<strong class="jxr_keyword">int</strong> index, <strong class="jxr_keyword">int</strong> length) {
-<a class="jxr_linenumber" name="478" href="#478">478</a>         <strong class="jxr_keyword">return</strong> (ByteBuffer) buffer.duplicate().position(index).limit(index + length);
+<a class="jxr_linenumber" name="478" href="#478">478</a>         <strong class="jxr_keyword">return</strong> ((ByteBuffer) buffer.duplicate().position(index).limit(index + length)).slice();
 <a class="jxr_linenumber" name="479" href="#479">479</a>     }
 <a class="jxr_linenumber" name="480" href="#480">480</a> 
 <a class="jxr_linenumber" name="481" href="#481">481</a>     @Override

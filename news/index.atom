@@ -2,9 +2,93 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-11-07T12:13:58+01:00</updated>
+  <updated>2013-11-08T07:12:29+01:00</updated>
   <link href="../news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>../news/2013/11/08/4-0-12-Final.html</id>
+    <title>Netty 4.0.12.Final released</title>
+    <updated>2013-11-08T07:12:29+01:00</updated>
+    <published>2013-11-08T00:00:00+00:00</published>
+    <link href="../news/2013/11/08/4-0-12-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      After some very busy days, I'm happy to announce the release of Netty 4.0.12.Final. This is mostly a bug-fix release but also include some small performance improvements. Please refer to the next section for more details. The release closes 15 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.
+      
+      Release often, release early as our users deserve it!
+      
+      Most important changes / fixes
+      
+      
+      SslHandler renegotiation not working (#1964)
+      Fix regression in HashedWheelTimer when handling timeouts that overflow the thick (#1994) and ((#1959)
+      After the channel closes, client not always receives last part...
+    </summary>
+    <content type="html">
+      &lt;p&gt;After some very busy days, I'm happy to announce the release of Netty 4.0.12.Final. This is mostly a bug-fix release but also include some small performance improvements. Please refer to the next section for more details. The release closes 15 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;Release often, release early as our users deserve it!&lt;/strong&gt;&lt;/p&gt;
+      
+      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;SslHandler renegotiation not working (&lt;a href=&quot;https://github.com/netty/netty/issues/1964&quot;&gt;#1964&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix regression in HashedWheelTimer when handling timeouts that overflow the thick (&lt;a href=&quot;https://github.com/netty/netty/pull/1994&quot;&gt;#1994&lt;/a&gt;) and ((&lt;a href=&quot;https://github.com/netty/netty/issues/1959&quot;&gt;#1959&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;After the channel closes, client not always receives last part of data. (&lt;a href=&quot;https://github.com/netty/netty/issues/1959&quot;&gt;#1952&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DuplicatedByteBuf not correctly expand capacity (&lt;a href=&quot;https://github.com/netty/netty/issues/1802&quot;&gt;#1802&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Internal buffer capacity increase shouldn't discard read bytes (&lt;a href=&quot;https://github.com/netty/netty/issues/1800&quot;&gt;#1800&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=75&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+      
+      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;p&gt;There is something in this release that deserve more details.&lt;/p&gt;
+      
+      &lt;p&gt;Two of our users notified us that while they where working on implement APN with Netty they noticed that sometimes they was not able to receive all data from the Socket before it was closed.&lt;/p&gt;
+      
+      &lt;p&gt;After investigate the culprint was found... In Netty we close the Socket automatically when a &lt;code&gt;IOException&lt;/code&gt; was thrown during writing the data to the underlying Socket. Because of this all pending data on it was lost, as there was not way for the user to fetch it. This is most of the times not a problem as usually there is nothing left to read and it is not possible to read anything from the Socket after such an &lt;code&gt;IOException&lt;/code&gt; was thrown.&lt;/p&gt;
+      
+      &lt;p&gt;Anyway in some situations there maybe something left that you can read. To not break behavior we added a new configration that allows to disable or enable the automaticaly close of the Socket when a write throws an &lt;code&gt;IOException&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;pre&gt;&lt;code&gt;channel.config().setAutoClose(false);
+      &lt;/code&gt;&lt;/pre&gt;
+      
+      &lt;p&gt;This is &lt;code&gt;true&lt;/code&gt; by default to keep the old behaviour. So you may want to change it to &lt;code&gt;false&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;h2&gt;Acknowledge&lt;/h2&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. You deserve it!&lt;/p&gt;
+      
+      &lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/andrewscode&quot;&gt;@andrewscode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/briandellisanti&quot;&gt;@briandellisanti&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/diwakergupta&quot;&gt;@diwakergupta&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/dpx-infinity&quot;&gt;@dpx-infinity&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/DmitryLobachov&quot;&gt;@DmitryLobachov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/flozano&quot;&gt;@flozano&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jhutton&quot;&gt;@jhutton&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/joongonn&quot;&gt;@joongonn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lw346&quot;&gt;@lw346&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/milenkovicm&quot;&gt;@milenkovicm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/manjuraj&quot;&gt;@manjuraj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rockagen&quot;&gt;@rockagen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sscarduzio&quot;&gt;@sscarduzio&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tsuna&quot;&gt;@tsuna&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>../news/2013/10/21/4-0-11-Final.html</id>
     <title>Netty 4.0.11.Final released</title>
@@ -2684,30 +2768,6 @@
       &lt;p&gt;Along with the new features mentioned above, this release also includes many other bugfixes.&lt;/p&gt;
       &lt;p&gt;For the detailed list of the changes, please refer to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=16&amp;amp;page=1&amp;amp;state=closed&quot;&gt;the issue tracker page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
       &lt;p&gt;Enjoy!&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>../news/2012/05/30/sneak-peek.html</id>
-    <title>Sneak Peek of Netty 4.0 through Examples</title>
-    <updated>2013-11-07T12:13:58+01:00</updated>
-    <published>2012-05-30T00:00:00+00:00</published>
-    <link href="../news/2012/05/30/sneak-peek.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      
-      Interested in the recent progress of Netty 4.0.0.Alpha1? If you did not have a chance to keep track of the recent massive API changes in the master, you might want to start from the examples I have just forward-ported.
-      The migration guide will be out and explain the new concepts and changes in 4.0, but basically you will find the code looks similar in most examples. For the rough list of changes in 4.0, please read this and this.
-      I would recommend you to load the whole project into your IDE and enjoy easier navigation. It does not build completely yet, but...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;Interested in the recent progress of Netty 4.0.0.Alpha1? If you did not have a chance to keep track of the recent massive API changes in the master, you might want to start from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example&quot;&gt;the examples I have just forward-ported&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;The migration guide will be out and explain the new concepts and changes in 4.0, but basically you will find the code looks similar in most examples. For the rough list of changes in 4.0, please read &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/topic/netty/PFhK9oFRpvA&quot;&gt;this&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/topic/netty/6dTbdXmHvD0&quot;&gt;this&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;I would recommend you to load the whole project into your IDE and enjoy easier navigation. It does not build completely yet, but you can run many of the examples such as HTTP and WebSockets by yourself if your IDE allows running a project with compilation errors (Eclipse does.)&lt;/p&gt;
-      &lt;p&gt;If you feel like participating into what is happening in Netty 4.0, it is really good time to join &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/forum/netty&quot;&gt;the developer group&lt;/a&gt;&lt;/span&gt; to give a quick feed back, ask questions, and suggest an idea. We are going to release the first alpha pretty soon!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
