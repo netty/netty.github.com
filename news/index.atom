@@ -2,9 +2,76 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2013-11-08T07:12:29+01:00</updated>
+  <updated>2013-11-08T09:10:20+01:00</updated>
   <link href="../news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>../news/2013/11/08/3-8-0-Final.html</id>
+    <title>Netty 3.8.0.Final released</title>
+    <updated>2013-11-08T09:10:20+01:00</updated>
+    <published>2013-11-08T00:00:00+00:00</published>
+    <link href="../news/2013/11/08/3-8-0-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Even if most work these days is related to Netty 4 we have not forgotten all our 3.x users. So I'm happy to announce the release of Netty 3.8.0.Final. This is mostly a bug-fix release but ships some changes in the SPDY codec which deserve the version bump. Please refer to the next section for more details. The release closes 15 issues / tasks.
+      
+      Most important changes / fixes
+      
+      
+      WebSocketClientHandshaker.handshakeComplete must be volatile (#1945)
+      Fix regression in HashedWheelTimer when handling timeouts that overflow the thick (#1994) and ((#1959)
+      Websocket: an exception could be raised if the client sends message after it thinks the handshake...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Even if most work these days is related to Netty 4 we have not forgotten all our 3.x users. So I'm happy to announce the release of Netty 3.8.0.Final. This is mostly a bug-fix release but ships some changes in the SPDY codec which deserve the version bump. Please refer to the next section for more details. The release closes 15 issues / tasks.&lt;/p&gt;
+      
+      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;WebSocketClientHandshaker.handshakeComplete must be volatile (&lt;a href=&quot;https://github.com/netty/netty/issues/1945&quot;&gt;#1945&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix regression in HashedWheelTimer when handling timeouts that overflow the thick (&lt;a href=&quot;https://github.com/netty/netty/pull/1994&quot;&gt;#1994&lt;/a&gt;) and ((&lt;a href=&quot;https://github.com/netty/netty/issues/1959&quot;&gt;#1959&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Websocket: an exception could be raised if the client sends message after it thinks the handshake is complete (&lt;a href=&quot;https://github.com/netty/netty/issues/1933&quot;&gt;#1933&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Deadlock for SSL connections when closing during an exception handler (&lt;a href=&quot;https://github.com/netty/netty/issues/1817&quot;&gt;#1817&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;SPDY: remove SPDY/2 support (&lt;a href=&quot;https://github.com/netty/netty/pull/1919&quot;&gt;#1919&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=71&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+      
+      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;p&gt;There is something in this release that deserve more details. We removed SPDY/2 support as it is dropped from clients.&lt;/p&gt;
+      
+      &lt;h2&gt;Acknowledge&lt;/h2&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. You deserve it!&lt;/p&gt;
+      
+      &lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bhsc881114&quot;&gt;@bhsc881114&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chandru2012&quot;&gt;@chandru2012&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chenjianjx&quot;&gt;@chenjianjx&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/deanhiller&quot;&gt;@deanhiller&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/huntc&quot;&gt;@huntc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jianjin&quot;&gt;@jianjin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kaze1017&quot;&gt;@kaze1017&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/NorthFury&quot;&gt;@NorthFury&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/okapies&quot;&gt;@okapies&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sayrer&quot;&gt;@sayrer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tsuna&quot;&gt;@tsuna&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wgallagher&quot;&gt;@wgallagher&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>../news/2013/11/08/4-0-12-Final.html</id>
     <title>Netty 4.0.12.Final released</title>
@@ -2699,75 +2766,6 @@
       &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/frame/FrameDecoder.html&quot;&gt;&lt;tt&gt;FrameDecoder&lt;/tt&gt;&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/replay/ReplayingDecoder.html&quot;&gt;&lt;tt&gt;ReplayingDecoder&lt;/tt&gt;&lt;/a&gt;&lt;/span&gt; do less memory copies than before.&lt;/li&gt;
       &lt;/ul&gt;
       &lt;p&gt;For the complete list of changes, visit &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=18&amp;amp;state=closed&quot;&gt;our Github issue tracker&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>../news/2012/06/08/3-5-0-final.html</id>
-    <title>Netty 3.5.0.Final released!</title>
-    <updated>2013-11-07T12:13:58+01:00</updated>
-    <published>2012-06-08T00:00:00+00:00</published>
-    <link href="../news/2012/06/08/3-5-0-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      
-      The Netty project team is proud to announce the release of Netty 3.5.0.Final.
-      The JAR file is already on Maven central repository. You can also get the full tarball from the download page.
-      This version introduces various features. The most important are:
-      
-      
-      SPDY3 support. Thanks again to our friends at twitter!
-      
-      NIO UDP Multicast support (only available when using jdk7+)
-      
-      Gathering Writes support (only available when using jdk7+)
-      
-      HTTP POST support
-      
-      Handler for traffic shaping
-      
-      Handler for IP based filtering
-      
-      Encoder/Decoder that supports marshall / unmarshall of java objects via JBoss Marshalling (can be used as replacement for ObjectEncoder/ObjectDecoder)
-      
-      Gathering writes
-      A user can force gathering writes (on jdk &gt;= 7)...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;The Netty project team is proud to announce the release of Netty 3.5.0.Final.&lt;/p&gt;
-      &lt;p&gt;The JAR file is already on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.0.Final%7Cbundle&quot;&gt;Maven central repository&lt;/a&gt;&lt;/span&gt;. You can also get the full tarball from &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;This version introduces various features. The most important are:&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/353&quot;&gt;SPDY3&lt;/a&gt;&lt;/span&gt; support. Thanks again to our friends at twitter!&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/216&quot;&gt;NIO UDP Multicast&lt;/a&gt;&lt;/span&gt; support (only available when using jdk7+)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/271&quot;&gt;Gathering Writes&lt;/a&gt;&lt;/span&gt; support (only available when using jdk7+)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/286&quot;&gt;HTTP POST&lt;/a&gt;&lt;/span&gt; support&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/340&quot;&gt;Handler&lt;/a&gt;&lt;/span&gt; for traffic shaping&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/340&quot;&gt;Handler&lt;/a&gt;&lt;/span&gt; for IP based filtering&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/324&quot;&gt;Encoder/Decoder&lt;/a&gt;&lt;/span&gt; that supports marshall / unmarshall of java objects via JBoss Marshalling (can be used as replacement for &lt;tt&gt;ObjectEncoder&lt;/tt&gt;/&lt;tt&gt;ObjectDecoder&lt;/tt&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;&lt;strong&gt;Gathering writes&lt;/strong&gt;&lt;/p&gt;
-      &lt;p&gt;A user can force gathering writes (on jdk &amp;gt;= 7) by using one of the new methods in &lt;tt&gt;ChannelBuffers&lt;/tt&gt; that take an extra argument to enable gathering writes.&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;&lt;tt&gt;ChannelBuffers.wrappedBuffer(boolean gathering, ChannelBuffer... buffers)&lt;/tt&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;tt&gt;ChannelBuffer.wrappedBuffer(boolean gathering, ByteBuffer... buffers)&lt;/tt&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;Default is no gathering writes..&lt;/p&gt;
-      &lt;p&gt;&lt;strong&gt;API Breakage in SPDY&lt;/strong&gt;&lt;/p&gt;
-      &lt;p&gt;Please note that this release includes some &quot;small&quot; API Breakage in the spdy package, which should not effect most of you. All static field values that were located in the &lt;tt&gt;SpdyHeaders.HttpNames&lt;/tt&gt; class were moved to the &lt;tt&gt;Spdy2Headers.HttpNames&lt;/tt&gt; class. The ones that are now in &lt;tt&gt;SpdyHeaders.HttpNames&lt;/tt&gt; are related to SPDY3. The ones in &lt;tt&gt;Spdy2Headers&lt;/tt&gt; are the old ones that are related to SPDY2.&lt;/p&gt;
-      &lt;p&gt;Along with the new features mentioned above, this release also includes many other bugfixes.&lt;/p&gt;
-      &lt;p&gt;For the detailed list of the changes, please refer to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=16&amp;amp;page=1&amp;amp;state=closed&quot;&gt;the issue tracker page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;Enjoy!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
