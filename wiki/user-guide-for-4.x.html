@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2013/11/08/3-8-0-Final.html">
+              <a href="../news/2013/10/21/4-0-11-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.12.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.13.Final.tar.bz2">
                     <i class="icon-download-alt"></i>
-                    4.0.12.Final
-                    <small>&dash; 08-Nov-2013</small>
+                    4.0.13.Final
+                    <small>&dash; 28-Nov-2013</small>
                   </a>
                 </li>
                 <li>
                   <a href="http://dl.bintray.com/netty/downloads/netty-3.8.0.Final-dist.tar.bz2">
                     <i class="icon-download-alt"></i>
                     3.8.0.Final
-                    <small>&dash; 08-Nov-2013</small>
+                    <small>&dash; 07-Nov-2013</small>
                   </a>
                 </li>
                 <li>
@@ -277,7 +277,7 @@
           <div class="highlight"><pre><span class="nd">@Override</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">ByteBuf</span> <span class="n">in</span> <span class="o">=</span> <span class="o">(</span><span class="n">ByteBuf</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="k">while</span> <span class="o">(</span><span class="n">in</span><span class="o">.</span><span class="na">isReadable</span><span class="o">())</span> <span class="o">{</span> <span class="c1">// (1)</span>&#x000A;            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">((</span><span class="kt">char</span><span class="o">)</span> <span class="n">in</span><span class="o">.</span><span class="na">readByte</span><span class="o">());</span>&#x000A;            <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">flush</span><span class="o">();</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">ReferenceCountUtil</span><span class="o">.</span><span class="na">release</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span> <span class="c1">// (2)</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
           <ol>
-          <li>This inefficient loop can actually be simplified to: <code>System.out.println(buf.toString(io.netty.util.CharsetUtil.US_ASCII))</code>
+          <li>This inefficient loop can actually be simplified to: <code>System.out.println(in.toString(io.netty.util.CharsetUtil.US_ASCII))</code>
           </li>
           <li>Alternatively, you could do <code>in.release()</code> here.</li>
           </ol>
@@ -529,7 +529,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrived on 08-Nov-2013</small>
+                <small>Last retrived on 29-Nov-2013</small>
               </div>
             </div>
           </div>
