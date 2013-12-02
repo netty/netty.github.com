@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.6.Final released</title>
-    <title>Netty: Netty 4.0.6.Final released</title>
+    <title>Netty.news: Netty 4.0.13.Final released</title>
+    <title>Netty: Netty 4.0.13.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -181,7 +181,7 @@
       <div class="container">
         <div class="news-item">
           <h1>
-            Netty 4.0.6.Final released
+            Netty 4.0.13.Final released
           </h1>
           <p class="byline">
             <small>
@@ -189,55 +189,68 @@
               <a href="https://github.com/normanmaurer">normanmaurer</a>
               <br>
               on
-              <time datetime="2013-08-01">01-Aug-2013</time>
+              <time datetime="2013-12-02">02-Dec-2013</time>
             </small>
           </p>
           <div class="news-content">
-            <p>Wheels are still moving fast and so here is the next bug-fix release out of the  4.x tree. This release includes bug-fixes and performance improvements.</p>
+            <p>I'm happy to announce the release of Netty 4.0.13.Final. This is a bug-fix release but also include performance improvements, especially in the http-codec and SslHandler. Please refer to the next section for more details. The release closes 18 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.</p>
             
-            <p>In summary we closed 25 issues.</p>
-            
-            <p>This release would have been not possible without the feedback of our community. We welcome everyone to <a href="http://netty.io/community.html">become a part of it</a>, and help us to make Netty even better!</p>
-            
-            <h2>Important changes</h2>
+            <h2>Most important changes / fixes</h2>
             
             <ul>
-            <li>ChannelOutboundBuffer OOM Bug . (<a href="https://github.com/netty/netty/issues/1681">#1681</a>)</li>
-            <li>Call to flush squashed by reentrancy check . (<a href="https://github.com/netty/netty/issues/1679">#1679</a>)</li>
-            <li>ByteToMessageDecoder can pass a released buffer to PortUnificationServerHandler (<a href="https://github.com/netty/netty/issues/1664">#1664</a>)</li>
-            <li>MessageToMessageEncoder.write() cause ArrayIndexOutOfBoundsException: -1 exception if encode() cause any exception . (<a href="https://github.com/netty/netty/issues/1656">#1656</a>)</li>
+            <li>ChannelHandlerContext exposes package private class ChannelOutboundInvoker (<a href="https://github.com/netty/netty/issues/1991">#1991</a>)</li>
+            <li>IllegalStateException in the selector loop when a connection attempt is cancelled. (<a href="https://github.com/netty/netty/issues/1986">#1986</a>)</li>
+            <li>discardSomeReadBytes() throws IndexOutOfBoundsException in CompositeByteBuf (<a href="https://github.com/netty/netty/issues/1976">#1976</a>)</li>
+            <li>Optimize SslHandler (<a href="https://github.com/netty/netty/issues/1972">#1972</a>)</li>
             </ul>
             
             
-            <p>Visit <a href="https://github.com/netty/netty/issues?milestone=66&amp;page=1&amp;state=closed">here</a> for the complete list of the changes.</p>
+            <p>Visit <a href="https://github.com/netty/netty/issues?milestone=76&amp;state=closed">here</a> for the complete list of the changes.</p>
+            
+            <p>As always please let us know if you find any issues. We love feedback!</p>
+            
+            <h2>Special notes</h2>
+            
+            <h3>SslHandler</h3>
+            
+            <p>Because of the changes introduced in (<a href="https://github.com/netty/netty/issues/1972">#1972</a>) we saw an performance improvement of <strong>500%</strong> when using the SslHandler. This needs no changes in your code base.</p>
+            
+            <h3>Http Codec</h3>
+            
+            <p>We did various optimizations in our Http Codec to higher our throughtput. The performance win is dramatic.</p>
+            
+            <p>First of we allow you to disable the verification of headers now. This means you can disable the verification of header names and values and so also except non-us-ascii names/values. This is most of the times not a big problem but was not allowed pefore. By disable the verification you can get a much higher throughput.</p>
+            
+            <p>To disable it you need to pass <code>false</code> to the constructor of <code>HttpRequestDecoder</code>or `HttpResponseDecoder. Please check the apidocs for the details.</p>
+            
+            <p>The other optimization we did alows you to create an optimized <code>CharSequence</code> which you can use as header name and value. This <code>CharSequence</code> is optimized for reuse and should so be used if you have names or values that never changes. Encoding such a <code>CharSequence</code> is much faster then optimize a normal <code>String</code> and so should be considered in such cases.</p>
+            
+            <p>To generate it use the <code>HttpHeaders.newEntity(String)</code> method.</p>
             
             <h2>Acknowledge</h2>
             
             <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
             
             <ul>
-            <li><a href="https://github.com/aphyr">@aphyr</a></li>
-            <li><a href="https://github.com/eugen-yakovets">@eugen-yakovets</a></li>
-            <li><a href="https://github.com/fguerout">@fguerout</a></li>
-            <li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-            <li><a href="https://github.com/gsoltis">@gsoltis</a></li>
-            <li><a href="https://github.com/jpinner">@jpinner</a></li>
-            <li><a href="https://github.com/jwils">@jwils</a></li>
-            <li><a href="https://github.com/Megaprog">@Megaprog</a></li>
+            <li><a href="https://github.com/ifesdjeen">@ifesdjeen</a></li>
+            <li><a href="https://github.com/iridium77">@iridium77</a></li>
+            <li><a href="https://github.com/lhrios">@lhrios</a></li>
+            <li><a href="https://github.com/Lekanich">@Lekanich</a></li>
+            <li><a href="https://github.com/NiteshKant">@NiteshKant</a></li>
             <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-            <li><a href="https://github.com/tantaman">@tantaman</a></li>
+            <li><a href="https://github.com/tbocek">@tbocek</a></li>
             <li><a href="https://github.com/trustin">@trustin</a></li>
             </ul>
           </div>
           <ul class="pager">
             <li class="previous">
-              <a href="../../../../news/2013/07/23/4-0-4-Final.html">&larr; Older</a>
+              <a href="../../../../news/2013/10/21/4-0-11-Final.html">&larr; Older</a>
             </li>
             <li>
               <a href="../../../index.html">List all news items</a>
             </li>
-            <li class="next">
-              <a href="../../../../news/2013/08/08/4-0-7-Final.html">Newer &rarr;</a>
+            <li class="next disabled">
+              <a href="#">Newer &rarr;</a>
             </li>
           </ul>
         </div>
@@ -246,9 +259,9 @@
                       <div id="disqus_thread"></div>
                       <script type="text/javascript">
                       var disqus_shortname = 'netty0';
-                      var disqus_url = "http://netty.io/news/2013/08/01/4-0-6-Final.html";
+                      var disqus_url = "http://netty.io/news/2013/12/02/4-0-13-Final.html";
                       var disqus_developer = null;
-                      var disqus_identifier = "news/2013-08-01-4-0-6-Final.html";
+                      var disqus_identifier = "news/2013-12-02-4-0-13-Final.html";
                       (function() {
                         var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                         dsq.src = "http://netty0.disqus.com/embed.js";
