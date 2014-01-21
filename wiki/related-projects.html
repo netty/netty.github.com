@@ -11,8 +11,8 @@
         padding-top: 60px;
       }
     </style>
-    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.no-icons.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
     <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
     <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
     <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
@@ -20,13 +20,13 @@
     <link href="../lib/common.css" rel="stylesheet" type="text/css">
     <script src="../lib/common.js" type="text/javascript"></script>
     <!--[if lt IE 9]>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js" type="text/javascript"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.2.0/respond.min.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
     <![endif]-->
   </head>
   <body>
     <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top" id="header" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
       <div class="container">
         <div class="navbar-header">
           <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
@@ -43,13 +43,13 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2013/12/02/4-0-13-Final.html">
+              <a href="../news/2014/01/21/4-0-15-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
                 <li>
                   <a href="../news/index.html">
-                    <i class="icon-archive"></i>
+                    <i class="fa fa-archive"></i>
                     Archive
                   </a>
                 </li>
@@ -61,34 +61,41 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.13.Final.tar.bz2">
-                    <i class="icon-download-alt"></i>
-                    4.0.13.Final
-                    <small>&dash; 28-Nov-2013</small>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-5.0.0.Alpha1.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    5.0.0.Alpha1
+                    <small>&dash; 22-Dec-2013</small>
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-3.8.0.Final-dist.tar.bz2">
-                    <i class="icon-download-alt"></i>
-                    3.8.0.Final
-                    <small>&dash; 07-Nov-2013</small>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.15.Final.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.0.15.Final
+                    <small>&dash; 21-Jan-2014</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.9.0.Final-dist.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    3.9.0.Final
+                    <small>&dash; 22-Dec-2013</small>
                   </a>
                 </li>
                 <li>
                   <a href="http://www.tldrlegal.com/l/APACHE2">
-                    <i class="icon-legal"></i>
+                    <i class="fa fa-gavel"></i>
                     Apache License 2.0
                   </a>
                 </li>
                 <li>
                   <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="icon-archive"></i>
+                    <i class="fa fa-archive"></i>
                     Previous Releases
                   </a>
                 </li>
                 <li>
-                  <a href="http://ci.motd.kr/view/Netty/">
-                    <i class="icon-beaker"></i>
+                  <a href="https://secure.motd.kr/jenkins/view/Netty/">
+                    <i class="fa fa-flask"></i>
                     Nightly Builds
                   </a>
                 </li>
@@ -100,33 +107,56 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="../3.8/api/index.html">
-                    <i class="icon-file-text"></i>
-                    Javadoc - 3.8
+                  <a href="../wiki/user-guide.html">
+                    <i class="fa fa-book"></i>
+                    User guide
+                  </a>
+                </li>
+                <li>
+                  <a href="../5.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 5.0
                   </a>
                 </li>
                 <li>
                   <a href="../4.0/api/index.html">
-                    <i class="icon-file-text"></i>
+                    <i class="fa fa-file-text"></i>
                     Javadoc - 4.0
                   </a>
                 </li>
                 <li>
+                  <a href="../3.9/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 3.9
+                  </a>
+                </li>
+                <li>
                   <a href="../wiki/all-documents.html">
-                    <i class="icon-list"></i>
+                    <i class="fa fa-list"></i>
                     All Documents
                   </a>
                 </li>
                 <li>
                   <a href="../wiki/related-articles.html">
-                    <i class="icon-bookmark"></i>
+                    <i class="fa fa-bookmark"></i>
                     Related Articles
                   </a>
                 </li>
                 <li>
                   <a href="../wiki/related-projects.html">
-                    <i class="icon-bookmark"></i>
+                    <i class="fa fa-bookmark"></i>
                     Related Projects
+                  </a>
+                </li>
+                <li class="hidden-xs" id="bookpromo-dropdown">
+                  <a href="http://www.manning.com/maurer/">
+                    <img src="../images/netty-in-action.gif">
+                    <br>
+                    <small>
+                      Use code <strong>mlnettyco</strong>
+                      <br>
+                      for a 37% discount!
+                    </small>
                   </a>
                 </li>
               </ul>
@@ -138,37 +168,54 @@
               <ul class="dropdown-menu">
                 <li>
                   <a href="https://github.com/netty/netty">
-                    <i class="icon-github"></i>
+                    <i class="fa fa-github-square"></i>
                     Github
                   </a>
                 </li>
                 <li>
                   <a href="http://stackoverflow.com/questions/tagged/netty">
-                    <i class="icon-stackexchange"></i>
+                    <i class="fa fa-stack-overflow"></i>
                     StackOverflow
                   </a>
                 </li>
                 <li>
                   <a href="https://twitter.com/netty_project">
-                    <i class="icon-twitter-sign"></i>
+                    <i class="fa fa-twitter-square"></i>
                     @netty_project
                   </a>
                 </li>
                 <li>
                   <a href="../wiki/developer-guide.html">
-                    <i class="icon-cogs"></i>
+                    <i class="fa fa-cogs"></i>
                     Developer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="http://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+                    <i class="fa fa-comment"></i>
+                    IRC Chat
                   </a>
                 </li>
               </ul>
             </li>
+            <li class="visible-xs" id="bookpromo-nav">
+              <a href="http://www.manning.com/maurer/">
+                <img src="../images/netty-in-action.gif">
+                <br>
+                <small>
+                  Use code <strong>mlnettyco</strong>
+                  <br>
+                  for a 37% discount!
+                </small>
+              </a>
+            </li>
             <li>
               <a href="http://feeds.feedburner.com/netty_project">
-                <i class="icon-rss"></i>
+                <i class="fa fa-rss"></i>
               </a>
             </li>
           </ul>
-          <form action="../search.html" class="navbar-form navbar-right" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
             <div class="form-group">
               <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
             </div>
@@ -235,12 +282,6 @@
           <li>
           <a href="http://jxta.kenai.com">JXTA</a> is a set of open protocols that enable any connected device on the network, ranging from cell phones and wireless PDAs to PCs and servers, to communicate and collaborate in a P2P manner.</li>
           <li>
-          <a href="https://github.com/jmimo/netty-icap">Netty-ICAP Codec</a> is a high performance full RFC3507 compliant ICAP codec implementation. This protocol is mostly used in proxy environments in order to offload work to external servers.</li>
-          <li>
-          <a href="https://github.com/mrniko/netty-socketio">Netty-SocketIO</a> is a Socket.IO server written on top of Netty</li>
-          <li>
-          <a href="https://github.com/spotify/netty-zmtp">Netty-ZMTP</a> is a collection of Netty channel handlers that aims to implement ZMTP/1.0, the ZeroMQ Message Transport Protocol.</li>
-          <li>
           <a href="http://www.littleshoot.org/littleproxy">LittleProxy</a> is a high-performance HTTP proxy.</li>
           <li>
           <a href="http://www.littleshoot.org">LittleShoot</a> is an open source P2P technology for publishing, searching, and downloading files based on open protocols and open standards.</li>
@@ -259,6 +300,12 @@
           <li>
           <a href="https://github.com/cgbystrom/netty-tools">Netty Tools</a> is a small collection of tools useful when working with Netty, which includes various HTTP clients and servers, bandwidth meter, and Thrift RPC processor.</li>
           <li>
+          <a href="https://github.com/jmimo/netty-icap">Netty-ICAP Codec</a> is a high performance full RFC3507 compliant ICAP codec implementation. This protocol is mostly used in proxy environments in order to offload work to external servers.</li>
+          <li>
+          <a href="https://github.com/mrniko/netty-socketio">Netty-SocketIO</a> is a Socket.IO server written on top of Netty</li>
+          <li>
+          <a href="https://github.com/spotify/netty-zmtp">Netty-ZMTP</a> is a collection of Netty channel handlers that aims to implement ZMTP/1.0, the ZeroMQ Message Transport Protocol.</li>
+          <li>
           <a href="https://github.com/facebook/nifty">Nifty</a> is a Netty-based Thrift transport implementation.</li>
           <li>
           <a href="https://github.com/normanmaurer/niosmtp">NIOSMTP</a> is an asynchronous SMTP client implementation.</li>
@@ -272,6 +319,8 @@
           <a href="http://code.google.com/p/ps3mediaserver">PS3 Media Server</a> is a DLNA compliant UPNP Media Server for PS3 which transcodes and streams any kind of media files.</li>
           <li>
           <a href="https://github.com/RestExpress/RestExpress">RESTExpress</a> is a lightweight, fast, micro-framework for building stand-alone REST services in Java. It supports JSON and XML serialization automagically as well as ISO 8601 date formats.</li>
+          <li>
+          <a href="https://github.com/socketIo4Netty">SocketIO4Netty</a> is a Socket.IO server based on Netty.</li>
           <li>
           <a href="http://www.spigotmc.org/">Spigot</a> is a high performance Minecraft server based on CraftBukkit designed to provide the highest possible performance and reliability. It uses Netty for its custom network stack.</li>
           <li>
@@ -290,6 +339,8 @@
           <a href="http://webbitserver.org">Webbit</a> is an event-based WebSocket and HTTP server.</li>
           <li>
           <a href="http://www.xitrum.net">Xitrum</a> is an async and clustered Scala web framework and HTTP(S) server on top of Netty and Hazelcast.</li>
+          <li>
+          <a href="http://github.com/berndfo/zooterrain">zooterrain</a> is a small self-containing web server app which pushes all ZooKeeper znodes and their changes to the browser (using WebSocket).</li>
           </ul>
           <h2 id="wiki-h2-1">
           <a name="closed-source-projects-and-on-line-services" class="anchor" href="#closed-source-projects-and-on-line-services"><span class="octicon octicon-link"></span></a>Closed Source Projects and On-line Services</h2>
@@ -329,28 +380,8 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrived on 03-Dez-2013</small>
+                <small>Last retrieved on 21-Jan-2014</small>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-9">
-            <div class="comments">
-              
-                          <div id="disqus_thread"></div>
-                          <script type="text/javascript">
-                          var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/wiki/related-projects.html";
-                          var disqus_developer = null;
-                          var disqus_identifier = "wiki/Related-projects";
-                          (function() {
-                            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                            dsq.src = "http://netty0.disqus.com/embed.js";
-                            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-                          })();
-                          </script>
-                          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
             </div>
           </div>
         </div>
@@ -360,13 +391,13 @@
       <hr>
       <footer id="footer">
         <p>
-          Copyright &copy; 2013
+          Copyright &copy; 2014
           <a href="../index.html">The Netty project</a>
         </p>
       </footer>
     </div>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../lib/common.footer.js" type="text/javascript"></script>
   
 <script type="text/javascript">

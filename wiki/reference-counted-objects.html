@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Netty.docs: Reference counted objects</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../images/favicon.ico" rel="shortcut icon">
+    <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+    <link href="../lib/common.css" rel="stylesheet" type="text/css">
+    <script src="../lib/common.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <a class="sr-only" href="#content" id="top">Skip navigation</a>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">
+            <span class="navbar-brand-logo"></span>
+            Netty project
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="../news/2014/01/21/4-0-15-Final.html">
+                News
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../news/index.html">
+                    <i class="fa fa-archive"></i>
+                    Archive
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../downloads.html">
+                Downloads
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-5.0.0.Alpha1.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    5.0.0.Alpha1
+                    <small>&dash; 22-Dec-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.15.Final.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.0.15.Final
+                    <small>&dash; 21-Jan-2014</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.9.0.Final-dist.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    3.9.0.Final
+                    <small>&dash; 22-Dec-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.tldrlegal.com/l/APACHE2">
+                    <i class="fa fa-gavel"></i>
+                    Apache License 2.0
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bintray.com/netty/downloads/netty/">
+                    <i class="fa fa-archive"></i>
+                    Previous Releases
+                  </a>
+                </li>
+                <li>
+                  <a href="https://secure.motd.kr/jenkins/view/Netty/">
+                    <i class="fa fa-flask"></i>
+                    Nightly Builds
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../wiki/index.html">
+                Documentation
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../wiki/user-guide.html">
+                    <i class="fa fa-book"></i>
+                    User guide
+                  </a>
+                </li>
+                <li>
+                  <a href="../5.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 5.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../3.9/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 3.9
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/all-documents.html">
+                    <i class="fa fa-list"></i>
+                    All Documents
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-articles.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Articles
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-projects.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Projects
+                  </a>
+                </li>
+                <li class="hidden-xs" id="bookpromo-dropdown">
+                  <a href="http://www.manning.com/maurer/">
+                    <img src="../images/netty-in-action.gif">
+                    <br>
+                    <small>
+                      Use code <strong>mlnettyco</strong>
+                      <br>
+                      for a 37% discount!
+                    </small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../community.html">
+                Get Involved
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://github.com/netty/netty">
+                    <i class="fa fa-github-square"></i>
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a href="http://stackoverflow.com/questions/tagged/netty">
+                    <i class="fa fa-stack-overflow"></i>
+                    StackOverflow
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/netty_project">
+                    <i class="fa fa-twitter-square"></i>
+                    @netty_project
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/developer-guide.html">
+                    <i class="fa fa-cogs"></i>
+                    Developer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="http://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+                    <i class="fa fa-comment"></i>
+                    IRC Chat
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="visible-xs" id="bookpromo-nav">
+              <a href="http://www.manning.com/maurer/">
+                <img src="../images/netty-in-action.gif">
+                <br>
+                <small>
+                  Use code <strong>mlnettyco</strong>
+                  <br>
+                  for a 37% discount!
+                </small>
+              </a>
+            </li>
+            <li>
+              <a href="http://feeds.feedburner.com/netty_project">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+            <div class="form-group">
+              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="content">
+      <div class="container">
+        <div class="wiki-item">
+          <h1>Reference counted objects</h1>
+          <div class="alert alert-info">
+            Did you know this page is automatically generated from
+            <a href="https://github.com/netty/netty/wiki/Reference-counted-objects">a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href="https://github.com/netty/netty/wiki/Reference-counted-objects">here!</a>
+          </div>
+          <div class="row">
+          <div class="col-md-9">
+          <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+              <div class="markdown-body">
+                <p>Since Netty version 4, the life cycle of certain objects are managed by their reference counts rather than the garbage collector.  <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> is the most notable type which takes advantage of reference counting to improve the allocation and deallocation performance.</p>
+          
+          <h2 id="wiki-h2-0">
+          <a name="basics-of-reference-counting" class="anchor" href="#basics-of-reference-counting"><span class="octicon octicon-link"></span></a>Basics of reference counting</h2>
+          
+          <p>The initial reference count of a new reference-counted object is 1:</p>
+          
+          <div class="highlight"><pre><span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span></pre></div>
+          
+          <p>When you release the reference-counted object, its reference count is decreased by 1.  If the reference count reaches at 0, the reference-counted object is deallocated or returned to the object pool it came from:</p>
+          
+          <div class="highlight"><pre><span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>&#x000A;<span class="c1">// release() returns true only if the reference count becomes 0.</span>&#x000A;<span class="kt">boolean</span> <span class="n">destroyed</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">destroyed</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span></pre></div>
+          
+          <h3 id="wiki-h3-1">
+          <a name="dangling-reference" class="anchor" href="#dangling-reference"><span class="octicon octicon-link"></span></a>Dangling reference</h3>
+          
+          <p>Attempting to access the reference-counted object whose reference count is 0 will trigger an <code>IllegalReferenceCountException</code>:</p>
+          
+          <div class="highlight"><pre><span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>&#x000A;<span class="k">try</span> <span class="o">{</span>&#x000A;  <span class="n">buf</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="mh">0xdeadbeef</span><span class="o">);</span>&#x000A;  <span class="k">throw</span> <span class="k">new</span> <span class="nf">Error</span><span class="o">(</span><span class="s">"should not reach here"</span><span class="o">);</span>&#x000A;<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalReferenceCountExeception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>&#x000A;  <span class="c1">// Expected</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <h3 id="wiki-h3-2">
+          <a name="increasing-the-reference-count" class="anchor" href="#increasing-the-reference-count"><span class="octicon octicon-link"></span></a>Increasing the reference count</h3>
+          
+          <p>A reference count can also be incremented via the <code>retain()</code> operation as long as it is not destroyed yet:</p>
+          
+          <div class="highlight"><pre><span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>&#x000A;&#x000A;<span class="n">buf</span><span class="o">.</span><span class="na">retain</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span><span class="o">;</span>&#x000A;&#x000A;<span class="kt">boolean</span> <span class="n">destroyed</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="o">!</span><span class="n">destroyed</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span></pre></div>
+          
+          <h3 id="wiki-h3-3">
+          <a name="who-destroys-it" class="anchor" href="#who-destroys-it"><span class="octicon octicon-link"></span></a>Who destroys it?</h3>
+          
+          <p>The general rule of thumb is that the party who accesses a reference-counted object lastly is responsible for the destruction of the reference-counted object. More specifically:</p>
+          
+          <ul>
+          <li>If a component is supposed to pass a reference-counted object to the other component, the copmonent usually does not need to destroy it but defer the decision to the other component.</li>
+          <li>If a component consumes a reference-counted object and nothing else will access it anymore, the component should destroy it by its own.</li>
+          </ul>
+          <p>Here is a simple example:</p>
+          
+          <div class="highlight"><pre><span class="kd">public</span> <span class="n">ByteBuf</span> <span class="nf">a</span><span class="o">(</span><span class="n">ByteBuf</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">input</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>&#x000A;    <span class="k">return</span> <span class="n">input</span><span class="o">;</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="n">ByteBuf</span> <span class="nf">b</span><span class="o">(</span><span class="n">ByteBuf</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="n">output</span> <span class="o">=</span> <span class="n">input</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">(</span><span class="n">input</span><span class="o">.</span><span class="na">readableBytes</span><span class="o">()</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>&#x000A;        <span class="n">output</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>&#x000A;        <span class="n">output</span><span class="o">.</span><span class="na">writeByte</span><span class="o">(</span><span class="mi">42</span><span class="o">);</span>&#x000A;        <span class="k">return</span> <span class="n">output</span><span class="o">;</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">input</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">c</span><span class="o">(</span><span class="n">ByteBuf</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>&#x000A;    <span class="n">input</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">()</span> <span class="o">{</span>&#x000A;    <span class="o">...</span>&#x000A;    <span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;    <span class="c1">// This will print buf to System.out and destroy it.</span>&#x000A;    <span class="n">c</span><span class="o">(</span><span class="n">b</span><span class="o">(</span><span class="n">a</span><span class="o">(</span><span class="n">buf</span><span class="o">)));</span>&#x000A;    <span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <table class="table table-hover">
+          <thead><tr>
+          <th>Action</th>
+          <th>Who should release?</th>
+          <th>Who released?</th>
+          </tr></thead>
+          <tbody>
+          <tr>
+          <td>1. <code>main()</code> creates <code>buf</code>
+          </td>
+          <td>
+          <code>buf</code>→<code>main()</code>
+          </td>
+          <td></td>
+          </tr>
+          <tr>
+          <td>2. <code>main()</code> calls <code>a()</code> with <code>buf</code>
+          </td>
+          <td>
+          <code>buf</code>→<code>a()</code>
+          </td>
+          <td></td>
+          </tr>
+          <tr>
+          <td>3. <code>a()</code> returns <code>buf</code> merely.</td>
+          <td>
+          <code>buf</code>→<code>main()</code>
+          </td>
+          <td></td>
+          </tr>
+          <tr>
+          <td>4. <code>main()</code> calls <code>b()</code> with <code>buf</code>
+          </td>
+          <td>
+          <code>buf</code>→<code>b()</code>
+          </td>
+          <td></td>
+          </tr>
+          <tr>
+          <td>5. <code>b()</code> returns the copy of <code>buf</code>
+          </td>
+          <td>
+          <code>buf</code>→<code>b()</code>, <code>copy</code>→<code>main()</code>
+          </td>
+          <td>
+          <code>b()</code> releases <code>buf</code>
+          </td>
+          </tr>
+          <tr>
+          <td>6. <code>main()</code> calls <code>c()</code> with <code>copy</code>
+          </td>
+          <td>
+          <code>copy</code>→<code>c()</code>
+          </td>
+          <td></td>
+          </tr>
+          <tr>
+          <td>7. <code>c()</code> swallows <code>copy</code>
+          </td>
+          <td>
+          <code>copy</code>→<code>c()</code>
+          </td>
+          <td>
+          <code>c()</code> releases <code>copy</code>
+          </td>
+          </tr>
+          </tbody>
+          </table>
+          <h3 id="wiki-h3-4">
+          <a name="derived-buffers" class="anchor" href="#derived-buffers"><span class="octicon octicon-link"></span></a>Derived buffers</h3>
+          
+          <p><code>ByteBuf.duplicate()</code>, <code>ByteBuf.slice()</code> and <code>ByteBuf.order(ByteOrder)</code> create a <em>derived</em> buffer which shares the memory region of the parent buffer.  A derived buffer does not have its own reference count but shares the reference count of the parent buffer.</p>
+          
+          <div class="highlight"><pre><span class="n">ByteBuf</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">();</span>&#x000A;<span class="n">ByteBuf</span> <span class="n">derived</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="na">duplicate</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// Creating a derived buffer does not increase the reference count.</span>&#x000A;<span class="k">assert</span> <span class="n">parent</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">derived</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span></pre></div>
+          
+          <p>Note that a parent buffer and its derived buffers share the same reference count, and the reference count does not increase when a derived buffer is created.  Therefore, if you are going to pass a derived buffer to other component of your application, you'll have to call <code>retain()</code> it first.</p>
+          
+          <div class="highlight"><pre><span class="n">ByteBuf</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">(</span><span class="mi">512</span><span class="o">);</span>&#x000A;<span class="n">parent</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(...);</span>&#x000A;&#x000A;<span class="k">try</span> <span class="o">{</span>&#x000A;    <span class="k">while</span> <span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">isReadable</span><span class="o">(</span><span class="mi">16</span><span class="o">))</span> <span class="o">{</span>&#x000A;        <span class="n">ByteBuf</span> <span class="n">derived</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="na">readSlice</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>&#x000A;        <span class="n">derived</span><span class="o">.</span><span class="na">retain</span><span class="o">();</span>&#x000A;        <span class="n">process</span><span class="o">(</span><span class="n">derived</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;    <span class="n">parent</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="o">}</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="n">ByteBuf</span> <span class="n">buf</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="o">...</span>&#x000A;    <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <h3 id="wiki-h3-5">
+          <a name="bytebufholder-interface" class="anchor" href="#bytebufholder-interface"><span class="octicon octicon-link"></span></a>
+          <code>ByteBufHolder</code> interface</h3>
+          
+          <p>Sometimes, a <code>ByteBuf</code> is contained by a buffer holder, such as <a href="http://netty.io/4.0/api/index.html?io/netty/channel/socket/DatagramPacket.html"><code>DatagramPacket</code></a>, <a href="http://netty.io/4.0/api/index.html?io/netty/handler/codec/http/HttpContent.html"><code>HttpContent</code></a>, and <a href="http://netty.io/4.0/api/index.html?io/netty/handler/codec/http/websocketx/WebSocketFrame.html"><code>WebSocketframe</code></a>.  Those types extend a common interface called <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/ByteBufHolder.html"><code>ByteBufHolder</code></a>.</p>
+          
+          <p>A buffer holder shares the reference count of the buffer it contains, just like a derived buffer.</p>
+          
+          <h2 id="wiki-h2-6">
+          <a name="reference-counted-messages-in-channelhandler" class="anchor" href="#reference-counted-messages-in-channelhandler"><span class="octicon octicon-link"></span></a>Reference-counted messages in <code>ChannelHandler</code>
+          </h2>
+          
+          <h3 id="wiki-h3-7">
+          <a name="inbound-messages" class="anchor" href="#inbound-messages"><span class="octicon octicon-link"></span></a>Inbound messages</h3>
+          
+          <p>When an event loop reads data into a <code>ByteBuf</code> and triggers a <code>channelRead()</code> event with it, it is the responsibility of the <code>ChannelHandler</code> in the corresponding pipeline to release the buffer.  Therefore, the handler that consumes the received data should call <code>release()</code> on the data in its <code>channelRead()</code> handler method:</p>
+          
+          <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="o">(</span><span class="n">ByteBuf</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="o">...</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <p>As explained in the 'Who destroys?' section of this document, if your handler passes the buffer (or any reference-counted object) to the next handler, you don't need to release it:</p>
+          
+          <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="o">(</span><span class="n">ByteBuf</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>&#x000A;    <span class="o">...</span>&#x000A;    <span class="n">ctx</span><span class="o">.</span><span class="na">fireChannelRead</span><span class="o">(</span><span class="n">buf</span><span class="o">);</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <p>Note that <code>ByteBuf</code> isn't the only reference-counted type in Netty.  If you are dealing with the messages generated by decoders, it is very likely that the message is also reference-counted:</p>
+          
+          <div class="highlight"><pre><span class="c1">// Assuming your handler is placed next to `HttpRequestDecoder`</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">if</span> <span class="o">(</span><span class="n">msg</span> <span class="k">instanceof</span> <span class="n">HttpRequest</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="n">HttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpRequest</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>&#x000A;        <span class="o">...</span>&#x000A;    <span class="o">}</span>&#x000A;    <span class="k">if</span> <span class="o">(</span><span class="n">msg</span> <span class="k">instanceof</span> <span class="n">HttpContent</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="n">HttpContent</span> <span class="n">content</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpContent</span><span class="o">)</span> <span class="n">msg</span><span class="o">;</span>&#x000A;        <span class="k">try</span> <span class="o">{</span>&#x000A;            <span class="o">...</span>&#x000A;        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;            <span class="n">content</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <p>If you are in doubt or you want to simplify releasing the messages, you can use <code>ReferenceCountUtil.release()</code>:</p>
+          
+          <div class="highlight"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">channelRead</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">msg</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">try</span> <span class="o">{</span>&#x000A;        <span class="o">...</span>&#x000A;    <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;        <span class="n">ReferenceCountUtil</span><span class="o">.</span><span class="na">release</span><span class="o">(</span><span class="n">msg</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <p>Alternatively, you could consider extending <code>SimpleChannelHandler</code> which calls <code>ReferenceCountUtil.release(msg)</code> for all messages you receive.</p>
+          
+          <h3 id="wiki-h3-8">
+          <a name="outbound-messages" class="anchor" href="#outbound-messages"><span class="octicon octicon-link"></span></a>Outbound messages</h3>
+          
+          <p>Unlike inbound messages, the messages are created by your application, and it is the responsibility of Netty to release it after writing it out to the wire.  However, the handlers that intercepts your write requests should make sure to release any intermediary objects properly. (e.g. encoders)</p>
+          
+          <div class="highlight"><pre><span class="c1">// Simple-pass through</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">message</span><span class="o">,</span> <span class="n">ChannelPromise</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Writing: "</span> <span class="o">+</span> <span class="n">message</span><span class="o">);</span>&#x000A;    <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="c1">// Transformation</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">message</span><span class="o">,</span> <span class="n">ChannelPromise</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">if</span> <span class="o">(</span><span class="n">message</span> <span class="k">instanceof</span> <span class="n">HttpContent</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="c1">// Transform HttpContent to ByteBuf.</span>&#x000A;        <span class="n">HttpContent</span> <span class="n">content</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpContent</span><span class="o">)</span> <span class="n">message</span><span class="o">;</span>&#x000A;        <span class="k">try</span> <span class="o">{</span>&#x000A;            <span class="n">ByteBuf</span> <span class="n">transformed</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">buffer</span><span class="o">();</span>&#x000A;            <span class="o">....</span>&#x000A;            <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">transformed</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;            <span class="n">content</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>&#x000A;        <span class="c1">// Pass non-HttpContent through.</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <h2 id="wiki-h2-9">
+          <a name="troubleshooting-buffer-leaks" class="anchor" href="#troubleshooting-buffer-leaks"><span class="octicon octicon-link"></span></a>Troubleshooting buffer leaks</h2>
+          
+          <p>The disadvantage of reference counting is that it is easy to leak the reference-counted objects.  Because JVM is not aware of the reference counting Netty implements, it will automatically GC them once they become unreachable even if their reference counts are not zero. An object once garbage collected cannot be resurrected, and thus cannot be returned to the pool it came from or will produce memory leak.</p>
+          
+          <p>Fortunately, despite its difficulty of finding leaks, Netty will by default sample about 1% of buffer allocations to check if there is a leak in your application.  In case of leak, you will find the following log message:</p>
+          
+          <blockquote>
+          <p>LEAK: <code>ByteBuf.release()</code> was not called before it's garbage-collected. Enable advanced leak reporting to find out where the leak occurred. To enable advanced leak reporting, specify the JVM option '<code>-Dio.netty.leakDetectionLevel=advanced</code>' or call <code>ResourceLeakDetector.setLevel()</code></p>
+          </blockquote>
+          
+          <p>Relaunch your application with the JVM option mentioned above, then you'll see the recent locations of your application where the leaked buffer was accessed.  The following output shows a leak from our unit test (<code>XmlFrameDecoderTest.testDecodeWithXml()</code>):</p>
+          
+          <div class="highlight"><pre><span class="n">Running</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoderTest</span>&#x000A;<span class="mi">15</span><span class="o">:</span><span class="mo">03</span><span class="o">:</span><span class="mf">36.886</span> <span class="p">[</span><span class="n">main</span><span class="p">]</span> <span class="n">ERROR</span> <span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">ResourceLeakDetector</span> <span class="o">-</span> <span class="n">LEAK</span><span class="o">:</span> <span class="n">ByteBuf</span><span class="p">.</span><span class="n">release</span><span class="p">()</span> <span class="n">was</span> <span class="n">not</span> <span class="n">called</span> <span class="n">before</span> <span class="n">it</span><span class="err">'</span><span class="n">s</span> <span class="n">garbage</span><span class="o">-</span><span class="n">collected</span><span class="p">.</span>&#x000A;<span class="n">Recent</span> <span class="n">access</span> <span class="n">records</span><span class="o">:</span> <span class="mi">1</span>&#x000A;<span class="cp">#1:</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">AdvancedLeakAwareByteBuf</span><span class="p">.</span><span class="n">toString</span><span class="p">(</span><span class="n">AdvancedLeakAwareByteBuf</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">697</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">testDecodeWithXml</span><span class="p">(</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">157</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">testDecodeWithTwoMessages</span><span class="p">(</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">133</span><span class="p">)</span>&#x000A;	<span class="p">...</span>&#x000A;&#x000A;<span class="n">Created</span> <span class="n">at</span><span class="o">:</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">util</span><span class="p">.</span><span class="n">ResourceLeakDetector</span><span class="p">.</span><span class="n">open</span><span class="p">(</span><span class="n">ResourceLeakDetector</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">169</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">AbstractByteBufAllocator</span><span class="p">.</span><span class="n">toLeakAwareBuffer</span><span class="p">(</span><span class="n">AbstractByteBufAllocator</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">42</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">UnpooledByteBufAllocator</span><span class="p">.</span><span class="n">newDirectBuffer</span><span class="p">(</span><span class="n">UnpooledByteBufAllocator</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">55</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">AbstractByteBufAllocator</span><span class="p">.</span><span class="n">directBuffer</span><span class="p">(</span><span class="n">AbstractByteBufAllocator</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">155</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">UnpooledUnsafeDirectByteBuf</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">UnpooledUnsafeDirectByteBuf</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">465</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">WrappedByteBuf</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">WrappedByteBuf</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">697</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">buffer</span><span class="p">.</span><span class="n">AdvancedLeakAwareByteBuf</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">AdvancedLeakAwareByteBuf</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">656</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoder</span><span class="p">.</span><span class="n">extractFrame</span><span class="p">(</span><span class="n">XmlFrameDecoder</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">198</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoder</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">XmlFrameDecoder</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">174</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">ByteToMessageDecoder</span><span class="p">.</span><span class="n">callDecode</span><span class="p">(</span><span class="n">ByteToMessageDecoder</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">227</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">ByteToMessageDecoder</span><span class="p">.</span><span class="n">channelRead</span><span class="p">(</span><span class="n">ByteToMessageDecoder</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">140</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">channel</span><span class="p">.</span><span class="n">ChannelHandlerInvokerUtil</span><span class="p">.</span><span class="n">invokeChannelReadNow</span><span class="p">(</span><span class="n">ChannelHandlerInvokerUtil</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">74</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">channel</span><span class="p">.</span><span class="n">embedded</span><span class="p">.</span><span class="n">EmbeddedEventLoop</span><span class="p">.</span><span class="n">invokeChannelRead</span><span class="p">(</span><span class="n">EmbeddedEventLoop</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">142</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">channel</span><span class="p">.</span><span class="n">DefaultChannelHandlerContext</span><span class="p">.</span><span class="n">fireChannelRead</span><span class="p">(</span><span class="n">DefaultChannelHandlerContext</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">317</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">channel</span><span class="p">.</span><span class="n">DefaultChannelPipeline</span><span class="p">.</span><span class="n">fireChannelRead</span><span class="p">(</span><span class="n">DefaultChannelPipeline</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">846</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">channel</span><span class="p">.</span><span class="n">embedded</span><span class="p">.</span><span class="n">EmbeddedChannel</span><span class="p">.</span><span class="n">writeInbound</span><span class="p">(</span><span class="n">EmbeddedChannel</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">176</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">testDecodeWithXml</span><span class="p">(</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">147</span><span class="p">)</span>&#x000A;	<span class="n">io</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">handler</span><span class="p">.</span><span class="n">codec</span><span class="p">.</span><span class="n">xml</span><span class="p">.</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">testDecodeWithTwoMessages</span><span class="p">(</span><span class="n">XmlFrameDecoderTest</span><span class="p">.</span><span class="n">java</span><span class="o">:</span><span class="mi">133</span><span class="p">)</span>&#x000A;	<span class="p">...</span></pre></div>
+          
+          <h3 id="wiki-h3-10">
+          <a name="leak-detection-levels" class="anchor" href="#leak-detection-levels"><span class="octicon octicon-link"></span></a>Leak detection levels</h3>
+          
+          <p>There are currently 4 levels of leak detection:</p>
+          
+          <ul>
+          <li>
+          <code>DISABLED</code> - disables leak detection completely. Not recommended.</li>
+          <li>
+          <code>SIMPLE</code> - tells if there is a leak or not for 1% of buffers. Default.</li>
+          <li>
+          <code>ADVANCED</code> - tells where the leaked buffer was accessed for 1% of buffers.</li>
+          <li>
+          <code>PARANOID</code> - Same with <code>ADVANCED</code> except that it's for every single buffer.  Useful for automated testing phase. You could fail the build if the build output contains '<code>LEAK:</code>'.</li>
+          </ul>
+          <p>You can specify the leak detection level as a JVM option <code>-Dio.netty.leakDetectionLevel</code></p>
+          
+          <div class="highlight"><pre><span class="n">java</span> <span class="o">-</span><span class="n">Dio</span><span class="p">.</span><span class="n">netty</span><span class="p">.</span><span class="n">leakDetectionLevel</span><span class="o">=</span><span class="n">advanced</span> <span class="p">...</span></pre></div>
+          
+          <h3 id="wiki-h3-11">
+          <a name="best-practice-for-leak-less-application" class="anchor" href="#best-practice-for-leak-less-application"><span class="octicon octicon-link"></span></a>Best practice for leak-less application</h3>
+          
+          <ul>
+          <li>Run your unit tests and integration tests at <code>PARANOID</code> leak detection level, as well as at <code>SIMPLE</code> level.</li>
+          <li>Canary your application before rolling out to the entire cluster at <code>SIMPLE</code> level for a reasonably long time to see if there's a leak.</li>
+          <li>If there is a leak, canary again at <code>ADVANCED</code> level to get some hints about where the leak is coming from.</li>
+          <li>Do not deploy an application with a leak to the entire cluster.</li>
+          </ul>
+          <h3 id="wiki-h3-12">
+          <a name="fixing-leaks-in-unit-tests" class="anchor" href="#fixing-leaks-in-unit-tests"><span class="octicon octicon-link"></span></a>Fixing leaks in unit tests</h3>
+          
+          <p>It is very easy to forget to release a buffer or a message in a unit test.  It will generate a leak warning, but it does not necessarily mean that your application has a leak.  Instead of wrapping your unit tests with <code>try-finally</code> blocks to release all buffers, you can use <code>ReferenceCountUtil.releaseLater()</code> utility method:</p>
+          
+          <div class="highlight"><pre><span class="kn">import</span> <span class="nn">static</span> <span class="n">io</span><span class="o">.</span><span class="na">netty</span><span class="o">.</span><span class="na">util</span><span class="o">.</span><span class="na">ReferenceCountUtil</span><span class="o">.*;</span>&#x000A;&#x000A;<span class="nd">@Test</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">testSomething</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;    <span class="c1">// ReferenceCountUtil.releaseLater() will keep the reference of buf,</span>&#x000A;    <span class="c1">// and then release it when the test thread is terminated.</span>&#x000A;    <span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">releaseLater</span><span class="o">(</span><span class="n">Unpooled</span><span class="o">.</span><span class="na">directBuffer</span><span class="o">(</span><span class="mi">512</span><span class="o">));</span>&#x000A;    <span class="o">...</span>&#x000A;<span class="o">}</span></pre></div>
+              </div>
+            </div></div>
+          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li><a href="#wiki-h2-0" title="Basics of reference counting">Basics of reference counting</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="Dangling reference">Dangling reference</a>
+          </li><li><a href="#wiki-h3-2" title="Increasing the reference count">Increasing the reference count</a>
+          </li><li><a href="#wiki-h3-3" title="Who destroys it?">Who destroys it?</a>
+          </li><li><a href="#wiki-h3-4" title="Derived buffers">Derived buffers</a>
+          </li><li><a href="#wiki-h3-5" title="ByteBufHolder interface">ByteBufHolder interface</a>
+          </li></ul></li><li><a href="#wiki-h2-6" title="Reference-counted messages in ChannelHandler">Reference-counted messages in ChannelHandler</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-7" title="Inbound messages">Inbound messages</a>
+          </li><li><a href="#wiki-h3-8" title="Outbound messages">Outbound messages</a>
+          </li></ul></li><li><a href="#wiki-h2-9" title="Troubleshooting buffer leaks">Troubleshooting buffer leaks</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-10" title="Leak detection levels">Leak detection levels</a>
+          </li><li><a href="#wiki-h3-11" title="Best practice for leak-less application">Best practice for leak-less application</a>
+          </li><li><a href="#wiki-h3-12" title="Fixing leaks in unit tests">Fixing leaks in unit tests</a>
+          </li></ul>
+          </li></ul>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="text-right">
+                <small>Last retrieved on 21-Jan-2014</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+      <footer id="footer">
+        <p>
+          Copyright &copy; 2014
+          <a href="../index.html">The Netty project</a>
+        </p>
+      </footer>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../lib/common.footer.js" type="text/javascript"></script>
+  
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker('UA-95307-5');
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
