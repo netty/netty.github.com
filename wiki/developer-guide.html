@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/01/21/4-0-15-Final.html">
+              <a href="../news/2014/02/25/4-0-17-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.15.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.17.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.15.Final
-                    <small>&dash; 21-Jan-2014</small>
+                    4.0.17.Final
+                    <small>&dash; 25-Feb-2014</small>
                   </a>
                 </li>
                 <li>
@@ -237,14 +237,14 @@
           <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <div class="alert alert-danger">
+                <div>
           <strong>Looking for a tutorial?</strong> Visit <a class="internal present" href="index.html">the documentation home</a>. <strong>Got a question?</strong> Ask at <a href="https://stackoverflow.com/questions/tagged/netty">StackOverflow.com</a>.<br>Please note that this guide is <strong>not</strong> a 'user guide'.  It is not intended for the 'users' who build an application using Netty but for the contributors ('dev') who want to develop Netty itself.</div>
           
           <h2 id="wiki-h2-0">
-          <a name="working-with-the-source-code" class="anchor" href="#working-with-the-source-code"><span class="octicon octicon-link"></span></a>Working with the source code</h2>
+          <a name="wiki-working-with-the-source-code" class="anchor" href="#wiki-working-with-the-source-code"><span class="octicon octicon-link"></span></a>Working with the source code</h2>
           
           <h3 id="wiki-h3-1">
-          <a name="important" class="anchor" href="#important"><span class="octicon octicon-link"></span></a>Important!</h3>
+          <a name="wiki-important" class="anchor" href="#wiki-important"><span class="octicon octicon-link"></span></a>Important!</h3>
           
           <p>Before pushing your commits or issuing a pull request, make sure:</p>
           
@@ -253,22 +253,43 @@
           <li>your work does not introduce any new inspection warning - see below.</li>
           </ul>
           <h3 id="wiki-h3-2">
-          <a name="setting-up-intellij-idea-inspection-profile" class="anchor" href="#setting-up-intellij-idea-inspection-profile"><span class="octicon octicon-link"></span></a>Setting up IntelliJ IDEA inspection profile</h3>
+          <a name="wiki-setting-up-intellij-idea" class="anchor" href="#wiki-setting-up-intellij-idea"><span class="octicon octicon-link"></span></a>Setting up IntelliJ IDEA</h3>
           
-          <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE. Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default for Netty project. Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
+          <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
           
-          <h3 id="wiki-h3-3">
-          <a name="setting-up-eclipse-with-m2e-and-java-7" class="anchor" href="#setting-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Setting up Eclipse with M2E and Java 7</h3>
+          <h4 id="wiki-h4-3">
+          <a name="wiki-code-style" class="anchor" href="#wiki-code-style"><span class="octicon octicon-link"></span></a>Code style</h4>
           
-          <p>Netty project can be imported into 
-          <a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a>
-          or later with
-          <a href="http://eclipse.org/m2e/">M2E</a>
-          integration out of the box.</p>
+          <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
           
-          <p>Netty project Maven pom.xml settings dictate use of Java SE 1.6, 
-          while implicitly using Java 7 (1.7) features if present.
-          This may result in compilation errors in Eclipse.</p>
+          <h4 id="wiki-h4-4">
+          <a name="wiki-inspection-profile" class="anchor" href="#wiki-inspection-profile"><span class="octicon octicon-link"></span></a>Inspection profile</h4>
+          
+          <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358">here</a> to learn how to import an inspection profile.</p>
+          
+          <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
+          
+          <h4 id="wiki-h4-5">
+          <a name="wiki-copyright-profile" class="anchor" href="#wiki-copyright-profile"><span class="octicon octicon-link"></span></a>Copyright profile</h4>
+          
+          <p>Copyright text:</p>
+          
+          <pre lang="plain"><code>Copyright $today.year The Netty Project&#x000A;&#x000A;The Netty Project licenses this file to you under the Apache License,&#x000A;version 2.0 (the "License"); you may not use this file except in compliance&#x000A;with the License. You may obtain a copy of the License at:&#x000A;&#x000A;  http://www.apache.org/licenses/LICENSE-2.0&#x000A;&#x000A;Unless required by applicable law or agreed to in writing, software&#x000A;distributed under the License is distributed on an "AS IS" BASIS, WITHOUT&#x000A;WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the&#x000A;License for the specific language governing permissions and limitations&#x000A;under the License.&#x000A;</code></pre>
+          
+          <p>Keyword to detect copyright in comments:</p>
+          
+          <pre><code>The Netty project licenses&#x000A;</code></pre>
+          
+          <p>Allow replacing copyright if old copyright contains:</p>
+          
+          <pre><code>The Netty project licenses&#x000A;</code></pre>
+          
+          <h3 id="wiki-h3-6">
+          <a name="wiki-setting-up-eclipse-with-m2e-and-java-7" class="anchor" href="#wiki-setting-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Setting up Eclipse with M2E and Java 7</h3>
+          
+          <p>Netty project can be imported into <a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a> or later with <a href="http://eclipse.org/m2e/">M2E</a> integration out of the box.</p>
+          
+          <p>Netty project Maven pom.xml settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.</p>
           
           <p>One way to deal with this - look in <code>Eclipse -&gt; Window -&gt; Preferences -&gt; Installed JRE</code></p>
           
@@ -280,8 +301,8 @@
           </ul>
           <p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
           
-          <h3 id="wiki-h3-4">
-          <a name="git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h3>
+          <h3 id="wiki-h3-7">
+          <a name="wiki-git-line-ending-configuration" class="anchor" href="#wiki-git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h3>
           
           <p>We use native line ending for all source code (i.e. '<code>\n</code>' for *nix and MacOS X, '<code>\r\n</code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
           
@@ -291,20 +312,25 @@
           <li>
           <a href="http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
           </ul>
-          <h3 id="wiki-h3-5">
-          <a name="merging-a-pull-request" class="anchor" href="#merging-a-pull-request"><span class="octicon octicon-link"></span></a>Merging a pull request</h3>
+          <h3 id="wiki-h3-8">
+          <a name="wiki-merging-a-pull-request" class="anchor" href="#wiki-merging-a-pull-request"><span class="octicon octicon-link"></span></a>Merging a pull request</h3>
           
-          <p>A pull request often contains multiple comments.  Those commits must be squashed into smaller number of commits with explanatory comments.</p>
+          <p>A pull request often contains multiple comments.  Those commits must be squashed into a small number of commits with explanatory comments.</p>
           
           <p>Do not merge a pull request via the web UI unless there's a good reason doing that. Refer to the 'Patch and Apply' section in <a href="https://help.github.com/articles/using-pull-requests#merging-a-pull-request">the Github help page</a>.</p>
           
-          <h2 id="wiki-h2-6">
-          <a name="writing-a-new-post" class="anchor" href="#writing-a-new-post"><span class="octicon octicon-link"></span></a>Writing a new post</h2>
+          <h3 id="wiki-h3-9">
+          <a name="wiki-building-the-native-transport" class="anchor" href="#wiki-building-the-native-transport"><span class="octicon octicon-link"></span></a>Building the Native Transport</h3>
+          
+          <p>Building netty from source on linux may result in a cryptic failure when building the transport-native-epoll module. Refer to <a class="internal present" href="native-transports.html">Native-transports</a> for details.</p>
+          
+          <h2 id="wiki-h2-10">
+          <a name="wiki-writing-a-new-post" class="anchor" href="#wiki-writing-a-new-post"><span class="octicon octicon-link"></span></a>Writing a new post</h2>
           
           <p>Our web site is generated from an Awestruct project <a href="https://github.com/netty/netty-website">here</a>.  To post a new article, create a new branch, write a new post, and issue a pull request like usual contributions.</p>
           
-          <h2 id="wiki-h2-7">
-          <a name="design-ideas" class="anchor" href="#design-ideas"><span class="octicon octicon-link"></span></a>Design ideas</h2>
+          <h2 id="wiki-h2-11">
+          <a name="wiki-design-ideas" class="anchor" href="#wiki-design-ideas"><span class="octicon octicon-link"></span></a>Design ideas</h2>
           
           <ul>
           <li><a class="internal present" href="thread-model.html">Thread model in 4.x</a></li>
@@ -317,12 +343,16 @@
           <li class="nav-header">Table of Contents
           </li><li><a href="#wiki-h2-0" title="Working with the source code">Working with the source code</a>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="Important!">Important!</a>
-          </li><li><a href="#wiki-h3-2" title="Setting up IntelliJ IDEA inspection profile">Setting up IntelliJ IDEA inspection profile</a>
-          </li><li><a href="#wiki-h3-3" title="Setting up Eclipse with M2E and Java 7">Setting up Eclipse with M2E and Java 7</a>
-          </li><li><a href="#wiki-h3-4" title="Git line ending configuration">Git line ending configuration</a>
-          </li><li><a href="#wiki-h3-5" title="Merging a pull request">Merging a pull request</a>
-          </li></ul></li><li><a href="#wiki-h2-6" title="Writing a new post">Writing a new post</a>
-          </li><li><a href="#wiki-h2-7" title="Design ideas">Design ideas</a>
+          </li><li><a href="#wiki-h3-2" title="Setting up IntelliJ IDEA">Setting up IntelliJ IDEA</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-3" title="Code style">Code style</a>
+          </li><li><a href="#wiki-h4-4" title="Inspection profile">Inspection profile</a>
+          </li><li><a href="#wiki-h4-5" title="Copyright profile">Copyright profile</a>
+          </li></ul></li><li><a href="#wiki-h3-6" title="Setting up Eclipse with M2E and Java 7">Setting up Eclipse with M2E and Java 7</a>
+          </li><li><a href="#wiki-h3-7" title="Git line ending configuration">Git line ending configuration</a>
+          </li><li><a href="#wiki-h3-8" title="Merging a pull request">Merging a pull request</a>
+          </li><li><a href="#wiki-h3-9" title="Building the Native Transport">Building the Native Transport</a>
+          </li></ul></li><li><a href="#wiki-h2-10" title="Writing a new post">Writing a new post</a>
+          </li><li><a href="#wiki-h2-11" title="Design ideas">Design ideas</a>
           </li></ul>
           </div>
           </div>
@@ -330,7 +360,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 21-Jan-2014</small>
+                <small>Last retrieved on 25-Feb-2014</small>
               </div>
             </div>
           </div>
