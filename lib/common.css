@@ -1,0 +1,269 @@
+body {
+  position: relative; /* For scrollyspy */
+  padding-top: 50px;  /* Account for fixed navbar */
+}
+
+@media screen and (min-width:768px) {
+  .navbar-collapse {
+    padding-right: 0;
+  }
+}
+
+/* Use mouse hover to open/close a dropdown menu */
+ul.nav li.dropdown:hover > ul.dropdown-menu {
+  display: block;
+}
+
+/* Add the project logo */
+.navbar-brand-logo {
+  padding: 18px 20px;
+  background-image: url(../images/logo.png);
+  background-repeat: no-repeat;
+  background-size: 36px 32px;
+  background-position: left center;
+}
+
+/* Align Font Awesome icons in the navbar */
+#header ul.dropdown-menu .fa {
+  display: inline-block;
+  width: 1.25em;
+  text-align: center;
+  margin-left: -0.5em;
+}
+
+/* Justify and hypenate a paragraph by default */
+p {
+  text-align: justify;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+
+/* Allow wrapping code and remove colored background */
+code, tt {
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+  border-width: 0px;
+  background-color: inherit;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+blockquote p {
+  font-size: inherit;
+}
+
+/* Slight left margin for paragraphs */
+#main-content > div > p, #main-content > p,
+#wiki-body > div > p, #wiki-body > p {
+  margin-left: 0.5em;
+}
+
+/* Put byline on the same line with the title */
+.news-item .byline {
+  text-align: right;
+  position: relative;
+  top: -45px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  height: 0;
+  line-height: 1em;
+}
+
+/* Decorate broken wiki link */
+.broken-link {
+  text-decoration: line-through;
+}
+
+/*
+ * Scroll to the correct anchor position.
+ * http://stackoverflow.com/questions/10732690/offsetting-an-html-anchor-to-adjust-for-fixed-header
+ */
+.container h2[id]:before {
+  content: "";
+  display: block;
+  height: 2.25em;
+  margin-top: -2.25em;
+}
+
+.container h3[id]:before {
+  content: "";
+  display: block;
+  height: 2.5em;
+  margin-top: -2.5em;
+}
+
+.container h4[id]:before {
+  content: "";
+  display: block;
+  height: 3.25em;
+  margin-top: -3.25em;
+}
+
+/* Keyframes to highlight the clicked anchor */
+@-moz-keyframes blinker {  
+  0% { opacity: 1.0; }
+  33% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+@-webkit-keyframes blinker {  
+  0% { opacity: 1.0; }
+  33% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+@keyframes blinker {  
+  0% { opacity: 1.0; }
+  33% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+/* Highlight the clicked anchor */
+.container :target {
+  -webkit-animation-name: blinker;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: 1;
+
+  -moz-animation-name: blinker;
+  -moz-animation-duration: 1s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: 1;
+
+  animation-name: blinker;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: 1;
+}
+
+/* Prettify ToC */
+.toc {
+  padding: 8px 0;
+  margin: 0px 0px 12px 0px;
+}
+
+.toc.affix {
+  position: static;
+}
+
+/* Show and affix the side nav when space allows it */
+@media screen and (min-width: 992px) {
+  .toc .nav > .active > ul {
+    display: block;
+  }
+  /* Widen the fixed sidebar */
+  .toc.affix,
+  .toc.affix-bottom {
+    width: 213px;
+  }
+  .toc.affix {
+    position: fixed; /* Undo the static from mobile first approach */
+    top: 70px;
+  }
+
+  .toc.affix-bottom {
+    position: absolute; /* Undo the static from mobile first approach */
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  /* Widen the fixed sidebar again */
+  .toc.affix-bottom,
+  .toc.affix {
+    width: 263px;
+  }
+}
+
+.toc .nav-header {
+  padding-left: 15px;
+  font-weight: bold;
+}
+
+.toc > ul ul {
+  padding-right: 0em;
+  padding-left: 1.2em;
+}
+
+.toc > ul > li {
+  padding-bottom: 0.5em;
+}
+
+.toc li {
+  color: #777777;
+}
+
+.toc .nav .nav {
+  display: none; /* Hide by default, but at >768px, show it */
+}
+
+.toc .nav > .active > a {
+  font-weight: bold;
+  border-right: 2px solid #777777;
+}
+
+.toc li a {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 0.15em;
+  padding-bottom: 0.15em;
+  color: #777777;
+}
+
+.toc > ul > li li {
+  font-size: small;
+}
+
+@media print {
+  #top.sr-only {
+    display: none;
+  }
+  #header, #disqus_thread {
+    display: none;
+  }
+}
+
+/* Book promotion */
+#bookpromo-nav, #bookpromo-dropdown {
+  display: none;
+}
+
+#bookpromo-dropdown {
+  text-align: center;
+}
+
+/* Bintray promotion */
+
+.bintraypromo {
+  margin-top: 0.49em;
+  margin-bottom: 0.1em;
+}
+
+.bintraypromo a {
+  position: relative;
+  top: -6px;
+  left: -6px
+}
+
+/* Remove excessive space between tab header and tab pane when the first tag is h2/3/4 */
+.tab-pane>h2:first-child, .tab-pane>h3:first-child, .tab-pane>h4:first-child{
+  margin-top: 0.5em;
+}
+
+/* Embedded twitter timelines */
+#twitter-timeline {
+  margin: 1.45em 0 0 0;
+}
+
+/* Override SyntaxHighlighter theme */
+.syntaxhighlighter {
+  display:block;padding:9.5px;margin:0 0 10px;font-size:13px;line-height:20px;word-break:break-all;word-wrap:break-word;white-space:pre;white-space:pre-wrap;background-color:#f5f5f5 !important;border:1px solid #ccc;border:1px solid rgba(0, 0, 0, 0.15);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;}pre.prettyprint{margin-bottom:20px;
+}
+.syntaxhighlighter, .syntaxhighlighter .line.alt1, .syntaxhighlighter .line.alt2, .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+  background-color: #f5f5f5 !important;
+}
+
+/* Github syntax highlighter */
+.highlight .c{color:#999988;font-style:italic}.highlight .err{color:#a61717;background-color:#e3d2d2}.highlight .k{font-weight:bold}.highlight .o{font-weight:bold}.highlight .cm{color:#999988;font-style:italic}.highlight .cp{color:#999999;font-weight:bold}.highlight .c1{color:#999988;font-style:italic}.highlight .cs{color:#999999;font-weight:bold;font-style:italic}.highlight .gd{color:#000000;background-color:#ffdddd}.highlight .gd .x{color:#000000;background-color:#ffaaaa}.highlight .ge{font-style:italic}.highlight .gr{color:#aa0000}.highlight .gh{color:#999999}.highlight .gi{color:#000000;background-color:#ddffdd}.highlight .gi .x{color:#000000;background-color:#aaffaa}.highlight .go{color:#888888}.highlight .gp{color:#555555}.highlight .gs{font-weight:bold}.highlight .gu{color:#800080;font-weight:bold}.highlight .gt{color:#aa0000}.highlight .kc{font-weight:bold}.highlight .kd{font-weight:bold}.highlight .kn{font-weight:bold}.highlight .kp{font-weight:bold}.highlight .kr{font-weight:bold}.highlight .kt{color:#445588;font-weight:bold}.highlight .m{color:#009999}.highlight .s{color:#d14}.highlight .n{color:#333333}.highlight .na{color:#008080}.highlight .nb{color:#0086B3}.highlight .nc{color:#445588;font-weight:bold}.highlight .no{color:#008080}.highlight .ni{color:#800080}.highlight .ne{color:#990000;font-weight:bold}.highlight .nf{color:#990000;font-weight:bold}.highlight .nn{color:#555555}.highlight .nt{color:#000080}.highlight .nv{color:#008080}.highlight .ow{font-weight:bold}.highlight .w{color:#bbbbbb}.highlight .mf{color:#009999}.highlight .mh{color:#009999}.highlight .mi{color:#009999}.highlight .mo{color:#009999}.highlight .sb{color:#d14}.highlight .sc{color:#d14}.highlight .sd{color:#d14}.highlight .s2{color:#d14}.highlight .se{color:#d14}.highlight .sh{color:#d14}.highlight .si{color:#d14}.highlight .sx{color:#d14}.highlight .sr{color:#009926}.highlight .s1{color:#d14}.highlight .ss{color:#990073}.highlight .bp{color:#999999}.highlight .vc{color:#008080}.highlight .vg{color:#008080}.highlight .vi{color:#008080}.highlight .il{color:#009999}.highlight .gc{color:#999;background-color:#EAF2F5}.type-csharp .highlight .k{color:#0000FF}.type-csharp .highlight .kt{color:#0000FF}.type-csharp .highlight .nf{color:#000000;font-weight:normal}.type-csharp .highlight .nc{color:#2B91AF}.type-csharp .highlight .nn{color:#000000}.type-csharp .highlight .s{color:#A31515}.type-csharp .highlight .sc{color:#A31515}
+

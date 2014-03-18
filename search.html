@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>404 Not Found</title>
+  </head>
+  <body>
+    <script>
+      var queryPos = window.location.href.indexOf('?q=');
+      if (queryPos >= 0) {
+        var query = window.location.href.substring(queryPos + 3);
+        if (query.length > 0) {
+          window.location.href = 'https://www.google.com/search?q=netty%20' + query + '&hl=en&ie=UTF-8';
+        }
+      }
+    </script>
+  
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker('UA-95307-5');
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

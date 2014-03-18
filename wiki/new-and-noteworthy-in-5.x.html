@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Netty.docs: New and noteworthy in 5.x</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../images/favicon.ico" rel="shortcut icon">
+    <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+    <link href="../lib/common.css" rel="stylesheet" type="text/css">
+    <script src="../lib/common.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <a class="sr-only" href="#content" id="top">Skip navigation</a>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">
+            <span class="navbar-brand-logo"></span>
+            Netty project
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="../news/2014/02/25/4-0-17-Final.html">
+                News
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../news/index.html">
+                    <i class="fa fa-archive"></i>
+                    Archive
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../downloads.html">
+                Downloads
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-5.0.0.Alpha1.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    5.0.0.Alpha1
+                    <small>&dash; 22-Dec-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.17.Final.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.0.17.Final
+                    <small>&dash; 25-Feb-2014</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.9.0.Final-dist.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    3.9.0.Final
+                    <small>&dash; 22-Dec-2013</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.tldrlegal.com/l/APACHE2">
+                    <i class="fa fa-gavel"></i>
+                    Apache License 2.0
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bintray.com/netty/downloads/netty/">
+                    <i class="fa fa-archive"></i>
+                    Previous Releases
+                  </a>
+                </li>
+                <li>
+                  <a href="https://secure.motd.kr/jenkins/view/Netty/">
+                    <i class="fa fa-flask"></i>
+                    Nightly Builds
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../wiki/index.html">
+                Documentation
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../wiki/user-guide.html">
+                    <i class="fa fa-book"></i>
+                    User guide
+                  </a>
+                </li>
+                <li>
+                  <a href="../5.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 5.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../3.9/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 3.9
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/all-documents.html">
+                    <i class="fa fa-list"></i>
+                    All Documents
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-articles.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Articles
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-projects.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Projects
+                  </a>
+                </li>
+                <li class="hidden-xs" id="bookpromo-dropdown">
+                  <a href="http://www.manning.com/maurer/">
+                    <img src="../images/netty-in-action.gif">
+                    <br>
+                    <small>
+                      Use code <strong>mlnettyco</strong>
+                      <br>
+                      for a 37% discount!
+                    </small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../community.html">
+                Get Involved
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://github.com/netty/netty">
+                    <i class="fa fa-github-square"></i>
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a href="http://stackoverflow.com/questions/tagged/netty">
+                    <i class="fa fa-stack-overflow"></i>
+                    StackOverflow
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/netty_project">
+                    <i class="fa fa-twitter-square"></i>
+                    @netty_project
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/developer-guide.html">
+                    <i class="fa fa-cogs"></i>
+                    Developer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="http://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+                    <i class="fa fa-comment"></i>
+                    IRC Chat
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="visible-xs" id="bookpromo-nav">
+              <a href="http://www.manning.com/maurer/">
+                <img src="../images/netty-in-action.gif">
+                <br>
+                <small>
+                  Use code <strong>mlnettyco</strong>
+                  <br>
+                  for a 37% discount!
+                </small>
+              </a>
+            </li>
+            <li>
+              <a href="http://feeds.feedburner.com/netty_project">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+            <div class="form-group">
+              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="content">
+      <div class="container">
+        <div class="wiki-item">
+          <h1>New and noteworthy in 5.x</h1>
+          <div class="alert alert-info">
+            Did you know this page is automatically generated from
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.x">a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.x">here!</a>
+          </div>
+          <div class="row">
+          <div class="col-md-9">
+          <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+              <div class="markdown-body">
+                <p>This document walks you through the list of notable changes and new features in the major Netty release to give you an idea to port your application to the new version.</p>
+          
+          <p>Unlike the changes between 3.x and 4.x, 5.x did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.x as smooth as possible, but please let us know if you encounter any issues during migration.</p>
+          
+          <h2 id="wiki-h2-0">
+          <a name="core-changes" class="anchor" href="#core-changes"><span class="octicon octicon-link"></span></a>Core changes</h2>
+          
+          <h3 id="wiki-h3-1">
+          <a name="android-support" class="anchor" href="#android-support"><span class="octicon octicon-link"></span></a>Android support</h3>
+          
+          <p>Given that:</p>
+          
+          <ul>
+          <li>mobile devices are becoming more and more powerful,</li>
+          <li>the most known issues with NIO and SSLEngine in ADK were fixed since Ice Cream Sandwich, and</li>
+          <li>users obviously want to reuse their codecs and handlers in their mobile applications,</li>
+          </ul>
+          <p>we decided to support Android (4.0 or above) officially.</p>
+          
+          <h3 id="wiki-h3-2">
+          <a name="simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy"><span class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
+          
+          <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
+          
+          <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAdapter.html"><code>ChannelHandlerAdapter</code></a>.</p>
+          
+          <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAppender.html"><code>ChannelHandlerAppender</code></a>.</p>
+          
+          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
+          
+          <h3 id="wiki-h3-3">
+          <a name="channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived"><span class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
+          </h3>
+          
+          <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
+          
+          <h3 id="wiki-h3-4">
+          <a name="removal-of-deregistration" class="anchor" href="#removal-of-deregistration"><span class="octicon octicon-link"></span></a>Removal of deregistration</h3>
+          
+          <p><code>Channel.deregister()</code> has been removed.  It was neither working nor used by users.  Instead, we are going to allow the re-registration of a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> to a different event loop in the future.</p>
+          
+          <h3 id="wiki-h3-5">
+          <a name="channelhandlercontextattr--channelattr" class="anchor" href="#channelhandlercontextattr--channelattr"><span class="octicon octicon-link"></span></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
+          </h3>
+          
+          <p>Both <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> and <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/5.0/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> and a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
+          
+          <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> internally.  <a href="http://netty.io/5.0/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> always uses <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
+          
+          <h3 id="wiki-h3-6">
+          <a name="easier-and-more-precise-buffer-leak-tracking" class="anchor" href="#easier-and-more-precise-buffer-leak-tracking"><span class="octicon octicon-link"></span></a>Easier and more precise buffer leak tracking</h3>
+          
+          <p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
+          
+          <p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
+          
+          <h3 id="wiki-h3-7">
+          <a name="pooledbytebufallocator-as-the-default-allocator" class="anchor" href="#pooledbytebufallocator-as-the-default-allocator"><span class="octicon octicon-link"></span></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
+          
+          <p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
+          
+          <h3 id="wiki-h3-8">
+          <a name="globally-unique-channel-id" class="anchor" href="#globally-unique-channel-id"><span class="octicon octicon-link"></span></a>Globally unique channel ID</h3>
+          
+          <p>Every <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
+          
+          <ul>
+          <li>MAC address (EUI-48 or EUI-64), preferrably a globally unique one,</li>
+          <li>the current process ID,</li>
+          <li><code>System#currentTimeMillis()</code></li>
+          <li><code>System#nanoTime()</code></li>
+          <li>a random 32-bit integer, and</li>
+          <li>a sequentially incremented 32-bit integer.</li>
+          </ul>
+          <p>The ID of a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
+          
+          <h3 id="wiki-h3-9">
+          <a name="even-more-flexible-thread-model" class="anchor" href="#even-more-flexible-thread-model"><span class="octicon octicon-link"></span></a>Even more flexible thread model</h3>
+          
+          <p>A new interface called <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> has been added to give a user much more control over which thread should call an event handler method.  Instead of specifying an <a href="http://netty.io/5.0/api/io/netty/util/concurrent/EventExecutor.html"><code>EventExecutor</code></a> when adding a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> to a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelPipeline.html"><code>ChannelPipeline</code></a>, specify a custom <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> implementation to take advantage of this feature.</p>
+          
+          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/commit/132af3a485015ff912bd567a47881814d2ce1828">the commit 132af3a</a>.</p>
+          
+          <h3 id="wiki-h3-10">
+          <a name="embeddedchannel-usability" class="anchor" href="#embeddedchannel-usability"><span class="octicon octicon-link"></span></a><code>EmbeddedChannel</code> usability</h3>
+          
+          <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/5.0/api/io/netty/channel/embedded/EmbeddedChannel.html"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
+          
+          <div class="highlight highlight-java"><pre><span class="n">EmbeddedChannel</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;&#x000A;<span class="c1">// BEFORE:</span>&#x000A;<span class="n">FullHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="o">(</span><span class="n">FullHttpRequest</span><span class="o">)</span> <span class="n">ch</span><span class="o">.</span><span class="na">readInbound</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// AFTER:</span>&#x000A;<span class="n">FullHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="na">readInbound</span><span class="o">();</span></pre></div>
+          
+          <h3 id="wiki-h3-11">
+          <a name="ability-to-use-executor-instead-of-threadfactory" class="anchor" href="#ability-to-use-executor-instead-of-threadfactory"><span class="octicon octicon-link"></span></a>Ability to use <code>Executor</code> instead of <code>ThreadFactory</code>
+          </h3>
+          
+          <p>Some applications require a user to run his or her task in a given <code>Executor</code>.  4.x required a user to specify <code>ThreadFactory</code> when creating an event loop, but not anymore.</p>
+          
+          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1762">the pull request #1762</a>.</p>
+          
+          <h3 id="wiki-h3-12">
+          <a name="class-loader-friendliness" class="anchor" href="#class-loader-friendliness"><span class="octicon octicon-link"></span></a>Class loader friendliness</h3>
+          
+          <p>Some types such as <code>AttributeKey</code> were unfriendly to the applications that run in a container environment, but not anymore.</p>
+          
+          <h2 id="wiki-h2-13">
+          <a name="codecs-and-handlers" class="anchor" href="#codecs-and-handlers"><span class="octicon octicon-link"></span></a>Codecs and handlers</h2>
+          
+          <ul>
+          <li>
+          <a href="http://netty.io/5.0/api/io/netty/handler/codec/xml/XmlFrameDecoder.html"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
+          <li>Binary memcache protocol codec</li>
+          <li>SPDY/3.1 support (also backported to 4.x)</li>
+          <li>Refactored HTTP multipart codec</li>
+          </ul>
+              </div>
+            </div></div>
+          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li><a href="#wiki-h2-0" title="Core changes">Core changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="Android support">Android support</a>
+          </li><li><a href="#wiki-h3-2" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
+          </li><li><a href="#wiki-h3-3" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
+          </li><li><a href="#wiki-h3-4" title="Removal of deregistration">Removal of deregistration</a>
+          </li><li><a href="#wiki-h3-5" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
+          </li><li><a href="#wiki-h3-6" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
+          </li><li><a href="#wiki-h3-7" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
+          </li><li><a href="#wiki-h3-8" title="Globally unique channel ID">Globally unique channel ID</a>
+          </li><li><a href="#wiki-h3-9" title="Even more flexible thread model">Even more flexible thread model</a>
+          </li><li><a href="#wiki-h3-10" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
+          </li><li><a href="#wiki-h3-11" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
+          </li><li><a href="#wiki-h3-12" title="Class loader friendliness">Class loader friendliness</a>
+          </li></ul></li><li><a href="#wiki-h2-13" title="Codecs and handlers">Codecs and handlers</a>
+          </li></ul>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="text-right">
+                <small>Last retrieved on 18-Mar-2014</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+      <footer id="footer">
+        <p>
+          Copyright &copy; 2014
+          <a href="../index.html">The Netty project</a>
+        </p>
+      </footer>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../lib/common.footer.js" type="text/javascript"></script>
+  
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker('UA-95307-5');
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
