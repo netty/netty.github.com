@@ -422,15 +422,15 @@
           
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets: </p>
           
-          <p><img src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce" alt="Three packets received as they were sent"></p>
+          <p><img src="https://camo.githubusercontent.com/9b6aadee43a4fa15d603a2c4a7695359dad7fdfe/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3063643963633636373461366238393561306365" alt="Three packets received as they were sent" data-canonical-src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce"></p>
           
           <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
           
-          <p><img src="http://img.motd.kr/uml/gist/b31c0bd7bbfc69fd82d6" alt="Three packets split and merged into four buffers"></p>
+          <p><img src="https://camo.githubusercontent.com/7b68f601941f48944e51524ed2ba16dcd4608667/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://img.motd.kr/uml/gist/b31c0bd7bbfc69fd82d6"></p>
           
           <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
           
-          <p><img src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce" alt="Four buffers defragged into three"></p>
+          <p><img src="https://camo.githubusercontent.com/9b6aadee43a4fa15d603a2c4a7695359dad7fdfe/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3063643963633636373461366238393561306365" alt="Four buffers defragged into three" data-canonical-src="http://img.motd.kr/uml/gist/0cd9cc6674a6b895a0ce"></p>
           
           <h4 id="wiki-h4-12">
           <a name="the-first-solution" class="anchor" href="#the-first-solution"><span class="octicon octicon-link"></span></a>The First Solution</h4>
@@ -574,7 +574,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Mar-2014</small>
+                <small>Last retrieved on 28-Mar-2014</small>
               </div>
             </div>
           </div>
