@@ -243,7 +243,7 @@
           <li>Complete mavenization of the project</li>
           <li>Improved OpenSSL support</li>
           </ul>
-          <p>To minimize the maintenance burden between the upstream and the fork, we create a dedicated branch for each stable upstream release and apply our own changes on top of it.</p>
+          <p>To minimize the maintenance burden, we create a dedicated branch for each stable upstream release and apply our own changes on top of it, while keeping the number of maintained branches to minimum.</p>
           
           <h2 id="wiki-h2-0">
           <a name="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork"><span class="octicon octicon-link"></span></a>Creating a new fork</h2>
@@ -252,7 +252,7 @@
           
           <pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29&#x000A;</code></pre>
           
-          <p>Will create a new branch called <code>1.1.29</code>, which contains a mavenized tcnative fork.  Please note that the fork does not contain any patches that will change the main source code of tcnative.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
+          <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
           
           <h2 id="wiki-h2-1">
           <a name="user-content-using-netty-tcnative-to-accelerate-ssl-performance" class="anchor" href="#using-netty-tcnative-to-accelerate-ssl-performance"><span class="octicon octicon-link"></span></a>Using <code>netty-tcnative</code> to accelerate SSL performance</h2>
