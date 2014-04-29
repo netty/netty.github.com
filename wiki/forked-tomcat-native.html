@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: Native transports</title>
+    <title>Netty.docs: Forked Tomcat Native</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -226,54 +226,46 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>Native transports</h1>
+          <h1>Forked Tomcat Native</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Native-transports">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/Forked-Tomcat-Native">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Native-transports">here!</a>
+            <a href="https://github.com/netty/netty/wiki/Forked-Tomcat-Native">here!</a>
           </div>
           <div class="row">
           <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>Since 4.0.16, Netty provides the native socket transport for Linux using JNI.  This transport has higher performance and produces less garbage, so you might want to give it a try.</p>
-          
-          <h2 id="wiki-h2-0">
-          <a name="user-content-using-the-native-transport" class="anchor" href="#using-the-native-transport"><span class="octicon octicon-link"></span></a>Using the native transport</h2>
-          
-          <p>Because the native transport is compatible with the NIO transport, you can just do the following search-and-replace:</p>
+                <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
           
           <ul>
-          <li>
-          <code>NioEventLoopGroup</code> → <code>EpollEventLoopGroup</code>
-          </li>
-          <li>
-          <code>NioEventLoop</code> → <code>EpollEventLoop</code>
-          </li>
-          <li>
-          <code>NioServerSocketChannel</code> → <code>EpollServerSocketChannel</code>
-          </li>
-          <li>
-          <code>NioSocketChannel</code> → <code>EpollSocketChannel</code>
-          </li>
+          <li>Complete mavenization of the project</li>
+          <li>Improved OpenSSL support</li>
           </ul>
+          <p>To minimize the maintenance burden between the upstream and the fork, we create a dedicated branch for each stable upstream release and apply our own changes on top of it.</p>
+          
+          <h2 id="wiki-h2-0">
+          <a name="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork"><span class="octicon octicon-link"></span></a>Creating a new fork</h2>
+          
+          <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
+          
+          <pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29&#x000A;</code></pre>
+          
+          <p>Will create a new branch called <code>1.1.29</code>, which contains a mavenized tcnative fork.  Please note that the fork does not contain any patches that will change the main source code of tcnative.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
+          
           <h2 id="wiki-h2-1">
-          <a name="user-content-building-the-native-transport" class="anchor" href="#building-the-native-transport"><span class="octicon octicon-link"></span></a>Building the native transport</h2>
+          <a name="user-content-using-netty-tcnative-to-accelerate-ssl-performance" class="anchor" href="#using-netty-tcnative-to-accelerate-ssl-performance"><span class="octicon octicon-link"></span></a>Using <code>netty-tcnative</code> to accelerate SSL performance</h2>
           
-          <p>If you already have the JAR file of the native transport, you should not need to build the native transport by yourself because the JAR file already contains the necessary shared library files (e.g. <code>.so</code>, <code>.dll</code>, <code>.dynlib</code>) and they will be loaded automatically.</p>
-          
-          <p>To build the native transport, you need to use Linux with 64-bit kernel 2.6 or higher.  Please also install the required tools and libraries:</p>
-          
-          <div class="highlight highlight-bash"><pre><span class="c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel.i686 glibc-devel libgcc.i686 make tar&#x000A;<span class="c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make gcc-multilib tar</pre></div>
+          <p>Coming soon.</p>
               </div>
             </div></div>
           <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Using the native transport">Using the native transport</a>
-          </li><li><a href="#wiki-h2-1" title="Building the native transport">Building the native transport</a>
+          </li><li><a href="#wiki-h2-0" title="Creating a new fork">Creating a new fork</a>
+          </li><li><a href="#wiki-h2-1" title="Using netty-tcnative to accelerate SSL performance">Using netty-tcnative to accelerate SSL performance</a>
           </li></ul>
           </div>
           </div>

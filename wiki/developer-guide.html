@@ -241,15 +241,15 @@
           <strong>Looking for a tutorial?</strong> Visit <a class="internal present" href="index.html">the documentation home</a>. <strong>Got a question?</strong> Ask at <a href="https://stackoverflow.com/questions/tagged/netty">StackOverflow.com</a>.<br>Please note that this guide is <strong>not</strong> a 'user guide'.  It is not intended for the 'users' who build an application using Netty but for the contributors ('dev') who want to develop Netty itself.</div>
           
           <h2 id="wiki-h2-0">
-          <a name="set-up-your-development-environment" class="anchor" href="#set-up-your-development-environment"><span class="octicon octicon-link"></span></a>Set up your development environment</h2>
+          <a name="user-content-set-up-your-development-environment" class="anchor" href="#set-up-your-development-environment"><span class="octicon octicon-link"></span></a>Set up your development environment</h2>
           
           <h3 id="wiki-h3-1">
-          <a name="install-the-necessary-build-tools" class="anchor" href="#install-the-necessary-build-tools"><span class="octicon octicon-link"></span></a>Install the necessary build tools</h3>
+          <a name="user-content-install-the-necessary-build-tools" class="anchor" href="#install-the-necessary-build-tools"><span class="octicon octicon-link"></span></a>Install the necessary build tools</h3>
           
           <p>Your must have <a href="http://java.oracle.com/">Oracle JDK 7</a> or above, <a href="http://maven.apache.org/">Apache Maven 3.0.5</a> or above, and <a href="http://git-scm.com/">Git</a> installed on your machine.  If you are on Linux, you have to install the additional packages mentioned in <a class="internal present" href="native-transports.html">Native-transports</a>.</p>
           
           <h3 id="wiki-h3-2">
-          <a name="git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h3>
+          <a name="user-content-git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h3>
           
           <p>We use native line ending for all source code (i.e. '<code>\n</code>' for *nix and MacOS X, '<code>\r\n</code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
           
@@ -260,24 +260,24 @@
           <a href="http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
           </ul>
           <h3 id="wiki-h3-3">
-          <a name="set-up-intellij-idea" class="anchor" href="#set-up-intellij-idea"><span class="octicon octicon-link"></span></a>Set up IntelliJ IDEA</h3>
+          <a name="user-content-set-up-intellij-idea" class="anchor" href="#set-up-intellij-idea"><span class="octicon octicon-link"></span></a>Set up IntelliJ IDEA</h3>
           
           <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
           
           <h4 id="wiki-h4-4">
-          <a name="code-style" class="anchor" href="#code-style"><span class="octicon octicon-link"></span></a>Code style</h4>
+          <a name="user-content-code-style" class="anchor" href="#code-style"><span class="octicon octicon-link"></span></a>Code style</h4>
           
           <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
           
           <h4 id="wiki-h4-5">
-          <a name="inspection-profile" class="anchor" href="#inspection-profile"><span class="octicon octicon-link"></span></a>Inspection profile</h4>
+          <a name="user-content-inspection-profile" class="anchor" href="#inspection-profile"><span class="octicon octicon-link"></span></a>Inspection profile</h4>
           
           <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358">here</a> to learn how to import an inspection profile.</p>
           
           <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
           
           <h4 id="wiki-h4-6">
-          <a name="copyright-profile" class="anchor" href="#copyright-profile"><span class="octicon octicon-link"></span></a>Copyright profile</h4>
+          <a name="user-content-copyright-profile" class="anchor" href="#copyright-profile"><span class="octicon octicon-link"></span></a>Copyright profile</h4>
           
           <p>Copyright text:</p>
           
@@ -292,7 +292,7 @@
           <pre><code>The Netty project licenses&#x000A;</code></pre>
           
           <h3 id="wiki-h3-7">
-          <a name="set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h3>
+          <a name="user-content-set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h3>
           
           <p>Netty project can be imported into <a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a> or later with <a href="http://eclipse.org/m2e/">M2E</a> integration out of the box.</p>
           
@@ -309,7 +309,7 @@
           <p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
           
           <h2 id="wiki-h2-8">
-          <a name="write-a-meaningful-commit-message" class="anchor" href="#write-a-meaningful-commit-message"><span class="octicon octicon-link"></span></a>Write a meaningful commit message</h2>
+          <a name="user-content-write-a-meaningful-commit-message" class="anchor" href="#write-a-meaningful-commit-message"><span class="octicon octicon-link"></span></a>Write a meaningful commit message</h2>
           
           <p>After making changes on Netty, please make sure your commit message contains enough contextual information so that anyone understands the intention of the changes.  Unless the commit is trivial, please use the following form (by the courtesy of Steve Gury et al):</p>
           
@@ -322,12 +322,12 @@
           <p>Where <code>~/.git.commit.template</code> can be any file path you wish.</p>
           
           <h2 id="wiki-h2-9">
-          <a name="sign-the-contributor-license-agreement" class="anchor" href="#sign-the-contributor-license-agreement"><span class="octicon octicon-link"></span></a>Sign the contributor license agreement</h2>
+          <a name="user-content-sign-the-contributor-license-agreement" class="anchor" href="#sign-the-contributor-license-agreement"><span class="octicon octicon-link"></span></a>Sign the contributor license agreement</h2>
           
           <p>Please read and sign <a href="https://docs.google.com/spreadsheet/viewform?formkey=dHBjc1YzdWhsZERUQnhlSklsbG1KT1E6MQ">the contributor license agreement</a> unless your contribution is trivial such as a single line change or a typo fix.</p>
           
           <h2 id="wiki-h2-10">
-          <a name="checklist" class="anchor" href="#checklist"><span class="octicon octicon-link"></span></a>Checklist</h2>
+          <a name="user-content-checklist" class="anchor" href="#checklist"><span class="octicon octicon-link"></span></a>Checklist</h2>
           
           <p>Please use the following checklist before pushing your commits or issuing a pull request:</p>
           
@@ -338,10 +338,10 @@
           <li>Did you sign the contributor license agreement?</li>
           </ul>
           <h2 id="wiki-h2-11">
-          <a name="work-with-a-pull-request" class="anchor" href="#work-with-a-pull-request"><span class="octicon octicon-link"></span></a>Work with a pull request</h2>
+          <a name="user-content-work-with-a-pull-request" class="anchor" href="#work-with-a-pull-request"><span class="octicon octicon-link"></span></a>Work with a pull request</h2>
           
           <h3 id="wiki-h3-12">
-          <a name="issue-a-pull-request" class="anchor" href="#issue-a-pull-request"><span class="octicon octicon-link"></span></a>Issue a pull request</h3>
+          <a name="user-content-issue-a-pull-request" class="anchor" href="#issue-a-pull-request"><span class="octicon octicon-link"></span></a>Issue a pull request</h3>
           
           <p>Pull requests should be targeted at the branch for the latest stable releases.  If the pull request is for fixing a bug which also affects an old branch like <code>3.x</code>, we recommend you to submit another pull request for that branch, too.</p>
           
@@ -352,27 +352,27 @@
           <li>Run <code>mvn test</code> before the initial submission or the subsequent pushes, and ensure the build succeeds.</li>
           </ol>
           <h3 id="wiki-h3-13">
-          <a name="merge-a-pull-request" class="anchor" href="#merge-a-pull-request"><span class="octicon octicon-link"></span></a>Merge a pull request</h3>
+          <a name="user-content-merge-a-pull-request" class="anchor" href="#merge-a-pull-request"><span class="octicon octicon-link"></span></a>Merge a pull request</h3>
           
           <p>A pull request often contains multiple commits.  Those commits must be squashed into a small number of commits with explanatory comments.</p>
           
           <p>Do not merge a pull request via the web UI unless there's a good reason doing that. Refer to the 'Patch and Apply' section in <a href="https://help.github.com/articles/using-pull-requests#merging-a-pull-request">the Github help page</a>.</p>
           
           <h2 id="wiki-h2-14">
-          <a name="update-the-official-web-site" class="anchor" href="#update-the-official-web-site"><span class="octicon octicon-link"></span></a>Update the official web site</h2>
+          <a name="user-content-update-the-official-web-site" class="anchor" href="#update-the-official-web-site"><span class="octicon octicon-link"></span></a>Update the official web site</h2>
           
           <h3 id="wiki-h3-15">
-          <a name="write-a-new-post" class="anchor" href="#write-a-new-post"><span class="octicon octicon-link"></span></a>Write a new post</h3>
+          <a name="user-content-write-a-new-post" class="anchor" href="#write-a-new-post"><span class="octicon octicon-link"></span></a>Write a new post</h3>
           
           <p>Our web site is generated from an Awestruct project <a href="https://github.com/netty/netty-website">here</a>.  To post a new article, create a new branch, write a new post, and issue a pull request like usual contributions.</p>
           
           <h2 id="wiki-h2-16">
-          <a name="release-a-new-version" class="anchor" href="#release-a-new-version"><span class="octicon octicon-link"></span></a>Release a new version</h2>
+          <a name="user-content-release-a-new-version" class="anchor" href="#release-a-new-version"><span class="octicon octicon-link"></span></a>Release a new version</h2>
           
           <p>...</p>
           
           <h2 id="wiki-h2-17">
-          <a name="design-ideas" class="anchor" href="#design-ideas"><span class="octicon octicon-link"></span></a>Design ideas</h2>
+          <a name="user-content-design-ideas" class="anchor" href="#design-ideas"><span class="octicon octicon-link"></span></a>Design ideas</h2>
           
           <ul>
           <li><a class="internal present" href="thread-model.html">Thread model in 4.x</a></li>
@@ -408,7 +408,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 01-Apr-2014</small>
+                <small>Last retrieved on 30-Apr-2014</small>
               </div>
             </div>
           </div>
