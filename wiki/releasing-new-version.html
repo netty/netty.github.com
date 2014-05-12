@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: Native transports</title>
+    <title>Netty.docs: Releasing new version</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -226,46 +226,68 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>Native transports</h1>
+          <h1>Releasing new version</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Native-transports">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/Releasing-new-version">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Native-transports">here!</a>
+            <a href="https://github.com/netty/netty/wiki/Releasing-new-version">here!</a>
           </div>
           <div class="row">
           <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>Since 4.0.16, Netty provides the native socket transport for Linux using JNI.  This transport has higher performance and produces less garbage, so you might want to give it a try.</p>
-          
-          <h2 id="wiki-h2-1">
-          <a name="user-content-using-the-native-transport" class="anchor" href="#using-the-native-transport"><span class="octicon octicon-link"></span></a>Using the native transport</h2>
-          
-          <p>Because the native transport is compatible with the NIO transport, you can just do the following search-and-replace:</p>
+                <h2 id="wiki-h2-1">
+          <a name="user-content-before-getting-started" class="anchor" href="#before-getting-started"><span class="octicon octicon-link"></span></a>Before getting started</h2>
           
           <ul>
+          <li><a href="https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven">Create a GnuPG key to sign the artifacts.</a></li>
           <li>
-          <code>NioEventLoopGroup</code> → <code>EpollEventLoopGroup</code>
-          </li>
-          <li>
-          <code>NioEventLoop</code> → <code>EpollEventLoop</code>
-          </li>
-          <li>
-          <code>NioServerSocketChannel</code> → <code>EpollServerSocketChannel</code>
-          </li>
-          <li>
-          <code>NioSocketChannel</code> → <code>EpollSocketChannel</code>
+          <p>Configure your <code>~/.m2/settings.xml</code> contains the following configuration:</p>
+          
+          <div class="highlight highlight-xml"><pre><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>&#x000A;<span class="nt">&lt;settings&gt;</span>&#x000A;  <span class="nt">&lt;servers&gt;</span>&#x000A;    <span class="nt">&lt;server&gt;</span>&#x000A;      <span class="nt">&lt;id&gt;</span>sonatype-nexus-snapshots<span class="nt">&lt;/id&gt;</span>&#x000A;      <span class="nt">&lt;username&gt;</span>myusername<span class="nt">&lt;/username&gt;</span>&#x000A;      <span class="nt">&lt;password&gt;</span>mypassword<span class="nt">&lt;/password&gt;</span>&#x000A;    <span class="nt">&lt;/server&gt;</span>&#x000A;    <span class="nt">&lt;server&gt;</span>&#x000A;      <span class="nt">&lt;id&gt;</span>sonatype-nexus-staging<span class="nt">&lt;/id&gt;</span>&#x000A;      <span class="nt">&lt;username&gt;</span>myusername<span class="nt">&lt;/username&gt;</span>&#x000A;      <span class="nt">&lt;password&gt;</span>mypassword<span class="nt">&lt;/password&gt;</span>&#x000A;      <span class="nt">&lt;configuration&gt;</span>&#x000A;        <span class="nt">&lt;httpHeaders&gt;</span>&#x000A;          <span class="c">&lt;!--</span>&#x000A;<span class="c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="c">          --&gt;</span>&#x000A;          <span class="nt">&lt;property&gt;</span>&#x000A;            <span class="nt">&lt;name&gt;</span>User-Agent<span class="nt">&lt;/name&gt;</span>&#x000A;            <span class="nt">&lt;value&gt;</span>Apache-Maven<span class="nt">&lt;/value&gt;</span>&#x000A;          <span class="nt">&lt;/property&gt;</span>&#x000A;        <span class="nt">&lt;/httpHeaders&gt;</span>&#x000A;      <span class="nt">&lt;/configuration&gt;</span>&#x000A;    <span class="nt">&lt;/server&gt;</span>&#x000A;  <span class="nt">&lt;/servers&gt;</span>&#x000A;  ...&#x000A;<span class="nt">&lt;/settings&gt;</span></pre></div>
           </li>
           </ul>
           <h2 id="wiki-h2-2">
-          <a name="user-content-building-the-native-transport" class="anchor" href="#building-the-native-transport"><span class="octicon octicon-link"></span></a>Building the native transport</h2>
+          <a name="user-content-standard-maven-release-procedure" class="anchor" href="#standard-maven-release-procedure"><span class="octicon octicon-link"></span></a>Standard Maven release procedure</h2>
           
-          <p>If you already have the JAR file of the native transport, you should not need to build the native transport by yourself because the JAR file already contains the necessary shared library files (e.g. <code>.so</code>, <code>.dll</code>, <code>.dynlib</code>) and they will be loaded automatically.</p>
+          <p>You must be familiar with the standard Maven release procedure, which uses <a href="http://maven.apache.org/maven-release/maven-release-plugin/">maven-release-plugin</a>:</p>
           
-          <p>To build the native transport, you need to use Linux with 64-bit kernel 2.6 or higher.  Please also install the required tools and libraries:</p>
+          <ol>
+          <li>
+          <a href="https://docs.sonatype.org/display/Repository/Stage+a+Release">Stage the new release</a> into the staging repository.</li>
+          <li>Verify the staged files are all good.  If not, <a href="https://docs.sonatype.org/display/Repository/Dropping+a+Staging+Repository">drop the staging repository</a> and try again.</li>
+          <li>
+          <a href="https://docs.sonatype.org/display/Repository/Closing+a+Staging+Repository">Close the staging repository</a> so that no more modifications are made into the staging repository.</li>
+          <li>
+          <a href="https://docs.sonatype.org/display/Repository/Releasing+a+Staging+Repository">Release the staging repository</a> so that the new release is synchronized into the Maven central repository.</li>
+          </ol>
+          <h2 id="wiki-h2-3">
+          <a name="user-content-netty-3" class="anchor" href="#netty-3"><span class="octicon octicon-link"></span></a>Netty 3</h2>
           
-          <div class="highlight highlight-bash"><pre><span class="c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel.i686 glibc-devel libgcc.i686 make tar&#x000A;<span class="c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make gcc-multilib tar</pre></div>
+          <p>Following the standard Maven release procedure should be enough.</p>
+          
+          <h2 id="wiki-h2-4">
+          <a name="user-content-netty-4-and-beyond" class="anchor" href="#netty-4-and-beyond"><span class="octicon octicon-link"></span></a>Netty 4 and beyond</h2>
+          
+          <p>The release procedure must be performed from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL 6.5 or its derivatives</a> so that we can easily ensure the ABI compatibility of the native libraries we ship.</p>
+          
+          <h2 id="wiki-h2-5">
+          <a name="user-content-nettytomcatnative" class="anchor" href="#nettytomcatnative"><span class="octicon octicon-link"></span></a><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a>
+          </h2>
+          
+          <p>Because we ship both Linux and Mac OS X artifacts, the release procedure is even more complicated.</p>
+          
+          <ol>
+          <li>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL 6.5 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet.</li>
+          <li>
+          <p>On your Mac OS X, run the following to deploy the release artifacts to the staging repository:</p>
+          
+          <pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release deploy&#x000A;... The artifact with OSX native library will be deployed ...&#x000A;</code></pre>
+          </li>
+          <li><p>Make sure both the Linux and Mac OS X artifacts have been deployed into the same staging repositories.  If they are deployed into two different staging repositories, drop them all and figure out what was the problem.</p></li>
+          <li>If both JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code> and <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
+          </ol>
               </div>
             </div></div>
           <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
@@ -274,8 +296,11 @@
           <li class="nav-header">Table of Contents
           </li><li>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (20)">Pages (20)</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Using the native transport">Using the native transport</a>
-          </li><li><a href="#wiki-h2-2" title="Building the native transport">Building the native transport</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Before getting started">Before getting started</a>
+          </li><li><a href="#wiki-h2-2" title="Standard Maven release procedure">Standard Maven release procedure</a>
+          </li><li><a href="#wiki-h2-3" title="Netty 3">Netty 3</a>
+          </li><li><a href="#wiki-h2-4" title="Netty 4 and beyond">Netty 4 and beyond</a>
+          </li><li><a href="#wiki-h2-5" title="Netty/TomcatNative">Netty/TomcatNative</a>
           </li></ul>
           </div>
           </div>
