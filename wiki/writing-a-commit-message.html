@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: Thread model</title>
+    <title>Netty.docs: Writing a commit message</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -226,63 +226,24 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>Thread model</h1>
+          <h1>Writing a commit message</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Thread-model">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/Writing-a-commit-message">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Thread-model">here!</a>
+            <a href="https://github.com/netty/netty/wiki/Writing-a-commit-message">here!</a>
           </div>
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>To put simply, for a channel:</p>
+                <p>After making changes on Netty, please make sure your commit message contains enough contextual information so that anyone understands the intention of the changes.  Unless the commit is trivial, please use the following form (by the courtesy of Steve Gury et al):</p>
           
-          <ol>
-          <li>Regardless of its transport and type, its all upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
-          <li>All downstream (i.e. outbound) events can be triggered from any thread including the I/O thread and non-I/O threads.  However, any upstream events triggered as a side effect of the downstream event must be fired from the I/O thread. (e.g. If <code>Channel.close()</code> triggers <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>, they must be fired by the I/O thread.</li>
-          </ol>
-          <p>Current problems (UGLY - causes a race condition in an upstream handler, BAD - does not cause a race condition but violates the expected thread model):</p>
+          <pre lang="plain"><code>One line description of your change&#x000A;&#x000A;Motivation:&#x000A;&#x000A;Explain here the context, and why you're making that change.&#x000A;What is the problem you're trying to solve.&#x000A;&#x000A;Modifications:&#x000A;&#x000A;Describe the modifications you've done.&#x000A;&#x000A;Result:&#x000A;&#x000A;After your change, what will change.&#x000A;</code></pre>
           
-          <ul>
-          <li>UGLY: The upstream events triggered as a side effect of a downstream event is triggered by the caller thread, </li>
-          <li>UGLY: The local transport always uses a caller thread to trigger an event.</li>
-          <li><p>BAD: <code>channelOpen</code> is triggered by the thread that called <code>ChannelFactory.newChannel()</code>, which is not an I/O thread.
-             It's kind of bad but otherwise its not possible to  limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p></li>
-          <li><p>BAD: Client-side channels are run by two I/O threads.  One that makes a connection attempts and the other that does actual I/O.</p></li>
-          </ul>
-          <p>Action items:</p>
+          <p>You can add the above message as a git commit template if you like. To do so, create a file with the contents above but add a <code>#</code> to each line. Doing this stops git from committing as all lines will be comments. You can then issue the following git command:</p>
           
-          <ul>
-          <li>Merge client-side boss, server-side boss, and NioWorker into a universal I/O thread that can perform all I/O operations.  By doing this:
+          <pre><code>git config commit.template ~/.git.commit.template&#x000A;</code></pre>
           
-          <ul>
-          <li>We solve the client-side channel problem because the thread which attempted a connection attempt can continue to perform reads and writes.</li>
-          <li>We solve the problem where Netty creates as many threads as the number of open server ports.</li>
-          <li>We can share a pool of NioWorkers more easily and will potentially have more flexibility in channel-worker mapping.</li>
-          <li>We also need to investigate if we can make an abstract I/O thread class so that all transports (socket, datagram, SCTP, ..) can extend it.  We currently have too much duplication between socket, datagram, and SCTP.</li>
-          </ul>
-          </li>
-          <li>If the caller thread is not the I/O thread, Netty triggers an upstream event later in the I/O thread.  Along with this change, allow a user to trigger one's own upstream event later in the I/O thread by adding the <code>sendUpstreamLater()</code> method to <code>ChannelPipeline</code> and <code>ChannelHandlerContext</code>.
-          
-          <ul>
-          <li>However, we cannot use <code>sendUpstreamLater()</code> only if the current thread is not the I/O thread because <code>OMATPE</code> or <code>MATPE</code> will interfere with it, so we will have to let user decide. (i.e. to call <code>sendUpstream()</code> or <code>sendUpstreamLater()</code>)</li>
-          </ul>
-          </li>
-          <li>
-          <code>ChannelFactory.newChannel()</code> must not trigger an event immediately.  <code>newChannel()</code> must wait until the I/O thread notifies the channel has been registered to the I/O thread, before returning the new channel to the caller.<br>
-          </li>
-          <li>Rewrite the local transport.</li>
-          </ul>
-          <p>Questions:</p>
-          
-          <ul>
-          <li>Can we make all these changes in v3 and keep things still backward-compatible?  Wouldn't it be easier to get this done in v4?  Fully asynchronous user application which does all I/O in an handler making heavy use of <code>ChannelFuture</code> shouldn't be affected by the current flawed thread model, which means a user can somehow work around this issue, so it might be better move on to v4 instead of making the same changes on two branches.</li>
-          </ul>
-          <p>Answers:</p>
-          
-          <ul>
-          <li>I think if its to much work to "backport" it to v3 we should just move ahead and "ignore" it for v3. Maybe we can find some "easier" workaround for v3 which would at least help us to get rid of the Channel.close() race, as this is the one that will most likely hit our users. (normanmaurer)</li>
-          </ul>
+          <p>Where <code>~/.git.commit.template</code> can be any file path you wish.</p>
               </div>
             </div>
           <div class="text-right clearfix">

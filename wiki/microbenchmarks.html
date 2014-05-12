@@ -239,7 +239,7 @@
               <div class="markdown-body">
                 <p>Netty has a module called 'netty-microbench' which performs a series of micro-benchmark tests.  It is built on top of <a href="http://openjdk.java.net/projects/code-tools/jmh/">OpenJDK JMH</a>, the preferred microbenchmarking solution for HotSpot. It has the "batteries included", so you don't need extra dependencies to get started.</p>
           
-          <h2 id="wiki-h2-0">
+          <h2 id="wiki-h2-1">
           <a name="user-content-running-the-benchmarks" class="anchor" href="#running-the-benchmarks"><span class="octicon octicon-link"></span></a>Running the Benchmarks</h2>
           
           <p>You can run the benchmarks from the command line through maven or directly in your IDE. To run all tests with the default settings, use <code>mvn -DskipTests=false test</code>. You need to explicitly set <code>skipTests=false</code> because we don't want to run the (potentially time consuming) microbenchmarks to be executed as unit tests during regular test runs.</p>
@@ -254,7 +254,7 @@
           
           <p>You can also run the benchmarks directly from your IDE. If you've imported the netty parent project, open the <code>microbench</code> subproject and navigate to the <code>src/test/java/io/netty/microbench</code> namespace. In the <code>buffer</code> namespace, you can run the <code>ByteBufAllocatorBenchmark</code> like any other JUnit-based test. The main difference is that (as of now), you can only run the full benchmark at once, not each sub-benchmark individually. You should see the same output in the console as you did see when running it directly through <code>mvn</code>.</p>
           
-          <h2 id="wiki-h2-1">
+          <h2 id="wiki-h2-2">
           <a name="user-content-writing-benchmarks" class="anchor" href="#writing-benchmarks"><span class="octicon octicon-link"></span></a>Writing Benchmarks</h2>
           
           <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
@@ -267,7 +267,7 @@
           
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking">the talks</a> of one of the main authors from JMH.</p>
           
-          <h2 id="wiki-h2-2">
+          <h2 id="wiki-h2-3">
           <a name="user-content-customizing-runtime-conditions" class="anchor" href="#customizing-runtime-conditions"><span class="octicon octicon-link"></span></a>Customizing Runtime Conditions</h2>
           
           <p>The default settings (as found in <code>AbstractMicrobenchmark</code>) are:</p>
@@ -294,9 +294,11 @@
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Running the Benchmarks">Running the Benchmarks</a>
-          </li><li><a href="#wiki-h2-1" title="Writing Benchmarks">Writing Benchmarks</a>
-          </li><li><a href="#wiki-h2-2" title="Customizing Runtime Conditions">Customizing Runtime Conditions</a>
+          </li><li>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (19)">Pages (19)</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Running the Benchmarks">Running the Benchmarks</a>
+          </li><li><a href="#wiki-h2-2" title="Writing Benchmarks">Writing Benchmarks</a>
+          </li><li><a href="#wiki-h2-3" title="Customizing Runtime Conditions">Customizing Runtime Conditions</a>
           </li></ul>
           </div>
           </div>
@@ -304,7 +306,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 30-Apr-2014</small>
+                <small>Last retrieved on 12-May-2014</small>
               </div>
             </div>
           </div>

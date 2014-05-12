@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: Thread model</title>
+    <title>Netty.docs: Setting up development environment</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -226,67 +226,109 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>Thread model</h1>
+          <h1>Setting up development environment</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Thread-model">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/Setting-up-development-environment">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Thread-model">here!</a>
+            <a href="https://github.com/netty/netty/wiki/Setting-up-development-environment">here!</a>
           </div>
+          <div class="row">
+          <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>To put simply, for a channel:</p>
+                <div>
+          <strong>Looking for a tutorial?</strong> Visit <a class="internal present" href="index.html">the documentation home</a>. <strong>Got a question?</strong> Ask at <a href="https://stackoverflow.com/questions/tagged/netty">StackOverflow.com</a>.<br>Please note that this guide is <strong>not</strong> a 'user guide'.  It is not intended for the 'users' who build an application using Netty but for the contributors ('dev') who want to develop Netty itself.</div>
           
-          <ol>
-          <li>Regardless of its transport and type, its all upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
-          <li>All downstream (i.e. outbound) events can be triggered from any thread including the I/O thread and non-I/O threads.  However, any upstream events triggered as a side effect of the downstream event must be fired from the I/O thread. (e.g. If <code>Channel.close()</code> triggers <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>, they must be fired by the I/O thread.</li>
-          </ol>
-          <p>Current problems (UGLY - causes a race condition in an upstream handler, BAD - does not cause a race condition but violates the expected thread model):</p>
+          <h2 id="wiki-h2-1">
+          <a name="user-content-install-the-necessary-build-tools" class="anchor" href="#install-the-necessary-build-tools"><span class="octicon octicon-link"></span></a>Install the necessary build tools</h2>
           
-          <ul>
-          <li>UGLY: The upstream events triggered as a side effect of a downstream event is triggered by the caller thread, </li>
-          <li>UGLY: The local transport always uses a caller thread to trigger an event.</li>
-          <li><p>BAD: <code>channelOpen</code> is triggered by the thread that called <code>ChannelFactory.newChannel()</code>, which is not an I/O thread.
-             It's kind of bad but otherwise its not possible to  limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p></li>
-          <li><p>BAD: Client-side channels are run by two I/O threads.  One that makes a connection attempts and the other that does actual I/O.</p></li>
-          </ul>
-          <p>Action items:</p>
+          <p>Your must have <a href="http://java.oracle.com/">Oracle JDK 7</a> or above, <a href="http://maven.apache.org/">Apache Maven 3.0.5</a> or above, and <a href="http://git-scm.com/">Git</a> installed on your machine.  If you are on Linux, you have to install the additional packages mentioned in <a class="internal present" href="native-transports.html">Native-transports</a>.</p>
+          
+          <h2 id="wiki-h2-2">
+          <a name="user-content-git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration"><span class="octicon octicon-link"></span></a>Git line ending configuration</h2>
+          
+          <p>We use native line ending for all source code (i.e. '<code>\n</code>' for *nix and MacOS X, '<code>\r\n</code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
           
           <ul>
-          <li>Merge client-side boss, server-side boss, and NioWorker into a universal I/O thread that can perform all I/O operations.  By doing this:
-          
-          <ul>
-          <li>We solve the client-side channel problem because the thread which attempted a connection attempt can continue to perform reads and writes.</li>
-          <li>We solve the problem where Netty creates as many threads as the number of open server ports.</li>
-          <li>We can share a pool of NioWorkers more easily and will potentially have more flexibility in channel-worker mapping.</li>
-          <li>We also need to investigate if we can make an abstract I/O thread class so that all transports (socket, datagram, SCTP, ..) can extend it.  We currently have too much duplication between socket, datagram, and SCTP.</li>
-          </ul>
-          </li>
-          <li>If the caller thread is not the I/O thread, Netty triggers an upstream event later in the I/O thread.  Along with this change, allow a user to trigger one's own upstream event later in the I/O thread by adding the <code>sendUpstreamLater()</code> method to <code>ChannelPipeline</code> and <code>ChannelHandlerContext</code>.
-          
-          <ul>
-          <li>However, we cannot use <code>sendUpstreamLater()</code> only if the current thread is not the I/O thread because <code>OMATPE</code> or <code>MATPE</code> will interfere with it, so we will have to let user decide. (i.e. to call <code>sendUpstream()</code> or <code>sendUpstreamLater()</code>)</li>
-          </ul>
-          </li>
           <li>
-          <code>ChannelFactory.newChannel()</code> must not trigger an event immediately.  <code>newChannel()</code> must wait until the I/O thread notifies the channel has been registered to the I/O thread, before returning the new channel to the caller.<br>
+          <a href="https://help.github.com/articles/dealing-with-line-endings">Dealing with line endings</a> by Github</li>
+          <li>
+          <a href="http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
+          </ul>
+          <h2 id="wiki-h2-3">
+          <a name="user-content-set-up-intellij-idea" class="anchor" href="#set-up-intellij-idea"><span class="octicon octicon-link"></span></a>Set up IntelliJ IDEA</h2>
+          
+          <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
+          
+          <h3 id="wiki-h3-4">
+          <a name="user-content-code-style" class="anchor" href="#code-style"><span class="octicon octicon-link"></span></a>Code style</h3>
+          
+          <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
+          
+          <h3 id="wiki-h3-5">
+          <a name="user-content-inspection-profile" class="anchor" href="#inspection-profile"><span class="octicon octicon-link"></span></a>Inspection profile</h3>
+          
+          <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358">here</a> to learn how to import an inspection profile.</p>
+          
+          <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
+          
+          <h3 id="wiki-h3-6">
+          <a name="user-content-copyright-profile" class="anchor" href="#copyright-profile"><span class="octicon octicon-link"></span></a>Copyright profile</h3>
+          
+          <p>Copyright text:</p>
+          
+          <pre lang="plain"><code>Copyright $today.year The Netty Project&#x000A;&#x000A;The Netty Project licenses this file to you under the Apache License,&#x000A;version 2.0 (the "License"); you may not use this file except in compliance&#x000A;with the License. You may obtain a copy of the License at:&#x000A;&#x000A;  http://www.apache.org/licenses/LICENSE-2.0&#x000A;&#x000A;Unless required by applicable law or agreed to in writing, software&#x000A;distributed under the License is distributed on an "AS IS" BASIS, WITHOUT&#x000A;WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the&#x000A;License for the specific language governing permissions and limitations&#x000A;under the License.&#x000A;</code></pre>
+          
+          <p>Keyword to detect copyright in comments:</p>
+          
+          <pre><code>The Netty project licenses&#x000A;</code></pre>
+          
+          <p>Allow replacing copyright if old copyright contains:</p>
+          
+          <pre><code>The Netty project licenses&#x000A;</code></pre>
+          
+          <h2 id="wiki-h2-7">
+          <a name="user-content-set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h2>
+          
+          <p>Netty project can be imported into <a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a> or later with <a href="http://eclipse.org/m2e/">M2E</a> integration out of the box.</p>
+          
+          <p>Netty project Maven pom.xml settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.</p>
+          
+          <p>One way to deal with this - look in <code>Eclipse -&gt; Window -&gt; Preferences -&gt; Installed JRE</code></p>
+          
+          <ul>
+          <li>make sure you have Java 7 installation available under <code>Installed JRE</code>
           </li>
-          <li>Rewrite the local transport.</li>
+          <li>map this Java 7 installation onto Java 6 : <code>Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6</code>
+          </li>
           </ul>
-          <p>Questions:</p>
-          
-          <ul>
-          <li>Can we make all these changes in v3 and keep things still backward-compatible?  Wouldn't it be easier to get this done in v4?  Fully asynchronous user application which does all I/O in an handler making heavy use of <code>ChannelFuture</code> shouldn't be affected by the current flawed thread model, which means a user can somehow work around this issue, so it might be better move on to v4 instead of making the same changes on two branches.</li>
-          </ul>
-          <p>Answers:</p>
-          
-          <ul>
-          <li>I think if its to much work to "backport" it to v3 we should just move ahead and "ignore" it for v3. Maybe we can find some "easier" workaround for v3 which would at least help us to get rid of the Channel.close() race, as this is the one that will most likely hit our users. (normanmaurer)</li>
-          </ul>
+          <p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
+              </div>
+            </div></div>
+          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (19)">Pages (19)</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Install the necessary build tools">Install the necessary build tools</a>
+          </li><li><a href="#wiki-h2-2" title="Git line ending configuration">Git line ending configuration</a>
+          </li><li><a href="#wiki-h2-3" title="Set up IntelliJ IDEA">Set up IntelliJ IDEA</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Code style">Code style</a>
+          </li><li><a href="#wiki-h3-5" title="Inspection profile">Inspection profile</a>
+          </li><li><a href="#wiki-h3-6" title="Copyright profile">Copyright profile</a>
+          </li></ul></li><li><a href="#wiki-h2-7" title="Set up Eclipse with M2E and Java 7">Set up Eclipse with M2E and Java 7</a>
+          </li></ul>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="text-right">
+                <small>Last retrieved on 12-May-2014</small>
               </div>
             </div>
-          <div class="text-right clearfix">
-            <small>Last retrieved on 12-May-2014</small>
           </div>
         </div>
       </div>

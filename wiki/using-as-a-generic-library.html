@@ -239,12 +239,12 @@
               <div class="markdown-body">
                 <p>Netty is a framework for building network applications, but also provides foundation classes handy for other uses, even programs that do not perform socket I/O.</p>
           
-          <h2 id="wiki-h2-0">
+          <h2 id="wiki-h2-1">
           <a name="user-content-buffer-api" class="anchor" href="#buffer-api"><span class="octicon octicon-link"></span></a>Buffer API</h2>
           
           <p><code>io.netty.buffer</code> provides a generic buffer type called <code>ByteBuf</code>. It is like <code>java.nio.ByteBuffer</code>, but faster, more user-friendly, and extensible.</p>
           
-          <h3 id="wiki-h3-1">
+          <h3 id="wiki-h3-2">
           <a name="user-content-user-friendliness" class="anchor" href="#user-friendliness"><span class="octicon octicon-link"></span></a>User-friendliness</h3>
           
           <p>Have you ever forgotten to call <code>java.nio.ByteBuffer.flip()</code> and wondered why the buffer does not contain anything?  It never happens in <code>ByteBuf</code> because it has two indexes, one for reads and one for writes:</p>
@@ -253,12 +253,12 @@
           
           <p>It has a richer set of access methods to more easily access a buffer's contents. For example, it has accessor methods for signed and unsigned integers, searches, and strings.</p>
           
-          <h3 id="wiki-h3-2">
+          <h3 id="wiki-h3-3">
           <a name="user-content-extensibility" class="anchor" href="#extensibility"><span class="octicon octicon-link"></span></a>Extensibility</h3>
           
           <p>You can't subclass <code>java.nio.ByteBuffer</code>, but you can with <code>ByteBuf</code>. An abstract skeletal implementation is also provided for your convenience. You can thus write your own buffer implementation, such as file-backed ones, composite ones, and even a hybrid.</p>
           
-          <h3 id="wiki-h3-3">
+          <h3 id="wiki-h3-4">
           <a name="user-content-performance" class="anchor" href="#performance"><span class="octicon octicon-link"></span></a>Performance</h3>
           
           <p>When a new <code>java.nio.ByteBuffer</code> is allocated, its content is filled with zeroes.  This "zeroing" consumes CPU cycles and memory bandwidth.  Normally, the buffer is then immediately filled from some data source, so the zeroing did no good.</p>
@@ -275,7 +275,7 @@
           
           <p>To help you troubleshoot a leak, Netty provides a leak-detection mechanism which is flexible enough to let you trade off between your application's performance and the detail of the leak report.  For more information, please refer to <a class="internal present" href="reference-counted-objects.html">Reference-counted-objects</a>.</p>
           
-          <h2 id="wiki-h2-4">
+          <h2 id="wiki-h2-5">
           <a name="user-content-listenable-futures-and-event-loops" class="anchor" href="#listenable-futures-and-event-loops"><span class="octicon octicon-link"></span></a>Listenable futures and event loops</h2>
           
           <p>Performing a task asynchronously - scheduling a task and getting notified on completion - is common, and should be easy. When <code>java.util.concurrent.Future</code> appeared first, our excitement didn't last long.  We had to <em>block</em> to get notified on completion.  In asynchronous programming, you specify <em>what to do</em> on completion rather than wait for the outcome.</p>
@@ -286,7 +286,7 @@
           
           <div class="highlight highlight-java"><pre><span class="n">EventExecutorGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultEventExecutorGroup</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// 4 threads</span>&#x000A;<span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span>&#x000A;<span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">FutureListener</span><span class="o">&lt;?&gt;</span> <span class="o">{</span>&#x000A;  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="o">..</span>&#x000A;  <span class="o">}</span>&#x000A;<span class="o">});</span>&#x000A;<span class="o">...</span></pre></div>
           
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-6">
           <a name="user-content-the-global-event-loop" class="anchor" href="#the-global-event-loop"><span class="octicon octicon-link"></span></a>The global event loop</h3>
           
           <p>Sometimes you want a unique executor that is always available and that doesn't need life cycle management. <code>GlobalEventExecutor</code> is a single-threaded singleton <code>EventExecutor</code> which starts its thread lazily and stops when there have been no pending tasks for a while. </p>
@@ -295,26 +295,26 @@
           
           <p>Internally, Netty uses it to notify the termination of other <code>EventExecutor</code>s.</p>
           
-          <h2 id="wiki-h2-6">
+          <h2 id="wiki-h2-7">
           <a name="user-content-platform-dependent-operations" class="anchor" href="#platform-dependent-operations"><span class="octicon octicon-link"></span></a>Platform-dependent operations</h2>
           
           <p><em>Note that this feature is for internal use only. We are considering moving it out of the internal package if there is sufficient demand.</em></p>
           
           <p><code>io.netty.util.internal.PlatformDependent</code> provides platform-dependent and potentially unsafe operations.  You can think of it as a thin layer over <code>sun.misc.Unsafe</code> and other platform-dependent proprietary APIs.</p>
           
-          <h2 id="wiki-h2-7">
+          <h2 id="wiki-h2-8">
           <a name="user-content-other-utilities" class="anchor" href="#other-utilities"><span class="octicon octicon-link"></span></a>Other utilities</h2>
           
           <p>To build a high-performing network application framework, we introduced utilities. You might find some useful.</p>
           
-          <h3 id="wiki-h3-8">
+          <h3 id="wiki-h3-9">
           <a name="user-content-thread-local-object-pool" class="anchor" href="#thread-local-object-pool"><span class="octicon octicon-link"></span></a>Thread-local object pool</h3>
           
           <p>If your thread is long-running and you allocate many short-living objects of same type, you can use a thread-local object pool, called <code>Recycler</code>. It reduces the amount of the garbage you produce, saving memory bandwidth consumption and load on the garbage collector.</p>
           
           <div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyObject</span> <span class="o">{</span>&#x000A;&#x000A;  <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="n">Recycler</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="n">RECYCLER</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Recycler</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;()</span> <span class="o">{</span>&#x000A;    <span class="kd">protected</span> <span class="n">MyObject</span> <span class="nf">newObject</span><span class="o">(</span><span class="n">Recycler</span><span class="o">.</span><span class="na">Handle</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="n">handle</span><span class="o">)</span> <span class="o">{</span>&#x000A;      <span class="k">return</span> <span class="k">new</span> <span class="nf">MyObject</span><span class="o">(</span><span class="n">handle</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;  <span class="o">}</span>&#x000A;&#x000A;  <span class="kd">public</span> <span class="kd">static</span> <span class="n">MyObject</span> <span class="nf">newInstance</span><span class="o">(</span><span class="kt">int</span> <span class="n">a</span><span class="o">,</span> <span class="n">String</span> <span class="n">b</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">MyObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">RECYCLER</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>&#x000A;    <span class="n">obj</span><span class="o">.</span><span class="na">myFieldA</span> <span class="o">=</span> <span class="n">a</span><span class="o">;</span>&#x000A;    <span class="n">obj</span><span class="o">.</span><span class="na">myFieldB</span> <span class="o">=</span> <span class="n">b</span><span class="o">;</span>&#x000A;    <span class="k">return</span> <span class="n">obj</span><span class="o">;</span>&#x000A;  <span class="o">}</span>&#x000A;&#x000A;  <span class="kd">private</span> <span class="kd">final</span> <span class="n">Recycler</span><span class="o">.</span><span class="na">Handle</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="n">handle</span><span class="o">;</span>&#x000A;  <span class="kd">private</span> <span class="kt">int</span> <span class="n">myFieldA</span><span class="o">;</span>&#x000A;  <span class="kd">private</span> <span class="n">String</span> <span class="n">myFieldB</span><span class="o">;</span>&#x000A;&#x000A;  <span class="kd">private</span> <span class="nf">MyObject</span><span class="o">(</span><span class="n">Handle</span><span class="o">&lt;</span><span class="n">MyObject</span><span class="o">&gt;</span> <span class="n">handle</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">this</span><span class="o">.</span><span class="na">handle</span> <span class="o">=</span> <span class="n">handle</span><span class="o">;</span>&#x000A;  <span class="o">}</span>&#x000A;&#x000A;  <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">recycle</span><span class="o">()</span> <span class="o">{</span>&#x000A;    <span class="n">myFieldA</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>&#x000A;    <span class="n">myFieldB</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>&#x000A;    <span class="k">return</span> <span class="n">handle</span><span class="o">.</span><span class="na">recycle</span><span class="o">(</span><span class="k">this</span><span class="o">);</span>&#x000A;  <span class="o">}</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="n">MyObject</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">MyObject</span><span class="o">.</span><span class="na">newInstance</span><span class="o">(</span><span class="mi">42</span><span class="o">,</span> <span class="s">"foo"</span><span class="o">);</span>&#x000A;<span class="o">...</span>&#x000A;<span class="n">obj</span><span class="o">.</span><span class="na">recycle</span><span class="o">();</span></pre></div>
           
-          <h3 id="wiki-h3-9">
+          <h3 id="wiki-h3-10">
           <a name="user-content-user-extensible-enum" class="anchor" href="#user-extensible-enum"><span class="octicon octicon-link"></span></a>User-extensible enum</h3>
           
           <p><code>enum</code> is great for a static set of constants, but you cannot extend one.  When you need to add more constants in runtime or allow third parties to define additional constants, use the extensible <code>io.netty.util.ConstantPool</code> instead:</p>
@@ -323,7 +323,7 @@
           
           <p>Netty uses <code>ConstantPool</code> to define <code>ChannelOption</code>s so that non-core transports can define transport-specific options in a type-safe way.</p>
           
-          <h3 id="wiki-h3-10">
+          <h3 id="wiki-h3-11">
           <a name="user-content-attribute-map" class="anchor" href="#attribute-map"><span class="octicon octicon-link"></span></a>Attribute map</h3>
           
           <p>Use <code>io.netty.util.AttributeMap</code> interface for a fast, type-safe, thread-safe collection of key-value pairs:</p>
@@ -332,7 +332,7 @@
           
           <p>As you might have noticed already, <code>AttributeKey</code> is a <code>Constant</code>.</p>
           
-          <h3 id="wiki-h3-11">
+          <h3 id="wiki-h3-12">
           <a name="user-content-hashed-wheel-timer" class="anchor" href="#hashed-wheel-timer"><span class="octicon octicon-link"></span></a>Hashed wheel timer</h3>
           
           <p>Hashed wheel timer is a scalable alternative to <code>java.util.Timer</code> and <code>java.util.concurrent.ScheduledThreadPoolExecutor</code>.  It can handle many scheduled tasks and their cancellations efficiently, as shown in the following table:</p>
@@ -363,7 +363,7 @@
           <p>For more information about hashed wheel timer, please see <a href="http://www.cse.wustl.edu/%7Ecdgill/courses/cs6874/TimingWheels.ppt">these slides ("Hashed and Hierarchical Timing Wheels," Dharmapurikar)</a> and <a href="http://www.cs.columbia.edu/%7Enahum/w6998/papers/sosp87-timing-wheels.pdf">this paper ("Hashed and Hierarchical Timing Wheels: Data Structures 
           for the Efficient Implementation of a Timer Facility," Varghese and Lauck)</a>.</p>
           
-          <h3 id="wiki-h3-12">
+          <h3 id="wiki-h3-13">
           <a name="user-content-even-more-miscellaneous-utilities" class="anchor" href="#even-more-miscellaneous-utilities"><span class="octicon octicon-link"></span></a>Even more miscellaneous utilities</h3>
           
           <p>The following classes are useful, but you will find fine alternatives in other libraries such as Guava:</p>
@@ -376,7 +376,7 @@
           <li>
           <code>io.netty.util.DefaultThreadFactory</code> is a generic <code>ThreadFactory</code> implementation that lets you configure your executor threads easily.</li>
           </ul>
-          <h2 id="wiki-h2-13">
+          <h2 id="wiki-h2-14">
           <a name="user-content-comparison-with-guava-and-jdk8" class="anchor" href="#comparison-with-guava-and-jdk8"><span class="octicon octicon-link"></span></a>Comparison with Guava and JDK8</h2>
           
           <p>Because Netty tries to minimize its set of dependencies, some of its utility classes are similar to those in other popular libraries, such as <a href="http://code.google.com/p/guava-libraries/">Guava</a>.</p>
@@ -403,20 +403,22 @@
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Buffer API">Buffer API</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="User-friendliness">User-friendliness</a>
-          </li><li><a href="#wiki-h3-2" title="Extensibility">Extensibility</a>
-          </li><li><a href="#wiki-h3-3" title="Performance">Performance</a>
-          </li></ul></li><li><a href="#wiki-h2-4" title="Listenable futures and event loops">Listenable futures and event loops</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-5" title="The global event loop">The global event loop</a>
-          </li></ul></li><li><a href="#wiki-h2-6" title="Platform-dependent operations">Platform-dependent operations</a>
-          </li><li><a href="#wiki-h2-7" title="Other utilities">Other utilities</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="Thread-local object pool">Thread-local object pool</a>
-          </li><li><a href="#wiki-h3-9" title="User-extensible enum">User-extensible enum</a>
-          </li><li><a href="#wiki-h3-10" title="Attribute map">Attribute map</a>
-          </li><li><a href="#wiki-h3-11" title="Hashed wheel timer">Hashed wheel timer</a>
-          </li><li><a href="#wiki-h3-12" title="Even more miscellaneous utilities">Even more miscellaneous utilities</a>
-          </li></ul></li><li><a href="#wiki-h2-13" title="Comparison with Guava and JDK8">Comparison with Guava and JDK8</a>
+          </li><li>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (19)">Pages (19)</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Buffer API">Buffer API</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="User-friendliness">User-friendliness</a>
+          </li><li><a href="#wiki-h3-3" title="Extensibility">Extensibility</a>
+          </li><li><a href="#wiki-h3-4" title="Performance">Performance</a>
+          </li></ul></li><li><a href="#wiki-h2-5" title="Listenable futures and event loops">Listenable futures and event loops</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-6" title="The global event loop">The global event loop</a>
+          </li></ul></li><li><a href="#wiki-h2-7" title="Platform-dependent operations">Platform-dependent operations</a>
+          </li><li><a href="#wiki-h2-8" title="Other utilities">Other utilities</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-9" title="Thread-local object pool">Thread-local object pool</a>
+          </li><li><a href="#wiki-h3-10" title="User-extensible enum">User-extensible enum</a>
+          </li><li><a href="#wiki-h3-11" title="Attribute map">Attribute map</a>
+          </li><li><a href="#wiki-h3-12" title="Hashed wheel timer">Hashed wheel timer</a>
+          </li><li><a href="#wiki-h3-13" title="Even more miscellaneous utilities">Even more miscellaneous utilities</a>
+          </li></ul></li><li><a href="#wiki-h2-14" title="Comparison with Guava and JDK8">Comparison with Guava and JDK8</a>
           </li></ul>
           </div>
           </div>
@@ -424,7 +426,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 30-Apr-2014</small>
+                <small>Last retrieved on 12-May-2014</small>
               </div>
             </div>
           </div>
