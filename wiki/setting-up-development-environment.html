@@ -291,19 +291,24 @@
           <h2 id="wiki-h2-7">
           <a name="user-content-set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h2>
           
-          <p>Netty project can be imported into <a href="http://www.eclipse.org/downloads/">Eclipse 3.7</a> or later with <a href="http://eclipse.org/m2e/">M2E</a> integration out of the box.</p>
+          <ol>
+          <li>
+          <a href="http://repo1.maven.org/maven2/kr/motd/maven/os-maven-plugin/1.2.0.Final/os-maven-plugin-1.2.0.Final.jar">Download os-maven-plugin</a> and put it into <code>&lt;ECLIPSE_HOME&gt;/plugins</code> directory to work around the problem where m2e does not evaluate an extension specified in our <code>pom.xml</code>.  (Unlike its name, it's both a Maven plugin and an Eclipse plugin.)</li>
+          <li>Import the project via the 'File -&gt; Import... -&gt; Existing Maven Projects' menu.</li>
+          <li>Netty project Maven <code>pom.xml</code> settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.  There are two ways to work around this problem:
           
-          <p>Netty project Maven pom.xml settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.</p>
-          
-          <p>One way to deal with this - look in <code>Eclipse -&gt; Window -&gt; Preferences -&gt; Installed JRE</code></p>
+          <ol>
+          <li>Look in the 'Window -&gt; Preferences -&gt; Installed JRE' menu:
           
           <ul>
-          <li>make sure you have Java 7 installation available under <code>Installed JRE</code>
-          </li>
-          <li>map this Java 7 installation onto Java 6 : <code>Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6</code>
-          </li>
+          <li>Make sure you have Java 7 installation available under 'Installed JRE'</li>
+          <li>Map this Java 7 installation onto Java 6: 'Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6'</li>
           </ul>
-          <p>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</p>
+          </li>
+          <li>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</li>
+          </ol>
+          </li>
+          </ol>
               </div>
             </div></div>
           <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
@@ -326,7 +331,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 12-May-2014</small>
+                <small>Last retrieved on 13-May-2014</small>
               </div>
             </div>
           </div>
