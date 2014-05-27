@@ -282,21 +282,22 @@
           <ol class="task-list">
           <li>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL 6.5 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet.</li>
           <li>
-          <p>On your Mac OS X, run the following to deploy the release artifacts to the staging repository:</p>
+          <p>On your Mac OS X and 64-bit Windows, whose build environment is set up as documented <a class="internal present" href="forked-tomcat-native.html">here</a>, run the following commands to deploy the release artifacts to the staging repository:</p>
           
           <pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release deploy&#x000A;... The artifact with OSX native library will be deployed ...&#x000A;</code></pre>
           </li>
-          <li><p>Make sure both the Linux and Mac OS X artifacts have been deployed into the same staging repositories.  If they are deployed into two different staging repositories, drop them all and figure out what was the problem.</p></li>
-          <li>If both JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code> and <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
+          <li><p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p></li>
+          <li>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
           </ol>
               </div>
+          
             </div></div>
           <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
           </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (20)">Pages (20)</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 20">Pages 20</a>
           </li></ul></li><li><a href="#wiki-h2-1" title="Before getting started">Before getting started</a>
           </li><li><a href="#wiki-h2-2" title="Standard Maven release procedure">Standard Maven release procedure</a>
           </li><li><a href="#wiki-h2-3" title="Netty 3">Netty 3</a>
@@ -309,7 +310,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 14-May-2014</small>
+                <small>Last retrieved on 27-May-2014</small>
               </div>
             </div>
           </div>

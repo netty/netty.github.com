@@ -240,12 +240,128 @@
                 <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
           
           <ul class="task-list">
+          <li>Simplified distribution and linkage of native library</li>
           <li>Complete mavenization of the project</li>
           <li>Improved OpenSSL support</li>
           </ul>
           <p>To minimize the maintenance burden, we create a dedicated branch for each stable upstream release and apply our own changes on top of it, while keeping the number of maintained branches to minimum.</p>
           
           <h2 id="wiki-h2-1">
+          <a name="user-content-how-to-use" class="anchor" href="#how-to-use"><span class="octicon octicon-link"></span></a>How to use</h2>
+          
+          <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
+          
+          <div class="highlight highlight-xml"><pre><span class="nt">&lt;project&gt;</span>&#x000A;  ...&#x000A;  <span class="nt">&lt;dependencies&gt;</span>&#x000A;    ...&#x000A;    <span class="nt">&lt;dependency&gt;</span>&#x000A;      <span class="nt">&lt;groupId&gt;</span>io.netty<span class="nt">&lt;/groupId&gt;</span>&#x000A;      <span class="nt">&lt;artifactId&gt;</span>netty-tcnative<span class="nt">&lt;/artifactId&gt;</span>&#x000A;      <span class="nt">&lt;version&gt;</span>1.1.30.Fork1<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;classifier&gt;</span>${os.detected.classifier}<span class="nt">&lt;/classifier&gt;</span>&#x000A;    <span class="nt">&lt;/dependency&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/dependencies&gt;</span>&#x000A;  ...&#x000A;  <span class="nt">&lt;build&gt;</span>&#x000A;    ...&#x000A;    <span class="nt">&lt;extensions&gt;</span>&#x000A;      <span class="nt">&lt;extension&gt;</span>&#x000A;        <span class="nt">&lt;groupId&gt;</span>kr.motd.maven<span class="nt">&lt;/groupId&gt;</span>&#x000A;        <span class="nt">&lt;artifactId&gt;</span>os-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>&#x000A;        <span class="nt">&lt;version&gt;</span>1.2.3.Final<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;/extension&gt;</span>&#x000A;    <span class="nt">&lt;/extensions&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/build&gt;</span>&#x000A;  ...&#x000A;<span class="nt">&lt;/project&gt;</span></pre></div>
+          
+          <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
+          
+          <div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;  <span class="n">SslContext</span> <span class="n">sslCtx</span> <span class="o">=</span> <span class="n">SslContext</span><span class="o">.</span><span class="na">newServerContext</span><span class="o">(</span><span class="n">SslProvider</span><span class="o">.</span><span class="na">OPENSSL</span><span class="o">,</span> <span class="o">...);</span>&#x000A;  <span class="o">...</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyChannelInitializer</span> <span class="kd">extends</span> <span class="n">ChannelInitializer</span><span class="o">&lt;</span><span class="n">SocketChannel</span><span class="o">&gt;</span> <span class="o">{</span>&#x000A;&#x000A;  <span class="kd">private</span> <span class="kd">final</span> <span class="n">SslContext</span> <span class="n">sslCtx</span><span class="o">;</span>&#x000A;&#x000A;  <span class="kd">public</span> <span class="nf">MyChannelInitializer</span><span class="o">(</span><span class="n">SslContext</span> <span class="n">sslCtx</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">this</span><span class="o">.</span><span class="na">sslCtx</span> <span class="o">=</span> <span class="n">sslCtx</span><span class="o">;</span>&#x000A;  <span class="o">}</span>&#x000A;&#x000A;  <span class="nd">@Override</span>&#x000A;  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initChannel</span><span class="o">(</span><span class="n">SocketChannel</span> <span class="n">ch</span><span class="o">)</span> <span class="kd">throws</span> <span class="n">Exception</span> <span class="o">{</span>&#x000A;    <span class="n">ChannelPipeline</span> <span class="n">p</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="na">pipeline</span><span class="o">();</span>&#x000A;    <span class="k">if</span> <span class="o">(</span><span class="n">sslCtx</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>&#x000A;      <span class="n">p</span><span class="o">.</span><span class="na">addLast</span><span class="o">(</span><span class="n">sslCtx</span><span class="o">.</span><span class="na">newHandler</span><span class="o">(</span><span class="n">ch</span><span class="o">.</span><span class="na">alloc</span><span class="o">()));</span>&#x000A;    <span class="o">}</span>&#x000A;    <span class="o">...</span>&#x000A;  <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
+          
+          <p>Netty will unpack the shared library provided by the <code>netty-tcnative-&lt;version&gt;-&lt;os.detected.classifier&gt;.jar</code> into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
+          
+          <p>Note that the shared library is dynamically linked against Apache Portable Runtime (APR) and OpenSSL.  They must be in the library load path such as system library directories, <code>$LD_LIBRARY_PATH</code>, and <code>%PATH%</code>.</p>
+          
+          <ul class="task-list">
+          <li>If you are on Linux, you probably don't need to do anything because you can install them using your system's package manager.</li>
+          <li>If you are on Mac, you have to install <code>openssl</code> package using <a href="http://brew.sh/">Homebrew</a>.</li>
+          <li>If you are on Windows, you have to:
+          
+          <ul class="task-list">
+          <li>Build APR by yourself,</li>
+          <li>Install OpenSSL for Windows, and</li>
+          <li>Add the directories that contain the .DLL files to <code>%PATH%</code>.</li>
+          </ul>
+          </li>
+          </ul>
+          <h2 id="wiki-h2-2">
+          <a name="user-content-how-to-build" class="anchor" href="#how-to-build"><span class="octicon octicon-link"></span></a>How to build</h2>
+          
+          <p>You don't usually need to build <code>netty-tcnative</code> by yourself because we officially ship the JARs with the native libraries for Linux x86_64, Mac OS X x86_64, and Windows x86_64.</p>
+          
+          <h3 id="wiki-h3-3">
+          <a name="user-content-building-on-linux" class="anchor" href="#building-on-linux"><span class="octicon octicon-link"></span></a>Building on Linux</h3>
+          
+          <p>Install the required packages:</p>
+          
+          <div class="highlight highlight-bash"><pre><span class="c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel.i686 glibc-devel libgcc.i686 make tar apr-devel openssl-devel&#x000A;<span class="c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make gcc-multilib tar libapr1-dev libssl-dev</pre></div>
+          
+          <p>Build the package and install it into your local Maven repository:</p>
+          
+          <div class="highlight highlight-bash"><pre>mvn clean install</pre></div>
+          
+          <h3 id="wiki-h3-4">
+          <a name="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x"><span class="octicon octicon-link"></span></a>Building on Mac OS X</h3>
+          
+          <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
+          
+          <div class="highlight highlight-bash"><pre>brew install autoconf automake libtool openssl</pre></div>
+          
+          <p>Add the following exports to your <code>~/.bash_profile</code>, so that the compiler and linker finds OpenSSL built by Homebrew.</p>
+          
+          <div class="highlight highlight-bash"><pre><span class="nb">export </span><span class="nv">CPPFLAGS</span><span class="o">=</span><span class="s2">"-I/usr/local/opt/openssl/include $CPPFLAGS"</span>&#x000A;<span class="nb">export </span><span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">"-L/usr/local/opt/openssl/lib $LDFLAGS"</span></pre></div>
+          
+          <p>Build the package and install it into your local Maven repository:</p>
+          
+          <div class="highlight highlight-bash"><pre>mvn clean install</pre></div>
+          
+          <h3 id="wiki-h3-5">
+          <a name="user-content-building-on-windows" class="anchor" href="#building-on-windows"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
+          
+          <p>Install the following packages:</p>
+          
+          <ul class="task-list">
+          <li><a href="http://www.visualstudio.com/en-us/downloads#d-2010-express">Visual C++ 2010 Express</a></li>
+          <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=8279">Windows SDK for Windows 7</a></li>
+          <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=23691">Visual Studio 2010 Service Pack 1</a></li>
+          <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=4422">Visual C++ 2010 Service Pack 1 Compiler Update</a></li>
+          <li>OpenSSL for Windows
+          
+          <ul class="task-list">
+          <li>If you are on 32-bit Windows:
+          
+          <ul class="task-list">
+          <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29">Visual C++ 2008 Redistributable Package (x86)</a></li>
+          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_1g.exe">Win32 OpenSSL 1.0.1g</a></li>
+          </ul>
+          </li>
+          <li>If you are on 64-bit Windows:
+          
+          <ul class="task-list">
+          <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=15336">Visual C++ 2008 Redistributable Package (x64)</a></li>
+          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_1g.exe">Win64 OpenSSL 1.0.1g</a></li>
+          </ul>
+          </li>
+          <li>Set the installation directory to: <code>C:\Workspaces\openssl-1.0.1g-dist</code>
+          </li>
+          <li>Choose 'Copy OpenSSL DLLs to: the OpenSSL binaries (/bin) directory'</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.us.apache.org/dist//apr/apr-1.5.1-win32-src.zip">Apache Portable Runtime (APR) 1.5.1</a>
+          
+          <ul class="task-list">
+          <li>Unzip into: <code>C:\Workspaces\apr-1.5.1</code>
+          </li>
+          </ul>
+          </li>
+          </ul>
+          <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
+          
+          <div class="highlight highlight-bat"><pre><span class="c">REM 32-bit Windows:</span>&#x000A;<span class="s2">"C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat"</span>&#x000A;<span class="c">REM 64-bit Windows:</span>&#x000A;<span class="k">CALL</span> <span class="s2">"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"</span> <span class="n">/Release</span> <span class="n">/x64</span></pre></div>
+          
+          <p>Build APR:</p>
+          
+          <div class="highlight highlight-bat"><pre><span class="k">cd</span> <span class="s2">"C:\Workspaces\apr-1.5.1"</span>&#x000A;<span class="c">REM 32-bit Windows</span>&#x000A;nmake <span class="n">/f</span> Makefile.win ARCH<span class="o">=</span><span class="s2">"Win32 Release"</span> PREFIX<span class="o">=</span>..\apr<span class="m">-1</span>.<span class="m">5</span>.<span class="m">1</span>-dist buildall install&#x000A;<span class="c">REM 64-bit Windows</span>&#x000A;nmake <span class="n">/f</span> Makefile.win ARCH<span class="o">=</span><span class="s2">"x64 Release"</span> PREFIX<span class="o">=</span>..\apr<span class="m">-1</span>.<span class="m">5</span>.<span class="m">1</span>-dist buildall install</pre></div>
+          
+          <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
+          
+          <div class="highlight highlight-bat"><pre><span class="k">set</span> <span class="nv">APR_INCLUDE_DIR</span><span class="o">=</span>C:\Workspaces\apr<span class="m">-1</span>.<span class="m">5</span>.<span class="m">1</span>\include&#x000A;<span class="k">set</span> <span class="nv">APR_LIB_DIR</span><span class="o">=</span>C:\Workspaces\apr<span class="m">-1</span>.<span class="m">5</span>.<span class="m">1</span>-dist\lib&#x000A;<span class="k">set</span> <span class="nv">OPENSSL_INCLUDE_DIR</span><span class="o">=</span>C:\Workspaces\openssl<span class="m">-1</span>.<span class="m">0</span>.<span class="m">1</span>g-dist\include&#x000A;<span class="k">set</span> <span class="nv">OPENSSL_LIB_DIR</span><span class="o">=</span>C:\Workspaces\openssl<span class="m">-1</span>.<span class="m">0</span>.<span class="m">1</span>g-dist\lib\VC</pre></div>
+          
+          <p>Clone <code>netty-tcnative</code> and build it:</p>
+          
+          <div class="highlight highlight-bat"><pre>git clone https:<span class="n">//github.com/netty/netty-tcnative.git</span>&#x000A;<span class="k">cd</span> netty-tcnative&#x000A;mvn clean install</pre></div>
+          
+          <h2 id="wiki-h2-6">
           <a name="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork"><span class="octicon octicon-link"></span></a>Creating a new fork</h2>
           
           <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
@@ -253,21 +369,21 @@
           <pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29&#x000A;</code></pre>
           
           <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
-          
-          <h2 id="wiki-h2-2">
-          <a name="user-content-using-netty-tcnative-to-accelerate-ssl-performance" class="anchor" href="#using-netty-tcnative-to-accelerate-ssl-performance"><span class="octicon octicon-link"></span></a>Using <code>netty-tcnative</code> to accelerate SSL performance</h2>
-          
-          <p>Coming soon.</p>
               </div>
+          
             </div></div>
           <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
           </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages (20)">Pages (20)</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Creating a new fork">Creating a new fork</a>
-          </li><li><a href="#wiki-h2-2" title="Using netty-tcnative to accelerate SSL performance">Using netty-tcnative to accelerate SSL performance</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 20">Pages 20</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="How to use">How to use</a>
+          </li><li><a href="#wiki-h2-2" title="How to build">How to build</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Building on Linux">Building on Linux</a>
+          </li><li><a href="#wiki-h3-4" title="Building on Mac OS X">Building on Mac OS X</a>
+          </li><li><a href="#wiki-h3-5" title="Building on Windows">Building on Windows</a>
+          </li></ul></li><li><a href="#wiki-h2-6" title="Creating a new fork">Creating a new fork</a>
           </li></ul>
           </div>
           </div>
@@ -275,7 +391,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 14-May-2014</small>
+                <small>Last retrieved on 27-May-2014</small>
               </div>
             </div>
           </div>
