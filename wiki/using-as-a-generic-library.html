@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/06/11/3.html">
+              <a href="../news/2014/06/12/4.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.19.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.20.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.19.Final
-                    <small>&dash; 30-Apr-2014</small>
+                    4.0.20.Final
+                    <small>&dash; 12-Jun-2014</small>
                   </a>
                 </li>
                 <li>
@@ -284,14 +284,14 @@
           
           <p><code>io.netty.util.concurrent.EventExecutor</code> is a single-threaded event loop that extends <code>java.util.concurrent.ScheduledExecutorService</code>. You can build your own event loop or use it as a feature-rich task executor.  Usually, you create multiple <code>EventExecutor</code>s to take advantage of parallelism:</p>
           
-          <div class="highlight highlight-java"><pre><span class="n">EventExecutorGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultEventExecutorGroup</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// 4 threads</span>&#x000A;<span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span>&#x000A;<span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">FutureListener</span><span class="o">&lt;?&gt;</span> <span class="o">{</span>&#x000A;  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="o">..</span>&#x000A;  <span class="o">}</span>&#x000A;<span class="o">});</span>&#x000A;<span class="o">...</span></pre></div>
+          <div class="highlight highlight-java"><pre><span class="n">EventExecutorGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">DefaultEventExecutorGroup</span><span class="o">(</span><span class="mi">4</span><span class="o">);</span> <span class="c1">// 4 threads</span>&#x000A;<span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span>&#x000A;<span class="n">f</span><span class="o">.</span><span class="na">addListener</span><span class="o">(</span><span class="k">new</span> <span class="n">FutureListener</span><span class="o">&lt;?&gt;</span> <span class="o">{</span>&#x000A;  <span class="kd">public</span> <span class="kt">void</span> <span class="nf">operationComplete</span><span class="o">(</span><span class="n">Future</span><span class="o">&lt;?&gt;</span> <span class="n">f</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="o">..</span>&#x000A;  <span class="o">}</span>&#x000A;<span class="o">});</span>&#x000A;<span class="o">...</span></pre></div>
           
           <h3 id="wiki-h3-6">
           <a name="user-content-the-global-event-loop" class="anchor" href="#the-global-event-loop"><span class="octicon octicon-link"></span></a>The global event loop</h3>
           
           <p>Sometimes you want a unique executor that is always available and that doesn't need life cycle management. <code>GlobalEventExecutor</code> is a single-threaded singleton <code>EventExecutor</code> which starts its thread lazily and stops when there have been no pending tasks for a while. </p>
           
-          <div class="highlight highlight-java"><pre><span class="n">GlobalEventExecutor</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span></pre></div>
+          <div class="highlight highlight-java"><pre><span class="n">GlobalEventExecutor</span><span class="o">.</span><span class="na">INSTANCE</span><span class="o">.</span><span class="na">execute</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span> <span class="o">...</span> <span class="o">});</span></pre></div>
           
           <p>Internally, Netty uses it to notify the termination of other <code>EventExecutor</code>s.</p>
           
@@ -427,7 +427,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 11-Jun-2014</small>
+                <small>Last retrieved on 12-Jun-2014</small>
               </div>
             </div>
           </div>

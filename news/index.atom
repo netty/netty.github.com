@@ -2,9 +2,92 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-06-11T11:57:41+02:00</updated>
+  <updated>2014-06-12T16:10:03+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/06/12/4.html</id>
+    <title>Netty 4.0.20.Final released</title>
+    <updated>2014-06-12T16:10:03+02:00</updated>
+    <published>2014-06-12T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/06/12/4.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
+      This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
+      with previous netty 4.0.x releases.
+      
+      For mre details please refer to the next sections.
+      
+      Most important changes / fixes
+      
+      
+      Improve the allocation performance of pooled buffers larger than 8 KiB (#2518)
+      Use ByteBuf.readSlice(...).retain() to minimize memory copies (#2464)
+      ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (#2436 and (#2531)
+      Introduce faster ThreadLocal (#2556)
+      Optimize DefaultChannelPipeline in terms of memory usage and initialization time (#2546)
+      Thread cache eviction...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
+      This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
+      with previous netty 4.0.x releases.&lt;/p&gt;
+      
+      &lt;p&gt;For mre details please refer to the next sections.&lt;/p&gt;
+      
+      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Improve the allocation performance of pooled buffers larger than 8 KiB (&lt;a href=&quot;hhttps://github.com/netty/netty/issues/2518&quot;&gt;#2518&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use ByteBuf.readSlice(...).retain() to minimize memory copies (&lt;a href=&quot;https://github.com/netty/netty/pull/2477&quot;&gt;#2464&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (&lt;a href=&quot;https://github.com/netty/netty/issues/2436&quot;&gt;#2436&lt;/a&gt; and (&lt;a href=&quot;https://github.com/netty/netty/pull/2531&quot;&gt;#2531&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Introduce faster ThreadLocal (&lt;a href=&quot;https://github.com/netty/netty/pull/2556&quot;&gt;#2556&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Optimize DefaultChannelPipeline in terms of memory usage and initialization time (&lt;a href=&quot;https://github.com/netty/netty/pull/2546&quot;&gt;#2546&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Thread cache eviction task can erroneously prevent jvm from exiting (&lt;a href=&quot;https://github.com/netty/netty/issues/2519&quot;&gt;#2519&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/2464&quot;&gt;#2464&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?milestone=90&amp;amp;page=1&amp;amp;state=closed&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
+      
+      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;h3&gt;Using OpenSslEngine&lt;/h3&gt;
+      
+      &lt;p&gt;For details how to use OpenSslEngine please refer to our &lt;a href=&quot;http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-1&quot;&gt;Forked Tomcat Native&lt;/a&gt; page.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/54k&quot;&gt;@54k &lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/andreypanasenko&quot;&gt;@andreypanasenko &lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/belliottsmith&quot;&gt;@belliottsmith &lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas &lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/boboyada&quot;&gt;@boboyada &lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/j3h&quot;&gt;@j3h&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jeje&quot;&gt;@jeje&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/liyichao&quot;&gt;@liyichao&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MiguelGL&quot;&gt;@MiguelGL&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tea-dragon&quot;&gt;@tea-dragon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/racorn&quot;&gt;@racorn&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/06/11/3.html</id>
     <title>Netty 3.9.2.Final released</title>
@@ -2998,42 +3081,6 @@
       &lt;p&gt;&lt;tt&gt;HttpMessage.chunked&lt;/tt&gt; property has been replaced by a new property called '&lt;tt&gt;transferEncoding&lt;/tt&gt;' to address the ambiguity of the old property. The '&lt;tt&gt;chunked&lt;/tt&gt;' property, in spite of its confusing name, was not necessarily related with HTTP chunked transfer coding, but it just meant to represent an &lt;tt&gt;HttpMessage&lt;/tt&gt; which is followed by &lt;tt&gt;HttpChunk&lt;/tt&gt;s.  For more information, refer to the API documentation of &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/4.0/api/index.html?io/netty/handler/codec/http/HttpTransferEncoding.html&quot;&gt;&lt;tt&gt;HttpTransferEncoding&lt;/tt&gt;&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
       &lt;h3 id=&quot;HWantmorechanges3FIt27suptoyou21&quot;&gt;&lt;span&gt;Want more changes? It's up to you!&lt;/span&gt;&lt;/h3&gt;
       &lt;p&gt;Netty 4 is still at alpha stage - there are so many opportunities where your constructive feed back will make Netty 4 better than ever.  Let me look forward to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://groups.google.com/d/forum/netty&quot;&gt;your joining the developer group&lt;/a&gt;&lt;/span&gt; and letting people know what you think.&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/08/22/3-5-5-final.html</id>
-    <title>Netty 3.5.5.Final released</title>
-    <updated>2014-01-21T09:46:31+01:00</updated>
-    <published>2012-08-22T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/08/22/3-5-5-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      Release often release early!
-      Here comes another bug-fix release out of the 3.5.x Series. It only contains a handful of bugfixes but we felt they are "critical" enough to deserve a quick release. So enjoy...
-      
-      Most notable is the correction of a regression that was introduced in the last release. This effected users that used Netty to set and manipulate Cookies. Check out #533 and #534 for more details.
-      The other critical fix we made, was to eliminate a potential direct memory leak when using HttpContentEncoder and HttpContentDecoder.  So if you use any of them we highly recommend to upgrade better sooner than...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;&lt;span&gt;Release often release early!&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;&lt;span&gt;Here comes another bug-fix release out of the 3.5.x Series. It only contains a handful of bugfixes but we felt they are &quot;critical&quot; enough to deserve a quick release. So enjoy...&lt;/span&gt;&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;Most notable is the correction of a regression that was introduced in the last release. This effected users that used Netty to set and manipulate Cookies. Check out &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/533&quot;&gt;#533&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/534&quot;&gt;#534&lt;/a&gt;&lt;/span&gt; for more details.&lt;/p&gt;
-      &lt;p&gt;The other critical fix we made, was to eliminate a potential direct memory leak when using HttpContentEncoder and HttpContentDecoder.  So if you use any of them we highly recommend to upgrade better sooner than later. See &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/539&quot;&gt;#539&lt;/a&gt;&lt;/span&gt; for the full details about this bug.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;One &quot;fix&quot; that needs to get explicit enabled is the automatically closing of the Channel if SslHandler is used and an SSLException was caught. This is &quot;disabled&quot; by default to not break Applications that may depend on the old &quot;broken&quot; behavior.&lt;/p&gt;
-      &lt;p&gt;To enable it just use the new setter method in SslHandler, like shown here.&lt;/p&gt;
-      &lt;script src=&quot;https://gist.github.com/3428315.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Its important to use the setter &lt;strong&gt;before &lt;/strong&gt;the SslHandler is add to the ChannelPipeline. Any attempt to change it after that will cause an IllegalStateException. More informations related to this issue can be found  at &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/160&quot;&gt;#160&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;For the rest of the fixes please checkout our &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=23&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.5.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; as usually. Beside this you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;Feedback as always welcome.&lt;/p&gt;
-      &lt;p&gt;Enjoy!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
