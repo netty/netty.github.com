@@ -240,7 +240,7 @@
                 <p>Since Netty version 4, the life cycle of certain objects are managed by their reference counts rather than the garbage collector.  <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> is the most notable type which takes advantage of reference counting to improve the allocation and deallocation performance.</p>
           
           <h2 id="wiki-h2-1">
-          <a name="user-content-basics-of-reference-counting" class="anchor" href="#basics-of-reference-counting"><span class="octicon octicon-link"></span></a>Basics of reference counting</h2>
+          <a name="user-content-basics-of-reference-counting" class="anchor" href="#basics-of-reference-counting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Basics of reference counting</h2>
           
           <p>The initial reference count of a new reference-counted object is 1:</p>
           
@@ -251,21 +251,21 @@
           <div class="highlight highlight-java"><pre><span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>&#x000A;<span class="c1">// release() returns true only if the reference count becomes 0.</span>&#x000A;<span class="kt">boolean</span> <span class="n">destroyed</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">destroyed</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span></pre></div>
           
           <h3 id="wiki-h3-2">
-          <a name="user-content-dangling-reference" class="anchor" href="#dangling-reference"><span class="octicon octicon-link"></span></a>Dangling reference</h3>
+          <a name="user-content-dangling-reference" class="anchor" href="#dangling-reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dangling reference</h3>
           
           <p>Attempting to access the reference-counted object whose reference count is 0 will trigger an <code>IllegalReferenceCountException</code>:</p>
           
           <div class="highlight highlight-java"><pre><span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">;</span>&#x000A;<span class="k">try</span> <span class="o">{</span>&#x000A;  <span class="n">buf</span><span class="o">.</span><span class="na">writeLong</span><span class="o">(</span><span class="mh">0xdeadbeef</span><span class="o">);</span>&#x000A;  <span class="k">throw</span> <span class="k">new</span> <span class="nf">Error</span><span class="o">(</span><span class="s">"should not reach here"</span><span class="o">);</span>&#x000A;<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalReferenceCountExeception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>&#x000A;  <span class="c1">// Expected</span>&#x000A;<span class="o">}</span></pre></div>
           
           <h3 id="wiki-h3-3">
-          <a name="user-content-increasing-the-reference-count" class="anchor" href="#increasing-the-reference-count"><span class="octicon octicon-link"></span></a>Increasing the reference count</h3>
+          <a name="user-content-increasing-the-reference-count" class="anchor" href="#increasing-the-reference-count" aria-hidden="true"><span class="octicon octicon-link"></span></a>Increasing the reference count</h3>
           
           <p>A reference count can also be incremented via the <code>retain()</code> operation as long as it is not destroyed yet:</p>
           
           <div class="highlight highlight-java"><pre><span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span>&#x000A;&#x000A;<span class="n">buf</span><span class="o">.</span><span class="na">retain</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">2</span><span class="o">;</span>&#x000A;&#x000A;<span class="kt">boolean</span> <span class="n">destroyed</span> <span class="o">=</span> <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="k">assert</span> <span class="o">!</span><span class="n">destroyed</span><span class="o">;</span>&#x000A;<span class="k">assert</span> <span class="n">buf</span><span class="o">.</span><span class="na">refCnt</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">;</span></pre></div>
           
           <h3 id="wiki-h3-4">
-          <a name="user-content-who-destroys-it" class="anchor" href="#who-destroys-it"><span class="octicon octicon-link"></span></a>Who destroys it?</h3>
+          <a name="user-content-who-destroys-it" class="anchor" href="#who-destroys-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Who destroys it?</h3>
           
           <p>The general rule of thumb is that the party who accesses a reference-counted object lastly is responsible for the destruction of the reference-counted object. More specifically:</p>
           
@@ -346,7 +346,7 @@
           </tbody>
           </table>
           <h3 id="wiki-h3-5">
-          <a name="user-content-derived-buffers" class="anchor" href="#derived-buffers"><span class="octicon octicon-link"></span></a>Derived buffers</h3>
+          <a name="user-content-derived-buffers" class="anchor" href="#derived-buffers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Derived buffers</h3>
           
           <p><code>ByteBuf.duplicate()</code>, <code>ByteBuf.slice()</code> and <code>ByteBuf.order(ByteOrder)</code> create a <em>derived</em> buffer which shares the memory region of the parent buffer.  A derived buffer does not have its own reference count but shares the reference count of the parent buffer.</p>
           
@@ -357,18 +357,18 @@
           <div class="highlight highlight-java"><pre><span class="n">ByteBuf</span> <span class="n">parent</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">directBuffer</span><span class="o">(</span><span class="mi">512</span><span class="o">);</span>&#x000A;<span class="n">parent</span><span class="o">.</span><span class="na">writeBytes</span><span class="o">(...);</span>&#x000A;&#x000A;<span class="k">try</span> <span class="o">{</span>&#x000A;    <span class="k">while</span> <span class="o">(</span><span class="n">parent</span><span class="o">.</span><span class="na">isReadable</span><span class="o">(</span><span class="mi">16</span><span class="o">))</span> <span class="o">{</span>&#x000A;        <span class="n">ByteBuf</span> <span class="n">derived</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="na">readSlice</span><span class="o">(</span><span class="mi">16</span><span class="o">);</span>&#x000A;        <span class="n">derived</span><span class="o">.</span><span class="na">retain</span><span class="o">();</span>&#x000A;        <span class="n">process</span><span class="o">(</span><span class="n">derived</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;    <span class="n">parent</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="o">}</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">process</span><span class="o">(</span><span class="n">ByteBuf</span> <span class="n">buf</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="o">...</span>&#x000A;    <span class="n">buf</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;<span class="o">}</span></pre></div>
           
           <h3 id="wiki-h3-6">
-          <a name="user-content-bytebufholder-interface" class="anchor" href="#bytebufholder-interface"><span class="octicon octicon-link"></span></a><code>ByteBufHolder</code> interface</h3>
+          <a name="user-content-bytebufholder-interface" class="anchor" href="#bytebufholder-interface" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>ByteBufHolder</code> interface</h3>
           
           <p>Sometimes, a <code>ByteBuf</code> is contained by a buffer holder, such as <a href="http://netty.io/4.0/api/index.html?io/netty/channel/socket/DatagramPacket.html"><code>DatagramPacket</code></a>, <a href="http://netty.io/4.0/api/index.html?io/netty/handler/codec/http/HttpContent.html"><code>HttpContent</code></a>, and <a href="http://netty.io/4.0/api/index.html?io/netty/handler/codec/http/websocketx/WebSocketFrame.html"><code>WebSocketframe</code></a>.  Those types extend a common interface called <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/ByteBufHolder.html"><code>ByteBufHolder</code></a>.</p>
           
           <p>A buffer holder shares the reference count of the buffer it contains, just like a derived buffer.</p>
           
           <h2 id="wiki-h2-7">
-          <a name="user-content-reference-counting-in-channelhandler" class="anchor" href="#reference-counting-in-channelhandler"><span class="octicon octicon-link"></span></a>Reference-counting in <code>ChannelHandler</code>
+          <a name="user-content-reference-counting-in-channelhandler" class="anchor" href="#reference-counting-in-channelhandler" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference-counting in <code>ChannelHandler</code>
           </h2>
           
           <h3 id="wiki-h3-8">
-          <a name="user-content-inbound-messages" class="anchor" href="#inbound-messages"><span class="octicon octicon-link"></span></a>Inbound messages</h3>
+          <a name="user-content-inbound-messages" class="anchor" href="#inbound-messages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inbound messages</h3>
           
           <p>When an event loop reads data into a <code>ByteBuf</code> and triggers a <code>channelRead()</code> event with it, it is the responsibility of the <code>ChannelHandler</code> in the corresponding pipeline to release the buffer.  Therefore, the handler that consumes the received data should call <code>release()</code> on the data in its <code>channelRead()</code> handler method:</p>
           
@@ -389,14 +389,14 @@
           <p>Alternatively, you could consider extending <code>SimpleChannelHandler</code> which calls <code>ReferenceCountUtil.release(msg)</code> for all messages you receive.</p>
           
           <h3 id="wiki-h3-9">
-          <a name="user-content-outbound-messages" class="anchor" href="#outbound-messages"><span class="octicon octicon-link"></span></a>Outbound messages</h3>
+          <a name="user-content-outbound-messages" class="anchor" href="#outbound-messages" aria-hidden="true"><span class="octicon octicon-link"></span></a>Outbound messages</h3>
           
           <p>Unlike inbound messages, the messages are created by your application, and it is the responsibility of Netty to release it after writing it out to the wire.  However, the handlers that intercepts your write requests should make sure to release any intermediary objects properly. (e.g. encoders)</p>
           
           <div class="highlight highlight-java"><pre><span class="c1">// Simple-pass through</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">message</span><span class="o">,</span> <span class="n">ChannelPromise</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="n">System</span><span class="o">.</span><span class="na">err</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Writing: "</span> <span class="o">+</span> <span class="n">message</span><span class="o">);</span>&#x000A;    <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;<span class="o">}</span>&#x000A;&#x000A;<span class="c1">// Transformation</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">write</span><span class="o">(</span><span class="n">ChannelHandlerContext</span> <span class="n">ctx</span><span class="o">,</span> <span class="n">Object</span> <span class="n">message</span><span class="o">,</span> <span class="n">ChannelPromise</span> <span class="n">promise</span><span class="o">)</span> <span class="o">{</span>&#x000A;    <span class="k">if</span> <span class="o">(</span><span class="n">message</span> <span class="k">instanceof</span> <span class="n">HttpContent</span><span class="o">)</span> <span class="o">{</span>&#x000A;        <span class="c1">// Transform HttpContent to ByteBuf.</span>&#x000A;        <span class="n">HttpContent</span> <span class="n">content</span> <span class="o">=</span> <span class="o">(</span><span class="n">HttpContent</span><span class="o">)</span> <span class="n">message</span><span class="o">;</span>&#x000A;        <span class="k">try</span> <span class="o">{</span>&#x000A;            <span class="n">ByteBuf</span> <span class="n">transformed</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">buffer</span><span class="o">();</span>&#x000A;            <span class="o">....</span>&#x000A;            <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">transformed</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>&#x000A;            <span class="n">content</span><span class="o">.</span><span class="na">release</span><span class="o">();</span>&#x000A;        <span class="o">}</span>&#x000A;    <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>&#x000A;        <span class="c1">// Pass non-HttpContent through.</span>&#x000A;        <span class="n">ctx</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">message</span><span class="o">,</span> <span class="n">promise</span><span class="o">);</span>&#x000A;    <span class="o">}</span>&#x000A;<span class="o">}</span></pre></div>
           
           <h2 id="wiki-h2-10">
-          <a name="user-content-troubleshooting-buffer-leaks" class="anchor" href="#troubleshooting-buffer-leaks"><span class="octicon octicon-link"></span></a>Troubleshooting buffer leaks</h2>
+          <a name="user-content-troubleshooting-buffer-leaks" class="anchor" href="#troubleshooting-buffer-leaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Troubleshooting buffer leaks</h2>
           
           <p>The disadvantage of reference counting is that it is easy to leak the reference-counted objects.  Because JVM is not aware of the reference counting Netty implements, it will automatically GC them once they become unreachable even if their reference counts are not zero. An object once garbage collected cannot be resurrected, and thus cannot be returned to the pool it came from or will produce memory leak.</p>
           
@@ -415,7 +415,7 @@
           <pre><code>12:05:24.374 [nioEventLoop-1-1] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.&#x000A;Recent access records: 2&#x000A;#2:&#x000A;    Hint: 'EchoServerHandler#0' will handle the message from this point.&#x000A;    io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:329)&#x000A;    io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)&#x000A;    io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:133)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;    io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;    io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;    java.lang.Thread.run(Thread.java:744)&#x000A;#1:&#x000A;    io.netty.buffer.AdvancedLeakAwareByteBuf.writeBytes(AdvancedLeakAwareByteBuf.java:589)&#x000A;    io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:208)&#x000A;    io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;    io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;    io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;    java.lang.Thread.run(Thread.java:744)&#x000A;Created at:&#x000A;    io.netty.buffer.UnpooledByteBufAllocator.newDirectBuffer(UnpooledByteBufAllocator.java:55)&#x000A;    io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:155)&#x000A;    io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:146)&#x000A;    io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:107)&#x000A;    io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;    io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;    io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;    io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;    java.lang.Thread.run(Thread.java:744)&#x000A;</code></pre>
           
           <h3 id="wiki-h3-11">
-          <a name="user-content-leak-detection-levels" class="anchor" href="#leak-detection-levels"><span class="octicon octicon-link"></span></a>Leak detection levels</h3>
+          <a name="user-content-leak-detection-levels" class="anchor" href="#leak-detection-levels" aria-hidden="true"><span class="octicon octicon-link"></span></a>Leak detection levels</h3>
           
           <p>There are currently 4 levels of leak detection:</p>
           
@@ -434,7 +434,7 @@
           <pre><code>java -Dio.netty.leakDetectionLevel=advanced ...&#x000A;</code></pre>
           
           <h3 id="wiki-h3-12">
-          <a name="user-content-best-practices-to-avoid-leaks" class="anchor" href="#best-practices-to-avoid-leaks"><span class="octicon octicon-link"></span></a>Best practices to avoid leaks</h3>
+          <a name="user-content-best-practices-to-avoid-leaks" class="anchor" href="#best-practices-to-avoid-leaks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best practices to avoid leaks</h3>
           
           <ul class="task-list">
           <li>Run your unit tests and integration tests at <code>PARANOID</code> leak detection level, as well as at <code>SIMPLE</code> level.</li>
@@ -443,7 +443,7 @@
           <li>Do not deploy an application with a leak to the entire cluster.</li>
           </ul>
           <h3 id="wiki-h3-13">
-          <a name="user-content-fixing-leaks-in-unit-tests" class="anchor" href="#fixing-leaks-in-unit-tests"><span class="octicon octicon-link"></span></a>Fixing leaks in unit tests</h3>
+          <a name="user-content-fixing-leaks-in-unit-tests" class="anchor" href="#fixing-leaks-in-unit-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fixing leaks in unit tests</h3>
           
           <p>It is very easy to forget to release a buffer or a message in a unit test.  It will generate a leak warning, but it does not necessarily mean that your application has a leak.  Instead of wrapping your unit tests with <code>try-finally</code> blocks to release all buffers, you can use <code>ReferenceCountUtil.releaseLater()</code> utility method:</p>
           
@@ -478,7 +478,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 12-Jun-2014</small>
+                <small>Last retrieved on 24-Jun-2014</small>
               </div>
             </div>
           </div>
