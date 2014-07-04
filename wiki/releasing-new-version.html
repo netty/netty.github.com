@@ -68,6 +68,13 @@
                   </a>
                 </li>
                 <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta1.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.1.0.Beta1
+                    <small>&dash; 04-Jul-2014</small>
+                  </a>
+                </li>
+                <li>
                   <a href="http://dl.bintray.com/netty/downloads/netty-4.0.21.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
                     4.0.21.Final
@@ -116,6 +123,12 @@
                   <a href="../5.0/api/index.html">
                     <i class="fa fa-file-text"></i>
                     Javadoc - 5.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.1/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.1
                   </a>
                 </li>
                 <li>
@@ -289,6 +302,85 @@
           <li><p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p></li>
           <li>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
           </ol>
+          <h2 id="wiki-h2-6">
+          <a name="user-content-upload-a-tarball" class="anchor" href="#upload-a-tarball" aria-hidden="true"><span class="octicon octicon-link"></span></a>Upload a tarball</h2>
+          
+          <p>We use <a href="https://bintray.com/netty/downloads/netty/view">bintray.com</a> for hosting tarballs.</p>
+          
+          <ol class="task-list">
+          <li>Log in with your account.</li>
+          <li>
+          <a href="https://bintray.com/netty/downloads/netty/new/version">Add a new version</a>.
+          
+          <ol class="task-list">
+          <li>Type the version number and release date.  Note that the release date format is <code>dd/mm/yyyy</code>.</li>
+          <li>Click the 'Create Version' button.</li>
+          </ol>
+          </li>
+          <li>Put additional information to the newly created version.
+          
+          <ol class="task-list">
+          <li>Type the name of the Git tag in the 'VCS tag' field. (e.g. <code>netty-4.1.0.Beta1</code>) </li>
+          <li>Click the 'Update Version' button.</li>
+          </ol>
+          </li>
+          <li>Go to <a href="https://bintray.com/netty/downloads/netty/view">the download page</a>.</li>
+          <li>Click the link to the version you've just created, which will lead you to the version page.</li>
+          <li>Upload the tarball file.
+          
+          <ol class="task-list">
+          <li>Click the 'Upload Files' link.</li>
+          <li>Upload the tarball file (e.g. <code>netty-4.1.0.Beta1.tar.bz2</code>) by dragging and dropping the file into the 'Drag files here' area.</li>
+          <li>Click the 'Save Changes' button once the upload is finished.</li>
+          </ol>
+          </li>
+          <li>Publish the tarball file.
+          
+          <ol class="task-list">
+          <li>Bintray will warn you that you have 1 unpublished item. Click the 'Publish' button.</li>
+          </ol>
+          </li>
+          <li>Add the published tarball to the download list.
+          
+          <ol class="task-list">
+          <li>You've uploaded the tarball successfully, but the page will say 'No direct downloads selected for this package.'  It is because you did not make the tarball file visible in the download list.</li>
+          <li>Click the 'Files' tab.  You will see the tarball file you've uploaded.</li>
+          <li>Move your mouse cursor over the 'Actions' link of the tarball file, which will display a submenu.</li>
+          <li>Click the 'Show in download list'.</li>
+          <li>Now go back to the 'General' tab. Your tarball should be visible in the direct download list.</li>
+          </ol>
+          </li>
+          </ol>
+          <h2 id="wiki-h2-7">
+          <a name="user-content-update-the-web-site" class="anchor" href="#update-the-web-site" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update the web site</h2>
+          
+          <p>Our official web site is built with <a href="http://awestruct.org/">Awestruct</a>. Please make sure you are familiar with Awestruct and its related markup languages such as <a href="http://haml.info/">HAML</a> and Markdown.</p>
+          
+          <p>If you did not yet, clone the web site project:</p>
+          
+          <pre><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre>
+          
+          <p><code>_config/site.yml</code> contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
+          
+          <pre><code>releases:&#x000A;  - version: 5.0.0.Alpha1&#x000A;    date: 22-Dec-2013&#x000A;    stable: false&#x000A;    branch: master&#x000A;  - version: 4.0.21.Final&#x000A;    date: 01-Jul-2014&#x000A;    stable: true&#x000A;  - version: 3.9.2.Final&#x000A;    date: 11-Jun-2014&#x000A;    stable: true&#x000A;</code></pre>
+          
+          <p>Update it with the new version number and release date.  You could also update the stability and the Git branch if necessary.</p>
+          
+          <p>Try to generate the web site to confirm that the new version shows up in the generated web site.  The generated web site is located in the <code>_site</code> directory and you can browse it from your favorite web browser by opening <code>_site/index.html</code>.</p>
+          
+          <pre><code>_bin/clean.sh&#x000A;_bin/generate.sh&#x000A;</code></pre>
+          
+          <p>Update the Javadoc and Xref to the latest one.  You can copy them from your <code>netty/target/checkout/all/target</code> directory:</p>
+          
+          <div class="highlight highlight-bash"><pre><span class="nb">cd </span>4.1 <span class="c"># or the version you are working on</span>&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/api .&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/xref .&#x000A;git add -A .&#x000A;<span class="nb">cd</span> ..</pre></div>
+          
+          <p>Also, don't forget to add <code>_config/site.yml</code> we updated to the Git index when you commit:</p>
+          
+          <pre><code>git add _config/site.yml&#x000A;git commit -m "Release 4.1.0.Beta1"&#x000A;git push&#x000A;</code></pre>
+          
+          <p>Now you are ready to push the web site:</p>
+          
+          <pre><code>_bin/deploy.sh&#x000A;</code></pre>
               </div>
           
             </div></div>
@@ -303,6 +395,8 @@
           </li><li><a href="#wiki-h2-3" title="Netty 3">Netty 3</a>
           </li><li><a href="#wiki-h2-4" title="Netty 4 and beyond">Netty 4 and beyond</a>
           </li><li><a href="#wiki-h2-5" title="Netty/TomcatNative">Netty/TomcatNative</a>
+          </li><li><a href="#wiki-h2-6" title="Upload a tarball">Upload a tarball</a>
+          </li><li><a href="#wiki-h2-7" title="Update the web site">Update the web site</a>
           </li></ul>
           </div>
           </div>
@@ -310,7 +404,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 03-Jul-2014</small>
+                <small>Last retrieved on 04-Jul-2014</small>
               </div>
             </div>
           </div>
