@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: Setting up development environment</title>
+    <title>Netty.docs: New and noteworthy in 5.0</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -239,89 +239,45 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>Setting up development environment</h1>
+          <h1>New and noteworthy in 5.0</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Setting-up-development-environment">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.0">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Setting-up-development-environment">here!</a>
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.0">here!</a>
           </div>
           <div class="row">
           <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <div>
-          <strong>Looking for a tutorial?</strong> Visit <a class="internal present" href="index.html">the documentation home</a>. <strong>Got a question?</strong> Ask at <a href="https://stackoverflow.com/questions/tagged/netty">StackOverflow.com</a>.<br>Please note that this guide is <strong>not</strong> a 'user guide'.  It is not intended for the 'users' who build an application using Netty but for the contributors ('dev') who want to develop Netty itself.</div>
+                <p>This document walks you through the list of notable changes and new features in the major Netty release (since 4.1) to give you an idea to port your application to the new version.</p>
+          
+          <p>Unlike the changes between 3.x and 4.0, 5.0 did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.0 as smooth as possible, but please let us know if you encounter any issues during migration.</p>
           
           <h2 id="wiki-h2-1">
-          <a name="user-content-install-the-necessary-build-tools" class="anchor" href="#install-the-necessary-build-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install the necessary build tools</h2>
+          <a name="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core changes</h2>
           
-          <p>Your must have <a href="http://java.oracle.com/">Oracle JDK 7</a> or above, <a href="http://maven.apache.org/">Apache Maven 3.0.5</a> or above, and <a href="http://git-scm.com/">Git</a> installed on your machine.  If you are on Linux, you have to install the additional packages mentioned in <a class="internal present" href="native-transports.html">Native-transports</a>.</p>
+          <h3 id="wiki-h3-2">
+          <a name="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
           
-          <h2 id="wiki-h2-2">
-          <a name="user-content-git-line-ending-configuration" class="anchor" href="#git-line-ending-configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Git line ending configuration</h2>
+          <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
           
-          <p>We use native line ending for all source code (i.e. '<code>\n</code>' for *nix and MacOS X, '<code>\r\n</code>' for Windows.) Please configure your Git installation so that your build does not fail and you push bad files, following the instructions below:</p>
+          <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAdapter.html"><code>ChannelHandlerAdapter</code></a>.</p>
           
-          <ul class="task-list">
-          <li>
-          <a href="https://help.github.com/articles/dealing-with-line-endings">Dealing with line endings</a> by Github</li>
-          <li>
-          <a href="http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/">Mind the End of Your Line</a> by Tim Clem, for more information</li>
-          </ul>
-          <h2 id="wiki-h2-3">
-          <a name="user-content-set-up-intellij-idea" class="anchor" href="#set-up-intellij-idea" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set up IntelliJ IDEA</h2>
+          <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAppender.html"><code>ChannelHandlerAppender</code></a>.</p>
           
-          <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
+          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
+          
+          <h3 id="wiki-h3-3">
+          <a name="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
+          </h3>
+          
+          <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
           
           <h3 id="wiki-h3-4">
-          <a name="user-content-code-style" class="anchor" href="#code-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code style</h3>
+          <a name="user-content-removal-of-deregistration" class="anchor" href="#removal-of-deregistration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removal of deregistration</h3>
           
-          <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
-          
-          <h3 id="wiki-h3-5">
-          <a name="user-content-inspection-profile" class="anchor" href="#inspection-profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inspection profile</h3>
-          
-          <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358">here</a> to learn how to import an inspection profile.</p>
-          
-          <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
-          
-          <h3 id="wiki-h3-6">
-          <a name="user-content-copyright-profile" class="anchor" href="#copyright-profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright profile</h3>
-          
-          <p>Copyright text:</p>
-          
-          <pre lang="plain"><code>Copyright $today.year The Netty Project&#x000A;&#x000A;The Netty Project licenses this file to you under the Apache License,&#x000A;version 2.0 (the "License"); you may not use this file except in compliance&#x000A;with the License. You may obtain a copy of the License at:&#x000A;&#x000A;  http://www.apache.org/licenses/LICENSE-2.0&#x000A;&#x000A;Unless required by applicable law or agreed to in writing, software&#x000A;distributed under the License is distributed on an "AS IS" BASIS, WITHOUT&#x000A;WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the&#x000A;License for the specific language governing permissions and limitations&#x000A;under the License.&#x000A;</code></pre>
-          
-          <p>Keyword to detect copyright in comments:</p>
-          
-          <pre><code>The Netty project licenses&#x000A;</code></pre>
-          
-          <p>Allow replacing copyright if old copyright contains:</p>
-          
-          <pre><code>The Netty project licenses&#x000A;</code></pre>
-          
-          <h2 id="wiki-h2-7">
-          <a name="user-content-set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h2>
-          
-          <ol class="task-list">
-          <li>
-          <a href="http://repo1.maven.org/maven2/kr/motd/maven/os-maven-plugin/1.2.0.Final/os-maven-plugin-1.2.0.Final.jar">Download os-maven-plugin</a> and put it into <code>&lt;ECLIPSE_HOME&gt;/plugins</code> directory to work around the problem where m2e does not evaluate an extension specified in our <code>pom.xml</code>.  (Unlike its name, it's both a Maven plugin and an Eclipse plugin.)</li>
-          <li>Import the project via the 'File -&gt; Import... -&gt; Existing Maven Projects' menu.</li>
-          <li>Netty project Maven <code>pom.xml</code> settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.  There are two ways to work around this problem:
-          
-          <ol class="task-list">
-          <li>Look in the 'Window -&gt; Preferences -&gt; Installed JRE' menu:
-          
-          <ul class="task-list">
-          <li>Make sure you have Java 7 installation available under 'Installed JRE'</li>
-          <li>Map this Java 7 installation onto Java 6: 'Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6'</li>
-          </ul>
-          </li>
-          <li>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</li>
-          </ol>
-          </li>
-          </ol>
+          <p><code>Channel.deregister()</code> has been removed.  It was neither working nor used by users.  Instead, we are going to allow the re-registration of a [<code>Channel</code>] to a different event loop in the future.</p>
               </div>
           
             </div></div>
@@ -331,13 +287,11 @@
           <li class="nav-header">Table of Contents
           </li><li>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 21">Pages 21</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Install the necessary build tools">Install the necessary build tools</a>
-          </li><li><a href="#wiki-h2-2" title="Git line ending configuration">Git line ending configuration</a>
-          </li><li><a href="#wiki-h2-3" title="Set up IntelliJ IDEA">Set up IntelliJ IDEA</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Code style">Code style</a>
-          </li><li><a href="#wiki-h3-5" title="Inspection profile">Inspection profile</a>
-          </li><li><a href="#wiki-h3-6" title="Copyright profile">Copyright profile</a>
-          </li></ul></li><li><a href="#wiki-h2-7" title="Set up Eclipse with M2E and Java 7">Set up Eclipse with M2E and Java 7</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
+          </li><li><a href="#wiki-h3-3" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
+          </li><li><a href="#wiki-h3-4" title="Removal of deregistration">Removal of deregistration</a>
+          </li></ul>
           </li></ul>
           </div>
           </div>

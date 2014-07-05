@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: New and noteworthy in 5.x</title>
+    <title>Netty.docs: New and noteworthy in 4.1</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -239,25 +239,30 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>New and noteworthy in 5.x</h1>
+          <h1>New and noteworthy in 4.1</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.x">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.x">here!</a>
+            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">here!</a>
           </div>
           <div class="row">
           <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>This document walks you through the list of notable changes and new features in the major Netty release to give you an idea to port your application to the new version.</p>
-          
-          <p>Unlike the changes between 3.x and 4.x, 5.x did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.x as smooth as possible, but please let us know if you encounter any issues during migration.</p>
+                <p>This document walks you through the list of notable changes and new features between Netty 4.1 and 4.0.</p>
           
           <h2 id="wiki-h2-1">
+          <a name="user-content-tldr" class="anchor" href="#tldr" aria-hidden="true"><span class="octicon octicon-link"></span></a>TL;DR</h2>
+          
+          <p>Although we did our best to keep the backward compatibility from 4.0, 4.1 contains multiple additions which might not be fully backward-compatible with 4.0. Please make sure to recompile your application against the new version.</p>
+          
+          <p>When you recompile your application, you might find some deprecation warnings. Please make sure to fix them all by using the suggested alternative, so that you have less trouble when upgrading to the next version.</p>
+          
+          <h2 id="wiki-h2-2">
           <a name="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core changes</h2>
           
-          <h3 id="wiki-h3-2">
+          <h3 id="wiki-h3-3">
           <a name="user-content-android-support" class="anchor" href="#android-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>Android support</h3>
           
           <p>Given that:</p>
@@ -269,52 +274,38 @@
           </ul>
           <p>we decided to support Android (4.0 or above) officially.</p>
           
-          <h3 id="wiki-h3-3">
-          <a name="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
-          
-          <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
-          
-          <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAdapter.html"><code>ChannelHandlerAdapter</code></a>.</p>
-          
-          <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAppender.html"><code>ChannelHandlerAppender</code></a>.</p>
-          
-          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
+          <p>However, we do not have an automated testsuite for Android yet.  If you find any issues with Android, please feel free to <a href="https://github.com/netty/netty/issues">file an issue</a>.  Please also consider contributing to the project to make Android tests a part of the build process.</p>
           
           <h3 id="wiki-h3-4">
-          <a name="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
-          </h3>
-          
-          <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
-          
-          <h3 id="wiki-h3-5">
-          <a name="user-content-removal-of-deregistration" class="anchor" href="#removal-of-deregistration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removal of deregistration</h3>
-          
-          <p><code>Channel.deregister()</code> has been removed.  It was neither working nor used by users.  Instead, we are going to allow the re-registration of a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> to a different event loop in the future.</p>
-          
-          <h3 id="wiki-h3-6">
           <a name="user-content-channelhandlercontextattr--channelattr" class="anchor" href="#channelhandlercontextattr--channelattr" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
           </h3>
           
-          <p>Both <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> and <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/5.0/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> and a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
+          <p>Both <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a> and <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a> and a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
           
-          <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> internally.  <a href="http://netty.io/5.0/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> always uses <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/5.0/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
+          <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a> internally.  <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html"><code>AttributeMap</code></a> always uses <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
           
-          <h3 id="wiki-h3-7">
+          <h3 id="wiki-h3-5">
+          <a name="user-content-channelhasattr" class="anchor" href="#channelhasattr" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>Channel.hasAttr(...)</code>
+          </h3>
+          
+          <p>It is now possible to check if an attribute exists or not efficiently.</p>
+          
+          <h3 id="wiki-h3-6">
           <a name="user-content-easier-and-more-precise-buffer-leak-tracking" class="anchor" href="#easier-and-more-precise-buffer-leak-tracking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Easier and more precise buffer leak tracking</h3>
           
           <p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
           
           <p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
           
-          <h3 id="wiki-h3-8">
+          <h3 id="wiki-h3-7">
           <a name="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" href="#pooledbytebufallocator-as-the-default-allocator" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
           
           <p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
           
-          <h3 id="wiki-h3-9">
+          <h3 id="wiki-h3-8">
           <a name="user-content-globally-unique-channel-id" class="anchor" href="#globally-unique-channel-id" aria-hidden="true"><span class="octicon octicon-link"></span></a>Globally unique channel ID</h3>
           
-          <p>Every <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
+          <p>Every <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
           
           <ul class="task-list">
           <li>MAC address (EUI-48 or EUI-64), preferrably a globally unique one,</li>
@@ -324,23 +315,23 @@
           <li>a random 32-bit integer, and</li>
           <li>a sequentially incremented 32-bit integer.</li>
           </ul>
-          <p>The ID of a <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
+          <p>The ID of a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
           
-          <h3 id="wiki-h3-10">
+          <h3 id="wiki-h3-9">
           <a name="user-content-even-more-flexible-thread-model" class="anchor" href="#even-more-flexible-thread-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Even more flexible thread model</h3>
           
-          <p>A new interface called <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> has been added to give a user much more control over which thread should call an event handler method.  Instead of specifying an <a href="http://netty.io/5.0/api/io/netty/util/concurrent/EventExecutor.html"><code>EventExecutor</code></a> when adding a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> to a <a href="http://netty.io/5.0/api/io/netty/channel/ChannelPipeline.html"><code>ChannelPipeline</code></a>, specify a custom <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> implementation to take advantage of this feature.</p>
+          <p>A new interface called <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> has been added to give a user much more control over which thread should call an event handler method.  Instead of specifying an <a href="http://netty.io/4.1/api/io/netty/util/concurrent/EventExecutor.html"><code>EventExecutor</code></a> when adding a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> to a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelPipeline.html"><code>ChannelPipeline</code></a>, specify a custom <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerInvoker.html"><code>ChannelHandlerInvoker</code></a> implementation to take advantage of this feature.</p>
           
           <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/commit/132af3a485015ff912bd567a47881814d2ce1828">the commit 132af3a</a>.</p>
           
-          <h3 id="wiki-h3-11">
+          <h3 id="wiki-h3-10">
           <a name="user-content-embeddedchannel-usability" class="anchor" href="#embeddedchannel-usability" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>EmbeddedChannel</code> usability</h3>
           
-          <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/5.0/api/io/netty/channel/embedded/EmbeddedChannel.html"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
+          <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/4.1/api/io/netty/channel/embedded/EmbeddedChannel.html"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
           
           <div class="highlight highlight-java"><pre><span class="n">EmbeddedChannel</span> <span class="n">ch</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;&#x000A;<span class="c1">// BEFORE:</span>&#x000A;<span class="n">FullHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="o">(</span><span class="n">FullHttpRequest</span><span class="o">)</span> <span class="n">ch</span><span class="o">.</span><span class="na">readInbound</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// AFTER:</span>&#x000A;<span class="n">FullHttpRequest</span> <span class="n">req</span> <span class="o">=</span> <span class="n">ch</span><span class="o">.</span><span class="na">readInbound</span><span class="o">();</span></pre></div>
           
-          <h3 id="wiki-h3-12">
+          <h3 id="wiki-h3-11">
           <a name="user-content-ability-to-use-executor-instead-of-threadfactory" class="anchor" href="#ability-to-use-executor-instead-of-threadfactory" aria-hidden="true"><span class="octicon octicon-link"></span></a>Ability to use <code>Executor</code> instead of <code>ThreadFactory</code>
           </h3>
           
@@ -348,21 +339,64 @@
           
           <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1762">the pull request #1762</a>.</p>
           
-          <h3 id="wiki-h3-13">
+          <h3 id="wiki-h3-12">
           <a name="user-content-class-loader-friendliness" class="anchor" href="#class-loader-friendliness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class loader friendliness</h3>
           
           <p>Some types such as <code>AttributeKey</code> were unfriendly to the applications that run in a container environment, but not anymore.</p>
           
+          <h3 id="wiki-h3-13">
+          <a name="user-content-bytebufallocatorcalculatenewcapacity" class="anchor" href="#bytebufallocatorcalculatenewcapacity" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>ByteBufAllocator.calculateNewCapacity()</code>
+          </h3>
+          
+          <p>The logic that calculates the new capacity of the expanded <code>ByteBuf</code> has been moved from <code>AbstractByteBuf</code> to <code>ByteBufAllocator</code> because <code>ByteBufAllocator</code> knows better about the capacity calculation of the buffers it manages.</p>
+          
           <h2 id="wiki-h2-14">
-          <a name="user-content-codecs-and-handlers" class="anchor" href="#codecs-and-handlers" aria-hidden="true"><span class="octicon octicon-link"></span></a>Codecs and handlers</h2>
+          <a name="user-content-new-codecs-and-handlers" class="anchor" href="#new-codecs-and-handlers" aria-hidden="true"><span class="octicon octicon-link"></span></a>New codecs and handlers</h2>
           
           <ul class="task-list">
-          <li>
-          <a href="http://netty.io/5.0/api/io/netty/handler/codec/xml/XmlFrameDecoder.html"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
           <li>Binary memcache protocol codec</li>
-          <li>SPDY/3.1 support (also backported to 4.x)</li>
-          <li>Refactored HTTP multipart codec</li>
+          <li>BZip2 compression codec</li>
+          <li>DNS protocol codec</li>
+          <li>HAProxy protocol codec</li>
+          <li>MQTT protocol codec</li>
+          <li>SPDY/3.1 support</li>
+          <li>STOMP codec</li>
+          <li>
+          <a href="http://netty.io/4.1/api/io/netty/handler/codec/xml/XmlFrameDecoder.html"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
+          <li>
+          <a href="http://netty.io/4.1/api/io/netty/handler/codec/json/JsonObjectDecoder.html"><code>JsonObjectDecoder</code></a> that enables streaming of JSON objects.</li>
+          <li>IP filtering handlers</li>
           </ul>
+          <h2 id="wiki-h2-15">
+          <a name="user-content-other-codec-changes" class="anchor" href="#other-codec-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Other codec changes</h2>
+          
+          <h3 id="wiki-h3-16">
+          <a name="user-content-asciistring" class="anchor" href="#asciistring" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>AsciiString</code>
+          </h3>
+          
+          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/AsciiString.html"><code>AsciiString</code></a> is a new <code>CharSequence</code> implementation which contains only 1-byte characters.  You will find this class useful when you deal with a US-ASCII or ISO-8859-1 string.</p>
+          
+          <p>For instance, the HTTP codec and STOMP codec in Netty use <code>AsciiString</code> to represent the header names.  Because <code>AsciiString</code> does not have any conversion cost when encoding it into a <code>ByteBuf</code>, it guarantees better performance than using <code>String</code>.</p>
+          
+          <h3 id="wiki-h3-17">
+          <a name="user-content-textheaders" class="anchor" href="#textheaders" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>TextHeaders</code>
+          </h3>
+          
+          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/TextHeaders.html"><code>TextHeaders</code></a> provides a generic data structure for HTTP header-like string <a href="http://en.wikipedia.org/wiki/Multimap">multimaps</a>.  <code>HttpHeaders</code> also has been rewritten using <code>TextHeaders</code>.</p>
+          
+          <h3 id="wiki-h3-18">
+          <a name="user-content-messageaggregator" class="anchor" href="#messageaggregator" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>MessageAggregator</code>
+          </h3>
+          
+          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/MessageAggregator.html"><code>MessageAggregator</code></a> provides generic functionality that aggregates multiple small messages into a larger one, just like <code>HttpObjectAggregator</code> does.  <code>HttpObjectAggregator</code> also has been rewritten using <code>MessageAggregator</code>.</p>
+          
+          <h3 id="wiki-h3-19">
+          <a name="user-content-better-oversized-message-handling-with-httpobjectaggregator" class="anchor" href="#better-oversized-message-handling-with-httpobjectaggregator" aria-hidden="true"><span class="octicon octicon-link"></span></a>Better oversized message handling with <code>HttpObjectAggregator</code>
+          </h3>
+          
+          <p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
+          
+          <p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
               </div>
           
             </div></div>
@@ -371,21 +405,27 @@
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
           </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 20">Pages 20</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Android support">Android support</a>
-          </li><li><a href="#wiki-h3-3" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
-          </li><li><a href="#wiki-h3-4" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
-          </li><li><a href="#wiki-h3-5" title="Removal of deregistration">Removal of deregistration</a>
-          </li><li><a href="#wiki-h3-6" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
-          </li><li><a href="#wiki-h3-7" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
-          </li><li><a href="#wiki-h3-8" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
-          </li><li><a href="#wiki-h3-9" title="Globally unique channel ID">Globally unique channel ID</a>
-          </li><li><a href="#wiki-h3-10" title="Even more flexible thread model">Even more flexible thread model</a>
-          </li><li><a href="#wiki-h3-11" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
-          </li><li><a href="#wiki-h3-12" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
-          </li><li><a href="#wiki-h3-13" title="Class loader friendliness">Class loader friendliness</a>
-          </li></ul></li><li><a href="#wiki-h2-14" title="Codecs and handlers">Codecs and handlers</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 21">Pages 21</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="TL;DR">TL;DR</a>
+          </li><li><a href="#wiki-h2-2" title="Core changes">Core changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Android support">Android support</a>
+          </li><li><a href="#wiki-h3-4" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
+          </li><li><a href="#wiki-h3-5" title="Channel.hasAttr(...)">Channel.hasAttr(...)</a>
+          </li><li><a href="#wiki-h3-6" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
+          </li><li><a href="#wiki-h3-7" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
+          </li><li><a href="#wiki-h3-8" title="Globally unique channel ID">Globally unique channel ID</a>
+          </li><li><a href="#wiki-h3-9" title="Even more flexible thread model">Even more flexible thread model</a>
+          </li><li><a href="#wiki-h3-10" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
+          </li><li><a href="#wiki-h3-11" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
+          </li><li><a href="#wiki-h3-12" title="Class loader friendliness">Class loader friendliness</a>
+          </li><li><a href="#wiki-h3-13" title="ByteBufAllocator.calculateNewCapacity()">ByteBufAllocator.calculateNewCapacity()</a>
+          </li></ul></li><li><a href="#wiki-h2-14" title="New codecs and handlers">New codecs and handlers</a>
+          </li><li><a href="#wiki-h2-15" title="Other codec changes">Other codec changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-16" title="AsciiString">AsciiString</a>
+          </li><li><a href="#wiki-h3-17" title="TextHeaders">TextHeaders</a>
+          </li><li><a href="#wiki-h3-18" title="MessageAggregator">MessageAggregator</a>
+          </li><li><a href="#wiki-h3-19" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
+          </li></ul>
           </li></ul>
           </div>
           </div>
@@ -393,7 +433,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 04-Jul-2014</small>
+                <small>Last retrieved on 05-Jul-2014</small>
               </div>
             </div>
           </div>
