@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Announcing the new web site and Netty 3.5.1.Final</title>
-    <title>Netty: Announcing the new web site and Netty 3.5.1.Final</title>
+    <title>Netty.news: Netty 4.0.20.Final released</title>
+    <title>Netty: Netty 4.0.20.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -243,43 +243,82 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Announcing the new web site and Netty 3.5.1.Final
+                Netty 4.0.20.Final released
               </h1>
               <p class="byline">
                 <small>
                   by
-                  <a href="https://github.com/trustin">trustin</a>
+                  <a href="https://github.com/normanmaurer">normanmaurer</a>
                   <br>
                   on
-                  <time datetime="2012-06-25">25-Jun-2012</time>
+                  <time datetime="2014-06-12">12-Jun-2014</time>
                 </small>
               </p>
               <div class="news-content">
-                <div class="entry-content">
-                <p>There are two different yet exciting news this week.</p>
-                <p>As you might have noticed already, the Netty web site went from <span class="wikiexternallink"><a href="http://awestruct.org/">Awestruct</a></span> to <span class="wikiexternallink"><a href="http://www.xwiki.org/">XWiki</a></span>.  With this change, any registered user can now edit the documentation area of the web site on the fly.  You can use either WYSIWYG editor or wiki markup to edit the pages.  Previously, contributing to our documentation required a contributor to fork a repository and issue a pull request, which was sometimes a barrier to some people.  I expect this change will help more people contribute to the documentation in the long term.</p>
-                <p>Another good news is that Netty 3.5.1.Final has been released.  Here's the rough list of the notable changes:</p>
+                <p>Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
+                This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
+                with previous netty 4.0.x releases.</p>
+                
+                <p>For mre details please refer to the next sections.</p>
+                
+                <h2>Most important changes / fixes</h2>
+                
                 <ul>
-                <li>
-                <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/http/CookieDecoder.html"><tt>CookieDecoder</tt></a></span> handles HTTP cookies more correctly and faster.</li>
-                <li>
-                <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/http/HttpContentCompressor.html"><tt>HttpContentCompressor</tt></a></span> does not compress the content of an <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/http/HttpMessage.html"><tt>HttpMessage</tt></a></span> if its '<tt>Content-Encoding</tt>' is not '<tt>identity</tt>'.</li>
-                <li>You can set the <tt>unfold</tt> property of a <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/frame/FrameDecoder.html"><tt>FrameDecoder</tt></a></span> and <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/replay/ReplayingDecoder.html"><tt>ReplayingDecoder</tt></a></span> even if the decoder you extends does not expose it as a constructor parameter.</li>
-                <li>
-                <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/frame/FrameDecoder.html"><tt>FrameDecoder</tt></a></span> and <span class="wikiexternallink"><a href="http://netty.io/3.5/api/index.html?org/jboss/netty/handler/codec/replay/ReplayingDecoder.html"><tt>ReplayingDecoder</tt></a></span> do less memory copies than before.</li>
+                <li>Improve the allocation performance of pooled buffers larger than 8 KiB (<a href="https://github.com/netty/netty/issues/2518">#2518</a>)</li>
+                <li>Use ByteBuf.readSlice(...).retain() to minimize memory copies (<a href="https://github.com/netty/netty/pull/2477">#2464</a>)</li>
+                <li>ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (<a href="https://github.com/netty/netty/issues/2436">#2436</a> and (<a href="https://github.com/netty/netty/pull/2531">#2531</a>)</li>
+                <li>Introduce faster ThreadLocal (<a href="https://github.com/netty/netty/pull/2556">#2556</a>)</li>
+                <li>Optimize DefaultChannelPipeline in terms of memory usage and initialization time (<a href="https://github.com/netty/netty/pull/2546">#2546</a>)</li>
+                <li>Thread cache eviction task can erroneously prevent jvm from exiting (<a href="https://github.com/netty/netty/issues/2519">#2519</a>)</li>
+                <li>Add OpenSslEngine (<a href="https://github.com/netty/netty/pull/2464">#2464</a>)</li>
                 </ul>
-                <p>For the complete list of changes, visit <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?milestone=18&amp;state=closed">our Github issue tracker</a></span>.</p>
-                </div>
+                
+                
+                <p>Visit <a href="https://github.com/netty/netty/issues?milestone=90&amp;page=1&amp;state=closed">here</a> for the complete list of the changes.</p>
+                
+                <p>As always please let us know if you find any issues. We love feedback!</p>
+                
+                <h2>Special notes</h2>
+                
+                <h3>Using OpenSslEngine</h3>
+                
+                <p>For details how to use OpenSslEngine please refer to our <a href="/wiki/forked-tomcat-native.html#wiki-h2-1">Forked Tomcat Native</a> page.</p>
+                
+                <h1>Thank You</h1>
+                
+                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+                
+                <ul>
+                <li><a href="https://github.com/54k">@54k </a></li>
+                <li><a href="https://github.com/andreypanasenko">@andreypanasenko </a></li>
+                <li><a href="https://github.com/belliottsmith">@belliottsmith </a></li>
+                <li><a href="https://github.com/blucas">@blucas </a></li>
+                <li><a href="https://github.com/boboyada">@boboyada </a></li>
+                <li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
+                <li><a href="https://github.com/j3h">@j3h</a></li>
+                <li><a href="https://github.com/jchambers">@jchambers</a></li>
+                <li><a href="https://github.com/jeje">@jeje</a></li>
+                <li><a href="https://github.com/jpinner">@jpinner</a></li>
+                <li><a href="https://github.com/liyichao">@liyichao</a></li>
+                <li><a href="https://github.com/MiguelGL">@MiguelGL</a></li>
+                <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+                <li><a href="https://github.com/slandelle">@slandelle</a></li>
+                <li><a href="https://github.com/sunng87">@sunng87</a></li>
+                <li><a href="https://github.com/tea-dragon">@tea-dragon</a></li>
+                <li><a href="https://github.com/tjake">@tjake</a></li>
+                <li><a href="https://github.com/trustin">@trustin</a></li>
+                <li><a href="https://github.com/racorn">@racorn</a></li>
+                </ul>
               </div>
               <ul class="pager">
                 <li class="previous">
-                  <a href="../../../../news/2012/06/08/3-5-0-final.html">&larr; Older</a>
+                  <a href="../../../../news/2014/06/11/3-9-2-Final.html">&larr; Older</a>
                 </li>
                 <li>
                   <a href="../../../index.html">List all news items</a>
                 </li>
                 <li class="next">
-                  <a href="../../../../news/2012/07/05/3-5-2-final.html">Newer &rarr;</a>
+                  <a href="../../../../news/2014/07/01/4-0-21-Final.html">Newer &rarr;</a>
                 </li>
               </ul>
             </div>
@@ -288,9 +327,9 @@
                           <div id="disqus_thread"></div>
                           <script type="text/javascript">
                           var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2012/06/25/new-web-site-and-3-5-1-final.html";
+                          var disqus_url = "http://netty.io/news/2014/06/12/4-0-20-Final.html";
                           var disqus_developer = null;
-                          var disqus_identifier = "1654514869765240033";
+                          var disqus_identifier = "news/2014-06-12-4-0-20-Final.html";
                           (function() {
                             var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                             dsq.src = "http://netty0.disqus.com/embed.js";
