@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.docs: New and noteworthy in 5.0</title>
+    <title>Netty.docs: Adopters</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -245,69 +245,228 @@
     <div id="content">
       <div class="container">
         <div class="wiki-item">
-          <h1>New and noteworthy in 5.0</h1>
+          <h1>Adopters</h1>
           <div class="alert alert-info">
             Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.0">a Github Wiki page?</a>
+            <a href="https://github.com/netty/netty/wiki/Adopters">a Github Wiki page?</a>
             You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-5.0">here!</a>
+            <a href="https://github.com/netty/netty/wiki/Adopters">here!</a>
           </div>
-          <div class="row">
-          <div class="col-md-9">
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
               <div class="markdown-body">
-                <p>This document walks you through the list of notable changes and new features in the major Netty release (since 4.1) to give you an idea to port your application to the new version.</p>
+                <p>This page lists the organizations who adopted Netty in their projects or products.  Make sure to sort the list alphabetically and keep the list up-to-date.</p>
           
-          <p>Unlike the changes between 3.x and 4.0, 5.0 did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.0 as smooth as possible, but please let us know if you encounter any issues during migration.</p>
+          <ul class="task-list">
+          <li>
+          <a href="http://www.airbnb.com/">Airbnb</a>
           
-          <h2 id="wiki-h2-1">
-          <a name="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core changes</h2>
+          <ul class="task-list">
+          <li>
+          <a href="https://github.com/airbnb/plog">Plog</a> - Fire-and-forget UDP logging service with custom Netty pipelines &amp; extensive monitoring</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.avast.com/">Avast Software</a>
           
-          <h3 id="wiki-h3-2">
-          <a name="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
+          <ul class="task-list">
+          <li>Distributes their anti-virus updates to more than 100M users using Netty.</li>
+          <li>
+          <a href="http://s3-eu-west-1.amazonaws.com/presentations2012/14_presentation.pdf">Optimizing your cloud for millions of connections</a> (slides)</li>
+          <li><a href="http://www.karry.cz/karry/blog/2013/10/16/avast!_streaming_updates_-_real-time_system_for_distributing_updates_to_millions_of_users/">Streaming updates - real time system for distributing updates to millions of users</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://between.us/">Between</a>
           
-          <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
+          <ul class="task-list">
+          <li>A private mobile app for couples with over 5 million users to store and share their memories, providing an exclusive communication channel just between the two</li>
+          <li>
+          <a href="http://engineering.vcnc.co.kr/2013/04/between-system-architecture/">Between system architecture</a> (Korean; they built their API and messaging server with Netty.)</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.boundary.com/">Boundary</a>
           
-          <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAdapter.html"><code>ChannelHandlerAdapter</code></a>.</p>
+          <ul class="task-list">
+          <li>Monitors the continuously changing environment of distributed applications in real-time.</li>
+          <li><a href="http://boundary.com/blog/2012/05/02/know-a-delay-nagles-algorithm-and-you/">Know a delay: Nagle's algorithm and you</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://datastax.com/">DataStax</a>
           
-          <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAppender.html"><code>ChannelHandlerAppender</code></a>.</p>
+          <ul class="task-list">
+          <li>A commercial Cassandra vendor</li>
+          <li><a href="http://www.datastax.com/dev/blog/robust-and-scalable-distributed-queries">Robust and scalable distributed queries with DSE Search 4.0</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://elasticsearch.com/">Elasticsearch</a>
           
-          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
+          <ul class="task-list">
+          <li><a href="https://github.com/elasticsearch/elasticsearch/">Open Source, Distributed, RESTful Search Engine</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.esn.me/product/planet/">ESN Planet</a>
           
-          <h3 id="wiki-h3-3">
-          <a name="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
-          </h3>
+          <ul class="task-list">
+          <li>A feature-rich social real-time web platform which scales horizontally and vertically</li>
+          <li><a href="http://pushingtheweb.com/2010/06/useful-tools-for-jboss-netty/">Useful tools for Netty</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="https://www.facebook.com/">Facebook</a>
           
-          <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
+          <ul class="task-list">
+          <li>
+          <a href="https://github.com/facebook/nifty">Nifty</a> - Netty-based Thrift transport implementation</li>
+          </ul>
+          </li>
+          <li>
+          <a href="https://www.google.com/">Google</a>
           
-          <h3 id="wiki-h3-4">
-          <a name="user-content-removal-of-deregistration" class="anchor" href="#removal-of-deregistration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Removal of deregistration</h3>
+          <ul class="task-list">
+          <li>
+          <a href="https://developers.google.com/ad-exchange/rtb/open-bidder/guides/webserver">OpenBidder</a> - an open source real-time bidding (RTB) framework enabling you to bid ads at real time.</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://infinote.com/">Infinote</a>
           
-          <p><code>Channel.deregister()</code> has been removed.  It was neither working nor used by users.  Instead, we are going to allow the re-registration of a [<code>Channel</code>] to a different event loop in the future.</p>
+          <ul class="task-list">
+          <li>Brings the power of big data text analytics into Microsoft Word.</li>
+          <li><a href="https://twitter.com/adisesha/status/491449830665752577">A tweet by @adisesha</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://instagram.com">Instagram</a>
+          
+          <ul class="task-list">
+          <li>Used for IG Direct</li>
+          <li><a href="https://twitter.com/rbranson/status/411368634573795328">A tweet by @rbanson</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.kakao.com/talk">Kakao Talk</a>
+          
+          <ul class="task-list">
+          <li>A mobile messenger over 100 million people use.  They built their Android push server with Netty.</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.liquidlabs.com/">LiquidLabs LogScape</a>
+          
+          <ul class="task-list">
+          <li>A high performance log visualization tool that scales to thousands of machines; suitable for grid, cloud or SOA applications</li>
+          </ul>
+          </li>
+          <li>
+          <a href="https://maginatics.com/">Maginatics</a>
+          
+          <ul class="task-list">
+          <li>Delivers software-only storage platform natively designed for software-defined data centers and the cloud providers.</li>
+          <li><a href="https://twitter.com/diwakergupta/status/491338718834196480">A tweet by @diwakergupta</a></li>
+          </ul>
+          </li>
+          <li><a href="https://minecraft.net/">Minecraft</a></li>
+          <li>
+          <a href="https://www.netflix.com/">Netflix</a>
+          
+          <ul class="task-list">
+          <li>
+          <a href="http://www.youtube.com/watch?v=aEuNBk1b5OE">NetflixOSS Meetup</a> (video)</li>
+          <li>
+          <a href="https://github.com/Netflix/ribbon">Ribbon</a> - an inter-process communication (remote procedure calls) library with built-in software load balancers</li>
+          <li>
+          <a href="https://github.com/Netflix/RxNetty">RxNetty</a> - the Reactive extension (Rx) adaptor for Netty</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.redhat.com">Red Hat</a>
+          
+          <ul class="task-list">
+          <li>Uses Netty in their commercial products based on their open source projects.</li>
+          <li>
+          <a href="http://infinispan.org/">Infinispan</a> - a distributed in-memory key/value data grid and cache</li>
+          <li>
+          <a href="http://hornetq.jboss.org/">HornetQ</a> - a multi-protocol, embeddable, very high performance, clustered, asynchronous messaging system</li>
+          <li>
+          <a href="http://aerogear.org/">AeroGear Push</a> - support for different push notification technologies like Google Cloud Messaging, Apple's APNs or Mozilla's SimplePush</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.rememberthemilk.com/">Remember The Milk</a>
+          
+          <ul class="task-list">
+          <li>An on-line task management service</li>
+          <li><a href="http://blog.rememberthemilk.com/2011/08/real-time-updating-comes-to-the-remember-the-milk-web-app/">Real time updating comes to the Remember The Milk web app</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.sapo.pt/">SAPO</a>
+          
+          <ul class="task-list">
+          <li>A Portuguese internet service provider and web portal</li>
+          <li><a href="https://twitter.com/lneves/status/491515284352933888">A tweet by @lneves</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.searsholdings.com/">Sears Holdings Corporation</a>
+          
+          <ul class="task-list">
+          <li>An integrated retailer focused on seamlessly connecting the digital and physical shopping experiences</li>
+          <li><a href="https://twitter.com/adyrcz/status/491335978230226945">A tweet by @adyrcz</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="https://www.nous.net/">Nous</a>
+          
+          <ul class="task-list">
+          <li>
+          <a href="https://sparkprofit.com/">Spark Profit</a> - a free trading simulator that measures your predictive skill</li>
+          <li><a href="https://twitter.com/justinshort/status/491438156877529088">A tweet by @justinshort</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.stumbleupon.com/">StumbleUpon</a>
+          
+          <ul class="task-list">
+          <li><a href="https://github.com/OpenTSDB/opentsdb">OpenTSDB</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="https://twitter.com/">Twitter</a>
+          
+          <ul class="task-list">
+          <li>
+          <a href="https://twitter.github.io/finagle/">Finagle</a> and <a href="https://github.com/twitter/cloudhopper-smpp">Cloudhopper</a>
+          </li>
+          <li><a href="https://blog.twitter.com/2014/netty-at-twitter-with-finagle">Netty at Twitter with Finagle</a></li>
+          <li><a href="https://blog.twitter.com/2013/netty-4-at-twitter-reduced-gc-overhead">Netty 4 at Twitter reduced GC overhead</a></li>
+          <li><a href="https://blog.twitter.com/2011/twitter-search-now-3x-faster">Twitter Search is now 3x faster.</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://wasted.io">Wasted IO</a>
+          
+          <ul class="task-list">
+          <li><a href="https://github.com/wasted/netflow">Netflow</a></li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.yahoo.com/">Yahoo</a>
+          
+          <ul class="task-list">
+          <li><a href="http://yahooeng.tumblr.com/post/64758709722/making-storm-fly-with-netty">Making Storm fly with Netty</a></li>
+          </ul>
+          </li>
+          </ul>
               </div>
           
-            </div></div>
-          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
-          <div class="toc well">
-          <ul class="nav nav-list nav-stacked">
-          <li class="nav-header">Table of Contents
-          </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 22">Pages 22</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
-          </li><li><a href="#wiki-h3-3" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
-          </li><li><a href="#wiki-h3-4" title="Removal of deregistration">Removal of deregistration</a>
-          </li></ul>
-          </li></ul>
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <div class="text-right">
-                <small>Last retrieved on 24-Jul-2014</small>
-              </div>
             </div>
+          <div class="text-right clearfix">
+            <small>Last retrieved on 24-Jul-2014</small>
           </div>
         </div>
       </div>
