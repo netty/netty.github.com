@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Sneak Peek of Netty 4.0 through Examples</title>
-    <title>Netty: Sneak Peek of Netty 4.0 through Examples</title>
+    <title>Netty.news: Netty 3.9.3.Final released</title>
+    <title>Netty: Netty 3.9.3.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -249,7 +249,7 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Sneak Peek of Netty 4.0 through Examples
+                Netty 3.9.3.Final released
               </h1>
               <p class="byline">
                 <small>
@@ -257,26 +257,60 @@
                   <a href="https://github.com/trustin">trustin</a>
                   <br>
                   on
-                  <time datetime="2012-05-30">30-May-2012</time>
+                  <time datetime="2014-08-06">06-Aug-2014</time>
                 </small>
               </p>
               <div class="news-content">
-                <div class="entry-content">
-                <p>Interested in the recent progress of Netty 4.0.0.Alpha1? If you did not have a chance to keep track of the recent massive API changes in the master, you might want to start from <span class="wikiexternallink"><a href="https://github.com/netty/netty/tree/master/example/src/main/java/io/netty/example">the examples I have just forward-ported</a></span>.</p>
-                <p>The migration guide will be out and explain the new concepts and changes in 4.0, but basically you will find the code looks similar in most examples. For the rough list of changes in 4.0, please read <span class="wikiexternallink"><a href="https://groups.google.com/d/topic/netty/PFhK9oFRpvA">this</a></span> and <span class="wikiexternallink"><a href="https://groups.google.com/d/topic/netty/6dTbdXmHvD0">this</a></span>.</p>
-                <p>I would recommend you to load the whole project into your IDE and enjoy easier navigation. It does not build completely yet, but you can run many of the examples such as HTTP and WebSockets by yourself if your IDE allows running a project with compilation errors (Eclipse does.)</p>
-                <p>If you feel like participating into what is happening in Netty 4.0, it is really good time to join <span class="wikiexternallink"><a href="https://groups.google.com/d/forum/netty">the developer group</a></span> to give a quick feed back, ask questions, and suggest an idea. We are going to release the first alpha pretty soon!</p>
-                </div>
+                <p>Here's another micro update in 3.9 branch.</p>
+                
+                <ul>
+                <li><a href="https://github.com/netty/netty/issues/2093">#2093</a> - Fix a dead lock in <code>SslHandler</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2179">#2179</a> - Fix a message loss during HTTP protocol switch</li>
+                <li><a href="https://github.com/netty/netty/issues/2333">#2333</a> - Fix a redundant 'SSLEngine is closing/closed' exception</li>
+                <li><a href="https://github.com/netty/netty/pull/2626">#2626</a> - Upgrade JBoss Logging to the latest GA version (by <a href="https://github.com/gaol">@gaol</a>)</li>
+                <li><a href="https://github.com/netty/netty/pull/2683">#2683</a> - Fix a NPE in SPDY</li>
+                <li><a href="https://github.com/netty/netty/issues/2713">#2713</a> - Fix an incorrect <code>ConnectException</code> message</li>
+                <li><a href="https://github.com/netty/netty/pull/2714">#2714</a> - Fix a missing <code>channelInterestOpsChanged</code> event</li>
+                <li><a href="https://github.com/netty/netty/issues/2718">#2718</a> - Fix missing encrypted private key support in <code>JdkSslContext</code> (by <a href="https://github.com/schulzp">@schulzp</a>)</li>
+                <li><a href="https://github.com/netty/netty/issues/2728">#2728</a> - Disallow <code>ChannelFuture.setFailure(null)</code>, which leads to inconsistent state</li>
+                <li><a href="https://github.com/netty/netty/issues/2732">#2732</a> - Fix incorrect URI encoding in HTTP encoder</li>
+                <li><a href="https://github.com/netty/netty/issues/2735">#2735</a> - Do not simplify stack trace</li>
+                <li><a href="https://github.com/netty/netty/issues/2742">#2742</a> - Fix a bug where <code>SpdySessionHandler</code> sometimes does not handle all pending writes</li>
+                </ul>
+                
+                
+                <p>For the detail, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A3.9.3.Final+is%3Aclosed">our issue tracker</a>.</p>
+                
+                <p>As always, please let us know if you find any issues.  We love feedback!</p>
+                
+                <h1>Thank You</h1>
+                
+                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+                
+                <ul>
+                <li><a href="https://github.com/davsclaus">@davsclaus</a></li>
+                <li><a href="https://github.com/gaol">@gaol</a></li>
+                <li>hyangtack at gmail.com</li>
+                <li><a href="https://github.com/jfarcand">@jfarcand</a></li>
+                <li><a href="https://github.com/jpinner">@jpinner</a></li>
+                <li><a href="https://github.com/martin-robo">@martin-robo</a></li>
+                <li>nettyuser at gmail.com</li>
+                <li><a href="https://github.com/schulzp">@schulzp</a></li>
+                <li><a href="https://github.com/slandelle">@slandelle</a></li>
+                <li><a href="https://github.com/tom1401">@tom1401</a></li>
+                <li><a href="https://github.com/vikramgundeti">@vikramgundeti</a></li>
+                <li><a href="https://github.com/zaykl">@zaykl</a></li>
+                </ul>
               </div>
               <ul class="pager">
                 <li class="previous">
-                  <a href="../../../../news/2012/05/29/3-4-6-final.html">&larr; Older</a>
+                  <a href="../../../../news/2014/07/04/4-1-0-Beta1.html">&larr; Older</a>
                 </li>
                 <li>
                   <a href="../../../index.html">List all news items</a>
                 </li>
-                <li class="next">
-                  <a href="../../../../news/2012/06/08/3-5-0-final.html">Newer &rarr;</a>
+                <li class="next disabled">
+                  <a href="#">Newer &rarr;</a>
                 </li>
               </ul>
             </div>
@@ -285,9 +319,9 @@
                           <div id="disqus_thread"></div>
                           <script type="text/javascript">
                           var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2012/05/30/sneak-peek.html";
+                          var disqus_url = "http://netty.io/news/2014/08/06/3-9-3-Final.html";
                           var disqus_developer = null;
-                          var disqus_identifier = "6541815759333465777";
+                          var disqus_identifier = "news/2014-08-06-3-9-3-Final";
                           (function() {
                             var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                             dsq.src = "http://netty0.disqus.com/embed.js";

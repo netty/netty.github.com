@@ -2,9 +2,91 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-07-24T09:24:12-07:00</updated>
+  <updated>2014-08-06T13:42:52-07:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/08/06/3-9-3-Final.html</id>
+    <title>Netty 3.9.3.Final released</title>
+    <updated>2014-08-06T13:42:52-07:00</updated>
+    <published>2014-08-06T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/08/06/3-9-3-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      Here's another micro update in 3.9 branch.
+      
+      
+      #2093 - Fix a dead lock in SslHandler
+      #2179 - Fix a message loss during HTTP protocol switch
+      #2333 - Fix a redundant 'SSLEngine is closing/closed' exception
+      #2626 - Upgrade JBoss Logging to the latest GA version (by @gaol)
+      #2683 - Fix a NPE in SPDY
+      #2713 - Fix an incorrect ConnectException message
+      #2714 - Fix a missing channelInterestOpsChanged event
+      #2718 - Fix missing encrypted private key support in JdkSslContext (by @schulzp)
+      #2728 - Disallow ChannelFuture.setFailure(null), which leads to inconsistent state
+      #2732 - Fix incorrect URI encoding in HTTP encoder
+      #2735 - Do not simplify stack trace
+      #2742 - Fix a bug where SpdySessionHandler sometimes...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Here's another micro update in 3.9 branch.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2093&quot;&gt;#2093&lt;/a&gt; - Fix a dead lock in &lt;code&gt;SslHandler&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2179&quot;&gt;#2179&lt;/a&gt; - Fix a message loss during HTTP protocol switch&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2333&quot;&gt;#2333&lt;/a&gt; - Fix a redundant 'SSLEngine is closing/closed' exception&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2626&quot;&gt;#2626&lt;/a&gt; - Upgrade JBoss Logging to the latest GA version (by &lt;a href=&quot;https://github.com/gaol&quot;&gt;@gaol&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2683&quot;&gt;#2683&lt;/a&gt; - Fix a NPE in SPDY&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2713&quot;&gt;#2713&lt;/a&gt; - Fix an incorrect &lt;code&gt;ConnectException&lt;/code&gt; message&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2714&quot;&gt;#2714&lt;/a&gt; - Fix a missing &lt;code&gt;channelInterestOpsChanged&lt;/code&gt; event&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2718&quot;&gt;#2718&lt;/a&gt; - Fix missing encrypted private key support in &lt;code&gt;JdkSslContext&lt;/code&gt; (by &lt;a href=&quot;https://github.com/schulzp&quot;&gt;@schulzp&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2728&quot;&gt;#2728&lt;/a&gt; - Disallow &lt;code&gt;ChannelFuture.setFailure(null)&lt;/code&gt;, which leads to inconsistent state&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2732&quot;&gt;#2732&lt;/a&gt; - Fix incorrect URI encoding in HTTP encoder&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2735&quot;&gt;#2735&lt;/a&gt; - Do not simplify stack trace&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2742&quot;&gt;#2742&lt;/a&gt; - Fix a bug where &lt;code&gt;SpdySessionHandler&lt;/code&gt; sometimes does not handle all pending writes&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.3.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues.  We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/davsclaus&quot;&gt;@davsclaus&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gaol&quot;&gt;@gaol&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;hyangtack at gmail.com&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jfarcand&quot;&gt;@jfarcand&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/martin-robo&quot;&gt;@martin-robo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;nettyuser at gmail.com&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/schulzp&quot;&gt;@schulzp&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tom1401&quot;&gt;@tom1401&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vikramgundeti&quot;&gt;@vikramgundeti&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zaykl&quot;&gt;@zaykl&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/07/04/4-1-0-Beta1.html</id>
     <title>Netty 4.1.0.Beta1 released</title>
@@ -3213,35 +3295,6 @@
       &lt;script src=&quot;https://gist.github.com/3714017.js&quot;&gt;&lt;/script&gt;&lt;p&gt;But thats not all &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt; Its now possible to suspend accepting more connections/channels when you use Netty on the Server-side. For this just use something like that:&lt;/p&gt;
       &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
       &lt;script src=&quot;https://gist.github.com/3714032.js&quot;&gt;&lt;/script&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/09/06/3-5-7-final.html</id>
-    <title>Netty 3.5.7.Final released</title>
-    <updated>2014-07-24T09:24:12-07:00</updated>
-    <published>2012-09-06T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/09/06/3-5-7-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      After we got reported that the epoll(..) workaround was a way to aggressive (because of a bug) in our latest release we thought it would be time to cut another one which fix the mentioned problem. So here you get it!
-      This mentioned epoll(..) bug can lead to very excessive cpu-spinning, which will most likely produce 100% cpu usage on the core that runs the thread of the NioWorker or NioDatagramWorker.  For more informations please see #327, #565.
-      The workaround is disabled by default at the moment. This is because we want to be sure its "mature" enough before enable it by...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;&lt;span&gt;After we got reported that the epoll(..) workaround was a way to aggressive (because of a bug) in our latest release we thought it would be time to cut another one which fix the mentioned problem. So here you get it!&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;This mentioned epoll(..) bug can lead to very excessive cpu-spinning, which will most likely produce 100% cpu usage on the core that runs the thread of the NioWorker or NioDatagramWorker.  For more informations please see &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/327&quot;&gt;#327&lt;/a&gt;&lt;/span&gt;, &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/565&quot;&gt;#565&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;The workaround is disabled by default at the moment. This is because we want to be sure its &quot;mature&quot; enough before enable it by default. Anyway, if you got hit by the bug enable the workaround via the &lt;em&gt;org.jboss.netty.epoolBugWorkaround&lt;/em&gt;  System Property.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3651750.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Another problem which was solved was only effecting Windows users most of the times, when using Netty on the client-side. Once you released the external resources you sometimes saw a ChannelException&lt;span&gt;. This was an effect of a small race-condition which was present during checking for connection timeout and the release of the resources. This was fixed as part of &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/395&quot;&gt;#395&lt;/a&gt;&lt;/span&gt;.&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;For all of the other changes please checkout our &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=26&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/p&gt;
-      &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.7.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
-      &lt;p&gt;Enjoy coding, and sorry for the &quot;buggy&quot; 3.5.6.Final release before!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
