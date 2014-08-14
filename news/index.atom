@@ -2,9 +2,137 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-08-06T13:42:52-07:00</updated>
+  <updated>2014-08-14T14:27:49-07:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/08/14/4-0-22-Final.html</id>
+    <title>Netty 4.0.22.Final released</title>
+    <updated>2014-08-14T14:27:49-07:00</updated>
+    <published>2014-08-14T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/08/14/4-0-22-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      Here's another micro update in 4.0 branch.
+      
+      
+      #2028 - Unpooled.copiedBuffer(...) now always returns a heap buffer due to high off-heap allocation/deallocation overhead
+      #2433 #2627 #2647 #2667 #2680 #2761 #2764 - Fix various bugs in the epoll transport and ChannelOutboundBuffer
+      #2508 - Improve the build speed
+      #2558 - Fix a build issue in the epoll transport
+      #2571 #2651 #2662 - Fix regressions in HashedWheelTimer
+      #2632 - Reduce the perceived time taken for the initialization of ThreadLocalRandom
+      #2634 - Reduce the garbage produced by HttpObjectAggregator
+      #2642 - Reduce the garbage produced by CompositeByteBuf
+      #2644 #2665 - Fix bugs in NioDatagramChannel
+      #2650 - Provide a way to disable HTTP header validation in SpdyHttpDecoder
+      #2653...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Here's another micro update in 4.0 branch.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2028&quot;&gt;#2028&lt;/a&gt; - &lt;code&gt;Unpooled.copiedBuffer(...)&lt;/code&gt; now always returns a heap buffer due to high off-heap allocation/deallocation overhead&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2433&quot;&gt;#2433&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2627&quot;&gt;#2627&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2647&quot;&gt;#2647&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2667&quot;&gt;#2667&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2680&quot;&gt;#2680&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2761&quot;&gt;#2761&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2764&quot;&gt;#2764&lt;/a&gt; - Fix various bugs in the epoll transport and &lt;code&gt;ChannelOutboundBuffer&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2508&quot;&gt;#2508&lt;/a&gt; - Improve the build speed&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2558&quot;&gt;#2558&lt;/a&gt; - Fix a build issue in the epoll transport&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2571&quot;&gt;#2571&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2651&quot;&gt;#2651&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2662&quot;&gt;#2662&lt;/a&gt; - Fix regressions in &lt;code&gt;HashedWheelTimer&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2632&quot;&gt;#2632&lt;/a&gt; - Reduce the perceived time taken for the initialization of &lt;code&gt;ThreadLocalRandom&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2634&quot;&gt;#2634&lt;/a&gt; - Reduce the garbage produced by &lt;code&gt;HttpObjectAggregator&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2642&quot;&gt;#2642&lt;/a&gt; - Reduce the garbage produced by &lt;code&gt;CompositeByteBuf&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2644&quot;&gt;#2644&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2665&quot;&gt;#2665&lt;/a&gt; - Fix bugs in &lt;code&gt;NioDatagramChannel&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2650&quot;&gt;#2650&lt;/a&gt; - Provide a way to disable HTTP header validation in &lt;code&gt;SpdyHttpDecoder&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2653&quot;&gt;#2653&lt;/a&gt; - Fix performance regression in &lt;code&gt;ByteBuf.forEachByte()&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2659&quot;&gt;#2659&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2676&quot;&gt;#2676&lt;/a&gt; - Fix bugs in &lt;code&gt;IntObjectHashMap&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2660&quot;&gt;#2660&lt;/a&gt; - Fix a &lt;code&gt;NullPointerException&lt;/code&gt; in &lt;code&gt;WebSocketFrameDecoder&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2664&quot;&gt;#2664&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2684&quot;&gt;#2684&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2685&quot;&gt;#2685&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2698&quot;&gt;#2698&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2710&quot;&gt;#2710&lt;/a&gt; - Improve the performance of the epoll transport&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2666&quot;&gt;#2666&lt;/a&gt; - Fix a &lt;code&gt;NullPointerException&lt;/code&gt; when a connection attempt is finished&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2675&quot;&gt;#2675&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2722&quot;&gt;#2722&lt;/a&gt; - Fix bugs in traffic shaping handlers&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2682&quot;&gt;#2682&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2743&quot;&gt;#2743&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2753&quot;&gt;#2753&lt;/a&gt; - Fix bugs in the SPDY codec&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2692&quot;&gt;#2692&lt;/a&gt; - Fix a bug where &lt;code&gt;ChannelProgressiveFutureListener.opreationProgressed()&lt;/code&gt; is not always called&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2693&quot;&gt;#2693&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2704&quot;&gt;#2704&lt;/a&gt; - Reduce the memory consumption per &lt;code&gt;Channel&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2705&quot;&gt;#2705&lt;/a&gt; - Fix a missing &lt;code&gt;channelReadComplete()&lt;/code&gt; event from &lt;code&gt;ByteToMessageDecoder&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2720&quot;&gt;#2720&lt;/a&gt; - Fix noisy log messages while trying to get &lt;code&gt;SOMAXCONN&lt;/code&gt; value in non-Linux&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2733&quot;&gt;#2733&lt;/a&gt; - Add more ways to determine if the epoll transport is available, and to know why if unavailable&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2734&quot;&gt;#2734&lt;/a&gt; - Refactor &lt;code&gt;ChannelOutboundBuffer&lt;/code&gt; for robustness and simplicity&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2752&quot;&gt;#2752&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2754&quot;&gt;#2754&lt;/a&gt; - &lt;code&gt;Channel.isWritable()&lt;/code&gt; can be inaccurate when &lt;code&gt;SslHandler&lt;/code&gt; is in the pipeline.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.22.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues.  We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/brettwooldridge&quot;&gt;@brettwooldridge&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/frouleau&quot;&gt;@frouleau&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;hyangtack at gmail.com&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jknair&quot;&gt;@jknair&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lokeshhctm&quot;&gt;@lokeshhctm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/notz&quot;&gt;@notz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/onlychoice&quot;&gt;@onlychoice&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/opinali&quot;&gt;@opinali&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/purplefox&quot;&gt;@purplefox&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rxin&quot;&gt;@rxin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/turbospaces&quot;&gt;@turbospaces&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/WillemJiang&quot;&gt;@WillemJiang&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zcourts&quot;&gt;@zcourts&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhuguowei01&quot;&gt;@zhuguowei01&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/08/06/3-9-3-Final.html</id>
     <title>Netty 3.9.3.Final released</title>
@@ -3224,77 +3352,6 @@
       &lt;/ul&gt;
       &lt;p&gt;For complete list of changes, check &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=29&amp;amp;state=closed&quot;&gt;our issue tracker&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
       &lt;p&gt;As Norman mentioned when announcing &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/news/2012/09/13/4-0-0-alpha4.html&quot;&gt;4.0.0.Alpha4&lt;/a&gt;&lt;/span&gt;, the API is now pretty stable and we did not see any changes in the core API recently.  In the next release, I'm probably going to introduce buffer pooling and Netty 4 should be ready for beta finally.&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/09/13/4-0-0-alpha4.html</id>
-    <title>Netty 4.0.0.Alpha4 is out</title>
-    <updated>2014-07-24T09:24:12-07:00</updated>
-    <published>2012-09-13T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/09/13/4-0-0-alpha4.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      The next Alpha release of the upcomming major version release, is ready to get tested by you.
-      We are very confinced that the API is quite stable at this point and so you should not expect to many API breakages anymore. So if you plan to start a new project it may be the right time to you on focus on Netty 4.0.0 for it.
-      
-      For all fixed bugs and changes please checkout our issue tracker. 
-      You can find the release on  the download page, or just grab it via maven as usual.
-      Please let us know if you have any problems or questions....
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;The next Alpha release of the upcomming major version release, is ready to get tested by you.&lt;/p&gt;
-      &lt;p&gt;We are very confinced that the API is quite stable at this point and so you should not expect to many API breakages anymore. So if you plan to start a new project it may be the right time to you on focus on Netty 4.0.0 for it.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;For all fixed bugs and changes please checkout our &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=27&amp;amp;page=1&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/p&gt;
-      &lt;p&gt;You can find the release on  &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;, or just grab it via maven as usual.&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions. And as by the way, we love pull-requests / contributions &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_wink.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_wink&quot;&gt;&lt;/p&gt;
-      &lt;p&gt;We really hope you will enjoy this new release as much as we do &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt;&lt;/p&gt;
-      &lt;p&gt;Have fun...&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;h2 id=&quot;HImportantchanges&quot;&gt;&lt;span&gt;Important changes&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;&lt;span&gt;This release ships the workaround for the epoll(..) bug that we also released as part of 3.5.7.Final!&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;This mentioned epoll(..) bug can lead to very excessive cpu-spinning, which will most likely produce 100% cpu usage on the core that runs the thread of the NioEventLoop.  For more informations please see &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/327&quot;&gt;#327&lt;/a&gt;&lt;/span&gt;, &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/565&quot;&gt;#565&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;The workaround is disabled by default at the moment. This is because we want to be sure its &quot;mature&quot; enough before enable it by default. Anyway, if you got hit by the bug enable the workaround via the &lt;em&gt;org.jboss.netty.epoolBugWorkaround&lt;/em&gt;  System Property.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3713638.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Also we had some important bug-fixes and improvments in the AIO transport( mostly driven by &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://www.kaazing.com&quot;&gt;Kaazing &lt;/a&gt;&lt;/span&gt;)and WebSocket bugfixes (mostly driven by &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://www.twitter.com&quot;&gt;Twitter&lt;/a&gt;&lt;/span&gt;). Thank you &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt;&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;h2 id=&quot;HUpgradenotes&quot;&gt;&lt;span&gt;Upgrade notes&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;If you plan to upgrade from previous 4.0.0 Alpha releases be aware of one little api breakage which will probably effect you. Its about the Bootstrap and ServerBootstrap.. The breakage was needed to allow the reuse of Bootstrap and ServerBootsrap instances.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;The old way of configure it:&lt;/p&gt;
-      &lt;script src=&quot;https://gist.github.com/3713663.js&quot;&gt;&lt;/script&gt;&lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;The new one in 4.0.0.Alpha4:&lt;/p&gt;
-      &lt;script src=&quot;https://gist.github.com/3713665.js&quot;&gt;&lt;/script&gt;&lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;The important change here is that the Bootstrap.channel(..) method now takes a Class argument, before it was the actual instance. This allows the Bootstrap to create instances by its own when Boostream.bind(..) is called. If your Channel implementation does not have a default constructor or you need to pass more informations to the Channel when its created, just use the new Bootstrap.channel(..) method that allows to get a Bootstrap.ChannelFactory instances to get passed.&lt;/p&gt;
-      &lt;script src=&quot;https://gist.github.com/3713712.js&quot;&gt;&lt;/script&gt;&lt;p&gt;If you upgrade from a 3.x release be sure to read &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;the complete summary of changes&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;h2 id=&quot;HNewfeatures&quot;&gt;&lt;span&gt;New features&lt;/span&gt;&lt;/h2&gt;
-      &lt;h3 id=&quot;HSCTPsupport&quot;&gt;&lt;span&gt;SCTP support&lt;/span&gt;&lt;/h3&gt;
-      &lt;p&gt;Netty 4.0.0.Alpha4 comes with SCTP support included. This will only work on Operation Systems that ship with SCTP support (for example linux). Also be sure that you install the user-space libs that you need to acces it.&lt;/p&gt;
-      &lt;p&gt;For example on Ubuntu this would be done via:&lt;/p&gt;
-      &lt;pre&gt;&lt;span&gt;# apt-get install libsctp1&lt;/span&gt;&lt;/pre&gt;
-      &lt;p&gt;One fedora you will need some extra kernel modules:&lt;/p&gt;
-      &lt;pre&gt;&lt;span&gt;# yum install kernel-modules-extra.x86_64 lksctp-tools.x86_64&lt;/span&gt;&lt;/pre&gt;
-      &lt;p&gt;After that you should be able to give it a spin. You can find the example code &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a title=&quot;SCTP examples&quot; href=&quot;https://github.com/netty/netty/tree/netty-4.0.0.Alpha4/example/src/main/java/io/netty/example/sctp&quot;&gt;here&lt;/a&gt;&lt;/span&gt; for Client and Server implementations. Thanks again to &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/jestan&quot;&gt;Jestan Nirojan&lt;/a&gt;&lt;/span&gt; for porting it over to the new API.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;h3 id=&quot;HWebSocketenhancements&quot;&gt;&lt;span&gt;WebSocket enhancements&lt;/span&gt;&lt;/h3&gt;
-      &lt;p&gt;Another change to worth mention was contributed by &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/danbev&quot;&gt;Daniel Bevenius&lt;/a&gt;&lt;/span&gt;. This change makes it even easier to write WebSocket Server with Netty as it will help to do all the ground work for you. This allows you to only focus on the core implementation. Before you had to write code for doing the handshake and also handle all the other basics( like handle the CloseWebSocketFrame and PingWebSocketFrame). All of these boiler-blade code is gone now!&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;Checkout a basic example of using the new handler:&lt;/p&gt;
-      &lt;script src=&quot;https://gist.github.com/3713842.js&quot;&gt;&lt;/script&gt;&lt;h3 id=&quot;HSuspendreads2Faccept&quot;&gt;&lt;span&gt;Suspend reads/accept&lt;/span&gt;&lt;/h3&gt;
-      &lt;p&gt;Sometimes it can be helpful for you to suspend reads on channel, this allows you to not need to buffer all of the data in your application code till you are ready to process again. This feature was present in 3.x also but was a bit error-phrone so we thought we should give it some more love to make it a bit more useful.&lt;/p&gt;
-      &lt;p&gt;In 3.x you would just set the Channel readable/non-readable:&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3713980.js&quot;&gt;&lt;/script&gt;&lt;p&gt;The problem with this was that it was easy to &quot;break&quot; things when one ChannelHandler disabled the Channel to read and some other enabled it again because of some intern logic which was not aware of the other ChannelHandler that was suspend reads before.&lt;/p&gt;
-      &lt;p&gt;To overcome this problem we changed the implementation to be slightly different. Now you need to suspend reads / continue reads on the actual ChannelHandlerContext which is bound to the ChannelHandler. If at least one ChannelHandlerContext has reads suspend it will handled by the Channel this way. This way you don't need to worry about other ChannelHandler in the pipeline and about the changes they make.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3714017.js&quot;&gt;&lt;/script&gt;&lt;p&gt;But thats not all &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt; Its now possible to suspend accepting more connections/channels when you use Netty on the Server-side. For this just use something like that:&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3714032.js&quot;&gt;&lt;/script&gt;
       &lt;/div&gt;
     </content>
   </entry>

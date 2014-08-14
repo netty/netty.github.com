@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 3.5.2.Final is out</title>
-    <title>Netty: Netty 3.5.2.Final is out</title>
+    <title>Netty.news: Netty 4.0.22.Final released</title>
+    <title>Netty: Netty 4.0.22.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -249,35 +249,92 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Netty 3.5.2.Final is out
+                Netty 4.0.22.Final released
               </h1>
               <p class="byline">
                 <small>
                   by
-                  <a href="https://github.com/normanmaurer">normanmaurer</a>
+                  <a href="https://github.com/trustin">trustin</a>
                   <br>
                   on
-                  <time datetime="2012-07-05">05-Jul-2012</time>
+                  <time datetime="2014-08-14">14-Aug-2014</time>
                 </small>
               </p>
               <div class="news-content">
-                <div class="entry-content">
-                <p>The Netty project team is proud to announce Netty 3.5.2.Final, the second bug-fix release of the 3.5.x series.</p>
-                <p>The JAR file is already on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.2.Final%7Cbundle">Maven Central</a></span>. You can also get the full tarball from <span class="wikiexternallink"><a href="http://netty.io/downloads.html">the download page</a></span>.</p>
-                <p>Beside bugfixes this version also ships more optimizations to save byte-copies when ever possible. This results in very notable speed-improvement. So if you are concerned about speed just give it a spin.</p>
-                <p>For the detailed list of the changes, please refer to <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?milestone=19&amp;state=closed">the issue tracker</a></span>.</p>
-                <p>Enjoy!</p>
-                </div>
+                <p>Here's another micro update in 4.0 branch.</p>
+                
+                <ul>
+                <li><a href="https://github.com/netty/netty/issues/2028">#2028</a> - <code>Unpooled.copiedBuffer(...)</code> now always returns a heap buffer due to high off-heap allocation/deallocation overhead</li>
+                <li><a href="https://github.com/netty/netty/issues/2433">#2433</a> <a href="https://github.com/netty/netty/pull/2627">#2627</a> <a href="https://github.com/netty/netty/issues/2647">#2647</a> <a href="https://github.com/netty/netty/issues/2667">#2667</a> <a href="https://github.com/netty/netty/issues/2680">#2680</a> <a href="https://github.com/netty/netty/issues/2761">#2761</a> <a href="https://github.com/netty/netty/issues/2764">#2764</a> - Fix various bugs in the epoll transport and <code>ChannelOutboundBuffer</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2508">#2508</a> - Improve the build speed</li>
+                <li><a href="https://github.com/netty/netty/issues/2558">#2558</a> - Fix a build issue in the epoll transport</li>
+                <li><a href="https://github.com/netty/netty/issues/2571">#2571</a> <a href="https://github.com/netty/netty/issues/2651">#2651</a> <a href="https://github.com/netty/netty/issues/2662">#2662</a> - Fix regressions in <code>HashedWheelTimer</code></li>
+                <li><a href="https://github.com/netty/netty/pull/2632">#2632</a> - Reduce the perceived time taken for the initialization of <code>ThreadLocalRandom</code></li>
+                <li><a href="https://github.com/netty/netty/pull/2634">#2634</a> - Reduce the garbage produced by <code>HttpObjectAggregator</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2642">#2642</a> - Reduce the garbage produced by <code>CompositeByteBuf</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2644">#2644</a> <a href="https://github.com/netty/netty/issues/2665">#2665</a> - Fix bugs in <code>NioDatagramChannel</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2650">#2650</a> - Provide a way to disable HTTP header validation in <code>SpdyHttpDecoder</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2653">#2653</a> - Fix performance regression in <code>ByteBuf.forEachByte()</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2659">#2659</a> <a href="https://github.com/netty/netty/pull/2676">#2676</a> - Fix bugs in <code>IntObjectHashMap</code></li>
+                <li><a href="https://github.com/netty/netty/pull/2660">#2660</a> - Fix a <code>NullPointerException</code> in <code>WebSocketFrameDecoder</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2664">#2664</a> <a href="https://github.com/netty/netty/issues/2684">#2684</a> <a href="https://github.com/netty/netty/issues/2685">#2685</a> <a href="https://github.com/netty/netty/pull/2698">#2698</a> <a href="https://github.com/netty/netty/pull/2710">#2710</a> - Improve the performance of the epoll transport</li>
+                <li><a href="https://github.com/netty/netty/issues/2666">#2666</a> - Fix a <code>NullPointerException</code> when a connection attempt is finished</li>
+                <li><a href="https://github.com/netty/netty/issues/2675">#2675</a> <a href="https://github.com/netty/netty/pull/2722">#2722</a> - Fix bugs in traffic shaping handlers</li>
+                <li><a href="https://github.com/netty/netty/pull/2682">#2682</a> <a href="https://github.com/netty/netty/issues/2743">#2743</a> <a href="https://github.com/netty/netty/pull/2753">#2753</a> - Fix bugs in the SPDY codec</li>
+                <li><a href="https://github.com/netty/netty/issues/2692">#2692</a> - Fix a bug where <code>ChannelProgressiveFutureListener.opreationProgressed()</code> is not always called</li>
+                <li><a href="https://github.com/netty/netty/issues/2693">#2693</a> <a href="https://github.com/netty/netty/pull/2704">#2704</a> - Reduce the memory consumption per <code>Channel</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2705">#2705</a> - Fix a missing <code>channelReadComplete()</code> event from <code>ByteToMessageDecoder</code></li>
+                <li><a href="https://github.com/netty/netty/issues/2720">#2720</a> - Fix noisy log messages while trying to get <code>SOMAXCONN</code> value in non-Linux</li>
+                <li><a href="https://github.com/netty/netty/issues/2733">#2733</a> - Add more ways to determine if the epoll transport is available, and to know why if unavailable</li>
+                <li><a href="https://github.com/netty/netty/pull/2734">#2734</a> - Refactor <code>ChannelOutboundBuffer</code> for robustness and simplicity</li>
+                <li><a href="https://github.com/netty/netty/issues/2752">#2752</a> <a href="https://github.com/netty/netty/pull/2754">#2754</a> - <code>Channel.isWritable()</code> can be inaccurate when <code>SslHandler</code> is in the pipeline.</li>
+                </ul>
+                
+                
+                <p>For the detail, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.22.Final+is%3Aclosed">our issue tracker</a>.</p>
+                
+                <p>As always, please let us know if you find any issues.  We love feedback!</p>
+                
+                <h1>Thank You</h1>
+                
+                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+                
+                <ul>
+                <li><a href="https://github.com/blucas">@blucas</a></li>
+                <li><a href="https://github.com/brettwooldridge">@brettwooldridge</a></li>
+                <li><a href="https://github.com/daschl">@daschl</a></li>
+                <li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
+                <li><a href="https://github.com/frouleau">@frouleau</a></li>
+                <li>hyangtack at gmail.com</li>
+                <li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
+                <li><a href="https://github.com/jpinner">@jpinner</a></li>
+                <li><a href="https://github.com/jknair">@jknair</a></li>
+                <li><a href="https://github.com/Lekanich">@Lekanich</a></li>
+                <li><a href="https://github.com/lokeshhctm">@lokeshhctm</a></li>
+                <li><a href="https://github.com/nmittler">@nmittler</a></li>
+                <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+                <li><a href="https://github.com/notz">@notz</a></li>
+                <li><a href="https://github.com/onlychoice">@onlychoice</a></li>
+                <li><a href="https://github.com/opinali">@opinali</a></li>
+                <li><a href="https://github.com/purplefox">@purplefox</a></li>
+                <li><a href="https://github.com/rxin">@rxin</a></li>
+                <li><a href="https://github.com/slandelle">@slandelle</a></li>
+                <li><a href="https://github.com/trustin">@trustin</a></li>
+                <li><a href="https://github.com/turbospaces">@turbospaces</a></li>
+                <li><a href="https://github.com/WillemJiang">@WillemJiang</a></li>
+                <li><a href="https://github.com/zcourts">@zcourts</a></li>
+                <li><a href="https://github.com/zhuguowei01">@zhuguowei01</a></li>
+                </ul>
               </div>
               <ul class="pager">
                 <li class="previous">
-                  <a href="../../../../news/2012/06/25/new-web-site-and-3-5-1-final.html">&larr; Older</a>
+                  <a href="../../../../news/2014/08/06/3-9-3-Final.html">&larr; Older</a>
                 </li>
                 <li>
                   <a href="../../../index.html">List all news items</a>
                 </li>
-                <li class="next">
-                  <a href="../../../../news/2012/07/13/4-0-0-alpha1.html">Newer &rarr;</a>
+                <li class="next disabled">
+                  <a href="#">Newer &rarr;</a>
                 </li>
               </ul>
             </div>
@@ -286,9 +343,9 @@
                           <div id="disqus_thread"></div>
                           <script type="text/javascript">
                           var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2012/07/05/3-5-2-final.html";
+                          var disqus_url = "http://netty.io/news/2014/08/14/4-0-22-Final.html";
                           var disqus_developer = null;
-                          var disqus_identifier = "1859345903203357503";
+                          var disqus_identifier = "news/2014-08-14-4-0-22-Final";
                           (function() {
                             var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                             dsq.src = "http://netty0.disqus.com/embed.js";
