@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta1.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta2.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.Beta1
-                    <small>&dash; 04-Jul-2014</small>
+                    4.1.0.Beta2
+                    <small>&dash; 14-Aug-2014</small>
                   </a>
                 </li>
                 <li>
@@ -361,12 +361,21 @@
           
           <ul class="task-list">
           <li>Binary memcache protocol codec</li>
-          <li>BZip2 compression codec</li>
+          <li>Compression codecs
+          
+          <ul class="task-list">
+          <li>BZip2</li>
+          <li>FastLZ</li>
+          <li>LZ4</li>
+          <li>LZF</li>
+          </ul>
+          </li>
           <li>DNS protocol codec</li>
           <li>HAProxy protocol codec</li>
           <li>MQTT protocol codec</li>
           <li>SPDY/3.1 support</li>
           <li>STOMP codec</li>
+          <li>SOCKSx codec that supports version 4, 4a, and 5; see <code>socksx</code> package.</li>
           <li>
           <a href="http://netty.io/4.1/api/io/netty/handler/codec/xml/XmlFrameDecoder.html"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
           <li>
@@ -403,6 +412,18 @@
           <p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
           
           <p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
+          
+          <h3 id="wiki-h3-20">
+          <a name="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" href="#chunkedinput-and-chunkedwritehandler" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
+          </h3>
+          
+          <p><a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedInput.html"><code>ChunkedInput</code></a> has two new methods; <code>progress()</code> and <code>length()</code> which return the progress of its transfer and the total length of the stream respectively.  <a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedWriteHandler.html"><code>ChunkedWriteHandler</code></a> uses this information to notify <a href="http://netty.io/4.1/api/io/netty/channel/ChannelProgressiveFutureListener.html"><code>ChannelProgressiveFutureListener</code></a>.</p>
+          
+          <h3 id="wiki-h3-21">
+          <a name="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" href="#snappyframedencoder-and-snappyframeddecoder" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
+          </h3>
+          
+          <p>These two classes have been renamed to <code>SnappyFrameEncoder</code> and <code>SnappyFrameDecoder</code>. The old classes were marked as deprecated and they are actually the subclasses of the new ones.</p>
               </div>
           
             </div></div>
@@ -431,6 +452,8 @@
           </li><li><a href="#wiki-h3-17" title="TextHeaders">TextHeaders</a>
           </li><li><a href="#wiki-h3-18" title="MessageAggregator">MessageAggregator</a>
           </li><li><a href="#wiki-h3-19" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
+          </li><li><a href="#wiki-h3-20" title="ChunkedInput and ChunkedWriteHandler">ChunkedInput and ChunkedWriteHandler</a>
+          </li><li><a href="#wiki-h3-21" title="SnappyFramedEncoder and SnappyFramedDecoder">SnappyFramedEncoder and SnappyFramedDecoder</a>
           </li></ul>
           </li></ul>
           </div>
