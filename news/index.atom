@@ -2,9 +2,108 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-08-14T14:27:49-07:00</updated>
+  <updated>2014-08-14T21:48:11-07:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/08/14/4-1-0-Beta2.html</id>
+    <title>Netty 4.1.0.Beta2 released</title>
+    <updated>2014-08-14T21:48:11-07:00</updated>
+    <published>2014-08-14T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/08/14/4-1-0-Beta2.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      Here's another beta release of Netty 4.1.  This second beta version is packed with exciting features and improvements, as well as bug fixes.  Please check out the list below; you might find something useful to you. :-)
+      
+      New Features
+      
+      
+      #2757 - SOCKS protocol version 4a codec, by @bk1te
+      #2755 #2739 #2654 #2610 - Add more compression codecs: FastLZ, LZ4, LZF, and bzip2, by @idelpivnitskiy
+      #2741 #2763 - Enable transfer progress notification with ChannelProgressiveFutureListener for ChunkedInput, by @plucury
+      #2649 #2745 - Add TextHeaders.getAndRemove() methods for efficiency, by @plucury
+      
+      
+      
+      Notable changes
+      
+      
+      #2758 - TextHeaders do not raise an exception anymore when no header is found but returns...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Here's another beta release of Netty 4.1.  This second beta version is packed with exciting features and improvements, as well as bug fixes.  Please check out the list below; you might find something useful to you. :-)&lt;/p&gt;
+      
+      &lt;h2&gt;New Features&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2757&quot;&gt;#2757&lt;/a&gt; - SOCKS protocol version 4a codec, by &lt;a href=&quot;https://github.com/bk1te&quot;&gt;@bk1te&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2755&quot;&gt;#2755&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2739&quot;&gt;#2739&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2654&quot;&gt;#2654&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2610&quot;&gt;#2610&lt;/a&gt; - Add more compression codecs: &lt;a href=&quot;http://fastlz.org/&quot;&gt;FastLZ&lt;/a&gt;, &lt;a href=&quot;http://en.wikipedia.org/wiki/LZ4_%28compression_algorithm%29&quot;&gt;LZ4&lt;/a&gt;, &lt;a href=&quot;https://github.com/ning/compress/wiki&quot;&gt;LZF&lt;/a&gt;, and &lt;a href=&quot;http://en.wikipedia.org/wiki/Bzip2&quot;&gt;bzip2&lt;/a&gt;, by &lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2741&quot;&gt;#2741&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2763&quot;&gt;#2763&lt;/a&gt; - Enable transfer progress notification with &lt;code&gt;ChannelProgressiveFutureListener&lt;/code&gt; for &lt;code&gt;ChunkedInput&lt;/code&gt;, by &lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2649&quot;&gt;#2649&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2745&quot;&gt;#2745&lt;/a&gt; - Add &lt;code&gt;TextHeaders.getAndRemove()&lt;/code&gt; methods for efficiency, by &lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h2&gt;Notable changes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2758&quot;&gt;#2758&lt;/a&gt; - &lt;code&gt;TextHeaders&lt;/code&gt; do not raise an exception anymore when no header is found but returns &lt;code&gt;null&lt;/code&gt;.&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2766&quot;&gt;#2766&lt;/a&gt; - Rename &lt;code&gt;SnappyFramedEncoder&lt;/code&gt; and &lt;code&gt;SnappyFramedDecoder&lt;/code&gt; to &lt;code&gt;SnappyFrameEncoder&lt;/code&gt; and &lt;code&gt;SnappyFrameDecoder&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/2688&quot;&gt;#2688&lt;/a&gt; - Improve the type safety of the DNS messages by using value types instead of pritimive values, by &lt;a href=&quot;https://github.com/timboudreau&quot;&gt;@timboudreau&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h2&gt;Bug fixes&lt;/h2&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2708&quot;&gt;#2708&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2686&quot;&gt;#2686&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2679&quot;&gt;#2679&lt;/a&gt; - Fix bugs in the DNS codec&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2354&quot;&gt;#2354&lt;/a&gt; - Fix a bug where &lt;code&gt;AbstractConstant.compareTo()&lt;/code&gt; can return zero for two different constants&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2706&quot;&gt;#2706&lt;/a&gt; - Fix a bug where the PID detection fails when the current PID is greater than 65535&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;This release also includes all the improvements and bug fixes in &lt;a href=&quot;http://netty.io/news/2014/08/14/4-0-22-Final.html&quot;&gt;4.0.22.Final&lt;/a&gt;, of course.&lt;/p&gt;
+      
+      &lt;p&gt;Please visit &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy-in-4.1.html&quot;&gt;our wiki page&lt;/a&gt; for the summary of all the changes since 4.0.  You can also browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta2&quot;&gt;our issue tracker&lt;/a&gt; for the gory detail.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Adam-&quot;&gt;@Adam-&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bk1te&quot;&gt;@bk1te&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Brizth&quot;&gt;@Brizth&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jakobbuchgraber&quot;&gt;@jakobbuchgraber&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tea-dragon&quot;&gt;@tea-dragon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/timboudreau&quot;&gt;@timboudreau&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/08/14/4-0-22-Final.html</id>
     <title>Netty 4.0.22.Final released</title>
@@ -3318,40 +3417,6 @@
       &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.8.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/p&gt;
       &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
       &lt;p&gt;We hope you will enjoy this release!&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/09/29/4-0-0-alpha5.html</id>
-    <title>Netty 4.0.0.Alpha5: One step closer to beta</title>
-    <updated>2014-07-24T09:24:12-07:00</updated>
-    <published>2012-09-29T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/09/29/4-0-0-alpha5.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      
-      I'm proud to announce Netty 4.0.0.Alpha5 as a proof of our progress toward the beta phase. For recent alpha releases, we got increasingly awesome community contributions such as SCTP transport and WebSocket enhancements.  This time, we made a couple more interesting changes along with many bug fixes.
-      
-      In response to many requests, we added CORS preflight header constants to HttpHeaders finally.
-      Jestan Nirojan added blocking OIO SCTP transport that has better throughput than the NIO SCTP transport.
-      A new interface called 'HttpObject' has been added, and HttpMessage and HttpChunk extend it.
-      
-      HttpMessageDecoder does not raise an exception when a bad HTTP message is received...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;I'm proud to announce Netty 4.0.0.Alpha5 as a proof of our progress toward the beta phase. For recent alpha releases, we got increasingly awesome community contributions such as SCTP transport and WebSocket enhancements.  This time, we made a couple more interesting changes along with many bug fixes.&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;In response to many requests, we added CORS preflight header constants to &lt;tt&gt;HttpHeaders&lt;/tt&gt; finally.&lt;/li&gt;
-      &lt;li&gt;Jestan Nirojan added blocking OIO SCTP transport that has better throughput than the NIO SCTP transport.&lt;/li&gt;
-      &lt;li&gt;A new interface called '&lt;tt&gt;HttpObject&lt;/tt&gt;' has been added, and &lt;tt&gt;HttpMessage&lt;/tt&gt; and &lt;tt&gt;HttpChunk&lt;/tt&gt; extend it.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;tt&gt;HttpMessageDecoder&lt;/tt&gt; does not raise an exception when a bad HTTP message is received anymore.  It decodes the bad HTTP message as an &lt;tt&gt;HttpMessage&lt;/tt&gt; or an &lt;tt&gt;HttpChunk&lt;/tt&gt; with the information why decoding failed.  To get an idea what changes in your HTTP application are required, please check out &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/commit/045b621b3fd8b8968056224ccc7b03179b7e2762&quot;&gt;this commit&lt;/a&gt;&lt;/span&gt;.  Also, you might want to read &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/441&quot;&gt;this issue tracker page&lt;/a&gt;&lt;/span&gt; to understand why this change was necessary.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;For complete list of changes, check &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=29&amp;amp;state=closed&quot;&gt;our issue tracker&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;p&gt;As Norman mentioned when announcing &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/news/2012/09/13/4-0-0-alpha4.html&quot;&gt;4.0.0.Alpha4&lt;/a&gt;&lt;/span&gt;, the API is now pretty stable and we did not see any changes in the core API recently.  In the next release, I'm probably going to introduce buffer pooling and Netty 4 should be ready for beta finally.&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
