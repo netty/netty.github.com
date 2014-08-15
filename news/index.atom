@@ -2,9 +2,71 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-08-14T21:48:11-07:00</updated>
+  <updated>2014-08-15T11:45:31-07:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/08/15/4-0-23-Final-and-4-1-0-Beta3.html</id>
+    <title>Netty 4.0.23.Final + 4.1.0.Beta3 with hot fixes</title>
+    <updated>2014-08-15T11:45:31-07:00</updated>
+    <published>2014-08-15T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/08/15/4-0-23-Final-and-4-1-0-Beta3.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      We found a critical regression which might affect some applications that use a FileRegion, and had to cut the hot fix releases; Netty 4.0.23.Final and 4.1.0.Beta3
+      
+      
+      #2407 - Use a better default value for server socket backlog
+      #2768 - Fix an empty WebSocket close frame in hybi-00
+      #2769 - Fix ClassCastException when trying to send a FileRegion
+      #2771 - Fix a bug where EmbeddedChannel does not work with ChannelInitializer
+      
+      
+      
+      You can also browse our issue tracker for the gory detail.
+      
+      As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!
+      
+      Thank You
+      
+      Every idea and bug-report...
+    </summary>
+    <content type="html">
+      &lt;p&gt;We found a critical regression which might affect some applications that use a &lt;code&gt;FileRegion&lt;/code&gt;, and had to cut the hot fix releases; Netty 4.0.23.Final and 4.1.0.Beta3&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2407&quot;&gt;#2407&lt;/a&gt; - Use a better default value for server socket backlog&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2768&quot;&gt;#2768&lt;/a&gt; - Fix an empty WebSocket close frame in hybi-00&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2769&quot;&gt;#2769&lt;/a&gt; - Fix &lt;code&gt;ClassCastException&lt;/code&gt; when trying to send a &lt;code&gt;FileRegion&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/2771&quot;&gt;#2771&lt;/a&gt; - Fix a bug where &lt;code&gt;EmbeddedChannel&lt;/code&gt; does not work with &lt;code&gt;ChannelInitializer&lt;/code&gt;
+      &lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;You can also browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.23.Final&quot;&gt;our issue tracker&lt;/a&gt; for the gory detail.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tkowalcz&quot;&gt;@tkowalcz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/08/14/4-1-0-Beta2.html</id>
     <title>Netty 4.1.0.Beta2 released</title>
@@ -3358,65 +3420,6 @@
       &lt;p&gt;For all of the other changes please checkout our &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=31&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/p&gt;
       &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.9.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/p&gt;
       &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/09/30/3-5-8-final.html</id>
-    <title>Netty 3.5.8.Final release - A &quot;must&quot; to upgrade</title>
-    <updated>2014-07-24T09:24:12-07:00</updated>
-    <published>2012-09-30T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/09/30/3-5-8-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      The Netty Team is proud to bring you another bug-fix release of the 3.5.x series. It contains many bug-fixes and improvements plus some new nice handlers that will make your life easier if you use SPDY or plan to-do so.
-      So important things first..
-      Improvements
-      This release contains an important improvement that helps to bring back the used context-switched to a sane number. This is done by adjust the selectTimeout to the "old" default of 500ms again and introduce the usage of a Timer to handle the Connection-Timeout handling when using Netty in client-mode.  It worth to mention that this only effected users...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;The Netty Team is proud to bring you another bug-fix release of the 3.5.x series. It contains many bug-fixes and improvements plus some new nice handlers that will make your life easier if you use SPDY or plan to-do so.&lt;/p&gt;
-      &lt;p&gt;&lt;span&gt;So &lt;strong&gt;important&lt;/strong&gt; things first..&lt;/span&gt;&lt;/p&gt;
-      &lt;h2 id=&quot;HImprovements&quot;&gt;&lt;span&gt;Improvements&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;This release contains an &lt;strong&gt;important&lt;/strong&gt; improvement that helps to bring back the used context-switched to a sane number. This is done by adjust the selectTimeout to the &quot;old&quot; default of 500ms again and introduce the usage of a Timer to handle the Connection-Timeout handling when using Netty in client-mode.  It worth to mention that this only effected users of the &quot;NIO Transport&quot;. &quot;OIO Transport&quot; users were not effected at all. See &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/613&quot;&gt;#613&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/605&quot;&gt;#605&lt;/a&gt;&lt;/span&gt; for more details.&lt;/p&gt;
-      &lt;p&gt;You can observe the difference between this release and the previous via the specific tool for your OS. &lt;/p&gt;
-      &lt;p&gt;For example on linux:&lt;/p&gt;
-      &lt;pre&gt;&lt;span&gt;# vmstat 1&lt;/span&gt;&lt;/pre&gt;
-      &lt;p&gt;Another improvements that worth mention is the reducing of &quot;garbage&quot; that is created by the NioWorker if there is no &quot;event&quot; to be processed. It's now a way more friendly to the Garbage-Collector and so lower the pressure on it. See &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/597&quot;&gt;#597&lt;/a&gt;&lt;/span&gt; for some more details on the whole issue.&lt;/p&gt;
-      &lt;h2 id=&quot;HBugfixes&quot;&gt;&lt;span&gt;Bugfixes&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;As mention before this release ships a lot bug-fixes. The most important are:&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;Fix StackOverflowError in ChunkedWriteHandler. &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/620&quot;&gt;#620&lt;/a&gt;&lt;/span&gt; and &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/621&quot;&gt;#621&lt;/a&gt;&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Fix IndexOutOfBoundException in CompositeChannelBuffer. &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/474&quot;&gt;#474&lt;/a&gt;&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Fix BufferedWriteHandler. &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/618&quot;&gt;#618&lt;/a&gt;&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;SslHandler may miss to notify write Future if SSLEngine was closed. &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/601&quot;&gt;#601&lt;/a&gt;&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;SPDY connection upgrade must be done &quot;after&quot; Response was written. &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/589&quot;&gt;#589&lt;/a&gt;&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;div&gt;&lt;h2 id=&quot;HNewFeatures&quot;&gt;&lt;span&gt;&lt;span&gt;New Features&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;&lt;/div&gt;
-      &lt;p&gt;Two new ChannelHandler implementations are included. that helps you to use SPDY and HTTP at the same time while provide you with all the &quot;low-level&quot; code. This makes it a lot easier to implement the needed code. &lt;/p&gt;
-      &lt;p&gt;The ChannelHandlers are:&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/3.5/api/org/jboss/netty/handler/codec/spdy/SpdyHttpResponseStreamIdHandler.html&quot;&gt;SpdyHttpResponseStreamIdHandler&lt;/a&gt;&lt;/span&gt; - ChannelHandler which allow you to re-use your &quot;HTTP ChannelHandlers&quot; without modifications in SPDY&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/3.5/api/org/jboss/netty/handler/codec/spdy/SpdyOrHttpChooser.html&quot;&gt;SpdyOrHttpChooser&lt;/a&gt;&lt;/span&gt; - Abstract ChannelHandler which you should extend to detect if a Client support SPDY or not. If SPDY is not supported it will add needed ChannelHandlers to the ChannelPipeline to serve it via HTTPs. If SPDY is supported it adds the needed ChannelHandlers for SPDY.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;div&gt;&lt;p&gt;An example usage of SpdyOrHttpChooser, which uses jetty-npn:&lt;/p&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/3806559.js&quot;&gt;&lt;/script&gt;&lt;p&gt;The full example of its usage can be found in &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/normanmaurer/javamagazin-netty-spdy&quot;&gt;this repository&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;h2 id=&quot;HGeneral&quot;&gt;&lt;span&gt;General&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;For all of the other changes please checkout our &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=28&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/p&gt;
-      &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.8.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
-      &lt;p&gt;We hope you will enjoy this release!&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
