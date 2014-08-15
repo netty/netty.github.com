@@ -388,7 +388,7 @@
           
           <p>Update the Javadoc and Xref to the latest one.  You can copy them from your <code>netty/target/checkout/all/target</code> directory:</p>
           
-          <div class="highlight highlight-bash"><pre><span class="nb">cd </span>4.1 <span class="c"># or the version you are working on</span>&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/api .&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/xref .&#x000A;git add -A .&#x000A;<span class="nb">cd</span> ..</pre></div>
+          <div class="highlight highlight-bash"><pre><span class="nb">cd </span>4.1 <span class="c"># or the version you are working on</span>&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/api .  <span class="c"># Note no trailing slash!</span>&#x000A;rsync -aiP --delete ~/Workspace/netty/target/checkout/all/target/xref . <span class="c"># Note no trailing slash!</span>&#x000A;git add -A .&#x000A;<span class="nb">cd</span> ..</pre></div>
           
           <p>Also, don't forget to add <code>_config/site.yml</code> we updated to the Git index when you commit:</p>
           
