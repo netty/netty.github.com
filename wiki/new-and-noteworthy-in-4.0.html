@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -266,10 +266,12 @@
           <p>The binary JAR has been split into multiple submodules so that a user can exclude unnecessary features from the class path.  The current structure looks like this following:</p>
           
           <table class="table table-hover">
-          <thead><tr>
+          <thead>
+          <tr>
           <th>Artifact ID</th>
           <th>Description</th>
-          </tr></thead>
+          </tr>
+          </thead>
           <tbody>
           <tr>
           <td><code>netty-parent</code></td>
@@ -342,6 +344,7 @@
           </tr>
           </tbody>
           </table>
+          
           <p>All artifacts (except for <code>netty-all.jar</code>) are now OSGi bundles and can be used in your favorite OSGi container.</p>
           
           <h2 id="wiki-h2-2">
@@ -358,6 +361,7 @@
           <li>For API changes between 4.0 CR4 and 4.0 CR5 see <a href="http://netty.io/news/2013/06/18/4-0-0-CR5.html">Netty 4.0.0.CR5 released with new-new API</a>
           </li>
           </ul>
+          
           <h2 id="wiki-h2-3">
           <a name="user-content-buffer-api-changes" class="anchor" href="#buffer-api-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buffer API changes</h2>
           
@@ -413,6 +417,7 @@
           <li>Reduced memory bandwidth consumption incurred when creating a new buffer which  inevitably has to be filled with zeroes</li>
           <li>Timely deallocation of direct buffers</li>
           </ul>
+          
           <p>To take advantage of this feature, unless a user wants to get an unpooled buffer, he or she should get a buffer from a <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/AbstractByteBufAllocator.html"><code>ByteBufAllocator</code></a>:</p>
           
           <div class="highlight highlight-java"><pre><span class="n">Channel</span> <span class="n">channel</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">ByteBufAllocator</span> <span class="n">alloc</span> <span class="o">=</span> <span class="n">channel</span><span class="o">.</span><span class="na">alloc</span><span class="o">();</span>&#x000A;<span class="n">ByteBuf</span> <span class="n">buf</span> <span class="o">=</span> <span class="n">alloc</span><span class="o">.</span><span class="na">buffer</span><span class="o">(</span><span class="mi">512</span><span class="o">);</span>&#x000A;<span class="o">....</span>&#x000A;<span class="n">channel</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buf</span><span class="o">);</span>&#x000A;&#x000A;<span class="n">ChannelHandlerContext</span> <span class="n">ctx</span> <span class="o">=</span> <span class="o">...</span>&#x000A;<span class="n">ByteBuf</span> <span class="n">buf2</span> <span class="o">=</span> <span class="n">ctx</span><span class="o">.</span><span class="na">alloc</span><span class="o">().</span><span class="na">buffer</span><span class="o">(</span><span class="mi">512</span><span class="o">);</span>&#x000A;<span class="o">....</span>&#x000A;<span class="n">channel</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buf2</span><span class="o">)</span></pre></div>
@@ -441,6 +446,7 @@
           </li>
           <li>Derived buffers (e.g. slices and duplicates) and swapped buffers (i.e. little endian buffers) share the reference count with the buffer it was derived from.  Note that the reference count does not change when a derived buffer is created.</li>
           </ul>
+          
           <p>When a <code>ByteBuf</code> is used in a <code>ChannelPipeline</code>, there are additional rules you need to keep in mind:</p>
           
           <ul class="task-list">
@@ -452,6 +458,7 @@
           </li>
           <li>When an outbound (a.k.a. downstream) message reaches at the beginning of the pipeline, Netty will release it after writing it out.</li>
           </ul>
+          
           <h4 id="wiki-h4-12">
           <a name="user-content-automatic-buffer-leak-detection" class="anchor" href="#automatic-buffer-leak-detection" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatic buffer leak detection</h4>
           
@@ -474,6 +481,7 @@
           <li>
           <code>EventExecutor</code> and <code>EventExecutorGroup</code> - generic event loop API</li>
           </ul>
+          
           <p>They are used as the base of the channel API which will be explained later in this document.  For example, <code>ChannelFuture</code> extends <code>io.netty.util.concurrent.Future</code> and <code>EventLoopGroup</code> extends <code>EventExecutorGroup</code>.</p>
           
           <p><img src="https://camo.githubusercontent.com/1b1698d52099ec568fc82790efc17bda57325f53/687474703a2f2f696d672e6d6f74642e6b722f756d6c2f676973742f3861366333633437383030333730656538393861" alt="Event loop type hierarchy diagram" data-canonical-src="http://img.motd.kr/uml/gist/8a6c3c47800370ee898a"></p>
@@ -579,7 +587,7 @@
           
           <p>Once a new <code>Channel</code> is created in 3.x, it is completely tied to a single I/O thread until its underlying socket is closed.  In 4.0, a user can deregister a <code>Channel</code> from its I/O thread to gain the full control of its underlying JDK socket.  For example, you can take advantage of high-level non-blocking I/O Netty provides to deal with complex protocols, and then later deregister the <code>Channel</code> and switch to blocking mode to transfer a file at possible maximum throughput.  Of course, it is possible to register the deregistered <code>Channel</code> back again.</p>
           
-          <div class="highlight highlight-java"><pre><span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">FileChannel</span> <span class="n">myFile</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span> <span class="n">mySocket</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="c1">// Netty takes over.</span>&#x000A;<span class="n">SocketChannel</span> <span class="n">ch</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">NioSocketChannel</span><span class="o">(</span><span class="n">mySocket</span><span class="o">);</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">group</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="c1">// Deregister from Netty.</span>&#x000A;<span class="n">ch</span><span class="o">.</span><span class="na">deregister</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="n">mySocket</span><span class="o">.</span><span class="na">configureBlocking</span><span class="o">(</span><span class="kc">false</span><span class="o">);</span>&#x000A;<span class="n">myFile</span><span class="o">.</span><span class="na">transferFrom</span><span class="o">(</span><span class="n">mySocket</span><span class="o">,</span> <span class="o">...);</span>&#x000A;&#x000A;<span class="c1">// Register back again to another event loop group.</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">anotherGroup</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">anotherGroup</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span></pre></div>
+          <div class="highlight highlight-java"><pre><span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">FileChannel</span> <span class="n">myFile</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span> <span class="n">mySocket</span> <span class="o">=</span> <span class="n">java</span><span class="o">.</span><span class="na">nio</span><span class="o">.</span><span class="na">channels</span><span class="o">.</span><span class="na">SocketChannel</span><span class="o">.</span><span class="na">open</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="c1">// Netty takes over.</span>&#x000A;<span class="n">SocketChannel</span> <span class="n">ch</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">NioSocketChannel</span><span class="o">(</span><span class="n">mySocket</span><span class="o">);</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">group</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">group</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span>&#x000A;<span class="o">...</span>&#x000A;&#x000A;<span class="c1">// Deregister from Netty.</span>&#x000A;<span class="n">ch</span><span class="o">.</span><span class="na">deregister</span><span class="o">().</span><span class="na">sync</span><span class="o">();</span>&#x000A;&#x000A;<span class="c1">// Perform some blocking operation here.</span>&#x000A;<span class="n">mySocket</span><span class="o">.</span><span class="na">configureBlocking</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>&#x000A;<span class="n">myFile</span><span class="o">.</span><span class="na">transferFrom</span><span class="o">(</span><span class="n">mySocket</span><span class="o">,</span> <span class="o">...);</span>&#x000A;&#x000A;<span class="c1">// Register back again to another event loop group.</span>&#x000A;<span class="n">EventLoopGroup</span> <span class="n">anotherGroup</span> <span class="o">=</span> <span class="o">...;</span>&#x000A;<span class="n">anotherGroup</span><span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">ch</span><span class="o">);</span></pre></div>
           
           <h3 id="wiki-h3-27">
           <a name="user-content-scheduling-an-arbitrary-task-to-be-run-by-an-io-thread" class="anchor" href="#scheduling-an-arbitrary-task-to-be-run-by-an-io-thread" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scheduling an arbitrary task to be run by an I/O thread</h3>
@@ -672,6 +680,7 @@
           </li>
           <li>The <code>ChannelFutureListeners</code> added to <code>ChannelFuture</code> are always invoked by the <code>EventLoop</code> thread assigned to the future's associated <code>Channel</code>.</li>
           </ul>
+          
           <h3 id="wiki-h3-35">
           <a name="user-content-no-more-executionhandler---its-in-the-core" class="anchor" href="#no-more-executionhandler---its-in-the-core" aria-hidden="true"><span class="octicon octicon-link"></span></a>No more <code>ExecutionHandler</code> - it's in the core.</h3>
           
@@ -692,6 +701,7 @@
           <code>OneToOneEncoder</code> and <code>OneToOneDecoder</code> were replaced with <code>MessageToMessageEncoder</code> and <code>MessageToMessageDecoder</code>.</li>
           <li>The method signatures of <code>decode()</code>, <code>decodeLast()</code>, <code>encode()</code> were changed slightly to support generics and to remove redundant parameters.</li>
           </ul>
+          
           <h3 id="wiki-h3-37">
           <a name="user-content-codec-embedder--embeddedchannel" class="anchor" href="#codec-embedder--embeddedchannel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Codec embedder → <code>EmbeddedChannel</code>
           </h3>
@@ -716,6 +726,7 @@
           <li>OIO SCTP transport</li>
           <li>UDT transport</li>
           </ul>
+          
           <h2 id="wiki-h2-40">
           <a name="user-content-case-study-porting-the-factorial-example" class="anchor" href="#case-study-porting-the-factorial-example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Case study: porting the Factorial example</h2>
           
@@ -756,6 +767,7 @@
           </ol>
           </li>
           </ol>
+          
           <h3 id="wiki-h3-42">
           <a name="user-content-porting-the-client" class="anchor" href="#porting-the-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Porting the client</h3>
           
@@ -767,6 +779,7 @@
           <li>Make <code>FactorialClientHandler</code> extends <code>ChannelInboundHandlerAdapter</code>
           </li>
           </ol>
+          
               </div>
           
             </div></div>
@@ -826,7 +839,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 26-Aug-2014</small>
+                <small>Last retrieved on 29-Oct-2014</small>
               </div>
             </div>
           </div>

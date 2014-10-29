@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -268,6 +268,7 @@
           <div class="highlight highlight-xml"><pre><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>&#x000A;<span class="nt">&lt;settings&gt;</span>&#x000A;  <span class="nt">&lt;servers&gt;</span>&#x000A;    <span class="nt">&lt;server&gt;</span>&#x000A;      <span class="nt">&lt;id&gt;</span>sonatype-nexus-snapshots<span class="nt">&lt;/id&gt;</span>&#x000A;      <span class="nt">&lt;username&gt;</span>myusername<span class="nt">&lt;/username&gt;</span>&#x000A;      <span class="nt">&lt;password&gt;</span>mypassword<span class="nt">&lt;/password&gt;</span>&#x000A;    <span class="nt">&lt;/server&gt;</span>&#x000A;    <span class="nt">&lt;server&gt;</span>&#x000A;      <span class="nt">&lt;id&gt;</span>sonatype-nexus-staging<span class="nt">&lt;/id&gt;</span>&#x000A;      <span class="nt">&lt;username&gt;</span>myusername<span class="nt">&lt;/username&gt;</span>&#x000A;      <span class="nt">&lt;password&gt;</span>mypassword<span class="nt">&lt;/password&gt;</span>&#x000A;      <span class="nt">&lt;configuration&gt;</span>&#x000A;        <span class="nt">&lt;httpHeaders&gt;</span>&#x000A;          <span class="c">&lt;!--</span>&#x000A;<span class="c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="c">          --&gt;</span>&#x000A;          <span class="nt">&lt;property&gt;</span>&#x000A;            <span class="nt">&lt;name&gt;</span>User-Agent<span class="nt">&lt;/name&gt;</span>&#x000A;            <span class="nt">&lt;value&gt;</span>Apache-Maven<span class="nt">&lt;/value&gt;</span>&#x000A;          <span class="nt">&lt;/property&gt;</span>&#x000A;        <span class="nt">&lt;/httpHeaders&gt;</span>&#x000A;      <span class="nt">&lt;/configuration&gt;</span>&#x000A;    <span class="nt">&lt;/server&gt;</span>&#x000A;  <span class="nt">&lt;/servers&gt;</span>&#x000A;  ...&#x000A;<span class="nt">&lt;/settings&gt;</span></pre></div>
           </li>
           </ul>
+          
           <h2 id="wiki-h2-2">
           <a name="user-content-standard-maven-release-procedure" class="anchor" href="#standard-maven-release-procedure" aria-hidden="true"><span class="octicon octicon-link"></span></a>Standard Maven release procedure</h2>
           
@@ -282,6 +283,7 @@
           <li>
           <a href="https://docs.sonatype.org/display/Repository/Releasing+a+Staging+Repository">Release the staging repository</a> so that the new release is synchronized into the Maven central repository.</li>
           </ol>
+          
           <h2 id="wiki-h2-3">
           <a name="user-content-netty-3" class="anchor" href="#netty-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Netty 3</h2>
           
@@ -308,6 +310,7 @@
           <li><p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p></li>
           <li>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
           </ol>
+          
           <h2 id="wiki-h2-6">
           <a name="user-content-close-the-milestone-in-github" class="anchor" href="#close-the-milestone-in-github" aria-hidden="true"><span class="octicon octicon-link"></span></a>Close the milestone in Github</h2>
           
@@ -362,6 +365,7 @@
           </ol>
           </li>
           </ol>
+          
           <h2 id="wiki-h2-8">
           <a name="user-content-update-the-new-and-noteworthy-page" class="anchor" href="#update-the-new-and-noteworthy-page" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update the 'new and noteworthy' page</h2>
           
@@ -408,6 +412,7 @@
           <p>Deploy the new blog post using the <code>_bin/deploy.sh</code> script.</p>
           
           <p>Once the new blog post is up, make another announcement via your personal Twitter account, and retweet it using our official Twitter account.</p>
+          
               </div>
           
             </div></div>
@@ -434,7 +439,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 26-Aug-2014</small>
+                <small>Last retrieved on 29-Oct-2014</small>
               </div>
             </div>
           </div>

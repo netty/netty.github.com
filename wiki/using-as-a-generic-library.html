@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -357,11 +357,13 @@
           <p>Hashed wheel timer is a scalable alternative to <code>java.util.Timer</code> and <code>java.util.concurrent.ScheduledThreadPoolExecutor</code>.  It can handle many scheduled tasks and their cancellations efficiently, as shown in the following table:</p>
           
           <table class="table table-hover">
-          <thead><tr>
+          <thead>
+          <tr>
           <th></th>
           <th>Schedule a new task</th>
           <th>Cancel a task</th>
-          </tr></thead>
+          </tr>
+          </thead>
           <tbody>
           <tr>
           <td><code>HashedWheelTimer</code></td>
@@ -377,6 +379,7 @@
           </tr>
           </tbody>
           </table>
+          
           <p>Internally, it uses a hash table whose key is a task's timing to yield constant time for most timer operations. (<code>java.util.Timer</code> uses a binary heap.)</p>
           
           <p>For more information about hashed wheel timer, please see <a href="http://www.cse.wustl.edu/%7Ecdgill/courses/cs6874/TimingWheels.ppt">these slides ("Hashed and Hierarchical Timing Wheels," Dharmapurikar)</a> and <a href="http://www.cs.columbia.edu/%7Enahum/w6998/papers/sosp87-timing-wheels.pdf">this paper ("Hashed and Hierarchical Timing Wheels: Data Structures 
@@ -395,6 +398,7 @@
           <li>
           <code>io.netty.util.DefaultThreadFactory</code> is a generic <code>ThreadFactory</code> implementation that lets you configure your executor threads easily.</li>
           </ul>
+          
           <h2 id="wiki-h2-14">
           <a name="user-content-comparison-with-guava-and-jdk8" class="anchor" href="#comparison-with-guava-and-jdk8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Comparison with Guava and JDK8</h2>
           
@@ -415,7 +419,9 @@
           </ul>
           </li>
           </ul>
+          
           <p>Java sometimes advances by adopting ideas that subsume constructs provided by Netty.  For example, JDK 8 adds <a href="http://download.java.net/jdk8/docs/api/java/util/concurrent/CompletableFuture.html"><code>CompletableFuture</code></a> which somewhat overlaps <code>io.netty.util.concurrent.Future</code>. In such a case, Netty's constructs provide a good migration path to you; We will diligently update the API with future migration in mind.</p>
+          
               </div>
           
             </div></div>
@@ -446,7 +452,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 26-Aug-2014</small>
+                <small>Last retrieved on 29-Oct-2014</small>
               </div>
             </div>
           </div>

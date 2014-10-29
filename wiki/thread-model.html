@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -260,6 +260,7 @@
           <li>Regardless of its transport and type, its all upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
           <li>All downstream (i.e. outbound) events can be triggered from any thread including the I/O thread and non-I/O threads.  However, any upstream events triggered as a side effect of the downstream event must be fired from the I/O thread. (e.g. If <code>Channel.close()</code> triggers <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>, they must be fired by the I/O thread.</li>
           </ol>
+          
           <p>Current problems (UGLY - causes a race condition in an upstream handler, BAD - does not cause a race condition but violates the expected thread model):</p>
           
           <ul class="task-list">
@@ -269,6 +270,7 @@
              It's kind of bad but otherwise its not possible to  limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p></li>
           <li><p>BAD: Client-side channels are run by two I/O threads.  One that makes a connection attempts and the other that does actual I/O.</p></li>
           </ul>
+          
           <p>Action items:</p>
           
           <ul class="task-list">
@@ -292,21 +294,24 @@
           </li>
           <li>Rewrite the local transport.</li>
           </ul>
+          
           <p>Questions:</p>
           
           <ul class="task-list">
           <li>Can we make all these changes in v3 and keep things still backward-compatible?  Wouldn't it be easier to get this done in v4?  Fully asynchronous user application which does all I/O in an handler making heavy use of <code>ChannelFuture</code> shouldn't be affected by the current flawed thread model, which means a user can somehow work around this issue, so it might be better move on to v4 instead of making the same changes on two branches.</li>
           </ul>
+          
           <p>Answers:</p>
           
           <ul class="task-list">
           <li>I think if its to much work to "backport" it to v3 we should just move ahead and "ignore" it for v3. Maybe we can find some "easier" workaround for v3 which would at least help us to get rid of the Channel.close() race, as this is the one that will most likely hit our users. (normanmaurer)</li>
           </ul>
+          
               </div>
           
             </div>
           <div class="text-right clearfix">
-            <small>Last retrieved on 26-Aug-2014</small>
+            <small>Last retrieved on 29-Oct-2014</small>
           </div>
         </div>
       </div>

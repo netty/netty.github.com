@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -263,6 +263,7 @@
           <li>Complete mavenization of the project</li>
           <li>Improved OpenSSL support</li>
           </ul>
+          
           <p>To minimize the maintenance burden, we create a dedicated branch for each stable upstream release and apply our own changes on top of it, while keeping the number of maintained branches to minimum.</p>
           
           <h2 id="wiki-h2-1">
@@ -292,6 +293,7 @@
           </ul>
           </li>
           </ul>
+          
           <h2 id="wiki-h2-2">
           <a name="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to build</h2>
           
@@ -312,6 +314,10 @@
           
           <h3 id="wiki-h3-4">
           <a name="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Mac OS X</h3>
+          
+          <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
+          
+          <div class="highlight highlight-bash"><pre>xcode-select --install</pre></div>
           
           <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
           
@@ -366,6 +372,7 @@
           </ul>
           </li>
           </ul>
+          
           <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
           
           <div class="highlight highlight-bat"><pre><span class="c">REM 32-bit Windows:</span>&#x000A;<span class="s2">"C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat"</span>&#x000A;<span class="c">REM 64-bit Windows:</span>&#x000A;<span class="k">CALL</span> <span class="s2">"C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd"</span> <span class="n">/Release</span> <span class="n">/x64</span> <span class="n">/xp</span></pre></div>
@@ -390,6 +397,7 @@
           <pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre>
           
           <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
+          
               </div>
           
             </div></div>
@@ -412,7 +420,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 26-Aug-2014</small>
+                <small>Last retrieved on 29-Oct-2014</small>
               </div>
             </div>
           </div>

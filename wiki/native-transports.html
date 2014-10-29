@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2014/08/26/3-9-4-Final.html">
+              <a href="../news/2014/10/29/4-0-24-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.23.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.24.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.23.Final
-                    <small>&dash; 15-Aug-2014</small>
+                    4.0.24.Final
+                    <small>&dash; 29-Oct-2014</small>
                   </a>
                 </li>
                 <li>
@@ -277,9 +277,10 @@
           <code>NioSocketChannel</code> → <code>EpollSocketChannel</code>
           </li>
           </ul>
+          
           <p>Because the native transport is not part of the Netty core, you need to pull the <code>netty-transport-native-epoll</code> as a dependency in your Maven <code>pom.xml</code>:</p>
           
-          <div class="highlight highlight-xml"><pre>  <span class="nt">&lt;build&gt;</span>&#x000A;    <span class="nt">&lt;extensions&gt;</span>&#x000A;      <span class="nt">&lt;extension&gt;</span>&#x000A;        <span class="nt">&lt;groupId&gt;</span>kr.motd.maven<span class="nt">&lt;/groupId&gt;</span>&#x000A;        <span class="nt">&lt;artifactId&gt;</span>os-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>&#x000A;        <span class="nt">&lt;version&gt;</span>1.2.3.Final<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;/extension&gt;</span>&#x000A;    <span class="nt">&lt;/extensions&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/build&gt;</span>&#x000A;&#x000A;  <span class="nt">&lt;dependencies&gt;</span>&#x000A;    <span class="nt">&lt;dependency&gt;</span>&#x000A;      <span class="nt">&lt;groupId&gt;</span>io.netty<span class="nt">&lt;/groupId&gt;</span>&#x000A;      <span class="nt">&lt;artifactId&gt;</span>netty-transport-native-epoll<span class="nt">&lt;/artifactId&gt;</span>&#x000A;      <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;classifier&gt;</span>${os.detected.classifier}<span class="nt">&lt;/classifer&gt;</span>&#x000A;    <span class="nt">&lt;/dependency&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/dependencies&gt;</span></pre></div>
+          <div class="highlight highlight-xml"><pre>  <span class="nt">&lt;build&gt;</span>&#x000A;    <span class="nt">&lt;extensions&gt;</span>&#x000A;      <span class="nt">&lt;extension&gt;</span>&#x000A;        <span class="nt">&lt;groupId&gt;</span>kr.motd.maven<span class="nt">&lt;/groupId&gt;</span>&#x000A;        <span class="nt">&lt;artifactId&gt;</span>os-maven-plugin<span class="nt">&lt;/artifactId&gt;</span>&#x000A;        <span class="nt">&lt;version&gt;</span>1.2.3.Final<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;/extension&gt;</span>&#x000A;    <span class="nt">&lt;/extensions&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/build&gt;</span>&#x000A;&#x000A;  <span class="nt">&lt;dependencies&gt;</span>&#x000A;    <span class="nt">&lt;dependency&gt;</span>&#x000A;      <span class="nt">&lt;groupId&gt;</span>io.netty<span class="nt">&lt;/groupId&gt;</span>&#x000A;      <span class="nt">&lt;artifactId&gt;</span>netty-transport-native-epoll<span class="nt">&lt;/artifactId&gt;</span>&#x000A;      <span class="nt">&lt;version&gt;</span>${project.version}<span class="nt">&lt;/version&gt;</span>&#x000A;      <span class="nt">&lt;classifier&gt;</span>${os.detected.classifier}<span class="nt">&lt;/classifier&gt;</span>&#x000A;    <span class="nt">&lt;/dependency&gt;</span>&#x000A;    ...&#x000A;  <span class="nt">&lt;/dependencies&gt;</span></pre></div>
           
           <p>Note that you must specify the proper classifier for the dependency.  <code>os-maven-plugin</code> in the <code>extensions</code> section in the <code>pom.xml</code> file will set <code>os.detected.classifier</code> property automatically.  For more information. refer to <a href="https://github.com/trustin/os-maven-plugin">the homepage of the <code>os-maven-plugin</code></a>.</p>
           
@@ -291,6 +292,7 @@
           <p>To build the native transport, you need to use Linux with 64-bit kernel 2.6 or higher.  Please also install the required tools and libraries:</p>
           
           <div class="highlight highlight-bash"><pre><span class="c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel.i686 glibc-devel libgcc.i686 make tar&#x000A;<span class="c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make gcc-multilib tar</pre></div>
+          
               </div>
           
             </div></div>
@@ -309,7 +311,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 26-Aug-2014</small>
+                <small>Last retrieved on 29-Oct-2014</small>
               </div>
             </div>
           </div>
