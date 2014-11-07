@@ -290,6 +290,10 @@
           
           <p>Note that you must specify the proper classifier for the dependency.  <code>os-maven-plugin</code> in the <code>extensions</code> section in the <code>pom.xml</code> file will set <code>os.detected.classifier</code> property automatically.  For more information. refer to <a href="https://github.com/trustin/os-maven-plugin">the homepage of the <code>os-maven-plugin</code></a>.</p>
           
+          <p>For using the native transport in a sbt project,please add line below to you libraryDependencies</p>
+          
+          <pre><code>"io.netty" % "netty-transport-native-epoll" % "${project.version}" classifier "linux-x86_64"&#x000A;</code></pre>
+          
           <h2 id="wiki-h2-2">
           <a id="user-content-building-the-native-transport" class="anchor" href="#building-the-native-transport" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building the native transport</h2>
           
