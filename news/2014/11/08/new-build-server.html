@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.2.Final released</title>
-    <title>Netty: Netty 4.0.2.Final released</title>
+    <title>Netty.news: New build server, powered by Clinker</title>
+    <title>Netty: New build server, powered by Clinker</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,54 +255,63 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Netty 4.0.2.Final released
+                New build server, powered by Clinker
               </h1>
               <p class="byline">
                 <small>
                   by
-                  <a href="https://github.com/normanmaurer">normanmaurer</a>
+                  <a href="https://github.com/trustin">trustin</a>
                   <br>
                   on
-                  <time datetime="2013-07-17">17-Jul-2013</time>
+                  <time datetime="2014-11-08">08-Nov-2014</time>
                 </small>
               </p>
               <div class="news-content">
-                <p>This is the second bug-fix release out of the new stable 4.x tree. This release contains an important fix which eliminate a possible resource leak in the core of netty. So we strongly advice to upgrade from previous 4.x releases ASAP.</p>
+                <p>About a week ago, we experienced the outage of our CI server.  It was a dedicated hosting server maintained by myself, which as well costed me about $80/month.</p>
                 
-                <p>Beside this, this release also contains fixes related to HTTP.</p>
+                <p>Fortunately, <a href="https://engineering.twitter.com/">Twitter, Inc.</a> was very generous to cover its hosting cost for 12 months, which has been great relief for me.</p>
                 
-                <p>Thanks go out to all the contributers and users who reported bugs and gave feedback. We welcome everyone to <a href="http://netty.io/community.html">become a part of our community</a>.</p>
-                
-                <h2>Important changes</h2>
-                
-                <p>As noted above this release contains important fixes / changes. Those are listed below.</p>
+                <p>However, maintaining a server always takes energy; making sure the system up-to-date and fully operational often require manual intervention.  We tried to switch to other CI-as-a-service providers, but our build didn't fit very well into them, mainly because of the following issues:</p>
                 
                 <ul>
-                <li>Data structure corruption and resource leak in ChannelOutboundBuffer. (<a href="https://github.com/netty/netty/issues/1596">#1596</a>)</li>
-                <li>HttpObjectEncoder throws IllegalStateException if an empty HttpContent is written. (<a href="https://github.com/netty/netty/issues/1595">#1595</a>)</li>
-                <li>Fix HttpContentDecoder (<a href="https://github.com/netty/netty/pull/1588">#1588</a>)</li>
+                <li>Our tests sometimes take a lot of RAM, and the build process was often OOM-killed by the container.</li>
+                <li>Some of our tests are CPU intensive, and they take long time when the CPU is not powerful enough.</li>
+                <li>We find having a dedicated instance often increases the chance of discovering tricky concurrency issues, although it might be just an anecdotal observation.</li>
                 </ul>
                 
                 
-                <h3>Other changes</h3>
+                <p>Today, I'm very happy to announce that <a href="http://clinkerhq.com/">Clinker</a> donated their server instance to us and that it simply solved most of our CI issues.  It took only about a couple days to migrate our build jobs, thanks to their exceptional support.</p>
+                
+                <p>After a little bit of exploration, I also realized Clinker is more than just a CI server.  It provides:</p>
                 
                 <ul>
-                <li>More gracefully handling of IOException when using ServerChannels</li>
-                <li>Less confusing leak warning</li>
+                <li><a href="http://www.sonarqube.org/">SonarQube</a> for publishing our static analysis reports, including:
+                
+                <ul>
+                <li><a href="http://pmd.sourceforge.net/">PMD</a></li>
+                <li><a href="http://findbugs.sourceforge.net/">FindBugs</a></li>
+                <li><a href="http://checkstyle.sourceforge.net/">Checkstyle</a></li>
+                <li><a href="http://www.eclemma.org/jacoco/">JaCoCo</a></li>
+                </ul>
+                </li>
+                <li><a href="http://www.sonatype.org/nexus/">Nexus</a> for deployment of our snapshot artifacts</li>
+                <li>Almost infinite customizability of <a href="http://clinker.netty.io/jenkins/">our Jenkins instance</a>.</li>
                 </ul>
                 
                 
-                <p>Visit <a href="https://github.com/netty/netty/issues?milestone=62&amp;state=closed">here</a> for the complete list of the changes.</p>
+                <p>Especially, <a href="http://clinker.netty.io/sonar/dashboard/index/io.netty:netty-parent:master">the daily Sonar report</a> provides very useful information that could raise our quality bar even higher.  Please take your time to browse it, you'll find many low-hanging fruits that could be translated into a new pull request fairly easily.</p>
+                
+                <p>I'd like to say huge thanks to the folks at Clinker again for their support for Netty.  They certainly addressed our biggest pain point.</p>
               </div>
               <ul class="pager">
                 <li class="previous">
-                  <a href="../../../../news/2013/07/16/4-0-1-Final.html">&larr; Older</a>
+                  <a href="../../../../news/2014/10/29/4-0-24-Final.html">&larr; Older</a>
                 </li>
                 <li>
                   <a href="../../../index.html">List all news items</a>
                 </li>
-                <li class="next">
-                  <a href="../../../../news/2013/07/23/4-0-4-Final.html">Newer &rarr;</a>
+                <li class="next disabled">
+                  <a href="#">Newer &rarr;</a>
                 </li>
               </ul>
             </div>
@@ -311,9 +320,9 @@
                           <div id="disqus_thread"></div>
                           <script type="text/javascript">
                           var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2013/07/17/4-0-2-Final.html";
+                          var disqus_url = "http://netty.io/news/2014/11/08/new-build-server.html";
                           var disqus_developer = null;
-                          var disqus_identifier = "news/2013-07-17-4-0-2-Final.html";
+                          var disqus_identifier = "news/2014-11-08-new-build-server.html";
                           (function() {
                             var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                             dsq.src = "http://netty0.disqus.com/embed.js";
