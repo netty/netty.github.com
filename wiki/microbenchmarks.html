@@ -284,11 +284,11 @@
           
           <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
           
-          <div class="highlight highlight-java"><pre><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBenchmark</span> <span class="kd">extends</span> <span class="n">AbstractMicrobenchmark</span> <span class="o">{</span>&#x000A;&#x000A;<span class="o">}</span></pre></div>
+          <div class="highlight highlight-java"><pre><span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-s">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           
           <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
           
-          <div class="highlight highlight-java"><pre><span class="nd">@GenerateMicroBenchmark</span>&#x000A;<span class="kd">public</span> <span class="kt">void</span> <span class="nf">measureSomethingHere</span><span class="o">()</span> <span class="o">{</span>&#x000A;&#x000A;<span class="o">}</span></pre></div>
+          <div class="highlight highlight-java"><pre>@<span class="pl-stj">GenerateMicroBenchmark</span>&#x000A;<span class="pl-s">public</span> <span class="pl-st">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
           
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking">the talks</a> of one of the main authors from JMH.</p>
           
@@ -311,7 +311,7 @@
           
           <p>Note that you can also customize those default settings on a per-test basis through annotations:</p>
           
-          <div class="highlight highlight-java"><pre><span class="nd">@Warmup</span><span class="o">(</span><span class="n">iterations</span> <span class="o">=</span> <span class="mi">20</span><span class="o">)</span>&#x000A;<span class="nd">@Fork</span><span class="o">(</span><span class="mi">1</span><span class="o">)</span>&#x000A;<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyBenchmark</span> <span class="kd">extends</span> <span class="n">AbstractMicrobenchmark</span> <span class="o">{</span>&#x000A;&#x000A;<span class="o">}</span></pre></div>
+          <div class="highlight highlight-java"><pre>@Warmup(iterations <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;@Fork(<span class="pl-c1">1</span>)&#x000A;<span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-s">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           
           <p>This can be done on a per-class and per-method (benchmark) basis. Note that command line arguments always override the annotation defaults.</p>
           
@@ -334,7 +334,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 08-Nov-2014</small>
+                <small>Last retrieved on 19-Nov-2014</small>
               </div>
             </div>
           </div>
