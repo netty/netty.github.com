@@ -281,7 +281,7 @@
           
           <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
           
-          <div class="highlight highlight-java"><pre><span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-s">void</span> main(<span class="pl-s">String</span>[] args) throws <span class="pl-s">Exception</span> {&#x000A;  <span class="pl-s">SslContext</span> sslCtx <span class="pl-ko">=</span> <span class="pl-s">SslContext</span><span class="pl-ko">.</span>newServerContext(<span class="pl-s">SslProvider</span><span class="pl-c1"><span class="pl-ko">.</span>OPENSSL</span>, <span class="pl-cn">...</span>);&#x000A;  <span class="pl-cn">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-entc">MyChannelInitializer</span> <span class="pl-s">extends</span> <span class="pl-eoi">ChannelInitializer&lt;<span class="pl-s">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-s">private</span> <span class="pl-s">final</span> <span class="pl-s">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-s">public</span> <span class="pl-enf">MyChannelInitializer</span>(<span class="pl-s">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-ko">.</span>sslCtx <span class="pl-ko">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-s">@Override</span>&#x000A;  <span class="pl-s">public</span> <span class="pl-s">void</span> <span class="pl-enf">initChannel</span>(<span class="pl-s">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-s">throws</span> <span class="pl-s">Exception</span> {&#x000A;    <span class="pl-s">ChannelPipeline</span> p <span class="pl-ko">=</span> ch<span class="pl-ko">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-ko">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-ko">.</span>addLast(sslCtx<span class="pl-ko">.</span>newHandler(ch<span class="pl-ko">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-cn">...</span>&#x000A;  }&#x000A;}</pre></div>
+          <div class="highlight highlight-java"><pre><span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-st">void</span> main(<span class="pl-st">String</span>[] args) throws <span class="pl-stj">Exception</span> {&#x000A;  <span class="pl-stj">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-stj">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-stj">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-s">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-stj">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-s">private</span> <span class="pl-s">final</span> <span class="pl-stj">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-s">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-stj">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-st">@Override</span>&#x000A;  <span class="pl-s">public</span> <span class="pl-st">void</span> <span class="pl-en">initChannel</span>(<span class="pl-stj">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-s">throws</span> <span class="pl-stj">Exception</span> {&#x000A;    <span class="pl-stj">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
           
           <p>Netty will unpack the shared library provided by the <code>netty-tcnative-&lt;version&gt;-&lt;os.detected.classifier&gt;.jar</code> into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
           
@@ -312,18 +312,18 @@
           
           <p>Install the required packages:</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-c"><span class="pl-pdc">#</span> RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel make tar apr-devel openssl-devel&#x000A;<span class="pl-c"><span class="pl-pdc">#</span> Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar libapr1-dev libssl-dev</pre></div>
+          <div class="highlight highlight-bash"><pre><span class="pl-c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel make tar apr-devel openssl-devel&#x000A;<span class="pl-c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar libapr1-dev libssl-dev</pre></div>
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-sf">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-pdc">#</span> To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-pdc">#</span> To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-s3">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-4">
           <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Mac OS X</h3>
           
           <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
           
-          <div class="highlight highlight-bash"><pre>xcode-<span class="pl-k">select</span> <span class="pl-v">--install</span></pre></div>
+          <div class="highlight highlight-bash"><pre>xcode-<span class="pl-k">select</span> <span class="pl-vo">--install</span></pre></div>
           
           <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
           
@@ -331,11 +331,11 @@
           
           <p>Add the following exports to your <code>~/.bash_profile</code>, so that the compiler and linker finds OpenSSL built by Homebrew.</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-s">export</span> CPPFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-v"><span class="pl-pdv">$</span>CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-s">export</span> LDFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-v"><span class="pl-pdv">$</span>LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
+          <div class="highlight highlight-bash"><pre><span class="pl-s">export</span> CPPFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-vo">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-s">export</span> LDFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-vo">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-sf">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-pdc">#</span> To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-pdc">#</span> To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-s3">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-5">
           <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
@@ -426,7 +426,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 21-Nov-2014</small>
+                <small>Last retrieved on 22-Nov-2014</small>
               </div>
             </div>
           </div>
