@@ -381,6 +381,8 @@
           
           <div class="highlight highlight-java"><pre><span class="pl-stj">ByteBuf</span> parent <span class="pl-k">=</span> ctx<span class="pl-k">.</span>alloc()<span class="pl-k">.</span>directBuffer();&#x000A;<span class="pl-stj">ByteBuf</span> derived <span class="pl-k">=</span> parent<span class="pl-k">.</span>duplicate();&#x000A;&#x000A;<span class="pl-c">// Creating a derived buffer does not increase the reference count.</span>&#x000A;<span class="pl-k">assert</span> parent<span class="pl-k">.</span>refCnt() <span class="pl-k">==</span> <span class="pl-c1">1</span>;&#x000A;<span class="pl-k">assert</span> derived<span class="pl-k">.</span>refCnt() <span class="pl-k">==</span> <span class="pl-c1">1</span>;</pre></div>
           
+          <p>In contrast, <code>ByteBuf.copy()</code> and <code>ByteBuf.readBytes(int)</code> are <em>not derived</em> buffers.  The returned <code>ByteBuf</code> is allocated will need to be released.</p>
+          
           <p>Note that a parent buffer and its derived buffers share the same reference count, and the reference count does not increase when a derived buffer is created.  Therefore, if you are going to pass a derived buffer to other component of your application, you'll have to call <code>retain()</code> it first.</p>
           
           <div class="highlight highlight-java"><pre><span class="pl-stj">ByteBuf</span> parent <span class="pl-k">=</span> ctx<span class="pl-k">.</span>alloc()<span class="pl-k">.</span>directBuffer(<span class="pl-c1">512</span>);&#x000A;parent<span class="pl-k">.</span>writeBytes(<span class="pl-c1">...</span>);&#x000A;&#x000A;<span class="pl-k">try</span> {&#x000A;    <span class="pl-k">while</span> (parent<span class="pl-k">.</span>isReadable(<span class="pl-c1">16</span>)) {&#x000A;        <span class="pl-stj">ByteBuf</span> derived <span class="pl-k">=</span> parent<span class="pl-k">.</span>readSlice(<span class="pl-c1">16</span>);&#x000A;        derived<span class="pl-k">.</span>retain();&#x000A;        process(derived);&#x000A;    }&#x000A;} <span class="pl-k">finally</span> {&#x000A;    parent<span class="pl-k">.</span>release();&#x000A;}&#x000A;<span class="pl-c1">...</span>&#x000A;&#x000A;<span class="pl-s">public</span> <span class="pl-st">void</span> process(<span class="pl-stj">ByteBuf</span> buf) {&#x000A;    <span class="pl-c1">...</span>&#x000A;    buf<span class="pl-k">.</span>release();&#x000A;}</pre></div>
@@ -510,7 +512,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 22-Nov-2014</small>
+                <small>Last retrieved on 04-Dec-2014</small>
               </div>
             </div>
           </div>
