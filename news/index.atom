@@ -2,9 +2,136 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-11-08T17:58:39+09:00</updated>
+  <updated>2014-12-17T15:33:29+09:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html</id>
+    <title>Changes in deprecation policy</title>
+    <updated>2014-12-17T15:33:29+09:00</updated>
+    <published>2014-12-17T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      As we mentioned in today's release announcement, we decided to remove the deprecated members and classes on a minor version bump rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.
+      
+      Why?
+      
+      We want to keep our code clean while we move fast. When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they...
+    </summary>
+    <content type="html">
+      &lt;p&gt;As we mentioned in &lt;a href=&quot;3-9-6-Final-and-3-10-0-Final.html&quot;&gt;today's release announcement&lt;/a&gt;, &lt;strong&gt;we decided to remove the deprecated members and classes on a minor version bump&lt;/strong&gt; rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.&lt;/p&gt;
+      
+      &lt;p&gt;Why?&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;We want to keep our code clean while we move fast.&lt;/strong&gt; When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they pollute our Javadoc and your IDE's auto-completion list.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;We want to minimize the difficulties of merging changes.&lt;/strong&gt; We currently maintain 3 major versions - 3, 4, and 5. When we make a change in one branch, we have to port it to the other two. When we are lucky, it merges cleanly. When we have deprecated entities in the old branch, it is more likely that we will fall into unpleasant conflicts.&lt;/p&gt;
+      
+      &lt;p&gt;However, this means we will break the backward compatibility on a minor version bump. To minimize the cost of migration, we will release two versions:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;the maintenance version with the deprecated members and classes, and&lt;/li&gt;
+      &lt;li&gt;the new version with minor updates plus the removal of the deprecated members and classes.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;To avoid any issues during upgrade, you'll have to build your project against the maintenance version first, fix all deprecation warnings your compiler reports, and then upgrade to the new version.&lt;/p&gt;
+      
+      &lt;p&gt;Thank you for your understanding, and we hope it turns out to be trivial to remove the references to the deprecated entities on your side.&lt;/p&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html</id>
+    <title>Netty 3.9.6.Final + 3.10.0.Final</title>
+    <updated>2014-12-17T15:31:44+09:00</updated>
+    <published>2014-12-17T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.
+      
+      3.9.6.Final
+      
+      
+      #3107 - Fix the bugs in ZlibEncoder and JdkZlibEncoder which caused HttpContentCompressor to fail
+      #3131 - Disable SSLv3 to protect the users against POODLE
+      #3142 - Add support for pushed resources in SPDY
+      #3210 - Fix integer overflow when handling an HTTP multipart request
+      #3249 - Fix potential race condition in I/O boss/worker pool initialization
+      
+      
+      
+      3.9.10.Final
+      
+      
+      #3056 - Improve the accuracy and efficiency of traffic shaping handlers
+      #3136 - Remove the deprecated methods and classes
+      
+      
+      
+      You can also browse our issue tracker (3.9.6.Final and 3.10.0.Final) for the gory detail.
+      
+      As always, please let us know...
+    </summary>
+    <content type="html">
+      &lt;p&gt;We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.&lt;/p&gt;
+      
+      &lt;h3&gt;3.9.6.Final&lt;/h3&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3107&quot;&gt;#3107&lt;/a&gt; - Fix the bugs in &lt;code&gt;ZlibEncoder&lt;/code&gt; and &lt;code&gt;JdkZlibEncoder&lt;/code&gt; which caused &lt;code&gt;HttpContentCompressor&lt;/code&gt; to fail&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/3131&quot;&gt;#3131&lt;/a&gt; - Disable SSLv3 to protect the users against POODLE&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3142&quot;&gt;#3142&lt;/a&gt; - Add support for pushed resources in SPDY&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3210&quot;&gt;#3210&lt;/a&gt; - Fix integer overflow when handling an HTTP multipart request&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/3249&quot;&gt;#3249&lt;/a&gt; - Fix potential race condition in I/O boss/worker pool initialization&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h3&gt;3.9.10.Final&lt;/h3&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3056&quot;&gt;#3056&lt;/a&gt; - Improve the accuracy and efficiency of traffic shaping handlers&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3136&quot;&gt;#3136&lt;/a&gt; - Remove the deprecated methods and classes&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;You can also browse our issue tracker (&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.6.Final&quot;&gt;3.9.6.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.10.0.Final&quot;&gt;3.10.0.Final&lt;/a&gt;) for the gory detail.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
+      
+      &lt;h3&gt;Wait, you removed what?&lt;/h3&gt;
+      
+      &lt;p&gt;Yes, we have removed all deprecated fields, methods, and classes in 3.10.0.Final. To avoid any issues during upgrade, please build your project against 3.9.6.Final first, fix all deprecation warnings &lt;code&gt;javac&lt;/code&gt; reports, and then upgrade to 3.10.0.Final.&lt;/p&gt;
+      
+      &lt;p&gt;For more information, please read &lt;a href=&quot;changes-in-deprecation-policy.html&quot;&gt;our announcement&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MichaelScofield&quot;&gt;@MichaelScofield&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/11/08/new-build-server.html</id>
     <title>New build server, powered by Clinker</title>
@@ -3341,87 +3468,6 @@
       &lt;div&gt;&lt;p&gt;This feature has also been back-ported to Netty 3.x. The &lt;em&gt;CustomTextFrameHandler&lt;/em&gt; class would then look something like this:&lt;/p&gt;&lt;/div&gt;
       &lt;div&gt;&lt;script src=&quot;https://gist.github.com/4076940.js&quot;&gt;&lt;/script&gt;&lt;/div&gt;
       &lt;div&gt;&lt;p&gt;&lt;span&gt;An &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a title=&quot;WebSocket Example for 3.x&quot; href=&quot;https://github.com/netty/netty/tree/3/src/main/java/org/jboss/netty/example/http/websocketx/html5&quot;&gt;example&lt;/a&gt;&lt;/span&gt; has been included in Netty which uses the above code for the server side, and a simple html page as the WebSocket client.&lt;/span&gt;&lt;/p&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/11/12/3-6-0-beta1.html</id>
-    <title>Netty 3.6.0.Beta1 - And more to come</title>
-    <updated>2014-11-07T11:42:22+09:00</updated>
-    <published>2012-11-12T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/11/12/3-6-0-beta1.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      And another release.... 
-      Netty 3.6.0.Beta1 ships all the fixes which are are included in Netty 3.5.10.Final , but contains one extra enhancement which we felt would be to "heavy" to have it included in the 3.5.x series.
-      In Netty 3.6.0.Beta1 we fixed one long standing known limitation that was often a critic of our users. And to be honest they are right, so it was time to fix it 
-      In the past when you used Netty in Server mode with the NIO-Transport it was needed to have one Thread allocated per bound port. That's not a big deal if you only bind...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;And another release.... &lt;/p&gt;
-      &lt;p&gt;Netty 3.6.0.Beta1 ships all the fixes which are are included in &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/news/2012/06/08/3-5-0-final.html&quot;&gt;Netty 3.5.10.Final&lt;/a&gt;&lt;/span&gt; , but contains one extra enhancement which we felt would be to &quot;heavy&quot; to have it included in the 3.5.x series.&lt;/p&gt;
-      &lt;p&gt;In Netty 3.6.0.Beta1 we fixed one long standing known limitation that was often a critic of our users. And to be honest they are right, so it was time to fix it &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt;&lt;/p&gt;
-      &lt;p&gt;In the past when you used Netty in Server mode with the NIO-Transport it was needed to have one Thread allocated per bound port. That's not a big deal if you only bind to a handful of ports, but can be just not &quot;feasible&quot; if you plan to bind to thousands of ports.&lt;/p&gt;
-      &lt;p&gt;So we changed this to allow to share the same Thread for many bound ports. This is done for you automatically without any change needed by you. But it goes further, as you can also specify how many Threads you want use. One is just the default which may work out for you or not, as it depends on the workload.&lt;/p&gt;
-      &lt;p&gt;To support this we added two new constructors to the NioServerChannelFactory&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/4061421.js&quot;&gt;&lt;/script&gt;&lt;p&gt;For more details see &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/721&quot;&gt;[#721]&lt;/a&gt;&lt;/span&gt;.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;&lt;span&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.6.0.Beta1%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/downloads&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2012/11/11/3-5-10-final.html</id>
-    <title>Netty 3.5.10.Final - Get it while it is hot</title>
-    <updated>2014-11-07T11:42:22+09:00</updated>
-    <published>2012-11-11T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2012/11/11/3-5-10-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      Here comes another bug-fix release of the 3.5.x series. This is a "bug-fix-only" release, so nothing included beside bug-fixes.
-      The most important are:
-      
-      
-      [685] Possible NPE in NioClientSocketPipelineSink
-      
-      [694] WebSocket08FrameDecoder calls await*(..) in the Worker / IO-Thread
-      
-      [712] CookieDecoder can not parse dates in the past
-      
-      [719] Empty path segment in URI results in invalid HTTP Request
-      
-      For all the other changes please checkout our  issue tracker. 
-      The JAR file can be found on Maven Central or  you can also get the full tarball from the download page. Whatever you prefer...
-      Please let us know if you have any problems or questions.
-      
-      ...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;Here comes another bug-fix release of the 3.5.x series. This is a &quot;bug-fix-only&quot; release, so nothing included beside bug-fixes.&lt;/p&gt;
-      &lt;p&gt;&lt;span&gt;The most important are:&lt;/span&gt;&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/685&quot;&gt;[685]&lt;/a&gt;&lt;/span&gt; Possible NPE in NioClientSocketPipelineSink&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/694&quot;&gt;[694]&lt;/a&gt;&lt;/span&gt;&lt;span&gt; WebSocket08FrameDecoder calls await*(..) in the Worker / IO-Thread&lt;/span&gt;
-      &lt;/li&gt;
-      &lt;li&gt;&lt;span&gt;&lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/712&quot;&gt;[712]&lt;/a&gt;&lt;/span&gt; CookieDecoder can not parse dates in the past&lt;/span&gt;&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/719&quot;&gt;[719]&lt;/a&gt;&lt;/span&gt; Empty path segment in URI results in invalid HTTP Request&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;p&gt;For all the other changes please checkout our &lt;span&gt; &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?milestone=32&amp;amp;state=closed&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;. &lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;The JAR file can be found on &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.10.Final%7Cjar&quot;&gt;Maven Central&lt;/a&gt;&lt;/span&gt; or  you can also get the full tarball from &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the download page&lt;/a&gt;&lt;/span&gt;. Whatever you prefer...&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
       &lt;/div&gt;
     </content>
   </entry>
