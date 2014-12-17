@@ -2,9 +2,98 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-12-17T15:33:29+09:00</updated>
+  <updated>2014-12-17T15:56:57+09:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html</id>
+    <title>Netty 3.9.6.Final + 3.10.0.Final</title>
+    <updated>2014-12-17T15:56:57+09:00</updated>
+    <published>2014-12-17T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.
+      
+      3.9.6.Final
+      
+      
+      #3107 - Fix the bugs in ZlibEncoder and JdkZlibEncoder which caused HttpContentCompressor to fail
+      #3131 - Disable SSLv3 to protect the users against POODLE
+      #3142 - Add support for pushed resources in SPDY
+      #3210 - Fix integer overflow when handling an HTTP multipart request
+      #3249 - Fix potential race condition in I/O boss/worker pool initialization
+      
+      
+      
+      3.10.0.Final
+      
+      
+      #3056 - Improve the accuracy and efficiency of traffic shaping handlers
+      #3136 - Remove the deprecated methods and classes
+      
+      
+      
+      You can also browse our issue tracker (3.9.6.Final and 3.10.0.Final) for the gory detail.
+      
+      As always, please let us know...
+    </summary>
+    <content type="html">
+      &lt;p&gt;We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.&lt;/p&gt;
+      
+      &lt;h3&gt;3.9.6.Final&lt;/h3&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3107&quot;&gt;#3107&lt;/a&gt; - Fix the bugs in &lt;code&gt;ZlibEncoder&lt;/code&gt; and &lt;code&gt;JdkZlibEncoder&lt;/code&gt; which caused &lt;code&gt;HttpContentCompressor&lt;/code&gt; to fail&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/3131&quot;&gt;#3131&lt;/a&gt; - Disable SSLv3 to protect the users against POODLE&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3142&quot;&gt;#3142&lt;/a&gt; - Add support for pushed resources in SPDY&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3210&quot;&gt;#3210&lt;/a&gt; - Fix integer overflow when handling an HTTP multipart request&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/issues/3249&quot;&gt;#3249&lt;/a&gt; - Fix potential race condition in I/O boss/worker pool initialization&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h3&gt;3.10.0.Final&lt;/h3&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3056&quot;&gt;#3056&lt;/a&gt; - Improve the accuracy and efficiency of traffic shaping handlers&lt;/li&gt;
+      &lt;li&gt;
+      &lt;a href=&quot;https://github.com/netty/netty/pull/3136&quot;&gt;#3136&lt;/a&gt; - Remove the deprecated methods and classes&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;You can also browse our issue tracker (&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.6.Final&quot;&gt;3.9.6.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.10.0.Final&quot;&gt;3.10.0.Final&lt;/a&gt;) for the gory detail.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
+      
+      &lt;h3&gt;Wait, you removed what?&lt;/h3&gt;
+      
+      &lt;p&gt;Yes, we have removed all deprecated fields, methods, and classes in 3.10.0.Final. To avoid any issues during upgrade, please build your project against 3.9.6.Final first, fix all deprecation warnings &lt;code&gt;javac&lt;/code&gt; reports, and then upgrade to 3.10.0.Final.&lt;/p&gt;
+      
+      &lt;p&gt;For more information, please read &lt;a href=&quot;changes-in-deprecation-policy.html&quot;&gt;our announcement&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MichaelScofield&quot;&gt;@MichaelScofield&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html</id>
     <title>Changes in deprecation policy</title>
@@ -41,95 +130,6 @@
       &lt;p&gt;To avoid any issues during upgrade, you'll have to build your project against the maintenance version first, fix all deprecation warnings your compiler reports, and then upgrade to the new version.&lt;/p&gt;
       
       &lt;p&gt;Thank you for your understanding, and we hope it turns out to be trivial to remove the references to the deprecated entities on your side.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html</id>
-    <title>Netty 3.9.6.Final + 3.10.0.Final</title>
-    <updated>2014-12-17T15:31:44+09:00</updated>
-    <published>2014-12-17T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.
-      
-      3.9.6.Final
-      
-      
-      #3107 - Fix the bugs in ZlibEncoder and JdkZlibEncoder which caused HttpContentCompressor to fail
-      #3131 - Disable SSLv3 to protect the users against POODLE
-      #3142 - Add support for pushed resources in SPDY
-      #3210 - Fix integer overflow when handling an HTTP multipart request
-      #3249 - Fix potential race condition in I/O boss/worker pool initialization
-      
-      
-      
-      3.9.10.Final
-      
-      
-      #3056 - Improve the accuracy and efficiency of traffic shaping handlers
-      #3136 - Remove the deprecated methods and classes
-      
-      
-      
-      You can also browse our issue tracker (3.9.6.Final and 3.10.0.Final) for the gory detail.
-      
-      As always, please let us know...
-    </summary>
-    <content type="html">
-      &lt;p&gt;We have just released two new versions in Netty 3 branch - 3.9.6.Final and 3.10.0.Final.&lt;/p&gt;
-      
-      &lt;h3&gt;3.9.6.Final&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/3107&quot;&gt;#3107&lt;/a&gt; - Fix the bugs in &lt;code&gt;ZlibEncoder&lt;/code&gt; and &lt;code&gt;JdkZlibEncoder&lt;/code&gt; which caused &lt;code&gt;HttpContentCompressor&lt;/code&gt; to fail&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/issues/3131&quot;&gt;#3131&lt;/a&gt; - Disable SSLv3 to protect the users against POODLE&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/3142&quot;&gt;#3142&lt;/a&gt; - Add support for pushed resources in SPDY&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/3210&quot;&gt;#3210&lt;/a&gt; - Fix integer overflow when handling an HTTP multipart request&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/issues/3249&quot;&gt;#3249&lt;/a&gt; - Fix potential race condition in I/O boss/worker pool initialization&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;3.9.10.Final&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/3056&quot;&gt;#3056&lt;/a&gt; - Improve the accuracy and efficiency of traffic shaping handlers&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/3136&quot;&gt;#3136&lt;/a&gt; - Remove the deprecated methods and classes&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;You can also browse our issue tracker (&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.6.Final&quot;&gt;3.9.6.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.10.0.Final&quot;&gt;3.10.0.Final&lt;/a&gt;) for the gory detail.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
-      
-      &lt;h3&gt;Wait, you removed what?&lt;/h3&gt;
-      
-      &lt;p&gt;Yes, we have removed all deprecated fields, methods, and classes in 3.10.0.Final. To avoid any issues during upgrade, please build your project against 3.9.6.Final first, fix all deprecation warnings &lt;code&gt;javac&lt;/code&gt; reports, and then upgrade to 3.10.0.Final.&lt;/p&gt;
-      
-      &lt;p&gt;For more information, please read &lt;a href=&quot;changes-in-deprecation-policy.html&quot;&gt;our announcement&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/MichaelScofield&quot;&gt;@MichaelScofield&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
     </content>
   </entry>
   <entry>
