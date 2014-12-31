@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.0.Beta3 released</title>
-    <title>Netty: Netty 4.0.0.Beta3 released</title>
+    <title>Netty.news: Netty 4.0.25.Final released</title>
+    <title>Netty: Netty 4.0.25.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Netty 4.0.0.Beta3 released
+                Netty 4.0.25.Final released
               </h1>
               <p class="byline">
                 <small>
@@ -263,39 +263,101 @@
                   <a href="https://github.com/trustin">trustin</a>
                   <br>
                   on
-                  <time datetime="2013-03-18">18-Mar-2013</time>
+                  <time datetime="2014-12-31">31-Dec-2014</time>
                 </small>
               </p>
               <div class="news-content">
-                <p>Thank you everyone for giving Netty 4.0.0.Beta2 a try.  We were able to squash many bugs thanks to your input, and I&#39;m proud to call this release the last beta before the candidate release!  As you know, your input is crucial for us to produce more stable and easier-to-use release.  It will be awesome if you have a chance to <a href="http://netty.io/community.html">get involved into the Netty project</a> as well as you <a href="http://netty.io/downloads.html">download</a> it.</p>
+                <p>I'm happy to announce Netty 4.0.25.Final before 2014 ends! It would be great if anyone finds this release a great happy new year present.</p>
                 
-                <h2>Notable changes</h2>
+                <p>It took us two months since the previous release in 4.0 branch, and we must admit we have a lot to improve here. We know you are also waiting for 4.1 &amp; 5.0 releases with all the shiny new features. Please stay tuned! I expect myself to deliver them before January ends.</p>
+                
+                <p>Putting a new year's resolution aside, this release, as well as 20+ bug fixes, contains the following exciting new features and improvements:</p>
                 
                 <ul>
-                <li>Our future/promise API has been refactored so that it can be used without an associated <code>Channel</code> at all.  You will like this change if you did not like <code>java.util.concurrent.Future</code>.  Please refer to <a href="http://netty.io/4.0/api/index.html?io/netty/util/concurrent/package-summary.html">the API documentation</a> for more information. (<a href="https://github.com/netty/netty/issues/1065">#1065</a>)</li>
-                <li><code>ChannelHandler.userEventTriggered()</code> event handler method has been moved to <code>ChannslStateHandler</code>. (<a href="https://github.com/netty/netty/issues/1107">#1107</a>)</li>
-                <li>Potential I/O starvaion in <code>NioEventLoop</code> has been fixed by introducing a parameter called <code>ioRatio</code>, which allows you to limit the percantage of time spent by non-I/O tasks. (<a href="https://github.com/netty/netty/issues/1154">#1154</a>)</li>
-                <li><code>ByteToByteEncoder</code> now intercepts a <code>sendFile(FileRegion)</code> operation and filter the content of the <code>FileRegion</code> for your convenience. (<a href="https://github.com/netty/netty/pull/1106">#1106</a>)</li>
-                <li>Google protobuf has been upgraded to version 2.5 to get decoding performance improvement. (<a href="https://github.com/netty/netty/pull/1139">#1139</a>)</li>
-                <li><code>ChannelHandlerContext.nextInbound/OutboundBufferType()</code> has been added for handlers that have to behave differently depending on the type of the next handler&#39;s buffer. (<a href="https://github.com/netty/netty/pull/1132">#1132</a>)</li>
-                <li><code>ChannelOutboundMessageHandlerAdapter.beginFlush()</code> now has to return a boolean value to accept or reject the flush request where the default implementation is to accept. (<a href="https://github.com/netty/netty/issues/1141">#1141</a>)</li>
-                <li><code>ByteBuf.hasMemoryAddress()</code> and <code>ByteBuf.memoryAddress()</code> were added to allow a user access the buffer using <code>sun.misc.Unsafe</code> for even faster buffer access. (<a href="https://github.com/netty/netty/issues/1110">#1110</a>)</li>
-                <li><code>ThreadPerChannelEventLoopGroup</code> and <code>ThreadPerChannelEventLoop</code> have been added to allow a user to build a thread-per-channel transport more easily. (<a href="https://github.com/netty/netty/issues/1124">#1124</a>)</li>
-                <li>17 bug fixes and more</li>
+                <li>SSL
+                
+                <ul>
+                <li><code>SslContext</code> adds ALPN and mutual authentication support.</li>
+                <li><code>SslHandler.renegotiate()</code> adds proper SSL renegotiation support.</li>
+                <li><code>SniHandler</code> adds Server Name Indication support.</li>
+                <li><code>OpenSslEngine</code> is now (almost) feature-complete with client mode support.
+                
+                <ul>
+                <li>Works as a drop-in replacement of JDK stock <code>SSLEngineImpl</code>!</li>
+                </ul>
+                </li>
+                </ul>
+                </li>
+                <li>SPDY
+                
+                <ul>
+                <li>Pushed resource support</li>
+                </ul>
+                </li>
+                <li>HTTP
+                
+                <ul>
+                <li>Higher performance</li>
+                </ul>
+                </li>
+                <li>Linux native transport (epoll)
+                
+                <ul>
+                <li>Higher performance</li>
+                </ul>
+                </li>
                 </ul>
                 
                 
-                <p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Beta3">here</a> for the complete list of the changes.</p>
+                <p>For the detail, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.25.Final">our issue tracker</a>.</p>
+                
+                <p>As always, please let us know if you find any issues. We love feedback!</p>
+                
+                <h1>Thank You</h1>
+                
+                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+                
+                <ul>
+                <li><a href="https://github.com/beckje01">@beckje01</a></li>
+                <li><a href="https://github.com/belliottsmith">@belliottsmith</a></li>
+                <li><a href="https://github.com/bfg">@bfg</a></li>
+                <li><a href="https://github.com/blucas">@blucas</a></li>
+                <li><a href="https://github.com/buchgr">@buchgr</a></li>
+                <li><a href="https://github.com/d-t-w">@d-t-w</a></li>
+                <li><a href="https://github.com/danbev">@danbev</a></li>
+                <li><a href="https://github.com/daschl">@daschl</a></li>
+                <li><a href="https://github.com/dkartaschew">@dkartaschew</a></li>
+                <li><a href="https://github.com/fbarberamzn">@fbarberamzn</a></li>
+                <li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
+                <li><a href="https://github.com/Gadreel">@Gadreel</a></li>
+                <li><a href="https://github.com/gbehrmann">@gbehrmann</a></li>
+                <li><a href="https://github.com/gdgib">@gdgib</a></li>
+                <li><a href="https://github.com/grahamedgecombe">@grahamedgecombe</a></li>
+                <li><a href="https://github.com/gsoltis">@gsoltis</a></li>
+                <li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
+                <li><a href="https://github.com/jpinner">@jpinner</a></li>
+                <li><a href="https://github.com/jwils">@jwils</a></li>
+                <li><a href="https://github.com/lw346">@lw346</a></li>
+                <li><a href="https://github.com/naude-r">@naude-r</a></li>
+                <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+                <li><a href="https://github.com/Pyrolistical">@Pyrolistical</a></li>
+                <li><a href="https://github.com/rxin">@rxin</a></li>
+                <li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
+                <li><a href="https://github.com/sunng87">@sunng87</a></li>
+                <li><a href="https://github.com/trustin">@trustin</a></li>
+                <li><a href="https://github.com/ysammy">@ysammy</a></li>
+                <li><a href="https://github.com/zcourts">@zcourts</a></li>
+                </ul>
               </div>
               <ul class="pager">
                 <li class="previous">
-                  <a href="../../../../news/2013/02/26/4-0-0-beta2.html">&larr; Older</a>
+                  <a href="../../../../news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html">&larr; Older</a>
                 </li>
                 <li>
                   <a href="../../../index.html">List all news items</a>
                 </li>
-                <li class="next">
-                  <a href="../../../../news/2013/03/22/4-0-0-CR1.html">Newer &rarr;</a>
+                <li class="next disabled">
+                  <a href="#">Newer &rarr;</a>
                 </li>
               </ul>
             </div>
@@ -304,9 +366,9 @@
                           <div id="disqus_thread"></div>
                           <script type="text/javascript">
                           var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2013/03/18/4-0-0-beta3.html";
+                          var disqus_url = "http://netty.io/news/2014/12/31/4-0-25-Final.html";
                           var disqus_developer = null;
-                          var disqus_identifier = "news/2013-03-18-4-0-0-beta3.html";
+                          var disqus_identifier = "news/2014-12-31-4-0-25-Final";
                           (function() {
                             var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
                             dsq.src = "http://netty0.disqus.com/embed.js";
