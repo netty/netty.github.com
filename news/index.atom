@@ -2,51 +2,13 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2014-12-25T20:20:37+01:00</updated>
+  <updated>2014-12-17T15:56:57+09:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
-    <id>http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html</id>
-    <title>Changes in deprecation policy</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
-    <published>2014-12-17T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      As we mentioned in today's release announcement, we decided to remove the deprecated members and classes on a minor version bump rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.
-      
-      Why?
-      
-      We want to keep our code clean while we move fast. When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they...
-    </summary>
-    <content type="html">
-      &lt;p&gt;As we mentioned in &lt;a href=&quot;3-9-6-Final-and-3-10-0-Final.html&quot;&gt;today's release announcement&lt;/a&gt;, &lt;strong&gt;we decided to remove the deprecated members and classes on a minor version bump&lt;/strong&gt; rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.&lt;/p&gt;
-      
-      &lt;p&gt;Why?&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;We want to keep our code clean while we move fast.&lt;/strong&gt; When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they pollute our Javadoc and your IDE's auto-completion list.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;strong&gt;We want to minimize the difficulties of merging changes.&lt;/strong&gt; We currently maintain 3 major versions - 3, 4, and 5. When we make a change in one branch, we have to port it to the other two. When we are lucky, it merges cleanly. When we have deprecated entities in the old branch, it is more likely that we will fall into unpleasant conflicts.&lt;/p&gt;
-      
-      &lt;p&gt;However, this means we will break the backward compatibility on a minor version bump. To minimize the cost of migration, we will release two versions:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;the maintenance version with the deprecated members and classes, and&lt;/li&gt;
-      &lt;li&gt;the new version with minor updates plus the removal of the deprecated members and classes.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;To avoid any issues during upgrade, you'll have to build your project against the maintenance version first, fix all deprecation warnings your compiler reports, and then upgrade to the new version.&lt;/p&gt;
-      
-      &lt;p&gt;Thank you for your understanding, and we hope it turns out to be trivial to remove the references to the deprecated entities on your side.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
     <id>http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html</id>
     <title>Netty 3.9.6.Final + 3.10.0.Final</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-17T15:56:57+09:00</updated>
     <published>2014-12-17T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/12/17/3-9-6-Final-and-3-10-0-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -133,9 +95,47 @@
     </content>
   </entry>
   <entry>
+    <id>http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html</id>
+    <title>Changes in deprecation policy</title>
+    <updated>2014-12-17T15:33:29+09:00</updated>
+    <published>2014-12-17T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2014/12/17/changes-in-deprecation-policy.html" rel="alternate" type="text/html" />
+    <author>
+      <name>trustin</name>
+    </author>
+    <summary>
+      As we mentioned in today's release announcement, we decided to remove the deprecated members and classes on a minor version bump rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.
+      
+      Why?
+      
+      We want to keep our code clean while we move fast. When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they...
+    </summary>
+    <content type="html">
+      &lt;p&gt;As we mentioned in &lt;a href=&quot;3-9-6-Final-and-3-10-0-Final.html&quot;&gt;today's release announcement&lt;/a&gt;, &lt;strong&gt;we decided to remove the deprecated members and classes on a minor version bump&lt;/strong&gt; rather than on a major version bump. By performing minor version bumps and removing the deprecated entities more often, we hope to move as fast as wished without worrying about maintenance pain.&lt;/p&gt;
+      
+      &lt;p&gt;Why?&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;We want to keep our code clean while we move fast.&lt;/strong&gt; When moving fast, we find we made mistakes in the past and we deprecate the members and classes that do not make sense anymore. Even if they were deprecated, they still remain in our API and they pollute our Javadoc and your IDE's auto-completion list.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;We want to minimize the difficulties of merging changes.&lt;/strong&gt; We currently maintain 3 major versions - 3, 4, and 5. When we make a change in one branch, we have to port it to the other two. When we are lucky, it merges cleanly. When we have deprecated entities in the old branch, it is more likely that we will fall into unpleasant conflicts.&lt;/p&gt;
+      
+      &lt;p&gt;However, this means we will break the backward compatibility on a minor version bump. To minimize the cost of migration, we will release two versions:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;the maintenance version with the deprecated members and classes, and&lt;/li&gt;
+      &lt;li&gt;the new version with minor updates plus the removal of the deprecated members and classes.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;To avoid any issues during upgrade, you'll have to build your project against the maintenance version first, fix all deprecation warnings your compiler reports, and then upgrade to the new version.&lt;/p&gt;
+      
+      &lt;p&gt;Thank you for your understanding, and we hope it turns out to be trivial to remove the references to the deprecated entities on your side.&lt;/p&gt;
+    </content>
+  </entry>
+  <entry>
     <id>http://netty.io/news/2014/11/08/new-build-server.html</id>
     <title>New build server, powered by Clinker</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-08T17:58:39+09:00</updated>
     <published>2014-11-08T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/11/08/new-build-server.html" rel="alternate" type="text/html" />
     <author>
@@ -194,7 +194,7 @@
   <entry>
     <id>http://netty.io/news/2014/10/29/4-0-24-Final.html</id>
     <title>Netty 4.0.24.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-10-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/10/29/4-0-24-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -305,7 +305,7 @@
   <entry>
     <id>http://netty.io/news/2014/08/26/3-9-4-Final.html</id>
     <title>Netty 3.9.4.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-08-26T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/08/26/3-9-4-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -362,7 +362,7 @@
   <entry>
     <id>http://netty.io/news/2014/08/15/4-0-23-Final-and-4-1-0-Beta3.html</id>
     <title>Netty 4.0.23.Final + 4.1.0.Beta3 with hot fixes</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-08-15T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/08/15/4-0-23-Final-and-4-1-0-Beta3.html" rel="alternate" type="text/html" />
     <author>
@@ -424,7 +424,7 @@
   <entry>
     <id>http://netty.io/news/2014/08/14/4-1-0-Beta2.html</id>
     <title>Netty 4.1.0.Beta2 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-08-14T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/08/14/4-1-0-Beta2.html" rel="alternate" type="text/html" />
     <author>
@@ -523,7 +523,7 @@
   <entry>
     <id>http://netty.io/news/2014/08/14/4-0-22-Final.html</id>
     <title>Netty 4.0.22.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-08-14T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/08/14/4-0-22-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -651,7 +651,7 @@
   <entry>
     <id>http://netty.io/news/2014/08/06/3-9-3-Final.html</id>
     <title>Netty 3.9.3.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2014-08-06T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/08/06/3-9-3-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -733,7 +733,7 @@
   <entry>
     <id>http://netty.io/news/2014/07/04/4-1-0-Beta1.html</id>
     <title>Netty 4.1.0.Beta1 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:29:10+09:00</updated>
     <published>2014-07-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/07/04/4-1-0-Beta1.html" rel="alternate" type="text/html" />
     <author>
@@ -819,7 +819,7 @@
   <entry>
     <id>http://netty.io/news/2014/07/01/4-0-21-Final.html</id>
     <title>Netty 4.0.21.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:18:05+09:00</updated>
     <published>2014-07-01T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/07/01/4-0-21-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -960,7 +960,7 @@
   <entry>
     <id>http://netty.io/news/2014/06/12/4-0-20-Final.html</id>
     <title>Netty 4.0.20.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:33:33+09:00</updated>
     <published>2014-06-12T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/06/12/4-0-20-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1043,7 +1043,7 @@
   <entry>
     <id>http://netty.io/news/2014/06/11/3-9-2-Final.html</id>
     <title>Netty 3.9.2.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:33:16+09:00</updated>
     <published>2014-06-11T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/06/11/3-9-2-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1110,7 +1110,7 @@
   <entry>
     <id>http://netty.io/news/2014/04/30/release-day.html</id>
     <title>Release day!</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:28:54+09:00</updated>
     <published>2014-04-30T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/04/30/release-day.html" rel="alternate" type="text/html" />
     <author>
@@ -1204,7 +1204,7 @@
   <entry>
     <id>http://netty.io/news/2014/04/01/4-0-18-Final.html</id>
     <title>Netty 4.0.18.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:12:53+09:00</updated>
     <published>2014-04-01T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/04/01/4-0-18-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1302,7 +1302,7 @@
   <entry>
     <id>http://netty.io/news/2014/02/25/4-0-17-Final.html</id>
     <title>Netty 4.0.17.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:20:35+09:00</updated>
     <published>2014-02-25T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/02/25/4-0-17-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1411,7 +1411,7 @@
   <entry>
     <id>http://netty.io/news/2014/01/21/4-0-15-Final.html</id>
     <title>Netty 4.0.15.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:15:04+09:00</updated>
     <published>2014-01-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2014/01/21/4-0-15-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1492,7 +1492,7 @@
   <entry>
     <id>http://netty.io/news/2013/12/22/three-releases-a-day.html</id>
     <title>Three releases a day: 5.0.0.Alpha1, 4.0.14, and 3.9.0</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:17:30+09:00</updated>
     <published>2013-12-22T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/12/22/three-releases-a-day.html" rel="alternate" type="text/html" />
     <author>
@@ -1537,7 +1537,7 @@
   <entry>
     <id>http://netty.io/news/2013/12/02/4-0-13-Final.html</id>
     <title>Netty 4.0.13.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:19:15+09:00</updated>
     <published>2013-12-02T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/12/02/4-0-13-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1614,7 +1614,7 @@
   <entry>
     <id>http://netty.io/news/2013/10/21/4-0-11-Final.html</id>
     <title>Netty 4.0.11.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:33:47+09:00</updated>
     <published>2013-10-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/10/21/4-0-11-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1679,7 +1679,7 @@
   <entry>
     <id>http://netty.io/news/2013/10/03/4-0-10-Final.html</id>
     <title>Netty 4.0.10.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:11:08+09:00</updated>
     <published>2013-10-03T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/10/03/4-0-10-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1743,7 +1743,7 @@
   <entry>
     <id>http://netty.io/news/2013/09/06/4-0-9-Final.html</id>
     <title>Netty 4.0.9.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:16:38+09:00</updated>
     <published>2013-09-06T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/09/06/4-0-9-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1812,7 +1812,7 @@
   <entry>
     <id>http://netty.io/news/2013/09/05/3-7-0-Final.html</id>
     <title>Netty 3.7.0.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:24:08+09:00</updated>
     <published>2013-09-05T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/09/05/3-7-0-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1834,7 +1834,7 @@
   <entry>
     <id>http://netty.io/news/2013/08/27/semantic-versioning.html</id>
     <title>Netty adopts the modified Semantic Versioning</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2013-08-27T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/08/27/semantic-versioning.html" rel="alternate" type="text/html" />
     <author>
@@ -1889,7 +1889,7 @@
   <entry>
     <id>http://netty.io/news/2013/08/26/4-0-8-Final.html</id>
     <title>Netty 4.0.8.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:32:28+09:00</updated>
     <published>2013-08-26T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/08/26/4-0-8-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1965,7 +1965,7 @@
   <entry>
     <id>http://netty.io/news/2013/08/08/4-0-7-Final.html</id>
     <title>Netty 4.0.7.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:14:11+09:00</updated>
     <published>2013-08-08T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/08/08/4-0-7-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2027,7 +2027,7 @@
   <entry>
     <id>http://netty.io/news/2013/08/01/4-0-6-Final.html</id>
     <title>Netty 4.0.6.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:23:12+09:00</updated>
     <published>2013-08-01T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/08/01/4-0-6-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2097,7 +2097,7 @@
   <entry>
     <id>http://netty.io/news/2013/07/23/4-0-4-Final.html</id>
     <title>Netty 4.0.4.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:18:23+09:00</updated>
     <published>2013-07-23T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/07/23/4-0-4-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2164,7 +2164,7 @@
   <entry>
     <id>http://netty.io/news/2013/07/17/4-0-2-Final.html</id>
     <title>Netty 4.0.2.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:24:38+09:00</updated>
     <published>2013-07-17T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/07/17/4-0-2-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2217,7 +2217,7 @@
   <entry>
     <id>http://netty.io/news/2013/07/16/4-0-1-Final.html</id>
     <title>Netty 4.0.1.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:22:13+09:00</updated>
     <published>2013-07-16T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/07/16/4-0-1-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2258,7 +2258,7 @@
   <entry>
     <id>http://netty.io/news/2013/07/16/4-0-0-Final.html</id>
     <title>Netty 4.0.0.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:18:54+09:00</updated>
     <published>2013-07-16T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/07/16/4-0-0-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2330,7 +2330,7 @@
   <entry>
     <id>http://netty.io/news/2013/07/02/4-0-0-CR9.html</id>
     <title>Netty 4.0.0.CR9 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:32:12+09:00</updated>
     <published>2013-07-02T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/07/02/4-0-0-CR9.html" rel="alternate" type="text/html" />
     <author>
@@ -2376,7 +2376,7 @@
   <entry>
     <id>http://netty.io/news/2013/06/21/4-0-0-CR6.html</id>
     <title>Netty 4.0.0.CR6 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:25:42+09:00</updated>
     <published>2013-06-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/06/21/4-0-0-CR6.html" rel="alternate" type="text/html" />
     <author>
@@ -2444,7 +2444,7 @@
   <entry>
     <id>http://netty.io/news/2013/06/18/4-0-0-CR5.html</id>
     <title>Netty 4.0.0.CR5 released with new-new API</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:21:32+09:00</updated>
     <published>2013-06-18T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/06/18/4-0-0-CR5.html" rel="alternate" type="text/html" />
     <author>
@@ -2561,7 +2561,7 @@
   <entry>
     <id>http://netty.io/news/2013/05/15/3-6-6-Final.html</id>
     <title>Netty 3.6.6.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:26:20+09:00</updated>
     <published>2013-05-15T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/05/15/3-6-6-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2627,7 +2627,7 @@
   <entry>
     <id>http://netty.io/news/2013/05/08/4-0-0-CR2.html</id>
     <title>Netty 4.0.0.CR2 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:22:35+09:00</updated>
     <published>2013-05-08T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/05/08/4-0-0-CR2.html" rel="alternate" type="text/html" />
     <author>
@@ -2767,7 +2767,7 @@
   <entry>
     <id>http://netty.io/news/2013/04/09/3-6-5-Final.html</id>
     <title>Netty 3.6.5.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:16:57+09:00</updated>
     <published>2013-04-09T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/04/09/3-6-5-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2811,7 +2811,7 @@
   <entry>
     <id>http://netty.io/news/2013/04/05/3-6-4-Final.html</id>
     <title>Netty 3.6.4.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:40:07+09:00</updated>
     <published>2013-04-05T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/04/05/3-6-4-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2880,7 +2880,7 @@
   <entry>
     <id>http://netty.io/news/2013/03/22/4-0-0-CR1.html</id>
     <title>Netty 4.0.0.RC1 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:40:07+09:00</updated>
     <published>2013-03-22T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/03/22/4-0-0-CR1.html" rel="alternate" type="text/html" />
     <author>
@@ -2929,7 +2929,7 @@
   <entry>
     <id>http://netty.io/news/2013/03/18/4-0-0-beta3.html</id>
     <title>Netty 4.0.0.Beta3 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:32:46+09:00</updated>
     <published>2013-03-18T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/03/18/4-0-0-beta3.html" rel="alternate" type="text/html" />
     <author>
@@ -2974,7 +2974,7 @@
   <entry>
     <id>http://netty.io/news/2013/02/26/4-0-0-beta2.html</id>
     <title>Netty 4.0.0.Beta2 released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:41:39+09:00</updated>
     <published>2013-02-26T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/02/26/4-0-0-beta2.html" rel="alternate" type="text/html" />
     <author>
@@ -3008,7 +3008,7 @@
   <entry>
     <id>http://netty.io/news/2013/02/21/3-6-3-final.html</id>
     <title>Netty 3.6.3.Final out now</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:41:30+09:00</updated>
     <published>2013-02-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/02/21/3-6-3-final.html" rel="alternate" type="text/html" />
     <author>
@@ -3035,7 +3035,7 @@
   <entry>
     <id>http://netty.io/news/2013/02/19/new-web-site-agin.html</id>
     <title>Announcing the new web site (again)</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:42:08+09:00</updated>
     <published>2013-02-19T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/02/19/new-web-site-agin.html" rel="alternate" type="text/html" />
     <author>
@@ -3077,7 +3077,7 @@
   <entry>
     <id>http://netty.io/news/2013/02/15/4-0-0-beta1.html</id>
     <title>Netty 4.0.0.Beta1 out now</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:23:50+09:00</updated>
     <published>2013-02-15T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/02/15/4-0-0-beta1.html" rel="alternate" type="text/html" />
     <author>
@@ -3109,7 +3109,7 @@
   <entry>
     <id>http://netty.io/news/2013/01/16/3-6-2-final.html</id>
     <title>Netty 3.6.2.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:27:36+09:00</updated>
     <published>2013-01-16T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/01/16/3-6-2-final.html" rel="alternate" type="text/html" />
     <author>
@@ -3171,7 +3171,7 @@
   <entry>
     <id>http://netty.io/news/2013/01/04/3-6-1-final.html</id>
     <title>Netty 3.6.1.Final out - More SSL fixes...</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:26:38+09:00</updated>
     <published>2013-01-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2013/01/04/3-6-1-final.html" rel="alternate" type="text/html" />
     <author>
@@ -3218,7 +3218,7 @@
   <entry>
     <id>http://netty.io/news/2012/12/20/3-6-0-final.html</id>
     <title>Netty 3.6.0.Final released - Keep on moving</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:30:59+09:00</updated>
     <published>2012-12-20T00:00:00+00:00</published>
     <link href="http://netty.io/news/2012/12/20/3-6-0-final.html" rel="alternate" type="text/html" />
     <author>
@@ -3299,7 +3299,7 @@
   <entry>
     <id>http://netty.io/news/2012/12/04/4-0-0-alpha8.html</id>
     <title>Netty 4.0.0.Alpha8 released - Going Beta now</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:24:58+09:00</updated>
     <published>2012-12-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2012/12/04/4-0-0-alpha8.html" rel="alternate" type="text/html" />
     <author>
@@ -3376,7 +3376,7 @@
   <entry>
     <id>http://netty.io/news/2012/11/29/3-5-11-final.html</id>
     <title>Netty 3.5.11.Final is out</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-12-18T12:21:54+09:00</updated>
     <published>2012-11-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2012/11/29/3-5-11-final.html" rel="alternate" type="text/html" />
     <author>
@@ -3433,7 +3433,7 @@
   <entry>
     <id>http://netty.io/news/2012/11/15/websocket-enhancement.html</id>
     <title>WebSocket Enhancement</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
+    <updated>2014-11-07T11:42:22+09:00</updated>
     <published>2012-11-15T00:00:00+00:00</published>
     <link href="http://netty.io/news/2012/11/15/websocket-enhancement.html" rel="alternate" type="text/html" />
     <author>
