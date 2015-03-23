@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/03/04/three-releases.html">
+              <a href="../news/2015/03/23/3-10-1-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -82,10 +82,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.0.Final-dist.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.1.Final-dist.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    3.10.0.Final
-                    <small>&dash; 17-Dec-2014</small>
+                    3.10.1.Final
+                    <small>&dash; 23-Mar-2015</small>
                   </a>
                 </li>
                 <li>
@@ -271,7 +271,7 @@
           <li>
           <p>Configure your <code>~/.m2/settings.xml</code> contains the following configuration:</p>
           
-          <div class="highlight highlight-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s1"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s1"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;      &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;        &lt;<span class="pl-ent">httpHeaders</span>&gt;&#x000A;          <span class="pl-c">&lt;!--</span>&#x000A;<span class="pl-c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="pl-c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="pl-c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="pl-c">          --&gt;</span>&#x000A;          &lt;<span class="pl-ent">property</span>&gt;&#x000A;            &lt;<span class="pl-ent">name</span>&gt;User-Agent&lt;/<span class="pl-ent">name</span>&gt;&#x000A;            &lt;<span class="pl-ent">value</span>&gt;Apache-Maven&lt;/<span class="pl-ent">value</span>&gt;&#x000A;          &lt;/<span class="pl-ent">property</span>&gt;&#x000A;        &lt;/<span class="pl-ent">httpHeaders</span>&gt;&#x000A;      &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
+          <div class="highlight highlight-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;      &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;        &lt;<span class="pl-ent">httpHeaders</span>&gt;&#x000A;          <span class="pl-c">&lt;!--</span>&#x000A;<span class="pl-c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="pl-c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="pl-c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="pl-c">          --&gt;</span>&#x000A;          &lt;<span class="pl-ent">property</span>&gt;&#x000A;            &lt;<span class="pl-ent">name</span>&gt;User-Agent&lt;/<span class="pl-ent">name</span>&gt;&#x000A;            &lt;<span class="pl-ent">value</span>&gt;Apache-Maven&lt;/<span class="pl-ent">value</span>&gt;&#x000A;          &lt;/<span class="pl-ent">property</span>&gt;&#x000A;        &lt;/<span class="pl-ent">httpHeaders</span>&gt;&#x000A;      &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
           </li>
           </ul>
           
@@ -398,7 +398,7 @@
           
           <p>Update the Javadoc and Xref to the latest one.  You can copy them from your <code>netty/target/checkout/all/target</code> directory:</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-s3">cd</span> 4.1 <span class="pl-c"># or the version you are working on</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/api <span class="pl-s3">.</span>  <span class="pl-c"># Note no trailing slash!</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/xref <span class="pl-s3">.</span> <span class="pl-c"># Note no trailing slash!</span>&#x000A;git add -A <span class="pl-s3">.</span>&#x000A;<span class="pl-s3">cd</span> ..</pre></div>
+          <div class="highlight highlight-bash"><pre><span class="pl-c1">cd</span> 4.1 <span class="pl-c"># or the version you are working on</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/api <span class="pl-c1">.</span>  <span class="pl-c"># Note no trailing slash!</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/xref <span class="pl-c1">.</span> <span class="pl-c"># Note no trailing slash!</span>&#x000A;git add -A <span class="pl-c1">.</span>&#x000A;<span class="pl-c1">cd</span> ..</pre></div>
           
           <p>Also, don't forget to add <code>_config/site.yml</code> we updated to the Git index when you commit:</p>
           
@@ -445,7 +445,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 04-Mar-2015</small>
+                <small>Last retrieved on 23-Mar-2015</small>
               </div>
             </div>
           </div>

@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/03/04/three-releases.html">
+              <a href="../news/2015/03/23/3-10-1-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -82,10 +82,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.0.Final-dist.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.1.Final-dist.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    3.10.0.Final
-                    <small>&dash; 17-Dec-2014</small>
+                    3.10.1.Final
+                    <small>&dash; 23-Mar-2015</small>
                   </a>
                 </li>
                 <li>
@@ -268,13 +268,21 @@
           <h3 id="wiki-h3-2">
           <a id="user-content-the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Problem</h3>
           
-          <p>Nowadays we use general purpose applications or libraries to communicate with each other. For example, we often use an HTTP client library to retrieve information from a web server and to invoke a remote procedure call via web services.</p>
-          
-          <p>However, a general purpose protocol or its implementation sometimes does not scale very well. It is like we don't use a general purpose HTTP server to exchange huge files, e-mail messages, and near-realtime messages such as financial information and multiplayer game data. What's required is a highly optimized protocol implementation which is dedicated to a special purpose. For example, you might want to implement an HTTP server which is optimized for AJAX-based chat application, media streaming, or large file transfer. You could even want to design and implement a whole new protocol which is precisely tailored to your need.</p>
-          
-          <p>Another inevitable case is when you have to deal with a legacy proprietary protocol to ensure the interoperability with an old system. What matters in this case is how quickly we can implement that protocol while not sacrificing the stability and performance of the resulting application.</p>
+          <p>Nowadays we use general purpose applications or libraries to communicate with each other. For example, we often use an HTTP client library to retrieve information from a web server and to invoke a remote procedure call via web services.
+          However, a general purpose protocol or its implementation sometimes does not scale very well. It is like we don't use a general purpose HTTP server to exchange huge files, e-mail messages, and near-realtime messages such as financial information and multiplayer game data. What's required is a highly optimized protocol implementation which is dedicated to a special purpose. For example, you might want to implement an HTTP server which is optimized for AJAX-based chat application, media streaming, or large file transfer. You could even want to design and implement a whole new protocol which is precisely tailored to your need.
+          Another inevitable case is when you have to deal with a legacy proprietary protocol to ensure the interoperability with an old system. What matters in this case is how quickly we can implement that protocol while not sacrificing the stability and performance of the resulting application.</p>
           
           <h2 id="wiki-h2-3">
+          <a id="user-content-背景" class="anchor" href="#%E8%83%8C%E6%99%AF" aria-hidden="true"><span class="octicon octicon-link"></span></a>背景</h2>
+          
+          <h3 id="wiki-h3-4">
+          <a id="user-content-问题" class="anchor" href="#%E9%97%AE%E9%A2%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>问题</h3>
+          
+          <p>如今我们使用通用的程序或者库来进行相互通讯。比如，我们经常使用HTTP 客户端库从一个WEB服务器获取信息或者使用web service进行远程方法调用。
+          然而，通用的协议或它的实现有时规模不是非常好。这就像我们不使用一个通用的HTTP服务器来交换大文件，电子邮件，和近实时信息，如财务信息和多人游戏数据。我们需要的是一种专门为一个特殊目的高度优化的协议实现。例如，你可能想要实现基于AJAX的聊天应用程序，流媒体，或大文件传输优化的HTTP服务器。你甚至可以想设计和实施一个全新的协议，而这恰恰适合您的需要的。
+          另一个不可避免的情况是，当你为确保与旧系统的互操作性而去处理遗留的专有协议。在这种情况下重要的是如何迅速扩展协议而不牺牲最终的应用程序的稳定性和性能。</p>
+          
+          <h2 id="wiki-h2-5">
           <a id="user-content-the-solution" class="anchor" href="#the-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Solution</h2>
           
           <p><em><a href="http://netty.io/">The Netty project</a></em> is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.</p>
@@ -285,21 +293,26 @@
           
           <p>Some users might already have found other network application framework that claims to have the same advantage, and you might want to ask what makes Netty so different from them. The answer is the philosophy it is built on. Netty is designed to give you the most comfortable experience both in terms of the API and the implementation from the day one. It is not something tangible but you will realize that this philosophy will make your life much easier as you read this guide and play with Netty.</p>
           
-          <h2 id="wiki-h2-4">
+          <h2 id="wiki-h2-6">
+          <a id="user-content-解决方案" class="anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" aria-hidden="true"><span class="octicon octicon-link"></span></a>解决方案</h2>
+          
+          <p><em><a href="http://netty.io/">Netty 项目</a></em>是一个为了提供异步事件驱动的网络应用框架和工具，它用于进行高性能和高扩展性协议服务器和客户端的快速开发。换句话说，Netty的是一个NIO客户端服务器框架，可以快速和容易的进行例如协议服务器和客户端网络应用的开发。它大大简化并优化网络编程，例如TCP和UDP套接字服务器开发。</p>
+          
+          <h2 id="wiki-h2-7">
           <a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
           
           <p>This chapter tours around the core constructs of Netty with simple examples to let you get started quickly. You will be able to write a client and a server on top of Netty right away when you are at the end of this chapter.</p>
           
           <p>If you prefer top-down approach in learning something, you might want to start from Chapter 2, Architectural Overview and get back here.</p>
           
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-8">
           <a id="user-content-before-getting-started" class="anchor" href="#before-getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before Getting Started</h3>
           
           <p>The minimum requirements to run the examples which are introduced in this chapter are only two; the latest version of Netty and JDK 1.6 or above. The latest version of Netty is available in <a href="http://netty.io/downloads.html">the project download page</a>. To download the right version of JDK, please refer to your preferred JDK vendor's web site.</p>
           
           <p>As you read, you might have more questions about the classes introduced in this chapter. Please refer to the API reference whenever you want to know more about them. All class names in this document are linked to the online API reference for your convenience. Also, please don't hesitate to <a href="http://netty.io/community.html">contact the Netty project community</a> and let us know if there's any incorrect information, errors in grammar and typo, and if you have a good idea to improve the documentation.</p>
           
-          <h3 id="wiki-h3-6">
+          <h3 id="wiki-h3-9">
           <a id="user-content-writing-a-discard-server" class="anchor" href="#writing-a-discard-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Discard Server</h3>
           
           <p>The most simplistic protocol in the world is not 'Hello, World!' but <a href="http://tools.ietf.org/html/rfc863"><code>DISCARD</code></a>. It's a protocol which discards any received data without any response.</p>
@@ -338,7 +351,7 @@
           
           <p>Congratulations! You've just finished your first server on top of Netty.</p>
           
-          <h3 id="wiki-h3-7">
+          <h3 id="wiki-h3-10">
           <a id="user-content-looking-into-the-received-data" class="anchor" href="#looking-into-the-received-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Looking into the Received Data</h3>
           
           <p>Now that we have written our first server, we need to test if it really works. The easiest way to test it is to use the <em>telnet</em> command. For example, you could enter <code>telnet localhost 8080</code> in the command line and type something.</p>
@@ -359,7 +372,7 @@
           
           <p>The full source code of the discard server is located in the <a href="http://netty.io/4.0/xref/io/netty/example/discard/package-summary.html"><code>io.netty.example.discard</code></a> package of the distribution.</p>
           
-          <h3 id="wiki-h3-8">
+          <h3 id="wiki-h3-11">
           <a id="user-content-writing-an-echo-server" class="anchor" href="#writing-an-echo-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing an Echo Server</h3>
           
           <p>So far, we have been consuming data without responding at all. A server, however, is usually supposed to respond to a request. Let us learn how to write a response message to a client by implementing the <a href="http://tools.ietf.org/html/rfc862"><code>ECHO</code></a> protocol, where any received data is sent back.</p>
@@ -378,7 +391,7 @@
           
           <p>The full source code of the echo server is located in the <a href="http://netty.io/4.0/xref/io/netty/example/echo/package-summary.html"><code>io.netty.example.echo</code></a> package of the distribution.</p>
           
-          <h3 id="wiki-h3-9">
+          <h3 id="wiki-h3-12">
           <a id="user-content-writing-a-time-server" class="anchor" href="#writing-a-time-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Time Server</h3>
           
           <p>The protocol to implement in this section is the <a href="http://tools.ietf.org/html/rfc868"><code>TIME</code></a> protocol. It is different from the previous examples in that it sends a message, which contains a 32-bit integer, without receiving any requests and loses the connection once the message is sent. In this example, you will learn how to construct and send a message, and to close the connection on completion.</p>
@@ -418,7 +431,7 @@
           
           <p>where <code>&lt;port&gt;</code> is the port number you specified in the <code>main()</code> method and <code>&lt;host&gt;</code> is usually <code>localhost</code>. </p>
           
-          <h3 id="wiki-h3-10">
+          <h3 id="wiki-h3-13">
           <a id="user-content-writing-a-time-client" class="anchor" href="#writing-a-time-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Time Client</h3>
           
           <p>Unlike <code>DISCARD</code> and <code>ECHO</code> servers, we need a client for the <code>TIME</code> protocol because a human cannot translate a 32-bit binary data into a date on a calendar. In this section, we discuss how to make sure the server works correctly and learn how to write a client with Netty.</p>
@@ -446,10 +459,10 @@
           
           <p>It looks very simple and does not look any different from the server side example. However, this handler sometimes will refuse to work raising an <code>IndexOutOfBoundsException</code>. We discuss why this happens in the next section. </p>
           
-          <h3 id="wiki-h3-11">
+          <h3 id="wiki-h3-14">
           <a id="user-content-dealing-with-a-stream-based-transport" class="anchor" href="#dealing-with-a-stream-based-transport" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with a Stream-based Transport</h3>
           
-          <h4 id="wiki-h4-12">
+          <h4 id="wiki-h4-15">
           <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" href="#one-small-caveat-of-socket-buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>One Small Caveat of Socket Buffer</h4>
           
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets: </p>
@@ -464,7 +477,7 @@
           
           <p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
           
-          <h4 id="wiki-h4-13">
+          <h4 id="wiki-h4-16">
           <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The First Solution</h4>
           
           <p>Now let us get back to the <code>TIME</code> client example. We have the same problem here. A 32-bit integer is a very small amount of data, and it is not likely to be fragmented often. However, the problem is that it can be fragmented, and the possibility of fragmentation will increase as the traffic increases.</p>
@@ -479,7 +492,7 @@
           <li>And then, the handler must check if <code>buf</code> has enough data, 4 bytes in this example, and proceed to the actual business logic. Otherwise, Netty will call the <code>channelRead()</code> method again when more data arrives, and eventually all 4 bytes will be cumulated.</li>
           </ol>
           
-          <h4 id="wiki-h4-14">
+          <h4 id="wiki-h4-17">
           <a id="user-content-the-second-solution" class="anchor" href="#the-second-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Second Solution</h4>
           
           <p>Although the first solution has resolved the problem with the <code>TIME</code> client, the modified handler does not look that clean. Imagine a more complicated protocol which is composed of multiple fields such as a variable length field. Your <a href="http://netty.io/4.0/api/io/netty/channel/ChannelInboundHandler.html"><code>ChannelInboundHandler</code></a> implementation will become unmaintainable very quickly.</p>
@@ -523,7 +536,7 @@
           <a href="http://netty.io/4.0/xref/io/netty/example/telnet/package-summary.html"><code>io.netty.example.telnet</code></a> for a text line-based protocol.</li>
           </ul>
           
-          <h3 id="wiki-h3-15">
+          <h3 id="wiki-h3-18">
           <a id="user-content-speaking-in-pojo-instead-of-bytebuf" class="anchor" href="#speaking-in-pojo-instead-of-bytebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speaking in POJO instead of <code>ByteBuf</code>
           </h3>
           
@@ -567,12 +580,12 @@
           
           <p>The last task left is to insert a <code>TimeEncoder</code> into the <a href="http://netty.io/4.0/api/io/netty/channel/ChannelPipeline.html"><code>ChannelPipeline</code></a> on the server side before the <code>TimeServerHandler</code>, and it is left as a trivial exercise.</p>
           
-          <h3 id="wiki-h3-16">
+          <h3 id="wiki-h3-19">
           <a id="user-content-shutting-down-your-application" class="anchor" href="#shutting-down-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shutting Down Your Application</h3>
           
           <p>Shutting down a Netty application is usually as simple as shutting down all <a href="http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html"><code>EventLoopGroup</code></a>s you created via <code>shutdownGracefully()</code>.  It returns a <a href="http://netty.io/4.0/api/io/netty/util/concurrent/Future.html"><code>Future</code></a> that notifies you when the <a href="http://netty.io/4.0/api/io/netty/channel/EventLoopGroup.html"><code>EventLoopGroup</code></a> has been terminated completely and all <a href="http://netty.io/4.0/api/io/netty/channel/Channel.html"><code>Channel</code></a>s that belong to the group have been closed.</p>
           
-          <h3 id="wiki-h3-17">
+          <h3 id="wiki-h3-20">
           <a id="user-content-summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
           
           <p>In this chapter, we had a quick tour of Netty with a demonstration on how to write a fully working network application on top of Netty.</p>
@@ -592,21 +605,24 @@
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 22">Pages 22</a>
           </li></ul></li><li><a href="#wiki-h2-1" title="Preface">Preface</a>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="The Problem">The Problem</a>
-          </li></ul></li><li><a href="#wiki-h2-3" title="The Solution">The Solution</a>
-          </li><li><a href="#wiki-h2-4" title="Getting Started">Getting Started</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-5" title="Before Getting Started">Before Getting Started</a>
-          </li><li><a href="#wiki-h3-6" title="Writing a Discard Server">Writing a Discard Server</a>
-          </li><li><a href="#wiki-h3-7" title="Looking into the Received Data">Looking into the Received Data</a>
-          </li><li><a href="#wiki-h3-8" title="Writing an Echo Server">Writing an Echo Server</a>
-          </li><li><a href="#wiki-h3-9" title="Writing a Time Server">Writing a Time Server</a>
-          </li><li><a href="#wiki-h3-10" title="Writing a Time Client">Writing a Time Client</a>
-          </li><li><a href="#wiki-h3-11" title="Dealing with a Stream-based Transport">Dealing with a Stream-based Transport</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-12" title="One Small Caveat of Socket Buffer">One Small Caveat of Socket Buffer</a>
-          </li><li><a href="#wiki-h4-13" title="The First Solution">The First Solution</a>
-          </li><li><a href="#wiki-h4-14" title="The Second Solution">The Second Solution</a>
-          </li></ul></li><li><a href="#wiki-h3-15" title="Speaking in POJO instead of ByteBuf">Speaking in POJO instead of ByteBuf</a>
-          </li><li><a href="#wiki-h3-16" title="Shutting Down Your Application">Shutting Down Your Application</a>
-          </li><li><a href="#wiki-h3-17" title="Summary">Summary</a>
+          </li></ul></li><li><a href="#wiki-h2-3" title="背景">背景</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="问题">问题</a>
+          </li></ul></li><li><a href="#wiki-h2-5" title="The Solution">The Solution</a>
+          </li><li><a href="#wiki-h2-6" title="解决方案">解决方案</a>
+          </li><li><a href="#wiki-h2-7" title="Getting Started">Getting Started</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="Before Getting Started">Before Getting Started</a>
+          </li><li><a href="#wiki-h3-9" title="Writing a Discard Server">Writing a Discard Server</a>
+          </li><li><a href="#wiki-h3-10" title="Looking into the Received Data">Looking into the Received Data</a>
+          </li><li><a href="#wiki-h3-11" title="Writing an Echo Server">Writing an Echo Server</a>
+          </li><li><a href="#wiki-h3-12" title="Writing a Time Server">Writing a Time Server</a>
+          </li><li><a href="#wiki-h3-13" title="Writing a Time Client">Writing a Time Client</a>
+          </li><li><a href="#wiki-h3-14" title="Dealing with a Stream-based Transport">Dealing with a Stream-based Transport</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-15" title="One Small Caveat of Socket Buffer">One Small Caveat of Socket Buffer</a>
+          </li><li><a href="#wiki-h4-16" title="The First Solution">The First Solution</a>
+          </li><li><a href="#wiki-h4-17" title="The Second Solution">The Second Solution</a>
+          </li></ul></li><li><a href="#wiki-h3-18" title="Speaking in POJO instead of ByteBuf">Speaking in POJO instead of ByteBuf</a>
+          </li><li><a href="#wiki-h3-19" title="Shutting Down Your Application">Shutting Down Your Application</a>
+          </li><li><a href="#wiki-h3-20" title="Summary">Summary</a>
           </li></ul>
           </li></ul>
           </div>
@@ -615,7 +631,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 04-Mar-2015</small>
+                <small>Last retrieved on 23-Mar-2015</small>
               </div>
             </div>
           </div>
