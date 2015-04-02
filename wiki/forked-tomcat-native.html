@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/03/23/3-10-1-Final.html">
+              <a href="../news/2015/04/02/4-0-27-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.26.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.27.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.26.Final
-                    <small>&dash; 04-Mar-2015</small>
+                    4.0.27.Final
+                    <small>&dash; 02-Apr-2015</small>
                   </a>
                 </li>
                 <li>
@@ -281,7 +281,7 @@
           
           <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
           
-          <div class="highlight highlight-java"><pre><span class="pl-s">public</span> <span class="pl-s">static</span> <span class="pl-st">void</span> main(<span class="pl-st">String</span>[] args) throws <span class="pl-stj">Exception</span> {&#x000A;  <span class="pl-stj">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-stj">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-stj">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-s">public</span> <span class="pl-s">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-s">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-stj">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-s">private</span> <span class="pl-s">final</span> <span class="pl-stj">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-s">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-stj">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-st">@Override</span>&#x000A;  <span class="pl-s">public</span> <span class="pl-st">void</span> <span class="pl-en">initChannel</span>(<span class="pl-stj">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-s">throws</span> <span class="pl-stj">Exception</span> {&#x000A;    <span class="pl-stj">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
+          <div class="highlight highlight-java"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-smi">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
           
           <p>Netty will unpack the shared library provided by the <code>netty-tcnative-&lt;version&gt;-&lt;os.detected.classifier&gt;.jar</code> into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
           
@@ -316,7 +316,7 @@
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-s3">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h4 id="wiki-h4-4">
           <a id="user-content-version-libsslso10-not-found-required-by-libnetty-tcnativeso" class="anchor" href="#version-libsslso10-not-found-required-by-libnetty-tcnativeso" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 'libssl.so.10' not found (required by libnetty-tcnative.so)</h4>
@@ -342,7 +342,7 @@
           
           <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
           
-          <div class="highlight highlight-bash"><pre>xcode-<span class="pl-k">select</span> <span class="pl-vo">--install</span></pre></div>
+          <div class="highlight highlight-bash"><pre>xcode-<span class="pl-k">select</span> <span class="pl-smi">--install</span></pre></div>
           
           <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
           
@@ -350,11 +350,11 @@
           
           <p>Add the following exports to your <code>~/.bash_profile</code>, so that the compiler and linker finds OpenSSL built by Homebrew.</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-s">export</span> CPPFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-vo">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-s">export</span> LDFLAGS=<span class="pl-s1"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-vo">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
+          <div class="highlight highlight-bash"><pre><span class="pl-k">export</span> CPPFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-smi">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">export</span> LDFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-smi">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-s3">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-6">
           <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
@@ -406,11 +406,11 @@
           
           <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s1"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s1"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
+          <div class="highlight highlight-bat"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
           
           <p>Build APR:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">cd</span> <span class="pl-s1"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.1<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s1"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s1"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install</pre></div>
+          <div class="highlight highlight-bat"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.1<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install</pre></div>
           
           <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
           
@@ -452,7 +452,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 23-Mar-2015</small>
+                <small>Last retrieved on 02-Apr-2015</small>
               </div>
             </div>
           </div>
