@@ -300,6 +300,8 @@
           </li>
           </ul>
           
+          <p><strong>Important:</strong> If you use Linux and want to make use of ALPN (you will need this for http2) you need to ensure you have openssl &gt;= 1.0.2 installed. If this is not provided by the package system of your distro you will need to compile it by your own and set the LD_LIBRARY_PATH as explained in <a href="http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-2">How to built</a>.</p>
+          
           <h2 id="wiki-h2-2">
           <a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to build</h2>
           
@@ -379,17 +381,17 @@
           
           <ul class="task-list">
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29">Visual C++ 2008 Redistributable Package (x86)</a></li>
-          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_1L.exe">Win32 OpenSSL 1.0.1L</a></li>
+          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_2a.exe">Win32 OpenSSL 1.2.0a</a></li>
           </ul>
           </li>
           <li>If you are on 64-bit Windows:
           
           <ul class="task-list">
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=15336">Visual C++ 2008 Redistributable Package (x64)</a></li>
-          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_1L.exe">Win64 OpenSSL 1.0.1L</a></li>
+          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_2a.exe">Win64 OpenSSL 1.2.0a</a></li>
           </ul>
           </li>
-          <li>Set the installation directory to: <code>C:\Workspaces\openssl-1.0.1l-dist</code>
+          <li>Set the installation directory to: <code>C:\Workspaces\openssl-1.0.2a-dist</code>
           </li>
           <li>Choose 'Copy OpenSSL DLLs to: the OpenSSL binaries (/bin) directory'</li>
           </ul>
@@ -414,7 +416,7 @@
           
           <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.1\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.1-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.1l-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.1l-dist\lib\VC</pre></div>
+          <div class="highlight highlight-bat"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.1\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.1-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.2a-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.2a-dist\lib\VC</pre></div>
           
           <p>Clone <code>netty-tcnative</code> and build it:</p>
           
@@ -452,7 +454,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 02-Apr-2015</small>
+                <small>Last retrieved on 09-Apr-2015</small>
               </div>
             </div>
           </div>

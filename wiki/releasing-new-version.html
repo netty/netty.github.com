@@ -307,11 +307,11 @@
           <p>Because we ship both Linux and Mac OS X artifacts, the release procedure is even more complicated.</p>
           
           <ol class="task-list">
-          <li>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL 6.6 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet.</li>
+          <li>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives">RHEL 6.6 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet. Write down the repository name which was used for staging (like onetty-1102).</li>
           <li>
           <p>On your Mac OS X and 64-bit Windows, whose build environment is set up as documented <a class="internal present" href="forked-tomcat-native.html">here</a>, run the following commands to deploy the release artifacts to the staging repository:</p>
           
-          <pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release clean deploy&#x000A;... The artifact with OSX or Windows native library will be deployed ...&#x000A;</code></pre>
+          <pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release clean package gpg:sign org.sonatype.plugins:nexus-staging-maven-plugin:deploy \\ &#x000A;-DstagingRepositoryId=ionetty-1102 -DnexusUrl=https://oss.sonatype.org -DserverId=sonatype-nexus-staging&#x000A;... The artifact with OSX or Windows native library will be deployed. ...&#x000A;... Please replace ionetty-1102 with the correct id.  ...&#x000A;</code></pre>
           </li>
           <li><p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p></li>
           <li>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</li>
@@ -445,7 +445,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 02-Apr-2015</small>
+                <small>Last retrieved on 09-Apr-2015</small>
               </div>
             </div>
           </div>
