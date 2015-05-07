@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/04/02/4-0-27-Final.html">
+              <a href="../news/2015/05/07/4-0-28-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.27.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.28.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.27.Final
-                    <small>&dash; 02-Apr-2015</small>
+                    4.0.28.Final
+                    <small>&dash; 07-May-2015</small>
                   </a>
                 </li>
                 <li>
@@ -264,7 +264,7 @@
               <div class="markdown-body">
                 <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>Simplified distribution and linkage of native library</li>
           <li>Complete mavenization of the project</li>
           <li>Improved OpenSSL support</li>
@@ -287,13 +287,13 @@
           
           <p>Note that the shared library is dynamically linked against Apache Portable Runtime (APR) and OpenSSL.  They must be in the library load path such as system library directories, <code>$LD_LIBRARY_PATH</code>, and <code>%PATH%</code>.</p>
           
-          <ul class="task-list">
+          <ul>
           <li>If you are on Linux, you probably don't need to do anything because you can install them using your system's package manager.</li>
           <li>If you are on Mac, you have to install <code>openssl</code> package using <a href="http://brew.sh/">Homebrew</a>.</li>
           <li>If you are on Windows, you have to:
           
-          <ul class="task-list">
-          <li>Build APR by yourself (or get it from <a href="http://clinker.netty.io/jenkins/view/TCNative/job/apr-1.5.1-windows-x86_64/lastSuccessfulBuild/artifact/dist/bin/">our CI server</a>),</li>
+          <ul>
+          <li>Build APR by yourself (or get the 64-bit DLL from <a href="http://clinker.netty.io/jenkins/job/apr-windows/lastSuccessfulBuild/artifact/dist/bin/">our CI server</a>),</li>
           <li>Install <a href="http://slproweb.com/products/Win32OpenSSL.html">OpenSSL for Windows</a>, and</li>
           <li>Add the directories that contain the .DLL files to <code>%PATH%</code>.</li>
           </ul>
@@ -363,12 +363,12 @@
           
           <p>Install the following packages:</p>
           
-          <ul class="task-list">
-          <li><a href="http://www.visualstudio.com/en-us/downloads#d-2010-express">Visual C++ 2010 Express</a></li>
+          <ul>
+          <li><a href="https://app.vssps.visualstudio.com/profile/review?download=true&amp;family=VisualStudioCExpress&amp;release=VisualStudio2010&amp;type=web&amp;slcid=0x409">Visual C++ 2010 Express</a></li>
           <li>
           <a href="http://www.microsoft.com/en-us/download/details.aspx?id=8279">Windows SDK for Windows 7</a>
           
-          <ul class="task-list">
+          <ul>
           <li>Uninstall Visual C++ 2010 Redistributable Packages (both x86 and x64) and reboot if installation fails.</li>
           </ul>
           </li>
@@ -376,19 +376,19 @@
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=4422">Visual C++ 2010 Service Pack 1 Compiler Update</a></li>
           <li>OpenSSL for Windows
           
-          <ul class="task-list">
+          <ul>
           <li>If you are on 32-bit Windows:
           
-          <ul class="task-list">
+          <ul>
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29">Visual C++ 2008 Redistributable Package (x86)</a></li>
-          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_2a.exe">Win32 OpenSSL 1.2.0a</a></li>
+          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_2a.exe">Win32 OpenSSL 1.0.2a</a></li>
           </ul>
           </li>
           <li>If you are on 64-bit Windows:
           
-          <ul class="task-list">
+          <ul>
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=15336">Visual C++ 2008 Redistributable Package (x64)</a></li>
-          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_2a.exe">Win64 OpenSSL 1.2.0a</a></li>
+          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_2a.exe">Win64 OpenSSL 1.0.2a</a></li>
           </ul>
           </li>
           <li>Set the installation directory to: <code>C:\Workspaces\openssl-1.0.2a-dist</code>
@@ -397,10 +397,10 @@
           </ul>
           </li>
           <li>
-          <a href="http://www.us.apache.org/dist//apr/apr-1.5.1-win32-src.zip">Apache Portable Runtime (APR) 1.5.1</a>
+          <a href="http://www.us.apache.org/dist/apr/apr-1.5.2-win32-src.zip">Apache Portable Runtime (APR) 1.5.2</a>
           
-          <ul class="task-list">
-          <li>Unzip into: <code>C:\Workspaces\apr-1.5.1</code>
+          <ul>
+          <li>Unzip into: <code>C:\Workspaces\apr-1.5.2</code>
           </li>
           </ul>
           </li>
@@ -412,11 +412,11 @@
           
           <p>Build APR:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.1<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.1-dist buildall install</pre></div>
+          <div class="highlight highlight-bat"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.2<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install</pre></div>
           
           <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.1\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.1-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.2a-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.2a-dist\lib\VC</pre></div>
+          <div class="highlight highlight-bat"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.2\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.2-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.2a-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.2a-dist\lib\VC</pre></div>
           
           <p>Clone <code>netty-tcnative</code> and build it:</p>
           
@@ -454,7 +454,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 09-Apr-2015</small>
+                <small>Last retrieved on 07-May-2015</small>
               </div>
             </div>
           </div>

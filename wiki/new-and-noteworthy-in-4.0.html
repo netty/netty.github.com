@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/04/02/4-0-27-Final.html">
+              <a href="../news/2015/05/07/4-0-28-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.27.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.28.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.27.Final
-                    <small>&dash; 02-Apr-2015</small>
+                    4.0.28.Final
+                    <small>&dash; 07-May-2015</small>
                   </a>
                 </li>
                 <li>
@@ -356,11 +356,11 @@
           <h2 id="wiki-h2-2">
           <a id="user-content-general-api-changes" class="anchor" href="#general-api-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>General API changes</h2>
           
-          <ul class="task-list">
+          <ul>
           <li>Most operations in Netty now support method chaining for brevity.</li>
           <li>Non-configuration getters have no <code>get-</code> prefix anymore. (e.g. <code>Channel.getRemoteAddress()</code> → <code>Channel.remoteAddress()</code>)
           
-          <ul class="task-list">
+          <ul>
           <li>Boolean properties are still prefixed with <code>is-</code> to avoid confusion (e.g. 'empty' is both an adjective and a verb, so <code>empty()</code> can have two meanings.)</li>
           </ul>
           </li>
@@ -418,7 +418,7 @@
           
           <p>Netty 4 introduces a high-performance buffer pool which is a variant of <a href="http://www.canonware.com/jemalloc/">jemalloc</a> that combines <a href="http://en.wikipedia.org/wiki/Buddy_memory_allocation">buddy allocation</a> and <a href="http://en.wikipedia.org/wiki/Slab_allocation">slab allocation</a>. It gives the following benefits:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>Reduced GC pressure incurred by frequent allocation and deallocation of the buffers</li>
           <li>Reduced memory bandwidth consumption incurred when creating a new buffer which  inevitably has to be filled with zeroes</li>
           <li>Timely deallocation of direct buffers</li>
@@ -439,12 +439,12 @@
           
           <p>To control the life cycle of a <code>ByteBuf</code> in a more predictable way, Netty does not rely on the garbage collector anymore but employs an explicit reference counter.  Here's the basic rule:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>When a buffer is allocated, its initial reference count is 1.</li>
           <li>If the reference count of the buffer is decreased to 0, it is deallocated or returned to the pool it originated from.</li>
           <li>The following attempts trigger an <code>IllegalReferenceCountException</code>:
           
-          <ul class="task-list">
+          <ul>
           <li>Accessing a buffer whose reference count is 0,</li>
           <li>Decreasing the reference count to a negative value, or</li>
           <li>Increasing the reference count beyond <code>Integer.MAX_VALUE</code>.</li>
@@ -455,10 +455,10 @@
           
           <p>When a <code>ByteBuf</code> is used in a <code>ChannelPipeline</code>, there are additional rules you need to keep in mind:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>Each inbound (a.k.a. upstream) handler in a pipeline has to release the received messages. Netty does not release them automatically for you.
           
-          <ul class="task-list">
+          <ul>
           <li>Note that codec framework does release the messages automatically and a user has to increase the reference count if he or she wants to pass a message as-is to the next handler.</li>
           </ul>
           </li>
@@ -480,7 +480,7 @@
           
           <p>Along with the new standalone buffer API, 4.0 provides various constructs which are useful for writing asynchronous applications in general at the new package called <code>io.netty.util.concurrent</code>.  Some of those constructs are:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>
           <code>Future</code> and <code>Promise</code> - similar to <code>ChannelFuture</code>, but has no dependency to <code>Channel</code>
           </li>
@@ -654,23 +654,23 @@
           
           <p>There is no well-defined thread model in 3.x although there was an attempt to fix its inconsistency in 3.5.  4.0 defines a strict thread model that helps a user write a ChannelHandler without worrying too much about thread safety.</p>
           
-          <ul class="task-list">
+          <ul>
           <li>Netty will never call a <code>ChannelHandler</code>'s methods concurrently, unless the <code>ChannelHandler</code> is annotated with <code>@Sharable</code>. This is regardless of the type of handler methods - inbound, outbound, or life cycle event handler methods.
           
-          <ul class="task-list">
+          <ul>
           <li>A user does not need to synchronize either inbound or outbound event handler methods anymore.</li>
           <li>4.0 disallows adding a <code>ChannelHandler</code> more than once unless it's annotated with <code>@Sharable</code>.</li>
           </ul>
           </li>
           <li>There is always <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility">happens-before</a> relationship between each <code>ChannelHandler</code> method invocations made by Netty.
           
-          <ul class="task-list">
+          <ul>
           <li>A user does not need to define a <code>volatile</code> field to keep the state of a handler.</li>
           </ul>
           </li>
           <li>A user can specify an <code>EventExecutor</code> when he or she adds a handler to a <code>ChannelPipeline</code>.
           
-          <ul class="task-list">
+          <ul>
           <li>If specified, the handler methods of the <code>ChannelHandler</code> are always invoked by the specified <code>EventExecutor</code>.</li>
           <li>If unspecified, the handler methods are always invoked by the <code>EventLoop</code> that its associated <code>Channel</code> is registered to.</li>
           </ul>
@@ -678,7 +678,7 @@
           <li>
           <code>EventExecutor</code> and <code>EventLoop</code> assigned to a handler or a channel are always single-threaded.
           
-          <ul class="task-list">
+          <ul>
           <li>The handler methods will always be invoked by the same thread.</li>
           <li>If multithreaded <code>EventExecutor</code> or <code>EventLoop</code> is specified, one of the threads will be chosen first and then the chosen thread will be used until deregistration.</li>
           <li>If two handlers in the same pipeline are assigned with different <code>EventExecutor</code>s, they are invoked simultaneously.  A user has to pay attention to thread safety if more than one handler access shared data even if the shared data is accessed only by the handlers in the same pipeline.</li>
@@ -699,7 +699,7 @@
           
           <p>There were substantial internal changes in the codec framework because 4.0 requires a handler to create and manage its buffer (see Per-handler buffer section in this document.)  However, the changes from a user's perspective are not very big.</p>
           
-          <ul class="task-list">
+          <ul>
           <li>Core codec classes are moved to the <code>io.netty.handler.codec</code> package.</li>
           <li>
           <code>FrameDecoder</code> has been renamed to <code>ByteToMessageDecoder</code>.</li>
@@ -728,7 +728,7 @@
           
           <p>The following transports were newly added:</p>
           
-          <ul class="task-list">
+          <ul>
           <li>OIO SCTP transport</li>
           <li>UDT transport</li>
           </ul>
@@ -741,23 +741,23 @@
           <h3 id="wiki-h3-41">
           <a id="user-content-porting-the-server" class="anchor" href="#porting-the-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Porting the server</h3>
           
-          <ol class="task-list">
+          <ol>
           <li>Rewrite <code>FactorialServer.run()</code> method to use the new bootstrap API.
           
-          <ol class="task-list">
+          <ol>
           <li>No <code>ChannelFactory</code> anymore.  Instantiate <code>NioEventLoopGroup</code> (one for accepting incoming connections and the other for handling the accepted connections) by yourself.</li>
           </ol>
           </li>
           <li>Rename <code>FactorialServerPipelineFactory</code> to <code>FactorialServerInitializer</code>.
           
-          <ol class="task-list">
+          <ol>
           <li>Make it extends <code>ChannelInitializer&lt;Channel&gt;</code>.</li>
           <li>Instead of creating a new <code>ChannelPipeline</code>, get it via <code>Channel.pipeline()</code>.</li>
           </ol>
           </li>
           <li>Make <code>FactorialServerHandler</code> extends <code>ChannelInboundHandlerAdapter</code>.
           
-          <ol class="task-list">
+          <ol>
           <li>Replace <code>channelDisconnected()</code> with <code>channelInactive()</code>.</li>
           <li>handleUpstream() is not used anymore.</li>
           <li>Rename <code>messageReceived()</code> into <code>channelRead()</code> and adjust the method signature accordingly.</li>
@@ -767,7 +767,7 @@
           <li>Make <code>BigIntegerDecoder</code> extend <code>ByteToMessageDecoder&lt;BigInteger&gt;</code>.</li>
           <li>Make <code>NumberEncoder</code> extend <code>MessageToByteEncoder&lt;Number&gt;</code>.
           
-          <ol class="task-list">
+          <ol>
           <li>
           <code>encode()</code> does not return a buffer anymore.  Fill the encoded data to the buffer provided by <code>ByteToMessageDecoder</code>.</li>
           </ol>
@@ -779,7 +779,7 @@
           
           <p>Mostly same with porting the server, but you need to pay attention when you write a potentially large stream.</p>
           
-          <ol class="task-list">
+          <ol>
           <li>Rewrite <code>FactorialClient.run()</code> method to use the new bootstrap API.</li>
           <li>Rename <code>FactorialClientPipelineFactory</code> to <code>FactorialClientInitializer</code>.</li>
           <li>Make <code>FactorialClientHandler</code> extends <code>ChannelInboundHandlerAdapter</code>
@@ -845,7 +845,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 09-Apr-2015</small>
+                <small>Last retrieved on 07-May-2015</small>
               </div>
             </div>
           </div>
