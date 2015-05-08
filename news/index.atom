@@ -2,13 +2,183 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2015-05-08T07:22:27+02:00</updated>
+  <updated>2015-05-08T18:11:37+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
+    <id>http://netty.io/news/2015/05/08/3-9-8-Final-and-3.html</id>
+    <title>Netty 3.9.8.Final and 3.10.3.Final released</title>
+    <updated>2015-05-08T18:11:37+02:00</updated>
+    <published>2015-05-08T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2015/05/08/3-9-8-Final-and-3.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 3.9.8.Final and 3.10.3.Final.
+      
+      These releases contain a possible security fix and a few minor changes.
+      
+      
+      Validate cookie name and value characters (#3754)
+      
+      
+      
+      As always, please let us know if you find any issues. We love feedback!
+      
+      Special notes
+      
+      Validate cookie name and value characters
+      
+      This problem was discovered by the LinkedIn Security Team and could lead to security
+      problems due the improper parsing of Cookies (without strict validating).
+      
+      Thank You
+      
+      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
+      
+      A special thank you to the LinkedIn Security...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the release of Netty 3.9.8.Final and 3.10.3.Final.&lt;/p&gt;
+      
+      &lt;p&gt;These releases contain a possible security fix and a few minor changes.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Validate cookie name and value characters (&lt;a href=&quot;https://github.com/netty/netty/pull/3754&quot;&gt;#3754&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;h3&gt;Validate cookie name and value characters&lt;/h3&gt;
+      
+      &lt;p&gt;This problem was discovered by the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; and could lead to security
+      problems due the improper parsing of Cookies (without strict validating).&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;p&gt;A special thank you to the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; for reporting the possible security bug.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/huguesb&quot;&gt;@huguesb&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>http://netty.io/news/2015/05/07/4-1.html</id>
+    <title>Netty 4.1.0.Beta5 released</title>
+    <updated>2015-05-08T20:43:41+02:00</updated>
+    <published>2015-05-07T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2015/05/07/4-1.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 4.1.0.Beta5.
+      
+      This release contains a lot of improvements and fixes over Netty 4.1.0.Beta4. This includes also the changes listed in the 4.0.28.Final release notes like Splicing and Channel Pool.
+      
+      The most important changes are:
+      
+      
+      ChannelFuture is not done after shutdown (#3567)
+      Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (#3658), (#3529), (#3587)
+      Correctly handle EPOLLRDHUP (#3611), (#3539)
+      Add ChannelPool abstraction and implementations (#3607), (#3218)
+      Change PoolThreadCache to use LIFO for better cache performance (#3553)
+      Add support for ALPN when using openssl + NPN client mode and support for CipherSuiteFilter (#3481) (#3481)
+      Add support for splice(...) (#3665)
+      Allow rejection of remote initiated...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta5.&lt;/p&gt;
+      
+      &lt;p&gt;This release contains a lot of improvements and fixes over Netty 4.1.0.Beta4. This includes also the changes listed in the &lt;a href=&quot;http://netty.io/news/2015/05/07/4-0-28-Final.html&quot;&gt;4.0.28.Final release notes&lt;/a&gt; like Splicing and Channel Pool.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;ChannelFuture is not done after shutdown (&lt;a href=&quot;https://github.com/netty/netty/issues/3662&quot;&gt;#3567&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3658&quot;&gt;#3658&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3529&quot;&gt;#3529&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3587&quot;&gt;#3587&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle EPOLLRDHUP (&lt;a href=&quot;https://github.com/netty/netty/pull/3611&quot;&gt;#3611&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3539&quot;&gt;#3539&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add ChannelPool abstraction and implementations (&lt;a href=&quot;https://github.com/netty/netty/pull/3607&quot;&gt;#3607&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3218&quot;&gt;#3218&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Change PoolThreadCache to use LIFO for better cache performance (&lt;a href=&quot;https://github.com/netty/netty/pull/3553&quot;&gt;#3553&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for ALPN when using openssl + NPN client mode and support for CipherSuiteFilter (&lt;a href=&quot;https://github.com/netty/netty/pull/3481&quot;&gt;#3481&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/2845&quot;&gt;#3481&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for splice(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/3665&quot;&gt;#3665&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow rejection of remote initiated renegotiation (&lt;a href=&quot;https://github.com/netty/netty/pull/3750&quot;&gt;#3750&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Not defer close of Channel when in flush (&lt;a href=&quot;https://github.com/netty/netty/pull/3739&quot;&gt;#3739&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for mutual auth when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/3732&quot;&gt;#3732&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix possible IllegalStateException caused by closeNotifyTimeout when using SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3727&quot;&gt;#3727&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Validate cookie name and value characters (&lt;a href=&quot;https://github.com/netty/netty/pull/3748&quot;&gt;#3748&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 Draft 17(&lt;a href=&quot;https://github.com/netty/netty/issues/3418&quot;&gt;#3418&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/3524&quot;&gt;#3524&lt;/a&gt;)
+      For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta5&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;p&gt;See &lt;a href=&quot;http://netty.io/news/2015/05/07/4-0-28-Final.html&quot;&gt;4.0.28.Final release notes&lt;/a&gt; for more detail on new features and how to use them.&lt;/p&gt;
+      
+      &lt;h3&gt;Revisit DNS codec&lt;/h3&gt;
+      
+      &lt;p&gt;This release includes a revisit version of the DNS codec to make it possible to extend more easily.&lt;/p&gt;
+      
+      &lt;h3&gt;Validate cookie name and value characters&lt;/h3&gt;
+      
+      &lt;p&gt;This problem was discovered by the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; and could lead to security
+      problems due the improper parsing of Cookies (without strict validating).&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;p&gt;A special thank you to the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; for reporting the possible security bug.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Alwayswithme&quot;&gt;@Alwayswithme&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/benevans&quot;&gt;@benevans&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bobwenx&quot;&gt;@bobwenx&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github,com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/garretwu&quot;&gt;@garretwu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Harry5573&quot;&gt;@Harry5573&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/huguesb&quot;&gt;@huguesb&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hyangtack&quot;&gt;@hyangtack&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jestan&quot;&gt;@jestan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jingene&quot;&gt;@jingene&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kyankovski&quot;&gt;@kyankovski&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/krasa&quot;&gt;@krasa&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lime62&quot;&gt;@lime62&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/spinscale&quot;&gt;@spinscale&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ThomasLau&quot;&gt;@ThomasLau&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/willisblackburn&quot;&gt;@willisblackburn&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
+  <entry>
     <id>http://netty.io/news/2015/05/07/4-0-28-Final.html</id>
     <title>Netty 4.0.28.Final released</title>
-    <updated>2015-05-08T07:22:27+02:00</updated>
+    <updated>2015-05-08T10:46:59+02:00</updated>
     <published>2015-05-07T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/05/07/4-0-28-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -63,6 +233,11 @@
       &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.28.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
       
       &lt;h2&gt;Special notes&lt;/h2&gt;
+      
+      &lt;h3&gt;Validate cookie name and value characters&lt;/h3&gt;
+      
+      &lt;p&gt;This problem was discovered by the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; and could lead to security
+      problems due the improper parsing of Cookies (without strict validating).&lt;/p&gt;
       
       &lt;h3&gt;ChannelPool&lt;/h3&gt;
       
@@ -188,6 +363,8 @@
       &lt;h1&gt;Thank You&lt;/h1&gt;
       
       &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;p&gt;A special thank you to the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; for reporting the possible security bug.&lt;/p&gt;
       
       &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/Alwayswithme&quot;&gt;@Alwayswithme&lt;/a&gt;&lt;/li&gt;
@@ -3594,100 +3771,6 @@
       &lt;p&gt;Does this mean we went completely backward and our documentation is unmodifiable?  Not at all.  If you browse &lt;a href=&quot;http://netty.io/wiki/index.html&quot;&gt;the documentation page&lt;/a&gt;, you will find that all documentation pages are periodically auto-generated from &lt;a href=&quot;https://github.com/netty/netty/wiki&quot;&gt;the Github Wiki&lt;/a&gt;.  You can just visit the wiki to submit your changes and they will be deployed automatically.  As usual, your contribution to our documentation will make us very excited, even if it is such a tiny thing as fixing typos and grammar.&lt;/p&gt;
       
       &lt;p&gt;I hope you like the new web site.  Please let us know what you think about it and what would make it better.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/02/15/4-0-0-beta1.html</id>
-    <title>Netty 4.0.0.Beta1 out now</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
-    <published>2013-02-15T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/02/15/4-0-0-beta1.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      We are happy to announce the first Beta release of the upcoming Netty 4.0.0 release. This release fixes over 150 issues/tasks since the release of Alpha8. 
-      We consider the API as stable now so it may be the perfect time for your project to test-drive it.  To make it easier for all of you we updated the New and Noteworthy post to reflect latest API changes.  Also we updated the user guide for Netty 4. 
-      Please don't hesitate to get in touch with us if you have any problems or think we missed something.
-      
-      For a complete list of changes please checkout our...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;We are happy to announce the first Beta release of the upcoming Netty 4.0.0 release. This release fixes over 150 issues/tasks since the release of Alpha8. &lt;/p&gt;
-      &lt;p&gt;We consider the API as stable now so it may be the perfect time for your project to test-drive it.  To make it easier for all of you we updated the &lt;span class=&quot;wikilink&quot;&gt;&lt;a rel=&quot;__blank&quot; href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;New and Noteworthy&lt;/a&gt;&lt;/span&gt; post to reflect latest API changes.  Also we updated the &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/4.0/guide/&quot;&gt;user guide&lt;/a&gt;&lt;/span&gt; for Netty 4. &lt;/p&gt;
-      &lt;p&gt;Please don't hesitate to get in touch with us if you have any problems or think we missed something.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;For a complete list of changes please checkout our &lt;span&gt;&lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Beta1&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;.  To download Netty, as usual, please visit &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the downloads page&lt;/a&gt;&lt;/span&gt; or get it via maven like usual.&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;The Netty Team want to thank again the whole community for the feedback and contributions. This would not be possible without all of you. You make a difference!&lt;/p&gt;
-      &lt;div&gt;&lt;/div&gt;
-      &lt;/div&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/01/16/3-6-2-final.html</id>
-    <title>Netty 3.6.2.Final released</title>
-    <updated>2014-12-25T20:20:37+01:00</updated>
-    <published>2013-01-16T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/01/16/3-6-2-final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      
-      While we spend most of our time working on the first beta of the next major version of Netty , we also spend some time to fix bugs and add new features to our current stable series.  
-      As result of this we released another stable version out of the 3.6.x series today. Say "Hi" to Netty 3.6.2.Final!
-      The release includes bug-fixes, enhancements and also new features. So if you are interested keep reading...
-      Bugfixes
-      Here are the most important bug-fixes:
-      
-      
-      [#915] SSL handshake may be done twice
-      
-      [#921] WebSocket07ClientHandshaker may throw a NPE
-      
-      [#926] Chrome requires version header in SPDY_SESSION_PUSHED_SYN_STREAM
-      
-      
-      New stuff and improvements
-      Add Socks codec
-      This release comes...
-    </summary>
-    <content type="html">
-      &lt;div class=&quot;entry-content&quot;&gt;
-      &lt;p&gt;While we spend most of our time working on the first beta of the next major version of Netty , we also spend some time to fix bugs and add new features to our current stable series.  &lt;/p&gt;
-      &lt;p&gt;As result of this we released another stable version out of the 3.6.x series today. Say &quot;Hi&quot; to Netty 3.6.2.Final!&lt;/p&gt;
-      &lt;p&gt;The release includes bug-fixes, enhancements and also new features. So if you are interested keep reading...&lt;/p&gt;
-      &lt;h1 id=&quot;HBugfixes&quot;&gt;&lt;span&gt;&lt;span&gt;Bugfixes&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;
-      &lt;p&gt;Here are the most important bug-fixes:&lt;/p&gt;
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/915&quot;&gt;[#915]&lt;/a&gt;&lt;/span&gt; SSL handshake may be done twice&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/921&quot;&gt;[#921]&lt;/a&gt;&lt;/span&gt; WebSocket07ClientHandshaker may throw a NPE&lt;/li&gt;
-      &lt;li&gt;
-      &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/926&quot;&gt;[#926]&lt;/a&gt;&lt;/span&gt; Chrome requires version header in SPDY_SESSION_PUSHED_SYN_STREAM&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;div&gt;
-      &lt;h1 id=&quot;HNewstuffandimprovements&quot;&gt;&lt;span&gt;&lt;span&gt;New stuff and improvements&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;
-      &lt;h2 id=&quot;HAddSockscodec&quot;&gt;&lt;span&gt;&lt;span&gt;Add Socks codec&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;This release comes with a socks codec. Be aware that it only works with Java 6 or higher because of some classes that are only available since Java 6. Checkout the &quot;org.jboss.netty.handler.codec.socks&quot; package for all the classes and their javadocs.&lt;/p&gt;
-      &lt;/div&gt;
-      &lt;h1 id=&quot;HSupportasyncbindofServerChannel&quot;&gt;&lt;span&gt;&lt;span&gt;Support async bind of ServerChannel&lt;/span&gt;&lt;/span&gt;&lt;/h1&gt;
-      &lt;p&gt;Previous this release it was not possible to use the loved ServerBootstrap to bind to a Socket in an async fashion. This was because the ServerBootstrap.bind(..) method is blocking till the bound operation completes. Unfortunately this is often not what you want as want to do other tasks while the bind operation completes.&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;p&gt;To overcome this limitation while still keep backward compatibility we introduced 2 new methods to ServerBootstrap. These are the async counterparts of the existing bind() and bind(SocketAddress) methods.&lt;/p&gt;
-      &lt;p&gt;Here you see async bind in action...&lt;/p&gt;
-      &lt;div class=&quot;wikimodel-emptyline&quot;&gt;&lt;/div&gt;
-      &lt;script src=&quot;https://gist.github.com/4547247.js&quot;&gt;&lt;/script&gt;&lt;p&gt;Special thanks go out to the &lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;http://vertx.io&quot;&gt;vert-x&lt;/a&gt;&lt;/span&gt; project which made us aware of the problem. So we hope you enjoy it &lt;img src=&quot;http://netty.io/resources/icons/silk/emoticon_smile.png&quot; class=&quot;wikimodel-freestanding&quot; alt=&quot;emoticon_smile&quot;&gt;&lt;/p&gt;
-      &lt;h2 id=&quot;HGeneral&quot;&gt;&lt;span&gt;&lt;span&gt;General&lt;/span&gt;&lt;/span&gt;&lt;/h2&gt;
-      &lt;p&gt;For a complete list of changes please checkout our &lt;span&gt;&lt;span class=&quot;wikiexternallink&quot;&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.6.2.Final&quot;&gt;issue tracker&lt;/a&gt;&lt;/span&gt;.  To download Netty, as usual, please visit &lt;span class=&quot;wikilink&quot;&gt;&lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;the downloads page&lt;/a&gt;&lt;/span&gt; or get it via maven like usual.&lt;/span&gt;&lt;/p&gt;
-      &lt;p&gt;Please let us know if you have any problems or questions.&lt;/p&gt;
-      &lt;/div&gt;
     </content>
   </entry>
 </feed>
