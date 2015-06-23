@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/05/08/3-9-8-Final-and-3.html">
+              <a href="../news/2015/06/23/4-0-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.28.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.28.Final
-                    <small>&dash; 07-May-2015</small>
+                    4.0.29.Final
+                    <small>&dash; 23-Jul-2015</small>
                   </a>
                 </li>
                 <li>
@@ -461,15 +461,15 @@
           
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets: </p>
           
-          <p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+          <p><img src="https://camo.githubusercontent.com/971c790ef0c4f09bd8de86fddbbbdcf4a7a1e5f8/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630312e706e67" alt="Three packets received as they were sent" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf01.png"></p>
           
           <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
           
-          <p><img src="https://camo.githubusercontent.com/5b595baf5071bf669f81d08b7554064f4142cc69/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
+          <p><img src="https://camo.githubusercontent.com/a1888968dad8517e1e904a39fa144e489fa5d387/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630322e706e67" alt="Three packets split and merged into four buffers" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf02.png"></p>
           
           <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
           
-          <p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+          <p><img src="https://camo.githubusercontent.com/971c790ef0c4f09bd8de86fddbbbdcf4a7a1e5f8/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630312e706e67" alt="Four buffers defragged into three" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf01.png"></p>
           
           <h4 id="wiki-h4-14">
           <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The First Solution</h4>
@@ -560,7 +560,7 @@
           
           <ol>
           <li>
-          <p>There are quite a few important things to important in this single line.</p>
+          <p>There are a few important things to notice in this handler method:</p>
           
           <p>First, we pass the original <a href="http://netty.io/5.0/api/io/netty/channel/ChannelPromise.html"><code>ChannelPromise</code></a> as-is so that Netty marks it as success or failure when the encoded data is actually written out to the wire.</p>
           
@@ -623,7 +623,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 08-May-2015</small>
+                <small>Last retrieved on 23-Jun-2015</small>
               </div>
             </div>
           </div>

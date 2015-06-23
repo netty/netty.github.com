@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/05/08/3-9-8-Final-and-3.html">
+              <a href="../news/2015/06/23/4-0-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.28.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.28.Final
-                    <small>&dash; 07-May-2015</small>
+                    4.0.29.Final
+                    <small>&dash; 23-Jul-2015</small>
                   </a>
                 </li>
                 <li>
@@ -290,7 +290,7 @@
           
           <p>Note that you must specify the proper classifier for the dependency.  <code>os-maven-plugin</code> in the <code>extensions</code> section in the <code>pom.xml</code> file will set <code>os.detected.classifier</code> property automatically.  For more information. refer to <a href="https://github.com/trustin/os-maven-plugin">the homepage of the <code>os-maven-plugin</code></a>.</p>
           
-          <p>For using the native transport in a sbt project,please add line below to you libraryDependencies</p>
+          <p>For using the native transport in a <a href="http://www.scala-sbt.org/">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
           
           <pre><code>"io.netty" % "netty-transport-native-epoll" % "${project.version}" classifier "linux-x86_64"&#x000A;</code></pre>
           
@@ -301,7 +301,7 @@
           
           <p>To build the native transport, you need to use Linux with 64-bit kernel 2.6 or higher.  Please also install the required tools and libraries:</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel.i686 glibc-devel libgcc.i686 make tar&#x000A;<span class="pl-c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make gcc-multilib tar</pre></div>
+          <div class="highlight highlight-bash"><pre><span class="pl-c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool make tar \&#x000A;                 glibc-devel libaio-devel \&#x000A;                 libgcc.i686 glibc-devel.i686&#x000A;<span class="pl-c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar \&#x000A;                     gcc-multilib libaio-dev</pre></div>
           
               </div>
           
@@ -321,7 +321,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 08-May-2015</small>
+                <small>Last retrieved on 23-Jun-2015</small>
               </div>
             </div>
           </div>

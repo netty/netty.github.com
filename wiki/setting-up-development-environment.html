@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/05/08/3-9-8-Final-and-3.html">
+              <a href="../news/2015/06/23/4-0-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.28.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.28.Final
-                    <small>&dash; 07-May-2015</small>
+                    4.0.29.Final
+                    <small>&dash; 23-Jul-2015</small>
                   </a>
                 </li>
                 <li>
@@ -288,18 +288,23 @@
           <p>Netty project team uses <a href="http://www.jetbrains.com/idea/">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
           
           <h3 id="wiki-h3-4">
+          <a id="user-content-use-the-same-bit-version-with-your-os" class="anchor" href="#use-the-same-bit-version-with-your-os" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use the same-bit version with your OS</h3>
+          
+          <p>If you are on 64-bit operating system, use the 64-bit version of IntelliJ IDEA.  For an instance, the start menu shortcut points to the 32-bit binary even if you are using 64-bit Windows.  You'll have to find the <code>idea64.exe</code> in the installation directory and use it instead.  Otherwise, you'll see IntelliJ IDEA complains that it cannot find <code>io.netty:netty-tcnative:windows-x86_32</code>.</p>
+          
+          <h3 id="wiki-h3-5">
           <a id="user-content-code-style" class="anchor" href="#code-style" aria-hidden="true"><span class="octicon octicon-link"></span></a>Code style</h3>
           
           <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
           
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-6">
           <a id="user-content-inspection-profile" class="anchor" href="#inspection-profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inspection profile</h3>
           
           <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358">here</a> to learn how to import an inspection profile.</p>
           
           <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html">the web help pages</a>.</p>
           
-          <h3 id="wiki-h3-6">
+          <h3 id="wiki-h3-7">
           <a id="user-content-copyright-profile" class="anchor" href="#copyright-profile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyright profile</h3>
           
           <p>Copyright text:</p>
@@ -314,21 +319,22 @@
           
           <pre><code>The Netty project licenses&#x000A;</code></pre>
           
-          <h2 id="wiki-h2-7">
+          <h2 id="wiki-h2-8">
           <a id="user-content-set-up-eclipse-with-m2e-and-java-7" class="anchor" href="#set-up-eclipse-with-m2e-and-java-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Set up Eclipse with M2E and Java 7</h2>
           
           <ol>
+          <li>Ensure to use the same-bit version with your OS. e.g. Use 64-bit Eclipse if you are on 64-bit OS.</li>
           <li>
           <a href="http://repo1.maven.org/maven2/kr/motd/maven/os-maven-plugin/1.2.0.Final/os-maven-plugin-1.2.0.Final.jar">Download os-maven-plugin</a> and put it into <code>&lt;ECLIPSE_HOME&gt;/plugins</code> directory to work around the problem where m2e does not evaluate an extension specified in our <code>pom.xml</code>.  (Unlike its name, it's both a Maven plugin and an Eclipse plugin.)</li>
-          <li>Import the project via the 'File -&gt; Import... -&gt; Existing Maven Projects' menu.</li>
+          <li>Import the project via the 'File → Import... → Existing Maven Projects' menu.</li>
           <li>Netty project Maven <code>pom.xml</code> settings dictate use of Java SE 1.6, while implicitly using Java 7 (1.7) features if present.  This may result in compilation errors in Eclipse.  There are two ways to work around this problem:
           
           <ol>
-          <li>Look in the 'Window -&gt; Preferences -&gt; Installed JRE' menu:
+          <li>Look in the 'Window → Preferences → Installed JRE' menu:
           
           <ul>
           <li>Make sure you have Java 7 installation available under 'Installed JRE'</li>
-          <li>Map this Java 7 installation onto Java 6: 'Installed JRE -&gt; Execution Environments -&gt; Java SE 1.6'</li>
+          <li>Map this Java 7 installation onto Java 6: 'Installed JRE → Execution Environments → Java SE 1.6'</li>
           </ul>
           </li>
           <li>Alternatively, Java 7 JRE can be selected on per-project basis for each Netty module.</li>
@@ -348,10 +354,11 @@
           </li></ul></li><li><a href="#wiki-h2-1" title="Install the necessary build tools">Install the necessary build tools</a>
           </li><li><a href="#wiki-h2-2" title="Git line ending configuration">Git line ending configuration</a>
           </li><li><a href="#wiki-h2-3" title="Set up IntelliJ IDEA">Set up IntelliJ IDEA</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Code style">Code style</a>
-          </li><li><a href="#wiki-h3-5" title="Inspection profile">Inspection profile</a>
-          </li><li><a href="#wiki-h3-6" title="Copyright profile">Copyright profile</a>
-          </li></ul></li><li><a href="#wiki-h2-7" title="Set up Eclipse with M2E and Java 7">Set up Eclipse with M2E and Java 7</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Use the same-bit version with your OS">Use the same-bit version with your OS</a>
+          </li><li><a href="#wiki-h3-5" title="Code style">Code style</a>
+          </li><li><a href="#wiki-h3-6" title="Inspection profile">Inspection profile</a>
+          </li><li><a href="#wiki-h3-7" title="Copyright profile">Copyright profile</a>
+          </li></ul></li><li><a href="#wiki-h2-8" title="Set up Eclipse with M2E and Java 7">Set up Eclipse with M2E and Java 7</a>
           </li></ul>
           </div>
           </div>
@@ -359,7 +366,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 08-May-2015</small>
+                <small>Last retrieved on 23-Jun-2015</small>
               </div>
             </div>
           </div>
