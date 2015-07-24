@@ -2,9 +2,87 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2015-07-21T11:20:57+02:00</updated>
+  <updated>2015-07-24T12:23:58+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2015/07/24/4-0-30-Final.html</id>
+    <title>Netty 4.0.30.Final released</title>
+    <updated>2015-07-24T12:23:58+02:00</updated>
+    <published>2015-07-24T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2015/07/24/4-0-30-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 4.0.30.Final.
+      
+      This release contains 30+ changes, including bug-fixes, improvements and new features.
+      If you use the OpenSslEngine we highly recommend upgrading as this release brings performance enhancements in this area.
+      
+      The most important changes are:
+      
+      
+      ServerBootstrap.handler(...) will add handler before Channel is registered (#3933)
+      Ensure OpenSslSession informations can be retrieved even after shutdown (#3934)
+      NullPointerException in PendingWriteQueue (#3967) (#3991
+      Disable RC4 by default when using SslContext (#3987) (#4014)
+      FixedChannelPool does not count acquired channels precisely (#3988) (#4016)
+      Correctly register for EPOLLRDHUP when construct EpollSocketChannel for file descriptor (#4013)
+      Ensure cancelled scheduled tasks can be GC'ed ASAP (#3994)
+      Send full response for unsupported websocket...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the release of Netty 4.0.30.Final.&lt;/p&gt;
+      
+      &lt;p&gt;This release contains 30+ changes, including bug-fixes, improvements and new features.
+      If you use the OpenSslEngine we highly recommend upgrading as this release brings performance enhancements in this area.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;ServerBootstrap.handler(...) will add handler before Channel is registered (&lt;a href=&quot;https://github.com/netty/netty/pull/3933&quot;&gt;#3933&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure OpenSslSession informations can be retrieved even after shutdown (&lt;a href=&quot;https://github.com/netty/netty/pull/3934&quot;&gt;#3934&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;NullPointerException in PendingWriteQueue (&lt;a href=&quot;https://github.com/netty/netty/issues/3967&quot;&gt;#3967&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/3991&quot;&gt;#3991&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Disable RC4 by default when using SslContext (&lt;a href=&quot;https://github.com/netty/netty/issues/3987&quot;&gt;#3987&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4014&quot;&gt;#4014&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;FixedChannelPool does not count acquired channels precisely (&lt;a href=&quot;https://github.com/netty/netty/issues/3988&quot;&gt;#3988&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4016&quot;&gt;#4016&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly register for EPOLLRDHUP when construct EpollSocketChannel for file descriptor (&lt;a href=&quot;https://github.com/netty/netty/pull/4013&quot;&gt;#4013&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure cancelled scheduled tasks can be GC'ed ASAP (&lt;a href=&quot;https://github.com/netty/netty/pull/3994&quot;&gt;#3994&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Send full response for unsupported websocket versions (&lt;a href=&quot;https://github.com/netty/netty/pull/3999&quot;&gt;#3999&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Stop calling BIO_write once internal buffer is full (&lt;a href=&quot;https://github.com/netty/netty/pull/3957&quot;&gt;#3957&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Only do priming read if there is no space in dsts buffers  (&lt;a href=&quot;https://github.com/netty/netty/pull/3958&quot;&gt;#3958&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Better handling of BUFFER_OVERFLOW when unwrap data (&lt;a href=&quot;https://github.com/netty/netty/pull/3959&quot;&gt;#3959&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.30.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/clebertsuconic&quot;&gt;@clebertsuconic&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/codevelop&quot;&gt;@codevelop&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gtomassi&quot;&gt;@gtomassi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hamzaxx&quot;&gt;@hamzaxx&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/justinjhendrick&quot;&gt;@justinjhendrick&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mingyu89&quot;&gt;@mingyu89&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sefler1987&quot;&gt;@sefler1987&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zoowar&quot;&gt;@zoowar&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2015/07/21/3-9-9-Final.html</id>
     <title>Netty 3.9.9.Final released</title>
@@ -3833,51 +3911,6 @@
       
       
       &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.CR1&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/03/18/4-0-0-beta3.html</id>
-    <title>Netty 4.0.0.Beta3 released</title>
-    <updated>2015-06-23T11:58:31+02:00</updated>
-    <published>2013-03-18T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/03/18/4-0-0-beta3.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      Thank you everyone for giving Netty 4.0.0.Beta2 a try.  We were able to squash many bugs thanks to your input, and I&#39;m proud to call this release the last beta before the candidate release!  As you know, your input is crucial for us to produce more stable and easier-to-use release.  It will be awesome if you have a chance to get involved into the Netty project as well as you download it.
-      
-      Notable changes
-      
-      
-      Our future/promise API has been refactored so that it can be used without an associated Channel at all.  You will like this change if...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Thank you everyone for giving Netty 4.0.0.Beta2 a try.  We were able to squash many bugs thanks to your input, and I'm proud to call this release the last beta before the candidate release!  As you know, your input is crucial for us to produce more stable and easier-to-use release.  It will be awesome if you have a chance to &lt;a href=&quot;http://netty.io/community.html&quot;&gt;get involved into the Netty project&lt;/a&gt; as well as you &lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;download&lt;/a&gt; it.&lt;/p&gt;
-      
-      &lt;h2&gt;Notable changes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Our future/promise API has been refactored so that it can be used without an associated &lt;code&gt;Channel&lt;/code&gt; at all.  You will like this change if you did not like &lt;code&gt;java.util.concurrent.Future&lt;/code&gt;.  Please refer to &lt;a href=&quot;http://netty.io/4.0/api/index.html?io/netty/util/concurrent/package-summary.html&quot;&gt;the API documentation&lt;/a&gt; for more information. (&lt;a href=&quot;https://github.com/netty/netty/issues/1065&quot;&gt;#1065&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelHandler.userEventTriggered()&lt;/code&gt; event handler method has been moved to &lt;code&gt;ChannslStateHandler&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/issues/1107&quot;&gt;#1107&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Potential I/O starvaion in &lt;code&gt;NioEventLoop&lt;/code&gt; has been fixed by introducing a parameter called &lt;code&gt;ioRatio&lt;/code&gt;, which allows you to limit the percantage of time spent by non-I/O tasks. (&lt;a href=&quot;https://github.com/netty/netty/issues/1154&quot;&gt;#1154&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ByteToByteEncoder&lt;/code&gt; now intercepts a &lt;code&gt;sendFile(FileRegion)&lt;/code&gt; operation and filter the content of the &lt;code&gt;FileRegion&lt;/code&gt; for your convenience. (&lt;a href=&quot;https://github.com/netty/netty/pull/1106&quot;&gt;#1106&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Google protobuf has been upgraded to version 2.5 to get decoding performance improvement. (&lt;a href=&quot;https://github.com/netty/netty/pull/1139&quot;&gt;#1139&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelHandlerContext.nextInbound/OutboundBufferType()&lt;/code&gt; has been added for handlers that have to behave differently depending on the type of the next handler's buffer. (&lt;a href=&quot;https://github.com/netty/netty/pull/1132&quot;&gt;#1132&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelOutboundMessageHandlerAdapter.beginFlush()&lt;/code&gt; now has to return a boolean value to accept or reject the flush request where the default implementation is to accept. (&lt;a href=&quot;https://github.com/netty/netty/issues/1141&quot;&gt;#1141&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ByteBuf.hasMemoryAddress()&lt;/code&gt; and &lt;code&gt;ByteBuf.memoryAddress()&lt;/code&gt; were added to allow a user access the buffer using &lt;code&gt;sun.misc.Unsafe&lt;/code&gt; for even faster buffer access. (&lt;a href=&quot;https://github.com/netty/netty/issues/1110&quot;&gt;#1110&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ThreadPerChannelEventLoopGroup&lt;/code&gt; and &lt;code&gt;ThreadPerChannelEventLoop&lt;/code&gt; have been added to allow a user to build a thread-per-channel transport more easily. (&lt;a href=&quot;https://github.com/netty/netty/issues/1124&quot;&gt;#1124&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;17 bug fixes and more&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Beta3&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
     </content>
   </entry>
 </feed>
