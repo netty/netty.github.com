@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/09/02/4-1-0-Beta6.html">
+              <a href="../news/2015/09/30/4-0-32-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.31.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.32.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.31.Final
-                    <small>&dash; 02-Sep-2015</small>
+                    4.0.32.Final
+                    <small>&dash; 30-Sep-2015</small>
                   </a>
                 </li>
                 <li>
@@ -277,11 +277,11 @@
           
           <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
           
-          <div class="highlight highlight-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.30.Fork1&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.2.3.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.30.Fork1&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.2.3.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
           
           <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
           
-          <div class="highlight highlight-java"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-smi">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-smi">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
           
           <p>Netty will unpack the shared library provided by the <code>netty-tcnative-&lt;version&gt;-&lt;os.detected.classifier&gt;.jar</code> into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
           
@@ -314,11 +314,11 @@
           
           <p>Install the required packages:</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel make tar apr-devel openssl-devel&#x000A;<span class="pl-c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar libapr1-dev libssl-dev</pre></div>
+          <div class="highlight highlight-source-shell"><pre><span class="pl-c"># RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool glibc-devel make tar apr-devel openssl-devel&#x000A;<span class="pl-c"># Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar libapr1-dev libssl-dev</pre></div>
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h4 id="wiki-h4-4">
           <a id="user-content-version-libsslso10-not-found-required-by-libnetty-tcnativeso" class="anchor" href="#version-libsslso10-not-found-required-by-libnetty-tcnativeso" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 'libssl.so.10' not found (required by libnetty-tcnative.so)</h4>
@@ -344,19 +344,19 @@
           
           <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
           
-          <div class="highlight highlight-bash"><pre>xcode-<span class="pl-k">select</span> <span class="pl-smi">--install</span></pre></div>
+          <div class="highlight highlight-source-shell"><pre>xcode-<span class="pl-k">select</span> <span class="pl-smi">--install</span></pre></div>
           
           <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
           
-          <div class="highlight highlight-bash"><pre>brew install autoconf automake libtool openssl</pre></div>
+          <div class="highlight highlight-source-shell"><pre>brew install autoconf automake libtool openssl</pre></div>
           
           <p>Add the following exports to your <code>~/.bash_profile</code>, so that the compiler and linker finds OpenSSL built by Homebrew.</p>
           
-          <div class="highlight highlight-bash"><pre><span class="pl-k">export</span> CPPFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-smi">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">export</span> LDFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-smi">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
+          <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> CPPFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-smi">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">export</span> LDFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-smi">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
           
           <p>Build the package and install it into your local Maven repository:</p>
           
-          <div class="highlight highlight-bash"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.30)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-6">
           <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
@@ -408,19 +408,19 @@
           
           <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
           
           <p>Build APR:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.2<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install</pre></div>
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.2<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install</pre></div>
           
           <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
           
-          <div class="highlight highlight-bat"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.2\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.2-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.2a-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.2a-dist\lib\VC</pre></div>
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">set</span> APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.2\include&#x000A;<span class="pl-k">set</span> APR_LIB_DIR=C:\Workspaces\apr-1.5.2-dist\lib&#x000A;<span class="pl-k">set</span> OPENSSL_INCLUDE_DIR=C:\Workspaces\openssl-1.0.2a-dist\include&#x000A;<span class="pl-k">set</span> OPENSSL_LIB_DIR=C:\Workspaces\openssl-1.0.2a-dist\lib\VC</pre></div>
           
           <p>Clone <code>netty-tcnative</code> and build it:</p>
           
-          <div class="highlight highlight-bat"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-k">REM</span> To build a snapshot: (e.g. 1.1.30)&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          <div class="highlight highlight-source-dosbatch"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-1.1.30.Fork2)&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-k">REM</span> To build a snapshot: (e.g. 1.1.30)&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h2 id="wiki-h2-7">
           <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a new fork</h2>
@@ -454,7 +454,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 02-Sep-2015</small>
+                <small>Last retrieved on 30-Sep-2015</small>
               </div>
             </div>
           </div>

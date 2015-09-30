@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/09/02/4-1-0-Beta6.html">
+              <a href="../news/2015/09/30/4-0-32-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -75,10 +75,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.31.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.32.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.31.Final
-                    <small>&dash; 02-Sep-2015</small>
+                    4.0.32.Final
+                    <small>&dash; 30-Sep-2015</small>
                   </a>
                 </li>
                 <li>
@@ -284,11 +284,11 @@
           
           <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
           
-          <div class="highlight highlight-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           
           <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
           
-          <div class="highlight highlight-java"><pre>@<span class="pl-smi">GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
           
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking">the talks</a> of one of the main authors from JMH.</p>
           
@@ -311,7 +311,7 @@
           
           <p>Note that you can also customize those default settings on a per-test basis through annotations:</p>
           
-          <div class="highlight highlight-java"><pre>@Warmup(iterations <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;@Fork(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre>@Warmup(iterations <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;@Fork(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           
           <p>This can be done on a per-class and per-method (benchmark) basis. Note that command line arguments always override the annotation defaults.</p>
           
@@ -334,7 +334,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 02-Sep-2015</small>
+                <small>Last retrieved on 30-Sep-2015</small>
               </div>
             </div>
           </div>
