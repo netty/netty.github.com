@@ -2,9 +2,74 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2015-09-30T13:54:29+02:00</updated>
+  <updated>2015-10-05T08:14:47+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2015/10/05/4-1-0-Beta7.html</id>
+    <title>Netty 4.1.0.Beta7 released</title>
+    <updated>2015-10-05T08:14:47+02:00</updated>
+    <published>2015-10-05T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2015/10/05/4-1-0-Beta7.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 4.1.0.Beta7 after fixing a lot of issues since the last beta release.
+      
+      This release contains a lot of fixes but also API improvements in the HTTP/2 codec.
+      
+      The most important changes are:
+      
+      
+      DefaultHttp2RemoteFlowController may not write all pending bytes  (#4258) (#4242)
+      Ensure close caused by write will happen before write promise is notified (#4225)
+      SpdyHttpEncoder fails to convert HttpResponse to SpdyFrame (#4190) (#4185)
+      StompHeaders constants can no longer be used to fetch headers from DefaultHeaders (#4247)
+      DefaultHttp2RemoteFlowController not allocating all available bytes (#4282) (#4266)
+      
+      
+      
+      For the details and all changes, please browse our issue tracker.
+      
+      As always, please let us...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta7 after fixing a lot of issues since the last beta release.&lt;/p&gt;
+      
+      &lt;p&gt;This release contains a lot of fixes but also API improvements in the HTTP/2 codec.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;DefaultHttp2RemoteFlowController may not write all pending bytes  (&lt;a href=&quot;https://github.com/netty/netty/pull/4258&quot;&gt;#4258&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4242&quot;&gt;#4242&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure close caused by write will happen before write promise is notified (&lt;a href=&quot;https://github.com/netty/netty/pull/4225&quot;&gt;#4225&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;SpdyHttpEncoder fails to convert HttpResponse to SpdyFrame (&lt;a href=&quot;https://github.com/netty/netty/pull/4190&quot;&gt;#4190&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4185&quot;&gt;#4185&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;StompHeaders constants can no longer be used to fetch headers from DefaultHeaders (&lt;a href=&quot;https://github.com/netty/netty/issues/4247&quot;&gt;#4247&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultHttp2RemoteFlowController not allocating all available bytes (&lt;a href=&quot;https://github.com/netty/netty/pull/4282&quot;&gt;#4282&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4266&quot;&gt;#4266&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta7&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/silvaran&quot;&gt;@silvaran&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2015/09/30/4-0-32-Final.html</id>
     <title>Netty 4.0.32.Final released</title>
@@ -3897,146 +3962,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/xhh11&quot;&gt;@xhh11&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/xstevens&quot;&gt;@xstevens&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/05/08/4-0-0-CR2.html</id>
-    <title>Netty 4.0.0.CR2 released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2013-05-08T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/05/08/4-0-0-CR2.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      It&#39;s my pleasure to announce the second release candidate for Netty 4.0.0. Unfortunatelly, there is some API-breakage when upgrading from the previous release. We had to do this to eliminate some design issues which were found by users. Please read this post before an upgrade.
-      
-      Thanks again to everyone who helped us fix issues and make the release even more stable.
-      
-      You can grab the release from our download page and from the Maven central repository.
-      
-      If you have any feedback please let us know, we really appreciate them.
-      
-      Backward-incompatible changes
-      
-      Please read this section before upgrading to CR2.
-      
-      ChannelHandler and its sub-types
-      
-      
-      ChannelHandler.beforeAdd/Remove(...) was removed because...
-    </summary>
-    <content type="html">
-      &lt;p&gt;It's my pleasure to announce the second release candidate for Netty 4.0.0. Unfortunatelly, there is some API-breakage when upgrading from the previous release. We had to do this to eliminate some design issues which were found by users. Please read this post before an upgrade.&lt;/p&gt;
-      
-      &lt;p&gt;Thanks again to everyone who helped us fix issues and make the release even more stable.&lt;/p&gt;
-      
-      &lt;p&gt;You can grab the release from our &lt;a href=&quot;http://netty.io/downloads.html&quot;&gt;download page&lt;/a&gt; and from the Maven central repository.&lt;/p&gt;
-      
-      &lt;p&gt;If you have any feedback please let us know, we really appreciate them.&lt;/p&gt;
-      
-      &lt;h2&gt;Backward-incompatible changes&lt;/h2&gt;
-      
-      &lt;p&gt;Please read this section before upgrading to CR2.&lt;/p&gt;
-      
-      &lt;h3&gt;
-      &lt;code&gt;ChannelHandler&lt;/code&gt; and its sub-types&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelHandler.beforeAdd/Remove(...)&lt;/code&gt; was removed because it made it very difficult to fullfill the thread model while not blocking at all.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelHandler.afterAdd/Remove(...)&lt;/code&gt; was renamed to &lt;code&gt;handlerAdded/Removed(...)&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;This may not affect any of your code if you not made use of those and just extended the Adapter classes.&lt;/p&gt;
-      
-      &lt;h3&gt;
-      &lt;code&gt;ChannelInbound/OutboundHandler&lt;/code&gt; and its sub-types&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Removed &lt;code&gt;ChannelInboundHandler.freeInboundBuffer()&lt;/code&gt; and &lt;code&gt;ChannelOutboundHandler.freeOutboundBuffer()&lt;/code&gt; because it's not useful anymore since we introduced reference counting in the previous releases.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;This may not affect any of your code because you usually extend &lt;code&gt;*Adapter&lt;/code&gt;s and don't override the mentioned methods.&lt;/p&gt;
-      
-      &lt;h3&gt;Codec framework&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;encode(...)&lt;/code&gt; and &lt;code&gt;decode(...)&lt;/code&gt; now take a &lt;code&gt;MessageBuf&amp;lt;Object&amp;gt;&lt;/code&gt; as a parameter and return &lt;code&gt;void&lt;/code&gt;.  Therefore, once you encoded or decoded a message, you have to add the message to the &lt;code&gt;MessageBuf&amp;lt;Object&amp;gt;&lt;/code&gt; given as a parameter.  This change simplifies message handling by enabling the removal of automatic array unfolding.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;This will most likely affect you if you wrote a codec based on the codec framework.&lt;/p&gt;
-      
-      &lt;h3&gt;&lt;code&gt;SslHandler&lt;/code&gt;&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;SslHandler.handshake()&lt;/code&gt; was renamed to &lt;code&gt;handshakeFuture()&lt;/code&gt; for consistency.  Also, it now returns a &lt;code&gt;Future&amp;lt;Channel&amp;gt;&lt;/code&gt; instead of a &lt;code&gt;ChannelFuture&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;SslHandler.closeNotifyFutre()&lt;/code&gt; returns a &lt;code&gt;Future&amp;lt;Channel&amp;gt;&lt;/code&gt; instead of a &lt;code&gt;ChannelFuture&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;
-      &lt;code&gt;ByteBufHolder&lt;/code&gt; and its sub-types&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;ByteBufHolder.data()&lt;/code&gt; was renamed to &lt;code&gt;content()&lt;/code&gt;.  The sub-types, for instance, include &lt;code&gt;HttpContent&lt;/code&gt;, &lt;code&gt;SctpMessage&lt;/code&gt;, &lt;code&gt;SpdyDataFrame&lt;/code&gt;, and &lt;code&gt;WebSocketFrame&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;&lt;code&gt;ChannelPipeline&lt;/code&gt;&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;ChannelPipeline.remove/replaceAndForward(...)&lt;/code&gt; has been merged into &lt;code&gt;remove/replace()&lt;/code&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;
-      &lt;code&gt;Bootstrap&lt;/code&gt; and &lt;code&gt;ServerBootstrap&lt;/code&gt;
-      &lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;ServerBootstrap.shutdown()&lt;/code&gt; and &lt;code&gt;Bootstrap.shutdown()&lt;/code&gt; were deprecated.  Please use the &lt;code&gt;EventExecutorGroup.shutdownGracefully()&lt;/code&gt; method instead.  See the next section for more information.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;
-      &lt;code&gt;EventExecutorGroup&lt;/code&gt; and &lt;code&gt;EventLoopGroup&lt;/code&gt;
-      &lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fixed the API contract violation against &lt;code&gt;java.util.concurrent.ExecutorService&lt;/code&gt; with respect to the &lt;code&gt;Executor&lt;/code&gt; life cycle.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;EventExecutorGroup.shutdown()&lt;/code&gt; has been deprecated by &lt;code&gt;shutdownGracefully()&lt;/code&gt;.  Use &lt;code&gt;shutdownGracefully()&lt;/code&gt; wherever possible to avoid any trouble such as resource leak during a shutdown.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h2&gt;Changes in general&lt;/h2&gt;
-      
-      &lt;p&gt;This release fixed 90 issues.  It's highly recommended to upgrade as soon as possible.  We'd like to apologize that the upgrade process might not be as smooth as 'dropping the new JAR', but we believe all the changes were really worth the pain before going final.&lt;/p&gt;
-      
-      &lt;p&gt;Besides all the fixes, this release also ships with a few new features which may be worth some more details:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/issues/762&quot;&gt;#762&lt;/a&gt; adds &lt;code&gt;WebSockeClientHandler&lt;/code&gt; which makes it super easy to write WebSocket clients with Netty. See the apidocs for more details.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/pull/1207&quot;&gt;#1207&lt;/a&gt; adds &lt;code&gt;WebSocketFrameAggregator&lt;/code&gt; which can be used to aggregate partial frames.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;a href=&quot;https://github.com/netty/netty/issues/1244&quot;&gt;#1244&lt;/a&gt; allows to pass &lt;code&gt;DefaultChannelTransferPromise&lt;/code&gt; to &lt;code&gt;sendFile(..)&lt;/code&gt; operation to keep track of the transfer progress.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.CR2&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
     </content>
   </entry>
 </feed>
