@@ -2,9 +2,91 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2015-10-13T20:15:22+02:00</updated>
+  <updated>2015-11-04T12:33:38+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2015/11/04/4-0-33-Final.html</id>
+    <title>Netty 4.0.33.Final released</title>
+    <updated>2015-11-04T12:33:38+01:00</updated>
+    <published>2015-11-04T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2015/11/04/4-0-33-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 4.0.33.Final.
+      
+      This release contains 60+ changes, including bug-fixes, performance improvements and new features.
+      
+      The most important changes are:
+      
+      
+      Fix race-condition when allocate from multiple-thread (#4388) (#4198)
+      OpenSslServerContext reinitializes the provided TrustManagerFactory with the key cert chain (#4387) (#4355)
+      Improve size calculation of messages when written from outside the EventLoop (#4380) (#4363)
+      Always return a real slice even when the length is 0 (#4368)
+      Fix possible assert error in GlobalEventExecutor  (#4367) (#4357)
+      Correctly handle bitshifting if system does not support unaligned access (#4366)
+      Add *UnsafeHeapByteBuf for improve performance on systems with sun.misc.Unsafe (#4361)
+      Allow to disable reference count checks on every access...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the release of Netty 4.0.33.Final.&lt;/p&gt;
+      
+      &lt;p&gt;This release contains 60+ changes, including bug-fixes, performance improvements and new features.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Fix race-condition when allocate from multiple-thread (&lt;a href=&quot;https://github.com/netty/netty/pull/4388&quot;&gt;#4388&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4198&quot;&gt;#4198&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;OpenSslServerContext reinitializes the provided TrustManagerFactory with the key cert chain (&lt;a href=&quot;https://github.com/netty/netty/pull/4387&quot;&gt;#4387&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4355&quot;&gt;#4355&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Improve size calculation of messages when written from outside the EventLoop (&lt;a href=&quot;https://github.com/netty/netty/pull/4380&quot;&gt;#4380&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4363&quot;&gt;#4363&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Always return a real slice even when the length is 0 (&lt;a href=&quot;https://github.com/netty/netty/pull/4368&quot;&gt;#4368&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix possible assert error in GlobalEventExecutor  (&lt;a href=&quot;https://github.com/netty/netty/pull/4367&quot;&gt;#4367&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4357&quot;&gt;#4357&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle bitshifting if system does not support unaligned access (&lt;a href=&quot;https://github.com/netty/netty/pull/4366&quot;&gt;#4366&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add *UnsafeHeapByteBuf for improve performance on systems with sun.misc.Unsafe (&lt;a href=&quot;https://github.com/netty/netty/pull/4361&quot;&gt;#4361&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to disable reference count checks on every access of the ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/4344&quot;&gt;#4344&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;A number of toString() methods on classes that implement ByteBufHolder can throw IllegalReferenceCountException (&lt;a href=&quot;https://github.com/netty/netty/issues/4327&quot;&gt;#4327&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Forward decoded messages more frequently (&lt;a href=&quot;https://github.com/netty/netty/pull/4322&quot;&gt;#4322&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4284&quot;&gt;#4284&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure pending tasks are run when EmbeddedChannel.close(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/4321&quot;&gt;#4322&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4316&quot;&gt;#4284&lt;/a&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Implement SSLSession.invalidate() and isValid() for OpenSSLEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/4307&quot;&gt;#4307&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Add support for server-side renegotiation when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/4304&quot;&gt;#4304&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;p&gt;Correctly reset markers for all allocations when using PooledByteBufAllocator(&lt;a href=&quot;https://github.com/netty/netty/pull/4278&quot;&gt;#4278&lt;/a&gt;)&lt;/p&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.33.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/freels&quot;&gt;@freels&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/luengnat&quot;&gt;@luengnat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/maxwindiff&quot;&gt;@maxwindiff&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/prange&quot;&gt;@prange&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/scf37&quot;&gt;@scf37&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/skyao&quot;&gt;@skyao&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slachiewicz&quot;&gt;@slachiewicz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/stau&quot;&gt;@stau&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sverkera&quot;&gt;@sverkera&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2015/10/13/3-10-5-Final.html</id>
     <title>Netty 3.10.5.Final released</title>
@@ -3827,123 +3909,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/yyq2013&quot;&gt;@yyq2013&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/06/18/4-0-0-CR5.html</id>
-    <title>Netty 4.0.0.CR5 released with new-new API</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2013-06-18T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/06/18/4-0-0-CR5.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      You might already have seen we tagged 4.0.0.CR5 (and CR4) recently and wondered why no release announcement was coming along.  Here's the announcement finally with choke full of changes.
-      
-      This release is different from others because of its huge change in the API.  I'd like to apologize for the broken backward compatibility again and explain why this change was required.  Also, please read the revised user guide and the complete list of the changes in 4.
-      
-      Why breakage again?
-      
-      The API changes made so far turned out to increase the memory footprint and consumption while our intention was actually decreasing...
-    </summary>
-    <content type="html">
-      &lt;p&gt;You might already have seen we tagged 4.0.0.CR5 (and CR4) recently and wondered why no release announcement was coming along.  Here's the announcement finally with choke full of changes.&lt;/p&gt;
-      
-      &lt;p&gt;This release is different from others because of its huge change in the API.  I'd like to apologize for the broken backward compatibility again and explain why this change was required.  Also, please read &lt;a href=&quot;http://netty.io/wiki/user-guide-for-4.x.html&quot;&gt;the revised user guide&lt;/a&gt; and &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;the complete list of the changes in 4&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;h2&gt;Why breakage again?&lt;/h2&gt;
-      
-      &lt;p&gt;The API changes made so far turned out to increase the memory footprint and consumption while our intention was actually decreasing them.&lt;/p&gt;
-      
-      &lt;h3&gt;Memory consumption issue&lt;/h3&gt;
-      
-      &lt;p&gt;When there are many connections which does not exchange data frequently, the old Netty 4 API spent a lot more memory than 3 because it always allocates per-handler buffer for each connection unless otherwise explicitly stated by a user.  In a usual real world load, a client doesn't always send requests without pausing, so the idea of having a buffer whose life cycle if bound to the life cycle of a connection didn't work as expected.&lt;/p&gt;
-      
-      &lt;h3&gt;Memory footprint issue&lt;/h3&gt;
-      
-      &lt;p&gt;The old Netty 4 API decreased overall memory footprint by a great deal in many cases.  It was mainly because the old Netty 4 API did not allocate a new buffer and event object for each read.  Instead, it created a new buffer for each handler in a pipeline.  This works pretty well as long as the number of handlers in a pipeline is only a few.  However, for a highly modular application with many handlers which handles connections which lasts for relatively short period, it actually makes the memory footprint issue much worse.&lt;/p&gt;
-      
-      &lt;h2&gt;How did we fix them this time?&lt;/h2&gt;
-      
-      &lt;p&gt;All in all, this is about retaining all the good changes we made in 4 so far such as better thread model and going back to the way how we dealt with message events in 3.  The distinction of &lt;code&gt;MessageBuf&lt;/code&gt; and &lt;code&gt;ByteBuf&lt;/code&gt; is now gone, and Netty simply treats a &lt;code&gt;ByteBuf&lt;/code&gt; as a message just like Netty 3 did.  A &lt;code&gt;ByteBuf&lt;/code&gt; is not allocated per handler anymore.&lt;/p&gt;
-      
-      &lt;p&gt;To follow the change, the type hierarchy of &lt;code&gt;ChannelHandler&lt;/code&gt; became very similar to that of Netty 3:&lt;/p&gt;
-      
-      &lt;p&gt;&lt;img src=&quot;http://img.motd.kr/uml/gist/188244c4b3d6b01c0156&quot; alt=&quot;ChannelHandler type hierarchy diagram&quot;&gt;&lt;/p&gt;
-      
-      &lt;p&gt;Consequently, &lt;code&gt;inboundBufferUpdated()&lt;/code&gt; and &lt;code&gt;flush()&lt;/code&gt; were replaced by &lt;code&gt;messageReceived()&lt;/code&gt; and &lt;code&gt;write()&lt;/code&gt; (similar to &lt;code&gt;filterWrite()&lt;/code&gt; in 3) respectively.&lt;/p&gt;
-      
-      &lt;p&gt;Another change to note is that &lt;code&gt;MessageBuf&lt;/code&gt; is gone and a new type called &lt;code&gt;MessageList&lt;/code&gt; is used as a parameter of &lt;code&gt;messageReceived()&lt;/code&gt; and &lt;code&gt;write()&lt;/code&gt;.  It is basically a light-weight container of multiple messages.&lt;/p&gt;
-      
-      &lt;p&gt;Due to the changes above, some handler implementations have no value anymore and thus were removed: &lt;code&gt;ByteToByteEncoder/Decoder/Codec&lt;/code&gt;. Please use &lt;code&gt;MessageToByteEncoder&amp;lt;ByteBuf&amp;gt;&lt;/code&gt;, &lt;code&gt;ByteToMessageDecoder&amp;lt;ByteBuf&amp;gt;&lt;/code&gt;, and &lt;code&gt;ByteToMessageCodec&amp;lt;ByteBuf&amp;gt;&lt;/code&gt; instead.&lt;/p&gt;
-      
-      &lt;p&gt;Here are some other changes that might interest you:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;EmbeddedByteChannel&lt;/code&gt; and &lt;code&gt;EmbeddedMessageChannel&lt;/code&gt; has been merged into &lt;code&gt;EmbeddedChannel&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;Channel.isWritable()&lt;/code&gt; in 3 has been brought back.
-      
-      &lt;ul&gt;
-      &lt;li&gt;Added &lt;code&gt;ChannelInboundHandler.channelWritabilityChanges()&lt;/code&gt; event which is similar to &lt;code&gt;channelInterestOpsChanged()&lt;/code&gt; in 3.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Because a handler does not have its own buffer, Netty has to allocate a new buffer whenever it reads something.  To get the optimal size of the new buffer, &lt;code&gt;RecvByteBufAllocator&lt;/code&gt; has been added as a configuration property.
-      
-      &lt;ul&gt;
-      &lt;li&gt;It is similar to &lt;code&gt;ReceiveBufferSizePredictor&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;Some existing configuration properties such as
-      &lt;code&gt;DatagramChannelConfig.receivePacketSize&lt;/code&gt; is gone now.&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h2&gt;Other noteworthy changes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;
-      &lt;code&gt;io.netty.buffer.ReferenceCounted&lt;/code&gt; has been moved to &lt;code&gt;io.netty.util&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/issues/1441&quot;&gt;#1441&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Resource leak detection has been turned on by default.&lt;/li&gt;
-      &lt;li&gt;The &lt;code&gt;ByteBuf&lt;/code&gt; created by &lt;code&gt;PooledByteBufAllocator&lt;/code&gt; produces zero garbage now if resource leak detection is turned off by &lt;code&gt;-Dio.netty.noResourceLeakDetection&lt;/code&gt; JVM flag.&lt;/li&gt;
-      &lt;li&gt;The cancellation of &lt;code&gt;Future&lt;/code&gt; and &lt;code&gt;Promise&lt;/code&gt; works as expected now. (&lt;a href=&quot;https://github.com/netty/netty/issues/1432&quot;&gt;#1432&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;GlobalEventExecutor&lt;/code&gt; has been added to allow a user to execute an arbitrary task from a global singleton thread. (&lt;a href=&quot;https://github.com/netty/netty/issues/1389&quot;&gt;#1389&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;
-      &lt;code&gt;Bootstrap.group()&lt;/code&gt; getter method has been added for easier access to its underlying &lt;code&gt;EventLoopGroup&lt;/code&gt;. (&lt;a href=&quot;https://github.com/netty/netty/issues/1425&quot;&gt;#1425&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Message type hierarchy of SPDY has been revised. (&lt;a href=&quot;https://github.com/netty/netty/issues/1418&quot;&gt;#1418&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.CR5&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;h2&gt;Acknowledgement&lt;/h2&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/coops&quot;&gt;@coops&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/DmitryLobachov&quot;&gt;@DmitryLobachov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dpx-infinity&quot;&gt;@dpx-infinity&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/hepin1989&quot;&gt;@hepin1989&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/icafe&quot;&gt;@icafe&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jaens&quot;&gt;@jaens&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/listplot3d&quot;&gt;@listplot3d&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lurongbin&quot;&gt;@lurongbin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mgiannini&quot;&gt;@mgiannini&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/profer&quot;&gt;@profer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/skayred&quot;&gt;@skayred&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sscarduzio&quot;&gt;@sscarduzio&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Last but not least, this change would have been impossible without &lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;'s help. He fixed, ported, and improved many parts of my changes.&lt;/p&gt;
     </content>
   </entry>
 </feed>
