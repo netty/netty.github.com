@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/11/10/4-1-0-Beta8.html">
+              <a href="../news/2016/01/25/4-1-0-CR1.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta8.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR1.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.Beta8
-                    <small>&dash; 10-Nov-2015</small>
+                    4.1.0.CR1
+                    <small>&dash; 25-Jan-2016</small>
                   </a>
                 </li>
                 <li>
@@ -273,11 +273,11 @@
           <p>To minimize the maintenance burden, we create a dedicated branch for each stable upstream release and apply our own changes on top of it, while keeping the number of maintained branches to minimum.</p>
           
           <h2 id="wiki-h2-1">
-          <a id="user-content-how-to-download" class="anchor" href="#how-to-download" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to download</h2>
+          <a id="user-content-how-to-download" class="anchor" href="#how-to-download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to download</h2>
           
           <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
           
-          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c">&lt;!-- Configure the os-maven-plugin extension to expand the classifier on --&gt;</span>&#x000A;    <span class="pl-c">&lt;!-- Fedora-"like" systems. --&gt;</span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork9&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.2.3.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c">&lt;!-- Configure the os-maven-plugin extension to expand the classifier on --&gt;</span>&#x000A;    <span class="pl-c">&lt;!-- Fedora-"like" systems. --&gt;</span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork9&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
           
           <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
           
@@ -313,7 +313,7 @@
           <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork9&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${tcnative.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      <span class="pl-c">&lt;!-- Use os-maven-plugin to initialize the "os.detected" properties --&gt;</span>&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    &lt;<span class="pl-ent">plugins</span>&gt;&#x000A;      <span class="pl-c">&lt;!-- Use Ant to configure the appropriate "tcnative.classifier" property --&gt;</span>&#x000A;      &lt;<span class="pl-ent">plugin</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;maven-antrun-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">executions</span>&gt;&#x000A;          &lt;<span class="pl-ent">execution</span>&gt;&#x000A;            &lt;<span class="pl-ent">phase</span>&gt;initialize&lt;/<span class="pl-ent">phase</span>&gt;&#x000A;            &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;              &lt;<span class="pl-ent">exportAntProperties</span>&gt;true&lt;/<span class="pl-ent">exportAntProperties</span>&gt;&#x000A;              &lt;<span class="pl-ent">target</span>&gt;&#x000A;                &lt;<span class="pl-ent">condition</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>tcnative.classifier<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}-fedora<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">else</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}<span class="pl-pds">"</span></span>&gt;&#x000A;                  &lt;<span class="pl-ent">isset</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>os.detected.release.fedora<span class="pl-pds">"</span></span>/&gt;&#x000A;                &lt;/<span class="pl-ent">condition</span>&gt;&#x000A;              &lt;/<span class="pl-ent">target</span>&gt;&#x000A;            &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;            &lt;<span class="pl-ent">goals</span>&gt;&#x000A;              &lt;<span class="pl-ent">goal</span>&gt;run&lt;/<span class="pl-ent">goal</span>&gt;&#x000A;            &lt;/<span class="pl-ent">goals</span>&gt;&#x000A;          &lt;/<span class="pl-ent">execution</span>&gt;&#x000A;        &lt;/<span class="pl-ent">executions</span>&gt;&#x000A;      &lt;/<span class="pl-ent">plugin</span>&gt;&#x000A;    &lt;/<span class="pl-ent">plugins</span>&gt;&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
           
           <h2 id="wiki-h2-2">
-          <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+          <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use</h2>
           
           <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
           
@@ -339,14 +339,14 @@
           <p><strong>Important:</strong> If you use Linux and want to make use of ALPN (you will need this for http2) you need to ensure you have openssl &gt;= 1.0.2 installed. If this is not provided by the package system of your distro you will need to compile it by your own and set the LD_LIBRARY_PATH as explained in <a href="http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-2">How to built</a>.</p>
           
           <h2 id="wiki-h2-3">
-          <a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to build</h2>
+          <a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to build</h2>
           
           <p>You don't usually need to build <code>netty-tcnative</code> by yourself because we officially ship the JARs with the native libraries for <code>Linux x86_64</code>, <code>Mac OS X x86_64</code>, and <code>Windows x86_64</code>.  If you are looking for a SNAPSHOT build, browse <a href="http://clinker.netty.io/jenkins/view/TCNative/">our CI server</a>.</p>
           
           <p>If you are on a platform we don't ship the JARs with the native libraries, such as Windows x86_32, follow the instructions in this section.</p>
           
           <h3 id="wiki-h3-4">
-          <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Linux</h3>
+          <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building on Linux</h3>
           
           <p>Install the required packages:</p>
           
@@ -357,7 +357,7 @@
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork9)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-5">
-          <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Mac OS X</h3>
+          <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building on Mac OS X</h3>
           
           <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
           
@@ -376,7 +376,7 @@
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork9)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h3 id="wiki-h3-6">
-          <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Building on Windows</h3>
+          <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building on Windows</h3>
           
           <p>Install the following packages:</p>
           
@@ -440,7 +440,7 @@
           <div class="highlight highlight-source-dosbatch"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-1.1.33.Fork9)&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-k">REM</span> To build a snapshot: (e.g. 1.1.33.Fork9)&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
           <h2 id="wiki-h2-7">
-          <a id="user-content-using-boringssl" class="anchor" href="#using-boringssl" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using BoringSSL</h2>
+          <a id="user-content-using-boringssl" class="anchor" href="#using-boringssl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using BoringSSL</h2>
           
           <p>BoringSSL is a fork of OpenSSL created by Google. It is part of <a href="https://www.chromium.org/">Chromium</a> and is also integrated into the Android platform. BoringSSL implements the majority of the core OpenSSL API, but it is <strong>not</strong> guaranteed to be API or ABI compatible with OpenSSL.</p>
           
@@ -449,12 +449,12 @@
           <p>Since BoringSSL is not guaranteed to be API/ABI compatible, we statically link against BoringSSL. To use dynamic linking would open the door to compatibility issues that might be difficult to debug.</p>
           
           <h3 id="wiki-h3-8">
-          <a id="user-content-how-to-build-boringssl" class="anchor" href="#how-to-build-boringssl" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to build BoringSSL</h3>
+          <a id="user-content-how-to-build-boringssl" class="anchor" href="#how-to-build-boringssl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to build BoringSSL</h3>
           
           <div class="highlight highlight-source-shell"><pre>git clone https://boringssl.googlesource.com/boringssl&#x000A;<span class="pl-c1">cd</span> boringssl&#x000A;mkdir build&#x000A;<span class="pl-c1">cd</span> build&#x000A;cmake .. -DCMAKE_POSITION_INDEPENDENT_CODE=TRUE <span class="pl-k">&amp;&amp;</span> make</pre></div>
           
           <h3 id="wiki-h3-9">
-          <a id="user-content-how-to-build-netty-tcnative-with-boringssl" class="anchor" href="#how-to-build-netty-tcnative-with-boringssl" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to build netty-tcnative with BoringSSL</h3>
+          <a id="user-content-how-to-build-netty-tcnative-with-boringssl" class="anchor" href="#how-to-build-netty-tcnative-with-boringssl" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to build netty-tcnative with BoringSSL</h3>
           
           <p>Before building netty-tcnative, you'll need to configure the build environment to use BoringSSL:</p>
           
@@ -471,7 +471,7 @@
           <p>Just make sure that libcrypto, libdecrypt, and libssl are not listed in the dependencies.</p>
           
           <h2 id="wiki-h2-10">
-          <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><span class="octicon octicon-link"></span></a>Creating a new fork</h2>
+          <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Creating a new fork</h2>
           
           <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
           
@@ -505,7 +505,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 18-Dec-2015</small>
+                <small>Last retrieved on 25-Jan-2016</small>
               </div>
             </div>
           </div>
@@ -516,7 +516,7 @@
       <hr>
       <div id="footer">
         <p>
-          Copyright &copy; 2015
+          Copyright &copy; 2016
           <a href="../index.html">The Netty project</a>
         </p>
       </div>

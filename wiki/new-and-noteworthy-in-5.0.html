@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/11/10/4-1-0-Beta8.html">
+              <a href="../news/2016/01/25/4-1-0-CR1.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta8.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR1.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.Beta8
-                    <small>&dash; 10-Nov-2015</small>
+                    4.1.0.CR1
+                    <small>&dash; 25-Jan-2016</small>
                   </a>
                 </li>
                 <li>
@@ -267,10 +267,10 @@
           <p>Unlike the changes between 3.x and 4.0, 5.0 did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.0 as smooth as possible, but please let us know if you encounter any issues during migration.</p>
           
           <h2 id="wiki-h2-1">
-          <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core changes</h2>
+          <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core changes</h2>
           
           <h3 id="wiki-h3-2">
-          <a id="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><span class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
+          <a id="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Simplified handler type hierarchy</h3>
           
           <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
           
@@ -281,13 +281,13 @@
           <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
           
           <h3 id="wiki-h3-3">
-          <a id="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
+          <a id="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><code>channelRead0()</code> → <code>messageReceived()</code>
           </h3>
           
           <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
           
           <h3 id="wiki-h3-4">
-          <a id="user-content-even-more-flexible-thread-model" class="anchor" href="#even-more-flexible-thread-model" aria-hidden="true"><span class="octicon octicon-link"></span></a>Even more flexible thread model</h3>
+          <a id="user-content-even-more-flexible-thread-model" class="anchor" href="#even-more-flexible-thread-model" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Even more flexible thread model</h3>
           
           <p>In Netty 4.x each <a href="http://netty.io/5.0/api/io/netty/channel/EventLoop.html"><code>EventLoop</code></a> is tightly coupled with a fixed thread that executes all I/O events of its registered <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channels</code></a> and any tasks submitted to it.</p>
           
@@ -304,7 +304,7 @@
           <a href="http://netty.io/5.0/api/io/netty/channel/epoll/EpollEventLoopGroup.html"><code>EpollEventLoopGroup</code></a> do no longer take <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadFactory.html"><code>ThreadFactory</code></a> objects as constructor arguments. The constructors of these classes have been updated to take <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html"><code>Executor</code></a> and <a href="http://netty.io/5.0/api/io/netty/concurrent/ExecutorFactory.html"><code>ExecutorFactory</code></a> objects instead.</p>
           
           <h3 id="wiki-h3-5">
-          <a id="user-content-a-better-channelderegister" class="anchor" href="#a-better-channelderegister" aria-hidden="true"><span class="octicon octicon-link"></span></a>A better <code>Channel.deregister(...)</code>
+          <a id="user-content-a-better-channelderegister" class="anchor" href="#a-better-channelderegister" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A better <code>Channel.deregister(...)</code>
           </h3>
           
           <p>Originally introduced in Netty 4.0, the behaviour of <code>Channel.deregister(...)</code> was updated in version 5.0 to be in line
@@ -347,7 +347,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 18-Dec-2015</small>
+                <small>Last retrieved on 25-Jan-2016</small>
               </div>
             </div>
           </div>
@@ -358,7 +358,7 @@
       <hr>
       <div id="footer">
         <p>
-          Copyright &copy; 2015
+          Copyright &copy; 2016
           <a href="../index.html">The Netty project</a>
         </p>
       </div>

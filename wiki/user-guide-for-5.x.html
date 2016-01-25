@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2015/11/10/4-1-0-Beta8.html">
+              <a href="../news/2016/01/25/4-1-0-CR1.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.Beta8.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR1.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.Beta8
-                    <small>&dash; 10-Nov-2015</small>
+                    4.1.0.CR1
+                    <small>&dash; 25-Jan-2016</small>
                   </a>
                 </li>
                 <li>
@@ -263,17 +263,17 @@
           <div id="wiki-body" class="gollum-markdown-content instapaper_body">
                 <div class="markdown-body">
                   <h3 id="wiki-h3-1">
-          <a id="user-content-3rd-party-translations" class="anchor" href="#3rd-party-translations" aria-hidden="true"><span class="octicon octicon-link"></span></a>3rd-party translations</h3>
+          <a id="user-content-3rd-party-translations" class="anchor" href="#3rd-party-translations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>3rd-party translations</h3>
           
           <ul>
           <li><a href="http://ifeve.com/netty5-user-guide/">Simplified Chinese</a></li>
           </ul>
           
           <h2 id="wiki-h2-2">
-          <a id="user-content-preface" class="anchor" href="#preface" aria-hidden="true"><span class="octicon octicon-link"></span></a>Preface</h2>
+          <a id="user-content-preface" class="anchor" href="#preface" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preface</h2>
           
           <h3 id="wiki-h3-3">
-          <a id="user-content-the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Problem</h3>
+          <a id="user-content-the-problem" class="anchor" href="#the-problem" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Problem</h3>
           
           <p>Nowadays we use general purpose applications or libraries to communicate with each other. For example, we often use an HTTP client library to retrieve information from a web server and to invoke a remote procedure call via web services.</p>
           
@@ -282,7 +282,7 @@
           <p>Another inevitable case is when you have to deal with a legacy proprietary protocol to ensure the interoperability with an old system. What matters in this case is how quickly we can implement that protocol while not sacrificing the stability and performance of the resulting application.</p>
           
           <h2 id="wiki-h2-4">
-          <a id="user-content-the-solution" class="anchor" href="#the-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Solution</h2>
+          <a id="user-content-the-solution" class="anchor" href="#the-solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Solution</h2>
           
           <p><em><a href="http://netty.io/">The Netty project</a></em> is an effort to provide an asynchronous event-driven network application framework and tooling for the rapid development of maintainable high-performance · high-scalability protocol servers and clients.</p>
           
@@ -293,21 +293,21 @@
           <p>Some users might already have found other network application framework that claims to have the same advantage, and you might want to ask what makes Netty so different from them. The answer is the philosophy where it is built on. Netty is designed to give you the most comfortable experience both in terms of the API and the implementation from the day one. It is not something tangible but you will realize that this philosophy will make your life much easier as you read this guide and play with Netty.</p>
           
           <h2 id="wiki-h2-5">
-          <a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Getting Started</h2>
+          <a id="user-content-getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
           
           <p>This chapter tours around the core constructs of Netty with simple examples to let you get started quickly. You will be able to write a client and a server on top of Netty right away when you are at the end of this chapter.</p>
           
           <p>If you prefer top-down approach in learning something, you might want to start from Chapter 2, Architectural Overview and get back here.</p>
           
           <h3 id="wiki-h3-6">
-          <a id="user-content-before-getting-started" class="anchor" href="#before-getting-started" aria-hidden="true"><span class="octicon octicon-link"></span></a>Before Getting Started</h3>
+          <a id="user-content-before-getting-started" class="anchor" href="#before-getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Before Getting Started</h3>
           
           <p>The minimum requirements to run the examples which are introduced in this chapter are only two; the latest version of Netty and JDK 1.6 or above. The latest version of Netty is available in <a href="http://netty.io/downloads.html">the project download page</a>. To download the right version of JDK, please refer to your preferred JDK vendor's web site.</p>
           
           <p>As you read, you might have more questions about the classes introduced in this chapter. Please refer to the API reference whenever you want to know more about them. All class names in this document are linked to the online API reference for your convenience. Also, please don't hesitate to <a href="http://netty.io/community.html">contact the Netty project community</a> and let us know if there's any incorrect information, errors in grammar and typo, and if you have a good idea to improve the documentation.</p>
           
           <h3 id="wiki-h3-7">
-          <a id="user-content-writing-a-discard-server" class="anchor" href="#writing-a-discard-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Discard Server</h3>
+          <a id="user-content-writing-a-discard-server" class="anchor" href="#writing-a-discard-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing a Discard Server</h3>
           
           <p>The most simplistic protocol in the world is not 'Hello, World!' but <a href="http://tools.ietf.org/html/rfc863"><code>DISCARD</code></a>. It's a protocol which discards any received data without any response.</p>
           
@@ -346,7 +346,7 @@
           <p>Congratulations! You've just finished your first server on top of Netty.</p>
           
           <h3 id="wiki-h3-8">
-          <a id="user-content-looking-into-the-received-data" class="anchor" href="#looking-into-the-received-data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Looking into the Received Data</h3>
+          <a id="user-content-looking-into-the-received-data" class="anchor" href="#looking-into-the-received-data" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Looking into the Received Data</h3>
           
           <p>Now that we have written our first server, we need to test if it really works. The easiest way to test it is to use the <em>telnet</em> command. For example, you could enter <code>telnet localhost 8080</code> in the command line and type something.</p>
           
@@ -367,7 +367,7 @@
           <p>The full source code of the discard server is located in the <a href="http://netty.io/5.0/xref/io/netty/example/discard/package-summary.html"><code>io.netty.example.discard</code></a> package of the distribution.</p>
           
           <h3 id="wiki-h3-9">
-          <a id="user-content-writing-an-echo-server" class="anchor" href="#writing-an-echo-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing an Echo Server</h3>
+          <a id="user-content-writing-an-echo-server" class="anchor" href="#writing-an-echo-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing an Echo Server</h3>
           
           <p>So far, we have been consuming data without responding at all. A server, however, is usually supposed to respond to a request. Let us learn how to write a response message to a client by implementing the <a href="http://tools.ietf.org/html/rfc862"><code>ECHO</code></a> protocol, where any received data is sent back.</p>
           
@@ -386,7 +386,7 @@
           <p>The full source code of the echo server is located in the <a href="http://netty.io/5.0/xref/io/netty/example/echo/package-summary.html"><code>io.netty.example.echo</code></a> package of the distribution.</p>
           
           <h3 id="wiki-h3-10">
-          <a id="user-content-writing-a-time-server" class="anchor" href="#writing-a-time-server" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Time Server</h3>
+          <a id="user-content-writing-a-time-server" class="anchor" href="#writing-a-time-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing a Time Server</h3>
           
           <p>The protocol to implement in this section is the <a href="http://tools.ietf.org/html/rfc868"><code>TIME</code></a> protocol. It is different from the previous examples in that it sends a message, which contains a 32-bit integer, without receiving any requests and loses the connection once the message is sent. In this example, you will learn how to construct and send a message, and to close the connection on completion.</p>
           
@@ -426,7 +426,7 @@
           <p>where <code>&lt;port&gt;</code> is the port number you specified in the <code>main()</code> method and <code>&lt;host&gt;</code> is usually <code>localhost</code>. </p>
           
           <h3 id="wiki-h3-11">
-          <a id="user-content-writing-a-time-client" class="anchor" href="#writing-a-time-client" aria-hidden="true"><span class="octicon octicon-link"></span></a>Writing a Time Client</h3>
+          <a id="user-content-writing-a-time-client" class="anchor" href="#writing-a-time-client" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing a Time Client</h3>
           
           <p>Unlike <code>DISCARD</code> and <code>ECHO</code> servers, we need a client for the <code>TIME</code> protocol because a human cannot translate a 32-bit binary data into a date on a calendar. In this section, we discuss how to make sure the server works correctly and learn how to write a client with Netty.</p>
           
@@ -454,10 +454,10 @@
           <p>It looks very simple and does not look any different from the server side example. However, this handler sometimes will refuse to work raising an <code>IndexOutOfBoundsException</code>. We discuss why this happens in the next section. </p>
           
           <h3 id="wiki-h3-12">
-          <a id="user-content-dealing-with-a-stream-based-transport" class="anchor" href="#dealing-with-a-stream-based-transport" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dealing with a Stream-based Transport</h3>
+          <a id="user-content-dealing-with-a-stream-based-transport" class="anchor" href="#dealing-with-a-stream-based-transport" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dealing with a Stream-based Transport</h3>
           
           <h4 id="wiki-h4-13">
-          <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" href="#one-small-caveat-of-socket-buffer" aria-hidden="true"><span class="octicon octicon-link"></span></a>One Small Caveat of Socket Buffer</h4>
+          <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" href="#one-small-caveat-of-socket-buffer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>One Small Caveat of Socket Buffer</h4>
           
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets: </p>
           
@@ -472,7 +472,7 @@
           <p><img src="https://camo.githubusercontent.com/971c790ef0c4f09bd8de86fddbbbdcf4a7a1e5f8/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630312e706e67" alt="Four buffers defragged into three" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf01.png"></p>
           
           <h4 id="wiki-h4-14">
-          <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The First Solution</h4>
+          <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The First Solution</h4>
           
           <p>Now let us get back to the <code>TIME</code> client example. We have the same problem here. A 32-bit integer is a very small amount of data, and it is not likely to be fragmented often. However, the problem is that it can be fragmented, and the possibility of fragmentation will increase as the traffic increases.</p>
           
@@ -487,7 +487,7 @@
           </ol>
           
           <h4 id="wiki-h4-15">
-          <a id="user-content-the-second-solution" class="anchor" href="#the-second-solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Second Solution</h4>
+          <a id="user-content-the-second-solution" class="anchor" href="#the-second-solution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Second Solution</h4>
           
           <p>Although the first solution has resolved the problem with the <code>TIME</code> client, the modified handler does not look that clean. Imagine a more complicated protocol which is composed of multiple fields such as a variable length field. Your <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> implementation will become unmaintainable very quickly.</p>
           
@@ -531,7 +531,7 @@
           </ul>
           
           <h3 id="wiki-h3-16">
-          <a id="user-content-speaking-in-pojo-instead-of-bytebuf" class="anchor" href="#speaking-in-pojo-instead-of-bytebuf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Speaking in POJO instead of <code>ByteBuf</code>
+          <a id="user-content-speaking-in-pojo-instead-of-bytebuf" class="anchor" href="#speaking-in-pojo-instead-of-bytebuf" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Speaking in POJO instead of <code>ByteBuf</code>
           </h3>
           
           <p>All the examples we have reviewed so far used a <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> as a primary data structure of a protocol message. In this section, we will improve the <code>TIME</code> protocol client and server example to use a POJO instead of a <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>.</p>
@@ -575,12 +575,12 @@
           <p>The last task left is to insert a <code>TimeEncoder</code> into the <a href="http://netty.io/5.0/api/io/netty/channel/ChannelPipeline.html"><code>ChannelPipeline</code></a> on the server side before the <code>TimeServerHandler</code>, and it is left as a trivial exercise.</p>
           
           <h3 id="wiki-h3-17">
-          <a id="user-content-shutting-down-your-application" class="anchor" href="#shutting-down-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Shutting Down Your Application</h3>
+          <a id="user-content-shutting-down-your-application" class="anchor" href="#shutting-down-your-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Shutting Down Your Application</h3>
           
           <p>Shutting down a Netty application is usually as simple as shutting down all <a href="http://netty.io/5.0/api/io/netty/channel/EventLoopGroup.html"><code>EventLoopGroup</code></a>s you created via <code>shutdownGracefully()</code>.  It returns a <a href="http://netty.io/5.0/api/io/netty/util/concurrent/Future.html"><code>Future</code></a> that notifies you when the <a href="http://netty.io/5.0/api/io/netty/channel/EventLoopGroup.html"><code>EventLoopGroup</code></a> has been terminated completely and all <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html"><code>Channel</code></a>s that belong to the group have been closed.</p>
           
           <h3 id="wiki-h3-18">
-          <a id="user-content-summary" class="anchor" href="#summary" aria-hidden="true"><span class="octicon octicon-link"></span></a>Summary</h3>
+          <a id="user-content-summary" class="anchor" href="#summary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Summary</h3>
           
           <p>In this chapter, we had a quick tour of Netty with a demonstration on how to write a fully working network application on top of Netty.</p>
           
@@ -623,7 +623,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 18-Dec-2015</small>
+                <small>Last retrieved on 25-Jan-2016</small>
               </div>
             </div>
           </div>
@@ -634,7 +634,7 @@
       <hr>
       <div id="footer">
         <p>
-          Copyright &copy; 2015
+          Copyright &copy; 2016
           <a href="../index.html">The Netty project</a>
         </p>
       </div>
