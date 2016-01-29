@@ -276,27 +276,27 @@
                 <ul>
                 <li>SslHandler does not send SSL close notify after receiving an invalid client certificate (<a href="https://github.com/netty/netty/issues/3900">#3900</a>)</li>
                 <li>High CPU usage with SO_LINGER and sudden connection close (4.0.26.Final+) (<a href="https://github.com/netty/netty/issues/4449">#4449</a>)</li>
-                <li>DefaultPromise LateListener notification order ([#4492])(https://github.com/netty/netty/pull/4492)</li>
-                <li>Respect ClientAuth set via OpenSslEngine constructor ([#4576])(https://github.com/netty/netty/pull/4576)</li>
-                <li>Throw ReadOnlyBufferException if unsafe buffer is used and dst is direct ([#4577])(https://github.com/netty/netty/pull/4577)</li>
-                <li>Prevent adding newline if Base64 buffer encoded ends directly on MAX_LINE_LENGTH ([#4595])(https://github.com/netty/netty/pull/4595)</li>
+                <li>DefaultPromise LateListener notification order (<a href="https://github.com/netty/netty/pull/4492">#4492</a>)</li>
+                <li>Respect ClientAuth set via OpenSslEngine constructor (<a href="https://github.com/netty/netty/pull/4576">#4576</a>)</li>
+                <li>Throw ReadOnlyBufferException if unsafe buffer is used and dst is direct (<a href="https://github.com/netty/netty/pull/4577">#4577</a>)</li>
+                <li>Prevent adding newline if Base64 buffer encoded ends directly on MAX_LINE_LENGTH (<a href="https://github.com/netty/netty/pull/4595">#4595</a></li>
                 <li>isKeepAlive is not supported by Epoll (<a href="https://github.com/netty/netty/issues/4604">#4604</a>)</li>
-                <li>Customizable estimation for messages written outside the EventLoop ([#4620])(https://github.com/netty/netty/pull/4620)</li>
-                <li>Ensure closing a Socket / FileDescriptor multiple times will not throw exception ([#4623])(https://github.com/netty/netty/pull/4623)</li>
-                <li>Set DSCP bits for IPv6 when setting traffic class. ([#4650])(https://github.com/netty/netty/pull/4650)</li>
-                <li>Stop decoding if decoder was removed ([#4651])(https://github.com/netty/netty/pull/4651)</li>
-                <li>Ensure we only add OpenSslEngine to the OpenSslEngineMap when handshake is started ([#4653])(https://github.com/netty/netty/pull/4653)</li>
-                <li>Unpooled and Wrapped Buffer Leak ([#4667])(https://github.com/netty/netty/pull/4667)</li>
-                <li>Decryption failed or bad mac record in Android 5.0 ([#4678])(https://github.com/netty/netty/pull/4678)</li>
-                <li>IndexOutOfBoundsException for CompositeByteBuf ([#4681])(https://github.com/netty/netty/pull/4681)</li>
-                <li>Let CombinedChannelDuplexHandler correctly handle exceptionCaught. ([#4702])(https://github.com/netty/netty/pull/4702)</li>
-                <li>Correctly handle non handshake commands when using SniHandler ([#4703])(https://github.com/netty/netty/pull/4703)</li>
-                <li>Implement proper resource leak detection for CompositeByteBuf ([#4713])(https://github.com/netty/netty/pull/4713)</li>
+                <li>Customizable estimation for messages written outside the EventLoop (<a href="https://github.com/netty/netty/pull/4620">#4620</a>)</li>
+                <li>Ensure closing a Socket / FileDescriptor multiple times will not throw exception (<a href="https://github.com/netty/netty/pull/4623">#4623</a>)</li>
+                <li>Set DSCP bits for IPv6 when setting traffic class. (<a href="https://github.com/netty/netty/pull/4650">#4650</a>)</li>
+                <li>Stop decoding if decoder was removed (<a href="https://github.com/netty/netty/pull/4651">#4651</a>)</li>
+                <li>Ensure we only add OpenSslEngine to the OpenSslEngineMap when handshake is started (<a href="https://github.com/netty/netty/pull/4653">#4653</a>)</li>
+                <li>Unpooled and Wrapped Buffer Leak (<a href="https://github.com/netty/netty/pull/4667">#4667</a>)</li>
+                <li>Decryption failed or bad mac record in Android 5.0 (<a href="https://github.com/netty/netty/pull/4678">#4678</a>)</li>
+                <li>IndexOutOfBoundsException for CompositeByteBuf (<a href="https://github.com/netty/netty/pull/4681">#4681</a>)</li>
+                <li>Let CombinedChannelDuplexHandler correctly handle exceptionCaught. (<a href="https://github.com/netty/netty/pull/4702">#4702</a>)</li>
+                <li>Correctly handle non handshake commands when using SniHandler (<a href="https://github.com/netty/netty/pull/4703">#4703</a>)</li>
+                <li>Implement proper resource leak detection for CompositeByteBuf (<a href="https://github.com/netty/netty/pull/4713">#4713</a>)</li>
                 <li>OpenSslEngine.setEnabledProtocols fails to enable protocols that are currently disabled (<a href="https://github.com/netty/netty/issues/4736">#4736</a>)</li>
-                <li>Ensure ChannelHandler.handlerAdded(...) is always called as first method of the handler ([#4776])(https://github.com/netty/netty/pull/4776)</li>
-                <li>SslHandler should call beginHanshake once for the initial handshake ([#4764])(https://github.com/netty/netty/pull/4764)</li>
-                <li>[#4722] Ensure the whole certificate chain is used when creating SslContext for client mode and SslProvider.OPENSSL is used ([#4767])(https://github.com/netty/netty/pull/4767)</li>
-                <li>[#4722] Correctly handle wildcard address when bind to socket and using native transport ([#4770])(https://github.com/netty/netty/pull/4770)</li>
+                <li>Ensure ChannelHandler.handlerAdded(...) is always called as first method of the handler (<a href="https://github.com/netty/netty/pull/4776">#4776</a>)</li>
+                <li>SslHandler should call beginHanshake once for the initial handshake (<a href="https://github.com/netty/netty/pull/4764">#4764</a>)</li>
+                <li>Ensure the whole certificate chain is used when creating SslContext for client mode and SslProvider.OPENSSL is used (<a href="https://github.com/netty/netty/pull/4767">#4767</a>)</li>
+                <li>Correctly handle wildcard address when bind to socket and using native transport (<a href="https://github.com/netty/netty/pull/4770">#4770</a>)</li>
                 </ul>
                 
                 
