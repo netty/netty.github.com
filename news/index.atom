@@ -2,9 +2,127 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://localhost:4242/</id>
   <title>Netty</title>
-  <updated>2016-01-25T13:53:10+01:00</updated>
+  <updated>2016-01-29T15:00:55+01:00</updated>
   <link href="http://localhost:4242/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://localhost:4242/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://localhost:4242/news/2016/01/29/4-0-34-Final.html</id>
+    <title>Netty 4.0.34.Final released</title>
+    <updated>2016-01-29T15:00:55+01:00</updated>
+    <published>2016-01-29T00:00:00+00:00</published>
+    <link href="http://localhost:4242/news/2016/01/29/4-0-34-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the release of Netty 4.0.34.Final.
+      
+      This release contains 110+ changes, including bug-fixes, performance improvements and new features.
+      
+      The most important changes are:
+      
+      
+      SslHandler does not send SSL close notify after receiving an invalid client certificate (#3900)
+      High CPU usage with SO_LINGER and sudden connection close (4.0.26.Final+) (#4449)
+      DefaultPromise LateListener notification order ([#4492])(https://github.com/netty/netty/pull/4492)
+      Respect ClientAuth set via OpenSslEngine constructor ([#4576])(https://github.com/netty/netty/pull/4576)
+      Throw ReadOnlyBufferException if unsafe buffer is used and dst is direct ([#4577])(https://github.com/netty/netty/pull/4577)
+      Prevent adding newline if Base64 buffer encoded ends directly on MAX_LINE_LENGTH ([#4595])(https://github.com/netty/netty/pull/4595)
+      isKeepAlive is not supported by Epoll (#4604)
+      Customizable estimation for messages written outside the EventLoop ([#4620])(https://github.com/netty/netty/pull/4620)
+      Ensure closing a Socket / FileDescriptor multiple times...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I&amp;apos;m happy to announce the release of Netty 4.0.34.Final.&lt;/p&gt;
+      
+      &lt;p&gt;This release contains 110+ changes, including bug-fixes, performance improvements and new features.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;SslHandler does not send SSL close notify after receiving an invalid client certificate (&lt;a href=&quot;https://github.com/netty/netty/issues/3900&quot;&gt;#3900&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;High CPU usage with SO_LINGER and sudden connection close (4.0.26.Final+) (&lt;a href=&quot;https://github.com/netty/netty/issues/4449&quot;&gt;#4449&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultPromise LateListener notification order ([#4492])(https://github.com/netty/netty/pull/4492)&lt;/li&gt;
+      &lt;li&gt;Respect ClientAuth set via OpenSslEngine constructor ([#4576])(https://github.com/netty/netty/pull/4576)&lt;/li&gt;
+      &lt;li&gt;Throw ReadOnlyBufferException if unsafe buffer is used and dst is direct ([#4577])(https://github.com/netty/netty/pull/4577)&lt;/li&gt;
+      &lt;li&gt;Prevent adding newline if Base64 buffer encoded ends directly on MAX_LINE_LENGTH ([#4595])(https://github.com/netty/netty/pull/4595)&lt;/li&gt;
+      &lt;li&gt;isKeepAlive is not supported by Epoll (&lt;a href=&quot;https://github.com/netty/netty/issues/4604&quot;&gt;#4604&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Customizable estimation for messages written outside the EventLoop ([#4620])(https://github.com/netty/netty/pull/4620)&lt;/li&gt;
+      &lt;li&gt;Ensure closing a Socket / FileDescriptor multiple times will not throw exception ([#4623])(https://github.com/netty/netty/pull/4623)&lt;/li&gt;
+      &lt;li&gt;Set DSCP bits for IPv6 when setting traffic class. ([#4650])(https://github.com/netty/netty/pull/4650)&lt;/li&gt;
+      &lt;li&gt;Stop decoding if decoder was removed ([#4651])(https://github.com/netty/netty/pull/4651)&lt;/li&gt;
+      &lt;li&gt;Ensure we only add OpenSslEngine to the OpenSslEngineMap when handshake is started ([#4653])(https://github.com/netty/netty/pull/4653)&lt;/li&gt;
+      &lt;li&gt;Unpooled and Wrapped Buffer Leak ([#4667])(https://github.com/netty/netty/pull/4667)&lt;/li&gt;
+      &lt;li&gt;Decryption failed or bad mac record in Android 5.0 ([#4678])(https://github.com/netty/netty/pull/4678)&lt;/li&gt;
+      &lt;li&gt;IndexOutOfBoundsException for CompositeByteBuf ([#4681])(https://github.com/netty/netty/pull/4681)&lt;/li&gt;
+      &lt;li&gt;Let CombinedChannelDuplexHandler correctly handle exceptionCaught. ([#4702])(https://github.com/netty/netty/pull/4702)&lt;/li&gt;
+      &lt;li&gt;Correctly handle non handshake commands when using SniHandler ([#4703])(https://github.com/netty/netty/pull/4703)&lt;/li&gt;
+      &lt;li&gt;Implement proper resource leak detection for CompositeByteBuf ([#4713])(https://github.com/netty/netty/pull/4713)&lt;/li&gt;
+      &lt;li&gt;OpenSslEngine.setEnabledProtocols fails to enable protocols that are currently disabled (&lt;a href=&quot;https://github.com/netty/netty/issues/4736&quot;&gt;#4736&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure ChannelHandler.handlerAdded(...) is always called as first method of the handler ([#4776])(https://github.com/netty/netty/pull/4776)&lt;/li&gt;
+      &lt;li&gt;SslHandler should call beginHanshake once for the initial handshake ([#4764])(https://github.com/netty/netty/pull/4764)&lt;/li&gt;
+      &lt;li&gt;[#4722] Ensure the whole certificate chain is used when creating SslContext for client mode and SslProvider.OPENSSL is used ([#4767])(https://github.com/netty/netty/pull/4767)&lt;/li&gt;
+      &lt;li&gt;[#4722] Correctly handle wildcard address when bind to socket and using native transport ([#4770])(https://github.com/netty/netty/pull/4770)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.34.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/andrelanka&quot;&gt;@andrelanka&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Apache9&quot;&gt;@Apache9&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ashish-tyagi&quot;&gt;@ashish-tyagi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cdancy&quot;&gt;@cdancy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/develar&quot;&gt;@develar&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/eantaev&quot;&gt;@eantaev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/earthling&quot;&gt;@earthling&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ferrybig&quot;&gt;@ferrybig&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/floragunncom&quot;&gt;@floragunncom&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ganskef&quot;&gt;@ganskef&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ifesdjeen&quot;&gt;@ifesdjeen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jakubjanecek&quot;&gt;@jakubjanecek&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jamel&quot;&gt;@jamel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jiafu1115&quot;&gt;@jiafu1115&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jza70&quot;&gt;@jza70&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lexek&quot;&gt;@lexek&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lukehutch&quot;&gt;@lukehutch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/manu-m&quot;&gt;@manu-m&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MediumOne&quot;&gt;@MediumOne&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nickmbailey&quot;&gt;@nickmbailey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pieteradejong&quot;&gt;@pieteradejong&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/racorn&quot;&gt;@racorn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ramahmoo&quot;&gt;@ramahmoo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rbi&quot;&gt;@rbi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sbtourist&quot;&gt;@sbtourist&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/skyao&quot;&gt;@skyao&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slachiewicz&quot;&gt;@slachiewicz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/SutarSuhas&quot;&gt;@SutarSuhas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/technocoreai&quot;&gt;@technocoreai&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/valodzka&quot;&gt;@valodzka&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vrozov&quot;&gt;@vrozov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wolftobias&quot;&gt;@wolftobias&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/xiajunhust&quot;&gt;@xiajunhust&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/xkr47&quot;&gt;@xkr47&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://localhost:4242/news/2016/01/25/4-1-0-CR1.html</id>
     <title>Netty 4.1.0.CR1 released</title>
@@ -3730,73 +3848,6 @@
       
       
       &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.1.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://localhost:4242/news/2013/07/16/4-0-0-Final.html</id>
-    <title>Netty 4.0.0.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2013-07-16T00:00:00+00:00</published>
-    <link href="http://localhost:4242/news/2013/07/16/4-0-0-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with the vast number of changes.
-      
-      I'd like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adoptors were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version....
-    </summary>
-    <content type="html">
-      &lt;p&gt;After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy.html&quot;&gt;the vast number of changes&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;I&amp;apos;d like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adoptors were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version.  If this release is unusually rock-solid and high-performing, it&amp;apos;s thanks to all of those great people for sure.&lt;/p&gt;
-      
-      &lt;p&gt;What would be waiting in front of us?  We are excited that we are going to make the version 4 much more stable, to improve documentation, to give advise to help those who migrate 3.x-based apps to 4, and to make Netty faster than ever.  I hope you &lt;a href=&quot;http://netty.io/community.html&quot;&gt;become a part of all these efforts&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;h2&gt;Changes since 4.0.0.CR9&lt;/h2&gt;
-      
-      &lt;h3&gt;Removal of &lt;code&gt;MessageList&lt;/code&gt;&lt;/h3&gt;
-      
-      &lt;p&gt;I must admit &lt;code&gt;MesageList&lt;/code&gt; was pain in the butt.  Instead of forcing a handler always loop over the list of messages, I split &lt;code&gt;ChannelInboundHandler.messageReceived(ctx, list)&lt;/code&gt; into two event handler methods:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;channelRead(ctx, msg)&lt;/li&gt;
-      &lt;li&gt;channelReadComplete(ctx)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;When Netty reads one or more messages, &lt;code&gt;channelRead()&lt;/code&gt; event is triggered for each message.  Once the current read operation is finished, &lt;code&gt;channelReadComplete()&lt;/code&gt; is triggered to tell the handler that the last &lt;code&gt;channelRead()&lt;/code&gt; was the last message in the current batch.&lt;/p&gt;
-      
-      &lt;p&gt;Similarly, for outbound, write(ctx, list) has been split into the following:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;write(ctx, msg, promise)&lt;/li&gt;
-      &lt;li&gt;flush(ctx)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Instead of writing a list of messages with a promise, a user is now supposed to call &lt;code&gt;write(msg)&lt;/code&gt; multiple times and then call &lt;code&gt;flush()&lt;/code&gt; to actually flush the buffered messages.&lt;/p&gt;
-      
-      &lt;p&gt;Please note that &lt;code&gt;flush()&lt;/code&gt; doesn&amp;apos;t have a promise with it.  You must write something to get notified on completion.  As you did in 3.x, the trick of writing an empty buffer works here, too.&lt;/p&gt;
-      
-      &lt;h4&gt;Related miscellaneous changes&lt;/h4&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;ChannelInboundHandler.channelReadSuspended()&lt;/code&gt; has been replaced by &lt;code&gt;channelReadComplete()&lt;/code&gt; introduced above, because they are essentially same.&lt;/li&gt;
-      &lt;li&gt;Because &lt;code&gt;MessageList&lt;/code&gt; is gone, codec framework now uses &lt;code&gt;List&amp;lt;Object&amp;gt;&lt;/code&gt; instead of &lt;code&gt;MessageList&lt;/code&gt; as an output parameter.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h3&gt;Other changes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt; is the default allocator.  We suspect there might be a leak in the &lt;code&gt;PooledByteBufAllocator&lt;/code&gt;.  Until the investigation is complete and any bugs found are fixed, we are defaulting to &lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;ByteBuf&lt;/code&gt; is now an abstract class rather than an interface. I found that converting &lt;code&gt;ByteBuf&lt;/code&gt; from an interface to an abstract class gives the nice performance boost of around 5%.  Hence &lt;code&gt;ByteBuf&lt;/code&gt; was converted to an abstract class.&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;Channel.id()&lt;/code&gt; has been removed.  It was practically impossible to generate a unique ID of a &lt;code&gt;Channel&lt;/code&gt; with the new API because there is no way to manage the global map of the taken IDs&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
     </content>
   </entry>
 </feed>
