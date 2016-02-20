@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2016/01/29/4-0-34-Final.html">
+              <a href="../news/2016/02/20/4-1-0-CR3.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR1.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR3.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.CR1
-                    <small>&dash; 25-Jan-2016</small>
+                    4.1.0.CR3
+                    <small>&dash; 20-Feb-2016</small>
                   </a>
                 </li>
                 <li>
@@ -260,7 +260,7 @@
           </div>
           <div class="row">
           <div class="col-md-9">
-          <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
                 <div class="markdown-body">
                   <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
           
@@ -398,14 +398,14 @@
           
           <ul>
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=29">Visual C++ 2008 Redistributable Package (x86)</a></li>
-          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_2a.exe">Win32 OpenSSL 1.0.2a</a></li>
+          <li><a href="http://slproweb.com/download/Win32OpenSSL-1_0_2f.exe">Win32 OpenSSL 1.0.2f</a></li>
           </ul>
           </li>
           <li>If you are on 64-bit Windows:
           
           <ul>
           <li><a href="http://www.microsoft.com/en-us/download/details.aspx?id=15336">Visual C++ 2008 Redistributable Package (x64)</a></li>
-          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_2a.exe">Win64 OpenSSL 1.0.2a</a></li>
+          <li><a href="http://slproweb.com/download/Win64OpenSSL-1_0_2f.exe">Win64 OpenSSL 1.0.2f</a></li>
           </ul>
           </li>
           <li>Set the installation directory to: <code>C:\Workspaces\openssl-1.0.2a-dist</code>
@@ -425,11 +425,15 @@
           
           <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
           
-          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">REM</span> 32-bit Windows:&#x000A;<span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> or <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\vcvars32.bat<span class="pl-pds">"</span></span>&#x000A;&#x000A;<span class="pl-k">REM</span> 64-bit Windows:&#x000A;<span class="pl-k">CALL</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.cmd<span class="pl-pds">"</span></span> /Release /x64 /xp</pre></div>
           
           <p>Build APR:</p>
           
           <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">cd</span> <span class="pl-s"><span class="pl-pds">"</span>C:\Workspaces\apr-1.5.2<span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">REM</span> 32-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>Win32 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install&#x000A;<span class="pl-k">REM</span> 64-bit Windows&#x000A;nmake /f Makefile.win ARCH=<span class="pl-s"><span class="pl-pds">"</span>x64 Release<span class="pl-pds">"</span></span> PREFIX=..\apr-1.5.2-dist buildall install</pre></div>
+          
+          <p>Copy Win32-specific header files:</p>
+          
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-k">xcopy</span> include\arch\win32\*.h ..\apr-1.5.2-dist\include /d&#x000A;<span class="pl-k">xcopy</span> include\arch\*.h ..\apr-1.5.2-dist /d</pre></div>
           
           <p>Set the required environment variables for building <code>netty-tcnative</code> on Windows:</p>
           
@@ -505,7 +509,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 29-Jan-2016</small>
+                <small>Last retrieved on 20-Feb-2016</small>
               </div>
             </div>
           </div>

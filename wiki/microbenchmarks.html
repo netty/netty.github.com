@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2016/01/29/4-0-34-Final.html">
+              <a href="../news/2016/02/20/4-1-0-CR3.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -68,10 +68,10 @@
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR1.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR3.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.0.CR1
-                    <small>&dash; 25-Jan-2016</small>
+                    4.1.0.CR3
+                    <small>&dash; 20-Feb-2016</small>
                   </a>
                 </li>
                 <li>
@@ -260,12 +260,12 @@
           </div>
           <div class="row">
           <div class="col-md-9">
-          <div id="wiki-body" class="gollum-markdown-content instapaper_body">
+          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
                 <div class="markdown-body">
                   <p>Netty has a module called 'netty-microbench' which performs a series of micro-benchmark tests.  It is built on top of <a href="http://openjdk.java.net/projects/code-tools/jmh/">OpenJDK JMH</a>, the preferred microbenchmarking solution for HotSpot. It has the "batteries included", so you don't need extra dependencies to get started.</p>
           
           <h2 id="wiki-h2-1">
-          <a id="user-content-running-the-benchmarks" class="anchor" href="#running-the-benchmarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running the Benchmarks</h2>
+          <a id="user-content-running-the-benchmarks" class="anchor" href="#running-the-benchmarks" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Running the Benchmarks</h2>
           
           <p>You can run the benchmarks from the command line through maven or directly in your IDE. To run all tests with the default settings, use <code>mvn -DskipTests=false test</code>. You need to explicitly set <code>skipTests=false</code> because we don't want to run the (potentially time consuming) microbenchmarks to be executed as unit tests during regular test runs.</p>
           
@@ -280,7 +280,7 @@
           <p>You can also run the benchmarks directly from your IDE. If you've imported the netty parent project, open the <code>microbench</code> subproject and navigate to the <code>src/test/java/io/netty/microbench</code> namespace. In the <code>buffer</code> namespace, you can run the <code>ByteBufAllocatorBenchmark</code> like any other JUnit-based test. The main difference is that (as of now), you can only run the full benchmark at once, not each sub-benchmark individually. You should see the same output in the console as you did see when running it directly through <code>mvn</code>.</p>
           
           <h2 id="wiki-h2-2">
-          <a id="user-content-writing-benchmarks" class="anchor" href="#writing-benchmarks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing Benchmarks</h2>
+          <a id="user-content-writing-benchmarks" class="anchor" href="#writing-benchmarks" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Writing Benchmarks</h2>
           
           <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
           
@@ -293,7 +293,7 @@
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking">the talks</a> of one of the main authors from JMH.</p>
           
           <h2 id="wiki-h2-3">
-          <a id="user-content-customizing-runtime-conditions" class="anchor" href="#customizing-runtime-conditions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Customizing Runtime Conditions</h2>
+          <a id="user-content-customizing-runtime-conditions" class="anchor" href="#customizing-runtime-conditions" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" role="img" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Customizing Runtime Conditions</h2>
           
           <p>The default settings (as found in <code>AbstractMicrobenchmark</code>) are:</p>
           
@@ -334,7 +334,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 29-Jan-2016</small>
+                <small>Last retrieved on 20-Feb-2016</small>
               </div>
             </div>
           </div>
