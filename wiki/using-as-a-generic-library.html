@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Netty.docs: Using as a generic library</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../images/favicon.ico" rel="shortcut icon">
+    <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+    <link href="../lib/common.css" rel="stylesheet" type="text/css">
+    <script src="../lib/common.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <a class="sr-only" href="#content" id="top">Skip navigation</a>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">
+            <span class="navbar-brand-logo"></span>
+            Netty project
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="../news/2016/04/10/4-1-0-CR7.html">
+                News
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../news/index.html">
+                    <i class="fa fa-archive"></i>
+                    Archive
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../downloads.html">
+                Downloads
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR7.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.1.0.CR7
+                    <small>&dash; 10-Apr-2016</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.36.Final.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.0.36.Final
+                    <small>&dash; 04-Apr-2016</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.5.Final-dist.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    3.10.5.Final
+                    <small>&dash; 13-Oct-2015</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.tldrlegal.com/l/APACHE2">
+                    <i class="fa fa-gavel"></i>
+                    Apache License 2.0
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bintray.com/netty/downloads/netty/">
+                    <i class="fa fa-archive"></i>
+                    Previous Releases
+                  </a>
+                </li>
+                <li>
+                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+                    <i class="fa fa-flask"></i>
+                    Nightly Builds
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../wiki/index.html">
+                Documentation
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../wiki/user-guide.html">
+                    <i class="fa fa-book"></i>
+                    User guide
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.1/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.1
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../3.10/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 3.10
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/all-documents.html">
+                    <i class="fa fa-list"></i>
+                    All Documents
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-articles.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Articles
+                  </a>
+                </li>
+                <li class="hidden-xs" id="bookpromo-dropdown">
+                  <a href="http://www.manning.com/maurer/">
+                    <img src="../images/netty-in-action.gif">
+                    <br>
+                    <small>
+                      Use code <strong>mlnettyco</strong>
+                      <br>
+                      for a 37% discount!
+                    </small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../community.html">
+                Get Involved
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://github.com/netty/netty">
+                    <i class="fa fa-github-square"></i>
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a href="http://stackoverflow.com/questions/tagged/netty">
+                    <i class="fa fa-stack-overflow"></i>
+                    StackOverflow
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/netty_project">
+                    <i class="fa fa-twitter-square"></i>
+                    @netty_project
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/developer-guide.html">
+                    <i class="fa fa-cogs"></i>
+                    Developer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="http://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+                    <i class="fa fa-comment"></i>
+                    IRC Chat
+                  </a>
+                </li>
+                <li>
+                  <a href="../sponsor/thanks.html">
+                    <i class="fa fa-usd"></i>
+                    Sponsors
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/adopters.html">
+                    <i class="fa fa-users"></i>
+                    Adopters
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-projects.html">
+                    <i class="fa fa-chain"></i>
+                    Related Projects
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="visible-xs" id="bookpromo-nav">
+              <a href="http://www.manning.com/maurer/">
+                <img src="../images/netty-in-action.gif">
+                <br>
+                <small>
+                  Use code <strong>mlnettyco</strong>
+                  <br>
+                  for a 37% discount!
+                </small>
+              </a>
+            </li>
+            <li>
+              <a href="http://feeds.feedburner.com/netty_project">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+            <div class="form-group">
+              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="content">
+      <div class="container">
+        <div class="wiki-item">
+          <h1>Using as a generic library</h1>
+          <div class="alert alert-info">
+            Did you know this page is automatically generated from
+            <a href="https://github.com/netty/netty/wiki/Using-as-a-generic-library">a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href="https://github.com/netty/netty/wiki/Using-as-a-generic-library">here!</a>
+          </div>
+          <div class="row">
+          <div class="col-md-9">
+          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
+                <div class="markdown-body">
+                  <p>Netty is a framework for building network applications, but also provides foundation classes handy for other uses, even programs that do not perform socket I/O.</p>
+          
+          <h2 id="wiki-h2-1">
+          <a id="user-content-buffer-api" class="anchor" href="#buffer-api" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Buffer API</h2>
+          
+          <p><code>io.netty.buffer</code> provides a generic buffer type called <code>ByteBuf</code>. It is like <code>java.nio.ByteBuffer</code>, but faster, more user-friendly, and extensible.</p>
+          
+          <h3 id="wiki-h3-2">
+          <a id="user-content-user-friendliness" class="anchor" href="#user-friendliness" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>User-friendliness</h3>
+          
+          <p>Have you ever forgotten to call <code>java.nio.ByteBuffer.flip()</code> and wondered why the buffer does not contain anything?  It never happens in <code>ByteBuf</code> because it has two indexes, one for reads and one for writes:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-smi">ByteBuf</span> buf <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;buf<span class="pl-k">.</span>writeUnsignedInt(<span class="pl-c1">42</span>);&#x000A;assertThat(buf<span class="pl-k">.</span>readUnsignedInt(), is(<span class="pl-c1">42</span>));</pre></div>
+          
+          <p>It has a richer set of access methods to more easily access a buffer's contents. For example, it has accessor methods for signed and unsigned integers, searches, and strings.</p>
+          
+          <h3 id="wiki-h3-3">
+          <a id="user-content-extensibility" class="anchor" href="#extensibility" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Extensibility</h3>
+          
+          <p>You can't subclass <code>java.nio.ByteBuffer</code>, but you can with <code>ByteBuf</code>. An abstract skeletal implementation is also provided for your convenience. You can thus write your own buffer implementation, such as file-backed ones, composite ones, and even a hybrid.</p>
+          
+          <h3 id="wiki-h3-4">
+          <a id="user-content-performance" class="anchor" href="#performance" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Performance</h3>
+          
+          <p>When a new <code>java.nio.ByteBuffer</code> is allocated, its content is filled with zeroes.  This "zeroing" consumes CPU cycles and memory bandwidth.  Normally, the buffer is then immediately filled from some data source, so the zeroing did no good.</p>
+          
+          <p>To be reclaimed, <code>java.nio.ByteBuffer</code> relies on the JVM garbage collector.  It works OK for heap buffers, but not direct buffers.  By design, direct buffers are expected to live a long time. Thus, allocating many short-lived direct NIO buffers often causes an <code>OutOfMemoryError</code>.  Also, deallocating a direct buffer explicitly using the (hidden, proprietary) API isn't very fast.</p>
+          
+          <p>A <code>ByteBuf</code>'s life cycle is bound to its reference count. When its count goes to zero, its underlying memory region (<code>byte[]</code> or direct buffer) is explicitly dereferenced, deallocated, or returned to the pool.</p>
+          
+          <p>Netty also provides a solid buffer pool implementation that does not waste CPU cycles or memory bandwidth with zeroing its buffer:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-smi">ByteBufAllocator</span> alloc <span class="pl-k">=</span> <span class="pl-smi">PooledByteBufAllocator</span><span class="pl-c1"><span class="pl-k">.</span>DEFAULT</span>;&#x000A;<span class="pl-smi">ByteBuf</span> buf <span class="pl-k">=</span> alloc<span class="pl-k">.</span>directBuffer(<span class="pl-c1">1024</span>);&#x000A;<span class="pl-c1">...</span>&#x000A;buf<span class="pl-k">.</span>release(); <span class="pl-c">// The direct buffer is returned to the pool.</span></pre></div>
+          
+          <p>However, reference counting isn't a holy grail.  If the JVM garbage-collects the pooled buffer before its underlying memory region is returned to the pool, the leaks will eventually exhaust the pool.</p>
+          
+          <p>To help you troubleshoot a leak, Netty provides a leak-detection mechanism which is flexible enough to let you trade off between your application's performance and the detail of the leak report.  For more information, please refer to <a class="internal present" href="reference-counted-objects.html">Reference-counted-objects</a>.</p>
+          
+          <h2 id="wiki-h2-5">
+          <a id="user-content-listenable-futures-and-event-loops" class="anchor" href="#listenable-futures-and-event-loops" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Listenable futures and event loops</h2>
+          
+          <p>Performing a task asynchronously - scheduling a task and getting notified on completion - is common, and should be easy. When <code>java.util.concurrent.Future</code> appeared first, our excitement didn't last long.  We had to <em>block</em> to get notified on completion.  In asynchronous programming, you specify <em>what to do</em> on completion rather than wait for the outcome.</p>
+          
+          <p><code>io.netty.concurrent.Future</code> is a subtype of JDK <code>Future</code>.  It lets you add a listener which will be invoked by an event loop when the future is fulfilled.</p>
+          
+          <p><code>io.netty.util.concurrent.EventExecutor</code> is a single-threaded event loop that extends <code>java.util.concurrent.ScheduledExecutorService</code>. You can build your own event loop or use it as a feature-rich task executor.  Usually, you create multiple <code>EventExecutor</code>s to take advantage of parallelism:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-smi">EventExecutorGroup</span> group <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">DefaultEventExecutorGroup</span>(<span class="pl-c1">4</span>); <span class="pl-c">// 4 threads</span>&#x000A;<span class="pl-k">Future&lt;?&gt;</span> f <span class="pl-k">=</span> group<span class="pl-k">.</span>submit(<span class="pl-k">new</span> <span class="pl-smi">Runnable</span>() { <span class="pl-c1">...</span> });&#x000A;f<span class="pl-k">.</span>addListener(<span class="pl-k">new</span> FutureListener&lt;?&gt; {&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">operationComplete</span>(<span class="pl-k">Future&lt;?&gt;</span> <span class="pl-v">f</span>) {&#x000A;    <span class="pl-c1">..</span>&#x000A;  }&#x000A;});&#x000A;<span class="pl-c1">...</span></pre></div>
+          
+          <h3 id="wiki-h3-6">
+          <a id="user-content-the-global-event-loop" class="anchor" href="#the-global-event-loop" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>The global event loop</h3>
+          
+          <p>Sometimes you want a unique executor that is always available and that doesn't need life cycle management. <code>GlobalEventExecutor</code> is a single-threaded singleton <code>EventExecutor</code> which starts its thread lazily and stops when there have been no pending tasks for a while. </p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-smi">GlobalEventExecutor</span><span class="pl-c1"><span class="pl-k">.</span>INSTANCE</span><span class="pl-k">.</span>execute(<span class="pl-k">new</span> <span class="pl-smi">Runnable</span>() { <span class="pl-c1">...</span> });</pre></div>
+          
+          <p>Internally, Netty uses it to notify the termination of other <code>EventExecutor</code>s.</p>
+          
+          <h2 id="wiki-h2-7">
+          <a id="user-content-platform-dependent-operations" class="anchor" href="#platform-dependent-operations" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Platform-dependent operations</h2>
+          
+          <p><em>Note that this feature is for internal use only. We are considering moving it out of the internal package if there is sufficient demand.</em></p>
+          
+          <p><code>io.netty.util.internal.PlatformDependent</code> provides platform-dependent and potentially unsafe operations.  You can think of it as a thin layer over <code>sun.misc.Unsafe</code> and other platform-dependent proprietary APIs.</p>
+          
+          <h2 id="wiki-h2-8">
+          <a id="user-content-other-utilities" class="anchor" href="#other-utilities" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Other utilities</h2>
+          
+          <p>To build a high-performing network application framework, we introduced utilities. You might find some useful.</p>
+          
+          <h3 id="wiki-h3-9">
+          <a id="user-content-thread-local-object-pool" class="anchor" href="#thread-local-object-pool" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Thread-local object pool</h3>
+          
+          <p>If your thread is long-running and you allocate many short-living objects of same type, you can use a thread-local object pool, called <code>Recycler</code>. It reduces the amount of the garbage you produce, saving memory bandwidth consumption and load on the garbage collector.</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyObject</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">Recycler&lt;<span class="pl-smi">MyObject</span>&gt;</span> <span class="pl-c1">RECYCLER</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">Recycler&lt;<span class="pl-smi">MyObject</span>&gt;</span>() {&#x000A;    <span class="pl-k">protected</span> <span class="pl-smi">MyObject</span> <span class="pl-en">newObject</span>(<span class="pl-smi">Recycler</span>.<span class="pl-k">Handle&lt;<span class="pl-smi">MyObject</span>&gt;</span> <span class="pl-v">handle</span>) {&#x000A;      <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">MyObject</span>(handle);&#x000A;    }&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">MyObject</span> newInstance(<span class="pl-k">int</span> a, <span class="pl-smi">String</span> b) {&#x000A;    <span class="pl-smi">MyObject</span> obj <span class="pl-k">=</span> <span class="pl-c1">RECYCLER</span><span class="pl-k">.</span>get();&#x000A;    obj<span class="pl-k">.</span>myFieldA <span class="pl-k">=</span> a;&#x000A;    obj<span class="pl-k">.</span>myFieldB <span class="pl-k">=</span> b;&#x000A;    <span class="pl-k">return</span> obj;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">Recycler</span><span class="pl-k">.</span><span class="pl-k">Handle&lt;<span class="pl-smi">MyObject</span>&gt;</span> handle;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">int</span> myFieldA;&#x000A;  <span class="pl-k">private</span> <span class="pl-smi">String</span> myFieldB;&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-en">MyObject</span>(<span class="pl-k">Handle&lt;<span class="pl-smi">MyObject</span>&gt;</span> <span class="pl-v">handle</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>handle <span class="pl-k">=</span> handle;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-k">boolean</span> <span class="pl-en">recycle</span>() {&#x000A;    myFieldA <span class="pl-k">=</span> <span class="pl-c1">0</span>;&#x000A;    myFieldB <span class="pl-k">=</span> <span class="pl-c1">null</span>;&#x000A;    <span class="pl-k">return</span> handle<span class="pl-k">.</span>recycle(<span class="pl-v">this</span>);&#x000A;  }&#x000A;}&#x000A;&#x000A;<span class="pl-smi">MyObject</span> obj <span class="pl-k">=</span> <span class="pl-smi">MyObject</span><span class="pl-k">.</span>newInstance(<span class="pl-c1">42</span>, <span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>);&#x000A;<span class="pl-c1">...</span>&#x000A;obj<span class="pl-k">.</span>recycle();</pre></div>
+          
+          <h3 id="wiki-h3-10">
+          <a id="user-content-user-extensible-enum" class="anchor" href="#user-extensible-enum" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>User-extensible enum</h3>
+          
+          <p><code>enum</code> is great for a static set of constants, but you cannot extend one.  When you need to add more constants in runtime or allow third parties to define additional constants, use the extensible <code>io.netty.util.ConstantPool</code> instead:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">class</span> <span class="pl-en">Foo</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractConstant&lt;<span class="pl-smi">Foo</span>&gt;</span> {&#x000A;  <span class="pl-en">Foo</span>(<span class="pl-k">int</span> <span class="pl-v">id</span>, <span class="pl-smi">String</span> <span class="pl-v">name</span>) {&#x000A;    <span class="pl-v">super</span>(id, name);&#x000A;  }&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">final</span> <span class="pl-k">class</span> <span class="pl-en">MyConstants</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">ConstantPool&lt;<span class="pl-smi">Foo</span>&gt;</span> pool <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-k">ConstantPool&lt;<span class="pl-smi">Foo</span>&gt;</span>() {&#x000A;    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">protected</span> <span class="pl-smi">Foo</span> <span class="pl-en">newConstant</span>(<span class="pl-k">int</span> <span class="pl-v">id</span>, <span class="pl-smi">String</span> <span class="pl-v">name</span>) {&#x000A;      <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-smi">Foo</span>(id, name);&#x000A;    }&#x000A;  };&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">Foo</span> <span class="pl-en">valueOf</span>(<span class="pl-smi">String</span> <span class="pl-v">name</span>) {&#x000A;    <span class="pl-k">return</span> pool<span class="pl-k">.</span>valueOf(name);&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">Foo</span> <span class="pl-c1">A</span> <span class="pl-k">=</span> valueOf(<span class="pl-s"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">Foo</span> <span class="pl-c1">B</span> <span class="pl-k">=</span> valueOf(<span class="pl-s"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>);&#x000A;}&#x000A;&#x000A;<span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-k">class</span> <span class="pl-en">YourConstants</span> {&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">Foo</span> <span class="pl-c1">C</span> <span class="pl-k">=</span> <span class="pl-smi">MyConstants</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">"</span>C<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-smi">Foo</span> <span class="pl-c1">D</span> <span class="pl-k">=</span> <span class="pl-smi">MyConstants</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">"</span>D<span class="pl-pds">"</span></span>);&#x000A;}</pre></div>
+          
+          <p>Netty uses <code>ConstantPool</code> to define <code>ChannelOption</code>s so that non-core transports can define transport-specific options in a type-safe way.</p>
+          
+          <h3 id="wiki-h3-11">
+          <a id="user-content-attribute-map" class="anchor" href="#attribute-map" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Attribute map</h3>
+          
+          <p>Use <code>io.netty.util.AttributeMap</code> interface for a fast, type-safe, thread-safe collection of key-value pairs:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Foo</span> <span class="pl-k">extends</span> <span class="pl-e">DefaultAttributeMap</span> {&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">AttributeKey&lt;<span class="pl-smi">String</span>&gt;</span> <span class="pl-c1">ATTR_A</span> <span class="pl-k">=</span> <span class="pl-smi">AttributeKey</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">"</span>A<span class="pl-pds">"</span></span>);&#x000A;<span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">final</span> <span class="pl-k">AttributeKey&lt;<span class="pl-smi">Integer</span>&gt;</span> <span class="pl-c1">ATTR_B</span> <span class="pl-k">=</span> <span class="pl-smi">AttributeKey</span><span class="pl-k">.</span>valueOf(<span class="pl-s"><span class="pl-pds">"</span>B<span class="pl-pds">"</span></span>);&#x000A;&#x000A;<span class="pl-smi">Foo</span> o <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;o<span class="pl-k">.</span>attr(<span class="pl-c1">ATTR_A</span>)<span class="pl-k">.</span>set(<span class="pl-s"><span class="pl-pds">"</span>foo<span class="pl-pds">"</span></span>);&#x000A;o<span class="pl-k">.</span>attr(<span class="pl-c1">ATTR_B</span>)<span class="pl-k">.</span>set(<span class="pl-c1">42</span>);</pre></div>
+          
+          <p>As you might have noticed already, <code>AttributeKey</code> is a <code>Constant</code>.</p>
+          
+          <h3 id="wiki-h3-12">
+          <a id="user-content-hashed-wheel-timer" class="anchor" href="#hashed-wheel-timer" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Hashed wheel timer</h3>
+          
+          <p>Hashed wheel timer is a scalable alternative to <code>java.util.Timer</code> and <code>java.util.concurrent.ScheduledThreadPoolExecutor</code>.  It can handle many scheduled tasks and their cancellations efficiently, as shown in the following table:</p>
+          
+          <table class="table table-hover">
+          <thead>
+          <tr>
+          <th></th>
+          <th>Schedule a new task</th>
+          <th>Cancel a task</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td><code>HashedWheelTimer</code></td>
+          <td>O(1)</td>
+          <td>O(1)</td>
+          </tr>
+          <tr>
+          <td>
+          <code>java.util.Timer</code> and <code>ScheduledThreadPoolExecutor</code>
+          </td>
+          <td>O(logN)</td>
+          <td>O(logN) where N = number of pending tasks</td>
+          </tr>
+          </tbody>
+          </table>
+          
+          <p>Internally, it uses a hash table whose key is a task's timing to yield constant time for most timer operations. (<code>java.util.Timer</code> uses a binary heap.)</p>
+          
+          <p>For more information about hashed wheel timer, please see <a href="http://www.cse.wustl.edu/%7Ecdgill/courses/cs6874/TimingWheels.ppt">these slides ("Hashed and Hierarchical Timing Wheels," Dharmapurikar)</a> and <a href="http://www.cs.columbia.edu/%7Enahum/w6998/papers/sosp87-timing-wheels.pdf">this paper ("Hashed and Hierarchical Timing Wheels: Data Structures 
+          for the Efficient Implementation of a Timer Facility," Varghese and Lauck)</a>.</p>
+          
+          <h3 id="wiki-h3-13">
+          <a id="user-content-even-more-miscellaneous-utilities" class="anchor" href="#even-more-miscellaneous-utilities" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Even more miscellaneous utilities</h3>
+          
+          <p>The following classes are useful, but you will find fine alternatives in other libraries such as Guava:</p>
+          
+          <ul>
+          <li>
+          <code>io.netty.util.CharsetUtil</code> provides commonly-used <code>java.nio.charset.Charset</code>s.</li>
+          <li>
+          <code>io.netty.util.NetUtil</code> provides commonly-used network-related constants such as the <code>InetAddress</code> for IPv4 and IPv6 loopback addresses.</li>
+          <li>
+          <code>io.netty.util.DefaultThreadFactory</code> is a generic <code>ThreadFactory</code> implementation that lets you configure your executor threads easily.</li>
+          </ul>
+          
+          <h2 id="wiki-h2-14">
+          <a id="user-content-comparison-with-guava-and-jdk8" class="anchor" href="#comparison-with-guava-and-jdk8" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Comparison with Guava and JDK8</h2>
+          
+          <p>Because Netty tries to minimize its set of dependencies, some of its utility classes are similar to those in other popular libraries, such as <a href="http://code.google.com/p/guava-libraries/">Guava</a>.</p>
+          
+          <p>Such libraries provide various utility classes and alternative data types to make JDK API less painful to work with, and they usually do quite well at that.</p>
+          
+          <p>Netty focuses on providing the constructs required for:</p>
+          
+          <ul>
+          <li>Asynchronous programming</li>
+          <li>Low-level operations (a.k.a "mechanical sympathy") such as:
+          
+          <ul>
+          <li>Off-heap access</li>
+          <li>Access to the proprietary intrinsic operations</li>
+          <li>Platform-dependent behaviors</li>
+          </ul>
+          </li>
+          </ul>
+          
+          <p>Java sometimes advances by adopting ideas that subsume constructs provided by Netty.  For example, JDK 8 adds <a href="https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CompletableFuture.html"><code>CompletableFuture</code></a> which somewhat overlaps <code>io.netty.util.concurrent.Future</code>. In such a case, Netty's constructs provide a good migration path to you; We will diligently update the API with future migration in mind.</p>
+          
+                </div>
+          
+            </div></div>
+          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 25">Pages 25</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Buffer API">Buffer API</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="User-friendliness">User-friendliness</a>
+          </li><li><a href="#wiki-h3-3" title="Extensibility">Extensibility</a>
+          </li><li><a href="#wiki-h3-4" title="Performance">Performance</a>
+          </li></ul></li><li><a href="#wiki-h2-5" title="Listenable futures and event loops">Listenable futures and event loops</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-6" title="The global event loop">The global event loop</a>
+          </li></ul></li><li><a href="#wiki-h2-7" title="Platform-dependent operations">Platform-dependent operations</a>
+          </li><li><a href="#wiki-h2-8" title="Other utilities">Other utilities</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-9" title="Thread-local object pool">Thread-local object pool</a>
+          </li><li><a href="#wiki-h3-10" title="User-extensible enum">User-extensible enum</a>
+          </li><li><a href="#wiki-h3-11" title="Attribute map">Attribute map</a>
+          </li><li><a href="#wiki-h3-12" title="Hashed wheel timer">Hashed wheel timer</a>
+          </li><li><a href="#wiki-h3-13" title="Even more miscellaneous utilities">Even more miscellaneous utilities</a>
+          </li></ul></li><li><a href="#wiki-h2-14" title="Comparison with Guava and JDK8">Comparison with Guava and JDK8</a>
+          </li></ul>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="text-right">
+                <small>Last retrieved on 11-Apr-2016</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+      <div id="footer">
+        <p>
+          Copyright &copy; 2016
+          <a href="../index.html">The Netty project</a>
+        </p>
+      </div>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../lib/common.footer.js" type="text/javascript"></script>
+  
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>

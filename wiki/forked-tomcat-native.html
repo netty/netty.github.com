@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Netty.docs: Forked Tomcat Native</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../images/favicon.ico" rel="shortcut icon">
+    <link href="http://feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+    <style>
+      body {
+        padding-top: 60px;
+      }
+    </style>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+    <link href="../lib/common.css" rel="stylesheet" type="text/css">
+    <script src="../lib/common.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <a class="sr-only" href="#content" id="top">Skip navigation</a>
+    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">
+            <span class="navbar-brand-logo"></span>
+            Netty project
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="../news/2016/04/10/4-1-0-CR7.html">
+                News
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../news/index.html">
+                    <i class="fa fa-archive"></i>
+                    Archive
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../downloads.html">
+                Downloads
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.0.CR7.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.1.0.CR7
+                    <small>&dash; 10-Apr-2016</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.36.Final.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    4.0.36.Final
+                    <small>&dash; 04-Apr-2016</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://dl.bintray.com/netty/downloads/netty-3.10.5.Final-dist.tar.bz2">
+                    <i class="fa fa-cloud-download"></i>
+                    3.10.5.Final
+                    <small>&dash; 13-Oct-2015</small>
+                  </a>
+                </li>
+                <li>
+                  <a href="http://www.tldrlegal.com/l/APACHE2">
+                    <i class="fa fa-gavel"></i>
+                    Apache License 2.0
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bintray.com/netty/downloads/netty/">
+                    <i class="fa fa-archive"></i>
+                    Previous Releases
+                  </a>
+                </li>
+                <li>
+                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+                    <i class="fa fa-flask"></i>
+                    Nightly Builds
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../wiki/index.html">
+                Documentation
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="../wiki/user-guide.html">
+                    <i class="fa fa-book"></i>
+                    User guide
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.1/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.1
+                  </a>
+                </li>
+                <li>
+                  <a href="../4.0/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 4.0
+                  </a>
+                </li>
+                <li>
+                  <a href="../3.10/api/index.html">
+                    <i class="fa fa-file-text"></i>
+                    Javadoc - 3.10
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/all-documents.html">
+                    <i class="fa fa-list"></i>
+                    All Documents
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-articles.html">
+                    <i class="fa fa-bookmark"></i>
+                    Related Articles
+                  </a>
+                </li>
+                <li class="hidden-xs" id="bookpromo-dropdown">
+                  <a href="http://www.manning.com/maurer/">
+                    <img src="../images/netty-in-action.gif">
+                    <br>
+                    <small>
+                      Use code <strong>mlnettyco</strong>
+                      <br>
+                      for a 37% discount!
+                    </small>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="../community.html">
+                Get Involved
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="https://github.com/netty/netty">
+                    <i class="fa fa-github-square"></i>
+                    Github
+                  </a>
+                </li>
+                <li>
+                  <a href="http://stackoverflow.com/questions/tagged/netty">
+                    <i class="fa fa-stack-overflow"></i>
+                    StackOverflow
+                  </a>
+                </li>
+                <li>
+                  <a href="https://twitter.com/netty_project">
+                    <i class="fa fa-twitter-square"></i>
+                    @netty_project
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/developer-guide.html">
+                    <i class="fa fa-cogs"></i>
+                    Developer Guide
+                  </a>
+                </li>
+                <li>
+                  <a href="http://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+                    <i class="fa fa-comment"></i>
+                    IRC Chat
+                  </a>
+                </li>
+                <li>
+                  <a href="../sponsor/thanks.html">
+                    <i class="fa fa-usd"></i>
+                    Sponsors
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/adopters.html">
+                    <i class="fa fa-users"></i>
+                    Adopters
+                  </a>
+                </li>
+                <li>
+                  <a href="../wiki/related-projects.html">
+                    <i class="fa fa-chain"></i>
+                    Related Projects
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="visible-xs" id="bookpromo-nav">
+              <a href="http://www.manning.com/maurer/">
+                <img src="../images/netty-in-action.gif">
+                <br>
+                <small>
+                  Use code <strong>mlnettyco</strong>
+                  <br>
+                  for a 37% discount!
+                </small>
+              </a>
+            </li>
+            <li>
+              <a href="http://feeds.feedburner.com/netty_project">
+                <i class="fa fa-rss"></i>
+              </a>
+            </li>
+          </ul>
+          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+            <div class="form-group">
+              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <div id="content">
+      <div class="container">
+        <div class="wiki-item">
+          <h1>Forked Tomcat Native</h1>
+          <div class="alert alert-info">
+            Did you know this page is automatically generated from
+            <a href="https://github.com/netty/netty/wiki/Forked-Tomcat-Native">a Github Wiki page?</a>
+            You can improve it by yourself
+            <a href="https://github.com/netty/netty/wiki/Forked-Tomcat-Native">here!</a>
+          </div>
+          <div class="row">
+          <div class="col-md-9">
+          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
+                <div class="markdown-body">
+                  <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
+          
+          <ul>
+          <li>Simplified distribution and linkage of native library</li>
+          <li>Complete mavenization of the project</li>
+          <li>Improved OpenSSL support</li>
+          </ul>
+          
+          <p>To minimize the maintenance burden, we create a dedicated branch for each stable upstream release and apply our own changes on top of it, while keeping the number of maintained branches to minimum.</p>
+          
+          <h2 id="wiki-h2-1">
+          <a id="user-content-artifacts" class="anchor" href="#artifacts" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Artifacts</h2>
+          
+          <p><code>netty-tcnative</code> is a multi-module project and builds a few artifacts, allowing it to be used in a variety of environments.</p>
+          
+          <table class="table table-hover">
+          <thead>
+          <tr>
+          <th>ArtifactId</th>
+          <th>Description</th>
+          <th>On Maven Central</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>netty-tcnative-{os_arch}</td>
+          <td>This is the "default" artifact which is dynamically linked to both <a href="https://apr.apache.org/">libapr-1</a> and <a href="https://www.openssl.org/">OpenSSL</a>. To use this artifact, your system must have both libapr-1 and OpenSSL installed and configured. This artifact is useful for production environments where the site administrator is free to upgrade OpenSSL without having to rebuild the application.</td>
+          <td>yes</td>
+          </tr>
+          <tr>
+          <td>netty-tcnative-boringssl-static-{os_arch}</td>
+          <td>This artifact is statically linked against Google's <a href="https://boringssl.googlesource.com/">boringssl</a>, which is a fork of OpenSSL that has a reduced code footprint and additional features (such as ALPN) which at the time of this writing have not made an appearance in a stable release of linux. The static linking makes it easier to get started using tcnative on a system without having to worry about additional install steps.</td>
+          <td>yes</td>
+          </tr>
+          <tr>
+          <td>netty-tcnative-boringssl-static</td>
+          <td>This is an uber jar that contains the statically linked libraries for all supported <code>netty-tcnative-boringssl-static-{os_arch}</code>. While this tends to be a fairly large jar, it greatly simplifies the getting started experience since an application need not be concerned with obtaining the correct jar for the platform.</td>
+          <td>yes</td>
+          </tr>
+          <tr>
+          <td>netty-tcnative-openssl-static-{os_arch}</td>
+          <td>This artifact is statically linked against both libapr-1 and OpenSSL, making it easier to get started using tcnative on a system without having to worry about additional install steps.</td>
+          <td>no</td>
+          </tr>
+          <tr>
+          <td>netty-tcnative-libressl-static-{os_arch}</td>
+          <td>Coming soon.</td>
+          <td>no</td>
+          </tr>
+          </tbody>
+          </table>
+          
+          <h2 id="wiki-h2-2">
+          <a id="user-content-how-to-download-netty-tcnative-boringssl-uber-jar" class="anchor" href="#how-to-download-netty-tcnative-boringssl-uber-jar" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>How to download netty-tcnative-boringssl "uber" jar</h2>
+          
+          <p>This is the simplest dependency to use, since it doesn't require a platform-specific classifier:</p>
+          
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork15&lt;/<span class="pl-ent">version</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          
+          <h2 id="wiki-h2-3">
+          <a id="user-content-how-to-download-netty-tcnative-boringssl-static" class="anchor" href="#how-to-download-netty-tcnative-boringssl-static" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>How to download netty-tcnative-boringssl-static</h2>
+          
+          <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and the <code>netty-tcnative-boringssl-static</code> dependency appropriate for your platform:</p>
+          
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork15&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          
+          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/">Maven Central</a> and provide distributions for the following platforms:</p>
+          
+          <table class="table table-hover">
+          <thead>
+          <tr>
+          <th>Classifier</th>
+          <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>windows-x86_64</td>
+          <td>Windows distribution</td>
+          </tr>
+          <tr>
+          <td>osx-x86_64</td>
+          <td>Mac distribution</td>
+          </tr>
+          <tr>
+          <td>linux-x86_64</td>
+          <td>Linux distribution</td>
+          </tr>
+          </tbody>
+          </table>
+          
+          <h2 id="wiki-h2-4">
+          <a id="user-content-how-to-download-netty-tcnative" class="anchor" href="#how-to-download-netty-tcnative" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>How to download netty-tcnative</h2>
+          
+          <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
+          
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c">&lt;!-- Configure the os-maven-plugin extension to expand the classifier on --&gt;</span>&#x000A;    <span class="pl-c">&lt;!-- Fedora-"like" systems. --&gt;</span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork15&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          
+          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
+          
+          <table class="table table-hover">
+          <thead>
+          <tr>
+          <th>Classifier</th>
+          <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>windows-x86_64</td>
+          <td>Windows distribution</td>
+          </tr>
+          <tr>
+          <td>osx-x86_64</td>
+          <td>Mac distribution</td>
+          </tr>
+          <tr>
+          <td>linux-x86_64</td>
+          <td>Used for non-Fedora derivatives of Linux</td>
+          </tr>
+          <tr>
+          <td>linux-x86_64-fedora</td>
+          <td>Used for Fedora derivatives</td>
+          </tr>
+          </tbody>
+          </table>
+          
+          <p>Using <code>classifierWithLikes</code> will configure the <code>os-maven-plugin</code> to alter the generated <code>os.detected.classifier</code> property. If your build contains other dependencies that rely on <code>os.detected.classifier</code>, you can manually create the netty-tcnative classifier with the <code>antrun</code> plugin:</p>
+          
+          <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;1.1.33.Fork15&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${tcnative.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      <span class="pl-c">&lt;!-- Use os-maven-plugin to initialize the "os.detected" properties --&gt;</span>&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    &lt;<span class="pl-ent">plugins</span>&gt;&#x000A;      <span class="pl-c">&lt;!-- Use Ant to configure the appropriate "tcnative.classifier" property --&gt;</span>&#x000A;      &lt;<span class="pl-ent">plugin</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;maven-antrun-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">executions</span>&gt;&#x000A;          &lt;<span class="pl-ent">execution</span>&gt;&#x000A;            &lt;<span class="pl-ent">phase</span>&gt;initialize&lt;/<span class="pl-ent">phase</span>&gt;&#x000A;            &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;              &lt;<span class="pl-ent">exportAntProperties</span>&gt;true&lt;/<span class="pl-ent">exportAntProperties</span>&gt;&#x000A;              &lt;<span class="pl-ent">target</span>&gt;&#x000A;                &lt;<span class="pl-ent">condition</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>tcnative.classifier<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}-fedora<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">else</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}<span class="pl-pds">"</span></span>&gt;&#x000A;                  &lt;<span class="pl-ent">isset</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>os.detected.release.fedora<span class="pl-pds">"</span></span>/&gt;&#x000A;                &lt;/<span class="pl-ent">condition</span>&gt;&#x000A;              &lt;/<span class="pl-ent">target</span>&gt;&#x000A;            &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;            &lt;<span class="pl-ent">goals</span>&gt;&#x000A;              &lt;<span class="pl-ent">goal</span>&gt;run&lt;/<span class="pl-ent">goal</span>&gt;&#x000A;            &lt;/<span class="pl-ent">goals</span>&gt;&#x000A;          &lt;/<span class="pl-ent">execution</span>&gt;&#x000A;        &lt;/<span class="pl-ent">executions</span>&gt;&#x000A;      &lt;/<span class="pl-ent">plugin</span>&gt;&#x000A;    &lt;/<span class="pl-ent">plugins</span>&gt;&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+          
+          <h2 id="wiki-h2-5">
+          <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>How to use</h2>
+          
+          <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
+          
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">SslContext</span> sslCtx <span class="pl-k">=</span> <span class="pl-smi">SslContext</span><span class="pl-k">.</span>newServerContext(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>, <span class="pl-c1">...</span>);&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;&#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-v">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;&#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
+          
+          <p>Netty will unpack the shared library provided by the netty-tcnative-XXX artifact into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
+          
+          <h3 id="wiki-h3-6">
+          <a id="user-content-prerequisites-for-dynamically-linked-netty-tcnative" class="anchor" href="#prerequisites-for-dynamically-linked-netty-tcnative" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Prerequisites for Dynamically Linked <code>netty-tcnative</code>
+          </h3>
+          
+          <p>Note that the shared library in the <code>netty-tcnative</code> artifact is dynamically linked against Apache Portable Runtime (APR) and OpenSSL.  They must be in the library load path such as system library directories, <code>$LD_LIBRARY_PATH</code>, and <code>%PATH%</code>.</p>
+          
+          <ul>
+          <li>If you are on Linux, you probably don't need to do anything because you can install them using your system's package manager.</li>
+          <li>If you are on Mac, you have to install <code>openssl</code> package using <a href="http://brew.sh/">Homebrew</a>.</li>
+          <li>If you are on Windows, you have to:
+          
+          <ul>
+          <li>Build APR by yourself (or get the 64-bit DLL from <a href="http://clinker.netty.io/jenkins/job/apr-windows/lastSuccessfulBuild/artifact/dist/bin/">our CI server</a>),</li>
+          <li>Install <a href="http://slproweb.com/products/Win32OpenSSL.html">OpenSSL for Windows</a>, and</li>
+          <li>Add the directories that contain the .DLL files to <code>%PATH%</code>.</li>
+          </ul>
+          </li>
+          </ul>
+          
+          <p><strong>Important:</strong> If you use Linux and want to make use of ALPN (you will need this for http2) you need to ensure you have openssl &gt;= 1.0.2 installed. If this is not provided by the package system of your distro you will need to compile it by your own and set the LD_LIBRARY_PATH as explained in <a href="http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-2">How to built</a>.</p>
+          
+          <h2 id="wiki-h2-7">
+          <a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>How to build</h2>
+          
+          <p>You don't usually need to build <code>netty-tcnative</code> by yourself because we officially ship the JARs with the native libraries for <code>Linux x86_64</code>, <code>Mac OS X x86_64</code>, and <code>Windows x86_64</code>.  If you are looking for a SNAPSHOT build, browse <a href="http://clinker.netty.io/jenkins/view/TCNative/">our CI server</a>.</p>
+          
+          <p>If you are on a platform we don't ship the JARs with the native libraries, such as Windows x86_32, follow the instructions in this section.</p>
+          
+          <h3 id="wiki-h3-8">
+          <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Building on Linux</h3>
+          
+          <table class="table table-hover">
+          <thead>
+          <tr>
+          <th>Prerequisite</th>
+          <th>Description</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+          <td>Basic tools</td>
+          <td>autoconf, automake, libtool, glibc-devel, make, tar</td>
+          </tr>
+          <tr>
+          <td>APR</td>
+          <td>apr-devel or libapr1-dev</td>
+          </tr>
+          <tr>
+          <td>OpenSSL</td>
+          <td>openssl-devel or libssl-dev</td>
+          </tr>
+          <tr>
+          <td>GCC</td>
+          <td>Require version &gt;= 4.8</td>
+          </tr>
+          <tr>
+          <td><a href="https://cmake.org/download/">CMake</a></td>
+          <td>Require version &gt;= 2.8.8</td>
+          </tr>
+          <tr>
+          <td>Perl</td>
+          <td>Require version &gt;= 5.6.1</td>
+          </tr>
+          <tr>
+          <td><a href="https://ninja-build.org/">Ninja</a></td>
+          <td>Require version &gt;= 1.3.4</td>
+          </tr>
+          <tr>
+          <td><a href="https://golang.org/dl/">Go</a></td>
+          <td>Require version &gt;= 1.5.1</td>
+          </tr>
+          </tbody>
+          </table>
+          
+          <p>Build the package and install it into your local Maven repository:</p>
+          
+          <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork15)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          
+          <h3 id="wiki-h3-9">
+          <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Building on Mac OS X</h3>
+          
+          <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
+          
+          <div class="highlight highlight-source-shell"><pre>xcode-<span class="pl-k">select</span> <span class="pl-smi">--install</span></pre></div>
+          
+          <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
+          
+          <div class="highlight highlight-source-shell"><pre>brew install autoconf automake libtool openssl perl ninja golang cmake</pre></div>
+          
+          <p>Add the following exports to your <code>~/.bash_profile</code>, so that the compiler and linker finds OpenSSL built by Homebrew.</p>
+          
+          <div class="highlight highlight-source-shell"><pre><span class="pl-k">export</span> CPPFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-I/usr/local/opt/openssl/include <span class="pl-smi">$CPPFLAGS</span><span class="pl-pds">"</span></span>&#x000A;<span class="pl-k">export</span> LDFLAGS=<span class="pl-s"><span class="pl-pds">"</span>-L/usr/local/opt/openssl/lib <span class="pl-smi">$LDFLAGS</span><span class="pl-pds">"</span></span></pre></div>
+          
+          <p>Build the package and install it into your local Maven repository:</p>
+          
+          <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork15)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          
+          <h3 id="wiki-h3-10">
+          <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Building on Windows</h3>
+          
+          <p>This section describes how to build on 64-bit Windows. Some of these steps may have to be tailored when building on 32-bit systems. </p>
+          
+          <p>Install the following packages:</p>
+          
+          <ul>
+          <li><a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx">Visual C++ 2013 Express</a></li>
+          <li><a href="https://dev.windows.com/en-us/downloads/windows-10-sdk">Windows 10 SDK</a></li>
+          <li>
+          <a href="https://cmake.org/files/v3.4/cmake-3.4.3-win32-x86.exe">CMake</a>
+          
+          <ul>
+          <li>During installation, select <code>Add CMake to the system PATH for current user</code>
+          </li>
+          </ul>
+          </li>
+          <li><a href="http://www.activestate.com/activeperl/downloads/thank-you?dl=http://downloads.activestate.com/ActivePerl/releases/5.22.1.2201/ActivePerl-5.22.1.2201-MSWin32-x64-299574.msi">Perl</a></li>
+          <li>
+          <a href="https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-win.zip">Ninja</a>
+          
+          <ul>
+          <li>Extract the executable to <code>C:\Workspaces\</code> and add <code>C:\Workspaces</code> to <code>PATH</code>
+          </li>
+          </ul>
+          </li>
+          <li><a href="https://storage.googleapis.com/golang/go1.5.3.windows-amd64.msi">Go</a></li>
+          <li>
+          <a href="http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win64.exe">Yasm</a>
+          
+          <ul>
+          <li>Download to <code>C:\Workspaces</code>
+          </li>
+          <li>Set the environment variable <code>ASM_NASM=C:\Workspaces\yasm-1.3.0-win64.exe</code>.</li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://slproweb.com/download/Win64OpenSSL-1_0_2f.exe">OpenSSL</a>.
+          
+          <ul>
+          <li>During installation, select <code>Copy OpenSSL DLLs to: The OpenSSL binaries (/bin) directory</code>
+          </li>
+          <li>Set the following environment variables:
+          
+          <ul>
+          <li><code>OPENSSL_INCLUDE_DIR=C:\OpenSSL-Win64\include</code></li>
+          <li><code>OPENSSL_LIB_DIR=C:\OpenSSL-Win64\lib</code></li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+          <li>
+          <a href="http://www.us.apache.org/dist/apr/apr-1.5.2-win32-src.zip">Apache Portable Runtime (APR) 1.5.2</a>
+          
+          <ul>
+          <li>Extract into: <code>C:\Workspaces\apr-1.5.2</code>
+          </li>
+          <li>Run the following commands in command prompt (<code>cmd.exe</code>) from <code>C:\Workspaces\apr-1.5.2</code>:
+          
+          <ul>
+          <li><code>"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86_amd64</code></li>
+          <li><code>nmake /f Makefile.win ARCH="x64 Release" PREFIX=..\apr-1.5.2-dist buildall install</code></li>
+          <li><code>xcopy include\arch\win32\*.h ..\apr-1.5.2-dist\include /d</code></li>
+          <li><code>xcopy include\arch\*.h ..\apr-1.5.2-dist /d</code></li>
+          </ul>
+          </li>
+          <li>Set the following environment variables:
+          
+          <ul>
+          <li><code>APR_INCLUDE_DIR=C:\Workspaces\apr-1.5.2-dist\include</code></li>
+          <li><code>APR_LIB_DIR=C:\Workspaces\apr-1.5.2-dist\lib</code></li>
+          </ul>
+          </li>
+          </ul>
+          </li>
+          </ul>
+          
+          <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
+          
+          <div class="highlight highlight-source-dosbatch"><pre><span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat<span class="pl-pds">"</span></span> x86_amd64</pre></div>
+          
+          <p>Clone <code>netty-tcnative</code> and build it:</p>
+          
+          <div class="highlight highlight-source-dosbatch"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-1.1.33.Fork15)&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-k">REM</span> To build a snapshot: (e.g. 1.1.33.Fork15)&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
+          
+          <h2 id="wiki-h2-11">
+          <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Creating a new fork</h2>
+          
+          <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
+          
+          <pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre>
+          
+          <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
+          
+                </div>
+          
+            </div></div>
+          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+          <div class="toc well">
+          <ul class="nav nav-list nav-stacked">
+          <li class="nav-header">Table of Contents
+          </li><li>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 25">Pages 25</a>
+          </li></ul></li><li><a href="#wiki-h2-1" title="Artifacts">Artifacts</a>
+          </li><li><a href="#wiki-h2-2" title="How to download netty-tcnative-boringssl &quot;uber&quot; jar">How to download netty-tcnative-boringssl &quot;uber&quot; jar</a>
+          </li><li><a href="#wiki-h2-3" title="How to download netty-tcnative-boringssl-static">How to download netty-tcnative-boringssl-static</a>
+          </li><li><a href="#wiki-h2-4" title="How to download netty-tcnative">How to download netty-tcnative</a>
+          </li><li><a href="#wiki-h2-5" title="How to use">How to use</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-6" title="Prerequisites for Dynamically Linked netty-tcnative">Prerequisites for Dynamically Linked netty-tcnative</a>
+          </li></ul></li><li><a href="#wiki-h2-7" title="How to build">How to build</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="Building on Linux">Building on Linux</a>
+          </li><li><a href="#wiki-h3-9" title="Building on Mac OS X">Building on Mac OS X</a>
+          </li><li><a href="#wiki-h3-10" title="Building on Windows">Building on Windows</a>
+          </li></ul></li><li><a href="#wiki-h2-11" title="Creating a new fork">Creating a new fork</a>
+          </li></ul>
+          </div>
+          </div>
+          </div>
+          <div class="row">
+            <div class="col-md-9">
+              <div class="text-right">
+                <small>Last retrieved on 11-Apr-2016</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <hr>
+      <div id="footer">
+        <p>
+          Copyright &copy; 2016
+          <a href="../index.html">The Netty project</a>
+        </p>
+      </div>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../lib/common.footer.js" type="text/javascript"></script>
+  
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>
