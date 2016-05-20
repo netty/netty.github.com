@@ -366,7 +366,7 @@
           <h3 id="wiki-h3-9">
           <a id="user-content-writing-a-time-server" class="anchor" href="#writing-a-time-server" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1h-1c-1.5 0-3-1.69-3-3.5s1.55-3.5 3-3.5h4c1.45 0 3 1.69 3 3.5 0 1.41-0.91 2.72-2 3.25v-1.16c0.58-0.45 1-1.27 1-2.09 0-1.28-1.02-2.5-2-2.5H4c-0.98 0-2 1.22-2 2.5s1 2.5 2 2.5z m9-3h-1v1h1c1 0 2 1.22 2 2.5s-1.02 2.5-2 2.5H9c-0.98 0-2-1.22-2-2.5 0-0.83 0.42-1.64 1-2.09v-1.16c-1.09 0.53-2 1.84-2 3.25 0 1.81 1.55 3.5 3 3.5h4c1.45 0 3-1.69 3-3.5s-1.5-3.5-3-3.5z"></path></svg></a>Writing a Time Server</h3>
           
-          <p>The protocol to implement in this section is the <a href="http://tools.ietf.org/html/rfc868"><code>TIME</code></a> protocol. It is different from the previous examples in that it sends a message, which contains a 32-bit integer, without receiving any requests and loses the connection once the message is sent. In this example, you will learn how to construct and send a message, and to close the connection on completion.</p>
+          <p>The protocol to implement in this section is the <a href="http://tools.ietf.org/html/rfc868"><code>TIME</code></a> protocol. It is different from the previous examples in that it sends a message, which contains a 32-bit integer, without receiving any requests and closes the connection once the message is sent. In this example, you will learn how to construct and send a message, and to close the connection on completion.</p>
           
           <p>Because we are going to ignore any received data but to send a message as soon as a connection is established, we cannot use the <code>channelRead()</code> method this time. Instead, we should override the <code>channelActive()</code> method. The following is the implementation: </p>
           
@@ -426,7 +426,7 @@
           <div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">io.netty.example.time</span>;&#x000A;&#x000A;<span class="pl-k">import</span> <span class="pl-smi">java.util.Date</span>;&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TimeClientHandler</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInboundHandlerAdapter</span> {&#x000A;    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-v">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-v">msg</span>) {&#x000A;        <span class="pl-smi">ByteBuf</span> m <span class="pl-k">=</span> (<span class="pl-smi">ByteBuf</span>) msg; <span class="pl-c">// (1)</span>&#x000A;        <span class="pl-k">try</span> {&#x000A;            <span class="pl-k">long</span> currentTimeMillis <span class="pl-k">=</span> (m<span class="pl-k">.</span>readUnsignedInt() <span class="pl-k">-</span> <span class="pl-c1">2208988800L</span>) <span class="pl-k">*</span> <span class="pl-c1">1000L</span>;&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-k">new</span> <span class="pl-smi">Date</span>(currentTimeMillis));&#x000A;            ctx<span class="pl-k">.</span>close();&#x000A;        } <span class="pl-k">finally</span> {&#x000A;            m<span class="pl-k">.</span>release();&#x000A;        }&#x000A;    }&#x000A;&#x000A;    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">exceptionCaught</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-v">ctx</span>, <span class="pl-smi">Throwable</span> <span class="pl-v">cause</span>) {&#x000A;        cause<span class="pl-k">.</span>printStackTrace();&#x000A;        ctx<span class="pl-k">.</span>close();&#x000A;    }&#x000A;}</pre></div>
           
           <ol>
-          <li>In TCP/IP, Netty reads the data sent from a peer into a <span class="broken-link">`ByteBuf`</span>.</li>
+          <li>In TCP/IP, Netty reads the data sent from a peer into a <a href="http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>.</li>
           </ol>
           
           <p>It looks very simple and does not look any different from the server side example. However, this handler sometimes will refuse to work raising an <code>IndexOutOfBoundsException</code>. We discuss why this happens in the next section. </p>
@@ -600,7 +600,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 11-Apr-2016</small>
+                <small>Last retrieved on 20-May-2016</small>
               </div>
             </div>
           </div>
