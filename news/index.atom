@@ -2,9 +2,93 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2016-04-11T10:31:20+02:00</updated>
+  <updated>2016-05-26T14:25:00+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2016/05/26/4-1-0-Final.html</id>
+    <title>Netty 4.1.0.Final released</title>
+    <updated>2016-05-26T14:25:00+02:00</updated>
+    <published>2016-05-26T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2016/05/26/4-1-0-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      After over 2 years after the first release of a 4.1.0 Beta I am happy to announce the release of the next stable minor Netty version a.k.a 4.1.0.Final! All the hard work finally payed off ;)
+      
+      This release contains a lot of new stuff compared to 4.0.x, mostly in terms of new codecs but also other enhancements.
+      
+      Most notable features are:
+      
+      
+      codec-dns       : Support for encode and decode DNS packets.
+      codec-http2     : Support for HTTP/2.
+      codec-memcached : Support for Memcached binary protocol.
+      codec-mqtt      : Support for MQTT
+      codec-redis    ...
+    </summary>
+    <content type="html">
+      &lt;p&gt;After over 2 years after the first release of a 4.1.0 Beta I am happy to announce the release of the next stable minor Netty version a.k.a 4.1.0.Final! All the hard work finally payed off ;)&lt;/p&gt;
+      
+      &lt;p&gt;This release contains a lot of new stuff compared to 4.0.x, mostly in terms of new codecs but also other enhancements.&lt;/p&gt;
+      
+      &lt;p&gt;Most notable features are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;codec-dns       : Support for encode and decode &lt;a href=&quot;https://www.ietf.org/rfc/rfc1035.txt&quot;&gt;DNS&lt;/a&gt; packets.&lt;/li&gt;
+      &lt;li&gt;codec-http2     : Support for &lt;a href=&quot;https://tools.ietf.org/html/rfc7540&quot;&gt;HTTP/2&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;codec-memcached : Support for &lt;a href=&quot;http://www.memcached.org&quot;&gt;Memcached&lt;/a&gt; binary protocol.&lt;/li&gt;
+      &lt;li&gt;codec-mqtt      : Support for &lt;a href=&quot;http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html&quot;&gt;MQTT&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;codec-redis     : Support for &lt;a href=&quot;http://redis.io/topics/protocol&quot;&gt;Redis&lt;/a&gt; protocol.&lt;/li&gt;
+      &lt;li&gt;codec-smtp      : Support for &lt;a href=&quot;https://www.ietf.org/rfc/rfc2821.txt&quot;&gt;SMTP&lt;/a&gt; protocol (only client side atm).&lt;/li&gt;
+      &lt;li&gt;codec-stomp     : Support for &lt;a href=&quot;https://stomp.github.io/stomp-specification-1.2.html&quot;&gt;Stomp&lt;/a&gt;.&lt;/li&gt;
+      &lt;li&gt;handler-proxy   : Support for bulding proxies.&lt;/li&gt;
+      &lt;li&gt;resolver-dns    : Alternative DNS resolver that is non-blocking and is using codec-dns.&lt;/li&gt;
+      &lt;li&gt;resolver        : Resolver interfaces.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt; For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues&quot;&gt;our issue tracker&lt;/a&gt; and look for all 4.1.0.x releases.&lt;/p&gt;
+      
+      &lt;h2&gt;Experimental APIs&lt;/h2&gt;
+      
+      &lt;p&gt;With this release we also introduce a new annotation (&lt;code&gt;@UnstableApi&lt;/code&gt;) that we will use in the future to mark certain APIs as unstable, and so should be free to change these at any time. This will allow us to provide certain features to users earlier while still be able to make slightly changes when needed.&lt;/p&gt;
+      
+      &lt;h2&gt;Notable changes&lt;/h2&gt;
+      
+      &lt;p&gt;As stated there are lot of changes, following are the more important for the &quot;general&quot; user, which are not related to
+      new codecs.&lt;/p&gt;
+      
+      &lt;h3&gt;Default ByteBufAllocator&lt;/h3&gt;
+      
+      &lt;p&gt;The default used &lt;code&gt;ByteBufAllocator&lt;/code&gt; was changed to &lt;code&gt;PooledByteBufAllocator&lt;/code&gt;. So if you want to use &lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt; you need to explicit configure it.&lt;/p&gt;
+      
+      &lt;h3&gt;Resolving during Bootstrap.connect(...)&lt;/h3&gt;
+      
+      &lt;p&gt;With this release of Netty you can make use of &lt;code&gt;resolver-dns&lt;/code&gt; which contains a fully asynchronous DNS resolver. This can be configure on the &lt;code&gt;Bootstrap&lt;/code&gt; and so allow to make the full DNS resolution during the connect non-blocking.&lt;/p&gt;
+      
+      &lt;p&gt;Using it is as simple as:&lt;/p&gt;
+      
+      &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;DnsAddressResolverGroup resolverGroup = new DnsAddressResolverGroup(
+              NioDatagramChannel.class, DnsServerAddress.defaultAddressList());
+      
+      NioEventLoopGroup group = new NioEventLoopGroup();
+      Bootstrap bs = new Bootstrap()
+          .group(group)
+          .resolver(resolverGroup)
+          .handler(....);
+      ChannelFuture future = bs.connect(InetSocketAddress.createUnresolved(&quot;netty.io&quot;, 80));
+      ...
+      &lt;/code&gt;&lt;/pre&gt;
+      
+      &lt;p&gt;By default it will use the JDK name resolution, just as before, which is blocking :(&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;We would like to thank all of you who helped us improve Netty over the past years. No matter if it was through bug-reports, PRs, questions or feedback. Without you, the community, Netty would have not be possible!&lt;/p&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2016/04/10/4-1-0-CR7.html</id>
     <title>Netty 4.1.0.CR7 released</title>
@@ -3929,28 +4013,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/wgallagher&quot;&gt;@wgallagher&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/09/05/3-7-0-Final.html</id>
-    <title>Netty 3.7.0.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2013-09-05T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/09/05/3-7-0-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      As a small team, we often have difficulties maintaining multiple branches.  Although most of our efforts are being put on 4.0 and beyond, we are sure 3.x deserves good deal of attention and love, and I'd like to present another feature release in the 3.x branch.
-      
-      Even though we bumped the minor version from 6 to 7, it is mostly a bug fix release if the changes in the SPDY support is not considered.  Because SPDY is relatively new and its specification has been changing over time, we had to reorganize it a little bit.  If you were...
-    </summary>
-    <content type="html">
-      &lt;p&gt;As a small team, we often have difficulties maintaining multiple branches.  Although most of our efforts are being put on 4.0 and beyond, we are sure 3.x deserves good deal of attention and love, and I'd like to present another feature release in the 3.x branch.&lt;/p&gt;
-      
-      &lt;p&gt;Even though we bumped the minor version from 6 to 7, it is mostly a bug fix release if the changes in the SPDY support is not considered.  Because SPDY is relatively new and its specification has been changing over time, we had to reorganize it a little bit.  If you were using the SPDY package in 3.6, you might want to make sure everything works as before and check &lt;a href=&quot;https://github.com/netty/netty/pull/1778&quot;&gt;#1778&lt;/a&gt;, &lt;a href=&quot;https://github.com/netty/netty/pull/1490&quot;&gt;#1490&lt;/a&gt;, &lt;a href=&quot;https://github.com/netty/netty/pull/1476&quot;&gt;#1476&lt;/a&gt;, &lt;a href=&quot;https://github.com/netty/netty/pull/1462&quot;&gt;#1462&lt;/a&gt;, and &lt;a href=&quot;https://github.com/netty/netty/pull/1419&quot;&gt;#1419&lt;/a&gt;.  Otherwise, you will not notice anything particular but bug fixes.&lt;/p&gt;
-      
-      &lt;p&gt;For the complete list of the changes, please visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.7.0.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
     </content>
   </entry>
 </feed>
