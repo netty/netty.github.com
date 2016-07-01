@@ -2,9 +2,108 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2016-06-29T15:02:40+02:00</updated>
+  <updated>2016-07-01T13:56:15+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html</id>
+    <title>Netty 4.0.38.Final and 4.1.2.Final released</title>
+    <updated>2016-07-01T13:56:15+02:00</updated>
+    <published>2016-07-01T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the lastest bug-fix releases for our 4.0.x and 4.1.x series today.
+      
+      The releases contains a lot of changes, these include bug-fixes, performance enhancements and new features.
+      
+      The most important changes are for 4.0.38 and 4.1.2.Final:
+      
+      
+      Be able to use Netty in JDK9 (#5475), (#5474 ), (#5473)
+      Allow to inject RejectedExecutionHandler for different EventLoops and EventExecutors (#5441)
+      Allow to set max capacity for task queue for EventExecutors and EventLoops (#5440)
+      Add support for KeyManagerFactory when using SslProvider.OpenSsl (#5439)
+      Add support for SNIHostName when using Java8+ (#5417)
+      Pluggable resource leak detector (#5392)
+      Ensure OpenSslClientContext / OpenSslServerContext can be garbage-collected (#5380)
+      Use shaded dependency on JCTools instead of copy...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the lastest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
+      
+      &lt;p&gt;The releases contains a lot of changes, these include bug-fixes, performance enhancements and new features.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are for 4.0.38 and 4.1.2.Final:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Be able to use Netty in JDK9 (&lt;a href=&quot;https://github.com/netty/netty/pull/5475&quot;&gt;#5475&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/5474&quot;&gt;#5474 &lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/5473&quot;&gt;#5473&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to inject RejectedExecutionHandler for different EventLoops and EventExecutors (&lt;a href=&quot;https://github.com/netty/netty/pull/5441&quot;&gt;#5441&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to set max capacity for task queue for EventExecutors and EventLoops (&lt;a href=&quot;https://github.com/netty/netty/pull/5440&quot;&gt;#5440&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for KeyManagerFactory when using SslProvider.OpenSsl (&lt;a href=&quot;https://github.com/netty/netty/pull/5439&quot;&gt;#5439&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for SNIHostName when using Java8+ (&lt;a href=&quot;https://github.com/netty/netty/pull/5417&quot;&gt;#5417&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Pluggable resource leak detector (&lt;a href=&quot;https://github.com/netty/netty/pull/5392&quot;&gt;#5392&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure OpenSslClientContext / OpenSslServerContext can be garbage-collected (&lt;a href=&quot;https://github.com/netty/netty/pull/5380&quot;&gt;#5380&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use shaded dependency on JCTools instead of copy and paste (&lt;a href=&quot;https://github.com/netty/netty/pull/5316&quot;&gt;#5316&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes are for 4.1.2.Final only:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;DnsNameResolver should not bind locally. (&lt;a href=&quot;https://github.com/netty/netty/pull/5461&quot;&gt;#5461&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver does not resolve property A+CNAME answer (&lt;a href=&quot;https://github.com/netty/netty/pull/5413&quot;&gt;#5413&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Optimize HPACK usage to align more with Netty types and remove heavy object creations (&lt;a href=&quot;https://github.com/netty/netty/pull/5355&quot;&gt;#5355&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.38.Final+is%3Aclosed&quot;&gt;4.0.38.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.2.Final+is%3Aclosed&quot;&gt;4.1.2.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.38.Final are also included in 4.1.2.Final. All changes only have milestone 4.1.2.Final
+      do not affect 4.0.38.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/artgon&quot;&gt;@artgon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/caillette&quot;&gt;@caillette&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fchevassu&quot;&gt;@fchevassu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/garethcollins&quot;&gt;@garethcollins&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/guidomedina&quot;&gt;@guidomedina&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kevinherron&quot;&gt;@kevinherron&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mertjuh&quot;&gt;@mertjuh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mrokitka&quot;&gt;@mrokitka&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/npordash&quot;&gt;@npordash&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://githbu.com/rhart&quot;&gt;@rhart&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/SinaTadayon&quot;&gt;@SinaTadayon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ylgrgyq&quot;&gt;@ylgrgyq&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2016/06/29/3-10-6-Final.html</id>
     <title>Netty 3.10.6.Final released</title>
@@ -3939,83 +4038,6 @@
       &lt;li&gt;Faster &lt;code&gt;ChannelBuffers.EMPTY_BUFFER&lt;/code&gt;&lt;/li&gt;
       &lt;li&gt;Support for &lt;code&gt;charset&lt;/code&gt; property in HTTP multipart request boundary (backported from 4.x)&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.0.Final&quot;&gt;a couple bug fixes&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2013/12/02/4-0-13-Final.html</id>
-    <title>Netty 4.0.13.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2013-12-02T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2013/12/02/4-0-13-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.13.Final. This is a bug-fix release but also include performance improvements, especially in the http-codec and SslHandler. Please refer to the next section for more details. The release closes 18 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.
-      
-      Most important changes / fixes
-      
-      
-      ChannelHandlerContext exposes package private class ChannelOutboundInvoker (#1991)
-      IllegalStateException in the selector loop when a connection attempt is cancelled. (#1986)
-      discardSomeReadBytes() throws IndexOutOfBoundsException in CompositeByteBuf (#1976)
-      Optimize SslHandler (#1972)
-      
-      
-      
-      Visit here for the complete list of the changes.
-      
-      As always please let us...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.13.Final. This is a bug-fix release but also include performance improvements, especially in the http-codec and SslHandler. Please refer to the next section for more details. The release closes 18 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.&lt;/p&gt;
-      
-      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;ChannelHandlerContext exposes package private class ChannelOutboundInvoker (&lt;a href=&quot;https://github.com/netty/netty/issues/1991&quot;&gt;#1991&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;IllegalStateException in the selector loop when a connection attempt is cancelled. (&lt;a href=&quot;https://github.com/netty/netty/issues/1986&quot;&gt;#1986&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;discardSomeReadBytes() throws IndexOutOfBoundsException in CompositeByteBuf (&lt;a href=&quot;https://github.com/netty/netty/issues/1976&quot;&gt;#1976&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Optimize SslHandler (&lt;a href=&quot;https://github.com/netty/netty/issues/1972&quot;&gt;#1972&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.13.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;SslHandler&lt;/h3&gt;
-      
-      &lt;p&gt;Because of the changes introduced in (&lt;a href=&quot;https://github.com/netty/netty/issues/1972&quot;&gt;#1972&lt;/a&gt;) we saw an performance improvement of &lt;strong&gt;500%&lt;/strong&gt; when using the SslHandler. This needs no changes in your code base.&lt;/p&gt;
-      
-      &lt;h3&gt;Http Codec&lt;/h3&gt;
-      
-      &lt;p&gt;We did various optimizations in our Http Codec to higher our throughtput. The performance win is dramatic.&lt;/p&gt;
-      
-      &lt;p&gt;First of we allow you to disable the verification of headers now. This means you can disable the verification of header names and values and so also except non-us-ascii names/values. This is most of the times not a big problem but was not allowed pefore. By disable the verification you can get a much higher throughput.&lt;/p&gt;
-      
-      &lt;p&gt;To disable it you need to pass &lt;code&gt;false&lt;/code&gt; to the constructor of &lt;code&gt;HttpRequestDecoder&lt;/code&gt;or `HttpResponseDecoder. Please check the apidocs for the details.&lt;/p&gt;
-      
-      &lt;p&gt;The other optimization we did alows you to create an optimized &lt;code&gt;CharSequence&lt;/code&gt; which you can use as header name and value. This &lt;code&gt;CharSequence&lt;/code&gt; is optimized for reuse and should so be used if you have names or values that never changes. Encoding such a &lt;code&gt;CharSequence&lt;/code&gt; is much faster then optimize a normal &lt;code&gt;String&lt;/code&gt; and so should be considered in such cases.&lt;/p&gt;
-      
-      &lt;p&gt;To generate it use the &lt;code&gt;HttpHeaders.newEntity(String)&lt;/code&gt; method.&lt;/p&gt;
-      
-      &lt;h2&gt;Acknowledge&lt;/h2&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ifesdjeen&quot;&gt;@ifesdjeen&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/iridium77&quot;&gt;@iridium77&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lhrios&quot;&gt;@lhrios&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tbocek&quot;&gt;@tbocek&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
