@@ -2,9 +2,94 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2016-07-15T09:44:02+02:00</updated>
+  <updated>2016-07-27T13:56:03+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html</id>
+    <title>Netty 4.0.40.Final and 4.1.4.Final released</title>
+    <updated>2016-07-27T13:56:03+02:00</updated>
+    <published>2016-07-27T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.
+      
+      The releases contain bug-fixes, performance enhancements and new features.
+      
+      Important: These releases also fix a regression (see (#5577) and (#5569) for more details) introduced in 4.0.39.Final and 4.1.3.Final which may lead to more memory usage when write operations or allocations happen from different threads. So please consider upgrading as soon as possible.
+      
+      The most important changes for 4.0.40.Final and 4.1.4.Final are:
+      
+      
+      Set Recycler DEFAULT_INITIAL_MAX_CAPACITY to a more sane value (#5589)
+      Ensure shared capacity is updated correctly when WeakOrderQueue is collected (#5577)
+      Ensure WeakOrderQueue can be collected fast enough (#5569)
+      Ensure attributes and...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
+      
+      &lt;p&gt;The releases contain bug-fixes, performance enhancements and new features.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; These releases also fix a regression (see (&lt;a href=&quot;https://github.com/netty/netty/pull/5577&quot;&gt;#5577&lt;/a&gt;) and (&lt;a href=&quot;https://github.com/netty/netty/pull/5569&quot;&gt;#5569&lt;/a&gt;) for more details) introduced in 4.0.39.Final and 4.1.3.Final which may lead to more memory usage when write operations or allocations happen from different threads. So please consider upgrading as soon as possible.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.40.Final and 4.1.4.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Set Recycler DEFAULT_INITIAL_MAX_CAPACITY to a more sane value (&lt;a href=&quot;https://github.com/netty/netty/pull/5589&quot;&gt;#5589&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure shared capacity is updated correctly when WeakOrderQueue is collected (&lt;a href=&quot;https://github.com/netty/netty/pull/5577&quot;&gt;#5577&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure WeakOrderQueue can be collected fast enough (&lt;a href=&quot;https://github.com/netty/netty/pull/5569&quot;&gt;#5569&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure attributes and contained object can be collected as fast as possible (&lt;a href=&quot;https://github.com/netty/netty/pull/5575&quot;&gt;#5575&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.4.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Correctly return a retained slice if called SwappedByteBuf.retainedSlice(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/5593&quot;&gt;#5593&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow ndots=0 in DnsNameResolver and search domain (&lt;a href=&quot;https://github.com/netty/netty/pull/5571&quot;&gt;#5571&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/147?closed=1&quot;&gt;4.0.40.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/148?closed=1&quot;&gt;4.1.4.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.40.Final are also included in 4.1.4.Final. All changes only have milestone 4.1.4.Final
+      do not affect 4.0.40.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Special notes&lt;/h1&gt;
+      
+      &lt;p&gt;This section highlights changes which we feel deserve some more attention.&lt;/p&gt;
+      
+      &lt;h2&gt;Changes of Recycler DEFAULT_INITIAL_MAX_CAPACITY&lt;/h2&gt;
+      
+      &lt;p&gt;The Recycler which is used by different parts of Netty had a default max capacity (per thread) of 262144 objects. We felt this is not a &quot;sane&quot; value and may result excessive memory usage if allocations happen in bursts. We changed it to 32768 (per thread). If you want to preserve the old behavior you can use &lt;code&gt;-Dio.netty.recycler.maxCapacity=262144&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/alexlehm&quot;&gt;@alexlehm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/igracia&quot;&gt;@igracia&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/JackOfMostTrades&quot;&gt;@JackOfMostTrades&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ngocdaothanh&quot;&gt;@ngocdaothanh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2016/07/15/4-0-39-Final-4-1-3-Final.html</id>
     <title>Netty 4.0.39.Final and 4.1.3.Final released</title>
@@ -4012,87 +4097,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/valodzka&quot;&gt;@valodzka&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/vschafer&quot;&gt;@vschafer&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/xfrag&quot;&gt;@xfrag&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/01/21/4-0-15-Final.html</id>
-    <title>Netty 4.0.15.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2014-01-21T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/01/21/4-0-15-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the first release this year a.k.a Netty 4.0.15.Final. This is a bug-fix release, but also ships performance improvements for decoding HTTP responses / requests. Please refer to the next section for more details. The release closes 27 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.
-      
-      Most important changes / fixes
-      
-      
-      NPE in AbstractNioUnsafe.finishConnect() (#2086)
-      CancelledKeyException on writeAndFlush() (#2104)
-      
-      
-      
-      Visit here for the complete list of the changes.
-      
-      As always please let us know if you find any issues. We love feedback!
-      
-      Special notes
-      
-      Added CORS support
-      
-      This release also added...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the first release this year a.k.a Netty 4.0.15.Final. This is a bug-fix release, but also ships performance improvements for decoding HTTP responses / requests. Please refer to the next section for more details. The release closes 27 issues / tasks . As expected from a bug-fix release it is API compatible to previous version out of the 4.0.x tree.&lt;/p&gt;
-      
-      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;NPE in AbstractNioUnsafe.finishConnect() (&lt;a href=&quot;https://github.com/netty/netty/issues/2086&quot;&gt;#2086&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;CancelledKeyException on writeAndFlush() (&lt;a href=&quot;https://github.com/netty/netty/issues/2104&quot;&gt;#2104&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.15.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;Added CORS support&lt;/h3&gt;
-      
-      &lt;p&gt;This release also added support for CORS. Please see &lt;a href=&quot;https://github.com/netty/netty/tree/netty-4.0.15.Final/example/src/main/java/io/netty/example/http/cors&quot;&gt;the CORS demo example&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/pull/2070&quot;&gt;#2070&lt;/a&gt; for more details.&lt;/p&gt;
-      
-      &lt;h3&gt;SPDY server example&lt;/h3&gt;
-      
-      &lt;p&gt;A SPDY server example was added to make it even easier for users to get started. Please see &lt;a href=&quot;https://github.com/netty/netty/tree/netty-4.0.15.Final/example/src/main/java/io/netty/example/spdy&quot;&gt;the SPDY server example&lt;/a&gt; for more details.&lt;/p&gt;
-      
-      &lt;h2&gt;Allow to extend Testsuite&lt;/h2&gt;
-      
-      &lt;p&gt;It is now possible to extend the Testsuite used by netty and so run the tests on a custom transport implementation. This is for advanced use cases only, but still worth to be listed here.&lt;/p&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/azenkov&quot;&gt;@azenkov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ChristianSchwarz&quot;&gt;@ChristianSchwarz&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/coelho&quot;&gt;@coelho&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/earthling&quot;&gt;@earthling&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/milenkovicm&quot;&gt;@milenkovicm&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ngocdaothanh&quot;&gt;@ngocdaothanh&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/superzhu&quot;&gt;@superzhu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tianyuanzhonglu&quot;&gt;@tianyuanzhonglu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/valodzka&quot;&gt;@valodzka&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/veebs&quot;&gt;@veebs&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
