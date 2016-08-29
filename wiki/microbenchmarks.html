@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2016/07/27/4-0-40-Final-4-1-4-Final.html">
+              <a href="../news/2016/08/29/4-0-41-Final-4-1-5-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.4.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.5.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.4.Final
-                    <small>&dash; 27-Jul-2016</small>
+                    4.1.5.Final
+                    <small>&dash; 29-Aug-2016</small>
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.40.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.41.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.40.Final
-                    <small>&dash; 27-Jul-2016</small>
+                    4.0.41.Final
+                    <small>&dash; 29-Aug-2016</small>
                   </a>
                 </li>
                 <li>
@@ -275,7 +275,7 @@
           
           <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
           
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking">the talks</a> of one of the main authors from JMH.</p>
           
@@ -298,7 +298,7 @@
           
           <p>Note that you can also customize those default settings on a per-test basis through annotations:</p>
           
-          <div class="highlight highlight-source-java"><pre>@Warmup(iterations <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;@Fork(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Warmup</span>(<span class="pl-c1">iterations</span> <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;<span class="pl-k">@Fork</span>(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           
           <p>This can be done on a per-class and per-method (benchmark) basis. Note that command line arguments always override the annotation defaults.</p>
           
@@ -321,7 +321,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Jul-2016</small>
+                <small>Last retrieved on 29-Aug-2016</small>
               </div>
             </div>
           </div>

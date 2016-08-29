@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2016/07/27/4-0-40-Final-4-1-4-Final.html">
+              <a href="../news/2016/08/29/4-0-41-Final-4-1-5-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.4.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.5.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.4.Final
-                    <small>&dash; 27-Jul-2016</small>
+                    4.1.5.Final
+                    <small>&dash; 29-Aug-2016</small>
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.40.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.41.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.40.Final
-                    <small>&dash; 27-Jul-2016</small>
+                    4.0.41.Final
+                    <small>&dash; 29-Aug-2016</small>
                   </a>
                 </li>
                 <li>
@@ -418,6 +418,62 @@
           <p>If you are on a platform we don't ship the JARs with the native libraries, such as Windows x86_32, follow the instructions in this section.</p>
           
           <h3 id="wiki-h3-8">
+          <a id="user-content-updating-and-verifying-dependencies" class="anchor" href="#updating-and-verifying-dependencies" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating and Verifying Dependencies</h3>
+          
+          <p>It is important to verify the integrity of third party dependencies when building on your own. Also, dependency updates in the build will trigger checksum failures, and the package maintainers should follow this process to ensure the integrity of the package before updating the checksum to match.</p>
+          
+          <h3 id="wiki-h3-9">
+          <a id="user-content-autoconf" class="anchor" href="#autoconf" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>autoconf</h3>
+          
+          <ul>
+          <li>download tgz and tgz.sig from <a href="http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz">http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz</a>
+          </li>
+          <li><code>gpg --keyserver keys.gnupg.net --recv-keys 2527436A</code></li>
+          <li><code>gpg --verify autoconf-X.Y.Z.tar.gz.sig</code></li>
+          </ul>
+          
+          <h3 id="wiki-h3-10">
+          <a id="user-content-apr" class="anchor" href="#apr" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>apr</h3>
+          
+          <ul>
+          <li>download at <a href="https://apr.apache.org/download.cgi">https://apr.apache.org/download.cgi</a>
+          </li>
+          <li>Securely fetch the MD5 sum for apr: the apache site links to http, but modify that to https</li>
+          <li>Paste the sum into a file</li>
+          <li>Verify the sum <code>md5 -r apr-X.Y.Z.tar.gz | cut -d " " -f 1 | diff -u apr-X.Y.Z.tar.gz.md5 -</code>
+          </li>
+          </ul>
+          
+          <h3 id="wiki-h3-11">
+          <a id="user-content-libressl" class="anchor" href="#libressl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>libressl</h3>
+          
+          <ul>
+          <li>signify public key: RWQg/nutTVqCUVUw8OhyHt9n51IC8mdQRd1b93dOyVrwtIXmMI+dtGFe</li>
+          <li>(you can download hte public key at <a href="https://www.openbsd.org/libressl/signing.html">https://www.openbsd.org/libressl/signing.html</a>)</li>
+          <li>download tarball, signature, and SHA256.sig at <a href="http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/">http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/</a>
+          </li>
+          <li>verify using libressl.pub from <a href="https://www.openbsd.org/libressl/signing.html">https://www.openbsd.org/libressl/signing.html</a>:
+          <code>signify -C -x SHA256.sig  -p /path/to/libressl.pub libressl-X.Y.Z.tar.gz</code>
+          </li>
+          </ul>
+          
+          <h3 id="wiki-h3-12">
+          <a id="user-content-openssl" class="anchor" href="#openssl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>openssl</h3>
+          
+          <ul>
+          <li>Download tarball and SHA256 signature from <a href="https://www.openssl.org/source/">https://www.openssl.org/source/</a>
+          </li>
+          <li>Verify the sum <code>sha1sum openssl-X.Y.Z.tar.gz | cut -d " " -f 1 | diff -u openssl-X.Y.Z.tar.gz.sha256 -</code>
+          </li>
+          </ul>
+          
+          <h3 id="wiki-h3-13">
+          <a id="user-content-boringssl" class="anchor" href="#boringssl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>boringssl</h3>
+          
+          <p>boringssl is not currently versioned hermetically for tcnative builds: instead it just pulls
+          from the <code>chromium-stable</code> branch at build time from the <a href="https://boringssl.googlesource.com/boringssl/">upstream google git repo</a></p>
+          
+          <h3 id="wiki-h3-14">
           <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Linux</h3>
           
           <table class="table table-hover">
@@ -467,7 +523,7 @@
           
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork16)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
-          <h3 id="wiki-h3-9">
+          <h3 id="wiki-h3-15">
           <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Mac OS X</h3>
           
           <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
@@ -486,7 +542,7 @@
           
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"># To build a specific version: (e.g. netty-tcnative-1.1.33.Fork16)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"># To build a snapshot: (e.g. 1.1.33)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
-          <h3 id="wiki-h3-10">
+          <h3 id="wiki-h3-16">
           <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Windows</h3>
           
           <p>This section describes how to build on 64-bit Windows. Some of these steps may have to be tailored when building on 32-bit systems. </p>
@@ -572,7 +628,7 @@
           
           <div class="highlight highlight-source-dosbatch"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-1.1.33.Fork16)&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-k">REM</span> To build a snapshot: (e.g. 1.1.33.Fork16)&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           
-          <h2 id="wiki-h2-11">
+          <h2 id="wiki-h2-17">
           <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a new fork</h2>
           
           <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
@@ -597,10 +653,16 @@
           </li><li><a href="#wiki-h2-5" title="How to use">How to use</a>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-6" title="Prerequisites for Dynamically Linked netty-tcnative">Prerequisites for Dynamically Linked netty-tcnative</a>
           </li></ul></li><li><a href="#wiki-h2-7" title="How to build">How to build</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="Building on Linux">Building on Linux</a>
-          </li><li><a href="#wiki-h3-9" title="Building on Mac OS X">Building on Mac OS X</a>
-          </li><li><a href="#wiki-h3-10" title="Building on Windows">Building on Windows</a>
-          </li></ul></li><li><a href="#wiki-h2-11" title="Creating a new fork">Creating a new fork</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="Updating and Verifying Dependencies">Updating and Verifying Dependencies</a>
+          </li><li><a href="#wiki-h3-9" title="autoconf">autoconf</a>
+          </li><li><a href="#wiki-h3-10" title="apr">apr</a>
+          </li><li><a href="#wiki-h3-11" title="libressl">libressl</a>
+          </li><li><a href="#wiki-h3-12" title="openssl">openssl</a>
+          </li><li><a href="#wiki-h3-13" title="boringssl">boringssl</a>
+          </li><li><a href="#wiki-h3-14" title="Building on Linux">Building on Linux</a>
+          </li><li><a href="#wiki-h3-15" title="Building on Mac OS X">Building on Mac OS X</a>
+          </li><li><a href="#wiki-h3-16" title="Building on Windows">Building on Windows</a>
+          </li></ul></li><li><a href="#wiki-h2-17" title="Creating a new fork">Creating a new fork</a>
           </li></ul>
           </div>
           </div>
@@ -608,7 +670,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Jul-2016</small>
+                <small>Last retrieved on 29-Aug-2016</small>
               </div>
             </div>
           </div>

@@ -2,15 +2,15 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2016-07-27T13:56:03+02:00</updated>
+  <updated>2016-08-29T19:31:13+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
-    <id>http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html</id>
+    <id>http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html</id>
     <title>Netty 4.0.40.Final and 4.1.4.Final released</title>
-    <updated>2016-07-27T13:56:03+02:00</updated>
-    <published>2016-07-27T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html" rel="alternate" type="text/html" />
+    <updated>2016-08-29T19:31:13+02:00</updated>
+    <published>2016-08-29T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html" rel="alternate" type="text/html" />
     <author>
       <name>normanmaurer</name>
     </author>
@@ -87,6 +87,108 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
+  <entry>
+    <id>http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html</id>
+    <title>Netty 4.0.41.Final and 4.1.5.Final released</title>
+    <updated>2016-08-29T19:58:18+02:00</updated>
+    <published>2016-07-27T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.
+      
+      The releases contain bug-fixes, performance enhancements and new features.
+      
+      Important: These releases also fix a possible crash when using netty-tcnative-boringssl-static (see (#5733) so please upgrade ASAP if you this.
+      
+      The most important changes for 4.0.41.Final and 4.1.5.Final are:
+      
+      
+      Result of ByteBufUtil.compare(ByteBuf a, ByteBuf b) is dependent on ByteOrder of supplied ByteBufs (#5732)
+      Ensure fireChannelActive() is also called if Channel is closed in connect promise (#5724)
+      Ensure SslHandler.close(...) will not throw exception if flush of pending messages fail (#5685)
+      Static initializers can cause deadlock (#5730)
+      Detect if netty-tcnative is in classpath or just tcnative...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
+      
+      &lt;p&gt;The releases contain bug-fixes, performance enhancements and new features.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; These releases also fix a possible crash when using netty-tcnative-boringssl-static (see (&lt;a href=&quot;https://github.com/netty/netty/pull/5733&quot;&gt;#5733&lt;/a&gt;) so please upgrade ASAP if you this.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.41.Final and 4.1.5.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Result of ByteBufUtil.compare(ByteBuf a, ByteBuf b) is dependent on ByteOrder of supplied ByteBufs (&lt;a href=&quot;https://github.com/netty/netty/pull/5732&quot;&gt;#5732&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure fireChannelActive() is also called if Channel is closed in connect promise (&lt;a href=&quot;https://github.com/netty/netty/pull/5724&quot;&gt;#5724&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure SslHandler.close(...) will not throw exception if flush of pending messages fail (&lt;a href=&quot;https://github.com/netty/netty/pull/5685&quot;&gt;#5685&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Static initializers can cause deadlock (&lt;a href=&quot;https://github.com/netty/netty/pull/5730&quot;&gt;#5730&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Detect if netty-tcnative is in classpath or just tcnative (&lt;a href=&quot;https://github.com/netty/netty/pull/5666&quot;&gt;#5666&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure direct ByteBuffer are wrapped in as direct ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/5629&quot;&gt;#5629&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to limit the maximum number of WeakOrderQueue instances per Thread (&lt;a href=&quot;https://github.com/netty/netty/pull/5592&quot;&gt;#5592&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure correct ordering if a ChannelInitializer adds another ChannelInitializer (&lt;a href=&quot;https://github.com/netty/netty/pull/5588&quot;&gt;#5588&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Servers should not send duplicate intermediate certificates (&lt;a href=&quot;https://github.com/netty/netty/pull/5606&quot;&gt;#5606&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Not try to double release empty buffer in Unpooled.wrappedBuffer (&lt;a href=&quot;https://github.com/netty/netty/pull/5605&quot;&gt;#5605&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure SslHandler not log false-positives when try to close the Channel due timeout (&lt;a href=&quot;https://github.com/netty/netty/pull/5604&quot;&gt;#5604&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Introduce allocation / pooling ratio in Recycler (&lt;a href=&quot;https://github.com/netty/netty/pull/5594&quot;&gt;#5594&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.5.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Ensure we not log missleading errors if the promise was already failed due errors (&lt;a href=&quot;https://github.com/netty/netty/pull/5689&quot;&gt;#5689&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 limit streams in all states (&lt;a href=&quot;https://github.com/netty/netty/pull/5671&quot;&gt;#5671&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=false (&lt;a href=&quot;https://github.com/netty/netty/pull/5659&quot;&gt;#5659&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add NonStickyEventExecutorGroup (&lt;a href=&quot;https://github.com/netty/netty/pull/5579&quot;&gt;#5579&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix RejectedExecutionException when using DnsAddressResolverGroup (&lt;a href=&quot;https://github.com/netty/netty/pull/5612&quot;&gt;#5612&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/150?closed=1&quot;&gt;4.0.41.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/151?closed=1&quot;&gt;4.1.5.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.41.Final are also included in 4.1.5.Final. All changes only have milestone 4.1.5.Final
+      do not affect 4.0.41.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/adityakishore&quot;&gt;@adityakishore&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/akhilk14&quot;&gt;@akhilk14&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/alexlehm&quot;&gt;@alexlehm&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/alkemist&quot;&gt;@alkemist&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cconroy&quot;&gt;@cconroy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ferrybig&quot;&gt;@ferrybig&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gustavonalle&quot;&gt;@gustavonalle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jamel&quot;&gt;@jamel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/LukasWysocki&quot;&gt;@LukasWysocki&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nlavan&quot;&gt;@nlavan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbcs&quot;&gt;@tbcs&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tkowalcz&quot;&gt;@tkowalcz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tomer&quot;&gt;@tomer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/technocoreai&quot;&gt;@technocoreai&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tkaitchuck&quot;&gt;@tkaitchuck&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/xsir&quot;&gt;@xsir&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/yaroot&quot;&gt;@yaroot&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
@@ -3988,115 +4090,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/tsingxu&quot;&gt;@tsingxu&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/valodzka&quot;&gt;@valodzka&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/xhumanoid&quot;&gt;@xhumanoid&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/02/25/4-0-17-Final.html</id>
-    <title>Netty 4.0.17.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2014-02-25T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/02/25/4-0-17-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      We are happy to announce the relase of Netty 4.0.17.Final. This release again fixes a lot of bugs together with 4.0.16.Final and also two regressions introduced in 4.0.16.Final (this is why 4.0.16.Final was not announced).
-      
-      Beside this it also introduce a new native transport which is based on epoll edge-triggered (using C / JNI) for maximal performance and low latency. Release 4.0.17.Final and 4.0.16.Final fixes 45 issues/tasks/improvements in summary.
-      
-      So you should consider upgrading if you are using an early release. As always this release is backwards-compatible with earlier releases of the 4.0.x series.
-      
-      Most important changes / fixes
-      
-      
-      Introduce a native transport for...
-    </summary>
-    <content type="html">
-      &lt;p&gt;We are happy to announce the relase of Netty 4.0.17.Final. This release again fixes a lot of bugs together with 4.0.16.Final and also two regressions introduced in 4.0.16.Final (this is why 4.0.16.Final was not announced).&lt;/p&gt;
-      
-      &lt;p&gt;Beside this it also introduce a new native transport which is based on epoll edge-triggered (using C / JNI) for maximal performance and low latency. Release 4.0.17.Final and 4.0.16.Final fixes 45 issues/tasks/improvements in summary.&lt;/p&gt;
-      
-      &lt;p&gt;So you should consider upgrading if you are using an early release. As always this release is backwards-compatible with earlier releases of the 4.0.x series.&lt;/p&gt;
-      
-      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Introduce a native transport for linux using epoll ET (&lt;a href=&quot;https://github.com/netty/netty/pull/2229&quot;&gt;#2229&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Web Socket server leaks a buffer during a handshake (&lt;a href=&quot;https://github.com/netty/netty/issues/2188&quot;&gt;#2188&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Race condition in AbstractReferenceCountedByteBuf and AbstractReferenceCounted  (&lt;a href=&quot;https://github.com/netty/netty/issues/2187&quot;&gt;#2187&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Allow to cancel non-flushed writes (&lt;a href=&quot;https://github.com/netty/netty/pull/2214&quot;&gt;#2214&lt;/a&gt;) and (&lt;a href=&quot;https://github.com/netty/netty/pull/2209&quot;&gt;#2209&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Race in DefaultPormise which could lead to out of order notification of listeners (&lt;a href=&quot;https://github.com/netty/netty/pull/2186&quot;&gt;#2186&lt;/a&gt;) and (&lt;a href=&quot;https://github.com/netty/netty/pull/2157&quot;&gt;#2157&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix for releasing of the internal cumulation buffer in ByteToMessageDecoder (&lt;a href=&quot;https://github.com/netty/netty/pull/2184&quot;&gt;#2184&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Server sending websocket frame too quickly after upgrade causes client disconnect (&lt;a href=&quot;https://github.com/netty/netty/issues/2173&quot;&gt;#2173&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Not wakeup the EventLoop for writes as they will not cause a flush anyway (&lt;a href=&quot;https://github.com/netty/netty/pull/2172&quot;&gt;#2172&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Not throw an exception if WS subprotocol is not supported but just drop the header as stated in the RFC's (&lt;a href=&quot;https://github.com/netty/netty/pull/2149&quot;&gt;#2149&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Calling Channel.read() within channelReadComplete() not works when AutoRead is false (&lt;a href=&quot;https://github.com/netty/netty/issues/2254&quot;&gt;#2254&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.16.Final&quot;&gt;here&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.17.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;Native epoll edge-triggered transport&lt;/h3&gt;
-      
-      &lt;p&gt;This release features a new native &lt;a href=&quot;http://linux.die.net/man/4/epoll&quot;&gt;epoll&lt;/a&gt; based transport that uses &lt;a href=&quot;http://en.wikipedia.org/wiki/Epoll#Triggering_modes&quot;&gt;edge-triggered&lt;/a&gt; mode for maximal performance and low latency. This transport only works on Linux (as this is the OS which uses epoll), so if you not use Linux you can stop reading here ;)&lt;/p&gt;
-      
-      &lt;p&gt;The transport is part of the netty-transport-native-epoll artifact but is also included in netty-all. To make use of it just configure the &lt;code&gt;Bootstrap&lt;/code&gt; or &lt;code&gt;ServerBootstrap&lt;/code&gt; as usual but provide the specific &lt;code&gt;Channel&lt;/code&gt; and &lt;code&gt;EventLoopGroup&lt;/code&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;For any example refer to the next code snipped.&lt;/p&gt;
-      
-      &lt;pre&gt;&lt;code&gt;EventLoopGroup group = new EpollEventLoopGroup();
-      try {
-          ServerBootstrap b = new ServerBootstrap();
-          b.group(group)
-           .childHandler(new YourInitializer())
-           .channel(EpollServerSocketChannel.class);
-      
-      
-          Channel ch = b.bind(port).sync().channel();
-          ch.closeFuture().sync();
-      } finally {
-          group.shutdownGracefully().sync();
-      }
-      &lt;/code&gt;&lt;/pre&gt;
-      
-      &lt;p&gt;Beside the usual &lt;code&gt;ChannelOption&lt;/code&gt;s the Native Transport allows to enable &lt;a href=&quot;http://baus.net/on-tcp_cork/&quot;&gt;TCP_CORK&lt;/a&gt; which may come in handy if you implement a HTTP Server.&lt;/p&gt;
-      
-      &lt;p&gt;Be aware this transport only includes &lt;code&gt;SocketChannel&lt;/code&gt; and ServerSocketChannel implementations at the moment and so can only be used for TCP. This may change in the future. Also note while the transport pass all our Unit Tests and works in our benchmark there may be still issues that need to get fixed, so this transport is still considered somewhat experimental. But if you are brave enough to try please provide feedback :)&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/cmcmaugh&quot;&gt;@cmcmaugh&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/danbev&quot;&gt;@danbev&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/daniilguit&quot;&gt;@daniilguit&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Jacob201311&quot;&gt;@Jacob201311&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jjongsma&quot;&gt;@jjongsma&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jsiebens&quot;&gt;@jsiebens&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/md-5&quot;&gt;@md-5&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/MiddleBen&quot;&gt;@MiddleBen&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mkw&quot;&gt;@mkw&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/npordash&quot;&gt;@npordash&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/posix4e&quot;&gt;@posix4e&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/shevek&quot;&gt;@shevek&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/stIncMale&quot;&gt;@stIncMale&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/superzhu&quot;&gt;@superzhu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/valodzka&quot;&gt;@valodzka&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/vschafer&quot;&gt;@vschafer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/xfrag&quot;&gt;@xfrag&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
