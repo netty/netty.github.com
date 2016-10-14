@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2016/08/29/4-0-41-Final-4-1-5-Final.html">
+              <a href="../news/2016/10/14/4-0-42-Final-4-1-6-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.5.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.1.6.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.5.Final
-                    <small>&dash; 29-Aug-2016</small>
+                    4.1.6.Final
+                    <small>&dash; 14-Oct-2016</small>
                   </a>
                 </li>
                 <li>
-                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.41.Final.tar.bz2">
+                  <a href="http://dl.bintray.com/netty/downloads/netty-4.0.42.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.41.Final
-                    <small>&dash; 29-Aug-2016</small>
+                    4.0.42.Final
+                    <small>&dash; 14-Oct-2016</small>
                   </a>
                 </li>
                 <li>
@@ -309,7 +309,7 @@
           <li>
           <p>To implement the <code>DISCARD</code> protocol, the handler has to ignore the received message.  <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> is a reference-counted object which has to be released explicitly via the <code>release()</code> method.  Please keep in mind that it is the handler's responsibility to release any reference-counted object passed to the handler.  Usually, <code>channelRead()</code> handler method is implemented like the following:</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-k">try</span> {&#x000A;        <span class="pl-c">// Do something with msg</span>&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span><span class="pl-k">.</span>release(msg);&#x000A;    }&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-k">try</span> {&#x000A;        <span class="pl-c">// Do something with msg</span>&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span><span class="pl-k">.</span>release(msg);&#x000A;    }&#x000A;}</pre></div>
           </li>
           <li><p>The <code>exceptionCaught()</code> event handler method is called with a <code>Throwable</code> when an exception was raised by Netty due to an I/O error or by a handler implementation due to the exception thrown while processing events. In most cases, the caught exception should be logged and its associated channel should be closed here, although the implementation of this method can be different depending on what you want to do to deal with an exceptional situation. For example, you might want to send a response message with an error code before closing the connection.</p></li>
           </ol>
@@ -341,7 +341,7 @@
           
           <p>We already know that <code>channelRead()</code> method is invoked whenever data is received. Let us put some code into the <code>channelRead()</code> method of the <code>DiscardServerHandler</code>:</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-smi">ByteBuf</span> in <span class="pl-k">=</span> (<span class="pl-smi">ByteBuf</span>) msg;&#x000A;    <span class="pl-k">try</span> {&#x000A;        <span class="pl-k">while</span> (in<span class="pl-k">.</span>isReadable()) { <span class="pl-c">// (1)</span>&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print((<span class="pl-k">char</span>) in<span class="pl-k">.</span>readByte());&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>flush();&#x000A;        }&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span><span class="pl-k">.</span>release(msg); <span class="pl-c">// (2)</span>&#x000A;    }&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-smi">ByteBuf</span> in <span class="pl-k">=</span> (<span class="pl-smi">ByteBuf</span>) msg;&#x000A;    <span class="pl-k">try</span> {&#x000A;        <span class="pl-k">while</span> (in<span class="pl-k">.</span>isReadable()) { <span class="pl-c">// (1)</span>&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>print((<span class="pl-k">char</span>) in<span class="pl-k">.</span>readByte());&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>flush();&#x000A;        }&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span><span class="pl-k">.</span>release(msg); <span class="pl-c">// (2)</span>&#x000A;    }&#x000A;}</pre></div>
           
           <ol>
           <li>This inefficient loop can actually be simplified to: <code>System.out.println(in.toString(io.netty.util.CharsetUtil.US_ASCII))</code>
@@ -360,7 +360,7 @@
           
           <p>The only difference from the discard server we have implemented in the previous sections is that it sends the received data back instead of printing the received data out to the console. Therefore, it is enough again to modify the <code>channelRead()</code> method:</p>
           
-          <div class="highlight highlight-source-java"><pre>    @<span class="pl-smi">Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;        ctx<span class="pl-k">.</span>write(msg); <span class="pl-c">// (1)</span>&#x000A;        ctx<span class="pl-k">.</span>flush(); <span class="pl-c">// (2)</span>&#x000A;    }</pre></div>
+          <div class="highlight highlight-source-java"><pre>    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;        ctx<span class="pl-k">.</span>write(msg); <span class="pl-c">// (1)</span>&#x000A;        ctx<span class="pl-k">.</span>flush(); <span class="pl-c">// (2)</span>&#x000A;    }</pre></div>
           
           <ol>
           <li>A <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerContext.html"><code>ChannelHandlerContext</code></a> object provides various operations that enable you to trigger various I/O events and operations.  Here, we invoke <code>write(Object)</code> to write the received message in verbatim.  Please note that we did not release the received message unlike we did in the <code>DISCARD</code> example.  It is because Netty releases it for you when it is written out to the wire.</li>
@@ -531,15 +531,15 @@
           
           <p>We can now revise the <code>TimeDecoder</code> to produce a <code>UnixTime</code> instead of a <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>.</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>&#x000A;<span class="pl-k">protected</span> <span class="pl-k">void</span> decode(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ByteBuf</span> in, <span class="pl-k">List&lt;<span class="pl-smi">Object</span>&gt;</span> out) {&#x000A;    <span class="pl-k">if</span> (in<span class="pl-k">.</span>readableBytes() <span class="pl-k">&lt;</span> <span class="pl-c1">4</span>) {&#x000A;        <span class="pl-k">return</span>;&#x000A;    }&#x000A;&#x000A;    out<span class="pl-k">.</span>add(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>(in<span class="pl-k">.</span>readUnsignedInt()));&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">protected</span> <span class="pl-k">void</span> decode(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ByteBuf</span> in, <span class="pl-k">List&lt;<span class="pl-smi">Object</span>&gt;</span> out) {&#x000A;    <span class="pl-k">if</span> (in<span class="pl-k">.</span>readableBytes() <span class="pl-k">&lt;</span> <span class="pl-c1">4</span>) {&#x000A;        <span class="pl-k">return</span>;&#x000A;    }&#x000A;&#x000A;    out<span class="pl-k">.</span>add(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>(in<span class="pl-k">.</span>readUnsignedInt()));&#x000A;}</pre></div>
           
           <p>With the updated decoder, the <code>TimeClientHandler</code> does not use <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> anymore:</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-smi">UnixTime</span> m <span class="pl-k">=</span> (<span class="pl-smi">UnixTime</span>) msg;&#x000A;    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(m);&#x000A;    ctx<span class="pl-k">.</span>close();&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-smi">UnixTime</span> m <span class="pl-k">=</span> (<span class="pl-smi">UnixTime</span>) msg;&#x000A;    <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(m);&#x000A;    ctx<span class="pl-k">.</span>close();&#x000A;}</pre></div>
           
           <p>Much simpler and elegant, right? The same technique can be applied on the server side. Let us update the <code>TimeServerHandler</code> first this time:</p>
           
-          <div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelActive(<span class="pl-smi">ChannelHandlerContext</span> ctx) {&#x000A;    <span class="pl-smi">ChannelFuture</span> f <span class="pl-k">=</span> ctx<span class="pl-k">.</span>writeAndFlush(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>());&#x000A;    f<span class="pl-k">.</span>addListener(<span class="pl-smi">ChannelFutureListener</span><span class="pl-c1"><span class="pl-k">.</span>CLOSE</span>);&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelActive(<span class="pl-smi">ChannelHandlerContext</span> ctx) {&#x000A;    <span class="pl-smi">ChannelFuture</span> f <span class="pl-k">=</span> ctx<span class="pl-k">.</span>writeAndFlush(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>());&#x000A;    f<span class="pl-k">.</span>addListener(<span class="pl-smi">ChannelFutureListener</span><span class="pl-c1"><span class="pl-k">.</span>CLOSE</span>);&#x000A;}</pre></div>
           
           <p>Now, the only missing piece is an encoder, which is an implementation of <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> that translates a <code>UnixTime</code> back into a <a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>. It's much simpler than writing a decoder because there's no need to deal with packet fragmentation and assembly when encoding a message.</p>
           
@@ -583,7 +583,7 @@
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
           </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 25">Pages 25</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 26">Pages 26</a>
           </li><li><a href="#wiki-h3-1" title="3rd-party translations">3rd-party translations</a>
           </li></ul></li><li><a href="#wiki-h2-2" title="Preface">Preface</a>
           <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="The Problem">The Problem</a>
@@ -610,7 +610,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 29-Aug-2016</small>
+                <small>Last retrieved on 14-Oct-2016</small>
               </div>
             </div>
           </div>
