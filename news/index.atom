@@ -2,9 +2,132 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2016-10-14T15:02:07+02:00</updated>
+  <updated>2017-01-12T15:08:47+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html</id>
+    <title>Netty 4.0.43.Final and 4.1.7.Final released</title>
+    <updated>2017-01-12T15:08:47+01:00</updated>
+    <published>2017-01-12T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series. These releases contains 100+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
+      Also its worth noting that these releases include as many community contributed changes as never before. This makes me extremely proud of our community. With these words in mind, OSS FTW!
+      
+      The most important changes for 4.0.43.Final and 4.1.7.Final are:
+      
+      
+      OpenSSLContext Mutual Auth does not announce acceptable CAs (#6145)
+      Ensure ReferenceCountedOpenSslEngine not swallow the close_notify (#6189)
+      ByteBufUtil.compare int underflow (#6198)
+      Potential endless loop in Recycler.Stack.scavengeSome (#6153)
+      Ensure we use a MPMC queue in ThreadDeathWatcher as it...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series. These releases contains 100+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
+      Also its worth noting that these releases include as many community contributed changes as never before. This makes me extremely proud of our community. With these words in mind, OSS FTW!&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.43.Final and 4.1.7.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;OpenSSLContext Mutual Auth does not announce acceptable CAs (&lt;a href=&quot;https://github.com/netty/netty/pull/6145&quot;&gt;#6145&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure ReferenceCountedOpenSslEngine not swallow the close_notify (&lt;a href=&quot;https://github.com/netty/netty/pull/6189&quot;&gt;#6189&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ByteBufUtil.compare int underflow (&lt;a href=&quot;https://github.com/netty/netty/pull/6198&quot;&gt;#6198&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Potential endless loop in Recycler.Stack.scavengeSome (&lt;a href=&quot;https://github.com/netty/netty/issues/6153&quot;&gt;#6153&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure we use a MPMC queue in ThreadDeathWatcher as it may be used from multiple threads at the same time (&lt;a href=&quot;https://github.com/netty/netty/pull/6149&quot;&gt;#6149&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;NIO ServerChannel shouldn't close because of Exception (&lt;a href=&quot;https://github.com/netty/netty/pull/6107&quot;&gt;#6107&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Regression: SSL session contains extraneous NULL entries in peer certificate chain (&lt;a href=&quot;https://github.com/netty/netty/issues/6098&quot;&gt;#6098&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure alert is send when SSLException happens during calling SslHandler.unwrap(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/6047&quot;&gt;#6047&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use the correct alert depending on the CertificateException when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/6046&quot;&gt;#6046&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Adding ability to get Peer Creds on a UnixDomainSocket (&lt;a href=&quot;https://github.com/netty/netty/pull/5940&quot;&gt;#5940&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reduce lock contention in resource leak (&lt;a href=&quot;https://github.com/netty/netty/pull/5934&quot;&gt;#5934&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correct handle HttpMessage that is EOF terminated (&lt;a href=&quot;https://github.com/netty/netty/pull/5957&quot;&gt;#5957&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix unbalanced quotes in Bundle-NativeCode manifest header(&lt;a href=&quot;https://github.com/netty/netty/pull/5949&quot;&gt;#5949&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix false-positives when using ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/6103&quot;&gt;#6103&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.7.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;DefaultHttp2Connection modifying child map while iterating (&lt;a href=&quot;https://github.com/netty/netty/pull/6197&quot;&gt;#6197&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix DefaultChannelId MAC address parsing bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6147&quot;&gt;#6147&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do not limit the PID to be &amp;lt;= 4194304 (&lt;a href=&quot;https://github.com/netty/netty/pull/6144&quot;&gt;#6144&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix false-positives when using ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/6087&quot;&gt;#6087&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;retained[Slice|Duplicate] buffer reference count bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6024&quot;&gt;#6024&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;PlatformDependent ASCII hash code broken on big endian machines (&lt;a href=&quot;https://github.com/netty/netty/pull/5935&quot;&gt;#5935&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/154?closed=1&quot;&gt;4.0.43.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/155?closed=1&quot;&gt;4.1.7.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.43.Final are also included in 4.1.7.Final. All changes only have milestone 4.1.7.Final
+      do not affect 4.0.44.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Important note&lt;/h1&gt;
+      
+      &lt;p&gt;This release fixes a bug which could lead to false-positives in leak reports. So if you see leak reports in previous versions please upgrade and see if these still show up. This is related to (&lt;a href=&quot;https://github.com/netty/netty/pull/6087&quot;&gt;#6087&lt;/a&gt;) and (&lt;a href=&quot;https://github.com/netty/netty/pull/6103&quot;&gt;#6103&lt;/a&gt;).&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
+      *&lt;br /&gt;
+      * &lt;a href=&quot;https://github.com/adrianluisgonzalez&quot;&gt;@adrianluisgonzalez&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/alkemist&quot;&gt;@alkemist&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/aniketbhatnagar&quot;&gt;@aniketbhatnagar&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/bm3780&quot;&gt;@bm3780&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/byoengguk&quot;&gt;@byoengguk&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/chringwer&quot;&gt;@chringwer&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/cmdc0de&quot;&gt;@cmdc0de&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/derbylock&quot;&gt;@derbylock&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/garydgregory&quot;&gt;@garydgregory&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/ichaki5748&quot;&gt;@ichaki5748&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/IgorAlelekov&quot;&gt;@IgorAlelekov&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/ijuma&quot;&gt;@ijuma&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/JackOfMostTrades&quot;&gt;@JackOfMostTrades&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/jellenelis&quot;&gt;@jellenelis&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/jo-kin&quot;&gt;@jo-kin&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/jrudolph&quot;&gt;@jrudolph&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/lowka&quot;&gt;@lowka&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/maliqq&quot;&gt;@maliqq&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/maseev&quot;&gt;@maseev&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/markdascher&quot;&gt;@markdascher&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/nhnFreespirit&quot;&gt;@nhnFreespirit&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/radai-rosenblatt&quot;&gt;@radai-rosenblatt&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/RevvyDevvyDoo&quot;&gt;@RevvyDevvyDoo&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/s1monw&quot;&gt;@s1monw&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/smaldini&quot;&gt;@smaldini&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/vkorenev&quot;&gt;@vkorenev&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/vonbarg&quot;&gt;@vonbarg&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/wangyuntao&quot;&gt;@wangyuntao&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;
+      * &lt;a href=&quot;https://github.com/ZuluForce&quot;&gt;@ZuluForce&lt;/a&gt;&lt;/p&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2016/10/14/4-0-42-Final-4-1-6-Final.html</id>
     <title>Netty 4.0.42.Final and 4.1.6.Final released</title>
@@ -4017,100 +4140,6 @@
       
       
       &lt;p&gt;Special thanks to Laurentiu Luca for reporting the SSL security issue!&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/04/30/release-day.html</id>
-    <title>Release day!</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2014-04-30T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/04/30/release-day.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.19.Final, 3.9.1.Final, 3.8.2.Final, 3.7.1.Final and 3.6.9.Final. Beside providing you with various new features and bugfixes all of these releases have one in common; they fix a resource usage problem in the WebSocket08FrameDecoder.
-      
-      Before we aggregated the full text in the WebSocket08FrameDecoder just to fill in the ContinuationWebSocketFrame.aggregatedText(). The problem was that there was no upper-limit and so it would be possible to see an OOME if the remote peer sends a TextWebSocketFrame + a never ending stream of ContinuationWebSocketFrames. The aggregation of WebSocketFrames can be done with the WebSocketFrameAggregator, which allows to set...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.19.Final, 3.9.1.Final, 3.8.2.Final, 3.7.1.Final and 3.6.9.Final. Beside providing you with various new features and bugfixes all of these releases have one in common; they fix a resource usage problem in the &lt;code&gt;WebSocket08FrameDecoder&lt;/code&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;Before we aggregated the full text in the WebSocket08FrameDecoder just to fill in the ContinuationWebSocketFrame.aggregatedText(). The problem was that there was no upper-limit and so it would be possible to see an OOME if the remote peer sends a TextWebSocketFrame + a never ending stream of ContinuationWebSocketFrames. The aggregation of WebSocketFrames can be done with the WebSocketFrameAggregator, which allows to set an upper limit.
-      Because there was no other &quot;sane&quot; way to fix the problem we decided to also remove the ContinuationWebSocketFrame.aggregatedText() method, even in a bugfix release because just changing its behaviour would even be more confusing. We never saw a usage of this method in the wild so far, so we hope
-      this will not affect many users.&lt;/p&gt;
-      
-      &lt;p&gt;So if you using the stock WebSockets codec provided by Netty you should update ASAP! Special thanks to &lt;a href=&quot;https://github.com/jroper&quot;&gt;James Roper&lt;/a&gt; (&lt;a href=&quot;http://www.typesafe.com&quot;&gt;Typesafe&lt;/a&gt;) for finding the flaw and notify us in a timely manner.&lt;/p&gt;
-      
-      &lt;p&gt;For more details on the fixes for these various releases please see the following sections.&lt;/p&gt;
-      
-      &lt;h2&gt;Netty 4.0.19.Final&lt;/h2&gt;
-      
-      &lt;h3&gt;Most important changes / fixes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix a resource usage problem in the WebSocket08FrameDecoder&lt;/li&gt;
-      &lt;li&gt;Not cause busy loop when interrupt Thread of NioEventLoop&lt;/li&gt;
-      &lt;li&gt;Various fixed in the native transport&lt;/li&gt;
-      &lt;li&gt;Support for TCP_REUSEPORT in the native transport&lt;/li&gt;
-      &lt;li&gt;Add Datagram support in native transport&lt;/li&gt;
-      &lt;li&gt;Improve release of unused memory out of the buffer pool cache&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.19.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes and all the details.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Netty 3.9.1.Final&lt;/h2&gt;
-      
-      &lt;h3&gt;Most important changes / fixes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix a resource usage problem in the WebSocket08FrameDecoder&lt;/li&gt;
-      &lt;li&gt;Various SSL fixes&lt;/li&gt;
-      &lt;li&gt;SPDY improvements&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.1.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes and all the details.&lt;/p&gt;
-      
-      &lt;h2&gt;Netty 3.8.2.Final&lt;/h2&gt;
-      
-      &lt;h3&gt;Most important changes / fixes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix a resource usage problem in the WebSocket08FrameDecoder&lt;/li&gt;
-      &lt;li&gt;Various SSL fixes&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.8.2.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes and all the details.&lt;/p&gt;
-      
-      &lt;h2&gt;Netty 3.7.1.Final&lt;/h2&gt;
-      
-      &lt;h3&gt;Most important changes / fixes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix a resource usage problem in the WebSocket08FrameDecoder&lt;/li&gt;
-      &lt;li&gt;Various SSL fixes&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.7.1.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes and all the details.&lt;/p&gt;
-      
-      &lt;h2&gt;Netty 3.6.9.Final&lt;/h2&gt;
-      
-      &lt;h3&gt;Most important changes / fixes&lt;/h3&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix a resource usage problem in the WebSocket08FrameDecoder&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.6.9.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes and all the details.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
     </content>
   </entry>
 </feed>
