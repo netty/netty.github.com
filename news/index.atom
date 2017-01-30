@@ -2,9 +2,103 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-01-12T18:59:52+01:00</updated>
+  <updated>2017-01-30T18:19:50+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html</id>
+    <title>Netty 4.0.44.Final and 4.1.8.Final released</title>
+    <updated>2017-01-30T18:19:50+01:00</updated>
+    <published>2017-01-30T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains 30+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
+      Also starting with today we will try to cut a release at least each 4 weeks for the 4.0 and 4.1 branch. This will hopefully help mimimizing the amount of changes that goes into each release and so make it less risky to upgrade.
+      
+      To make a long story short: Release early, release often FTW.
+      
+      The most important changes for 4.0.44.Final and 4.1.8.Final are:
+      
+      
+      Correctly detect which protocols are supported when using OpenSSL (#6290)
+      More...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains 30+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
+      Also starting with today we will try to cut a release at least each 4 weeks for the 4.0 and 4.1 branch. This will hopefully help mimimizing the amount of changes that goes into each release and so make it less risky to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;To make a long story short: Release early, release often FTW.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.44.Final and 4.1.8.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Correctly detect which protocols are supported when using OpenSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/6290&quot;&gt;#6290&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;More precise calculate the maximum record size when using SslProvider.OPENSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/6276&quot;&gt;#6276&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Null out references to tmpNioBuf and chunk to allow quicker collecting (&lt;a href=&quot;https://github.com/netty/netty/pull/6279&quot;&gt;#6279&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use less memory during writes when using SslHandler with SslProvider.OPENSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/6252&quot;&gt;#6252&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to configure SslHandler to wait for close_notify response before closing the Channel and fix racy flush close_notify timeout scheduling (&lt;a href=&quot;https://github.com/netty/netty/pull/6257&quot;&gt;#6257&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure calling ReferenceCountedOpenSslEngine.wrap(...) after closeOutbound() was called will not throw an SSLException (&lt;a href=&quot;https://github.com/netty/netty/pull/6262&quot;&gt;#6262&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Memory leak when creating ReferenceCountedSslServerContext instances (&lt;a href=&quot;https://github.com/netty/netty/issues/6249&quot;&gt;#6249&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add SslCloseCompletionEvent that is fired once a close_notify was received (&lt;a href=&quot;https://github.com/netty/netty/pull/6242&quot;&gt;#6242&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure SslHandler.sslCloseFuture() is notified in all cases (&lt;a href=&quot;https://github.com/netty/netty/pull/6239&quot;&gt;#6239&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure calling ReferenceCountedSslEngine.unwrap(...) / wrap(...) called after it was closed (&lt;a href=&quot;https://github.com/netty/netty/pull/6238&quot;&gt;#6238&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix possible IOOBE when calling ReferenceCountedSslEngine.unwrap(...) with heap buffers (&lt;a href=&quot;https://github.com/netty/netty/pull/6236&quot;&gt;#6236&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.8.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Restore add(Promise) and addAll(Promise...) methods to PromiseCombiner (&lt;a href=&quot;https://github.com/netty/netty/pull/6292&quot;&gt;#6292&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Update HTTP/2 HPACK Decoder to check for oversized headers after header processing (&lt;a href=&quot;https://github.com/netty/netty/pull/6273&quot;&gt;#6273&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver.resolve*(...) never notifies the Future when empty hostname is used (&lt;a href=&quot;https://github.com/netty/netty/pull/6258&quot;&gt;#6258&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;PlatformDependent#getClassLoader fails in restrictive classloader enviroments (&lt;a href=&quot;https://github.com/netty/netty/pull/6251&quot;&gt;#6251&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/157?closed=1&quot;&gt;4.0.44.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/156?closed=1&quot;&gt;4.1.8.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.44.Final are also included in 4.1.8.Final. All changes only have milestone 4.1.8.Final
+      do not affect 4.0.44.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Important note&lt;/h1&gt;
+      
+      &lt;p&gt;These releases fixes various bugs related to when &lt;code&gt;SslProvider.OPENSSL&lt;/code&gt; is used. So if you use it please upgrade as soon as possible.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cconroy&quot;&gt;@cconroy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chhsiao90&quot;&gt;@chhsiao90&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/exell-christopher&quot;&gt;@exell-christopher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/flozano&quot;&gt;@flozano&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/isdom&quot;&gt;@isdom&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasobrown&quot;&gt;@jasobrown&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jesperpedersen&quot;&gt;@jesperpedersen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnrengelman&quot;&gt;@johnrengelman&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wangyuntao&quot;&gt;@wangyuntao&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhoucen&quot;&gt;@zhoucen&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html</id>
     <title>Netty 4.0.43.Final and 4.1.7.Final released</title>
@@ -4074,73 +4168,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/racorn&quot;&gt;@racorn&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/06/11/3-9-2-Final.html</id>
-    <title>Netty 3.9.2.Final released</title>
-    <updated>2015-09-02T10:34:47+02:00</updated>
-    <published>2014-06-11T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/06/11/3-9-2-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      Today we are happy to announce the release of Netty 3.9.2.Final. This is an important release if you use a previous version of the 3.9 branch because it fixes a possible DoS attack
-      when using the SslHandler. So please upgrade as soon as possible. For the security bug CVE-2014-3488 was assigned.
-      
-      Beside the security fix this release also allows to use our own OpenSSLEngine which uses OpenSSL for maximal performance and low latency.
-      
-      Most important changes / fixes
-      
-      
-      Possible DoS by CPU exhaustion when using malicious SSL packets (#2562)
-      Add OpenSslEngine (#2464)
-      Provide universal API to create an SSLEngine (#2499)
-      Minimize memory footprint of HashedWheelTimer and context-switching...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Today we are happy to announce the release of Netty 3.9.2.Final. This is an important release if you use a previous version of the 3.9 branch because it fixes a possible DoS attack
-      when using the SslHandler. So please upgrade as soon as possible. For the security bug CVE-2014-3488 was assigned.&lt;/p&gt;
-      
-      &lt;p&gt;Beside the security fix this release also allows to use our own OpenSSLEngine which uses OpenSSL for maximal performance and low latency.&lt;/p&gt;
-      
-      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Possible DoS by CPU exhaustion when using malicious SSL packets (&lt;a href=&quot;https://github.com/netty/netty/issues/2562&quot;&gt;#2562&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/2464&quot;&gt;#2464&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Provide universal API to create an SSLEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/2499&quot;&gt;#2499&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Minimize memory footprint of HashedWheelTimer and context-switching (&lt;a href=&quot;https://github.com/netty/netty/pull/2453&quot;&gt;#2453&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.2.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;Using OpenSslEngine&lt;/h3&gt;
-      
-      &lt;p&gt;For details how to use OpenSslEngine please refer to our &lt;a href=&quot;http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-1&quot;&gt;Forked Tomcat Native&lt;/a&gt; page.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/andreypanasenko&quot;&gt;@andreypanasenko&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/MiguelGL&quot;&gt;@MiguelGL&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Special thanks to Laurentiu Luca for reporting the SSL security issue!&lt;/p&gt;
     </content>
   </entry>
 </feed>
