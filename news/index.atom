@@ -2,9 +2,121 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-02-28T15:12:05+01:00</updated>
+  <updated>2017-03-10T10:52:36+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/03/10/4-0-45-Final-4-1-9-Final.html</id>
+    <title>Netty 4.0.45.Final and 4.1.9.Final released</title>
+    <updated>2017-03-10T10:52:36+01:00</updated>
+    <published>2017-03-10T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/03/10/4-0-45-Final-4-1-9-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains tons of changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.45.Final and 4.1.9.Final are:
+      
+      
+      UnorderedThreadPoolEventExecutor consumes 100% CPU when idle (#6518)
+      Correct usages of internalNioBuffer (#6486)
+      Expose ByteBufAllocator metric in a more general way (#6485)
+      Direct buffers in java 9? Reflections on java classes fails on java 9 (#6269)
+      Unpooled buffer acquired from pooled allocator may have .alloc() returning null (#6436)
+      Ensure CombinedChannelDuplexHandler can not be shared. (#6352)
+      Expose the chunkSize used by PooledByteBufAllocator. (#6354)
+      Allow to unwrap ByteBuffer > MAX_ENCRYPTED_PACKET_LENGTH (#6350)
+      OpenSSL ByteBuffer...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains tons of changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.45.Final and 4.1.9.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;UnorderedThreadPoolEventExecutor consumes 100% CPU when idle (&lt;a href=&quot;https://github.com/netty/netty/pull/6518&quot;&gt;#6518&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correct usages of internalNioBuffer (&lt;a href=&quot;https://github.com/netty/netty/pull/6486&quot;&gt;#6486&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Expose ByteBufAllocator metric in a more general way (&lt;a href=&quot;https://github.com/netty/netty/pull/6485&quot;&gt;#6485&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Direct buffers in java 9? Reflections on java classes fails on java 9 (&lt;a href=&quot;https://github.com/netty/netty/issues/6269&quot;&gt;#6269&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Unpooled buffer acquired from pooled allocator may have .alloc() returning null (&lt;a href=&quot;https://github.com/netty/netty/issues/6436&quot;&gt;#6436&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure CombinedChannelDuplexHandler can not be shared. (&lt;a href=&quot;https://github.com/netty/netty/pull/6352&quot;&gt;#6352&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Expose the chunkSize used by PooledByteBufAllocator. (&lt;a href=&quot;https://github.com/netty/netty/pull/6354&quot;&gt;#6354&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to unwrap ByteBuffer &amp;gt; MAX_ENCRYPTED_PACKET_LENGTH (&lt;a href=&quot;https://github.com/netty/netty/pull/6350&quot;&gt;#6350&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;OpenSSL ByteBuffer BIO (&lt;a href=&quot;https://github.com/netty/netty/pull/6201&quot;&gt;#6201&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;PooledByteBuf.capacity(...) not enforces maxCapacity() (&lt;a href=&quot;https://github.com/netty/netty/pull/6299&quot;&gt;#6299&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Buffer alignment (&lt;a href=&quot;https://github.com/netty/netty/pull/6293&quot;&gt;#6293&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.9.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Bytes are dropped when using epoll and auto read = false when peer closes connection (&lt;a href=&quot;https://github.com/netty/netty/issues/6303&quot;&gt;#6303&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 SETTINGS ACK sequencing issue (&lt;a href=&quot;https://github.com/netty/netty/pull/6521&quot;&gt;#6521&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow GOAWAY to be sent from handlers after the Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/6480&quot;&gt;#6480&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver should respect /etc/resolv.conf and /etc/resolver (&lt;a href=&quot;https://github.com/netty/netty/pull/6321&quot;&gt;#6321&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Automatically decode DNS domain name to unicode (&lt;a href=&quot;https://github.com/netty/netty/pull/6280&quot;&gt;#6280&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Implement correct handling of recursive DNS (&lt;a href=&quot;https://github.com/netty/netty/pull/6256&quot;&gt;#6256&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/159?closed=1&quot;&gt;4.0.45.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/156?closed=1&quot;&gt;4.1.8.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.45.Final are also included in 4.1.9.Final. All changes only have milestone 4.1.9.Final
+      do not affect 4.0.44.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Important note&lt;/h1&gt;
+      
+      &lt;p&gt;If you use &lt;code&gt;OpenSslCertificateException&lt;/code&gt; you need to ensure &lt;code&gt;OpenSsl&lt;/code&gt; class is loaded before, otherwise you will see linking errors.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/alkemist&quot;&gt;@alkemist&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/andsel&quot;&gt;@andsel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chhsiao90&quot;&gt;@chhsiao90&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/errandir&quot;&gt;@errandir&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/exell-christopher&quot;&gt;@exell-christopher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/flozano&quot;&gt;@flozano&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/GotoFinal&quot;&gt;@GotoFinal&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Hanson1129&quot;&gt;@Hanson1129&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasobrown&quot;&gt;@jasobrown&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kiril-me&quot;&gt;@kiril-me&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/maxcellent&quot;&gt;@maxcellent&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/meshcow&quot;&gt;@meshcow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/md-5&quot;&gt;@md-5&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mp911de&quot;&gt;@mp911de&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mulinnuha&quot;&gt;@mulinnuha&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nayato&quot;&gt;@nayato&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/TheCycoONE&quot;&gt;@TheCycoONE&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhoucen&quot;&gt;@zhoucen&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html</id>
     <title>Netty 4.0.44.Final and 4.1.8.Final released</title>
@@ -4084,89 +4196,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/philbaxter&quot;&gt;@philbaxter&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/xmxsuperstar&quot;&gt;@xmxsuperstar&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/06/12/4-0-20-Final.html</id>
-    <title>Netty 4.0.20.Final released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-06-12T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/06/12/4-0-20-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
-      This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
-      with previous netty 4.0.x releases.
-      
-      For mre details please refer to the next sections.
-      
-      Most important changes / fixes
-      
-      
-      Improve the allocation performance of pooled buffers larger than 8 KiB (#2518)
-      Use ByteBuf.readSlice(...).retain() to minimize memory copies (#2464)
-      ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (#2436 and (#2531)
-      Introduce faster ThreadLocal (#2556)
-      Optimize DefaultChannelPipeline in terms of memory usage and initialization time (#2546)
-      Thread cache eviction...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
-      This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
-      with previous netty 4.0.x releases.&lt;/p&gt;
-      
-      &lt;p&gt;For mre details please refer to the next sections.&lt;/p&gt;
-      
-      &lt;h2&gt;Most important changes / fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Improve the allocation performance of pooled buffers larger than 8 KiB (&lt;a href=&quot;https://github.com/netty/netty/issues/2518&quot;&gt;#2518&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Use ByteBuf.readSlice(...).retain() to minimize memory copies (&lt;a href=&quot;https://github.com/netty/netty/pull/2477&quot;&gt;#2464&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (&lt;a href=&quot;https://github.com/netty/netty/issues/2436&quot;&gt;#2436&lt;/a&gt; and (&lt;a href=&quot;https://github.com/netty/netty/pull/2531&quot;&gt;#2531&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Introduce faster ThreadLocal (&lt;a href=&quot;https://github.com/netty/netty/pull/2556&quot;&gt;#2556&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Optimize DefaultChannelPipeline in terms of memory usage and initialization time (&lt;a href=&quot;https://github.com/netty/netty/pull/2546&quot;&gt;#2546&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Thread cache eviction task can erroneously prevent jvm from exiting (&lt;a href=&quot;https://github.com/netty/netty/issues/2519&quot;&gt;#2519&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/2464&quot;&gt;#2464&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;Visit &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.20.Final&quot;&gt;here&lt;/a&gt; for the complete list of the changes.&lt;/p&gt;
-      
-      &lt;p&gt;As always please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;Using OpenSslEngine&lt;/h3&gt;
-      
-      &lt;p&gt;For details how to use OpenSslEngine please refer to our &lt;a href=&quot;http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-1&quot;&gt;Forked Tomcat Native&lt;/a&gt; page.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/54k&quot;&gt;@54k &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/andreypanasenko&quot;&gt;@andreypanasenko &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/belliottsmith&quot;&gt;@belliottsmith &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/boboyada&quot;&gt;@boboyada &lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/j3h&quot;&gt;@j3h&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jeje&quot;&gt;@jeje&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/liyichao&quot;&gt;@liyichao&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/MiguelGL&quot;&gt;@MiguelGL&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tea-dragon&quot;&gt;@tea-dragon&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/racorn&quot;&gt;@racorn&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
