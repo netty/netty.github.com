@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/03/10/4-0-45-Final-4-1-9-Final.html">
+              <a href="../news/2017/04/30/4-0-46-Final-4-1-10-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.9.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.10.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.9.Final
-                    <small>&dash; 10-Mar-2017</small>
+                    4.1.10.Final
+                    <small>&dash; 30-Apr-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.45.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.46.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.45.Final
-                    <small>&dash; 10-Mar-2017</small>
+                    4.0.46.Final
+                    <small>&dash; 30-Apr-2017</small>
                   </a>
                 </li>
                 <li>
@@ -250,12 +250,9 @@
           <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
                 <div class="markdown-body">
                   <p>Since 4.0.16, Netty provides the native socket transport for Linux using JNI.  This transport has higher performance and produces less garbage, so you might want to give it a try.</p>
-          
           <h2 id="wiki-h2-1">
           <a id="user-content-using-the-native-transport" class="anchor" href="#using-the-native-transport" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the native transport</h2>
-          
           <p>Because the native transport is compatible with the NIO transport, you can just do the following search-and-replace:</p>
-          
           <ul>
           <li>
           <code>NioEventLoopGroup</code> → <code>EpollEventLoopGroup</code>
@@ -270,24 +267,15 @@
           <code>NioSocketChannel</code> → <code>EpollSocketChannel</code>
           </li>
           </ul>
-          
           <p>Because the native transport is not part of the Netty core, you need to pull the <code>netty-transport-native-epoll</code> as a dependency in your Maven <code>pom.xml</code>:</p>
-          
           <div class="highlight highlight-text-xml"><pre>  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.5.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-transport-native-epoll&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;${project.version}&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.name}-${os.detected.arch}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;</pre></div>
-          
           <p>Note that you must specify the proper classifier for the dependency.  <code>os-maven-plugin</code> in the <code>extensions</code> section in the <code>pom.xml</code> file will set <code>os.detected.name</code> and <code>os.detected.arch</code> properties automatically.  For more information. refer to <a href="https://github.com/trustin/os-maven-plugin">the homepage of the <code>os-maven-plugin</code></a>.</p>
-          
           <p>For using the native transport in a <a href="http://www.scala-sbt.org/">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
-          
           <pre><code>"io.netty" % "netty-transport-native-epoll" % "${project.version}" classifier "linux-x86_64"&#x000A;</code></pre>
-          
           <h2 id="wiki-h2-2">
           <a id="user-content-building-the-native-transport" class="anchor" href="#building-the-native-transport" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building the native transport</h2>
-          
           <p>If you already have the JAR file of the native transport, you should not need to build the native transport by yourself because the JAR file already contains the necessary shared library files (e.g. <code>.so</code>, <code>.dll</code>, <code>.dynlib</code>) and they will be loaded automatically.</p>
-          
           <p>To build the native transport, you need to use Linux with 64-bit kernel 2.6 or higher.  Please also install the required tools and libraries:</p>
-          
           <div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> RHEL/CentOS/Fedora:</span>&#x000A;sudo yum install autoconf automake libtool make tar \&#x000A;                 glibc-devel libaio-devel \&#x000A;                 libgcc.i686 glibc-devel.i686&#x000A;<span class="pl-c"><span class="pl-c">#</span> Debian/Ubuntu:</span>&#x000A;sudo apt-get install autoconf automake libtool make tar \&#x000A;                     gcc-multilib libaio-dev</pre></div>
           
                 </div>
@@ -308,7 +296,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 10-Mar-2017</small>
+                <small>Last retrieved on 01-May-2017</small>
               </div>
             </div>
           </div>
