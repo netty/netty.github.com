@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/04/30/4-0-46-Final-4-1-10-Final.html">
+              <a href="../news/2017/05/12/4-0-47-Final-4-1-11-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.10.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.11.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.10.Final
-                    <small>&dash; 30-Apr-2017</small>
+                    4.1.11.Final
+                    <small>&dash; 12-May-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.46.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.47.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.46.Final
-                    <small>&dash; 30-Apr-2017</small>
+                    4.0.47.Final
+                    <small>&dash; 12-May-2017</small>
                   </a>
                 </li>
                 <li>
@@ -382,11 +382,11 @@
           <h4 id="wiki-h4-13">
           <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" href="#one-small-caveat-of-socket-buffer" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>One Small Caveat of Socket Buffer</h4>
           <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets:</p>
-          <p><img src="https://camo.githubusercontent.com/971c790ef0c4f09bd8de86fddbbbdcf4a7a1e5f8/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630312e706e67" alt="Three packets received as they were sent" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf01.png"></p>
+          <p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
           <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
-          <p><img src="https://camo.githubusercontent.com/a1888968dad8517e1e904a39fa144e489fa5d387/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630322e706e67" alt="Three packets split and merged into four buffers" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf02.png"></p>
+          <p><img src="https://camo.githubusercontent.com/5b595baf5071bf669f81d08b7554064f4142cc69/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
           <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
-          <p><img src="https://camo.githubusercontent.com/971c790ef0c4f09bd8de86fddbbbdcf4a7a1e5f8/687474703a2f2f39396274676330312e696e666f2f75706c6f6164732f323031352f30322f62756630312e706e67" alt="Four buffers defragged into three" data-canonical-src="http://99btgc01.info/uploads/2015/02/buf01.png"></p>
+          <p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
           <h4 id="wiki-h4-14">
           <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The First Solution</h4>
           <p>Now let us get back to the <code>TIME</code> client example. We have the same problem here. A 32-bit integer is a very small amount of data, and it is not likely to be fragmented often. However, the problem is that it can be fragmented, and the possibility of fragmentation will increase as the traffic increases.</p>
@@ -497,7 +497,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 01-May-2017</small>
+                <small>Last retrieved on 12-May-2017</small>
               </div>
             </div>
           </div>
