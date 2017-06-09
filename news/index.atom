@@ -2,9 +2,106 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-05-12T18:25:40+02:00</updated>
+  <updated>2017-06-09T12:50:50+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html</id>
+    <title>Netty 4.0.48.Final and 4.1.12.Final released</title>
+    <updated>2017-06-09T12:50:50+02:00</updated>
+    <published>2017-06-09T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.48.Final and 4.1.12.Final are:
+      
+      
+      Allow to access memoryAddress of wrapped ByteBuf for ReadOnlyByteBuf (#6826)
+      Correctly exclude netty-tcnative classes from the all jar (#6793)
+      Netty force encodes already encoded responses (#6785)
+      Fix the encode bug in SctpOutboundByteStreamHandler (#6775)
+      Fix handle of ByteBuf with multi nioBuffer in EpollDatagramChannel (#6764)
+      Ensure SslUtils and so SslHandler works when using with Little-Endian buffers (#6713)
+      
+      
+      
+      The most important changes for 4.1.12.Final are:
+      
+      
+      HttpObjectEncoder#isContentAlwaysEmpty cannot be overridden by subclasses (#6788)
+      RedisDecoder infinite loop (#6787)
+      UnixResolverDnsServerAddressStreamProvider default...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.48.Final and 4.1.12.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Allow to access memoryAddress of wrapped ByteBuf for ReadOnlyByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/6826&quot;&gt;#6826&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly exclude netty-tcnative classes from the all jar (&lt;a href=&quot;https://github.com/netty/netty/pull/6793&quot;&gt;#6793&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Netty force encodes already encoded responses (&lt;a href=&quot;https://github.com/netty/netty/pull/6785&quot;&gt;#6785&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix the encode bug in SctpOutboundByteStreamHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/6775&quot;&gt;#6775&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix handle of ByteBuf with multi nioBuffer in EpollDatagramChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/6764&quot;&gt;#6764&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure SslUtils and so SslHandler works when using with Little-Endian buffers (&lt;a href=&quot;https://github.com/netty/netty/pull/6713&quot;&gt;#6713&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.12.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;HttpObjectEncoder#isContentAlwaysEmpty cannot be overridden by subclasses (&lt;a href=&quot;https://github.com/netty/netty/pull/6788&quot;&gt;#6788&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;RedisDecoder infinite loop (&lt;a href=&quot;https://github.com/netty/netty/pull/6787&quot;&gt;#6787&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;UnixResolverDnsServerAddressStreamProvider default name server selection and ordering bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6748&quot;&gt;#6748&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;KQueueSocket#setTrafficClass exceptions (&lt;a href=&quot;https://github.com/netty/netty/pull/6749&quot;&gt;#6749&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/163?closed=1&quot;&gt;4.0.48.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/164?closed=1&quot;&gt;4.1.12.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.48.Final are also included in 4.1.12.Final. All changes only have milestone 4.1.12.Final do not affect 4.0.48.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Important&lt;/h1&gt;
+      
+      &lt;p&gt;These releases update to netty-tcnative 2.0.3.Final which fixes a small native memory leak which happened when you destroy an OpenSSLContext. So if you create a lot and destroy a lot of these its important to update.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CharlieYuQi&quot;&gt;@CharlieYuQi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jhrussell&quot;&gt;@jhrussell&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mcobrien&quot;&gt;@mcobrien&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mkw&quot;&gt;@mkw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/NSProgrammer&quot;&gt;@NSProgrammer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Sammers21&quot;&gt;@Sammers21&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sudheeshkatkam&quot;&gt;@sudheeshkatkam&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sunrenjie&quot;&gt;@sunrenjie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/u2032&quot;&gt;@u2032&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wilkinsona&quot;&gt;@wilkinsona&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/05/12/4-0-47-Final-4-1-11-Final.html</id>
     <title>Netty 4.0.47.Final and 4.1.11.Final released</title>
@@ -4114,75 +4211,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/WillemJiang&quot;&gt;@WillemJiang&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/zcourts&quot;&gt;@zcourts&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/zhuguowei01&quot;&gt;@zhuguowei01&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/08/06/3-9-3-Final.html</id>
-    <title>Netty 3.9.3.Final released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-08-06T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/08/06/3-9-3-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      Here's another micro update in 3.9 branch.
-      
-      
-      #2093 - Fix a dead lock in SslHandler
-      #2179 - Fix a message loss during HTTP protocol switch
-      #2333 - Fix a redundant 'SSLEngine is closing/closed' exception
-      #2626 - Upgrade JBoss Logging to the latest GA version (by @gaol)
-      #2683 - Fix a NPE in SPDY
-      #2713 - Fix an incorrect ConnectException message
-      #2714 - Fix a missing channelInterestOpsChanged event
-      #2718 - Fix missing encrypted private key support in JdkSslContext (by @schulzp)
-      #2728 - Disallow ChannelFuture.setFailure(null), which leads to inconsistent state
-      #2732 - Fix incorrect URI encoding in HTTP encoder
-      #2735 - Do not simplify stack trace
-      #2742 - Fix a bug where SpdySessionHandler sometimes...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Here's another micro update in 3.9 branch.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2093&quot;&gt;#2093&lt;/a&gt; - Fix a dead lock in &lt;code&gt;SslHandler&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2179&quot;&gt;#2179&lt;/a&gt; - Fix a message loss during HTTP protocol switch&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2333&quot;&gt;#2333&lt;/a&gt; - Fix a redundant 'SSLEngine is closing/closed' exception&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2626&quot;&gt;#2626&lt;/a&gt; - Upgrade JBoss Logging to the latest GA version (by &lt;a href=&quot;https://github.com/gaol&quot;&gt;@gaol&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2683&quot;&gt;#2683&lt;/a&gt; - Fix a NPE in SPDY&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2713&quot;&gt;#2713&lt;/a&gt; - Fix an incorrect &lt;code&gt;ConnectException&lt;/code&gt; message&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2714&quot;&gt;#2714&lt;/a&gt; - Fix a missing &lt;code&gt;channelInterestOpsChanged&lt;/code&gt; event&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2718&quot;&gt;#2718&lt;/a&gt; - Fix missing encrypted private key support in &lt;code&gt;JdkSslContext&lt;/code&gt; (by &lt;a href=&quot;https://github.com/schulzp&quot;&gt;@schulzp&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2728&quot;&gt;#2728&lt;/a&gt; - Disallow &lt;code&gt;ChannelFuture.setFailure(null)&lt;/code&gt;, which leads to inconsistent state&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2732&quot;&gt;#2732&lt;/a&gt; - Fix incorrect URI encoding in HTTP encoder&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2735&quot;&gt;#2735&lt;/a&gt; - Do not simplify stack trace&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2742&quot;&gt;#2742&lt;/a&gt; - Fix a bug where &lt;code&gt;SpdySessionHandler&lt;/code&gt; sometimes does not handle all pending writes&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.3.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues.  We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/davsclaus&quot;&gt;@davsclaus&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gaol&quot;&gt;@gaol&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;hyangtack at gmail.com&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jfarcand&quot;&gt;@jfarcand&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/martin-robo&quot;&gt;@martin-robo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;nettyuser at gmail.com&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/schulzp&quot;&gt;@schulzp&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tom1401&quot;&gt;@tom1401&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/vikramgundeti&quot;&gt;@vikramgundeti&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/zaykl&quot;&gt;@zaykl&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
