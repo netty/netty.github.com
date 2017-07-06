@@ -2,9 +2,110 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-06-09T12:50:50+02:00</updated>
+  <updated>2017-07-06T14:27:54+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/07/06/4-0-49-Final-4-1-13-Final.html</id>
+    <title>Netty 4.0.49.Final and 4.1.13.Final released</title>
+    <updated>2017-07-06T14:27:54+02:00</updated>
+    <published>2017-07-06T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/07/06/4-0-49-Final-4-1-13-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.49.Final and 4.1.13.Final are:
+      
+      
+      Return the correct Future from FixedChannelPool.release() (#6908)
+      Close channels that are released to a closed FixedChannelPool (#6907)
+      OpenSSL CHACHA20 CipherSuiteConverter updates (#6875)
+      Remove synchronized (ReferenceCountedOpenSslContext.class) blocks (#6254)
+      AppendableCharSequence not to depend upon IndexOutOfBoundsException for resize (#6845)
+      Workaround IBM's J9 JVM getSupportedCipherSuites() returning SSL_ prefix cipher names (#6941)
+      
+      
+      
+      The most important changes for 4.1.12.Final are:
+      
+      
+      DNS Resolver should be more consistent with JDK resolution (#6937)
+      KQueue crash due to close/cleanup sequencing (#6922)
+      DefaultHttp2ConnectionEncoder#writeHeaders shouldn't send GO_AWAY...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.49.Final and 4.1.13.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Return the correct Future from FixedChannelPool.release() (&lt;a href=&quot;https://github.com/netty/netty/pull/6908&quot;&gt;#6908&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Close channels that are released to a closed FixedChannelPool (&lt;a href=&quot;https://github.com/netty/netty/pull/6907&quot;&gt;#6907&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;OpenSSL CHACHA20 CipherSuiteConverter updates (&lt;a href=&quot;https://github.com/netty/netty/pull/6875&quot;&gt;#6875&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove synchronized (ReferenceCountedOpenSslContext.class) blocks (&lt;a href=&quot;https://github.com/netty/netty/pull/6254&quot;&gt;#6254&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AppendableCharSequence not to depend upon IndexOutOfBoundsException for resize (&lt;a href=&quot;https://github.com/netty/netty/pull/6845&quot;&gt;#6845&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Workaround IBM's J9 JVM getSupportedCipherSuites() returning SSL_ prefix cipher names (&lt;a href=&quot;https://github.com/netty/netty/pull/6941&quot;&gt;#6941&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.12.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;DNS Resolver should be more consistent with JDK resolution (&lt;a href=&quot;https://github.com/netty/netty/pull/6937&quot;&gt;#6937&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;KQueue crash due to close/cleanup sequencing (&lt;a href=&quot;https://github.com/netty/netty/pull/6922&quot;&gt;#6922&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultHttp2ConnectionEncoder#writeHeaders shouldn't send GO_AWAY if stream is closed (&lt;a href=&quot;https://github.com/netty/netty/pull/6916&quot;&gt;#6916&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;transport-native-kqueue libraries should not lazy link (&lt;a href=&quot;https://github.com/netty/netty/pull/6915&quot;&gt;#6915&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Update Http2SecurityUtil cipher suites (&lt;a href=&quot;https://github.com/netty/netty/pull/6914&quot;&gt;#6914&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Make Native loading work better with Java 8 (&lt;a href=&quot;https://github.com/netty/netty/pull/6884&quot;&gt;#6884&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;NullPointerException in Lz4FrameEncoder (&lt;a href=&quot;https://github.com/netty/netty/pull/6867&quot;&gt;#6867&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use more aggressive expanding strategy in HpackHuffmanDecoder (&lt;a href=&quot;https://github.com/netty/netty/pull/6857&quot;&gt;#6857&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do proper bounds-checking in HpackHuffmanDecoder to reduce overhead of IndexOutOfBoundsException creation (&lt;a href=&quot;https://github.com/netty/netty/pull/6838&quot;&gt;#6838&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for IP_TRANSPARENT socket option (&lt;a href=&quot;https://github.com/netty/netty/pull/6835&quot;&gt;#6835&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/167?closed=1&quot;&gt;4.0.49.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/164?closed=1&quot;&gt;4.1.12.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.49.Final are also included in 4.1.13.Final. All changes only have milestone 4.1.13.Final do not affect 4.0.49.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Donaldhan&quot;&gt;@Donaldhan&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fian46&quot;&gt;@fian46&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jacek-&quot;&gt;@jacek-&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/oakad&quot;&gt;@oakad&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/qwangseu&quot;&gt;@qwangseu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/RoganDawes&quot;&gt;@RoganDawes&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sbcd90&quot;&gt;@sbcd90&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/snicoll&quot;&gt;@snicoll&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tellison&quot;&gt;@tellison&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/testn&quot;&gt;@testn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tonyshenkk&quot;&gt;@tonyshenkk&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/wilkinsona&quot;&gt;@wilkinsona&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html</id>
     <title>Netty 4.0.48.Final and 4.1.12.Final released</title>
@@ -4119,98 +4220,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/tea-dragon&quot;&gt;@tea-dragon&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/timboudreau&quot;&gt;@timboudreau&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/08/14/4-0-22-Final.html</id>
-    <title>Netty 4.0.22.Final released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-08-14T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/08/14/4-0-22-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      Here's another micro update in 4.0 branch.
-      
-      
-      #2028 - Unpooled.copiedBuffer(...) now always returns a heap buffer due to high off-heap allocation/deallocation overhead
-      #2433 #2627 #2647 #2667 #2680 #2761 #2764 - Fix various bugs in the epoll transport and ChannelOutboundBuffer
-      #2508 - Improve the build speed
-      #2558 - Fix a build issue in the epoll transport
-      #2571 #2651 #2662 - Fix regressions in HashedWheelTimer
-      #2632 - Reduce the perceived time taken for the initialization of ThreadLocalRandom
-      #2634 - Reduce the garbage produced by HttpObjectAggregator
-      #2642 - Reduce the garbage produced by CompositeByteBuf
-      #2644 #2665 - Fix bugs in NioDatagramChannel
-      #2650 - Provide a way to disable HTTP header validation in SpdyHttpDecoder
-      #2653...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Here's another micro update in 4.0 branch.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2028&quot;&gt;#2028&lt;/a&gt; - &lt;code&gt;Unpooled.copiedBuffer(...)&lt;/code&gt; now always returns a heap buffer due to high off-heap allocation/deallocation overhead&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2433&quot;&gt;#2433&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2627&quot;&gt;#2627&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2647&quot;&gt;#2647&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2667&quot;&gt;#2667&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2680&quot;&gt;#2680&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2761&quot;&gt;#2761&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2764&quot;&gt;#2764&lt;/a&gt; - Fix various bugs in the epoll transport and &lt;code&gt;ChannelOutboundBuffer&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2508&quot;&gt;#2508&lt;/a&gt; - Improve the build speed&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2558&quot;&gt;#2558&lt;/a&gt; - Fix a build issue in the epoll transport&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2571&quot;&gt;#2571&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2651&quot;&gt;#2651&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2662&quot;&gt;#2662&lt;/a&gt; - Fix regressions in &lt;code&gt;HashedWheelTimer&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2632&quot;&gt;#2632&lt;/a&gt; - Reduce the perceived time taken for the initialization of &lt;code&gt;ThreadLocalRandom&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2634&quot;&gt;#2634&lt;/a&gt; - Reduce the garbage produced by &lt;code&gt;HttpObjectAggregator&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2642&quot;&gt;#2642&lt;/a&gt; - Reduce the garbage produced by &lt;code&gt;CompositeByteBuf&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2644&quot;&gt;#2644&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2665&quot;&gt;#2665&lt;/a&gt; - Fix bugs in &lt;code&gt;NioDatagramChannel&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2650&quot;&gt;#2650&lt;/a&gt; - Provide a way to disable HTTP header validation in &lt;code&gt;SpdyHttpDecoder&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2653&quot;&gt;#2653&lt;/a&gt; - Fix performance regression in &lt;code&gt;ByteBuf.forEachByte()&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2659&quot;&gt;#2659&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2676&quot;&gt;#2676&lt;/a&gt; - Fix bugs in &lt;code&gt;IntObjectHashMap&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2660&quot;&gt;#2660&lt;/a&gt; - Fix a &lt;code&gt;NullPointerException&lt;/code&gt; in &lt;code&gt;WebSocketFrameDecoder&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2664&quot;&gt;#2664&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2684&quot;&gt;#2684&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2685&quot;&gt;#2685&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2698&quot;&gt;#2698&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2710&quot;&gt;#2710&lt;/a&gt; - Improve the performance of the epoll transport&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2666&quot;&gt;#2666&lt;/a&gt; - Fix a &lt;code&gt;NullPointerException&lt;/code&gt; when a connection attempt is finished&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2675&quot;&gt;#2675&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2722&quot;&gt;#2722&lt;/a&gt; - Fix bugs in traffic shaping handlers&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2682&quot;&gt;#2682&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2743&quot;&gt;#2743&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2753&quot;&gt;#2753&lt;/a&gt; - Fix bugs in the SPDY codec&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2692&quot;&gt;#2692&lt;/a&gt; - Fix a bug where &lt;code&gt;ChannelProgressiveFutureListener.opreationProgressed()&lt;/code&gt; is not always called&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2693&quot;&gt;#2693&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2704&quot;&gt;#2704&lt;/a&gt; - Reduce the memory consumption per &lt;code&gt;Channel&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2705&quot;&gt;#2705&lt;/a&gt; - Fix a missing &lt;code&gt;channelReadComplete()&lt;/code&gt; event from &lt;code&gt;ByteToMessageDecoder&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2720&quot;&gt;#2720&lt;/a&gt; - Fix noisy log messages while trying to get &lt;code&gt;SOMAXCONN&lt;/code&gt; value in non-Linux&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2733&quot;&gt;#2733&lt;/a&gt; - Add more ways to determine if the epoll transport is available, and to know why if unavailable&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2734&quot;&gt;#2734&lt;/a&gt; - Refactor &lt;code&gt;ChannelOutboundBuffer&lt;/code&gt; for robustness and simplicity&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2752&quot;&gt;#2752&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2754&quot;&gt;#2754&lt;/a&gt; - &lt;code&gt;Channel.isWritable()&lt;/code&gt; can be inaccurate when &lt;code&gt;SslHandler&lt;/code&gt; is in the pipeline.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.22.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues.  We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/brettwooldridge&quot;&gt;@brettwooldridge&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/frouleau&quot;&gt;@frouleau&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;hyangtack at gmail.com&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jknair&quot;&gt;@jknair&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Lekanich&quot;&gt;@Lekanich&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lokeshhctm&quot;&gt;@lokeshhctm&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/notz&quot;&gt;@notz&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/onlychoice&quot;&gt;@onlychoice&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/opinali&quot;&gt;@opinali&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/purplefox&quot;&gt;@purplefox&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rxin&quot;&gt;@rxin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/turbospaces&quot;&gt;@turbospaces&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/WillemJiang&quot;&gt;@WillemJiang&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/zcourts&quot;&gt;@zcourts&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/zhuguowei01&quot;&gt;@zhuguowei01&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
