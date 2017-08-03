@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/07/06/4-0-49-Final-4-1-13-Final.html">
+              <a href="../news/2017/08/03/4-0-50-Final-4-1-14-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.13.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.14.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.13.Final
-                    <small>&dash; 06-Jul-2017</small>
+                    4.1.14.Final
+                    <small>&dash; 03-Aug-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.49.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.50.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.49.Final
-                    <small>&dash; 06-Jul-2017</small>
+                    4.0.50.Final
+                    <small>&dash; 03-Aug-2017</small>
                   </a>
                 </li>
                 <li>
@@ -260,7 +260,7 @@
           <h3 id="wiki-h3-2">
           <a id="user-content-dangling-reference" class="anchor" href="#dangling-reference" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dangling reference</h3>
           <p>Attempting to access the reference-counted object whose reference count is 0 will trigger an <code>IllegalReferenceCountException</code>:</p>
-          <div class="highlight highlight-source-java"><pre><span class="pl-k">assert</span> buf<span class="pl-k">.</span>refCnt() <span class="pl-k">==</span> <span class="pl-c1">0</span>;&#x000A;<span class="pl-k">try</span> {&#x000A;  buf<span class="pl-k">.</span>writeLong(0xdeadbeef);&#x000A;  <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">Error</span>(<span class="pl-s"><span class="pl-pds">"</span>should not reach here<span class="pl-pds">"</span></span>);&#x000A;} <span class="pl-k">catch</span> (<span class="pl-smi">IllegalReferenceCountExeception</span> e) {&#x000A;  <span class="pl-c"><span class="pl-c">//</span> Expected</span>&#x000A;}</pre></div>
+          <div class="highlight highlight-source-java"><pre><span class="pl-k">assert</span> buf<span class="pl-k">.</span>refCnt() <span class="pl-k">==</span> <span class="pl-c1">0</span>;&#x000A;<span class="pl-k">try</span> {&#x000A;  buf<span class="pl-k">.</span>writeLong(<span class="pl-c1">0xdeadbeef</span>);&#x000A;  <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-smi">Error</span>(<span class="pl-s"><span class="pl-pds">"</span>should not reach here<span class="pl-pds">"</span></span>);&#x000A;} <span class="pl-k">catch</span> (<span class="pl-smi">IllegalReferenceCountExeception</span> e) {&#x000A;  <span class="pl-c"><span class="pl-c">//</span> Expected</span>&#x000A;}</pre></div>
           <h3 id="wiki-h3-3">
           <a id="user-content-increasing-the-reference-count" class="anchor" href="#increasing-the-reference-count" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Increasing the reference count</h3>
           <p>A reference count can also be incremented via the <code>retain()</code> operation as long as it is not destroyed yet:</p>
@@ -447,7 +447,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 06-Jul-2017</small>
+                <small>Last retrieved on 03-Aug-2017</small>
               </div>
             </div>
           </div>

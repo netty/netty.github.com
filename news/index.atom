@@ -2,9 +2,109 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-07-06T20:06:41+02:00</updated>
+  <updated>2017-08-03T12:57:30+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html</id>
+    <title>Netty 4.0.50.Final and 4.1.14.Final released</title>
+    <updated>2017-08-03T12:57:30+02:00</updated>
+    <published>2017-08-03T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.50.Final and 4.1.14.Final are:
+      
+      
+      Fix hash function and hash table size in Snappy (#7038)
+      Correctly run all pending tasks for EmbeddedChannel when the Channel is closed (#6897)
+      Allow to use oldest Channel out of the Simple / FixedChannelPool on acquire (#7018)
+      Correctly handle unsigned int values returned from TCP_INFO (#7011)
+      ByteBufs which are not resizable should not throw in ensureWritable(int, boolean) (#7004)
+      Automatically detect shaded packagePrefix (#6995)
+      Correct typo in artifactId...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.50.Final and 4.1.14.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Fix hash function and hash table size in Snappy (&lt;a href=&quot;https://github.com/netty/netty/pull/7038&quot;&gt;#7038&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly run all pending tasks for EmbeddedChannel when the Channel is closed (&lt;a href=&quot;https://github.com/netty/netty/pull/6897&quot;&gt;#6897&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to use oldest Channel out of the Simple / FixedChannelPool on acquire (&lt;a href=&quot;https://github.com/netty/netty/pull/7018&quot;&gt;#7018&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle unsigned int values returned from TCP_INFO (&lt;a href=&quot;https://github.com/netty/netty/pull/7011&quot;&gt;#7011&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ByteBufs which are not resizable should not throw in ensureWritable(int, boolean) (&lt;a href=&quot;https://github.com/netty/netty/pull/7004&quot;&gt;#7004&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Automatically detect shaded packagePrefix (&lt;a href=&quot;https://github.com/netty/netty/pull/6995&quot;&gt;#6995&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correct typo in artifactId of dependency in bom pom.xml (&lt;a href=&quot;https://github.com/netty/netty/pull/6989&quot;&gt;#6989&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AbstractByteBuf.ensureWritable(...) should check if buffer was released (&lt;a href=&quot;https://github.com/netty/netty/pull/6978&quot;&gt;#6978&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Record release when enable detailed leak detection (&lt;a href=&quot;https://github.com/netty/netty/pull/6972&quot;&gt;#6972&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;OpenSslEngine protocol selection must be contiguous (&lt;a href=&quot;https://github.com/netty/netty/pull/6964&quot;&gt;#6964&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Revert &quot;Revert &quot;SslHandler avoid calling wrap/unwrap when unnecessary&quot;&quot; (&lt;a href=&quot;https://github.com/netty/netty/pull/6806&quot;&gt;#6806&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Also use realloc when shrink the buffer (&lt;a href=&quot;https://github.com/netty/netty/pull/6943&quot;&gt;#6943&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.14.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Configures HTTP2 pipeline with more proper way (&lt;a href=&quot;https://github.com/netty/netty/pull/6952&quot;&gt;#6952&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow IP_TRANSPARENT to be set on redirecting socket (&lt;a href=&quot;https://github.com/netty/netty/pull/7037&quot;&gt;#7037&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2FrameLogger avoid hex dump of the ByteBufs when log disabled (&lt;a href=&quot;https://github.com/netty/netty/pull/7026&quot;&gt;#7026&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2ConnectionHandler: allow graceful shutdown to wait forever (&lt;a href=&quot;https://github.com/netty/netty/pull/6954&quot;&gt;#6954&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Writing to released ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/issues/6951&quot;&gt;#6951&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allowed Netty Epoll/Kqueue to work in IPv6 Only environments (&lt;a href=&quot;https://github.com/netty/netty/pull/6994&quot;&gt;#6994&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AbstractByteBuf.setCharSequence(...) must not expand buffer (&lt;a href=&quot;https://github.com/netty/netty/pull/6957&quot;&gt;#6957&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 enforce HTTP message flow (&lt;a href=&quot;https://github.com/netty/netty/pull/6962&quot;&gt;#6962&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use the correct murmur3 C1 value (&lt;a href=&quot;https://github.com/netty/netty/pull/6988&quot;&gt;#6988&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;SslHandler aggregation of plaintext data on write (&lt;a href=&quot;https://github.com/netty/netty/pull/6720&quot;&gt;#6720&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;OpenSslEngine option to wrap/unwrap multiple packets per call (&lt;a href=&quot;https://github.com/netty/netty/pull/6365&quot;&gt;#6365&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/168?closed=1&quot;&gt;4.0.50.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/169?closed=1&quot;&gt;4.1.14.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.50.Final are also included in 4.1.14.Final. All changes only have milestone 4.1.14.Final do not affect 4.0.50.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/albertok&quot;&gt;@albertok&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bfiorini&quot;&gt;@bfiorini&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chhsiao90&quot;&gt;@chhsiao90&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Gordiychuk&quot;&gt;@Gordiychuk&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kevinoliver&quot;&gt;@kevinoliver&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lothbrok72&quot;&gt;@lothbrok72&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MartyIX&quot;&gt;@MartyIX&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nayato&quot;&gt;@nayato&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ppatierno&quot;&gt;@ppatierno&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rschmitt&quot;&gt;@rschmitt&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tsachev&quot;&gt;@tsachev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zspencer&quot;&gt;@zspencer&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/07/06/4-0-49-Final-4-1-13-Final.html</id>
     <title>Netty 4.0.49.Final and 4.1.13.Final released</title>
@@ -4137,89 +4237,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/tkowalcz&quot;&gt;@tkowalcz&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/08/14/4-1-0-Beta2.html</id>
-    <title>Netty 4.1.0.Beta2 released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-08-14T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/08/14/4-1-0-Beta2.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      Here's another beta release of Netty 4.1.  This second beta version is packed with exciting features and improvements, as well as bug fixes.  Please check out the list below; you might find something useful to you. :-)
-      
-      New Features
-      
-      
-      #2757 - SOCKS protocol version 4a codec, by @bk1te
-      #2755 #2739 #2654 #2610 - Add more compression codecs: FastLZ, LZ4, LZF, and bzip2, by @idelpivnitskiy
-      #2741 #2763 - Enable transfer progress notification with ChannelProgressiveFutureListener for ChunkedInput, by @plucury
-      #2649 #2745 - Add TextHeaders.getAndRemove() methods for efficiency, by @plucury
-      
-      
-      
-      Notable changes
-      
-      
-      #2758 - TextHeaders do not raise an exception anymore when no header is found but returns...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Here's another beta release of Netty 4.1.  This second beta version is packed with exciting features and improvements, as well as bug fixes.  Please check out the list below; you might find something useful to you. :-)&lt;/p&gt;
-      
-      &lt;h2&gt;New Features&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2757&quot;&gt;#2757&lt;/a&gt; - SOCKS protocol version 4a codec, by &lt;a href=&quot;https://github.com/bk1te&quot;&gt;@bk1te&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2755&quot;&gt;#2755&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2739&quot;&gt;#2739&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2654&quot;&gt;#2654&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2610&quot;&gt;#2610&lt;/a&gt; - Add more compression codecs: &lt;a href=&quot;http://fastlz.org/&quot;&gt;FastLZ&lt;/a&gt;, &lt;a href=&quot;http://en.wikipedia.org/wiki/LZ4_%28compression_algorithm%29&quot;&gt;LZ4&lt;/a&gt;, &lt;a href=&quot;https://github.com/ning/compress/wiki&quot;&gt;LZF&lt;/a&gt;, and &lt;a href=&quot;http://en.wikipedia.org/wiki/Bzip2&quot;&gt;bzip2&lt;/a&gt;, by &lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2741&quot;&gt;#2741&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2763&quot;&gt;#2763&lt;/a&gt; - Enable transfer progress notification with &lt;code&gt;ChannelProgressiveFutureListener&lt;/code&gt; for &lt;code&gt;ChunkedInput&lt;/code&gt;, by &lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2649&quot;&gt;#2649&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2745&quot;&gt;#2745&lt;/a&gt; - Add &lt;code&gt;TextHeaders.getAndRemove()&lt;/code&gt; methods for efficiency, by &lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h2&gt;Notable changes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2758&quot;&gt;#2758&lt;/a&gt; - &lt;code&gt;TextHeaders&lt;/code&gt; do not raise an exception anymore when no header is found but returns &lt;code&gt;null&lt;/code&gt;.&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2766&quot;&gt;#2766&lt;/a&gt; - Rename &lt;code&gt;SnappyFramedEncoder&lt;/code&gt; and &lt;code&gt;SnappyFramedDecoder&lt;/code&gt; to &lt;code&gt;SnappyFrameEncoder&lt;/code&gt; and &lt;code&gt;SnappyFrameDecoder&lt;/code&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2688&quot;&gt;#2688&lt;/a&gt; - Improve the type safety of the DNS messages by using value types instead of pritimive values, by &lt;a href=&quot;https://github.com/timboudreau&quot;&gt;@timboudreau&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h2&gt;Bug fixes&lt;/h2&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2708&quot;&gt;#2708&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/2686&quot;&gt;#2686&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/pull/2679&quot;&gt;#2679&lt;/a&gt; - Fix bugs in the DNS codec&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2354&quot;&gt;#2354&lt;/a&gt; - Fix a bug where &lt;code&gt;AbstractConstant.compareTo()&lt;/code&gt; can return zero for two different constants&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2706&quot;&gt;#2706&lt;/a&gt; - Fix a bug where the PID detection fails when the current PID is greater than 65535&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;This release also includes all the improvements and bug fixes in &lt;a href=&quot;http://netty.io/news/2014/08/14/4-0-22-Final.html&quot;&gt;4.0.22.Final&lt;/a&gt;, of course.&lt;/p&gt;
-      
-      &lt;p&gt;Please visit &lt;a href=&quot;http://netty.io/wiki/new-and-noteworthy-in-4.1.html&quot;&gt;our wiki page&lt;/a&gt; for the summary of all the changes since 4.0.  You can also browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta2&quot;&gt;our issue tracker&lt;/a&gt; for the gory detail.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Adam-&quot;&gt;@Adam-&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bk1te&quot;&gt;@bk1te&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Brizth&quot;&gt;@Brizth&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jakobbuchgraber&quot;&gt;@jakobbuchgraber&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/plucury&quot;&gt;@plucury&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tea-dragon&quot;&gt;@tea-dragon&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/timboudreau&quot;&gt;@timboudreau&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
