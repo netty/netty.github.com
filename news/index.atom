@@ -2,9 +2,112 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2017-08-24T19:56:22+02:00</updated>
+  <updated>2017-09-25T11:34:09+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2017/09/25/4-0-52-Final-4-1-16-Final.html</id>
+    <title>Netty 4.0.52.Final and 4.1.16.Final released</title>
+    <updated>2017-09-25T11:34:09+02:00</updated>
+    <published>2017-09-25T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2017/09/25/4-0-52-Final-4-1-16-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after another 5 weeks of development.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.52.Final and 4.1.16.Final are:
+      
+      
+      Correctly not write any body when 1xx, 204 or 304 is used as response status code (#7209)
+      Fix assertion error when closing / shutdown native channel and SO_LINGER is set (#7225)
+      Reduce performance overhead of ResourceLeakDetector (#7217)
+      fix Log4J2Logger-FQCN in PatternLayout (%F:%L)%c.%M (#7185)
+      Enable PooledByteBufAllocator to work, even without a cache (#7195)
+      Only load native transport if running architecture match the compiled (#7163)
+      HttpObjectEncoder buffer size...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after another 5 weeks of development.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.52.Final and 4.1.16.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Correctly not write any body when 1xx, 204 or 304 is used as response status code (&lt;a href=&quot;https://github.com/netty/netty/pull/7209&quot;&gt;#7209&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix assertion error when closing / shutdown native channel and SO_LINGER is set (&lt;a href=&quot;https://github.com/netty/netty/pull/7225&quot;&gt;#7225&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reduce performance overhead of ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/7217&quot;&gt;#7217&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;fix Log4J2Logger-FQCN in PatternLayout (%F:%L)%c.%M (&lt;a href=&quot;https://github.com/netty/netty/pull/7185&quot;&gt;#7185&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Enable PooledByteBufAllocator to work, even without a cache (&lt;a href=&quot;https://github.com/netty/netty/pull/7195&quot;&gt;#7195&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Only load native transport if running architecture match the compiled (&lt;a href=&quot;https://github.com/netty/netty/pull/7163&quot;&gt;#7163&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HttpObjectEncoder buffer size estimation (&lt;a href=&quot;https://github.com/netty/netty/pull/7161&quot;&gt;#7161&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AutoClose behavior may infinite loop (&lt;a href=&quot;https://github.com/netty/netty/pull/7153&quot;&gt;#7153&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.16.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Adapt Http2ServerDowngrader to work with clients (&lt;a href=&quot;https://github.com/netty/netty/pull/7233&quot;&gt;#7233&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Match Http2ClientUpgradeCodec to the new upgrade policy (&lt;a href=&quot;https://github.com/netty/netty/pull/7227&quot;&gt;#7227&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix NPE in InboundHttp2ToHttpAdapter (&lt;a href=&quot;https://github.com/netty/netty/pull/7215&quot;&gt;#7215&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Check on wrong CONNECT packet with password but without username (&lt;a href=&quot;https://github.com/netty/netty/pull/7206&quot;&gt;#7206&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly update writability state of Http2StreamChannel created by Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/7181&quot;&gt;#7181&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix NPE when using Http2ServerUpgradeCodec with Http2FrameCodec and Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/7184&quot;&gt;#7184&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Not add inboundStreamHandler for outbound streams created by Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/7180&quot;&gt;#7180&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix reference count issue when using Http2FrameCodec / Http2MultiplexCodec with HttpServerUpgradeHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/7176&quot;&gt;#7176&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix StompSubframeDecoder.redHeaders no any notification when parsed line that contains multiple colon (&lt;a href=&quot;https://github.com/netty/netty/pull/7160&quot;&gt;#7160&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultSocks5CommandRequest incorrectly rejects SOCKS5 commands with dstPort=0 (&lt;a href=&quot;https://github.com/netty/netty/pull/7157&quot;&gt;#7157&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.52.Final&quot;&gt;4.0.52.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.16.Final&quot;&gt;4.1.16.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.52.Final are also included in 4.1.16.Final. All changes only have milestone 4.1.16.Final do not affect 4.0.52.Final.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h2&gt;Native library naming&lt;/h2&gt;
+      
+      &lt;p&gt;This releases changed the naming scheme of the native .so and .dynlib files that are includes in the native jars to also include the architecture on which these were compiled. This was done as part of (&lt;a href=&quot;https://github.com/netty/netty/pull/7163&quot;&gt;#7163&lt;/a&gt;) to ensure we not load the native transport libs when used on architectures that are not supported. If you use any rules to shade these libs you may need to adjust these to take also the architecture into account.&lt;/p&gt;
+      
+      &lt;h2&gt;Http2ServerDowngrader renamed to Http2StreamFrameToHttpObjectCodec&lt;/h2&gt;
+      
+      &lt;p&gt;&lt;code&gt;Http2ServerDowngrader&lt;/code&gt; was renamed to &lt;code&gt;Http2StreamFrameToHttpObjectCodec&lt;/code&gt; as it now allows to be used for client and server side. Please do the needed changes if you use this class.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Apache9&quot;&gt;@Apache9&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/axtavt&quot;&gt;@axtavt&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/durigon&quot;&gt;@durigon&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gemmellr&quot;&gt;@gemmellr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jianglai&quot;&gt;@jianglai&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lionelli1&quot;&gt;@lionelli1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MengJie&quot;&gt;@MengJie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/michaelandrepearce&quot;&gt;@michaelandrepearce&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pgr0ss&quot;&gt;@pgr0ss&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ppatierno&quot;&gt;@ppatierno&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/takeseem&quot;&gt;@takeseem&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html</id>
     <title>Netty 4.0.51.Final and 4.1.15.Final released</title>
@@ -4239,59 +4342,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/rxin&quot;&gt;@rxin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/zhanggang807&quot;&gt;@zhanggang807&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/08/26/3-9-4-Final.html</id>
-    <title>Netty 3.9.4.Final released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-08-26T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/08/26/3-9-4-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      Here's another micro update in 3.9 branch.  The list of the changes is much smaller than that of 3.9.3.Final, mainly because we try to release more often and maybe because it's quite mature.
-      
-      
-      #2747 - Improve traffic shaping handlers
-      #2767 - Fix a bug in IpFilterSubnetRule handling 0.0.0.0/0 incorrectly
-      #2821 - Add a system property to change the default ZLIB compression library in HttpContentCompressor
-      
-      
-      
-      For the detail, please browse our issue tracker.
-      
-      As always, please let us know if you find any issues.  We love feedback!
-      
-      Thank You
-      
-      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in...
-    </summary>
-    <content type="html">
-      &lt;p&gt;Here's another micro update in 3.9 branch.  The list of the changes is much smaller than that of &lt;a href=&quot;http://netty.io/news/2014/08/06/3-9-3-Final.html&quot;&gt;3.9.3.Final&lt;/a&gt;, mainly because we try to release more often &lt;em&gt;and&lt;/em&gt; maybe because it's quite mature.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/pull/2749&quot;&gt;#2747&lt;/a&gt; - Improve traffic shaping handlers&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2767&quot;&gt;#2767&lt;/a&gt; - Fix a bug in &lt;code&gt;IpFilterSubnetRule&lt;/code&gt; handling &lt;code&gt;0.0.0.0/0&lt;/code&gt; incorrectly&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/netty/netty/issues/2821&quot;&gt;#2821&lt;/a&gt; - Add a system property to change the default ZLIB compression library in &lt;code&gt;HttpContentCompressor&lt;/code&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.9.4.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues.  We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/amarchanka&quot;&gt;@amarchanka&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
