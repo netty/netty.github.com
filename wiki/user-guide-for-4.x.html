@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/09/25/4-0-52-Final-4-1-16-Final.html">
+              <a href="../news/2017/11/08/4-0-53-Final-4-1-17-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.16.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.17.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.16.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.1.17.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.52.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.53.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.52.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.0.53.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
@@ -282,7 +282,7 @@
           <li>To implement the <code>DISCARD</code> protocol, the handler has to ignore the received message.  <a href="http://netty.io/4.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a> is a reference-counted object which has to be released explicitly via the <code>release()</code> method.  Please keep in mind that it is the handler's responsibility to release any reference-counted object passed to the handler.  Usually, <code>channelRead()</code> handler method is implemented like the following:</li>
           </ol>
           <div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> msg) {&#x000A;    <span class="pl-k">try</span> {&#x000A;        <span class="pl-c"><span class="pl-c">//</span> Do something with msg</span>&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span><span class="pl-k">.</span>release(msg);&#x000A;    }&#x000A;}</pre></div>
-          <ol>
+          <ol start="4">
           <li>The <code>exceptionCaught()</code> event handler method is called with a Throwable when an exception was raised by Netty due to an I/O error or by a handler implementation due to the exception thrown while processing events. In most cases, the caught exception should be logged and its associated channel should be closed here, although the implementation of this method can be different depending on what you want to do to deal with an exceptional situation. For example, you might want to send a response message with an error code before closing the connection.</li>
           </ol>
           <p>So far so good. We have implemented the first half of the <code>DISCARD</code> server. What's left now is to write the <code>main()</code> method which starts the server with the <code>DiscardServerHandler</code>.</p>
@@ -491,7 +491,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 25-Sep-2017</small>
+                <small>Last retrieved on 09-Nov-2017</small>
               </div>
             </div>
           </div>

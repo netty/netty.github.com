@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/09/25/4-0-52-Final-4-1-16-Final.html">
+              <a href="../news/2017/11/08/4-0-53-Final-4-1-17-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.16.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.17.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.16.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.1.17.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.52.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.53.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.52.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.0.53.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
@@ -249,7 +249,7 @@
                   <div class="markdown-body">
                     <p>To put simply, for a channel:</p>
           <ol>
-          <li>Regardless of its transport and type, its all upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
+          <li>Regardless of its transport and type, all its upstream (i.e. inbound) events must be fired from the thread that performs I/O for the channel (i.e. I/O thread).</li>
           <li>All downstream (i.e. outbound) events can be triggered from any thread including the I/O thread and non-I/O threads.  However, any upstream events triggered as a side effect of the downstream event must be fired from the I/O thread. (e.g. If <code>Channel.close()</code> triggers <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>, they must be fired by the I/O thread.</li>
           </ol>
           <p>Current problems (UGLY - causes a race condition in an upstream handler, BAD - does not cause a race condition but violates the expected thread model):</p>
@@ -262,10 +262,10 @@
           </li>
           <li>
           <p>BAD: <code>channelOpen</code> is triggered by the thread that called <code>ChannelFactory.newChannel()</code>, which is not an I/O thread.
-          It's kind of bad but otherwise its not possible to  limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p>
+          It's kind of bad but otherwise its not possible to limit the concurrent active channels by closing the channel here. If we would do this in the IO-Thread it would not be that efficient.</p>
           </li>
           <li>
-          <p>BAD: Client-side channels are run by two I/O threads.  One that makes a connection attempts and the other that does actual I/O.</p>
+          <p>BAD: Client-side channels are run by two I/O threads.  One that makes connection attempts and the other that does actual I/O.</p>
           </li>
           </ul>
           <p>Action items:</p>
@@ -300,7 +300,7 @@
           
               </div>
           <div class="text-right clearfix">
-            <small>Last retrieved on 25-Sep-2017</small>
+            <small>Last retrieved on 09-Nov-2017</small>
           </div>
         </div>
       </div>

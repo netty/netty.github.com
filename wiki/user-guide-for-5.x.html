@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2017/09/25/4-0-52-Final-4-1-16-Final.html">
+              <a href="../news/2017/11/08/4-0-53-Final-4-1-17-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.16.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.17.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.16.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.1.17.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.52.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.53.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.52.Final
-                    <small>&dash; 25-Sep-2017</small>
+                    4.0.53.Final
+                    <small>&dash; 08-Nov-2017</small>
                   </a>
                 </li>
                 <li>
@@ -374,7 +374,7 @@
           <p>As you can see, it is not really different from the the server-side code. What about the <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html"><code>ChannelHandler</code></a> implementation? It should receive a 32-bit integer from the server, translate it into a human readable format, print the translated time, and close the connection:</p>
           <div class="highlight highlight-source-java"><pre><span class="pl-k">package</span> <span class="pl-smi">io.netty.example.time</span>;&#x000A;&#x000A;<span class="pl-k">import</span> <span class="pl-smi">java.util.Date</span>;&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">TimeClientHandler</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelHandlerAdapter</span> {&#x000A;    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-v">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-v">msg</span>) {&#x000A;        <span class="pl-smi">ByteBuf</span> m <span class="pl-k">=</span> (<span class="pl-smi">ByteBuf</span>) msg; <span class="pl-c"><span class="pl-c">//</span> (1)</span>&#x000A;        <span class="pl-k">try</span> {&#x000A;            <span class="pl-k">long</span> currentTimeMillis <span class="pl-k">=</span> (m<span class="pl-k">.</span>readUnsignedInt() <span class="pl-k">-</span> <span class="pl-c1">2208988800L</span>) <span class="pl-k">*</span> <span class="pl-c1">1000L</span>;&#x000A;            <span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>println(<span class="pl-k">new</span> <span class="pl-smi">Date</span>(currentTimeMillis));&#x000A;            ctx<span class="pl-k">.</span>close();&#x000A;        } <span class="pl-k">finally</span> {&#x000A;            m<span class="pl-k">.</span>release();&#x000A;        }&#x000A;    }&#x000A;&#x000A;    <span class="pl-k">@Override</span>&#x000A;    <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">exceptionCaught</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-v">ctx</span>, <span class="pl-smi">Throwable</span> <span class="pl-v">cause</span>) {&#x000A;        cause<span class="pl-k">.</span>printStackTrace();&#x000A;        ctx<span class="pl-k">.</span>close();&#x000A;    }&#x000A;}</pre></div>
           <ol>
-          <li>In TCP/IP, Netty reads the data sent from a peer into a <span class="broken-link">`ByteBuf`</span>.</li>
+          <li>In TCP/IP, Netty reads the data sent from a peer into a [<a href="http://netty.io/5.0/api/io/netty/buffer/ByteBuf.html"><code>ByteBuf</code></a>].</li>
           </ol>
           <p>It looks very simple and does not look any different from the server side example. However, this handler sometimes will refuse to work raising an <code>IndexOutOfBoundsException</code>. We discuss why this happens in the next section.</p>
           <h3 id="wiki-h3-12">
@@ -497,7 +497,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 25-Sep-2017</small>
+                <small>Last retrieved on 09-Nov-2017</small>
               </div>
             </div>
           </div>
