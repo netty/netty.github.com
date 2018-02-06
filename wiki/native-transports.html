@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/01/22/4-0-55-Final-4-1-20-Final.html">
+              <a href="../news/2018/02/05/4-0-56-Final-4-1-21-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.20.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.21.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.20.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.1.21.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.55.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.55.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.0.56.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
@@ -277,7 +277,7 @@
           </ul>
           <p>Because the native transport is not part of the Netty core, you need to pull the <code>netty-transport-native-epoll</code> as a dependency in your Maven <code>pom.xml</code>:</p>
           <div class="highlight highlight-text-xml"><pre>  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.5.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-transport-native-epoll&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;${project.version}&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.name}-${os.detected.arch}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;</pre></div>
-          <p>For using the native transport in a <a href="http://www.scala-sbt.org/">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
+          <p>For using the native transport in a <a href="http://www.scala-sbt.org/" rel="nofollow">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
           <pre><code>"io.netty" % "netty-transport-native-epoll" % "${project.version}" classifier "linux-x86_64"&#x000A;</code></pre>
           <h3 id="wiki-h3-3">
           <a id="user-content-using-the-macosbsd-native-transport" class="anchor" href="#using-the-macosbsd-native-transport" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the MacOS/BSD native transport</h3>
@@ -298,7 +298,7 @@
           </ul>
           <p>Because the native transport is not part of the Netty core, you need to pull the <code>netty-transport-native-kqueue</code> as a dependency in your Maven <code>pom.xml</code>:</p>
           <div class="highlight highlight-text-xml"><pre>  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.5.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-transport-native-kqueue&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;${project.version}&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.name}-${os.detected.arch}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;</pre></div>
-          <p>For using the native transport in a <a href="http://www.scala-sbt.org/">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
+          <p>For using the native transport in a <a href="http://www.scala-sbt.org/" rel="nofollow">sbt</a> project, please add line below to your <code>libraryDependencies</code>:</p>
           <pre><code>"io.netty" % "netty-transport-native-kqueue" % "${project.version}" classifier "osx-x86_64"&#x000A;</code></pre>
           <h2 id="wiki-h2-4">
           <a id="user-content-building-the-native-transports" class="anchor" href="#building-the-native-transports" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building the native transports</h2>
@@ -335,7 +335,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 22-Jan-2018</small>
+                <small>Last retrieved on 06-Feb-2018</small>
               </div>
             </div>
           </div>

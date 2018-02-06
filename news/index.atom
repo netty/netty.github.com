@@ -2,9 +2,121 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-01-22T16:28:52+01:00</updated>
+  <updated>2018-02-06T07:48:37+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/02/05/4-0-56-Final-4-1-21-Final.html</id>
+    <title>Netty 4.0.56.Final and 4.1.21.Final released</title>
+    <updated>2018-02-06T07:48:37+01:00</updated>
+    <published>2018-02-05T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/02/05/4-0-56-Final-4-1-21-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes for 4.0.56.Final and 4.1.21.Final are:
+      
+      
+      DefaultChannelPipeline will not invoke handler if events are fired from handlerAdded (#7606)
+      ObjectCleanerThread must be a deamon thread to ensure the JVM can always terminate (#7627)
+      Reflective setAccessible(true) will produce scary warnings on the console when using java9+ (#7650)
+      SslHandler unwrap out of order promise/event notification (#7667)
+      JdkSslContext supported cipher suites incorrect (#7677)
+      ReadOnlyUnsafeDirectByteBuf.memoryAddress() should not throw (#7678)
+      
+      
+      
+      The most important changes for 4.1.21.Final only are:
+      
+      
+      Http2FrameCodec WindowUpdate bug
+      (#7604)
+      Fix race-condition when using DnsCache...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes for 4.0.56.Final and 4.1.21.Final are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;DefaultChannelPipeline will not invoke handler if events are fired from handlerAdded (&lt;a href=&quot;https://github.com/netty/netty/pull/7606&quot;&gt;#7606&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ObjectCleanerThread must be a deamon thread to ensure the JVM can always terminate (&lt;a href=&quot;https://github.com/netty/netty/pull/7627&quot;&gt;#7627&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reflective setAccessible(true) will produce scary warnings on the console when using java9+ (&lt;a href=&quot;https://github.com/netty/netty/pull/7650&quot;&gt;#7650&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;SslHandler unwrap out of order promise/event notification (&lt;a href=&quot;https://github.com/netty/netty/pull/7667&quot;&gt;#7667&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;JdkSslContext supported cipher suites incorrect (&lt;a href=&quot;https://github.com/netty/netty/pull/7677&quot;&gt;#7677&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ReadOnlyUnsafeDirectByteBuf.memoryAddress() should not throw (&lt;a href=&quot;https://github.com/netty/netty/pull/7678&quot;&gt;#7678&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;The most important changes for 4.1.21.Final only are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Http2FrameCodec WindowUpdate bug
+      (&lt;a href=&quot;https://github.com/netty/netty/pull/7604&quot;&gt;#7604&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix race-condition when using DnsCache in DnsNameResolve (&lt;a href=&quot;https://github.com/netty/netty/pull/7587&quot;&gt;#7587&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reduce overhead of cancel flowcontrolled writes. (&lt;a href=&quot;https://github.com/netty/netty/pull/7608&quot;&gt;#7608&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2MultiplexCodec should propagate unhandled Http2Frames down the pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/7612&quot;&gt;#7612&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do not fire outbound exception through the pipeline when using Http2FrameCodec / Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/7618&quot;&gt;#7618&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2MultiplexCodec.DefaultHttpStreamChannel.isOpen() / isActive() should be false when fireChannelActive() is called (&lt;a href=&quot;https://github.com/netty/netty/pull/7640&quot;&gt;#7640&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle multiple calls to DefaultHttp2StreamChannel.Unsafe.close(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/7631&quot;&gt;#7631&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Convert Http2Error.STREAM_CLOSED to ClosedChannelException when using child channels (&lt;a href=&quot;https://github.com/netty/netty/pull/7610&quot;&gt;#7610&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultDnsCache should expire all records per hostname when one TTL is reached (&lt;a href=&quot;https://github.com/netty/netty/pull/7656&quot;&gt;#7656&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolverContext#followCname only uses first name server  (&lt;a href=&quot;https://github.com/netty/netty/pull/7671&quot;&gt;#7671&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResovlerContext#followCname sending extra queries (&lt;a href=&quot;https://github.com/netty/netty/pull/7681&quot;&gt;#7681&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Avoid register multiple cleaner task for same thread's FastThreadLocal index (&lt;a href=&quot;https://github.com/netty/netty/pull/7676&quot;&gt;#7676&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.56.Final&quot;&gt;4.0.56.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.21.Final&quot;&gt;4.1.21.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;All changes that are in 4.0.56.Final are also included in 4.1.21.Final. All changes only have milestone 4.1.21.Final do not affect 4.0.56.Final.&lt;/p&gt;
+      
+      &lt;h1&gt;Important notes&lt;/h1&gt;
+      
+      &lt;h2&gt;HTTP2&lt;/h2&gt;
+      
+      &lt;p&gt;The &lt;code&gt;Http2ConnectionHandler&lt;/code&gt; API was slightly adjusted to be able to detect if an error was caused by an outbound or inbound operation. If you override any of the on*Error(...) methods you will need to adjust for it.&lt;/p&gt;
+      
+      &lt;h2&gt;4.0.x releases&lt;/h2&gt;
+      
+      &lt;p&gt;As noted before this was the last release we will do for the 4.0 tree. If you not use 4.1.x yet you will need to upgrade if you want to receive more bug-fixes.&lt;/p&gt;
+      
+      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/asarkar&quot;&gt;@asarkar&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://githob.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ivankelly&quot;&gt;@ivankelly&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jaymode&quot;&gt;@jaymode&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jianyuanzh&quot;&gt;@jianyuanzh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kashike&quot;&gt;@kashike&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kirillkh&quot;&gt;@kirillkh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kojilin&quot;&gt;@kojilin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/laosijikaichele&quot;&gt;@laosijikaichele&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/madgnome&quot;&gt;@madgnome&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/matteobertozzi&quot;&gt;@matteobertozzi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/RikkiGibson&quot;&gt;@RikkiGibson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tsegismont&quot;&gt;@tsegismont&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/xehonk&quot;&gt;@xehonk&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/01/22/4-0-55-Final-4-1-20-Final.html</id>
     <title>Netty 4.0.55.Final and 4.1.20.Final released</title>
@@ -4307,112 +4419,6 @@
       &lt;p&gt;One of bigger new features is support for UNIX Domain Sockets when using the native epoll transport. For more details please see &lt;a href=&quot;https://github.com/netty/netty/pull/3344&quot;&gt;#3344&lt;/a&gt; and  &lt;a href=&quot;https://github.com/netty/netty/pull/3345&quot;&gt;#3345&lt;/a&gt;.&lt;/p&gt;
       
       &lt;p&gt;For a complete list please check the &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.26.Final&quot;&gt;Bugtracker&lt;/a&gt;.&lt;/p&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2014/12/31/4-0-25-Final.html</id>
-    <title>Netty 4.0.25.Final released</title>
-    <updated>2017-02-28T15:12:05+01:00</updated>
-    <published>2014-12-31T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2014/12/31/4-0-25-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>trustin</name>
-    </author>
-    <summary>
-      I'm happy to announce Netty 4.0.25.Final before 2014 ends! It would be awesome if anyone finds this release a great happy new year present.
-      
-      It took us two months since the previous release in 4.0 branch, and we must admit we have a lot to improve here. We know you are also waiting for 4.1 &amp; 5.0 releases with all the shiny new features. Please stay tuned! I expect myself to deliver them before January ends.
-      
-      Putting a new year's resolution aside, this release, as well as 20+ bug fixes, contains the following exciting new features and improvements:
-      
-      
-      SSL
-      
-      
-      SslContext adds ALPN and mutual...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce Netty 4.0.25.Final before 2014 ends! It would be awesome if anyone finds this release a great happy new year present.&lt;/p&gt;
-      
-      &lt;p&gt;It took us two months since the previous release in 4.0 branch, and we must admit we have a lot to improve here. We know you are also waiting for 4.1 &amp;amp; 5.0 releases with all the shiny new features. Please stay tuned! I expect myself to deliver them before January ends.&lt;/p&gt;
-      
-      &lt;p&gt;Putting a new year's resolution aside, this release, as well as 20+ bug fixes, contains the following exciting new features and improvements:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;SSL
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;code&gt;SslContext&lt;/code&gt; adds ALPN and mutual authentication support.&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;SslHandler.renegotiate()&lt;/code&gt; adds proper SSL renegotiation support.&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;SniHandler&lt;/code&gt; adds Server Name Indication support.&lt;/li&gt;
-      &lt;li&gt;&lt;code&gt;OpenSslEngine&lt;/code&gt; is now (almost) feature-complete with client mode support.
-      
-      &lt;ul&gt;
-      &lt;li&gt;Works as a drop-in replacement of JDK stock &lt;code&gt;SSLEngineImpl&lt;/code&gt;!&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;SPDY
-      
-      &lt;ul&gt;
-      &lt;li&gt;Pushed resource support&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;HTTP
-      
-      &lt;ul&gt;
-      &lt;li&gt;Higher performance&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;Linux native transport (epoll)
-      
-      &lt;ul&gt;
-      &lt;li&gt;Higher performance&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the detail, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.25.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/beckje01&quot;&gt;@beckje01&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/belliottsmith&quot;&gt;@belliottsmith&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bfg&quot;&gt;@bfg&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/danbev&quot;&gt;@danbev&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dkartaschew&quot;&gt;@dkartaschew&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fbarberamzn&quot;&gt;@fbarberamzn&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Gadreel&quot;&gt;@Gadreel&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gbehrmann&quot;&gt;@gbehrmann&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gdgib&quot;&gt;@gdgib&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/grahamedgecombe&quot;&gt;@grahamedgecombe&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gsoltis&quot;&gt;@gsoltis&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jpinner&quot;&gt;@jpinner&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jwils&quot;&gt;@jwils&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lw346&quot;&gt;@lw346&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/naude-r&quot;&gt;@naude-r&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Pyrolistical&quot;&gt;@Pyrolistical&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rxin&quot;&gt;@rxin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ysammy&quot;&gt;@ysammy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/zcourts&quot;&gt;@zcourts&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
     </content>
   </entry>
 </feed>

@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/01/22/4-0-55-Final-4-1-20-Final.html">
+              <a href="../news/2018/02/05/4-0-56-Final-4-1-21-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.20.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.21.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.20.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.1.21.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.55.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.55.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.0.56.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
@@ -252,7 +252,7 @@
                     <p>This document walks you through the list of notable changes and new features in the major Netty release to give you an idea to port your application to the new version.</p>
           <h2 id="wiki-h2-1">
           <a id="user-content-project-structure-changes" class="anchor" href="#project-structure-changes" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Project structure changes</h2>
-          <p>The package name of Netty has been changed from <code>org.jboss.netty</code> to <code>io.netty</code> since <a href="http://netty.io/news/2011/11/04/new-web-site.html">we are not part of JBoss.org anymore</a>.</p>
+          <p>The package name of Netty has been changed from <code>org.jboss.netty</code> to <code>io.netty</code> since <a href="http://netty.io/news/2011/11/04/new-web-site.html" rel="nofollow">we are not part of JBoss.org anymore</a>.</p>
           <p>The binary JAR has been split into multiple submodules so that a user can exclude unnecessary features from the class path.  The current structure looks like this following:</p>
           <table class="table table-hover">
           <thead>
@@ -283,17 +283,17 @@
           <tr>
           <td><code>netty-transport-rxtx</code></td>
           <td>
-          <a href="http://goo.gl/vTFBv">Rxtx</a> transport</td>
+          <a href="http://goo.gl/vTFBv" rel="nofollow">Rxtx</a> transport</td>
           </tr>
           <tr>
           <td><code>netty-transport-sctp</code></td>
           <td>
-          <a href="http://goo.gl/oXxaU">SCTP</a> transport</td>
+          <a href="http://goo.gl/oXxaU" rel="nofollow">SCTP</a> transport</td>
           </tr>
           <tr>
           <td><code>netty-transport-udt</code></td>
           <td>
-          <a href="http://udt.sourceforge.net/">UDT</a> transport</td>
+          <a href="http://udt.sourceforge.net/" rel="nofollow">UDT</a> transport</td>
           </tr>
           <tr>
           <td><code>netty-handler</code></td>
@@ -343,7 +343,7 @@
           <li>Boolean properties are still prefixed with <code>is-</code> to avoid confusion (e.g. 'empty' is both an adjective and a verb, so <code>empty()</code> can have two meanings.)</li>
           </ul>
           </li>
-          <li>For API changes between 4.0 CR4 and 4.0 CR5 see <a href="http://netty.io/news/2013/06/18/4-0-0-CR5.html">Netty 4.0.0.CR5 released with new-new API</a>
+          <li>For API changes between 4.0 CR4 and 4.0 CR5 see <a href="http://netty.io/news/2013/06/18/4-0-0-CR5.html" rel="nofollow">Netty 4.0.0.CR5 released with new-new API</a>
           </li>
           </ul>
           <h2 id="wiki-h2-3">
@@ -375,13 +375,13 @@
           <div class="highlight highlight-source-java"><pre><span class="pl-k">import</span> <span class="pl-smi">io.netty.buffer.ByteBuf</span>;&#x000A;<span class="pl-k">import</span> <span class="pl-smi">io.netty.buffer.Unpooled</span>;&#x000A;<span class="pl-k">import</span> <span class="pl-smi">java.nio.ByteOrder</span>;&#x000A; &#x000A;<span class="pl-smi">ByteBuf</span> buf <span class="pl-k">=</span> <span class="pl-smi">Unpooled</span><span class="pl-k">.</span>buffer(<span class="pl-c1">4</span>);&#x000A;buf<span class="pl-k">.</span>setInt(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>);&#x000A;<span class="pl-c"><span class="pl-c">//</span> Prints '00000001'</span>&#x000A;<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>format(<span class="pl-s"><span class="pl-pds">"</span>%08x%n<span class="pl-pds">"</span></span>, buf<span class="pl-k">.</span>getInt(<span class="pl-c1">0</span>)); &#x000A; &#x000A;<span class="pl-smi">ByteBuf</span> leBuf <span class="pl-k">=</span> buf<span class="pl-k">.</span>order(<span class="pl-smi">ByteOrder</span><span class="pl-c1"><span class="pl-k">.</span>LITTLE_ENDIAN</span>);&#x000A;<span class="pl-c"><span class="pl-c">//</span> Prints '01000000'</span>&#x000A;<span class="pl-smi">System</span><span class="pl-k">.</span>out<span class="pl-k">.</span>format(<span class="pl-s"><span class="pl-pds">"</span>%08x%n<span class="pl-pds">"</span></span>, leBuf<span class="pl-k">.</span>getInt(<span class="pl-c1">0</span>));&#x000A; &#x000A;<span class="pl-k">assert</span> buf <span class="pl-k">!=</span> leBuf;&#x000A;<span class="pl-k">assert</span> buf <span class="pl-k">==</span> buf<span class="pl-k">.</span>order(<span class="pl-smi">ByteOrder</span><span class="pl-c1"><span class="pl-k">.</span>BIG_ENDIAN</span>);</pre></div>
           <h3 id="wiki-h3-10">
           <a id="user-content-pooled-buffers" class="anchor" href="#pooled-buffers" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pooled buffers</h3>
-          <p>Netty 4 introduces a high-performance buffer pool which is a variant of <a href="http://www.canonware.com/jemalloc/">jemalloc</a> that combines <a href="http://en.wikipedia.org/wiki/Buddy_memory_allocation">buddy allocation</a> and <a href="http://en.wikipedia.org/wiki/Slab_allocation">slab allocation</a>. It gives the following benefits:</p>
+          <p>Netty 4 introduces a high-performance buffer pool which is a variant of <a href="http://www.canonware.com/jemalloc/" rel="nofollow">jemalloc</a> that combines <a href="http://en.wikipedia.org/wiki/Buddy_memory_allocation" rel="nofollow">buddy allocation</a> and <a href="http://en.wikipedia.org/wiki/Slab_allocation" rel="nofollow">slab allocation</a>. It gives the following benefits:</p>
           <ul>
           <li>Reduced GC pressure incurred by frequent allocation and deallocation of the buffers</li>
           <li>Reduced memory bandwidth consumption incurred when creating a new buffer which  inevitably has to be filled with zeroes</li>
           <li>Timely deallocation of direct buffers</li>
           </ul>
-          <p>To take advantage of this feature, unless a user wants to get an unpooled buffer, he or she should get a buffer from a <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/AbstractByteBufAllocator.html"><code>ByteBufAllocator</code></a>:</p>
+          <p>To take advantage of this feature, unless a user wants to get an unpooled buffer, he or she should get a buffer from a <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/AbstractByteBufAllocator.html" rel="nofollow"><code>ByteBufAllocator</code></a>:</p>
           <div class="highlight highlight-source-java"><pre><span class="pl-smi">Channel</span> channel <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;<span class="pl-smi">ByteBufAllocator</span> alloc <span class="pl-k">=</span> channel<span class="pl-k">.</span>alloc();&#x000A;<span class="pl-smi">ByteBuf</span> buf <span class="pl-k">=</span> alloc<span class="pl-k">.</span>buffer(<span class="pl-c1">512</span>);&#x000A;<span class="pl-c1">....</span>&#x000A;channel<span class="pl-k">.</span>write(buf);&#x000A; &#x000A;<span class="pl-smi">ChannelHandlerContext</span> ctx <span class="pl-k">=</span> <span class="pl-c1">...</span>&#x000A;<span class="pl-smi">ByteBuf</span> buf2 <span class="pl-k">=</span> ctx<span class="pl-k">.</span>alloc()<span class="pl-k">.</span>buffer(<span class="pl-c1">512</span>);&#x000A;<span class="pl-c1">....</span>&#x000A;channel<span class="pl-k">.</span>write(buf2)</pre></div>
           <p>Once a <code>ByteBuf</code> is written to the remote peer it will be returned automatically to the pool it originated from.</p>
           <p>The default <code>ByteBufAllocator</code> is <code>PooledByteBufAllocator</code>. If you do not wish to use buffer pooling or use your own allocator, use <code>Channel.config().setAllocator(...)</code> with an alternative allocator such as <code>UnpooledByteBufAllocator</code>.</p>
@@ -528,7 +528,7 @@
           <li>4.0 disallows adding a <code>ChannelHandler</code> more than once unless it's annotated with <code>@Sharable</code>.</li>
           </ul>
           </li>
-          <li>There is always <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility">happens-before</a> relationship between each <code>ChannelHandler</code> method invocations made by Netty.
+          <li>There is always <a href="http://docs.oracle.com/javase/7/docs/api/java/util/concurrent/package-summary.html#MemoryVisibility" rel="nofollow">happens-before</a> relationship between each <code>ChannelHandler</code> method invocations made by Netty.
           <ul>
           <li>A user does not need to define a <code>volatile</code> field to keep the state of a handler.</li>
           </ul>
@@ -675,7 +675,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 22-Jan-2018</small>
+                <small>Last retrieved on 06-Feb-2018</small>
               </div>
             </div>
           </div>

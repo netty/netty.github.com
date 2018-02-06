@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/01/22/4-0-55-Final-4-1-20-Final.html">
+              <a href="../news/2018/02/05/4-0-56-Final-4-1-21-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,17 +61,17 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.20.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.21.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.20.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.1.21.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.55.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.0.55.Final
-                    <small>&dash; 22-Jan-2018</small>
+                    4.0.56.Final
+                    <small>&dash; 05-Feb-2018</small>
                   </a>
                 </li>
                 <li>
@@ -249,7 +249,7 @@
           <div class="col-md-9">
           <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
                   <div class="markdown-body">
-                    <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
+                    <p><a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> is a fork of <a href="http://tomcat.apache.org/native-doc/" rel="nofollow">Tomcat Native</a>.  It includes a set of changes contributed by Twitter, Inc, such as:</p>
           <ul>
           <li>Simplified distribution and linkage of native library</li>
           <li>Complete mavenization of the project</li>
@@ -270,12 +270,12 @@
           <tbody>
           <tr>
           <td>netty-tcnative-{os_arch}</td>
-          <td>This is the "default" artifact which is dynamically linked to both <a href="https://apr.apache.org/">libapr-1</a> and <a href="https://www.openssl.org/">OpenSSL</a>. To use this artifact, your system must have both libapr-1 and OpenSSL installed and configured. This artifact is useful for production environments where the site administrator is free to upgrade OpenSSL without having to rebuild the application.</td>
+          <td>This is the "default" artifact which is dynamically linked to both <a href="https://apr.apache.org/" rel="nofollow">libapr-1</a> and <a href="https://www.openssl.org/" rel="nofollow">OpenSSL</a>. To use this artifact, your system must have both libapr-1 and OpenSSL installed and configured. This artifact is useful for production environments where the site administrator is free to upgrade OpenSSL without having to rebuild the application.</td>
           <td>yes</td>
           </tr>
           <tr>
           <td>netty-tcnative-boringssl-static-{os_arch}</td>
-          <td>This artifact is statically linked against Google's <a href="https://boringssl.googlesource.com/">boringssl</a>, which is a fork of OpenSSL that has a reduced code footprint and additional features (such as ALPN) which at the time of this writing have not made an appearance in a stable release of linux. The static linking makes it easier to get started using tcnative on a system without having to worry about additional install steps. This library does not require APR.</td>
+          <td>This artifact is statically linked against Google's <a href="https://boringssl.googlesource.com/" rel="nofollow">boringssl</a>, which is a fork of OpenSSL that has a reduced code footprint and additional features (such as ALPN) which at the time of this writing have not made an appearance in a stable release of linux. The static linking makes it easier to get started using tcnative on a system without having to worry about additional install steps. This library does not require APR.</td>
           <td>yes</td>
           </tr>
           <tr>
@@ -303,7 +303,7 @@
           <a id="user-content-how-to-download-netty-tcnative-boringssl-static" class="anchor" href="#how-to-download-netty-tcnative-boringssl-static" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to download netty-tcnative-boringssl-static</h2>
           <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and the <code>netty-tcnative-boringssl-static</code> dependency appropriate for your platform:</p>
           <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
-          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/">Maven Central</a> and provide distributions for the following platforms:</p>
+          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> and provide distributions for the following platforms:</p>
           <table class="table table-hover">
           <thead>
           <tr>
@@ -330,7 +330,7 @@
           <a id="user-content-how-to-download-netty-tcnative" class="anchor" href="#how-to-download-netty-tcnative" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to download netty-tcnative</h2>
           <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
           <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Configure the os-maven-plugin extension to expand the classifier on <span class="pl-c">--&gt;</span></span>&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Fedora-"like" systems. <span class="pl-c">--&gt;</span></span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
-          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
+          <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
           <table class="table table-hover">
           <thead>
           <tr>
@@ -370,19 +370,19 @@
           <p>Note that the shared library in the <code>netty-tcnative</code> artifact is dynamically linked against Apache Portable Runtime (APR) and OpenSSL.  They must be in the library load path such as system library directories, <code>$LD_LIBRARY_PATH</code>, and <code>%PATH%</code>.</p>
           <ul>
           <li>If you are on Linux, you probably don't need to do anything because you can install them using your system's package manager.</li>
-          <li>If you are on Mac, you have to install <code>openssl</code> package using <a href="http://brew.sh/">Homebrew</a>.</li>
+          <li>If you are on Mac, you have to install <code>openssl</code> package using <a href="http://brew.sh/" rel="nofollow">Homebrew</a>.</li>
           <li>If you are on Windows, you have to:
           <ul>
           <li>Build APR by yourself,</li>
-          <li>Install <a href="http://slproweb.com/products/Win32OpenSSL.html">OpenSSL for Windows</a>, and</li>
+          <li>Install <a href="http://slproweb.com/products/Win32OpenSSL.html" rel="nofollow">OpenSSL for Windows</a>, and</li>
           <li>Add the directories that contain the .DLL files to <code>%PATH%</code>.</li>
           </ul>
           </li>
           </ul>
-          <p><strong>Important:</strong> If you use Linux and want to make use of ALPN (you will need this for http2) you need to ensure you have openssl &gt;= 1.0.2 installed. If this is not provided by the package system of your distro you will need to compile it by your own and set the LD_LIBRARY_PATH as explained in <a href="http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-2">How to built</a>.</p>
+          <p><strong>Important:</strong> If you use Linux and want to make use of ALPN (you will need this for http2) you need to ensure you have openssl &gt;= 1.0.2 installed. If this is not provided by the package system of your distro you will need to compile it by your own and set the LD_LIBRARY_PATH as explained in <a href="http://netty.io/wiki/forked-tomcat-native.html#wiki-h2-2" rel="nofollow">How to built</a>.</p>
           <h2 id="wiki-h2-7">
           <a id="user-content-how-to-build" class="anchor" href="#how-to-build" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to build</h2>
-          <p>You don't usually need to build <code>netty-tcnative</code> by yourself because we officially ship the JARs with the native libraries for <code>Linux x86_64</code>, <code>Mac OS X x86_64</code>, and <code>Windows x86_64</code>.  If you are looking for a SNAPSHOT build, browse <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">Sonatype Snapshots</a>.</p>
+          <p>You don't usually need to build <code>netty-tcnative</code> by yourself because we officially ship the JARs with the native libraries for <code>Linux x86_64</code>, <code>Mac OS X x86_64</code>, and <code>Windows x86_64</code>.  If you are looking for a SNAPSHOT build, browse <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/" rel="nofollow">Sonatype Snapshots</a>.</p>
           <p>If you are on a platform we don't ship the JARs with the native libraries, such as Windows x86_32, follow the instructions in this section.</p>
           <h3 id="wiki-h3-8">
           <a id="user-content-updating-and-verifying-dependencies" class="anchor" href="#updating-and-verifying-dependencies" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Updating and Verifying Dependencies</h3>
@@ -390,7 +390,7 @@
           <h3 id="wiki-h3-9">
           <a id="user-content-autoconf" class="anchor" href="#autoconf" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>autoconf</h3>
           <ul>
-          <li>download tgz and tgz.sig from <a href="http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz">http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz</a>
+          <li>download tgz and tgz.sig from <a href="http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz" rel="nofollow">http://ftp.gnu.org/gnu/autoconf/autoconf-X.Y.Z.tar.gz</a>
           </li>
           <li><code>gpg --keyserver keys.gnupg.net --recv-keys 2527436A</code></li>
           <li><code>gpg --verify autoconf-X.Y.Z.tar.gz.sig</code></li>
@@ -398,7 +398,7 @@
           <h3 id="wiki-h3-10">
           <a id="user-content-apr" class="anchor" href="#apr" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>apr</h3>
           <ul>
-          <li>download at <a href="https://apr.apache.org/download.cgi">https://apr.apache.org/download.cgi</a>
+          <li>download at <a href="https://apr.apache.org/download.cgi" rel="nofollow">https://apr.apache.org/download.cgi</a>
           </li>
           <li>Securely fetch the MD5 sum for apr: the apache site links to http, but modify that to https</li>
           <li>Paste the sum into a file</li>
@@ -409,17 +409,17 @@
           <a id="user-content-libressl" class="anchor" href="#libressl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>libressl</h3>
           <ul>
           <li>signify public key: RWQg/nutTVqCUVUw8OhyHt9n51IC8mdQRd1b93dOyVrwtIXmMI+dtGFe</li>
-          <li>(you can download hte public key at <a href="https://www.openbsd.org/libressl/signing.html">https://www.openbsd.org/libressl/signing.html</a>)</li>
-          <li>download tarball, signature, and SHA256.sig at <a href="http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/">http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/</a>
+          <li>(you can download hte public key at <a href="https://www.openbsd.org/libressl/signing.html" rel="nofollow">https://www.openbsd.org/libressl/signing.html</a>)</li>
+          <li>download tarball, signature, and SHA256.sig at <a href="http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/" rel="nofollow">http://ftp.openbsd.org/pub/OpenBSD/LibreSSL/</a>
           </li>
-          <li>verify using libressl.pub from <a href="https://www.openbsd.org/libressl/signing.html">https://www.openbsd.org/libressl/signing.html</a>:
+          <li>verify using libressl.pub from <a href="https://www.openbsd.org/libressl/signing.html" rel="nofollow">https://www.openbsd.org/libressl/signing.html</a>:
           <code>signify -C -x SHA256.sig -p /path/to/libressl.pub libressl-X.Y.Z.tar.gz</code>
           </li>
           </ul>
           <h3 id="wiki-h3-12">
           <a id="user-content-openssl" class="anchor" href="#openssl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>openssl</h3>
           <ul>
-          <li>Download tarball and SHA256 signature from <a href="https://www.openssl.org/source/">https://www.openssl.org/source/</a>
+          <li>Download tarball and SHA256 signature from <a href="https://www.openssl.org/source/" rel="nofollow">https://www.openssl.org/source/</a>
           </li>
           <li>Verify the sum <code>sha1sum openssl-X.Y.Z.tar.gz | cut -d " " -f 1 | diff -u openssl-X.Y.Z.tar.gz.sha256 -</code>
           </li>
@@ -427,7 +427,7 @@
           <h3 id="wiki-h3-13">
           <a id="user-content-boringssl" class="anchor" href="#boringssl" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>boringssl</h3>
           <p>boringssl is not currently versioned hermetically for tcnative builds: instead it just pulls
-          from the <code>chromium-stable</code> branch at build time from the <a href="https://boringssl.googlesource.com/boringssl/">upstream google git repo</a></p>
+          from the <code>chromium-stable</code> branch at build time from the <a href="https://boringssl.googlesource.com/boringssl/" rel="nofollow">upstream google git repo</a></p>
           <h3 id="wiki-h3-14">
           <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Linux</h3>
           <table class="table table-hover">
@@ -455,7 +455,7 @@
           <td>Require version &gt;= 4.8</td>
           </tr>
           <tr>
-          <td><a href="https://cmake.org/download/">CMake</a></td>
+          <td><a href="https://cmake.org/download/" rel="nofollow">CMake</a></td>
           <td>Require version &gt;= 2.8.8</td>
           </tr>
           <tr>
@@ -463,11 +463,11 @@
           <td>Require version &gt;= 5.6.1</td>
           </tr>
           <tr>
-          <td><a href="https://ninja-build.org/">Ninja</a></td>
+          <td><a href="https://ninja-build.org/" rel="nofollow">Ninja</a></td>
           <td>Require version &gt;= 1.3.4</td>
           </tr>
           <tr>
-          <td><a href="https://golang.org/dl/">Go</a></td>
+          <td><a href="https://golang.org/dl/" rel="nofollow">Go</a></td>
           <td>Require version &gt;= 1.5.1</td>
           </tr>
           </tbody>
@@ -476,9 +476,9 @@
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
           <h3 id="wiki-h3-15">
           <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Mac OS X</h3>
-          <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12">Xcode</a>. After this make sure you install the command line tools as well:</p>
+          <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12" rel="nofollow">Xcode</a>. After this make sure you install the command line tools as well:</p>
           <div class="highlight highlight-source-shell"><pre>xcode-select --install</pre></div>
-          <p>Use <a href="http://brew.sh/">Homebrew</a> to install the required packages:</p>
+          <p>Use <a href="http://brew.sh/" rel="nofollow">Homebrew</a> to install the required packages:</p>
           <div class="highlight highlight-source-shell"><pre>brew install autoconf automake libtool openssl perl ninja golang cmake apr</pre></div>
           <p>Build the package and install it into your local Maven repository:</p>
           <div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;mvn clean install</pre></div>
@@ -487,16 +487,16 @@
           <p>This section describes how to build on 64-bit Windows. Some of these steps may have to be tailored when building on 32-bit systems.</p>
           <p>Install the following packages:</p>
           <ul>
-          <li><a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx">Visual C++ 2013 Express</a></li>
-          <li><a href="https://dev.windows.com/en-us/downloads/windows-10-sdk">Windows 10 SDK</a></li>
+          <li><a href="https://www.visualstudio.com/en-us/news/vs2013-community-vs.aspx" rel="nofollow">Visual C++ 2013 Express</a></li>
+          <li><a href="https://dev.windows.com/en-us/downloads/windows-10-sdk" rel="nofollow">Windows 10 SDK</a></li>
           <li>
-          <a href="https://cmake.org/files/v3.4/cmake-3.4.3-win32-x86.exe">CMake</a>
+          <a href="https://cmake.org/files/v3.4/cmake-3.4.3-win32-x86.exe" rel="nofollow">CMake</a>
           <ul>
           <li>During installation, select <code>Add CMake to the system PATH for current user</code>
           </li>
           </ul>
           </li>
-          <li><a href="http://www.activestate.com/activeperl/downloads/thank-you?dl=http://downloads.activestate.com/ActivePerl/releases/5.22.1.2201/ActivePerl-5.22.1.2201-MSWin32-x64-299574.msi">Perl</a></li>
+          <li><a href="http://www.activestate.com/activeperl/downloads/thank-you?dl=http://downloads.activestate.com/ActivePerl/releases/5.22.1.2201/ActivePerl-5.22.1.2201-MSWin32-x64-299574.msi" rel="nofollow">Perl</a></li>
           <li>
           <a href="https://github.com/ninja-build/ninja/releases/download/v1.6.0/ninja-win.zip">Ninja</a>
           <ul>
@@ -504,9 +504,9 @@
           </li>
           </ul>
           </li>
-          <li><a href="https://storage.googleapis.com/golang/go1.5.3.windows-amd64.msi">Go</a></li>
+          <li><a href="https://storage.googleapis.com/golang/go1.5.3.windows-amd64.msi" rel="nofollow">Go</a></li>
           <li>
-          <a href="http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win64.exe">Yasm</a>
+          <a href="http://www.tortall.net/projects/yasm/releases/yasm-1.3.0-win64.exe" rel="nofollow">Yasm</a>
           <ul>
           <li>Download to <code>C:\Workspaces</code>
           </li>
@@ -514,7 +514,7 @@
           </ul>
           </li>
           <li>
-          <a href="http://slproweb.com/download/Win64OpenSSL-1_0_2f.exe">OpenSSL</a>.
+          <a href="http://slproweb.com/download/Win64OpenSSL-1_0_2f.exe" rel="nofollow">OpenSSL</a>.
           <ul>
           <li>During installation, select <code>Copy OpenSSL DLLs to: The OpenSSL binaries (/bin) directory</code>
           </li>
@@ -527,7 +527,7 @@
           </ul>
           </li>
           <li>
-          <a href="http://www.us.apache.org/dist/apr/apr-1.5.2-win32-src.zip">Apache Portable Runtime (APR) 1.5.2</a>
+          <a href="http://www.us.apache.org/dist/apr/apr-1.5.2-win32-src.zip" rel="nofollow">Apache Portable Runtime (APR) 1.5.2</a>
           <ul>
           <li>Extract into: <code>C:\Workspaces\apr-1.5.2</code>
           </li>
@@ -591,7 +591,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 22-Jan-2018</small>
+                <small>Last retrieved on 06-Feb-2018</small>
               </div>
             </div>
           </div>
