@@ -2,13 +2,13 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-05-14T09:35:31+02:00</updated>
+  <updated>2018-05-14T14:46:41+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
     <id>http://netty.io/news/2018/05/14/4-1-25-Final.html</id>
-    <title>Netty 4.1.24.Final released</title>
-    <updated>2018-05-14T09:35:31+02:00</updated>
+    <title>Netty 4.1.25.Final released</title>
+    <updated>2018-05-14T14:46:41+02:00</updated>
     <published>2018-05-14T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/05/14/4-1-25-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -18,63 +18,61 @@
       I'm happy to announce the latest release of the 4.1 series.
       
       These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-      Importantly it also fixes a regression of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.
       
       The most important changes are:
       
       
-      Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (#7878)
-      Filter DNS results so they only contain the expected type when multiple types are present (#7875)
-      Only reset readIsPending if outboundBuffer is not empty (#7874)
-      AsciiString#indexOf out of bounds (#7866)
-      
-      
-      
-      For the details and all changes, please browse our issue tracker for  4.1.24.Final.
-      
-      Thank You
-      
-      Every idea...
+      Always follow cnames even if a matching A or AAAA record was found. (#7919)
+      DefaultDnsCache should store more then one Entry per hostname. (#7906)
+      Allow to disable native transport and native ssl support via system property. (#7903)
+      Add null-check to Htt2FrameCodec#consumeBytes. (#7899)
+      Fix IllegalReferenceCountException when using Http2MultiplexCodec and a DefaultHttp2GoAwayFrame with a non empty ByteBuffer is received. (#7894)
+      Correctly handle responses with status 205 and payload. (#7891)
+      Respect MAX_MESSAGES_PER_READ in LocalChannel / LocalServerChannel. (#7885)
+      Implement isWritable and ensureWritable on ReadOnlyByteBufferBuf....
     </summary>
     <content type="html">
       &lt;p&gt;I'm happy to announce the latest release of the 4.1 series.&lt;/p&gt;
       
-      &lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-      Importantly it also fixes a &lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;regression&lt;/a&gt; of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.&lt;/p&gt;
+      &lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
       
       &lt;p&gt;The most important changes are:&lt;/p&gt;
       
       &lt;ul&gt;
-      &lt;li&gt;Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (&lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;#7878&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Filter DNS results so they only contain the expected type when multiple types are present (&lt;a href=&quot;https://github.com/netty/netty/pull/7875&quot;&gt;#7875&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Only reset readIsPending if outboundBuffer is not empty (&lt;a href=&quot;https://github.com/netty/netty/pull/7874&quot;&gt;#7874&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;AsciiString#indexOf out of bounds (&lt;a href=&quot;https://github.com/netty/netty/pull/7866&quot;&gt;#7866&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Always follow cnames even if a matching A or AAAA record was found. (&lt;a href=&quot;https://github.com/netty/netty/pull/7919&quot;&gt;#7919&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultDnsCache should store more then one Entry per hostname. (&lt;a href=&quot;https://github.com/netty/netty/pull/7906&quot;&gt;#7906&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to disable native transport and native ssl support via system property. (&lt;a href=&quot;https://github.com/netty/netty/pull/7903&quot;&gt;#7903&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add null-check to Htt2FrameCodec#consumeBytes. (&lt;a href=&quot;https://github.com/netty/netty/pull/7899&quot;&gt;#7899&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix IllegalReferenceCountException when using Http2MultiplexCodec and a DefaultHttp2GoAwayFrame with a non empty ByteBuffer is received. (&lt;a href=&quot;https://github.com/netty/netty/pull/7894&quot;&gt;#7894&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle responses with status 205 and payload. (&lt;a href=&quot;https://github.com/netty/netty/pull/7891&quot;&gt;#7891&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Respect MAX_MESSAGES_PER_READ in LocalChannel / LocalServerChannel. (&lt;a href=&quot;https://github.com/netty/netty/pull/7885&quot;&gt;#7885&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Implement isWritable and ensureWritable on ReadOnlyByteBufferBuf. (&lt;a href=&quot;https://github.com/netty/netty/pull/7883&quot;&gt;#7883&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Update DatagramPacket.recipient() to return the actual destination IP. (&lt;a href=&quot;https://github.com/netty/netty/pull/7879&quot;&gt;#7879&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Set the correct stream header state for h2c upgrades. (&lt;a href=&quot;https://github.com/netty/netty/pull/7848&quot;&gt;#7848&lt;/a&gt;)&lt;/li&gt;
       &lt;/ul&gt;
       
       
-      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.24.Final&quot;&gt;4.1.24.Final&lt;/a&gt;.&lt;/p&gt;
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.25.Final&quot;&gt;4.1.25.Final&lt;/a&gt;.&lt;/p&gt;
       
       &lt;h1&gt;Thank You&lt;/h1&gt;
       
       &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
       
       &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/anuraaga&quot;&gt;@anuraaga&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bradforj287&quot;&gt;@bradforj287&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/davidmoten&quot;&gt;@davidmoten&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/dschobel&quot;&gt;@dschobel&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gustavonalle&quot;&gt;@gustavonalle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ikurovsky&quot;&gt;@ikurovsky&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/JLofgren&quot;&gt;@JLofgren&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/karlpauls&quot;&gt;@karlpauls&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/kubuzetto&quot;&gt;@kubuzetto&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lutovich&quot;&gt;@lutovich&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MottoX&quot;&gt;@MottoX&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/RikkiGibson&quot;&gt;@RikkiGibson&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Stefan-Weber&quot;&gt;@Stefan-Weber&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/syermakov&quot;&gt;@syermakov&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>

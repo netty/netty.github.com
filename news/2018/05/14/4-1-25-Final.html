@@ -2,8 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.1.24.Final released</title>
-    <title>Netty: Netty 4.1.24.Final released</title>
+    <title>Netty.news: Netty 4.1.25.Final released</title>
+    <title>Netty: Netty 4.1.25.Final released</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link href="../../../../images/favicon.ico" rel="shortcut icon">
     <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@
           <div class="col-md-9">
             <div class="news-item" id="main-content">
               <h1>
-                Netty 4.1.24.Final released
+                Netty 4.1.25.Final released
               </h1>
               <p class="byline">
                 <small>
@@ -256,42 +256,45 @@
               <div class="news-content">
                 <p>I'm happy to announce the latest release of the 4.1 series.</p>
                 
-                <p>These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-                Importantly it also fixes a <a href="https://github.com/netty/netty/pull/7878">regression</a> of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.</p>
+                <p>These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.</p>
                 
                 <p>The most important changes are:</p>
                 
                 <ul>
-                <li>Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (<a href="https://github.com/netty/netty/pull/7878">#7878</a>)</li>
-                <li>Filter DNS results so they only contain the expected type when multiple types are present (<a href="https://github.com/netty/netty/pull/7875">#7875</a>)</li>
-                <li>Only reset readIsPending if outboundBuffer is not empty (<a href="https://github.com/netty/netty/pull/7874">#7874</a>)</li>
-                <li>AsciiString#indexOf out of bounds (<a href="https://github.com/netty/netty/pull/7866">#7866</a>)</li>
+                <li>Always follow cnames even if a matching A or AAAA record was found. (<a href="https://github.com/netty/netty/pull/7919">#7919</a>)</li>
+                <li>DefaultDnsCache should store more then one Entry per hostname. (<a href="https://github.com/netty/netty/pull/7906">#7906</a>)</li>
+                <li>Allow to disable native transport and native ssl support via system property. (<a href="https://github.com/netty/netty/pull/7903">#7903</a>)</li>
+                <li>Add null-check to Htt2FrameCodec#consumeBytes. (<a href="https://github.com/netty/netty/pull/7899">#7899</a>)</li>
+                <li>Fix IllegalReferenceCountException when using Http2MultiplexCodec and a DefaultHttp2GoAwayFrame with a non empty ByteBuffer is received. (<a href="https://github.com/netty/netty/pull/7894">#7894</a>)</li>
+                <li>Correctly handle responses with status 205 and payload. (<a href="https://github.com/netty/netty/pull/7891">#7891</a>)</li>
+                <li>Respect MAX_MESSAGES_PER_READ in LocalChannel / LocalServerChannel. (<a href="https://github.com/netty/netty/pull/7885">#7885</a>)</li>
+                <li>Implement isWritable and ensureWritable on ReadOnlyByteBufferBuf. (<a href="https://github.com/netty/netty/pull/7883">#7883</a>)</li>
+                <li>Update DatagramPacket.recipient() to return the actual destination IP. (<a href="https://github.com/netty/netty/pull/7879">#7879</a>)</li>
+                <li>Set the correct stream header state for h2c upgrades. (<a href="https://github.com/netty/netty/pull/7848">#7848</a>)</li>
                 </ul>
                 
                 
-                <p>For the details and all changes, please browse our issue tracker for  <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.24.Final">4.1.24.Final</a>.</p>
+                <p>For the details and all changes, please browse our issue tracker for  <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.25.Final">4.1.25.Final</a>.</p>
                 
                 <h1>Thank You</h1>
                 
                 <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
                 
                 <ul>
-                <li><a href="https://github.com/anuraaga">@anuraaga</a></li>
-                <li><a href="https://github.com/Bennett-Lynch">@Bennett-Lynch</a></li>
-                <li><a href="https://github.com/bradforj287">@bradforj287</a></li>
-                <li><a href="https://github.com/davidmoten">@davidmoten</a></li>
+                <li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
+                <li><a href="https://github.com/dschobel">@dschobel</a></li>
                 <li><a href="https://github.com/ejona86">@ejona86</a></li>
-                <li><a href="https://github.com/fenik17">@fenik17</a></li>
-                <li><a href="https://github.com/gustavonalle">@gustavonalle</a></li>
-                <li><a href="https://github.com/ikurovsky">@ikurovsky</a></li>
-                <li><a href="https://github.com/JLofgren">@JLofgren</a></li>
+                <li><a href="https://github.com/kachayev">@kachayev</a></li>
+                <li><a href="https://github.com/karlpauls">@karlpauls</a></li>
                 <li><a href="https://github.com/kubuzetto">@kubuzetto</a></li>
+                <li><a href="https://github.com/lutovich">@lutovich</a></li>
                 <li><a href="https://github.com/mosesn">@mosesn</a></li>
+                <li><a href="https://github.com/MottoX">@MottoX</a></li>
                 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+                <li><a href="https://github.com/RikkiGibson">@RikkiGibson</a></li>
                 <li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-                <li><a href="https://github.com/Stefan-Weber">@Stefan-Weber</a></li>
-                <li><a href="https://github.com/syermakov">@syermakov</a></li>
                 <li><a href="https://github.com/trustin">@trustin</a></li>
+                <li><a href="https://github.com/windie">@windie</a></li>
                 </ul>
               </div>
               <ul class="pager">
