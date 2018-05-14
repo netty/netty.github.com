@@ -2,9 +2,82 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-04-19T19:20:35+02:00</updated>
+  <updated>2018-05-14T09:35:31+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/05/14/4-1-25-Final.html</id>
+    <title>Netty 4.1.24.Final released</title>
+    <updated>2018-05-14T09:35:31+02:00</updated>
+    <published>2018-05-14T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/05/14/4-1-25-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest release of the 4.1 series.
+      
+      These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      Importantly it also fixes a regression of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.
+      
+      The most important changes are:
+      
+      
+      Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (#7878)
+      Filter DNS results so they only contain the expected type when multiple types are present (#7875)
+      Only reset readIsPending if outboundBuffer is not empty (#7874)
+      AsciiString#indexOf out of bounds (#7866)
+      
+      
+      
+      For the details and all changes, please browse our issue tracker for  4.1.24.Final.
+      
+      Thank You
+      
+      Every idea...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest release of the 4.1 series.&lt;/p&gt;
+      
+      &lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      Importantly it also fixes a &lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;regression&lt;/a&gt; of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (&lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;#7878&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Filter DNS results so they only contain the expected type when multiple types are present (&lt;a href=&quot;https://github.com/netty/netty/pull/7875&quot;&gt;#7875&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Only reset readIsPending if outboundBuffer is not empty (&lt;a href=&quot;https://github.com/netty/netty/pull/7874&quot;&gt;#7874&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AsciiString#indexOf out of bounds (&lt;a href=&quot;https://github.com/netty/netty/pull/7866&quot;&gt;#7866&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.24.Final&quot;&gt;4.1.24.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/anuraaga&quot;&gt;@anuraaga&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bradforj287&quot;&gt;@bradforj287&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/davidmoten&quot;&gt;@davidmoten&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gustavonalle&quot;&gt;@gustavonalle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ikurovsky&quot;&gt;@ikurovsky&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/JLofgren&quot;&gt;@JLofgren&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kubuzetto&quot;&gt;@kubuzetto&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Stefan-Weber&quot;&gt;@Stefan-Weber&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/syermakov&quot;&gt;@syermakov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/04/19/4-1-24-Final.html</id>
     <title>Netty 4.1.24.Final released</title>
@@ -4246,226 +4319,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/krasa&quot;&gt;@krasa&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/lime62&quot;&gt;@lime62&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/spinscale&quot;&gt;@spinscale&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ThomasLau&quot;&gt;@ThomasLau&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/willisblackburn&quot;&gt;@willisblackburn&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/05/07/4-0-28-Final.html</id>
-    <title>Netty 4.0.28.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-05-07T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/05/07/4-0-28-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.28.Final,
-      
-      This release contains 60+ changes, including bug-fixes, improvements and two new exciting features.
-      
-      If you use Netty with AutoRead disabled we highly recommend upgrading as previous versions of Netty
-      contained a regression which could lead to stales, when using any decoder that extends either
-      ByteToMessageDecoder or ReplayingDecoder.
-      
-      The most important are:
-      
-      
-      ChannelFuture is not done after shutdown (#3567)
-      Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (#3658), (#3529), (#3587)
-      Correctly handle EPOLLRDHUP (#3611), (#3539)
-      Add ChannelPool abstraction and implementations (#3607), (#3218)
-      Change PoolThreadCache to use LIFO for better cache performance (#3553)
-      Add support for ALPN when using openssl + NPN client...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.28.Final,&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 60+ changes, including bug-fixes, improvements and two new exciting features.&lt;/p&gt;
-      
-      &lt;p&gt;If you use Netty with AutoRead disabled we highly recommend upgrading as previous versions of Netty
-      contained a regression which could lead to stales, when using any decoder that extends either
-      ByteToMessageDecoder or ReplayingDecoder.&lt;/p&gt;
-      
-      &lt;p&gt;The most important are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;ChannelFuture is not done after shutdown (&lt;a href=&quot;https://github.com/netty/netty/issues/3662&quot;&gt;#3567&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3658&quot;&gt;#3658&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3529&quot;&gt;#3529&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3587&quot;&gt;#3587&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly handle EPOLLRDHUP (&lt;a href=&quot;https://github.com/netty/netty/pull/3611&quot;&gt;#3611&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3539&quot;&gt;#3539&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add ChannelPool abstraction and implementations (&lt;a href=&quot;https://github.com/netty/netty/pull/3607&quot;&gt;#3607&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3218&quot;&gt;#3218&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Change PoolThreadCache to use LIFO for better cache performance (&lt;a href=&quot;https://github.com/netty/netty/pull/3553&quot;&gt;#3553&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for ALPN when using openssl + NPN client mode and support for CipherSuiteFilter (&lt;a href=&quot;https://github.com/netty/netty/pull/3481&quot;&gt;#3481&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/2845&quot;&gt;#3481&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for splice(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/3665&quot;&gt;#3665&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Allow rejection of remote initiated renegotiation (&lt;a href=&quot;https://github.com/netty/netty/pull/3750&quot;&gt;#3750&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Not defer close of Channel when in flush (&lt;a href=&quot;https://github.com/netty/netty/pull/3739&quot;&gt;#3739&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for mutual auth when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/3732&quot;&gt;#3732&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix possible IllegalStateException caused by closeNotifyTimeout when using SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3727&quot;&gt;#3727&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Validate cookie name and value characters (&lt;a href=&quot;https://github.com/netty/netty/pull/3748&quot;&gt;#3748&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.28.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;h3&gt;Validate cookie name and value characters&lt;/h3&gt;
-      
-      &lt;p&gt;This problem was discovered by the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; and could lead to security
-      problems due the improper parsing of Cookies (without strict validating).&lt;/p&gt;
-      
-      &lt;h3&gt;ChannelPool&lt;/h3&gt;
-      
-      &lt;p&gt;Many of our users needed to support connection pooling at some point when they used Netty to writing a client. This resulted in a lot of duplicated code. With the release of 4.0.28.Final
-      we include a pool API that users can use to implement there own ChannelPool or reuse either the SimpleChannelPool or the FixedChannelPool that are provided by Netty itself.&lt;/p&gt;
-      
-      &lt;pre&gt;&lt;code&gt;EventLoopGroup group = new NioEventLoopGroup();
-      final Bootstrap cb = new Bootstrap();
-      InetSocketAddress addr1 = new InetSocketAddress(&quot;10.0.0.10&quot;, 8888);
-      InetSocketAddress addr2 = new InetSocketAddress(&quot;10.0.0.11&quot;, 8888);
-      
-      cb.group(group).channel(NioSocketChannel.class);
-      
-      ChannelPoolMap&amp;lt;InetSocketAddress, SimpleChannelPool&amp;gt; poolMap = new AbstractChannelPoolMap&amp;lt;InetSocketAddress, SimpleChannelPool&amp;gt;() {
-          @Override
-          protected SimpleChannelPool newPool(InetSocketAddress key) {
-              return new SimpleChannelPool(cb.remoteAddress(key), new TestChannelPoolHandler());
-          }
-      };
-      
-      // depending on when you use addr1 or addr2 you will get different pools.
-      final SimpleChannelPool pool = poolMap.get(addr1);
-      Future&amp;lt;Channel&amp;gt; f = pool.acquire();
-      f.addListener(new FutureListener&amp;lt;Channel&amp;gt;() {
-          @Override
-          public void operationComplete(Future&amp;lt;Channel&amp;gt; f) {
-              if (f.isSuccess()) {
-                  Channel ch = f.getNow();
-                  // Do somethings
-                  // ...
-                  // ...
-      
-                  // Release back to pool
-                  pool.release(ch);
-              }
-          }
-      });
-      &lt;/code&gt;&lt;/pre&gt;
-      
-      &lt;p&gt;The important thing to note is that your &lt;code&gt;key&lt;/code&gt; could be everything. This makes it very flexible... For example you could have different pools for different EventLoops etc.&lt;/p&gt;
-      
-      &lt;p&gt;Please refer to the api documentation in the &lt;code&gt;io.netty.transport.pool&lt;/code&gt; package.&lt;/p&gt;
-      
-      &lt;h3&gt;Splice&lt;/h3&gt;
-      
-      &lt;p&gt;This release includes support for &lt;a href=&quot;http://linux.die.net/man/2/splice&quot;&gt;splice&lt;/a&gt; when using the native epoll transport. Splicing allows to directly transfer bytes from one filedescriptor
-      to another without copy data from kernel to user-space. This makes splice a perfect fit i.e when you want to write a TCP proxy.&lt;/p&gt;
-      
-      &lt;p&gt;The following code snipped shows a full TCP proxy that uses splicing:&lt;/p&gt;
-      
-      &lt;pre&gt;&lt;code&gt;EventLoopGroup group = new EpollEventLoopGroup(1);
-      ServerBootstrap bs2 = new ServerBootstrap();
-      bs2.channel(EpollServerSocketChannel.class);
-      bs2.childOption(EpollChannelOption.EPOLL_MODE, EpollMode.LEVEL_TRIGGERED);
-      bs2.group(group).childHandler(new ChannelInboundHandlerAdapter() {
-          @Override
-          public void channelActive(final ChannelHandlerContext ctx) throws Exception {
-              ctx.channel().config().setAutoRead(false);
-              Bootstrap bs = new Bootstrap();
-              bs.option(EpollChannelOption.EPOLL_MODE, EpollMode.LEVEL_TRIGGERED);
-      
-              bs.channel(EpollSocketChannel.class);
-              bs.group(ctx.channel().eventLoop()).handler(new ChannelInboundHandlerAdapter() {
-                  @Override
-                  public void channelActive(ChannelHandlerContext context) throws Exception {
-                      final EpollSocketChannel ch = (EpollSocketChannel) ctx.channel();
-                      final EpollSocketChannel ch2 = (EpollSocketChannel) context.channel();
-                      // We are splicing two channels together, at this point we have a tcp proxy which handles all
-                      // the data transfer only in kernel space!
-      
-                      // Integer.MAX_VALUE will splice infinitly.
-                      ch.spliceTo(ch2, Integer.MAX_VALUE).addListener(new ChannelFutureListener() {
-                          @Override
-                          public void operationComplete(ChannelFuture future) throws Exception {
-                              if (!future.isSuccess()) {
-                                  future.channel().close();
-                              }
-                          }
-                      });
-                      // Trigger multiple splices to see if partial splicing works as well.
-                      ch2.spliceTo(ch, SPLICE_LEN).addListener(new ChannelFutureListener() {
-                          @Override
-                          public void operationComplete(ChannelFuture future) throws Exception {
-                              if (!future.isSuccess()) {
-                                  future.channel().close();
-                              } else {
-                                  ch2.spliceTo(ch, SPLICE_LEN).addListener(this);
-                              }
-                          }
-                      });
-                      ctx.channel().config().setAutoRead(true);
-                  }
-      
-                  @Override
-                  public void channelInactive(ChannelHandlerContext context) throws Exception {
-                      context.close();
-                  }
-              });
-              bs.connect(new InetSocketAddress(&quot;10.0.0.10&quot;, 8888)).addListener(new ChannelFutureListener() {
-                  @Override
-                  public void operationComplete(ChannelFuture future) throws Exception {
-                      if (!future.isSuccess()) {
-                          ctx.close();
-                      } else {
-                          future.channel().closeFuture().addListener(new ChannelFutureListener() {
-                              @Override
-                              public void operationComplete(ChannelFuture future) throws Exception {
-                                  ctx.close();
-                              }
-                          });
-                      }
-                  }
-              });
-          }
-      });
-      Channel pc = bs2.bind(new InetSocketAddress(0)).syncUninterruptibly().channel();
-      &lt;/code&gt;&lt;/pre&gt;
-      
-      &lt;p&gt;Beside this we also support splicing directly to a file. For more informations please refer to the &lt;code&gt;AbstractEpollStreamChannel&lt;/code&gt; javadocs.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;p&gt;A special thank you to the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; for reporting the possible security bug.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Alwayswithme&quot;&gt;@Alwayswithme&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/benevans&quot;&gt;@benevans&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bobwenx&quot;&gt;@bobwenx&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/garretwu&quot;&gt;@garretwu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Harry5573&quot;&gt;@Harry5573&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/huguesb&quot;&gt;@huguesb&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/hyangtack&quot;&gt;@hyangtack&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jestan&quot;&gt;@jestan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jingene&quot;&gt;@jingene&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/kyankovski&quot;&gt;@kyankovski&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/krasa&quot;&gt;@krasa&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lime62&quot;&gt;@lime62&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
