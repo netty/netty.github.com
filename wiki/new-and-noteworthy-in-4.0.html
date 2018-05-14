@@ -549,7 +549,7 @@
           </li>
           <li>The <code>ChannelFutureListeners</code> added to <code>ChannelFuture</code> are always invoked by the <code>EventLoop</code> thread assigned to the future's associated <code>Channel</code>.</li>
           <li>
-          <code>ChannelHandlerInvoker</code> can be used to control the ordering of <code>Channel</code> events. <code>DefaultChannelHandlerInvoker</code> immediately executes events from the <code>EventLoop</code> thread and executes events from other threads as <code>Runnable</code> objects on an <code>EventExecutor</code>.  See the below example for implications this may have when interacting with a Channel from the <code>EventLoop</code> thread and other threads.</li>
+          <code>ChannelHandlerInvoker</code> can be used to control the ordering of <code>Channel</code> events. <code>DefaultChannelHandlerInvoker</code> immediately executes events from the <code>EventLoop</code> thread and executes events from other threads as <code>Runnable</code> objects on an <code>EventExecutor</code>.  See the below example for implications this may have when interacting with a Channel from the <code>EventLoop</code> thread and other threads. (This feature has been removed since. See <a href="https://github.com/netty/netty/commit/68cd670eb9b8827b4d3b7602f4ea8e14c38691ac#diff-6e08f48c25a292a7612f9d6941e67303">the relevant commit</a>)</li>
           </ul>
           <h6>
           <a id="user-content-write-ordering---mix-eventloop-thread-and-other-threads" class="anchor" href="#write-ordering---mix-eventloop-thread-and-other-threads" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Write Ordering - Mix <code>EventLoop</code> thread and other threads</h6>
@@ -675,7 +675,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 19-Apr-2018</small>
+                <small>Last retrieved on 14-May-2018</small>
               </div>
             </div>
           </div>
