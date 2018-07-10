@@ -2,13 +2,131 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-05-14T14:46:41+02:00</updated>
+  <updated>2018-07-10T11:26:04+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
+    <id>http://netty.io/news/2018/07/10/4-1-26-Final.html</id>
+    <title>Netty 4.1.26.Final released</title>
+    <updated>2018-07-10T11:26:04+01:00</updated>
+    <published>2018-07-10T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/07/10/4-1-26-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I'm happy to announce the latest release of the 4.1 series after almost 2 month of hard work.
+      
+      These release contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
+      
+      The most important changes are:
+      
+      
+      Add OpenSslX509KeyManagerFactory which makes it even easier for people get the maximum performance when using OpenSSL / LibreSSL / BoringSSL  with netty (#8084)
+      Do not log explicit no unsafe, fixes helper method (#8111)
+      Fix support for shading native libraries which was broken (#8091)
+      Remove usage of ObjectCleaner (#8064)
+      Reorder channel state changes in Http2MultiplexCodec child channel (#8070)
+      Remove id from DnsQueryContextManager whenever the promise is fullfilled (#8058)
+      HpackDecoder treats invalid pseudo-headers...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I'm happy to announce the latest release of the 4.1 series after almost 2 month of hard work.&lt;/p&gt;
+      
+      &lt;p&gt;These release contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Add OpenSslX509KeyManagerFactory which makes it even easier for people get the maximum performance when using OpenSSL / LibreSSL / BoringSSL  with netty (&lt;a href=&quot;https://github.com/netty/netty/pull/8084&quot;&gt;#8084&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do not log explicit no unsafe, fixes helper method (&lt;a href=&quot;https://github.com/netty/netty/pull/8111&quot;&gt;#8111&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix support for shading native libraries which was broken (&lt;a href=&quot;https://github.com/netty/netty/pull/8091&quot;&gt;#8091&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove usage of ObjectCleaner (&lt;a href=&quot;https://github.com/netty/netty/pull/8064&quot;&gt;#8064&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reorder channel state changes in Http2MultiplexCodec child channel (&lt;a href=&quot;https://github.com/netty/netty/pull/8070&quot;&gt;#8070&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove id from DnsQueryContextManager whenever the promise is fullfilled (&lt;a href=&quot;https://github.com/netty/netty/pull/8058&quot;&gt;#8058&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HpackDecoder treats invalid pseudo-headers as stream level errors (&lt;a href=&quot;https://github.com/netty/netty/pull/8046&quot;&gt;#8046&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to cache keymaterial when using OpenSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8036&quot;&gt;#8036&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Epoll and Kqueue shouldn't read by default (&lt;a href=&quot;https://github.com/netty/netty/pull/8024&quot;&gt;#8024&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Defer channelInactive and channelUnregistered events in Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/8021&quot;&gt;#8021&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Provide an API for controlling and h2c upgrade response stream in Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/7968&quot;&gt;#7968&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix CharSequenceValueConverter.convertToByte implementation for AsciiString (&lt;a href=&quot;https://github.com/netty/netty/pull/7994&quot;&gt;#7994&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Set (and override) websocket handshake headers after custom headers (&lt;a href=&quot;https://github.com/netty/netty/pull/7975&quot;&gt;#7975&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to schedule tasks up to Long.MAX_VALUE (&lt;a href=&quot;https://github.com/netty/netty/pull/7972&quot;&gt;#7972&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly let Http2UnkownFrame extend HttpStreamFrame (&lt;a href=&quot;https://github.com/netty/netty/pull/7976&quot;&gt;#7976&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Read until all data is consumed when EOF is detected  (&lt;a href=&quot;https://github.com/netty/netty/pull/7961&quot;&gt;#7961&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Propagate pong frames in WebSocketProtocolHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/7955&quot;&gt;#7955&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove HpackDecoder.maxHeaderListSizeGoAway (&lt;a href=&quot;https://github.com/netty/netty/pull/7911&quot;&gt;#7911&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Guard against calling malloc(0) when create ByteBuffer (&lt;a href=&quot;https://github.com/netty/netty/pull/7948&quot;&gt;#7948&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly clear the error stack in all cases when using ReferenceCountedOpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/7941&quot;&gt;#7941&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly copy existing elements when CodecOutputList.add(index, element) is used (&lt;a href=&quot;https://github.com/netty/netty/pull/7931&quot;&gt;#7931&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.26.Final&quot;&gt;4.1.26.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Special notes&lt;/h1&gt;
+      
+      &lt;p&gt;While this release contains many different changes, some deserve some more details.&lt;/p&gt;
+      
+      &lt;h1&gt;Optimize performance when using &lt;code&gt;SslProvider.OPENSSL&lt;/code&gt; and &lt;code&gt;SslProvider.OPENSSL_REFCNT&lt;/code&gt;&lt;/h1&gt;
+      
+      &lt;p&gt;While you already could observe a huge performance win using our native SSL implementation we improved handshake times a lot in this release by caching the keymaterial during handshakes.&lt;/p&gt;
+      
+      &lt;p&gt;While we can do this automatically when you configure the &lt;code&gt;SslContext&lt;/code&gt; to use files we can not do this without risk when you use a &lt;code&gt;KeyManagerFactory&lt;/code&gt; for doing so. If you do so please consider either using &lt;code&gt;OpenSslX509KeyManagerFactory&lt;/code&gt; or &lt;code&gt;OpenSslCachingX509KeyManagerFactory&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;The performance win we could observe were reducing the handshake latency by ~30-40% and the CPU usage during handshaking by up to 50%.&lt;/p&gt;
+      
+      &lt;p&gt;How much improvement you see highly depends on your service and the length of the used keychain etc so take the numbers of some caution.&lt;/p&gt;
+      
+      &lt;h1&gt;netty-tcnative compatibility&lt;/h1&gt;
+      
+      &lt;p&gt;Please ensure you also update your netty-tcnative release to 2.0.12.Final as this release is not compatible with earlier releases of netty-tcnative.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/caorong&quot;&gt;@caorong&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cchantep&quot;&gt;@cchantep&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/DiegoEliasCosta&quot;&gt;@DiegoEliasCosta&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/dschobel&quot;&gt;@dschobel&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ewie&quot;&gt;@ewie&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hc-codersatlas&quot;&gt;@hc-codersatlas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/henrik-lindqvist&quot;&gt;@henrik-lindqvist&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jianyuanzh&quot;&gt;@jianyuanzh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jozefbalga&quot;&gt;@jozefbalga&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jo-kin&quot;&gt;@jo-kin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nicktrav&quot;&gt;@nicktrav&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ossdev07&quot;&gt;@ossdev07&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pifuant&quot;&gt;@pifuant&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/radai-rosenblatt&quot;&gt;@radai-rosenblatt&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rockwotj&quot;&gt;@rockwotj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/seut&quot;&gt;@seut&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/smlance&quot;&gt;@smlance&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tomerd&quot;&gt;@tomerd&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vsabella&quot;&gt;@vsabella&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zekaryu&quot;&gt;@zekaryu&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
+  <entry>
     <id>http://netty.io/news/2018/05/14/4-1-25-Final.html</id>
     <title>Netty 4.1.25.Final released</title>
-    <updated>2018-05-14T14:46:41+02:00</updated>
+    <updated>2018-05-14T13:50:52+01:00</updated>
     <published>2018-05-14T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/05/14/4-1-25-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -79,7 +197,7 @@
   <entry>
     <id>http://netty.io/news/2018/04/19/4-1-24-Final.html</id>
     <title>Netty 4.1.24.Final released</title>
-    <updated>2018-04-19T19:20:35+02:00</updated>
+    <updated>2018-04-19T18:20:35+01:00</updated>
     <published>2018-04-19T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/04/19/4-1-24-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -152,7 +270,7 @@
   <entry>
     <id>http://netty.io/news/2018/04/04/4-1-23-Final.html</id>
     <title>Netty 4.1.23.Final released</title>
-    <updated>2018-04-04T19:47:24+02:00</updated>
+    <updated>2018-04-04T18:47:24+01:00</updated>
     <published>2018-04-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/04/04/4-1-23-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -240,7 +358,7 @@
   <entry>
     <id>http://netty.io/news/2018/02/21/4-1-22-Final.html</id>
     <title>Netty 4.1.22.Final released</title>
-    <updated>2018-04-04T14:11:24+02:00</updated>
+    <updated>2018-04-04T13:11:24+01:00</updated>
     <published>2018-02-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/02/21/4-1-22-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -328,7 +446,7 @@
   <entry>
     <id>http://netty.io/news/2018/02/05/4-0-56-Final-4-1-21-Final.html</id>
     <title>Netty 4.0.56.Final and 4.1.21.Final released</title>
-    <updated>2018-04-04T14:11:24+02:00</updated>
+    <updated>2018-04-04T13:11:24+01:00</updated>
     <published>2018-02-05T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/02/05/4-0-56-Final-4-1-21-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -440,7 +558,7 @@
   <entry>
     <id>http://netty.io/news/2018/01/22/4-0-55-Final-4-1-20-Final.html</id>
     <title>Netty 4.0.55.Final and 4.1.20.Final released</title>
-    <updated>2018-04-04T14:11:24+02:00</updated>
+    <updated>2018-04-04T13:11:24+01:00</updated>
     <published>2018-01-22T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/01/22/4-0-55-Final-4-1-20-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -539,7 +657,7 @@
   <entry>
     <id>http://netty.io/news/2017/12/18/4-1-19-Final.html</id>
     <title>Netty 4.1.19.Final released</title>
-    <updated>2018-04-04T14:11:24+02:00</updated>
+    <updated>2018-04-04T13:11:24+01:00</updated>
     <published>2017-12-18T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/12/18/4-1-19-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -581,7 +699,7 @@
   <entry>
     <id>http://netty.io/news/2017/12/11/4-0-54-Final-4-1-18-Final.html</id>
     <title>Netty 4.0.54.Final and 4.1.18.Final released</title>
-    <updated>2018-04-04T14:11:24+02:00</updated>
+    <updated>2018-04-04T13:11:24+01:00</updated>
     <published>2017-12-11T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/12/11/4-0-54-Final-4-1-18-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -678,7 +796,7 @@
   <entry>
     <id>http://netty.io/news/2017/11/08/4-0-53-Final-4-1-17-Final.html</id>
     <title>Netty 4.0.53.Final and 4.1.17.Final released</title>
-    <updated>2017-11-09T01:23:00+01:00</updated>
+    <updated>2017-11-09T00:23:00+00:00</updated>
     <published>2017-11-08T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/11/08/4-0-53-Final-4-1-17-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -780,7 +898,7 @@
   <entry>
     <id>http://netty.io/news/2017/09/25/4-0-52-Final-4-1-16-Final.html</id>
     <title>Netty 4.0.52.Final and 4.1.16.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-09-25T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/09/25/4-0-52-Final-4-1-16-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -883,7 +1001,7 @@
   <entry>
     <id>http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html</id>
     <title>Netty 4.0.51.Final and 4.1.15.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-08-25T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -994,7 +1112,7 @@
   <entry>
     <id>http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html</id>
     <title>Netty 4.0.50.Final and 4.1.14.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-08-03T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1094,7 +1212,7 @@
   <entry>
     <id>http://netty.io/news/2017/07/06/4-0-49-Final-4-1-13-Final.html</id>
     <title>Netty 4.0.49.Final and 4.1.13.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-07-06T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/07/06/4-0-49-Final-4-1-13-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1195,7 +1313,7 @@
   <entry>
     <id>http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html</id>
     <title>Netty 4.0.48.Final and 4.1.12.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-06-09T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1292,7 +1410,7 @@
   <entry>
     <id>http://netty.io/news/2017/05/12/4-0-47-Final-4-1-11-Final.html</id>
     <title>Netty 4.0.47.Final and 4.1.11.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-05-12T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/05/12/4-0-47-Final-4-1-11-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1391,7 +1509,7 @@
   <entry>
     <id>http://netty.io/news/2017/04/30/4-0-46-Final-4-1-10-Final.html</id>
     <title>Netty 4.0.46.Final and 4.1.10.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-04-30T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/04/30/4-0-46-Final-4-1-10-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1506,7 +1624,7 @@
   <entry>
     <id>http://netty.io/news/2017/03/10/4-0-45-Final-4-1-9-Final.html</id>
     <title>Netty 4.0.45.Final and 4.1.9.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-03-10T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/03/10/4-0-45-Final-4-1-9-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1618,7 +1736,7 @@
   <entry>
     <id>http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html</id>
     <title>Netty 4.0.44.Final and 4.1.8.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-01-30T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/01/30/4-0-44-Final-4-1-8-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1712,7 +1830,7 @@
   <entry>
     <id>http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html</id>
     <title>Netty 4.0.43.Final and 4.1.7.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2017-01-12T00:00:00+00:00</published>
     <link href="http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1836,7 +1954,7 @@
   <entry>
     <id>http://netty.io/news/2016/10/14/4-0-42-Final-4-1-6-Final.html</id>
     <title>Netty 4.0.42.Final and 4.1.6.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-10-14T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/10/14/4-0-42-Final-4-1-6-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -1954,7 +2072,7 @@
   <entry>
     <id>http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html</id>
     <title>Netty 4.0.41.Final and 4.1.5.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-08-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2056,7 +2174,7 @@
   <entry>
     <id>http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html</id>
     <title>Netty 4.0.40.Final and 4.1.4.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-07-27T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/07/27/4-0-40-Final-4-1-4-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2141,7 +2259,7 @@
   <entry>
     <id>http://netty.io/news/2016/07/15/4-0-39-Final-4-1-3-Final.html</id>
     <title>Netty 4.0.39.Final and 4.1.3.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-07-15T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/07/15/4-0-39-Final-4-1-3-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2240,7 +2358,7 @@
   <entry>
     <id>http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html</id>
     <title>Netty 4.0.38.Final and 4.1.2.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-07-01T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2339,7 +2457,7 @@
   <entry>
     <id>http://netty.io/news/2016/06/29/3-10-6-Final.html</id>
     <title>Netty 3.10.6.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-06-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/06/29/3-10-6-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2394,7 +2512,7 @@
   <entry>
     <id>http://netty.io/news/2016/06/07/4-1-1-Final.html</id>
     <title>Netty 4.1.1.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-06-07T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/06/07/4-1-1-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2456,7 +2574,7 @@
   <entry>
     <id>http://netty.io/news/2016/06/07/4-0-37-Final.html</id>
     <title>Netty 4.0.37.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-06-07T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/06/07/4-0-37-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2541,7 +2659,7 @@
   <entry>
     <id>http://netty.io/news/2016/05/26/4-1-0-Final.html</id>
     <title>Netty 4.1.0.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-05-26T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/05/26/4-1-0-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2625,7 +2743,7 @@
   <entry>
     <id>http://netty.io/news/2016/04/10/4-1-0-CR7.html</id>
     <title>Netty 4.1.0.CR7 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-04-10T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/04/10/4-1-0-CR7.html" rel="alternate" type="text/html" />
     <author>
@@ -2694,7 +2812,7 @@
   <entry>
     <id>http://netty.io/news/2016/04/04/4-0-36-Final.html</id>
     <title>Netty 4.0.36.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-04-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/04/04/4-0-36-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -2774,7 +2892,7 @@
   <entry>
     <id>http://netty.io/news/2016/04/02/4-1-0-CR6.html</id>
     <title>Netty 4.1.0.CR6 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-04-02T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/04/02/4-1-0-CR6.html" rel="alternate" type="text/html" />
     <author>
@@ -2841,7 +2959,7 @@
   <entry>
     <id>http://netty.io/news/2016/03/29/4-1-0-CR5.html</id>
     <title>Netty 4.1.0.CR5 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-03-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/03/29/4-1-0-CR5.html" rel="alternate" type="text/html" />
     <author>
@@ -2913,7 +3031,7 @@
   <entry>
     <id>http://netty.io/news/2016/03/21/4-1-0-CR4.html</id>
     <title>Netty 4.1.0.CR4 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-03-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/03/21/4-1-0-CR4.html" rel="alternate" type="text/html" />
     <author>
@@ -2984,7 +3102,7 @@
   <entry>
     <id>http://netty.io/news/2016/03/21/4-0-35-Final.html</id>
     <title>Netty 4.0.35.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-03-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/03/21/4-0-35-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3080,7 +3198,7 @@
   <entry>
     <id>http://netty.io/news/2016/02/20/4-1-0-CR3.html</id>
     <title>Netty 4.1.0.CR3 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-02-20T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/02/20/4-1-0-CR3.html" rel="alternate" type="text/html" />
     <author>
@@ -3151,7 +3269,7 @@
   <entry>
     <id>http://netty.io/news/2016/01/29/4-0-34-Final.html</id>
     <title>Netty 4.0.34.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-01-29T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/01/29/4-0-34-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3269,7 +3387,7 @@
   <entry>
     <id>http://netty.io/news/2016/01/25/4-1-0-CR1.html</id>
     <title>Netty 4.1.0.CR1 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2016-01-25T00:00:00+00:00</published>
     <link href="http://netty.io/news/2016/01/25/4-1-0-CR1.html" rel="alternate" type="text/html" />
     <author>
@@ -3336,7 +3454,7 @@
   <entry>
     <id>http://netty.io/news/2015/11/10/4-1-0-Beta8.html</id>
     <title>Netty 4.1.0.Beta8 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-11-10T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/11/10/4-1-0-Beta8.html" rel="alternate" type="text/html" />
     <author>
@@ -3401,7 +3519,7 @@
   <entry>
     <id>http://netty.io/news/2015/11/04/4-0-33-Final.html</id>
     <title>Netty 4.0.33.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-11-04T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/11/04/4-0-33-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3482,7 +3600,7 @@
   <entry>
     <id>http://netty.io/news/2015/10/13/3-10-5-Final.html</id>
     <title>Netty 3.10.5.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-10-13T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/10/13/3-10-5-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3527,7 +3645,7 @@
   <entry>
     <id>http://netty.io/news/2015/10/05/4-1-0-Beta7.html</id>
     <title>Netty 4.1.0.Beta7 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-10-05T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/10/05/4-1-0-Beta7.html" rel="alternate" type="text/html" />
     <author>
@@ -3592,7 +3710,7 @@
   <entry>
     <id>http://netty.io/news/2015/09/30/4-0-32-Final.html</id>
     <title>Netty 4.0.32.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-09-30T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/09/30/4-0-32-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3678,7 +3796,7 @@
   <entry>
     <id>http://netty.io/news/2015/09/02/4-1-0-Beta6.html</id>
     <title>Netty 4.1.0.Beta6 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-09-02T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/09/02/4-1-0-Beta6.html" rel="alternate" type="text/html" />
     <author>
@@ -3784,7 +3902,7 @@
   <entry>
     <id>http://netty.io/news/2015/09/02/4-0-31-Final.html</id>
     <title>Netty 4.0.31.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-09-02T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/09/02/4-0-31-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3880,7 +3998,7 @@
   <entry>
     <id>http://netty.io/news/2015/07/24/4-0-30-Final.html</id>
     <title>Netty 4.0.30.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-07-24T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/07/24/4-0-30-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -3957,7 +4075,7 @@
   <entry>
     <id>http://netty.io/news/2015/07/21/3-9-9-Final.html</id>
     <title>Netty 3.9.9.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-07-21T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/07/21/3-9-9-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -4010,7 +4128,7 @@
   <entry>
     <id>http://netty.io/news/2015/06/30/3-10-4-Final.html</id>
     <title>Netty 3.10.4.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-06-30T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/06/30/3-10-4-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -4077,7 +4195,7 @@
   <entry>
     <id>http://netty.io/news/2015/06/23/4-0-29-Final.html</id>
     <title>Netty 4.0.29.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-06-23T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/06/23/4-0-29-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -4161,7 +4279,7 @@
   <entry>
     <id>http://netty.io/news/2015/05/08/3-9-8-Final-and-3.html</id>
     <title>Netty 3.9.8.Final and 3.10.3.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
+    <updated>2017-11-03T14:01:51+00:00</updated>
     <published>2015-05-08T00:00:00+00:00</published>
     <link href="http://netty.io/news/2015/05/08/3-9-8-Final-and-3.html" rel="alternate" type="text/html" />
     <author>
@@ -4221,110 +4339,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/huguesb&quot;&gt;@huguesb&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/05/07/4-1.html</id>
-    <title>Netty 4.1.0.Beta5 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-05-07T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/05/07/4-1.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.1.0.Beta5.
-      
-      This release contains a lot of improvements and fixes over Netty 4.1.0.Beta4. This includes also the changes listed in the 4.0.28.Final release notes like Splicing and Channel Pool.
-      
-      The most important changes are:
-      
-      
-      ChannelFuture is not done after shutdown (#3567)
-      Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (#3658), (#3529), (#3587)
-      Correctly handle EPOLLRDHUP (#3611), (#3539)
-      Add ChannelPool abstraction and implementations (#3607), (#3218)
-      Change PoolThreadCache to use LIFO for better cache performance (#3553)
-      Add support for ALPN when using openssl + NPN client mode and support for CipherSuiteFilter (#3481) (#3481)
-      Add support for splice(...) (#3665)
-      Allow rejection of remote initiated...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta5.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains a lot of improvements and fixes over Netty 4.1.0.Beta4. This includes also the changes listed in the &lt;a href=&quot;http://netty.io/news/2015/05/07/4-0-28-Final.html&quot;&gt;4.0.28.Final release notes&lt;/a&gt; like Splicing and Channel Pool.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;ChannelFuture is not done after shutdown (&lt;a href=&quot;https://github.com/netty/netty/issues/3662&quot;&gt;#3567&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix handling of non-auto read for ByteToMessageDecoder and SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3658&quot;&gt;#3658&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3529&quot;&gt;#3529&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3587&quot;&gt;#3587&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly handle EPOLLRDHUP (&lt;a href=&quot;https://github.com/netty/netty/pull/3611&quot;&gt;#3611&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3539&quot;&gt;#3539&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add ChannelPool abstraction and implementations (&lt;a href=&quot;https://github.com/netty/netty/pull/3607&quot;&gt;#3607&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/issues/3218&quot;&gt;#3218&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Change PoolThreadCache to use LIFO for better cache performance (&lt;a href=&quot;https://github.com/netty/netty/pull/3553&quot;&gt;#3553&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for ALPN when using openssl + NPN client mode and support for CipherSuiteFilter (&lt;a href=&quot;https://github.com/netty/netty/pull/3481&quot;&gt;#3481&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/2845&quot;&gt;#3481&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for splice(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/3665&quot;&gt;#3665&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Allow rejection of remote initiated renegotiation (&lt;a href=&quot;https://github.com/netty/netty/pull/3750&quot;&gt;#3750&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Not defer close of Channel when in flush (&lt;a href=&quot;https://github.com/netty/netty/pull/3739&quot;&gt;#3739&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for mutual auth when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/3732&quot;&gt;#3732&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix possible IllegalStateException caused by closeNotifyTimeout when using SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/3727&quot;&gt;#3727&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Validate cookie name and value characters (&lt;a href=&quot;https://github.com/netty/netty/pull/3748&quot;&gt;#3748&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HTTP/2 Draft 17(&lt;a href=&quot;https://github.com/netty/netty/issues/3418&quot;&gt;#3418&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/3524&quot;&gt;#3524&lt;/a&gt;)
-      For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta5&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;h2&gt;Special notes&lt;/h2&gt;
-      
-      &lt;p&gt;See &lt;a href=&quot;http://netty.io/news/2015/05/07/4-0-28-Final.html&quot;&gt;4.0.28.Final release notes&lt;/a&gt; for more detail on new features and how to use them.&lt;/p&gt;
-      
-      &lt;h3&gt;Revisit DNS codec&lt;/h3&gt;
-      
-      &lt;p&gt;This release includes a revisit version of the DNS codec to make it possible to extend more easily.&lt;/p&gt;
-      
-      &lt;h3&gt;Validate cookie name and value characters&lt;/h3&gt;
-      
-      &lt;p&gt;This problem was discovered by the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; and could lead to security
-      problems due the improper parsing of Cookies (without strict validating).&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;p&gt;A special thank you to the &lt;a href=&quot;https://www.linkedin.com&quot;&gt;LinkedIn Security Team&lt;/a&gt; for reporting the possible security bug.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Alwayswithme&quot;&gt;@Alwayswithme&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/benevans&quot;&gt;@benevans&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bobwenx&quot;&gt;@bobwenx&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github,com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/d-t-w&quot;&gt;@d-t-w&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/garretwu&quot;&gt;@garretwu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Harry5573&quot;&gt;@Harry5573&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/huguesb&quot;&gt;@huguesb&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/hyangtack&quot;&gt;@hyangtack&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jestan&quot;&gt;@jestan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jingene&quot;&gt;@jingene&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/kyankovski&quot;&gt;@kyankovski&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/krasa&quot;&gt;@krasa&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/lime62&quot;&gt;@lime62&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/spinscale&quot;&gt;@spinscale&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ThomasLau&quot;&gt;@ThomasLau&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/willisblackburn&quot;&gt;@willisblackburn&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
