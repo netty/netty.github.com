@@ -2,9 +2,67 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-07-11T21:11:13+02:00</updated>
+  <updated>2018-07-27T08:58:04+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/07/27/4-1-28-Final.html</id>
+    <title>Netty 4.1.28.Final released</title>
+    <updated>2018-07-27T08:58:04+02:00</updated>
+    <published>2018-07-27T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/07/27/4-1-28-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.28.Final. This release contains bugfixes and add support to use any supported SocketOption by the JDK. Please upgrade once you have the chance.
+      
+      The most important changes are:
+      
+      
+      Support the usage of SocketOption when nio is used and the java version >= 7 (#8085)
+      Leak detection combined with composite buffers results in incorrectly handled writerIndex when calling ByteBufUtil.writeAscii/writeUtf8 (#8153)
+      Allow to validate sni hostname with underscore (#8150)
+      HTTP/2 child channel read cycle doesn't respect RecvByteBufAllocator and may drop data if stream closed while auto read is off (#8147)
+      
+      
+      
+      For the details and all changes, please browse our issue tracker...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.28.Final. This release contains bugfixes and add support to use any supported SocketOption by the JDK. Please upgrade once you have the chance.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Support the usage of SocketOption when nio is used and the java version &amp;gt;= 7 (&lt;a href=&quot;https://github.com/netty/netty/pull/8085&quot;&gt;#8085&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Leak detection combined with composite buffers results in incorrectly handled writerIndex when calling ByteBufUtil.writeAscii/writeUtf8 (&lt;a href=&quot;https://github.com/netty/netty/pull/8153&quot;&gt;#8153&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to validate sni hostname with underscore (&lt;a href=&quot;https://github.com/netty/netty/pull/8150&quot;&gt;#8150&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 child channel read cycle doesn't respect RecvByteBufAllocator and may drop data if stream closed while auto read is off (&lt;a href=&quot;https://github.com/netty/netty/pull/8147&quot;&gt;#8147&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.28.Final&quot;&gt;4.1.28.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hc-codersatlas&quot;&gt;@hc-codersatlas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/r9liucc&quot;&gt;@r9liucc&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sullis&quot;&gt;@sullis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhaojigang&quot;&gt;@zhaojigang&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/07/11/4-1-27-Final.html</id>
     <title>Netty 4.1.27.Final released</title>
@@ -4213,90 +4271,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/nibuen&quot;&gt;@nibuen&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/06/23/4-0-29-Final.html</id>
-    <title>Netty 4.0.29.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-06-23T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/06/23/4-0-29-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.29.Final,
-      
-      This release contains 55+ changes, including bug-fixes, improvements and new features.
-      
-      If you use Netty with OpenSSL (OpenSslEngine) you should upgrade ASAP as this release fixes a bug that could produce errors in OpenSslEngine's that are used by the same EventLoop that others that encountered errors. This means previous to this release it was possible to have OpenSslEngine report errors that not actual belong to it self, but to other instances of OpenSslEngine that just use the same EventLoop.
-      
-      The most important changes are:
-      
-      
-      Correctly handle errors when using OpenSSL (#3893)
-      Use 2 * cores as...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.29.Final,&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 55+ changes, including bug-fixes, improvements and new features.&lt;/p&gt;
-      
-      &lt;p&gt;If you use Netty with OpenSSL (OpenSslEngine) you should upgrade ASAP as this release fixes a bug that could produce errors in OpenSslEngine's that are used by the same EventLoop that others that encountered errors. This means previous to this release it was possible to have OpenSslEngine report errors that not actual belong to it self, but to other instances of OpenSslEngine that just use the same EventLoop.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Correctly handle errors when using OpenSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/3893&quot;&gt;#3893&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Use 2 * cores as default minimum for pool arenas (&lt;a href=&quot;https://github.com/netty/netty/pull/3891&quot;&gt;#3891&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Not skip first cert when using OpenSslClientContext (&lt;a href=&quot;https://github.com/netty/netty/pull/3878&quot;&gt;#3658&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Guard against race when calling SslHandler.handshakeFuture().sync() (&lt;a href=&quot;https://github.com/netty/netty/pull/3868&quot;&gt;#3611&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Respect EPOLLERR event (&lt;a href=&quot;https://github.com/netty/netty/pull/3866&quot;&gt;#3611&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;fixing small leak on exception on the transport-epoll-native allocation (&lt;a href=&quot;https://github.com/netty/netty/pull/3844&quot;&gt;#3844&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Synchronize on PoolSubpage head when allocate / free PoolSubpages (&lt;a href=&quot;https://github.com/netty/netty/pull/3834&quot;&gt;#3834&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Let PoolThreadCache work even if allocation and deallocation Thread are different (&lt;a href=&quot;https://github.com/netty/netty/pull/3833&quot;&gt;#3833&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly handle connection refused with native transport (&lt;a href=&quot;https://github.com/netty/netty/pull/3832&quot;&gt;#3832&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Backport codec-haproxy (&lt;a href=&quot;https://github.com/netty/netty/pull/3828&quot;&gt;#3828&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;No need to hold lock while destroy a chunk (&lt;a href=&quot;https://github.com/netty/netty/pull/3827&quot;&gt;#3827&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Do not try to init TrustManagerFactory if trustCertChainFile is null (&lt;a href=&quot;https://github.com/netty/netty/pull/3821&quot;&gt;#3821&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Expose metrics for PooledByteBufAllocator (&lt;a href=&quot;https://github.com/netty/netty/pull/3802&quot;&gt;#3802&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Support hostname verification when using OpenSSLEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/3794&quot;&gt;#3794&lt;/a&gt; &lt;a href=&quot;https://github.com/netty/netty/issues/3784&quot;&gt;#3784&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.29.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/clebertsuconic&quot;&gt;@clebertsuconic&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/edwinchoi&quot;&gt;@edwinchoi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dschobel&quot;&gt;@dschobel&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/FunJp&quot;&gt;@FunJp&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jedesah&quot;&gt;@jedesah&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jestan&quot;&gt;@jestan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jingene&quot;&gt;@jingene&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mikkokar&quot;&gt;@mikkokar&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/naude-r&quot;&gt;@naude-r&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/purplefox&quot;&gt;@purplefox&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/robinst&quot;&gt;@robinst&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rovarga&quot;&gt;@rovarga&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ruslansennov&quot;&gt;@ruslansennov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/suyanNone&quot;&gt;@suyanNone&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
