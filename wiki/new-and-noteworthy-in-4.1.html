@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/07/27/4-1-28-Final.html">
+              <a href="../news/2018/08/24/4-1-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,10 +61,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.28.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.28.Final
-                    <small>&dash; 27-Jul-2018</small>
+                    4.1.29.Final
+                    <small>&dash; 24-Aug-2018</small>
                   </a>
                 </li>
                 <li>
@@ -247,16 +247,16 @@
           </div>
           <div class="row">
           <div class="col-md-9">
-          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
+          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content instapaper_body">
                   <div class="markdown-body">
                     <p>This document walks you through the list of notable changes and new features between Netty 4.1 and 4.0.</p>
-          <h2 id="wiki-h2-1">
+          <h2 id="wiki-h2-0">
           <a id="user-content-tldr" class="anchor" href="#tldr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TL;DR</h2>
           <p>Although we did our best to keep the backward compatibility from 4.0, 4.1 contains multiple additions which might not be fully backward-compatible with 4.0. Please make sure to recompile your application against the new version.</p>
           <p>When you recompile your application, you might find some deprecation warnings. Please make sure to fix them all by using the suggested alternative, so that you have less trouble when upgrading to the next version.</p>
-          <h2 id="wiki-h2-2">
+          <h2 id="wiki-h2-1">
           <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core changes</h2>
-          <h3 id="wiki-h3-3">
+          <h3 id="wiki-h3-2">
           <a id="user-content-android-support" class="anchor" href="#android-support" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android support</h3>
           <p>Given that:</p>
           <ul>
@@ -266,23 +266,23 @@
           </ul>
           <p>we decided to support Android (4.0 or above) officially.</p>
           <p>However, we do not have an automated testsuite for Android yet.  If you find any issues with Android, please feel free to <a href="https://github.com/netty/netty/issues">file an issue</a>.  Please also consider contributing to the project to make Android tests a part of the build process.</p>
-          <h3 id="wiki-h3-4">
+          <h3 id="wiki-h3-3">
           <a id="user-content-channelhandlercontextattr--channelattr" class="anchor" href="#channelhandlercontextattr--channelattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
           </h3>
           <p>Both <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
           <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> internally.  <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> always uses <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-4">
           <a id="user-content-channelhasattr" class="anchor" href="#channelhasattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Channel.hasAttr(...)</code>
           </h3>
           <p>It is now possible to check if an attribute exists or not efficiently.</p>
-          <h3 id="wiki-h3-6">
+          <h3 id="wiki-h3-5">
           <a id="user-content-easier-and-more-precise-buffer-leak-tracking" class="anchor" href="#easier-and-more-precise-buffer-leak-tracking" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Easier and more precise buffer leak tracking</h3>
           <p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
           <p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
-          <h3 id="wiki-h3-7">
+          <h3 id="wiki-h3-6">
           <a id="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" href="#pooledbytebufallocator-as-the-default-allocator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
           <p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
-          <h3 id="wiki-h3-8">
+          <h3 id="wiki-h3-7">
           <a id="user-content-globally-unique-channel-id" class="anchor" href="#globally-unique-channel-id" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Globally unique channel ID</h3>
           <p>Every <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
           <ul>
@@ -294,23 +294,23 @@
           <li>a sequentially incremented 32-bit integer.</li>
           </ul>
           <p>The ID of a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
-          <h3 id="wiki-h3-9">
+          <h3 id="wiki-h3-8">
           <a id="user-content-embeddedchannel-usability" class="anchor" href="#embeddedchannel-usability" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>EmbeddedChannel</code> usability</h3>
           <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/4.1/api/io/netty/channel/embedded/EmbeddedChannel.html" rel="nofollow"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
           <div class="highlight highlight-source-java"><pre><span class="pl-smi">EmbeddedChannel</span> ch <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> BEFORE:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> (<span class="pl-smi">FullHttpRequest</span>) ch<span class="pl-k">.</span>readInbound();&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> AFTER:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> ch<span class="pl-k">.</span>readInbound();</pre></div>
-          <h3 id="wiki-h3-10">
+          <h3 id="wiki-h3-9">
           <a id="user-content-ability-to-use-executor-instead-of-threadfactory" class="anchor" href="#ability-to-use-executor-instead-of-threadfactory" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ability to use <code>Executor</code> instead of <code>ThreadFactory</code>
           </h3>
           <p>Some applications require a user to run his or her task in a given <code>Executor</code>.  4.x required a user to specify <code>ThreadFactory</code> when creating an event loop, but not anymore.</p>
           <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1762">the pull request #1762</a>.</p>
-          <h3 id="wiki-h3-11">
+          <h3 id="wiki-h3-10">
           <a id="user-content-class-loader-friendliness" class="anchor" href="#class-loader-friendliness" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Class loader friendliness</h3>
           <p>Some types such as <code>AttributeKey</code> were unfriendly to the applications that run in a container environment, but not anymore.</p>
-          <h3 id="wiki-h3-12">
+          <h3 id="wiki-h3-11">
           <a id="user-content-bytebufallocatorcalculatenewcapacity" class="anchor" href="#bytebufallocatorcalculatenewcapacity" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ByteBufAllocator.calculateNewCapacity()</code>
           </h3>
           <p>The logic that calculates the new capacity of the expanded <code>ByteBuf</code> has been moved from <code>AbstractByteBuf</code> to <code>ByteBufAllocator</code> because <code>ByteBufAllocator</code> knows better about the capacity calculation of the buffers it manages.</p>
-          <h2 id="wiki-h2-13">
+          <h2 id="wiki-h2-12">
           <a id="user-content-new-codecs-and-handlers" class="anchor" href="#new-codecs-and-handlers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New codecs and handlers</h2>
           <ul>
           <li>Binary memcache protocol codec</li>
@@ -334,31 +334,31 @@
           <a href="http://netty.io/4.1/api/io/netty/handler/codec/json/JsonObjectDecoder.html" rel="nofollow"><code>JsonObjectDecoder</code></a> that enables streaming of JSON objects.</li>
           <li>IP filtering handlers</li>
           </ul>
-          <h2 id="wiki-h2-14">
+          <h2 id="wiki-h2-13">
           <a id="user-content-other-codec-changes" class="anchor" href="#other-codec-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other codec changes</h2>
-          <h3 id="wiki-h3-15">
+          <h3 id="wiki-h3-14">
           <a id="user-content-asciistring" class="anchor" href="#asciistring" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>AsciiString</code>
           </h3>
           <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/AsciiString.html" rel="nofollow"><code>AsciiString</code></a> is a new <code>CharSequence</code> implementation which contains only 1-byte characters.  You will find this class useful when you deal with a US-ASCII or ISO-8859-1 string.</p>
           <p>For instance, the HTTP codec and STOMP codec in Netty use <code>AsciiString</code> to represent the header names.  Because <code>AsciiString</code> does not have any conversion cost when encoding it into a <code>ByteBuf</code>, it guarantees better performance than using <code>String</code>.</p>
-          <h3 id="wiki-h3-16">
+          <h3 id="wiki-h3-15">
           <a id="user-content-textheaders" class="anchor" href="#textheaders" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>TextHeaders</code>
           </h3>
           <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/TextHeaders.html" rel="nofollow"><code>TextHeaders</code></a> provides a generic data structure for HTTP header-like string <a href="http://en.wikipedia.org/wiki/Multimap" rel="nofollow">multimaps</a>.  <code>HttpHeaders</code> also has been rewritten using <code>TextHeaders</code>.</p>
-          <h3 id="wiki-h3-17">
+          <h3 id="wiki-h3-16">
           <a id="user-content-messageaggregator" class="anchor" href="#messageaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>MessageAggregator</code>
           </h3>
           <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/MessageAggregator.html" rel="nofollow"><code>MessageAggregator</code></a> provides generic functionality that aggregates multiple small messages into a larger one, just like <code>HttpObjectAggregator</code> does.  <code>HttpObjectAggregator</code> also has been rewritten using <code>MessageAggregator</code>.</p>
-          <h3 id="wiki-h3-18">
+          <h3 id="wiki-h3-17">
           <a id="user-content-better-oversized-message-handling-with-httpobjectaggregator" class="anchor" href="#better-oversized-message-handling-with-httpobjectaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Better oversized message handling with <code>HttpObjectAggregator</code>
           </h3>
           <p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
           <p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
-          <h3 id="wiki-h3-19">
+          <h3 id="wiki-h3-18">
           <a id="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" href="#chunkedinput-and-chunkedwritehandler" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
           </h3>
           <p><a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedInput.html" rel="nofollow"><code>ChunkedInput</code></a> has two new methods; <code>progress()</code> and <code>length()</code> which return the progress of its transfer and the total length of the stream respectively.  <a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedWriteHandler.html" rel="nofollow"><code>ChunkedWriteHandler</code></a> uses this information to notify <a href="http://netty.io/4.1/api/io/netty/channel/ChannelProgressiveFutureListener.html" rel="nofollow"><code>ChannelProgressiveFutureListener</code></a>.</p>
-          <h3 id="wiki-h3-20">
+          <h3 id="wiki-h3-19">
           <a id="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" href="#snappyframedencoder-and-snappyframeddecoder" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
           </h3>
           <p>These two classes have been renamed to <code>SnappyFrameEncoder</code> and <code>SnappyFrameDecoder</code>. The old classes were marked as deprecated and they are actually the subclasses of the new ones.</p>
@@ -370,28 +370,27 @@
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 26">Pages 26</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="TL;DR">TL;DR</a>
-          </li><li><a href="#wiki-h2-2" title="Core changes">Core changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Android support">Android support</a>
-          </li><li><a href="#wiki-h3-4" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
-          </li><li><a href="#wiki-h3-5" title="Channel.hasAttr(...)">Channel.hasAttr(...)</a>
-          </li><li><a href="#wiki-h3-6" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
-          </li><li><a href="#wiki-h3-7" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
-          </li><li><a href="#wiki-h3-8" title="Globally unique channel ID">Globally unique channel ID</a>
-          </li><li><a href="#wiki-h3-9" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
-          </li><li><a href="#wiki-h3-10" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
-          </li><li><a href="#wiki-h3-11" title="Class loader friendliness">Class loader friendliness</a>
-          </li><li><a href="#wiki-h3-12" title="ByteBufAllocator.calculateNewCapacity()">ByteBufAllocator.calculateNewCapacity()</a>
-          </li></ul></li><li><a href="#wiki-h2-13" title="New codecs and handlers">New codecs and handlers</a>
-          </li><li><a href="#wiki-h2-14" title="Other codec changes">Other codec changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-15" title="AsciiString">AsciiString</a>
-          </li><li><a href="#wiki-h3-16" title="TextHeaders">TextHeaders</a>
-          </li><li><a href="#wiki-h3-17" title="MessageAggregator">MessageAggregator</a>
-          </li><li><a href="#wiki-h3-18" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
-          </li><li><a href="#wiki-h3-19" title="ChunkedInput and ChunkedWriteHandler">ChunkedInput and ChunkedWriteHandler</a>
-          </li><li><a href="#wiki-h3-20" title="SnappyFramedEncoder and SnappyFramedDecoder">SnappyFramedEncoder and SnappyFramedDecoder</a>
+          </li><li><a href="#wiki-h2-0" title="TL;DR">TL;DR</a>
+          </li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Android support">Android support</a>
+          </li><li><a href="#wiki-h3-3" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
+          </li><li><a href="#wiki-h3-4" title="Channel.hasAttr(...)">Channel.hasAttr(...)</a>
+          </li><li><a href="#wiki-h3-5" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
+          </li><li><a href="#wiki-h3-6" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
+          </li><li><a href="#wiki-h3-7" title="Globally unique channel ID">Globally unique channel ID</a>
+          </li><li><a href="#wiki-h3-8" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
+          </li><li><a href="#wiki-h3-9" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
+          </li><li><a href="#wiki-h3-10" title="Class loader friendliness">Class loader friendliness</a>
+          </li><li><a href="#wiki-h3-11" title="ByteBufAllocator.calculateNewCapacity()">ByteBufAllocator.calculateNewCapacity()</a>
+          </li></ul></li><li><a href="#wiki-h2-12" title="New codecs and handlers">New codecs and handlers</a>
+          </li><li><a href="#wiki-h2-13" title="Other codec changes">Other codec changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="AsciiString">AsciiString</a>
+          </li><li><a href="#wiki-h3-15" title="TextHeaders">TextHeaders</a>
+          </li><li><a href="#wiki-h3-16" title="MessageAggregator">MessageAggregator</a>
+          </li><li><a href="#wiki-h3-17" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
+          </li><li><a href="#wiki-h3-18" title="ChunkedInput and ChunkedWriteHandler">ChunkedInput and ChunkedWriteHandler</a>
+          </li><li><a href="#wiki-h3-19" title="SnappyFramedEncoder and SnappyFramedDecoder">SnappyFramedEncoder and SnappyFramedDecoder</a>
+          </li><li><a href="#wiki-h3-20" title="Pages 26">Pages 26</a>
           </li></ul>
           </li></ul>
           </div>
@@ -400,7 +399,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Jul-2018</small>
+                <small>Last retrieved on 24-Aug-2018</small>
               </div>
             </div>
           </div>

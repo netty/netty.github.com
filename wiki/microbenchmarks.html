@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/07/27/4-1-28-Final.html">
+              <a href="../news/2018/08/24/4-1-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,10 +61,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.28.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.28.Final
-                    <small>&dash; 27-Jul-2018</small>
+                    4.1.29.Final
+                    <small>&dash; 24-Aug-2018</small>
                   </a>
                 </li>
                 <li>
@@ -247,10 +247,10 @@
           </div>
           <div class="row">
           <div class="col-md-9">
-          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
+          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content instapaper_body">
                   <div class="markdown-body">
                     <p>Netty has a module called 'netty-microbench' which performs a series of micro-benchmark tests.  It is built on top of <a href="http://openjdk.java.net/projects/code-tools/jmh/" rel="nofollow">OpenJDK JMH</a>, the preferred microbenchmarking solution for HotSpot. It has the "batteries included", so you don't need extra dependencies to get started.</p>
-          <h2 id="wiki-h2-1">
+          <h2 id="wiki-h2-0">
           <a id="user-content-running-the-benchmarks" class="anchor" href="#running-the-benchmarks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Running the Benchmarks</h2>
           <p>You can run the benchmarks from the command line through maven or directly in your IDE. To run all tests with the default settings, use <code>mvn -DskipTests=false test</code>. You need to explicitly set <code>skipTests=false</code> because we don't want to run the (potentially time consuming) microbenchmarks to be executed as unit tests during regular test runs.</p>
           <p>If all goes well, you'll see JMH performing warmup and benchmark iterations on the number of forks, presenting you with nice a nice summary. Here's how a typical benchmark run looks like (you'll see lots of them in the output):</p>
@@ -258,14 +258,14 @@
           <p>Finally, the test output will looks similar to this (depending on your system setup and configuration):</p>
           <pre><code>Benchmark                                                                Mode   Samples         Mean   Mean error    Units&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_1_0          thrpt        20    11658.812      120.728   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_2_256        thrpt        20    10308.626      147.528   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_3_1024       thrpt        20     8855.815       55.933   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_4_4096       thrpt        20     5545.538     1279.721   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_5_16384      thrpt        20     6741.581       75.975   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_6_65536      thrpt        20     7252.869       70.609   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_1_0            thrpt        20     9750.225       73.900   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_2_256          thrpt        20     9936.639      657.818   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_3_1024         thrpt        20     8903.130      197.533   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_4_4096         thrpt        20     6664.157       74.163   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_5_16384        thrpt        20     6374.924      337.869   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.pooledHeapAllocAndFree_6_65536        thrpt        20     6386.337       44.960   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_1_0        thrpt        20     2137.241       30.792   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_2_256      thrpt        20     1873.727       41.843   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_3_1024     thrpt        20     1902.025       34.473   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_4_4096     thrpt        20     1534.347       20.509   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_5_16384    thrpt        20      838.804       12.575   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledDirectAllocAndFree_6_65536    thrpt        20      276.976        3.021   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_1_0          thrpt        20    35820.568      259.187   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_2_256        thrpt        20    19660.951      295.012   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_3_1024       thrpt        20     6264.614       77.704   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_4_4096       thrpt        20     2921.598       95.492   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_5_16384      thrpt        20      991.631       49.220   ops/ms&#x000A;i.n.m.b.ByteBufAllocatorBenchmark.unpooledHeapAllocAndFree_6_65536      thrpt        20      261.718       11.108   ops/ms&#x000A;Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 993.382 sec - in io.netty.microbench.buffer.ByteBufAllocatorBenchmark&#x000A;</code></pre>
           <p>You can also run the benchmarks directly from your IDE. If you've imported the netty parent project, open the <code>microbench</code> subproject and navigate to the <code>src/test/java/io/netty/microbench</code> namespace. In the <code>buffer</code> namespace, you can run the <code>ByteBufAllocatorBenchmark</code> like any other JUnit-based test. The main difference is that (as of now), you can only run the full benchmark at once, not each sub-benchmark individually. You should see the same output in the console as you did see when running it directly through <code>mvn</code>.</p>
-          <h2 id="wiki-h2-2">
+          <h2 id="wiki-h2-1">
           <a id="user-content-writing-benchmarks" class="anchor" href="#writing-benchmarks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Writing Benchmarks</h2>
           <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
           <div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
           <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
           <div class="highlight highlight-source-java"><pre><span class="pl-k">@GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
           <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/" rel="nofollow">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking" rel="nofollow">the talks</a> of one of the main authors from JMH.</p>
-          <h2 id="wiki-h2-3">
+          <h2 id="wiki-h2-2">
           <a id="user-content-customizing-runtime-conditions" class="anchor" href="#customizing-runtime-conditions" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Customizing Runtime Conditions</h2>
           <p>The default settings (as found in <code>AbstractMicrobenchmark</code>) are:</p>
           <ul>
@@ -287,11 +287,11 @@
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 26">Pages 26</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Running the Benchmarks">Running the Benchmarks</a>
-          </li><li><a href="#wiki-h2-2" title="Writing Benchmarks">Writing Benchmarks</a>
-          </li><li><a href="#wiki-h2-3" title="Customizing Runtime Conditions">Customizing Runtime Conditions</a>
+          </li><li><a href="#wiki-h2-0" title="Running the Benchmarks">Running the Benchmarks</a>
+          </li><li><a href="#wiki-h2-1" title="Writing Benchmarks">Writing Benchmarks</a>
+          </li><li><a href="#wiki-h2-2" title="Customizing Runtime Conditions">Customizing Runtime Conditions</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Pages 26">Pages 26</a>
+          </li></ul>
           </li></ul>
           </div>
           </div>
@@ -299,7 +299,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Jul-2018</small>
+                <small>Last retrieved on 24-Aug-2018</small>
               </div>
             </div>
           </div>

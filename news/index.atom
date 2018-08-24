@@ -2,9 +2,92 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-07-27T08:58:04+02:00</updated>
+  <updated>2018-08-24T10:15:44+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/08/24/4-1-29-Final.html</id>
+    <title>Netty 4.1.29.Final released</title>
+    <updated>2018-08-24T10:15:44+02:00</updated>
+    <published>2018-08-24T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/08/24/4-1-29-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.29.Final. This release contains bugfixes and some improvements.
+      
+      The most important changes are:
+      
+      
+      Correctly handle DNS redirects for NS servers that have no ADDITIONAL records (#8177)
+      Ensure multiple shaded version of the same netty artifact can be loaded as long as the shaded prefix is different (#8207)
+      Set initial SNI hostname when creating an OpenSSL engine in client mode (#8178)
+      DnsNameResolver hangs if search domain results in invalid hostname (#8180)
+      Workaround JDK bug that will cause an AssertionError when calling ServerSocketChannel.config().getOptions() (#8183)
+      Ensure NIO transport can be used on Java6 again (#8168)
+      Lazily initialize NativeDatagramPacketArray and IovArray in EpollEventLoop (#8160)
+      
+      
+      
+      For the...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.29.Final. This release contains bugfixes and some improvements.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Correctly handle DNS redirects for NS servers that have no ADDITIONAL records (&lt;a href=&quot;https://github.com/netty/netty/pull/8177&quot;&gt;#8177&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure multiple shaded version of the same netty artifact can be loaded as long as the shaded prefix is different (&lt;a href=&quot;https://github.com/netty/netty/pull/8207&quot;&gt;#8207&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Set initial SNI hostname when creating an OpenSSL engine in client mode (&lt;a href=&quot;https://github.com/netty/netty/pull/8178&quot;&gt;#8178&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver hangs if search domain results in invalid hostname (&lt;a href=&quot;https://github.com/netty/netty/pull/8180&quot;&gt;#8180&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Workaround JDK bug that will cause an AssertionError when calling ServerSocketChannel.config().getOptions() (&lt;a href=&quot;https://github.com/netty/netty/pull/8183&quot;&gt;#8183&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure NIO transport can be used on Java6 again (&lt;a href=&quot;https://github.com/netty/netty/pull/8168&quot;&gt;#8168&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Lazily initialize NativeDatagramPacketArray and IovArray in EpollEventLoop (&lt;a href=&quot;https://github.com/netty/netty/pull/8160&quot;&gt;#8160&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.29.Final&quot;&gt;4.1.29.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Important notes&lt;/h1&gt;
+      
+      &lt;h2&gt;DnsNameResolver API breakage&lt;/h2&gt;
+      
+      &lt;p&gt;We had to slightly break the DnsNameResolver API to fix (&lt;a href=&quot;https://github.com/netty/netty/pull/8177&quot;&gt;#8177&lt;/a&gt;). Lucky enough changes are very slim you are affect but please read on if you use the resolver.&lt;/p&gt;
+      
+      &lt;p&gt;&lt;code&gt;DnsNameResolver.authoritativeDnsServerCache()&lt;/code&gt; will now return an instance of &lt;code&gt;AuthoritativeDnsServerCache&lt;/code&gt; and the previous used &lt;code&gt;DnsNameResolver.uncachedRedirectDnsServerStream(...)&lt;/code&gt; was replaced by &lt;code&gt;newRedirectDnsServerStream(...)&lt;/code&gt; (which is protected).&lt;/p&gt;
+      
+      &lt;h2&gt;Memory usage of the native epoll transport&lt;/h2&gt;
+      
+      &lt;p&gt;We reduced again the memory usage of the native epoll transport by change some code to init memory lazily. For more details check (&lt;a href=&quot;https://github.com/netty/netty/pull/8160&quot;&gt;#8160&lt;/a&gt;).&lt;/p&gt;
+      
+      &lt;h2&gt;Shading of native transports and netty-tcnative&lt;/h2&gt;
+      
+      &lt;p&gt;It should now be possible to shade multiple versions of the native transports of netty and netty-tcnative and use them in the same JVM without any problems. As netty is used in a lot of different projects / libraries this may be useful for you. For any example how you would do shading / use shading check out &lt;a href=&quot;https://github.com/netty/netty/tree/netty-4.1.29.Final/testsuite-shading&quot;&gt;testsuite-shading&lt;/a&gt; which uses maven but the same steps should apply for other build tools as well.
+      For more details see (&lt;a href=&quot;https://github.com/netty/netty/issues/7272&quot;&gt;#7272&lt;/a&gt;), which has all the related PRs linked.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hc-codersatlas&quot;&gt;@hc-codersatlas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jianglai&quot;&gt;@jianglai&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/koo-taejin&quot;&gt;@koo-taejin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/meshcow&quot;&gt;@meshcow&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/steveniemitz&quot;&gt;@steveniemitz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vincent-grosbois&quot;&gt;@vincent-grosbois&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Wingfril&quot;&gt;@Wingfril&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/07/27/4-1-28-Final.html</id>
     <title>Netty 4.1.28.Final released</title>
@@ -4204,73 +4287,6 @@
       &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/0mok&quot;&gt;@0mok&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/06/30/3-10-4-Final.html</id>
-    <title>Netty 3.10.4.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-06-30T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/06/30/3-10-4-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 3.10.4.Final,
-      
-      This release contains 6 changes, including bug-fixes, improvements and a new feature.
-      
-      The most important changes are:
-      
-      
-      Add a fair-mode alternative of OrderedMemoryAwareThreadPoolExecutor (#3903)
-      Fix cookie encoding when maxAge is greater than 24 days  (#3777)
-      
-      
-      
-      For the details and all changes, please browse our issue tracker.
-      
-      As always, please let us know if you find any issues. We love feedback!
-      
-      Thank You
-      
-      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-      
-      
-      @0mok
-      @fredericBregier
-      @jroper
-      @nibuen
-      @normanmaurer...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 3.10.4.Final,&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 6 changes, including bug-fixes, improvements and a new feature.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Add a fair-mode alternative of OrderedMemoryAwareThreadPoolExecutor (&lt;a href=&quot;https://github.com/netty/netty/pull/3903&quot;&gt;#3903&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix cookie encoding when maxAge is greater than 24 days  (&lt;a href=&quot;https://github.com/netty/netty/pull/3777&quot;&gt;#3777&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.10.4.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/0mok&quot;&gt;@0mok&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nibuen&quot;&gt;@nibuen&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>

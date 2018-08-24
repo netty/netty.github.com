@@ -43,7 +43,7 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="../news/2018/07/27/4-1-28-Final.html">
+              <a href="../news/2018/08/24/4-1-29-Final.html">
                 News
               </a>
               <ul class="dropdown-menu">
@@ -61,10 +61,10 @@
               </a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.28.Final.tar.bz2">
+                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.29.Final.tar.bz2">
                     <i class="fa fa-cloud-download"></i>
-                    4.1.28.Final
-                    <small>&dash; 27-Jul-2018</small>
+                    4.1.29.Final
+                    <small>&dash; 24-Aug-2018</small>
                   </a>
                 </li>
                 <li>
@@ -247,23 +247,23 @@
           </div>
           <div class="row">
           <div class="col-md-9">
-          <div id="wiki-body" class="wiki-body gollum-markdown-content instapaper_body">
+          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content instapaper_body">
                   <div class="markdown-body">
                     <p>This document walks you through the list of notable changes and new features in the major Netty release (since 4.1) to give you an idea to port your application to the new version.</p>
           <p>Unlike the changes between 3.x and 4.0, 5.0 did not change a lot although it made quite a bit of breakthrough in its design simplicity.  We tried to make the transition from 4.x to 5.0 as smooth as possible, but please let us know if you encounter any issues during migration.</p>
-          <h2 id="wiki-h2-1">
+          <h2 id="wiki-h2-0">
           <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core changes</h2>
-          <h3 id="wiki-h3-2">
+          <h3 id="wiki-h3-1">
           <a id="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simplified handler type hierarchy</h3>
           <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a>.  <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a> now has both inbound and outbound handler methods.</p>
           <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAdapter.html" rel="nofollow"><code>ChannelHandlerAdapter</code></a>.</p>
           <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandlerAppender.html" rel="nofollow"><code>ChannelHandlerAppender</code></a>.</p>
           <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
-          <h3 id="wiki-h3-3">
+          <h3 id="wiki-h3-2">
           <a id="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>channelRead0()</code> → <code>messageReceived()</code>
           </h3>
           <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using <a href="http://netty.io/5.0/api/io/netty/channel/SimpleChannelInboundHandler.html" rel="nofollow"><code>SimpleChannelInboundHandler</code></a>, you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
-          <h3 id="wiki-h3-4">
+          <h3 id="wiki-h3-3">
           <a id="user-content-even-more-flexible-thread-model" class="anchor" href="#even-more-flexible-thread-model" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Even more flexible thread model</h3>
           <p>In Netty 4.x each <a href="http://netty.io/5.0/api/io/netty/channel/EventLoop.html" rel="nofollow"><code>EventLoop</code></a> is tightly coupled with a fixed thread that executes all I/O events of its registered <a href="http://netty.io/5.0/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channels</code></a> and any tasks submitted to it.</p>
           <p>Starting with version 5.0 an <code>EventLoop</code> does no longer use threads directly but instead makes use of an <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html" rel="nofollow"><code>Executor</code></a> abstraction. That is, it takes an <code>Executor</code> object as a parameter in its constructor and instead of polling for I/O
@@ -273,7 +273,7 @@
           <p>It shall be mentioned, that this change does not in any way affect the way <a href="http://netty.io/5.0/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandlers</code></a> are developed. From a developer's point of view, the only thing that changes is that it's no longer guaranteed that a <code>ChannelHandler</code> will always be executed by the same thread. It is, however, guaranteed that it will never be executed by two or more threads at the same time. Furthermore, Netty will also take care of any memory visibility issues that might occur. So there's no need to worry about thread-safety and <code>volatile</code> variables within a <code>ChannelHandler</code>.</p>
           <p>An implication of this change is that <a href="http://netty.io/5.0/api/io/netty/channel/nio/NioEventLoop.html" rel="nofollow"><code>NioEventLoop</code></a>, <a href="http://netty.io/5.0/api/io/netty/channel/nio/NioEventLoopGroup.html" rel="nofollow"><code>NioEventLoopGroup</code></a>, <a href="http://netty.io/5.0/api/io/netty/channel/epoll/EpollEventLoop.html" rel="nofollow"><code>EpollEventLoop</code></a> and
           <a href="http://netty.io/5.0/api/io/netty/channel/epoll/EpollEventLoopGroup.html" rel="nofollow"><code>EpollEventLoopGroup</code></a> do no longer take <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ThreadFactory.html" rel="nofollow"><code>ThreadFactory</code></a> objects as constructor arguments. The constructors of these classes have been updated to take <a href="http://docs.oracle.com/javase/8/docs/api/java/util/concurrent/Executor.html" rel="nofollow"><code>Executor</code></a> and <a href="http://netty.io/5.0/api/io/netty/concurrent/ExecutorFactory.html" rel="nofollow"><code>ExecutorFactory</code></a> objects instead.</p>
-          <h3 id="wiki-h3-5">
+          <h3 id="wiki-h3-4">
           <a id="user-content-a-better-channelderegister" class="anchor" href="#a-better-channelderegister" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A better <code>Channel.deregister(...)</code>
           </h3>
           <p>Originally introduced in Netty 4.0, the behaviour of <code>Channel.deregister(...)</code> was updated in version 5.0 to be in line
@@ -297,13 +297,12 @@
           <div class="toc well">
           <ul class="nav nav-list nav-stacked">
           <li class="nav-header">Table of Contents
-          </li><li>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 26">Pages 26</a>
-          </li></ul></li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
-          </li><li><a href="#wiki-h3-3" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
-          </li><li><a href="#wiki-h3-4" title="Even more flexible thread model">Even more flexible thread model</a>
-          </li><li><a href="#wiki-h3-5" title="A better Channel.deregister(...)">A better Channel.deregister(...)</a>
+          </li><li><a href="#wiki-h2-0" title="Core changes">Core changes</a>
+          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
+          </li><li><a href="#wiki-h3-2" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
+          </li><li><a href="#wiki-h3-3" title="Even more flexible thread model">Even more flexible thread model</a>
+          </li><li><a href="#wiki-h3-4" title="A better Channel.deregister(...)">A better Channel.deregister(...)</a>
+          </li><li><a href="#wiki-h3-5" title="Pages 26">Pages 26</a>
           </li></ul>
           </li></ul>
           </div>
@@ -312,7 +311,7 @@
           <div class="row">
             <div class="col-md-9">
               <div class="text-right">
-                <small>Last retrieved on 27-Jul-2018</small>
+                <small>Last retrieved on 24-Aug-2018</small>
               </div>
             </div>
           </div>
