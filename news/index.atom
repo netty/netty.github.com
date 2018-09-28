@@ -2,9 +2,102 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-08-24T10:15:44+02:00</updated>
+  <updated>2018-09-28T08:38:36+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/09/28/4-1-30-Final.html</id>
+    <title>Netty 4.1.30.Final released</title>
+    <updated>2018-09-28T08:38:36+02:00</updated>
+    <published>2018-09-28T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/09/28/4-1-30-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.30.Final. This release contains bugfixes, some improvements and a huge performance gain when doing ByteBuf operations. Beside this we tested this release on Java8, 9, 10, 11 and 12 EA.
+      
+      The most important changes are:
+      
+      
+      Add cache for CNAME mappings resolved during lookup of DNS entries. (#8314)
+      Ensure ByteToMessageDecoder.Cumulator implementations always release. (#8325)
+      Fixed illegal reflective access by not relying on a sun.net.dns class. (#8319)
+      Don't re-arm timerfd each epoll_wait (#7816)
+      Allow to configure socket option SO_BUSY_POLL (#8268)
+      Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (#8266)
+      Correctly reset offset when fail lazy because...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.30.Final. This release contains bugfixes, some improvements and a huge performance gain when doing &lt;code&gt;ByteBuf&lt;/code&gt; operations. Beside this we tested this release on Java8, 9, 10, 11 and 12 EA.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Add cache for CNAME mappings resolved during lookup of DNS entries. (&lt;a href=&quot;https://github.com/netty/netty/pull/8314&quot;&gt;#8314&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure ByteToMessageDecoder.Cumulator implementations always release. (&lt;a href=&quot;https://github.com/netty/netty/pull/8325&quot;&gt;#8325&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed illegal reflective access by not relying on a sun.net.dns class. (&lt;a href=&quot;https://github.com/netty/netty/pull/8319&quot;&gt;#8319&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Don't re-arm timerfd each epoll_wait (&lt;a href=&quot;https://github.com/netty/netty/pull/7816&quot;&gt;#7816&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to configure socket option SO_BUSY_POLL (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8268&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8266&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly reset offset when fail lazy because of too long frame (&lt;a href=&quot;https://github.com/netty/netty/pull/8257&quot;&gt;#8257&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do not fail on runtime when an older version of Log4J2 is on the classpath (&lt;a href=&quot;https://github.com/netty/netty/pull/8240&quot;&gt;#8240&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;TCN is failing with error:14179044:SSL routines:tls_construct_server_key_exchange:internal error (&lt;a href=&quot;https://github.com/netty/netty/issues/8165&quot;&gt;#8165&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix race condition in the NonStickyEventExecutorGroup (&lt;a href=&quot;https://github.com/netty/netty/issues/8232&quot;&gt;#8232&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to use native transports when sun.misc.Unsafe is not present (&lt;a href=&quot;https://github.com/netty/netty/issues/8231&quot;&gt;#8231&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;CleanerJava9 should be able to do its job even with a SecurityManager installed (&lt;a href=&quot;https://github.com/netty/netty/issues/8204&quot;&gt;#8204&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.30.Final&quot;&gt;4.1.30.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Important notes&lt;/h1&gt;
+      
+      &lt;h2&gt;&lt;code&gt;ByteBuf&lt;/code&gt; performance improvements&lt;/h2&gt;
+      
+      &lt;p&gt;By relaxing the access mode for reference checks during operations in (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8266&lt;/a&gt;) we were able to see a 25 % performance win when doing chained operations on the &lt;code&gt;ByteBuf&lt;/code&gt;. The gains may even be higher depending on how many operations you perform in your application in the same method body.&lt;/p&gt;
+      
+      &lt;h2&gt;&lt;code&gt;DnsNameResolver&lt;/code&gt; improvements&lt;/h2&gt;
+      
+      &lt;p&gt;To furthermore improve lookup times we added a new &lt;code&gt;DnsCnameCache&lt;/code&gt; to the &lt;code&gt;DnsNameResolver&lt;/code&gt; in (&lt;a href=&quot;https://github.com/netty/netty/pull/8314&quot;&gt;#8314&lt;/a&gt;). This will allow to not only cache the &quot;end results&quot; but also the &lt;code&gt;CNAME&lt;/code&gt; records in between.&lt;/p&gt;
+      
+      &lt;h2&gt;Java9 and later&lt;/h2&gt;
+      
+      &lt;p&gt;We did various more improvements to ensure Netty can be used without any warning on Java9 and later. If you see any more &quot;illegal access&quot; warning please let us know so we can fix these.&lt;/p&gt;
+      
+      &lt;p&gt;Our CI runs netty builds on Java8, 9, 10, 11 and 12EA now.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chijoungso&quot;&gt;@chijoungso&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/chtyim&quot;&gt;@chtyim&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/hc-codersatlas&quot;&gt;@hc-codersatlas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ibm701&quot;&gt;@ibm701&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mattayres&quot;&gt;@mattayres&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MikeBlink&quot;&gt;@MikeBlink&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/monkey1993&quot;&gt;@monkey1993&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ramtech123&quot;&gt;@ramtech123&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/stateIs0&quot;&gt;@stateIs0&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Vampire&quot;&gt;@Vampire&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhaojigang&quot;&gt;@zhaojigang&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/08/24/4-1-29-Final.html</id>
     <title>Netty 4.1.29.Final released</title>
@@ -4234,59 +4327,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/sefler1987&quot;&gt;@sefler1987&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/zoowar&quot;&gt;@zoowar&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/07/21/3-9-9-Final.html</id>
-    <title>Netty 3.9.9.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-07-21T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/07/21/3-9-9-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 3.9.9.Final.
-      
-      These releases contains two bug-fixes.
-      
-      
-      Fix cookie encoding when maxAge is greater than 24 days (#4008)
-      Fix invalid check arguments in 'OpenSslServerContext.setTicketKeys' (#4009)
-      
-      
-      
-      As always, please let us know if you find any issues. We love feedback!
-      
-      Thank You
-      
-      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-      
-      
-      @jroper
-      @0mok...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 3.9.9.Final.&lt;/p&gt;
-      
-      &lt;p&gt;These releases contains two bug-fixes.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Fix cookie encoding when maxAge is greater than 24 days (&lt;a href=&quot;https://github.com/netty/netty/issues/4008&quot;&gt;#4008&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix invalid check arguments in 'OpenSslServerContext.setTicketKeys' (&lt;a href=&quot;https://github.com/netty/netty/issues/4009&quot;&gt;#4009&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/0mok&quot;&gt;@0mok&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
