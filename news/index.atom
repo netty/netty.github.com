@@ -2,13 +2,13 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-09-28T08:38:36+02:00</updated>
+  <updated>2018-09-28T10:49:01+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
     <id>http://netty.io/news/2018/09/28/4-1-30-Final.html</id>
     <title>Netty 4.1.30.Final released</title>
-    <updated>2018-09-28T08:38:36+02:00</updated>
+    <updated>2018-09-28T10:49:01+02:00</updated>
     <published>2018-09-28T00:00:00+00:00</published>
     <link href="http://netty.io/news/2018/09/28/4-1-30-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -39,7 +39,7 @@
       &lt;li&gt;Fixed illegal reflective access by not relying on a sun.net.dns class. (&lt;a href=&quot;https://github.com/netty/netty/pull/8319&quot;&gt;#8319&lt;/a&gt;)&lt;/li&gt;
       &lt;li&gt;Don't re-arm timerfd each epoll_wait (&lt;a href=&quot;https://github.com/netty/netty/pull/7816&quot;&gt;#7816&lt;/a&gt;)&lt;/li&gt;
       &lt;li&gt;Allow to configure socket option SO_BUSY_POLL (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8268&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8266&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (&lt;a href=&quot;https://github.com/netty/netty/pull/8266&quot;&gt;#8266&lt;/a&gt;)&lt;/li&gt;
       &lt;li&gt;Correctly reset offset when fail lazy because of too long frame (&lt;a href=&quot;https://github.com/netty/netty/pull/8257&quot;&gt;#8257&lt;/a&gt;)&lt;/li&gt;
       &lt;li&gt;Do not fail on runtime when an older version of Log4J2 is on the classpath (&lt;a href=&quot;https://github.com/netty/netty/pull/8240&quot;&gt;#8240&lt;/a&gt;)&lt;/li&gt;
       &lt;li&gt;TCN is failing with error:14179044:SSL routines:tls_construct_server_key_exchange:internal error (&lt;a href=&quot;https://github.com/netty/netty/issues/8165&quot;&gt;#8165&lt;/a&gt;)&lt;/li&gt;
@@ -55,7 +55,7 @@
       
       &lt;h2&gt;&lt;code&gt;ByteBuf&lt;/code&gt; performance improvements&lt;/h2&gt;
       
-      &lt;p&gt;By relaxing the access mode for reference checks during operations in (&lt;a href=&quot;https://github.com/netty/netty/pull/8268&quot;&gt;#8266&lt;/a&gt;) we were able to see a 25 % performance win when doing chained operations on the &lt;code&gt;ByteBuf&lt;/code&gt;. The gains may even be higher depending on how many operations you perform in your application in the same method body.&lt;/p&gt;
+      &lt;p&gt;By relaxing the access mode for reference checks during operations in (&lt;a href=&quot;https://github.com/netty/netty/pull/8266&quot;&gt;#8266&lt;/a&gt;) we were able to see a 25 % performance win when doing chained operations on the &lt;code&gt;ByteBuf&lt;/code&gt;. The gains may even be higher depending on how many operations you perform in your application in the same method body.&lt;/p&gt;
       
       &lt;h2&gt;&lt;code&gt;DnsNameResolver&lt;/code&gt; improvements&lt;/h2&gt;
       

@@ -264,7 +264,7 @@
                 <li>Fixed illegal reflective access by not relying on a sun.net.dns class. (<a href="https://github.com/netty/netty/pull/8319">#8319</a>)</li>
                 <li>Don't re-arm timerfd each epoll_wait (<a href="https://github.com/netty/netty/pull/7816">#7816</a>)</li>
                 <li>Allow to configure socket option SO_BUSY_POLL (<a href="https://github.com/netty/netty/pull/8268">#8268</a>)</li>
-                <li>Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (<a href="https://github.com/netty/netty/pull/8268">#8266</a>)</li>
+                <li>Use a non-volatile read for ensureAccessible() whenever possible to reduce overhead and allow better inlining. (<a href="https://github.com/netty/netty/pull/8266">#8266</a>)</li>
                 <li>Correctly reset offset when fail lazy because of too long frame (<a href="https://github.com/netty/netty/pull/8257">#8257</a>)</li>
                 <li>Do not fail on runtime when an older version of Log4J2 is on the classpath (<a href="https://github.com/netty/netty/pull/8240">#8240</a>)</li>
                 <li>TCN is failing with error:14179044:SSL routines:tls_construct_server_key_exchange:internal error (<a href="https://github.com/netty/netty/issues/8165">#8165</a>)</li>
@@ -280,7 +280,7 @@
                 
                 <h2><code>ByteBuf</code> performance improvements</h2>
                 
-                <p>By relaxing the access mode for reference checks during operations in (<a href="https://github.com/netty/netty/pull/8268">#8266</a>) we were able to see a 25 % performance win when doing chained operations on the <code>ByteBuf</code>. The gains may even be higher depending on how many operations you perform in your application in the same method body.</p>
+                <p>By relaxing the access mode for reference checks during operations in (<a href="https://github.com/netty/netty/pull/8266">#8266</a>) we were able to see a 25 % performance win when doing chained operations on the <code>ByteBuf</code>. The gains may even be higher depending on how many operations you perform in your application in the same method body.</p>
                 
                 <h2><code>DnsNameResolver</code> improvements</h2>
                 
