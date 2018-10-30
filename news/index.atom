@@ -2,9 +2,125 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-09-28T10:49:01+02:00</updated>
+  <updated>2018-10-30T11:27:27+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/10/30/4-1-31-Final.html</id>
+    <title>Netty 4.1.31.Final released</title>
+    <updated>2018-10-30T11:27:27+01:00</updated>
+    <published>2018-10-30T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/10/30/4-1-31-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.31.Final. This release contains bugfixes, some improvements and performance wins. Beside this one of the more interesting things included is the support of TLSv1.3 (either via Java 11 or netty-tcnative / netty-tcnative-boringssl-static).
+      
+      Please also check the Important notes section below before upgrading.
+      
+      The most important changes are:
+      
+      
+      Fix leak and corruption bugs in CompositeByteBuf (#8438)
+      Optimize AbstractByteBuf.getCharSequence() in US_ASCII case (#8392)
+      (fix) incorrect reachability assumption in ResourceLeakDetector (#8410)
+      Correctly detect if KeyManagerFactory is supported by OpenSSL even when sun.security.x509.* can not be accessed and bouncycastle is not on the classpath. (#8415)
+      Reduce overhead by ByteBufUtil.decodeString(...) which is used by AbstractByteBuf.toString(...)...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.31.Final. This release contains bugfixes, some improvements and performance wins. Beside this one of the more interesting things included is the support of &lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc8446.txt&quot;&gt;TLSv1.3&lt;/a&gt; (either via Java 11 or netty-tcnative / netty-tcnative-boringssl-static).&lt;/p&gt;
+      
+      &lt;p&gt;Please also check the &lt;code&gt;Important notes&lt;/code&gt; section below before upgrading.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Fix leak and corruption bugs in CompositeByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/8438&quot;&gt;#8438&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Optimize AbstractByteBuf.getCharSequence() in US_ASCII case (&lt;a href=&quot;https://github.com/netty/netty/pull/8392&quot;&gt;#8392&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;(fix) incorrect reachability assumption in ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/8410&quot;&gt;#8410&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly detect if KeyManagerFactory is supported by OpenSSL even when sun.security.x509.* can not be accessed and bouncycastle is not on the classpath. (&lt;a href=&quot;https://github.com/netty/netty/pull/8415&quot;&gt;#8415&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reduce overhead by ByteBufUtil.decodeString(...) which is used by &lt;code&gt;AbstractByteBuf.toString(...)&lt;/code&gt; and &lt;code&gt;AbstractByteBuf.getCharSequence(...)&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/8388&quot;&gt;#8388&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;CompositeByteBuf.decompose(...) does not correctly slice content (&lt;a href=&quot;https://github.com/netty/netty/pull/8403&quot;&gt;#8403&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to use TLSv1.3 with netty-tcnative withe java versions prior to 11 (&lt;a href=&quot;https://github.com/netty/netty/pull/8394&quot;&gt;#8394&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for TLSv1.3 &lt;a href=&quot;https://github.com/netty/netty/pull/8293&quot;&gt;#8293&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add support for boringssl and TLSv1.3 (&lt;a href=&quot;https://github.com/netty/netty/pull/8412&quot;&gt;#8412&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure OpenSslEngine will not try to call SSL_free multiple times even when constructor throws &lt;a href=&quot;https://github.com/netty/netty/pull/8399&quot;&gt;#8399&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add full JdkSslContext public constructor &lt;a href=&quot;https://github.com/netty/netty/pull/8389&quot;&gt;#8389&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Prevent NPE when attempting to set client key material with no alias &lt;a href=&quot;https://github.com/netty/netty/pull/8378&quot;&gt;#8378&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;epoll_wait produces an EINVAL error since 4.1.30 &lt;a href=&quot;https://github.com/netty/netty/pull/#8350&quot;&gt;#8350&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly parse /etc/resolv.conf when contain multiple entries for searchdomain &lt;a href=&quot;https://github.com/netty/netty/pull/8351&quot;&gt;#8351&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly decrement pending bytes when submitting AbstractWriteTask fails &lt;a href=&quot;https://github.com/netty/netty/pull/8349&quot;&gt;#8349&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix SelectableChannel support in NioEventLoop &lt;a href=&quot;https://github.com/netty/netty/pull/8344&quot;&gt;#8344&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Added option to do busy-wait on epoll &lt;a href=&quot;https://github.com/netty/netty/pull/8267&quot;&gt;#8267&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure X509KeyManager methods are called on the correct time when using server-side and support more methods of ExtendedSSLSession &lt;a href=&quot;https://github.com/netty/netty/pull/8283&quot;&gt;#8283&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do the same extended checks as the JDK when a X509TrustManager is used with the OpenSSL provider &lt;a href=&quot;https://github.com/netty/netty/pull/8307&quot;&gt;#8307&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.31.Final&quot;&gt;4.1.31.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Important notes&lt;/h1&gt;
+      
+      &lt;p&gt;This section will give some more details about more important changes that either change behaviour or add support for some important feature.&lt;/p&gt;
+      
+      &lt;h2&gt;LeakDetector false-positives&lt;/h2&gt;
+      
+      &lt;p&gt;This releases fixes a bug in &lt;code&gt;LeakDetector&lt;/code&gt; which could cause false-positives in some cases when the JIT would re-order some operations and the GC would collect the reference in the same time when executing these. If you see any &lt;code&gt;LEAK:&lt;/code&gt; reports that make no sense to you it may be caused by the bug that was present in prior releases. See (&lt;a href=&quot;https://github.com/netty/netty/pull/8410&quot;&gt;#8410&lt;/a&gt;) for more details.&lt;/p&gt;
+      
+      &lt;h2&gt;SslProvider.OPENSSL / SslProvider.OPENSSL_REFCNT and invalid ciphersuites&lt;/h2&gt;
+      
+      &lt;p&gt;Prior to this release when using &lt;code&gt;SslProvider.OPENSSL&lt;/code&gt; or &lt;code&gt;SslProvider.OPENSSL_REFCNT&lt;/code&gt; and define the used ciphers by hand when configure the &lt;code&gt;SslContextBuilder&lt;/code&gt; we just ignored not supported ciphers. This was changed in this release and from now on we will throw an exception. This is more consistent with what is done when using &lt;code&gt;SslProvider.JDK&lt;/code&gt; and more correct. That said you may
+      need to adjust your ciphers depending what ciphers you configured before. See (&lt;a href=&quot;https://github.com/netty/netty/pull/8443&quot;&gt;#8443&lt;/a&gt;) for more details.&lt;/p&gt;
+      
+      &lt;h2&gt;TLSv1.3 support&lt;/h2&gt;
+      
+      &lt;p&gt;&lt;a href=&quot;https://www.rfc-editor.org/rfc/rfc8446.txt&quot;&gt;TLSv1.3&lt;/a&gt; was recently finalized as a standard. In this release we add support for it in various ways, when either of these is true:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;using Java11 or later&lt;/li&gt;
+      &lt;li&gt;using netty-tcnative (build against OpenSSL 1.1.1+) and Java8+&lt;/li&gt;
+      &lt;li&gt;using netty-tcnative-boringssl-static and Java8+.&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;That said TLSv1.3 is &lt;strong&gt;not enabled by default&lt;/strong&gt; so if you want to use it you will need to explicit enable it by using &lt;code&gt;TLSv1.3&lt;/code&gt; when configure your &lt;code&gt;SslContextBuilder&lt;/code&gt; (like for example):&lt;/p&gt;
+      
+      &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;SslContextBuilder.forClient().protocols(&quot;TLSv1.3&quot;) ....
+      &lt;/code&gt;&lt;/pre&gt;
+      
+      &lt;p&gt;To be able to do this for our native implementations you also need to ensure you use &lt;a href=&quot;https://repo1.maven.org/maven2/io/netty/netty-tcnative/2.0.19.Final/&quot;&gt;netty-tcnative 2.0.19&lt;/a&gt; (compiled against OpenSSL 1.1.1+) or &lt;a href=&quot;https://repo1.maven.org/maven2/io/netty/netty-tcnative-boringssl-static/2.0.19.Final/&quot;&gt;netty-tcnative-boringssl-static 2.0.19&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/almson&quot;&gt;@almson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/atcurtis&quot;&gt;@atcurtis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/caorong&quot;&gt;@caorong&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/langchristian96&quot;&gt;@langchristian96&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/madgnome&quot;&gt;@madgnome&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/simonbasle&quot;&gt;@simonbasle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/09/28/4-1-30-Final.html</id>
     <title>Netty 4.1.30.Final released</title>
@@ -4250,83 +4366,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/wumo&quot;&gt;@wumo&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/yawkat&quot;&gt;@yawkat&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/07/24/4-0-30-Final.html</id>
-    <title>Netty 4.0.30.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-07-24T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/07/24/4-0-30-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.30.Final.
-      
-      This release contains 30+ changes, including bug-fixes, improvements and new features.
-      If you use the OpenSslEngine we highly recommend upgrading as this release brings performance enhancements in this area.
-      
-      The most important changes are:
-      
-      
-      ServerBootstrap.handler(...) will add handler before Channel is registered (#3933)
-      Ensure OpenSslSession informations can be retrieved even after shutdown (#3934)
-      NullPointerException in PendingWriteQueue (#3967) (#3991
-      Disable RC4 by default when using SslContext (#3987) (#4014)
-      FixedChannelPool does not count acquired channels precisely (#3988) (#4016)
-      Correctly register for EPOLLRDHUP when construct EpollSocketChannel for file descriptor (#4013)
-      Ensure cancelled scheduled tasks can be GC'ed ASAP (#3994)
-      Send full response for unsupported websocket...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.30.Final.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 30+ changes, including bug-fixes, improvements and new features.
-      If you use the OpenSslEngine we highly recommend upgrading as this release brings performance enhancements in this area.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;ServerBootstrap.handler(...) will add handler before Channel is registered (&lt;a href=&quot;https://github.com/netty/netty/pull/3933&quot;&gt;#3933&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure OpenSslSession informations can be retrieved even after shutdown (&lt;a href=&quot;https://github.com/netty/netty/pull/3934&quot;&gt;#3934&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;NullPointerException in PendingWriteQueue (&lt;a href=&quot;https://github.com/netty/netty/issues/3967&quot;&gt;#3967&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/3991&quot;&gt;#3991&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;Disable RC4 by default when using SslContext (&lt;a href=&quot;https://github.com/netty/netty/issues/3987&quot;&gt;#3987&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4014&quot;&gt;#4014&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;FixedChannelPool does not count acquired channels precisely (&lt;a href=&quot;https://github.com/netty/netty/issues/3988&quot;&gt;#3988&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4016&quot;&gt;#4016&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly register for EPOLLRDHUP when construct EpollSocketChannel for file descriptor (&lt;a href=&quot;https://github.com/netty/netty/pull/4013&quot;&gt;#4013&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure cancelled scheduled tasks can be GC'ed ASAP (&lt;a href=&quot;https://github.com/netty/netty/pull/3994&quot;&gt;#3994&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Send full response for unsupported websocket versions (&lt;a href=&quot;https://github.com/netty/netty/pull/3999&quot;&gt;#3999&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Stop calling BIO_write once internal buffer is full (&lt;a href=&quot;https://github.com/netty/netty/pull/3957&quot;&gt;#3957&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Only do priming read if there is no space in dsts buffers  (&lt;a href=&quot;https://github.com/netty/netty/pull/3958&quot;&gt;#3958&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Better handling of BUFFER_OVERFLOW when unwrap data (&lt;a href=&quot;https://github.com/netty/netty/pull/3959&quot;&gt;#3959&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.30.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/clebertsuconic&quot;&gt;@clebertsuconic&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/codevelop&quot;&gt;@codevelop&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gtomassi&quot;&gt;@gtomassi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/hamzaxx&quot;&gt;@hamzaxx&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/justinjhendrick&quot;&gt;@justinjhendrick&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mingyu89&quot;&gt;@mingyu89&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sefler1987&quot;&gt;@sefler1987&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/zoowar&quot;&gt;@zoowar&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
