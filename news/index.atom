@@ -2,9 +2,109 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-10-30T11:27:27+01:00</updated>
+  <updated>2018-11-29T11:16:22+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2018/11/29/4-1-32-Final.html</id>
+    <title>Netty 4.1.32.Final released</title>
+    <updated>2018-11-29T11:16:22+01:00</updated>
+    <published>2018-11-29T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2018/11/29/4-1-32-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.32.Final. This release contains mostly bugfixes, some improvements and a few performance wins. Together with this you should also update to netty-tcnative 2.0.20.Final.
+      
+      Please also check the Important notes section below before upgrading.
+      
+      The most important changes are:
+      
+      
+      PlatformDependent.maxDirectMemory() must respect io.netty.maxDirectMemory (#8452)
+      Don't swallow intermediate write failures in MessageToMessageEncoder (#8454)
+      Make Http2StreamFrameToHttpObjectCodec truly @Sharable (#8482)
+      Fix incorrect sizing of temp byte arrays in (Unsafe)ByteBufUtil (#8484)
+      SSLHandler may throw AssertionError if writes occur before channelActive (#8486)
+      Handshake timeout may never be scheduled if handshake starts via a flush (#8494)
+      Defer HTTP/2 stream transition state on initial write until headers are written (#8471)
+      Correctly...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.32.Final. This release contains mostly bugfixes, some improvements and a few performance wins. Together with this you should also update to netty-tcnative 2.0.20.Final.&lt;/p&gt;
+      
+      &lt;p&gt;Please also check the &lt;code&gt;Important notes&lt;/code&gt; section below before upgrading.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;PlatformDependent.maxDirectMemory() must respect io.netty.maxDirectMemory (&lt;a href=&quot;https://github.com/netty/netty/pull/8452&quot;&gt;#8452&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Don't swallow intermediate write failures in MessageToMessageEncoder (&lt;a href=&quot;https://github.com/netty/netty/pull/8454&quot;&gt;#8454&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Make Http2StreamFrameToHttpObjectCodec truly @Sharable (&lt;a href=&quot;https://github.com/netty/netty/pull/8482&quot;&gt;#8482&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix incorrect sizing of temp byte arrays in (Unsafe)ByteBufUtil (&lt;a href=&quot;https://github.com/netty/netty/pull/8484&quot;&gt;#8484&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;SSLHandler may throw AssertionError if writes occur before channelActive (&lt;a href=&quot;https://github.com/netty/netty/pull/8486&quot;&gt;#8486&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Handshake timeout may never be scheduled if handshake starts via a flush (&lt;a href=&quot;https://github.com/netty/netty/pull/8494&quot;&gt;#8494&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Defer HTTP/2 stream transition state on initial write until headers are written (&lt;a href=&quot;https://github.com/netty/netty/pull/8471&quot;&gt;#8471&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly convert between openssl / boringssl and java cipher names when using TLSv1.3 (&lt;a href=&quot;https://github.com/netty/netty/pull/8485&quot;&gt;#8485&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly convert supported signature algorithms when using BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8481&quot;&gt;#8481&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Nio|Epoll|KqueueEventLoop task execution might throw UnsupportedOperationException (&lt;a href=&quot;https://github.com/netty/netty/pull/8476&quot;&gt;#8476&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Return the correct pointer from ReferenceCountedOpenSslContext.context() and sslCtxPointer() (&lt;a href=&quot;https://github.com/netty/netty/pull/8562&quot;&gt;#8562&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ReferenceCountedOpenSslEngine SSLSession.getLocalCertificates() / getLocalPrincipial() did not work when KeyManagerFactory was used (&lt;a href=&quot;https://github.com/netty/netty/pull/8560&quot;&gt;#8560&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;AbstractChannel swallows potential errors by ignoring throwable (&lt;a href=&quot;https://github.com/netty/netty/pull/8499&quot;&gt;#8499&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow adjusting of lead detection sampling interval (&lt;a href=&quot;https://github.com/netty/netty/pull/8568&quot;&gt;#8568&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Recover from Selector IOException (&lt;a href=&quot;https://github.com/netty/netty/pull/8569&quot;&gt;#8569&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Combine flushes in DnsNameResolver to allow usage of sendmmsg to reduce syscall costs (&lt;a href=&quot;https://github.com/netty/netty/pull/8470&quot;&gt;#8470&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Mark OIO based transports as deprecated as preparation for removal in Netty 5 (&lt;a href=&quot;https://github.com/netty/netty/pull/8579&quot;&gt;#8579&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;LocationAwareSlf4jLogger does not correctly format log message (&lt;a href=&quot;https://github.com/netty/netty/pull/8595&quot;&gt;#8595&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix offset calculation in PooledByteBufAllocator when used (&lt;a href=&quot;https://github.com/netty/netty/pull/8597&quot;&gt;#8597&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Harden ref-counting concurrency semantics (&lt;a href=&quot;https://github.com/netty/netty/pull/8583&quot;&gt;#8583&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.32.Final&quot;&gt;4.1.32.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Important notes&lt;/h1&gt;
+      
+      &lt;p&gt;This section will give some more details about more important changes that either change behaviour or add support for some important feature.&lt;/p&gt;
+      
+      &lt;h2&gt;Deprecation of OIO and &quot;sub-transports&quot;&lt;/h2&gt;
+      
+      &lt;p&gt;In preparation of Netty 5 we marked the OIO transpor (and any sub-transports that depend on it) as &lt;code&gt;@deprecated&lt;/code&gt;. These will be removed in netty 5 and everyone should switch to either the NIO transport or one of the native transports, EPOLL or KQueue. For more details see &lt;a href=&quot;https://github.com/netty/netty/pull/8579&quot;&gt;#8579&lt;/a&gt;&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Andremoniy&quot;&gt;@Andremoniy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Feri73&quot;&gt;@Feri73&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gartmann&quot;&gt;@gartmann&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/IgorAlelekov&quot;&gt;@IgorAlelekov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/JStroom&quot;&gt;@JStroom&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/luastar&quot;&gt;@luastar&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sullis&quot;&gt;@sullis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/strongmanwj&quot;&gt;@strongmanwj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/uxgnoz&quot;&gt;@uxgnoz&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/10/30/4-1-31-Final.html</id>
     <title>Netty 4.1.31.Final released</title>
@@ -4267,102 +4367,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/tomasol&quot;&gt;@tomasol&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/tomaszc&quot;&gt;@tomaszc&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/wumo&quot;&gt;@wumo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/yawkat&quot;&gt;@yawkat&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/09/02/4-0-31-Final.html</id>
-    <title>Netty 4.0.31.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-09-02T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/09/02/4-0-31-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.31.Final.
-      
-      This release contains 70+ changes, including bug-fixes, improvements and new features.
-      
-      The most important changes are:
-      
-      
-      Allow to disable recycling (#4157)
-      Add TCP_USER_TIMEOUT (#4174)
-      Correctly set traffic class and so linger (#4136)
-      Fix IllegalStateException when HttpContentEncoder is used and 100 Continue response is used (#4115)
-      Correctly forward bytes when remove codec and handle channelInactive / channelReadComplete(...) (#4114)
-      Correctly handle Upgrade responses with special handling of Hixie 76 (#4113)
-      Support abstract domain sockets using epoll on linux (#4085)
-      HttpObjectAggregator doesn't check content-length header (#4083)
-      EPOLLRDHUP infinite loop (#4082)
-      MemoryRegionCache$Entry objects are not recycled (#4072)
-      Add support for IP_FREEBIND when using native transport (#4034)
-      
-      
-      
-      For the details...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.31.Final.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 70+ changes, including bug-fixes, improvements and new features.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Allow to disable recycling (&lt;a href=&quot;https://github.com/netty/netty/pull/4157&quot;&gt;#4157&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add TCP_USER_TIMEOUT (&lt;a href=&quot;https://github.com/netty/netty/pull/4174&quot;&gt;#4174&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly set traffic class and so linger (&lt;a href=&quot;https://github.com/netty/netty/pull/4136&quot;&gt;#4136&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix IllegalStateException when HttpContentEncoder is used and 100 Continue response is used (&lt;a href=&quot;https://github.com/netty/netty/pull/4115&quot;&gt;#4115&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly forward bytes when remove codec and handle channelInactive / channelReadComplete(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/4114&quot;&gt;#4114&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly handle Upgrade responses with special handling of Hixie 76 (&lt;a href=&quot;https://github.com/netty/netty/pull/4113&quot;&gt;#4113&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Support abstract domain sockets using epoll on linux (&lt;a href=&quot;https://github.com/netty/netty/pull/4085&quot;&gt;#4085&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HttpObjectAggregator doesn't check content-length header (&lt;a href=&quot;https://github.com/netty/netty/pull/4083&quot;&gt;#4083&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;EPOLLRDHUP infinite loop (&lt;a href=&quot;https://github.com/netty/netty/pull/4082&quot;&gt;#4082&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;MemoryRegionCache$Entry objects are not recycled (&lt;a href=&quot;https://github.com/netty/netty/pull/4072&quot;&gt;#4072&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for IP_FREEBIND when using native transport (&lt;a href=&quot;https://github.com/netty/netty/pull/4034&quot;&gt;#4034&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.31.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Special Notes&lt;/h1&gt;
-      
-      &lt;p&gt;With this release two new &lt;code&gt;EpollChannelOption&lt;/code&gt;s are introduced that can be used if you use the native epoll transport that is shipped as part of Netty.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;code&gt;EpollChannelOption.TCP_USER_TIMEOUT&lt;/code&gt; =&amp;gt; allows to set the TCP_USER_TIMEOUT on a socket. See man 7 tcp for more details on what exactly this setting is useful for.&lt;/p&gt;
-      
-      &lt;p&gt;&lt;code&gt;EpollChannelOption.IP_FREEBIND&lt;/code&gt; =&amp;gt; allows to bind to addresses without the address up yet or even the interface configured yet.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/burtonator&quot;&gt;@burtonator&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/chrisprobst&quot;&gt;@chrisprobst&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dop251&quot;&gt;@dop251&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/FeiWongReed&quot;&gt;@FeiWongReed&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gjesse&quot;&gt;@gjesse&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/grgvineet&quot;&gt;@grgvineet&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ioanbsu&quot;&gt;@ioanbsu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/stuartwdouglas&quot;&gt;@stuartwdouglas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tomasol&quot;&gt;@tomasol&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/wumo&quot;&gt;@wumo&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/yawkat&quot;&gt;@yawkat&lt;/a&gt;&lt;/li&gt;
