@@ -2,9 +2,100 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2018-11-29T11:16:22+01:00</updated>
+  <updated>2019-01-21T15:24:15+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/01/21/4-1-33-Final.html</id>
+    <title>Netty 4.1.33.Final released</title>
+    <updated>2019-01-21T15:24:15+01:00</updated>
+    <published>2019-01-21T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/01/21/4-1-33-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.33.Final as the first release in 2019. This release contains mostly bugfixes, some improvements and a few performance wins.
+      
+      Please also check the Important notes section below before upgrading.
+      
+      
+      Allowed IP_FREEBIND option for UDP epoll (#8727)
+      Ensure FlowControlled data frames will be correctly removed from the flow-controller when a write error happens. (#8726)
+      Only handle NXDOMAIN as failure when nameserver is authoritive or no the other nameservers are left (#8731)
+      Correctly buffer multiple outbound streams if needed. (#8694)
+      Only call handlerRemoved(...) if handlerAdded(...) was called during adding the handler to the pipeline (#8684)
+      Correctly detect and handle CNAME loops. (#8691)
+      Fix...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.33.Final as the first release in 2019. This release contains mostly bugfixes, some improvements and a few performance wins.&lt;/p&gt;
+      
+      &lt;p&gt;Please also check the &lt;code&gt;Important notes&lt;/code&gt; section below before upgrading.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Allowed IP_FREEBIND option for UDP epoll (&lt;a href=&quot;https://github.com/netty/netty/pull/8727&quot;&gt;#8727&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure FlowControlled data frames will be correctly removed from the flow-controller when a write error happens. (&lt;a href=&quot;https://github.com/netty/netty/pull/8726&quot;&gt;#8726&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Only handle NXDOMAIN as failure when nameserver is authoritive or no the other nameservers are left (&lt;a href=&quot;https://github.com/netty/netty/pull/8731&quot;&gt;#8731&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly buffer multiple outbound streams if needed. (&lt;a href=&quot;https://github.com/netty/netty/pull/8694&quot;&gt;#8694&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Only call handlerRemoved(...) if handlerAdded(...) was called during adding the handler to the pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/8684&quot;&gt;#8684&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly detect and handle CNAME loops. (&lt;a href=&quot;https://github.com/netty/netty/pull/8691&quot;&gt;#8691&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix ClassCastException and native crash when using kqueue transport (&lt;a href=&quot;https://github.com/netty/netty/pull/8665&quot;&gt;#8665&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Support 1012, 1013 and 1014 WebSocket close status code (&lt;a href=&quot;https://github.com/netty/netty/pull/8664&quot;&gt;#8664&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;NoClassDefFoundError on Android platform when try to use DefaultDnsServerAddressStreamProvider (&lt;a href=&quot;https://github.com/netty/netty/pull/8656&quot;&gt;#8656&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;ChannelInitializer may be invoked multiple times when used with custom EventExecutor (&lt;a href=&quot;https://github.com/netty/netty/pull/8620&quot;&gt;#8620&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Respect ctx.read() calls while processing reads for the child channels when using Http2MultiplexCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/8617&quot;&gt;#8617&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Loosen bounds check on CompositeByteBuf's maxNumComponents (&lt;a href=&quot;https://github.com/netty/netty/pull/8621&quot;&gt;#8621&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Provide a way to cache the internal nioBuffer of the PooledByteBuffer to reduce GC (&lt;a href=&quot;https://github.com/netty/netty/pull/8603&quot;&gt;#8603&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/milestone/206?closed=1&quot;&gt;4.1.33.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/alex-vas&quot;&gt;@alex-vas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/angn&quot;&gt;@angn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/atcurtis&quot;&gt;@atcurtis&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cooooderr&quot;&gt;@cooooderr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Feri73&quot;&gt;@Feri73&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnjaylward&quot;&gt;@johnjaylward&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kashike&quot;&gt;@kashike&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kezhenxu94&quot;&gt;@kezhenxu94&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/KowalczykBartek&quot;&gt;@KowalczykBartek&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lewisd32&quot;&gt;@lewisd32&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/madgnome&quot;&gt;@madgnome&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mingyu89&quot;&gt;@mingyu89&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mrniko&quot;&gt;@mrniko&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nicktrav&quot;&gt;@nicktrav&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/paulvi&quot;&gt;@paulvi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/riyafa&quot;&gt;@riyafa&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rschmitt&quot;&gt;@rschmitt&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/slggamerTrue&quot;&gt;@slggamerTrue&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sshntt&quot;&gt;@sshntt&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tomerd&quot;&gt;@tomerd&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/yogeshvedpathak&quot;&gt;@yogeshvedpathak&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/yulianoifa-mobius&quot;&gt;@yulianoifa-mobius&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zunpiau&quot;&gt;@zunpiau&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2018/11/29/4-1-32-Final.html</id>
     <title>Netty 4.1.32.Final released</title>
@@ -4264,112 +4355,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/vargarob&quot;&gt;@vargarob&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/WhiteTrashLord&quot;&gt;@WhiteTrashLord&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/willisblackburn&quot;&gt;@willisblackburn&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/09/02/4-1-0-Beta6.html</id>
-    <title>Netty 4.1.0.Beta6 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-09-02T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/09/02/4-1-0-Beta6.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.1.0.Beta6 after 3 months of hard work.
-      
-      This release contains 90+ changes, including bug-fixes, improvements and new features and will hopefully be the last beta release before move to
-      release canidate status. So please test and provide feedback as soon as possible!
-      
-      One of the most important changes is the full support of HTTP/2 as specified by RFC7540.
-      Beside this the release contains a regression fix in terms of HTTP speed that was introduced in the past and so the speed is back to the
-      same level as in 4.0.31.Final.
-      
-      The most important changes are:
-      
-      
-      Faster and more memory...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta6 after 3 months of hard work.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 90+ changes, including bug-fixes, improvements and new features and will hopefully be the last beta release before move to
-      release canidate status. So please test and provide feedback as soon as possible!&lt;/p&gt;
-      
-      &lt;p&gt;One of the most important changes is the full support of HTTP/2 as specified by &lt;a href=&quot;https://tools.ietf.org/html/rfc7540&quot;&gt;RFC7540&lt;/a&gt;.
-      Beside this the release contains a regression fix in terms of HTTP speed that was introduced in the past and so the speed is back to the
-      same level as in 4.0.31.Final.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Faster and more memory efficient headers for HTTP, HTTP/2, STOMP and SPDY (&lt;a href=&quot;https://github.com/netty/netty/pull/4051&quot;&gt;#4051&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;IllegalReferenceCountException in DNS resolver (&lt;a href=&quot;https://github.com/netty/netty/issues/3797&quot;&gt;#3797&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HTTP/2 GOAWAY Reference Count Issue (&lt;a href=&quot;https://github.com/netty/netty/pull/3786&quot;&gt;#3786&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Update HTTP/2 to RFCs (&lt;a href=&quot;https://github.com/netty/netty/pull/3830&quot;&gt;#3830&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Http2ConnectionHandler breaks channelReadComplete pipeline notification (&lt;a href=&quot;https://github.com/netty/netty/pull/3948&quot;&gt;#3948&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Regression in codec-http 4.1.0.Beta4 and later (&lt;a href=&quot;https://github.com/netty/netty/issues/3962&quot;&gt;#3962&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;DnsResolver.resolve(...) fails when ipaddress is used (&lt;a href=&quot;https://github.com/netty/netty/pull/3993&quot;&gt;#3993&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;NPE in DnsNameResolver in conjunction with a negative caching policy (&lt;a href=&quot;https://github.com/netty/netty/issues/4065&quot;&gt;#4065&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add DnsNameResolver.resolveAll(...) which allows to resolve a name to many ips (&lt;a href=&quot;https://github.com/netty/netty/issues/4035&quot;&gt;#4035&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.31.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Special Notes&lt;/h1&gt;
-      
-      &lt;p&gt;All the new features / fixes included in 4.0.31.Final are also included in this release. See &lt;a href=&quot;https://github.com/netty/netty/issues?page=1&amp;amp;q=milestone%3A4.0.31.Final+is%3Aclosed&quot;&gt;GitHub issues&lt;/a&gt;
-      for more details.&lt;/p&gt;
-      
-      &lt;p&gt;Beside this the DnsNameResolver received an API overhaul, so ensure to check this out.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Apache9&quot;&gt;@Apache9&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/bobymicroby&quot;&gt;@bobymicroby&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/burtonator&quot;&gt;@burtonator&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/chrisprobst&quot;&gt;@chrisprobst&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/darabos&quot;&gt;@darabos&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dmk23&quot;&gt;@dmk23&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dop251&quot;&gt;@dop251&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/eincs&quot;&gt;@eincs&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/FeiWongReed&quot;&gt;@FeiWongReed&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/flirtomania&quot;&gt;@flirtomania&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/gjesse&quot;&gt;@gjesse&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/grgvineet&quot;&gt;@grgvineet&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ioanbsu&quot;&gt;@ioanbsu&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jorcasso&quot;&gt;@jorcasso&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/karuturi&quot;&gt;@karuturi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/kubes&quot;&gt;@kubes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/leogomes&quot;&gt;@leogomes&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/merlimat&quot;&gt;@merlimat&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/stuartwdouglas&quot;&gt;@stuartwdouglas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/sunng87&quot;&gt;@sunng87&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tomasol&quot;&gt;@tomasol&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tomaszc&quot;&gt;@tomaszc&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/wumo&quot;&gt;@wumo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/yawkat&quot;&gt;@yawkat&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
