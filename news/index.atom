@@ -2,9 +2,134 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-03-08T10:42:10+01:00</updated>
+  <updated>2019-04-17T12:39:28+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/04/17/4-1-35-Final.html</id>
+    <title>Netty 4.1.35.Final released</title>
+    <updated>2019-04-17T12:39:28+02:00</updated>
+    <published>2019-04-17T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/04/17/4-1-35-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.35.Final. This release contains mostly bugfixes, some improvements and a few performance wins.
+      If you use netty-tcnative or netty-tcnative-boringssl-static you also need to upgrade to 2.0.25.Final.
+      
+      The most important changes in this release are:
+      
+      
+      Only try to use OpenSslX509TrustManagerWrapper when using Java 7+ (#9065)
+      DnsNameResolver.resolve(...) should notify future as soon as one preferred record was resolved (#9050)
+      Correctly calculate ttl for AuthoritativeNameServer when update existing records (#9051)
+      DnsNameResolver.resolveAll(...) should also contain non preferred addresses (#9044)
+      Websocket client closing handshake to support "force close" after given timeout (#8883)
+      Correctly handle overflow in Native.kevent(...) when EINTR is detected (#9024)
+      DnsNameResolver.resolveAll(...) should not include duplicates...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.35.Final. This release contains mostly bugfixes, some improvements and a few performance wins.
+      If you use netty-tcnative or netty-tcnative-boringssl-static you also need to upgrade to 2.0.25.Final.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Only try to use OpenSslX509TrustManagerWrapper when using Java 7+ (&lt;a href=&quot;https://github.com/netty/netty/pull/9065&quot;&gt;#9065&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver.resolve(...) should notify future as soon as one preferred record was resolved (&lt;a href=&quot;https://github.com/netty/netty/pull/9050&quot;&gt;#9050&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly calculate ttl for AuthoritativeNameServer when update existing records (&lt;a href=&quot;https://github.com/netty/netty/pull/9051&quot;&gt;#9051&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver.resolveAll(...) should also contain non preferred addresses (&lt;a href=&quot;https://github.com/netty/netty/pull/9044&quot;&gt;#9044&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Websocket client closing handshake to support &quot;force close&quot; after given timeout (&lt;a href=&quot;https://github.com/netty/netty/pull/8883&quot;&gt;#8883&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle overflow in Native.kevent(...) when EINTR is detected (&lt;a href=&quot;https://github.com/netty/netty/pull/9024&quot;&gt;#9024&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DnsNameResolver.resolveAll(...) should not include duplicates (&lt;a href=&quot;https://github.com/netty/netty/pull/9021&quot;&gt;#9021&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Skip execution of Channel*Handler method if annotated with @Skip and just use the next handler in the pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/8988&quot;&gt;#8988&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to offload / customize key signing operations when using BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8943&quot;&gt;#8943&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to offload certificate validation when using BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8974&quot;&gt;#8974&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add user possibility to skip the evaluation of a certain websocket extensions (&lt;a href=&quot;https://github.com/netty/netty/pull/8910&quot;&gt;#8910&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Don't try to put back MemoryRegionCache.Entry objects into the Recycler when recycled because of a finalizer (&lt;a href=&quot;https://github.com/netty/netty/pull/8955&quot;&gt;#8955&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix possible ByteBuf leak when CompositeByteBuf is resized (&lt;a href=&quot;https://github.com/netty/netty/pull/8946&quot;&gt;#8946&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to automatically trim the PoolThreadCache in a timely interval (&lt;a href=&quot;https://github.com/netty/netty/pull/8941&quot;&gt;#8941&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Support ALLOW_HALF_CLOSURE channel option on Unix domain socket. (&lt;a href=&quot;https://github.com/netty/netty/pull/8932&quot;&gt;#8932&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly produce ssl alert when certificate validation fails on the client-side when using native SSL implementation (&lt;a href=&quot;https://github.com/netty/netty/pull/8949&quot;&gt;#8949&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix HttpUtil.isKeepAlive to behave correctly when Connection is a comma separated list defect (&lt;a href=&quot;https://github.com/netty/netty/pull/8924&quot;&gt;#8924&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/208?closed=1&quot;&gt;4.1.35.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Notes about new features / improvements&lt;/h1&gt;
+      
+      &lt;p&gt;This section contains some details about some changes that deserve a bit more attentions. Please check the related PRs for even more details.&lt;/p&gt;
+      
+      &lt;h2&gt;Offload various handshake related operations from the EventLoop&lt;/h2&gt;
+      
+      &lt;p&gt;This release added various features related to offload handshake related operations from the EventLoop when netty-tcnative-boringssl-static is used. This can be very helpfully if you need to do any blocking operation in your &lt;code&gt;KeyManager&lt;/code&gt; or &lt;code&gt;TrustManager&lt;/code&gt; implementation. As these are still considered as &quot;experimental&quot; as these were just added you explicit need to enable the offloading via &lt;code&gt;-Dio.netty.handler.ssl.openssl.useTasks=true&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;Beside this you will need to use the &lt;code&gt;SslContext&lt;/code&gt; methods that take another Executor in its parameters.&lt;/p&gt;
+      
+      &lt;p&gt;Related PRs:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Allow to offload / customize key signing operations when using BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8943&quot;&gt;#8943&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to offload certificate validation when using BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/8974&quot;&gt;#8974&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;h2&gt;Offload key signing operations&lt;/h2&gt;
+      
+      &lt;p&gt;When using netty-tcnative-boringssl-static it is now possible to offload the key-signing completely (a.k.a keyless SSL). This can be done by implementations &lt;code&gt;OpenSslPrivateKeyMethod&lt;/code&gt; and set your implementation via &lt;code&gt;ReferenceCountedOpenSslContext.setPrivateKeyMethod(...)&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;Please note that this feature is still considered experimental and so is marked with &lt;code&gt;@UnstableApi&lt;/code&gt;.&lt;/p&gt;
+      
+      &lt;p&gt;For more details see (&lt;a href=&quot;https://github.com/netty/netty/pull/8943&quot;&gt;#8943&lt;/a&gt;).&lt;/p&gt;
+      
+      &lt;h2&gt;Performance improvements when using BoringSSL&lt;/h2&gt;
+      
+      &lt;p&gt;We now use &lt;a href=&quot;https://boringssl.googlesource.com/boringssl/+/chromium-stable/PORTING.md#crypto_buffer&quot;&gt;CRYPTO_BUFFER&lt;/a&gt; when netty-tcnative-boringssl-static is used which allows us to remove the overhead of multiple parsing operations related to the certificate chain.&lt;/p&gt;
+      
+      &lt;p&gt;For more details see (&lt;a href=&quot;https://github.com/netty/netty-tcnative/pull/445&quot;&gt;#455&lt;/a&gt;).&lt;/p&gt;
+      
+      &lt;h1&gt;New Team Members&lt;/h1&gt;
+      
+      &lt;p&gt;I am happy to announce that &lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt; and &lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt; were added to the Netty Team to recognize all the hard and amazing work both of them did in the past. Congratulations to both!&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/BELUGABEHR&quot;&gt;@BELUGABEHR&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/eolivelli&quot;&gt;@eolivelli&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fzakaria&quot;&gt;@fzakaria&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gfYaya&quot;&gt;@gfYaya&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kwart&quot;&gt;@kwart&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/lh44&quot;&gt;@lh44&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/liuhaozzu&quot;&gt;@liuhaozzu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/magnus-gustafsson&quot;&gt;@magnus-gustafsson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Mr00Anderson&quot;&gt;@Mr00Anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pcperera&quot;&gt;@pcperera&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/qeesung&quot;&gt;@qeesung&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sureshkrishnamoorthy&quot;&gt;@sureshkrishnamoorthy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vikashsingh009&quot;&gt;@vikashsingh009&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Wingfril&quot;&gt;@Wingfril&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/zhongl&quot;&gt;@zhongl&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2019/03/08/4-1-34-Final.html</id>
     <title>Netty 4.1.34.Final released</title>
@@ -4283,71 +4408,6 @@
       &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/jenskordowski&quot;&gt;@jenskordowski&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/10/05/4-1-0-Beta7.html</id>
-    <title>Netty 4.1.0.Beta7 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-10-05T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/10/05/4-1-0-Beta7.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.1.0.Beta7 after fixing a lot of issues since the last beta release.
-      
-      This release contains a lot of fixes but also API improvements in the HTTP/2 codec.
-      
-      The most important changes are:
-      
-      
-      DefaultHttp2RemoteFlowController may not write all pending bytes  (#4258) (#4242)
-      Ensure close caused by write will happen before write promise is notified (#4225)
-      SpdyHttpEncoder fails to convert HttpResponse to SpdyFrame (#4190) (#4185)
-      StompHeaders constants can no longer be used to fetch headers from DefaultHeaders (#4247)
-      DefaultHttp2RemoteFlowController not allocating all available bytes (#4282) (#4266)
-      
-      
-      
-      For the details and all changes, please browse our issue tracker.
-      
-      As always, please let us...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta7 after fixing a lot of issues since the last beta release.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains a lot of fixes but also API improvements in the HTTP/2 codec.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;DefaultHttp2RemoteFlowController may not write all pending bytes  (&lt;a href=&quot;https://github.com/netty/netty/pull/4258&quot;&gt;#4258&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4242&quot;&gt;#4242&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure close caused by write will happen before write promise is notified (&lt;a href=&quot;https://github.com/netty/netty/pull/4225&quot;&gt;#4225&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;SpdyHttpEncoder fails to convert HttpResponse to SpdyFrame (&lt;a href=&quot;https://github.com/netty/netty/pull/4190&quot;&gt;#4190&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4185&quot;&gt;#4185&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;StompHeaders constants can no longer be used to fetch headers from DefaultHeaders (&lt;a href=&quot;https://github.com/netty/netty/issues/4247&quot;&gt;#4247&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;DefaultHttp2RemoteFlowController not allocating all available bytes (&lt;a href=&quot;https://github.com/netty/netty/pull/4282&quot;&gt;#4282&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4266&quot;&gt;#4266&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta7&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/fratboy&quot;&gt;@fratboy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/silvaran&quot;&gt;@silvaran&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
