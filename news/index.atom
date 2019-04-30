@@ -2,9 +2,72 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-04-17T12:39:28+02:00</updated>
+  <updated>2019-04-30T19:55:09+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/04/30/4-1-36-Final.html</id>
+    <title>Netty 4.1.36.Final released</title>
+    <updated>2019-04-30T19:55:09+02:00</updated>
+    <published>2019-04-30T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/04/30/4-1-36-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      Today we announce the release of netty 4.1.36.Final. This release contains mostly bugfixes, 2 of them are fixes for regressions so please consider upgrading as soon as possible.
+      
+      The most important changes in this release are:
+      
+      
+      Add SVM metadata to netty modules (#8963)
+      Introduce DynamicAddressConnectHandler which can be used to dynamically change remoteAddress / localAddress when a connect is issued (#8982)
+      Fix regression in CompositeByteBuf.discard*ReadBytes() (#9063)
+      HTTP/2 to support asynchronous SETTINGS ACK (#9069)
+      Invoke channelAcquired callback on first time channel acquire (#9093)
+      Http2ConnectionHandler to allow decoupling close(..) from GOAWAY graceful close (#9094)
+      Http2FrameCodec to simulate GOAWAY received when stream IDs are exhausted (#9095)
+      Ensure channel handler close() is not...
+    </summary>
+    <content type="html">
+      &lt;p&gt;Today we announce the release of netty 4.1.36.Final. This release contains mostly bugfixes, 2 of them are fixes for regressions so please consider upgrading as soon as possible.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Add SVM metadata to netty modules (&lt;a href=&quot;https://github.com/netty/netty/pull/8963&quot;&gt;#8963&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Introduce DynamicAddressConnectHandler which can be used to dynamically change remoteAddress / localAddress when a connect is issued (&lt;a href=&quot;https://github.com/netty/netty/pull/8982&quot;&gt;#8982&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix regression in CompositeByteBuf.discard*ReadBytes() (&lt;a href=&quot;https://github.com/netty/netty/pull/9063&quot;&gt;#9063&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 to support asynchronous SETTINGS ACK (&lt;a href=&quot;https://github.com/netty/netty/pull/9069&quot;&gt;#9069&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Invoke channelAcquired callback on first time channel acquire (&lt;a href=&quot;https://github.com/netty/netty/pull/9093&quot;&gt;#9093&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2ConnectionHandler to allow decoupling close(..) from GOAWAY graceful close (&lt;a href=&quot;https://github.com/netty/netty/pull/9094&quot;&gt;#9094&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2FrameCodec to simulate GOAWAY received when stream IDs are exhausted (&lt;a href=&quot;https://github.com/netty/netty/pull/9095&quot;&gt;#9095&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure channel handler close() is not skipped in !hasDisconnect case  (&lt;a href=&quot;https://github.com/netty/netty/pull/9098&quot;&gt;#9098&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/209?closed=1&quot;&gt;4.1.36.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/divijvaidya&quot;&gt;@divijvaidya&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ivmaykov&quot;&gt;@ivmaykov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/loganrosen&quot;&gt;@loganrosen&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sdeleuze&quot;&gt;@sdeleuze&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2019/04/17/4-1-35-Final.html</id>
     <title>Netty 4.1.35.Final released</title>
@@ -4363,51 +4426,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/stau&quot;&gt;@stau&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/sverkera&quot;&gt;@sverkera&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/10/13/3-10-5-Final.html</id>
-    <title>Netty 3.10.5.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-10-13T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/10/13/3-10-5-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 3.10.5.Final,
-      
-      This release contains a bug-fix when handling SSL.
-      
-      For the details and all changes, please browse our issue tracker.
-      
-      As always, please let us know if you find any issues. We love feedback!
-      
-      Thank You
-      
-      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-      
-      
-      @jenskordowski
-      @normanmaurer...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 3.10.5.Final,&lt;/p&gt;
-      
-      &lt;p&gt;This release contains a bug-fix when handling SSL.&lt;/p&gt;
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A3.10.5.Final&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jenskordowski&quot;&gt;@jenskordowski&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
