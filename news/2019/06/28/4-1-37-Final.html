@@ -306,8 +306,9 @@
                 
                 <pre><code class="java">ChannelPipeline pipeline = ...&#x000A;pipeline.addLast(Http2MultiplexCodecBuilder.forServer(new HelloWorldHttp2Handler()).build());&#x000A;...&#x000A;</code></pre>
                 
-                <p>In the future it should be changed to:
-                <code>java&#x000A;ChannelPipeline pipeline = ...&#x000A;pipeline.addLast(Http2FrameCodecBuilder.forServer().build());&#x000A;pipeline.addLast(new Http2MultiplexHandler(new HelloWorldHttp2Handler());&#x000A;...</code></p>
+                <p>In the future it should be changed to:</p>
+                
+                <pre><code class="java">ChannelPipeline pipeline = ...&#x000A;pipeline.addLast(Http2FrameCodecBuilder.forServer().build());&#x000A;pipeline.addLast(new Http2MultiplexHandler(new HelloWorldHttp2Handler());&#x000A;...&#x000A;</code></pre>
                 
                 <p>While the semantics of the child channels ( <code>Http2StreamChannel</code> ) are mostly unchanged <code>Http2MultiplexHandler</code> changes 2 things to make it easier for users to re-use code between <code>HTTP/1</code> and <code>HTTP/2</code>:
                 * <code>Http2ResetFrame</code>s are propagated to the <code>Http2StreamChannel</code> as an user-event as these should not be affected on <code>AutoRead</code> configurations of the child-channels and the user should be able to receive them ASAP (even if the user stopped reading for back-pressure reasons).
@@ -319,11 +320,13 @@
                 
                 <p>As defined by RFC7766(https://tools.ietf.org/html/rfc7766) resolvers should support TCP fallback in case the response is too large and so is truncated. This release add support for TCP fallback if you configure your <code>DnsNameResolverBuilder</code> to do so before building the final <code>DnsNameResolver</code>.</p>
                 
-                <p>For example this code doesn't use TCP fallback (old behavior):
-                <code>java&#x000A;DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)&#x000A;        .channelType(NioDatagramChannel.class).build();&#x000A;...</code></p>
+                <p>For example this code doesn't use TCP fallback (old behavior):</p>
                 
-                <p>To enable TCP fallback specify <code>socketChannelType</code>:
-                <code>java&#x000A;DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)&#x000A;        .channelType(NioDatagramChannel.class)&#x000A;        .socketChannelType(NioSocketChannel.class).build();&#x000A;...</code></p>
+                <pre><code class="java">DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)&#x000A;        .channelType(NioDatagramChannel.class).build();&#x000A;...&#x000A;</code></pre>
+                
+                <p>To enable TCP fallback specify <code>socketChannelType</code>:</p>
+                
+                <pre><code class="java">DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)&#x000A;        .channelType(NioDatagramChannel.class)&#x000A;        .socketChannelType(NioSocketChannel.class).build();&#x000A;...&#x000A;</code></pre>
                 
                 <h1>Thank You</h1>
                 

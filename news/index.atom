@@ -2,13 +2,13 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-06-28T11:58:58+02:00</updated>
+  <updated>2019-06-28T16:14:51+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
   <entry>
     <id>http://netty.io/news/2019/06/28/4-1-37-Final.html</id>
     <title>Netty 4.1.37.Final released</title>
-    <updated>2019-06-28T11:58:58+02:00</updated>
+    <updated>2019-06-28T16:14:51+02:00</updated>
     <published>2019-06-28T00:00:00+00:00</published>
     <link href="http://netty.io/news/2019/06/28/4-1-37-Final.html" rel="alternate" type="text/html" />
     <author>
@@ -84,12 +84,13 @@
       ...
       &lt;/code&gt;&lt;/pre&gt;
       
-      &lt;p&gt;In the future it should be changed to:
-      &lt;code&gt;java
-      ChannelPipeline pipeline = ...
+      &lt;p&gt;In the future it should be changed to:&lt;/p&gt;
+      
+      &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;ChannelPipeline pipeline = ...
       pipeline.addLast(Http2FrameCodecBuilder.forServer().build());
       pipeline.addLast(new Http2MultiplexHandler(new HelloWorldHttp2Handler());
-      ...&lt;/code&gt;&lt;/p&gt;
+      ...
+      &lt;/code&gt;&lt;/pre&gt;
       
       &lt;p&gt;While the semantics of the child channels ( &lt;code&gt;Http2StreamChannel&lt;/code&gt; ) are mostly unchanged &lt;code&gt;Http2MultiplexHandler&lt;/code&gt; changes 2 things to make it easier for users to re-use code between &lt;code&gt;HTTP/1&lt;/code&gt; and &lt;code&gt;HTTP/2&lt;/code&gt;:
       * &lt;code&gt;Http2ResetFrame&lt;/code&gt;s are propagated to the &lt;code&gt;Http2StreamChannel&lt;/code&gt; as an user-event as these should not be affected on &lt;code&gt;AutoRead&lt;/code&gt; configurations of the child-channels and the user should be able to receive them ASAP (even if the user stopped reading for back-pressure reasons).
@@ -101,18 +102,20 @@
       
       &lt;p&gt;As defined by RFC7766(https://tools.ietf.org/html/rfc7766) resolvers should support TCP fallback in case the response is too large and so is truncated. This release add support for TCP fallback if you configure your &lt;code&gt;DnsNameResolverBuilder&lt;/code&gt; to do so before building the final &lt;code&gt;DnsNameResolver&lt;/code&gt;.&lt;/p&gt;
       
-      &lt;p&gt;For example this code doesn't use TCP fallback (old behavior):
-      &lt;code&gt;java
-      DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)
-              .channelType(NioDatagramChannel.class).build();
-      ...&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;For example this code doesn't use TCP fallback (old behavior):&lt;/p&gt;
       
-      &lt;p&gt;To enable TCP fallback specify &lt;code&gt;socketChannelType&lt;/code&gt;:
-      &lt;code&gt;java
-      DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)
+      &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)
+              .channelType(NioDatagramChannel.class).build();
+      ...
+      &lt;/code&gt;&lt;/pre&gt;
+      
+      &lt;p&gt;To enable TCP fallback specify &lt;code&gt;socketChannelType&lt;/code&gt;:&lt;/p&gt;
+      
+      &lt;pre&gt;&lt;code class=&quot;java&quot;&gt;DnsNameResolver resolver = new DnsNameResolverBuilder(eventLoop)
               .channelType(NioDatagramChannel.class)
               .socketChannelType(NioSocketChannel.class).build();
-      ...&lt;/code&gt;&lt;/p&gt;
+      ...
+      &lt;/code&gt;&lt;/pre&gt;
       
       &lt;h1&gt;Thank You&lt;/h1&gt;
       
