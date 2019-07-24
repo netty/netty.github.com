@@ -2,9 +2,92 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-06-28T16:14:51+02:00</updated>
+  <updated>2019-07-24T19:04:36+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/07/24/4-1-38-Final.html</id>
+    <title>Netty 4.1.38.Final released</title>
+    <updated>2019-07-24T19:04:36+02:00</updated>
+    <published>2019-07-24T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/07/24/4-1-38-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I am happy to announce the release of netty 4.1.38.Final. This is a bug-fix release but also contains a few performance enhancements.
+      
+      The most important changes in this release are:
+      
+      
+      Prevent ByteToMessageDecoder from overreading when !isAutoRead (#9252)
+      Http2FrameCodecBuilder.autoAckSettingsFrame(...) must be public (#9295)
+      Disable Huffman encoding for small headers (#9269)
+      Use Table lookup for HPACK decoder (#9307)
+      Correctly take length of ByteBufInputStream into account for readLine() / readByte() (#9310)
+      Pre-decompressed DNS record RData that may contain compression pointers (#9311)
+      Fixed incorrect Sec-WebSocket-Origin header for v13, see #9134 (#9312)
+      Correctly handle http2 upgrades when Http2FrameCodec is used together with Http2MultiplexHandler (#9318)
+      Fix NPE caused by re-entrance calls in FlowControlHandler (#9320)
+      Allow to disable...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I am happy to announce the release of netty 4.1.38.Final. This is a bug-fix release but also contains a few performance enhancements.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Prevent ByteToMessageDecoder from overreading when !isAutoRead (&lt;a href=&quot;https://github.com/netty/netty/pull/9252&quot;&gt;#9252&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Http2FrameCodecBuilder.autoAckSettingsFrame(...) must be public (&lt;a href=&quot;https://github.com/netty/netty/pull/9295&quot;&gt;#9295&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Disable Huffman encoding for small headers (&lt;a href=&quot;https://github.com/netty/netty/pull/9269&quot;&gt;#9269&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use Table lookup for HPACK decoder (&lt;a href=&quot;https://github.com/netty/netty/pull/9307&quot;&gt;#9307&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly take length of ByteBufInputStream into account for readLine() / readByte() (&lt;a href=&quot;https://github.com/netty/netty/pull/9310&quot;&gt;#9310&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Pre-decompressed DNS record RData that may contain compression pointers (&lt;a href=&quot;https://github.com/netty/netty/pull/9311&quot;&gt;#9311&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fixed incorrect Sec-WebSocket-Origin header for v13, see #9134 (&lt;a href=&quot;https://github.com/netty/netty/pull/9312&quot;&gt;#9312&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle http2 upgrades when Http2FrameCodec is used together with Http2MultiplexHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/9318&quot;&gt;#9318&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix NPE caused by re-entrance calls in FlowControlHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/9320&quot;&gt;#9320&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Allow to disable automatically sending PING acks (&lt;a href=&quot;https://github.com/netty/netty/pull/9338&quot;&gt;#9338&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP2: Always apply the graceful shutdown timeout if configured (&lt;a href=&quot;https://github.com/netty/netty/pull/9340&quot;&gt;#9340&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DecoratingHttp2ConnectionEncoder.consumeReceivedSettings must not throw if delegate is instance of Http2SettingsReceivedConsumer (&lt;a href=&quot;https://github.com/netty/netty/pull/9343&quot;&gt;#9343&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix epoll spliceTo file descriptor with offset (&lt;a href=&quot;https://github.com/netty/netty/pull/9369&quot;&gt;#9369&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix an NPE in AbstractHttp2StreamChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/9379&quot;&gt;#9379&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2 multiplex: Correctly process buffered inbound data even if autoRead is false (&lt;a href=&quot;https://github.com/netty/netty/pull/9389&quot;&gt;#9389&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;availableSharedCapacity will be slowly exhausted (&lt;a href=&quot;https://github.com/netty/netty/pull/9394&quot;&gt;#9394&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2: Ensure newStream() is called only once per connection upgrade and the correct handler is used (&lt;a href=&quot;https://github.com/netty/netty/pull/9396&quot;&gt;#9396&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/212?closed=1&quot;&gt;4.1.38.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/davydotcom&quot;&gt;@davydotcom&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/emlittleworth&quot;&gt;@emlittleworth&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/graemerocher&quot;&gt;@graemerocher&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/iamaleksey&quot;&gt;@iamaleksey&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jingene&quot;&gt;@jingene&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/KevinBlandy&quot;&gt;@KevinBlandy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ljnelson&quot;&gt;@ljnelson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nzhenry&quot;&gt;@nzhenry&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/perlun&quot;&gt;@perlun&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/qeesung&quot;&gt;@qeesung&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/RobinGG&quot;&gt;@RobinGG&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/xiaoheng1&quot;&gt;@xiaoheng1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/YuanHuCoding&quot;&gt;@YuanHuCoding&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2019/06/28/4-1-37-Final.html</id>
     <title>Netty 4.1.37.Final released</title>
@@ -4444,71 +4527,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/yetisno&quot;&gt;@yetisno&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2015/11/10/4-1-0-Beta8.html</id>
-    <title>Netty 4.1.0.Beta8 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2015-11-10T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2015/11/10/4-1-0-Beta8.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.1.0.Beta8. This will be the last beta release for 4.1 and we aim releasing 4.1.0.CR1 next week.
-      
-      Because of this please test this release asap so we can fix any remaining issues in a timely manner.
-      
-      For the details and all changes, please browse our issue tracker.
-      
-      As always, please let us know if you find any issues. We love feedback!
-      
-      Thank You
-      
-      Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-      
-      
-      @blucas
-      @buchgr
-      @dmk23
-      @dustismo
-      @louiscryan
-      @ninja-
-      @nmittler
-      @normanmaurer
-      @rdicroce
-      @Scottmitch
-      @slandelle
-      @trustin...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.Beta8. This will be the last beta release for 4.1 and we aim releasing 4.1.0.CR1 next week.&lt;/p&gt;
-      
-      &lt;p&gt;Because of this please test this release asap so we can fix any remaining issues in a timely manner.&lt;/p&gt;
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta8&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dmk23&quot;&gt;@dmk23&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/dustismo&quot;&gt;@dustismo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/louiscryan&quot;&gt;@louiscryan&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rdicroce&quot;&gt;@rdicroce&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
   </entry>
