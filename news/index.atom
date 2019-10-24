@@ -2,9 +2,97 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-09-25T19:22:53+02:00</updated>
+  <updated>2019-10-24T18:30:00+02:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/10/24/4-1-43-Final.html</id>
+    <title>Netty 4.1.43.Final released</title>
+    <updated>2019-10-24T18:30:00+02:00</updated>
+    <published>2019-10-24T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/10/24/4-1-43-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I am happy to announce the release of netty 4.1.43.Final. This is a bug-fix release but also contains a few performance enhancements and features.
+      
+      For more details please read-on.
+      
+      The most important changes in this release are:
+      
+      
+      Support semicolons in query parameters as explain in the W3C recommendation (#9701)
+      Ignore invalid entries in /etc/resolv.conf when parsing (#9697)
+      Refactor SslHandler internals to always use heap buffers for JDK SSLEngine implementation (#9696)
+      Bugfix #9667: FlowControllerHandler swallows read-complete event when auto-read is disabled (#9691)
+      HTTP/2: Prevent memory leak when trying to create new streams on a connection that received a GOAWAY (#9674)
+      fix remove handler cause ByteToMessageDecoder out disorder (#9670)
+      Correctly propagate...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I am happy to announce the release of netty 4.1.43.Final. This is a bug-fix release but also contains a few performance enhancements and features.&lt;/p&gt;
+      
+      &lt;p&gt;For more details please read-on.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Support semicolons in query parameters as explain in the W3C recommendation (&lt;a href=&quot;https://github.com/netty/netty/pull/9701&quot;&gt;#9701&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ignore invalid entries in /etc/resolv.conf when parsing (&lt;a href=&quot;https://github.com/netty/netty/pull/9697&quot;&gt;#9697&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Refactor SslHandler internals to always use heap buffers for JDK SSLEngine implementation (&lt;a href=&quot;https://github.com/netty/netty/pull/9696&quot;&gt;#9696&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Bugfix #9667: FlowControllerHandler swallows read-complete event when auto-read is disabled (&lt;a href=&quot;https://github.com/netty/netty/pull/9691&quot;&gt;#9691&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HTTP/2: Prevent memory leak when trying to create new streams on a connection that received a GOAWAY (&lt;a href=&quot;https://github.com/netty/netty/pull/9674&quot;&gt;#9674&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;fix remove handler cause ByteToMessageDecoder out disorder (&lt;a href=&quot;https://github.com/netty/netty/pull/9670&quot;&gt;#9670&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly propagate failures while update the flow-controller to the multiplexed channel (&lt;a href=&quot;https://github.com/netty/netty/pull/9664&quot;&gt;#9664&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Do not mandate direct bytes in SslHandler queue (&lt;a href=&quot;https://github.com/netty/netty/pull/9656&quot;&gt;#9656&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Add ability to set attributes on a SslContext (&lt;a href=&quot;https://github.com/netty/netty/pull/9654&quot;&gt;#9654&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix DnsNameResolver TCP fallback test and message leaks (&lt;a href=&quot;https://github.com/netty/netty/pull/9647&quot;&gt;#9647&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Reference-counted SslEngines retain a reference to their parent SslContext (&lt;a href=&quot;https://github.com/netty/netty/pull/9626&quot;&gt;#9626&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Use fast HPACK comparisons when not checking sensitive headers (&lt;a href=&quot;https://github.com/netty/netty/pull/9259&quot;&gt;#9259&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/217?closed=1&quot;&gt;4.1.43.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/brucelwl&quot;&gt;@brucelwl&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cstancu&quot;&gt;@cstancu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/dziemba&quot;&gt;@dziemba&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/inatatsu&quot;&gt;@inatatsu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jiafu1115&quot;&gt;@jiafu1115&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/JLLeitschuh&quot;&gt;@JLLeitschuh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/KangZhiDong&quot;&gt;@KangZhiDong&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/marcban&quot;&gt;@marcban&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/millems&quot;&gt;@millems&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/nicmunroe&quot;&gt;@nicmunroe&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/pete-woods&quot;&gt;@pete-woods&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ran-su&quot;&gt;@ran-su&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/switchYello&quot;&gt;@switchYello&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ti2ger92&quot;&gt;@ti2ger92&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ursaj&quot;&gt;@ursaj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2019/09/25/4-1-42-Final.html</id>
     <title>Netty 4.1.42.Final released</title>
@@ -4476,102 +4564,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/serphacker&quot;&gt;@serphacker&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2016/03/21/4-0-35-Final.html</id>
-    <title>Netty 4.0.35.Final released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2016-03-21T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2016/03/21/4-0-35-Final.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.0.35.Final after almost 2 months of hard work.
-      
-      This release contains 90+ changes, including bug-fixes, performance improvements and new features.
-      
-      The most important changes are:
-      
-      
-      Add support for TCP_DEFER_ACCEPT and TCP_QUICKACK (#4951)
-      WebSocketHandshaker.finishHandshake could result in recursive channelRead event (#4533) (#4815)
-      Enabling SNI, OpenSSL client from netty does not work (#4746)    (#4791)
-      Certificate failing set in OpenSslServerContext on Linux (#4793)
-      Enable SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER when using OpenSslContext (#4816)
-      OpenSslContext throws UnsupportedOperationException when Unsafe not available (#4828) (#4843)
-      Correctly pass ChannelPromise on to the next ChannelOutboundHandler when use CombinedChannelDuplexHandler (#4838)
-      Fix segfault if UnpooledUnsafeHeapByteBuf.getShort(..) is used and UNALGINED access is not possible....
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.0.35.Final after almost 2 months of hard work.&lt;/p&gt;
-      
-      &lt;p&gt;This release contains 90+ changes, including bug-fixes, performance improvements and new features.&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;Add support for TCP_DEFER_ACCEPT and TCP_QUICKACK (&lt;a href=&quot;https://github.com/netty/netty/pull/4951&quot;&gt;#4951&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;WebSocketHandshaker.finishHandshake could result in recursive channelRead event (&lt;a href=&quot;https://github.com/netty/netty/issues/4533&quot;&gt;#4533&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4815&quot;&gt;#4815&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Enabling SNI, OpenSSL client from netty does not work (&lt;a href=&quot;https://github.com/netty/netty/issues/4746&quot;&gt;#4746&lt;/a&gt;)    (&lt;a href=&quot;https://github.com/netty/netty/pull/4791&quot;&gt;#4791&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Certificate failing set in OpenSslServerContext on Linux (&lt;a href=&quot;https://github.com/netty/netty/issues/4793&quot;&gt;#4793&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Enable SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER when using OpenSslContext (&lt;a href=&quot;https://github.com/netty/netty/pull/4816&quot;&gt;#4816&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;OpenSslContext throws UnsupportedOperationException when Unsafe not available (&lt;a href=&quot;https://github.com/netty/netty/issues/4828&quot;&gt;#4828&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4843&quot;&gt;#4843&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly pass ChannelPromise on to the next ChannelOutboundHandler when use CombinedChannelDuplexHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/4838&quot;&gt;#4838&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix segfault if UnpooledUnsafeHeapByteBuf.getShort(..) is used and UNALGINED access is not possible. (&lt;a href=&quot;https://github.com/netty/netty/pull/4845&quot;&gt;#4845&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4841&quot;&gt;#4841&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure handlerAdded(...) and handlerRemoved(...) is always called from the right thread (&lt;a href=&quot;https://github.com/netty/netty/pull/4863&quot;&gt;#4863&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure read components can be discarded when COMPOSITE_CUMULATOR is used (&lt;a href=&quot;https://github.com/netty/netty/pull/4880&quot;&gt;#4880&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Correctly set the alert type depending of the CertificateException (&lt;a href=&quot;https://github.com/netty/netty/pull/4885&quot;&gt;#4885&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;NetUtil can prevent using Netty due to SecurityManager denial (&lt;a href=&quot;https://github.com/netty/netty/issues/4936&quot;&gt;#4936&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/pull/4977&quot;&gt;#4977&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Guard against re-entrance in PendingWriteQueue (&lt;a href=&quot;https://github.com/netty/netty/pull/4969&quot;&gt;#4969&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Change arena to thread cache mapping algorithm to be closer to ideal (&lt;a href=&quot;https://github.com/netty/netty/pull/4983&quot;&gt;#4983&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Ensure all pending SSL data is written before closing channel during handshake error (&lt;a href=&quot;https://github.com/netty/netty/pull/5003&quot;&gt;#5003&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add ! to allowed cookie value chars (&lt;a href=&quot;https://github.com/netty/netty/pull/4998&quot;&gt;#4998&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.35.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/cnapagoda&quot;&gt;@cnapagoda&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/floragunncom&quot;&gt;@floragunncom&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Harry5573&quot;&gt;@Harry5573&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/IgorAlelekov&quot;&gt;@IgorAlelekov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jamel&quot;&gt;@jamel&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jiafu1115&quot;&gt;@jiafu1115&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jknair&quot;&gt;@jknair&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/kerumai&quot;&gt;@kerumai&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/liuzhengyang&quot;&gt;@liuzhengyang&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/maxwindiff&quot;&gt;@maxwindiff&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mm-binary&quot;&gt;@mm-binary&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/mrniko&quot;&gt;@mrniko&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/robeden&quot;&gt;@robeden&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/rtimush&quot;&gt;@rtimush&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tbcs&quot;&gt;@tbcs&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/tmihalcin&quot;&gt;@tmihalcin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
