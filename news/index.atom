@@ -2,9 +2,112 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
   <id>http://netty.io/</id>
   <title>Netty</title>
-  <updated>2019-10-24T18:30:00+02:00</updated>
+  <updated>2019-12-18T15:35:34+01:00</updated>
   <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
   <link href="http://netty.io/" rel="alternate" type="text/html" />
+  <entry>
+    <id>http://netty.io/news/2019/12/18/4-1-44-Final.html</id>
+    <title>Netty 4.1.44.Final released</title>
+    <updated>2019-12-18T15:35:34+01:00</updated>
+    <published>2019-12-18T00:00:00+00:00</published>
+    <link href="http://netty.io/news/2019/12/18/4-1-44-Final.html" rel="alternate" type="text/html" />
+    <author>
+      <name>normanmaurer</name>
+    </author>
+    <summary>
+      I am happy to announce the release of netty 4.1.44.Final after almost 2 months of work. This is a bug-fix release which fixes some critical issues. Please upgrade as soon as possible.
+      
+      For more details please read-on.
+      
+      The most important changes in this release are:
+      
+      
+      Verify we do not receive multiple content-length headers or a content-length and transfer-encoding: chunked header when using HTTP/1.1 (#9865)
+      Detect missing colon when parsing http headers with no value (#9871)
+      Fix #9770, last frame may contain extra data that doesn't affect decompression (#9832)
+      Ensure scheduled tasks are executed before shutdown (#9858)
+      Change DefaultByteBufHolder.equals() to treat instances of different classes as not equal...
+    </summary>
+    <content type="html">
+      &lt;p&gt;I am happy to announce the release of netty 4.1.44.Final after almost 2 months of work. This is a bug-fix release which fixes some critical issues. Please upgrade as soon as possible.&lt;/p&gt;
+      
+      &lt;p&gt;For more details please read-on.&lt;/p&gt;
+      
+      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;Verify we do not receive multiple content-length headers or a content-length and transfer-encoding: chunked header when using HTTP/1.1 (&lt;a href=&quot;https://github.com/netty/netty/pull/9865&quot;&gt;#9865&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Detect missing colon when parsing http headers with no value (&lt;a href=&quot;https://github.com/netty/netty/pull/9871&quot;&gt;#9871&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Fix #9770, last frame may contain extra data that doesn't affect decompression (&lt;a href=&quot;https://github.com/netty/netty/pull/9832&quot;&gt;#9832&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Ensure scheduled tasks are executed before shutdown (&lt;a href=&quot;https://github.com/netty/netty/pull/9858&quot;&gt;#9858&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Change DefaultByteBufHolder.equals() to treat instances of different classes as not equal (&lt;a href=&quot;https://github.com/netty/netty/pull/9855&quot;&gt;#9855&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;DefaultHttp2ConnectionEncoder writeHeaders method always send an header frame with a priority  (&lt;a href=&quot;https://github.com/netty/netty/pull/9852&quot;&gt;#9852&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Prevent any leaks when HttpPostStandardRequestDecoder constructor throws (&lt;a href=&quot;https://github.com/netty/netty/pull/9837&quot;&gt;#9837&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly handle fragmented Handshake message when trying to detect SNI (&lt;a href=&quot;https://github.com/netty/netty/pull/9806&quot;&gt;#9806&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Call ctx.flush() when onStreamClosed(...) produces a window update frame (&lt;a href=&quot;https://github.com/netty/netty/pull/9818&quot;&gt;#9818&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Don't send window update frame for unconsumed bytes when stream is already closed (&lt;a href=&quot;https://github.com/netty/netty/pull/9816&quot;&gt;#9816&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly set writerIndex when EpollChannelOption.MAX_DATAGRAM_PAYLOAD_SIZE is used in all cases (&lt;a href=&quot;https://github.com/netty/netty/pull/9819&quot;&gt;#9819&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly guard against multiple RST frames for the same stream (&lt;a href=&quot;https://github.com/netty/netty/pull/9811&quot;&gt;#9811&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Log expected STREAM_CLOSED exceptions for already closed streams at DEBUG level (&lt;a href=&quot;https://github.com/netty/netty/pull/9798&quot;&gt;#9798&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove dependency on GLIBC 2.12 by using syscalls directly (&lt;a href=&quot;https://github.com/netty/netty/pull/9797&quot;&gt;#9797&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Don't cache key material if sun.security.ssl.X509KeyManagerImpl is used (&lt;a href=&quot;https://github.com/netty/netty/pull/9762&quot;&gt;#9762&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Prevent memory leak when SimpleChannelPools are destroyed (&lt;a href=&quot;https://github.com/netty/netty/pull/9760&quot;&gt;#9760&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove padding when writing CONTINUATION frame (&lt;a href=&quot;https://github.com/netty/netty/pull/9752&quot;&gt;#9752&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Remove usage of finalizer in Recycler (&lt;a href=&quot;https://github.com/netty/netty/pull/9726&quot;&gt;#9726&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Correctly update size of the Stack before doing any validation in Recycler (&lt;a href=&quot;https://github.com/netty/netty/pull/9731&quot;&gt;#9731&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;HttpClientCodec need to keep request / response pairs in sync all the time (&lt;a href=&quot;https://github.com/netty/netty/pull/9721&quot;&gt;#9721&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Introduce MacOSDnsServerAddressStreamProvider which correctly detect all nameserver configuration on MacOS (&lt;a href=&quot;https://github.com/netty/netty/pull/9161&quot;&gt;#9161&lt;/a&gt;)&lt;/li&gt;
+      &lt;li&gt;Changed Netty JDK SSL to use default protocols instead of hardcoded supported protocols, to respect jvm flags(eg. jdk.tls.client.protocols) (&lt;a href=&quot;https://github.com/netty/netty/pull/9707&quot;&gt;#9707&lt;/a&gt;)&lt;/li&gt;
+      &lt;/ul&gt;
+      
+      
+      &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/218?closed=1&quot;&gt;4.1.44.Final&lt;/a&gt;.&lt;/p&gt;
+      
+      &lt;h1&gt;Thank You&lt;/h1&gt;
+      
+      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+      
+      &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/anuraaga&quot;&gt;@anuraaga&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/bsideup&quot;&gt;@bsideup&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/cstancu&quot;&gt;@cstancu&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/dlutsniper&quot;&gt;@dlutsniper&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/eginez&quot;&gt;@eginez&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/gs88pansh&quot;&gt;@gs88pansh&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jasonstack&quot;&gt;@jasonstack&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jffree&quot;&gt;@jffree&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/jiafu1115&quot;&gt;@jiafu1115&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/juggernaut&quot;&gt;@juggernaut&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/kapsterio&quot;&gt;@kapsterio&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/LinShunKang&quot;&gt;@LinShunKang&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/martinfurmanski&quot;&gt;@martinfurmanski&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/michaelmao999&quot;&gt;@michaelmao999&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mihalyr&quot;&gt;@mihalyr&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/millems&quot;&gt;@millems&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/monkey-nas&quot;&gt;@monkey-mas&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/morvael&quot;&gt;@morvael&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/MrYangxf&quot;&gt;@MrYangxf&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ursaj&quot;&gt;@ursaj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/shorea&quot;&gt;@shorea&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/sskrobotov&quot;&gt;@sskrobotov&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/tsegismont&quot;&gt;@tsegismont&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;https://github.com/ZeddYu&quot;&gt;@ZeddYu&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    </content>
+  </entry>
   <entry>
     <id>http://netty.io/news/2019/10/24/4-1-43-Final.html</id>
     <title>Netty 4.1.43.Final released</title>
@@ -4493,77 +4596,6 @@
       &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    </content>
-  </entry>
-  <entry>
-    <id>http://netty.io/news/2016/03/21/4-1-0-CR4.html</id>
-    <title>Netty 4.1.0.CR4 released</title>
-    <updated>2017-11-03T15:01:51+01:00</updated>
-    <published>2016-03-21T00:00:00+00:00</published>
-    <link href="http://netty.io/news/2016/03/21/4-1-0-CR4.html" rel="alternate" type="text/html" />
-    <author>
-      <name>normanmaurer</name>
-    </author>
-    <summary>
-      I'm happy to announce the release of Netty 4.1.0.CR4 after 1 month of work. We also bumped the version of the next release out of the 4.1 branch to 4.1.0.Final-SNAPSHOT which means we are very close so please test ASAP :)
-      
-      The most important changes in this release are:
-      
-      
-      DnsNameResolver: makes possible to define additional records in DNS query (#4871)
-      DnsNameResolverContext infinite loop (#4771)
-      HTTP/2 stream removed from map before onStreamClosed called (#4888)
-      Add support for directly decoding/encoding DNS PTR Records (#4912)
-      EPOLL ET AutoRead (#4919)
-      HTTP/2 DefaultHttp2Connection NPE (#4933)
-      Netty 4.1.0.CR1: DNS resolver accepts invalid FQDN with label length > 63 octet (#4935)
-      Netty 4.1.0.CR1: DNS resolver do...
-    </summary>
-    <content type="html">
-      &lt;p&gt;I'm happy to announce the release of Netty 4.1.0.CR4 after 1 month of work. We also bumped the version of the next release out of the 4.1 branch to 4.1.0.Final-SNAPSHOT which means we are very close so please test ASAP :)&lt;/p&gt;
-      
-      &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;DnsNameResolver: makes possible to define additional records in DNS query (&lt;a href=&quot;https://github.com/netty/netty/pull/4871&quot;&gt;#4871&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;DnsNameResolverContext infinite loop (&lt;a href=&quot;https://github.com/netty/netty/issues/4771&quot;&gt;#4771&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HTTP/2 stream removed from map before onStreamClosed called (&lt;a href=&quot;https://github.com/netty/netty/pull/4888&quot;&gt;#4888&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Add support for directly decoding/encoding DNS PTR Records (&lt;a href=&quot;https://github.com/netty/netty/pull/4912&quot;&gt;#4912&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;EPOLL ET AutoRead (&lt;a href=&quot;https://github.com/netty/netty/pull/4919&quot;&gt;#4919&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HTTP/2 DefaultHttp2Connection NPE (&lt;a href=&quot;https://github.com/netty/netty/pull/4933&quot;&gt;#4933&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Netty 4.1.0.CR1: DNS resolver accepts invalid FQDN with label length &amp;gt; 63 octet (&lt;a href=&quot;https://github.com/netty/netty/issues/4935&quot;&gt;#4935&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Netty 4.1.0.CR1: DNS resolver do not treat non-ASCII characters correctly (&lt;a href=&quot;https://github.com/netty/netty/issues/4937&quot;&gt;#4937&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;Fix potential infinite loop when resolving CNAME records (&lt;a href=&quot;https://github.com/netty/netty/pull/4946&quot;&gt;#4946&lt;/a&gt;)&lt;/li&gt;
-      &lt;li&gt;HTTP/2 DefaultHttp2ConnectionEncoder data frame size incorrect if error (&lt;a href=&quot;https://github.com/netty/netty/pull/4965&quot;&gt;#4965&lt;/a&gt;)&lt;/li&gt;
-      &lt;/ul&gt;
-      
-      
-      &lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.CR4+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;. Also most of the issues fixed for &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.35.Final+is%3Aclosed&quot;&gt;netty-4.0.35.Final&lt;/a&gt; are fixes as well for CR4.&lt;/p&gt;
-      
-      &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-      
-      &lt;h1&gt;Important notes&lt;/h1&gt;
-      
-      &lt;p&gt;As our http2 and dns codecs are still quite new we &quot;mark&quot; these as experimental which means we may break the api's of these in later releases.&lt;/p&gt;
-      
-      &lt;h1&gt;Thank You&lt;/h1&gt;
-      
-      &lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-      
-      &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/jonas-ren&quot;&gt;@jonas-ren&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Karry&quot;&gt;@Karry&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/longkerdandy&quot;&gt;@longkerdandy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/serphacker&quot;&gt;@serphacker&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
       &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
       &lt;/ul&gt;
     </content>
