@@ -1,352 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.docs: Requirements for 4.x</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="wiki-item">
-          <h1>Requirements for 4.x</h1>
-          <div class="alert alert-info">
-            Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Requirements-for-4.x">a Github Wiki page?</a>
-            You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Requirements-for-4.x">here!</a>
-          </div>
-          <div class="row">
-          <div class="col-md-9">
-          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
-                  <div class="markdown-body">
-                    <h1>
-          <a id="user-content-netty" class="anchor" href="#netty" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty</h1>
-          <p>The Netty project consists of various sub-modules. For specific requirements for each sub-module refer to their specific section below.</p>
-          <p>In general the base functionality of each sub-module requires Java 6+ to run and Java 7+ to compile.</p>
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: Requirements for 4.x</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>Requirements for 4.x</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/Requirements-for-4.x">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/Requirements-for-4.x">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
+        <div class="markdown-body">
           <h1>
-          <a id="user-content-codec-http2" class="anchor" href="#codec-http2" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/netty/netty/tree/4.1/codec-http2">codec-http2</a>
-          </h1>
-          <p>This codec provides an implementation for the <a href="https://tools.ietf.org/html/rfc7540" rel="nofollow">HTTP/2 Protocol</a> including <a href="https://tools.ietf.org/html/rfc7541" rel="nofollow">HPACK</a>.</p>
-          <h2 id="wiki-h2-0">
-          <a id="user-content-transport-security-tls" class="anchor" href="#transport-security-tls" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transport Security (TLS)</h2>
-          <p>Although the <a href="https://tools.ietf.org/html/rfc7540#section-3.3" rel="nofollow">HTTP/2 RFC</a> does not require using TLS the RFC does enforce requirements if TLS is in use [<a href="https://tools.ietf.org/html/rfc7540#section-9.2" rel="nofollow">1</a>][<a href="https://tools.ietf.org/html/rfc7540#section-3.3" rel="nofollow">2</a>][<a href="https://tools.ietf.org/html/rfc7540#section-3.4" rel="nofollow">3</a>].
-          HTTP/2 over TLS mandates the use of <a href="https://tools.ietf.org/html/rfc7301" rel="nofollow">ALPN</a> to negotiate the use of the <code>h2</code> protocol. ALPN is a fairly new standard and (where possible) Netty supports protocol negotiation via <a href="https://tools.ietf.org/html/draft-agl-tls-nextprotoneg-04" rel="nofollow">NPN</a> for systems that do not yet support ALPN.</p>
-          <h3 id="wiki-h3-1">
-          <a id="user-content-tls-with-openssl" class="anchor" href="#tls-with-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TLS with OpenSSL</h3>
-          <p>This is currently the recommended approach for doing TLS with Netty.</p>
-          <h4 id="wiki-h4-2">
-          <a id="user-content-benefits-of-using-openssl" class="anchor" href="#benefits-of-using-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benefits of using OpenSSL</h4>
-          <ol>
-          <li>
-          <strong>Speed</strong>: In local testing, we've seen performance improvements of 3x over the JDK. GCM, which is used by the only cipher suite required by the <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">HTTP/2 RFC</a>, is 10-500x faster.</li>
-          <li>
-          <strong>Ciphers</strong>: OpenSSL has its own ciphers and is not dependent on the limitations of the JDK. This allows supporting GCM on Java 7.</li>
-          <li>
-          <strong>ALPN to NPN Fallback</strong>: OpenSSL can support ALPN and NPN simultaneously. The JDK implementation by Netty only supports either ALPN or NPN at any given time and <a href="https://wiki.eclipse.org/Jetty/Feature/NPN" rel="nofollow">NPN is only supported in JDK 7</a>.</li>
-          <li>
-          <strong>Java Version Independence</strong>: does not require using a different library version depending on the JDK update. This is a limitation of the JDK ALPN and NPN implementation used by Netty.</li>
-          </ol>
-          <h4 id="wiki-h4-3">
-          <a id="user-content-requirements-for-using-openssl" class="anchor" href="#requirements-for-using-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements for using OpenSSL</h4>
-          <ol>
-          <li>
-          <a href="https://www.openssl.org/" rel="nofollow">OpenSSL</a> version &gt;= 1.0.2 for ALPN support, or version &gt;= 1.0.1 for NPN.</li>
-          <li>
-          <a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> version &gt;= 1.1.33.Fork7 must be on classpath.</li>
-          <li>Supported platforms (for netty-tcnative): <code>linux-x86_64</code>, <code>mac-x86_64</code>, <code>windows-x86_64</code>. Supporting other platforms will require manually building netty-tcnative.</li>
-          </ol>
-          <p>If the above requirements are met, Netty will automatically select OpenSSL as the default TLS provider.</p>
-          <h4 id="wiki-h4-4">
-          <a id="user-content-configuring-netty-tcnative" class="anchor" href="#configuring-netty-tcnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring netty-tcnative</h4>
-          <p>See the <a href="http://netty.io/wiki/forked-tomcat-native.html" rel="nofollow">netty-tcnative wiki</a>.</p>
-          <h3 id="wiki-h3-5">
-          <a id="user-content-tls-with-jdk-jetty-alpnnpn" class="anchor" href="#tls-with-jdk-jetty-alpnnpn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TLS with JDK (Jetty ALPN/NPN)</h3>
-          <p>If you are not able to use OpenSSL then the alternative is to use the JDK for TLS.</p>
-          <p>Java does not currently support ALPN or NPN (<a href="https://bugs.openjdk.java.net/browse/JDK-8051498" rel="nofollow">there is a tracking issue</a> so go upvote it!). For lack of support in the JDK we need to use the <a href="https://github.com/jetty-project/jetty-alpn%22">Jetty-ALPN</a> (or <a href="https://github.com/jetty-project/jetty-npn">Jetty-NPN</a> if on Java &lt; 8) bootclasspath extension for OpenJDK. To do this, add a <code>Xbootclasspath</code> JVM option referencing the path to the Jetty <code>alpn-boot</code> jar.</p>
-          <div class="highlight highlight-source-shell"><pre>java -Xbootclasspath/p:/path/to/jetty/alpn/extension.jar ...</pre></div>
-          <p>Note that you must use the <a href="http://www.eclipse.org/jetty/documentation/current/alpn-chapter.html#alpn-versions" rel="nofollow">release of the Jetty-ALPN jar</a> specific to the version of Java you are using.</p>
-          <h4 id="wiki-h4-6">
-          <a id="user-content-jdk-ciphers" class="anchor" href="#jdk-ciphers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JDK Ciphers</h4>
-          <p>Java 7 does not support <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">the cipher suites recommended</a> by the HTTP2 RFC. To address this we suggest servers use Java 8 where possible or use an alternative JCE implementation such as <a href="https://www.bouncycastle.org/java.html" rel="nofollow">Bouncy Castle</a>. If this is not practical it is possible to use other ciphers but you need to ensure that the services you intend to call also support these ciphers forbidden by the HTTP/2 RFC and have evaluated the security risks of doing so.</p>
-          <p>Users should be aware that GCM is <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1135504" rel="nofollow"><em>very</em> slow (1 MB/s)</a> before Java 8u60. With Java 8u60 GCM is 10x faster (10-20 MB/s), but that is still slow compared to OpenSSL (~200 MB/s), especially with AES-NI support (~1 GB/s). GCM cipher suites are the only suites available that comply with HTTP2's cipher requirements.</p>
-          <h3 id="wiki-h3-7">
-          <a id="user-content-enabling-alpn-or-npn" class="anchor" href="#enabling-alpn-or-npn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enabling ALPN or NPN</h3>
-          <p>The <a href="https://github.com/netty/netty/blob/4.1/handler/src/main/java/io/netty/handler/ssl/SslContextBuilder.java#L279">SslContextBuilder</a> has a setter for an <a href="https://github.com/netty/netty/blob/4.1/handler/src/main/java/io/netty/handler/ssl/ApplicationProtocolConfig.java">ApplicationProtocolConfig</a> which is used to configure ALPN or NPN. See the <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/http2/helloworld">HTTP/2 examples</a> for ALPN and <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/spdy">SPDY examples</a> for NPN usage.</p>
-          
-                  </div>
-          
-              </div></div>
-          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
-          <div class="toc well">
-          <ul class="nav nav-list nav-stacked">
-          <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Transport Security (TLS)">Transport Security (TLS)</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="TLS with OpenSSL">TLS with OpenSSL</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-2" title="Benefits of using OpenSSL">Benefits of using OpenSSL</a>
-          </li><li><a href="#wiki-h4-3" title="Requirements for using OpenSSL">Requirements for using OpenSSL</a>
-          </li><li><a href="#wiki-h4-4" title="Configuring netty-tcnative">Configuring netty-tcnative</a>
-          </li></ul></li><li><a href="#wiki-h3-5" title="TLS with JDK (Jetty ALPN/NPN)">TLS with JDK (Jetty ALPN/NPN)</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-6" title="JDK Ciphers">JDK Ciphers</a>
-          </li></ul></li><li><a href="#wiki-h3-7" title="Enabling ALPN or NPN">Enabling ALPN or NPN</a>
-          </li><li><a href="#wiki-h3-8" title="Pages 27">Pages 27</a>
-          </li></ul>
-          </li></ul>
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <div class="text-right">
-                <small>Last retrieved on 18-Dec-2019</small>
-              </div>
-            </div>
-          </div>
+<a id="user-content-netty" class="anchor" href="#netty" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty</h1>
+<p>The Netty project consists of various sub-modules. For specific requirements for each sub-module refer to their specific section below.</p>
+<p>In general the base functionality of each sub-module requires Java 6+ to run and Java 7+ to compile.</p>
+<h1>
+<a id="user-content-codec-http2" class="anchor" href="#codec-http2" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="https://github.com/netty/netty/tree/4.1/codec-http2">codec-http2</a>
+</h1>
+<p>This codec provides an implementation for the <a href="https://tools.ietf.org/html/rfc7540" rel="nofollow">HTTP/2 Protocol</a> including <a href="https://tools.ietf.org/html/rfc7541" rel="nofollow">HPACK</a>.</p>
+<h2 id="wiki-h2-0">
+<a id="user-content-transport-security-tls" class="anchor" href="#transport-security-tls" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transport Security (TLS)</h2>
+<p>Although the <a href="https://tools.ietf.org/html/rfc7540#section-3.3" rel="nofollow">HTTP/2 RFC</a> does not require using TLS the RFC does enforce requirements if TLS is in use [<a href="https://tools.ietf.org/html/rfc7540#section-9.2" rel="nofollow">1</a>][<a href="https://tools.ietf.org/html/rfc7540#section-3.3" rel="nofollow">2</a>][<a href="https://tools.ietf.org/html/rfc7540#section-3.4" rel="nofollow">3</a>].
+HTTP/2 over TLS mandates the use of <a href="https://tools.ietf.org/html/rfc7301" rel="nofollow">ALPN</a> to negotiate the use of the <code>h2</code> protocol. ALPN is a fairly new standard and (where possible) Netty supports protocol negotiation via <a href="https://tools.ietf.org/html/draft-agl-tls-nextprotoneg-04" rel="nofollow">NPN</a> for systems that do not yet support ALPN.</p>
+<h3 id="wiki-h3-1">
+<a id="user-content-tls-with-openssl" class="anchor" href="#tls-with-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TLS with OpenSSL</h3>
+<p>This is currently the recommended approach for doing TLS with Netty.</p>
+<h4 id="wiki-h4-2">
+<a id="user-content-benefits-of-using-openssl" class="anchor" href="#benefits-of-using-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benefits of using OpenSSL</h4>
+<ol>
+<li>
+<strong>Speed</strong>: In local testing, we've seen performance improvements of 3x over the JDK. GCM, which is used by the only cipher suite required by the <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">HTTP/2 RFC</a>, is 10-500x faster.</li>
+<li>
+<strong>Ciphers</strong>: OpenSSL has its own ciphers and is not dependent on the limitations of the JDK. This allows supporting GCM on Java 7.</li>
+<li>
+<strong>ALPN to NPN Fallback</strong>: OpenSSL can support ALPN and NPN simultaneously. The JDK implementation by Netty only supports either ALPN or NPN at any given time and <a href="https://wiki.eclipse.org/Jetty/Feature/NPN" rel="nofollow">NPN is only supported in JDK 7</a>.</li>
+<li>
+<strong>Java Version Independence</strong>: does not require using a different library version depending on the JDK update. This is a limitation of the JDK ALPN and NPN implementation used by Netty.</li>
+</ol>
+<h4 id="wiki-h4-3">
+<a id="user-content-requirements-for-using-openssl" class="anchor" href="#requirements-for-using-openssl" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Requirements for using OpenSSL</h4>
+<ol>
+<li>
+<a href="https://www.openssl.org/" rel="nofollow">OpenSSL</a> version &gt;= 1.0.2 for ALPN support, or version &gt;= 1.0.1 for NPN.</li>
+<li>
+<a href="https://github.com/netty/netty-tcnative">netty-tcnative</a> version &gt;= 1.1.33.Fork7 must be on classpath.</li>
+<li>Supported platforms (for netty-tcnative): <code>linux-x86_64</code>, <code>mac-x86_64</code>, <code>windows-x86_64</code>. Supporting other platforms will require manually building netty-tcnative.</li>
+</ol>
+<p>If the above requirements are met, Netty will automatically select OpenSSL as the default TLS provider.</p>
+<h4 id="wiki-h4-4">
+<a id="user-content-configuring-netty-tcnative" class="anchor" href="#configuring-netty-tcnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuring netty-tcnative</h4>
+<p>See the <a href="http://netty.io/wiki/forked-tomcat-native.html" rel="nofollow">netty-tcnative wiki</a>.</p>
+<h3 id="wiki-h3-5">
+<a id="user-content-tls-with-jdk-jetty-alpnnpn" class="anchor" href="#tls-with-jdk-jetty-alpnnpn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TLS with JDK (Jetty ALPN/NPN)</h3>
+<p>If you are not able to use OpenSSL then the alternative is to use the JDK for TLS.</p>
+<p>Java does not currently support ALPN or NPN (<a href="https://bugs.openjdk.java.net/browse/JDK-8051498" rel="nofollow">there is a tracking issue</a> so go upvote it!). For lack of support in the JDK we need to use the <a href="https://github.com/jetty-project/jetty-alpn%22">Jetty-ALPN</a> (or <a href="https://github.com/jetty-project/jetty-npn">Jetty-NPN</a> if on Java &lt; 8) bootclasspath extension for OpenJDK. To do this, add a <code>Xbootclasspath</code> JVM option referencing the path to the Jetty <code>alpn-boot</code> jar.</p>
+<div class="highlight highlight-source-shell"><pre>java -Xbootclasspath/p:/path/to/jetty/alpn/extension.jar ...</pre></div>
+<p>Note that you must use the <a href="http://www.eclipse.org/jetty/documentation/current/alpn-chapter.html#alpn-versions" rel="nofollow">release of the Jetty-ALPN jar</a> specific to the version of Java you are using.</p>
+<h4 id="wiki-h4-6">
+<a id="user-content-jdk-ciphers" class="anchor" href="#jdk-ciphers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JDK Ciphers</h4>
+<p>Java 7 does not support <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">the cipher suites recommended</a> by the HTTP2 RFC. To address this we suggest servers use Java 8 where possible or use an alternative JCE implementation such as <a href="https://www.bouncycastle.org/java.html" rel="nofollow">Bouncy Castle</a>. If this is not practical it is possible to use other ciphers but you need to ensure that the services you intend to call also support these ciphers forbidden by the HTTP/2 RFC and have evaluated the security risks of doing so.</p>
+<p>Users should be aware that GCM is <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1135504" rel="nofollow"><em>very</em> slow (1 MB/s)</a> before Java 8u60. With Java 8u60 GCM is 10x faster (10-20 MB/s), but that is still slow compared to OpenSSL (~200 MB/s), especially with AES-NI support (~1 GB/s). GCM cipher suites are the only suites available that comply with HTTP2's cipher requirements.</p>
+<h3 id="wiki-h3-7">
+<a id="user-content-enabling-alpn-or-npn" class="anchor" href="#enabling-alpn-or-npn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Enabling ALPN or NPN</h3>
+<p>The <a href="https://github.com/netty/netty/blob/4.1/handler/src/main/java/io/netty/handler/ssl/SslContextBuilder.java#L279">SslContextBuilder</a> has a setter for an <a href="https://github.com/netty/netty/blob/4.1/handler/src/main/java/io/netty/handler/ssl/ApplicationProtocolConfig.java">ApplicationProtocolConfig</a> which is used to configure ALPN or NPN. See the <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/http2/helloworld">HTTP/2 examples</a> for ALPN and <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/spdy">SPDY examples</a> for NPN usage.</p>
+
         </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../lib/common.footer.js" type="text/javascript"></script>
-  
+
+    </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="Transport Security (TLS)">Transport Security (TLS)</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="TLS with OpenSSL">TLS with OpenSSL</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-2" title="Benefits of using OpenSSL">Benefits of using OpenSSL</a>
+</li><li><a href="#wiki-h4-3" title="Requirements for using OpenSSL">Requirements for using OpenSSL</a>
+</li><li><a href="#wiki-h4-4" title="Configuring netty-tcnative">Configuring netty-tcnative</a>
+</li></ul></li><li><a href="#wiki-h3-5" title="TLS with JDK (Jetty ALPN/NPN)">TLS with JDK (Jetty ALPN/NPN)</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-6" title="JDK Ciphers">JDK Ciphers</a>
+</li></ul></li><li><a href="#wiki-h3-7" title="Enabling ALPN or NPN">Enabling ALPN or NPN</a>
+</li><li><a href="#wiki-h3-8" title="Pages 27">Pages 27</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 13-Jan-2020</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

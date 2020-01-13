@@ -1,368 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.news: Netty 3.6.0.Final released - Keep on moving</title>
-    <title>Netty: Netty 3.6.0.Final released - Keep on moving</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../../../../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../../../../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../../../../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../../../../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../../../../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="news-item" id="main-content">
-              <h1>
-                Netty 3.6.0.Final released - Keep on moving
-              </h1>
-              <p class="byline">
-                <small>
-                  by
-                  <a href="https://github.com/normanmaurer">normanmaurer</a>
-                  <br>
-                  on
-                  <time datetime="2012-12-20">20-Dec-2012</time>
-                </small>
-              </p>
-              <div class="news-content">
-                <div class="entry-content">
-                <p>While work is ongoing to get the first beta out for our next major version, we also spend some time to fix bugs and add new features to our current stable tree.  </p>
-                <p>And here you get them as part of Netty 3.6.0.Final.</p>
-                <p>The release includes bug-fixed, enhancements and also new features. So if you are interested keep reading.</p>
-                <p>As there was also a beta release of 3.6.0 before be sure to also read the notes for the beta release to have a complete list of the changes when come from an other release. You can find it in our <span class="wikiexternallink"><a href="http://netty.io/news/2012/11/12/3-6-0-beta1.html">previous blogpost</a></span>.</p>
-                <h1 id="HBugfixes"><span><span>Bugfixes</span></span></h1>
-                <p>Like said we have a lot of bugfixes in there, here are the most important.</p>
-                <ul>
-                <li>
-                <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/775">[#775]</a></span> AbstractNioWorker does not exit its event loop when the Executor is not an ExecutorService</li>
-                <li>
-                <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/786">[#786]</a></span> WebSocketServerHandshaker* may corrupt first WebSocket frame</li>
-                <li>
-                <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/829">[#829]</a></span> <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/830">[#830]</a></span> Fix a race in SslHandler which lead to handshake failure and other bad side-effects</li>
-                </ul>
-                <div>
-                <h1 id="HNewstuffandimprovements"><span><span>New stuff and improvements</span></span></h1>
-                <h2 id="HAddLineBasedFrameDecoder"><span><span>Add LineBasedFrameDecoder</span></span></h2>
-                <p>Before when your application had to deal with line based protocols (like SMTP,Telnet etc) you usually used the DelimiterBasedFrameDecoder. This worked but was a big performance hit, as it is just over-designed for this kind of work. </p>
-                <p>Lucky enough we received a pull-request which introduced a new FrameDecoder just for  line based protocols which performs a lot better.</p>
-                <div class="wikimodel-emptyline"></div>
-                <script src="https://gist.github.com/4336161.js"></script>
-                </div>
-                <p>Check the javadocs for all the constructors of LineBasedFrameDecoder. </p>
-                <p>To make it as easy as possible to get the performance improvement we do some conversation from DelimiterBasedFrameDecoder to LineBasedFrameDecoder if it is detected that a user use it with Delimiter.lineDelimiters(). This may get removed in the future so please update your code to use the new LineBaseFrameDecoder if you want to have the performance improvement in the long term <img src="/resources/icons/silk/emoticon_smile.png" class="wikimodel-freestanding" alt="emoticon_smile"></p>
-                <p>For more informations on this change see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/759">[#759]</a></span></p>
-                <h1 id="HSupportWebSocket07"><span><span>Support WebSocket 07</span></span></h1>
-                <p>This release add support for WebSocket 07 to also allow to use Netty with old webbrowsers like Firefox 6. Even better you not need to change anything in your code-base. It will just be supported once you upgrade Netty.</p>
-                <div class="wikimodel-emptyline"></div>
-                <p>Couldn't be easier, heh ?</p>
-                <p>For more details please see <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/751">[#751]</a></span>.</p>
-                <h2 id="HAddBossPooltotheparty"><span><span>Add BossPool to the party</span></span></h2>
-                <p>Previous it was not possible to share the Boss instances that handle accept and connect operations. So if you needed to create a lot of different NioServerChannelFactory instances (or other NIO based ChannelFactory instances) you ended up with at least one needed Thread and Selector for each of them just for the Boss.</p>
-                <p>The can be wasteful and so we adapted the concept that we also used in the WorkerPool. </p>
-                <p>Now it is possible to use a BossPool when create them. This can make it a lot more resource friendly if you need to have a lot of them.</p>
-                <div class="wikimodel-emptyline"></div>
-                <script src="https://gist.github.com/4336546.js"></script><p>Anyway the old way of construct the ChannelFactory instances still work. So if you not want to make use of it and adjust your code just ignore this new feature.</p>
-                <div class="wikimodel-emptyline"></div>
-                <h2 id="HAllowtoshutdownChannelFactory2CBootstrap2CWorkerPoolandBossPool"><span><span>Allow to shutdown ChannelFactory, Bootstrap, WorkerPool and BossPool </span></span></h2>
-                <p>Before there was only one way to "shutdown" a ChannelFactory, Bootstrap, WorkerPool and BossPool. Most of the users just used the releaseExternalResources() for this. But sometimes this is problematic as you not want to release external resources like for example the Executor that is used by the ChannelFactory. For this purpose we now added a new method which is called shutdown(). With this it is possible to only shutdown() the instances and so "release" internal resources while still not affect resources that was passed in.</p>
-                <p>This makes it even more flexible to use Netty. For example you could now share the same ThreadPool with Netty and some other Component and not need to worry to affect each other when you not need the ChannelFactory anymore (just an example).</p>
-                <div class="wikimodel-emptyline"></div>
-                <script src="https://gist.github.com/4336483.js"></script><p>If you not need this you don't need to care of this change as releaseExternalResources() will take care of call shutdown() also. </p>
-                <div class="wikimodel-emptyline"></div>
-                <p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/790">[#790]</a></span>.</p>
-                <h2 id="HAllowtosetaThreadNameDeterminerperWorkerPoolandBossPool"><span><span>Allow to set a ThreadNameDeterminer per WorkerPool and BossPool</span></span></h2>
-                <p>In previous version of Netty it was possible to set a ThreadNameDeterminer which is used for Netty to name your Threads that are used by the Worker and Boss and other places. Unfortunally it was only supported to set it via a static method, so once you change it it is used for all Netty "components" in your Application. This is often not what you want as sometimes you have a Server component and a Client component at the same time and would like to have it named differently to better identify the Threads which belongs to each of them.</p>
-                <div class="wikimodel-emptyline"></div>
-                <script src="https://gist.github.com/4336406.js"></script><p>Be aware that you can still set a static ThreadNameDeterminer which will just get overridden by the one that is specified in the BossPool and WorkerPool.</p>
-                <p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/771">[#771]</a></span>.</p>
-                <div class="wikimodel-emptyline"></div>
-                <h2 id="HAllowtospecifyatimeoutforSslHandler.handshake2829"><span><span>Allow to specify a timeout for SslHandler.handshake()</span></span></h2>
-                <p>When using SslHandler.handshake() it was impossible to set a timeout for this operation before it will fail. This could lead to the problem that the ChannelFuture which is returned by this operation will be notified only after it was detected that the remote peer is not there anymore. So you could wait for it like "forever" .</p>
-                <p>To fix this we added another constructor to SslHandler which allows you to specify and timeout for the handshake operation. If the handshake can not be completed within this time it will fail the handshake and so you get notified. </p>
-                <div class="wikimodel-emptyline"></div>
-                <script src="https://gist.github.com/4336624.js"></script><p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/835">[#835]</a></span>.</p>
-                <h2 id="HGeneral"><span><span>General</span></span></h2>
-                <p>For a complete list of changes please checkout our <span><span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.6.0.Final">issue tracker</a></span>.  To download Netty, as usual, please visit <span class="wikilink"><a href="http://netty.io/downloads.html">the downloads page</a></span>.</span></p>
-                <p>Please let us know if you have any problems or questions.</p>
-                </div>
-              </div>
-              <ul class="pager">
-                <li class="previous">
-                  <a href="../../../../news/2012/12/04/4-0-0-alpha8.html">&larr; Older</a>
-                </li>
-                <li>
-                  <a href="../../../index.html">List all news items</a>
-                </li>
-                <li class="next">
-                  <a href="../../../../news/2013/01/04/3-6-1-final.html">Newer &rarr;</a>
-                </li>
-              </ul>
-            </div>
-            <div class="comments">
-              
-                          <div id="disqus_thread"></div>
-                          <script type="text/javascript">
-                          var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2012/12/20/3-6-0-final.html";
-                          var disqus_developer = null;
-                          var disqus_identifier = "2622963223460534401";
-                          (function() {
-                            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-                          })();
-                          </script>
-                          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../../../../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../../../lib/common.footer.js" type="text/javascript"></script>
-  
+<head>
+<meta charset="UTF-8">
+<title>Netty.news: Netty 3.6.0.Final released - Keep on moving</title>
+<title>Netty: Netty 3.6.0.Final released - Keep on moving</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../../../../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../../../../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../../../../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../../../../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../../../../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../../../../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../../../../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../../../../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../../../../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<div class="news-item" id="main-content">
+<h1>
+Netty 3.6.0.Final released - Keep on moving
+</h1>
+<p class="byline">
+<small>
+by
+<a href="https://github.com/normanmaurer">normanmaurer</a>
+<br>
+on
+<time datetime="2012-12-20">20-Dec-2012</time>
+</small>
+</p>
+<div class="news-content">
+<div class="entry-content">
+<p>While work is ongoing to get the first beta out for our next major version, we also spend some time to fix bugs and add new features to our current stable tree.  </p>
+<p>And here you get them as part of Netty 3.6.0.Final.</p>
+<p>The release includes bug-fixed, enhancements and also new features. So if you are interested keep reading.</p>
+<p>As there was also a beta release of 3.6.0 before be sure to also read the notes for the beta release to have a complete list of the changes when come from an other release. You can find it in our <span class="wikiexternallink"><a href="http://netty.io/news/2012/11/12/3-6-0-beta1.html">previous blogpost</a></span>.</p>
+<h1 id="HBugfixes"><span><span>Bugfixes</span></span></h1>
+<p>Like said we have a lot of bugfixes in there, here are the most important.</p>
+<ul>
+<li>
+<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/775">[#775]</a></span> AbstractNioWorker does not exit its event loop when the Executor is not an ExecutorService</li>
+<li>
+<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/786">[#786]</a></span> WebSocketServerHandshaker* may corrupt first WebSocket frame</li>
+<li>
+<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/829">[#829]</a></span> <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/830">[#830]</a></span> Fix a race in SslHandler which lead to handshake failure and other bad side-effects</li>
+</ul>
+<div>
+<h1 id="HNewstuffandimprovements"><span><span>New stuff and improvements</span></span></h1>
+<h2 id="HAddLineBasedFrameDecoder"><span><span>Add LineBasedFrameDecoder</span></span></h2>
+<p>Before when your application had to deal with line based protocols (like SMTP,Telnet etc) you usually used the DelimiterBasedFrameDecoder. This worked but was a big performance hit, as it is just over-designed for this kind of work. </p>
+<p>Lucky enough we received a pull-request which introduced a new FrameDecoder just for  line based protocols which performs a lot better.</p>
+<div class="wikimodel-emptyline"></div>
+<script src="https://gist.github.com/4336161.js"></script>
+</div>
+<p>Check the javadocs for all the constructors of LineBasedFrameDecoder. </p>
+<p>To make it as easy as possible to get the performance improvement we do some conversation from DelimiterBasedFrameDecoder to LineBasedFrameDecoder if it is detected that a user use it with Delimiter.lineDelimiters(). This may get removed in the future so please update your code to use the new LineBaseFrameDecoder if you want to have the performance improvement in the long term <img src="/resources/icons/silk/emoticon_smile.png" class="wikimodel-freestanding" alt="emoticon_smile"></p>
+<p>For more informations on this change see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/759">[#759]</a></span></p>
+<h1 id="HSupportWebSocket07"><span><span>Support WebSocket 07</span></span></h1>
+<p>This release add support for WebSocket 07 to also allow to use Netty with old webbrowsers like Firefox 6. Even better you not need to change anything in your code-base. It will just be supported once you upgrade Netty.</p>
+<div class="wikimodel-emptyline"></div>
+<p>Couldn't be easier, heh ?</p>
+<p>For more details please see <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/751">[#751]</a></span>.</p>
+<h2 id="HAddBossPooltotheparty"><span><span>Add BossPool to the party</span></span></h2>
+<p>Previous it was not possible to share the Boss instances that handle accept and connect operations. So if you needed to create a lot of different NioServerChannelFactory instances (or other NIO based ChannelFactory instances) you ended up with at least one needed Thread and Selector for each of them just for the Boss.</p>
+<p>The can be wasteful and so we adapted the concept that we also used in the WorkerPool. </p>
+<p>Now it is possible to use a BossPool when create them. This can make it a lot more resource friendly if you need to have a lot of them.</p>
+<div class="wikimodel-emptyline"></div>
+<script src="https://gist.github.com/4336546.js"></script><p>Anyway the old way of construct the ChannelFactory instances still work. So if you not want to make use of it and adjust your code just ignore this new feature.</p>
+<div class="wikimodel-emptyline"></div>
+<h2 id="HAllowtoshutdownChannelFactory2CBootstrap2CWorkerPoolandBossPool"><span><span>Allow to shutdown ChannelFactory, Bootstrap, WorkerPool and BossPool </span></span></h2>
+<p>Before there was only one way to "shutdown" a ChannelFactory, Bootstrap, WorkerPool and BossPool. Most of the users just used the releaseExternalResources() for this. But sometimes this is problematic as you not want to release external resources like for example the Executor that is used by the ChannelFactory. For this purpose we now added a new method which is called shutdown(). With this it is possible to only shutdown() the instances and so "release" internal resources while still not affect resources that was passed in.</p>
+<p>This makes it even more flexible to use Netty. For example you could now share the same ThreadPool with Netty and some other Component and not need to worry to affect each other when you not need the ChannelFactory anymore (just an example).</p>
+<div class="wikimodel-emptyline"></div>
+<script src="https://gist.github.com/4336483.js"></script><p>If you not need this you don't need to care of this change as releaseExternalResources() will take care of call shutdown() also. </p>
+<div class="wikimodel-emptyline"></div>
+<p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/790">[#790]</a></span>.</p>
+<h2 id="HAllowtosetaThreadNameDeterminerperWorkerPoolandBossPool"><span><span>Allow to set a ThreadNameDeterminer per WorkerPool and BossPool</span></span></h2>
+<p>In previous version of Netty it was possible to set a ThreadNameDeterminer which is used for Netty to name your Threads that are used by the Worker and Boss and other places. Unfortunally it was only supported to set it via a static method, so once you change it it is used for all Netty "components" in your Application. This is often not what you want as sometimes you have a Server component and a Client component at the same time and would like to have it named differently to better identify the Threads which belongs to each of them.</p>
+<div class="wikimodel-emptyline"></div>
+<script src="https://gist.github.com/4336406.js"></script><p>Be aware that you can still set a static ThreadNameDeterminer which will just get overridden by the one that is specified in the BossPool and WorkerPool.</p>
+<p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/771">[#771]</a></span>.</p>
+<div class="wikimodel-emptyline"></div>
+<h2 id="HAllowtospecifyatimeoutforSslHandler.handshake2829"><span><span>Allow to specify a timeout for SslHandler.handshake()</span></span></h2>
+<p>When using SslHandler.handshake() it was impossible to set a timeout for this operation before it will fail. This could lead to the problem that the ChannelFuture which is returned by this operation will be notified only after it was detected that the remote peer is not there anymore. So you could wait for it like "forever" .</p>
+<p>To fix this we added another constructor to SslHandler which allows you to specify and timeout for the handshake operation. If the handshake can not be completed within this time it will fail the handshake and so you get notified. </p>
+<div class="wikimodel-emptyline"></div>
+<script src="https://gist.github.com/4336624.js"></script><p>For more details see <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/835">[#835]</a></span>.</p>
+<h2 id="HGeneral"><span><span>General</span></span></h2>
+<p>For a complete list of changes please checkout our <span><span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.6.0.Final">issue tracker</a></span>.  To download Netty, as usual, please visit <span class="wikilink"><a href="http://netty.io/downloads.html">the downloads page</a></span>.</span></p>
+<p>Please let us know if you have any problems or questions.</p>
+</div>
+
+</div>
+<ul class="pager">
+<li class="previous">
+<a href="../../../../news/2012/12/04/4-0-0-alpha8.html">&larr; Older</a>
+</li>
+<li>
+<a href="../../../index.html">List all news items</a>
+</li>
+<li class="next">
+<a href="../../../../news/2013/01/04/3-6-1-final.html">Newer &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="comments">
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'netty0';
+            var disqus_url = "http://netty.io/news/2012/12/20/3-6-0-final.html";
+            var disqus_developer = null;
+            var disqus_identifier = "2622963223460534401";
+            (function() {
+              var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+          
+</div>
+</div>
+<div class="col-md-3">
+<div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../../../../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

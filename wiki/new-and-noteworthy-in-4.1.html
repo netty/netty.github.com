@@ -1,424 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.docs: New and noteworthy in 4.1</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: New and noteworthy in 4.1</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>New and noteworthy in 4.1</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
+        <div class="markdown-body">
+          <p>This document walks you through the list of notable changes and new features between Netty 4.1 and 4.0.</p>
+<h2 id="wiki-h2-0">
+<a id="user-content-tldr" class="anchor" href="#tldr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TL;DR</h2>
+<p>Although we did our best to keep the backward compatibility from 4.0, 4.1 contains multiple additions which might not be fully backward-compatible with 4.0. Please make sure to recompile your application against the new version.</p>
+<p>When you recompile your application, you might find some deprecation warnings. Please make sure to fix them all by using the suggested alternative, so that you have less trouble when upgrading to the next version.</p>
+<h2 id="wiki-h2-1">
+<a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core changes</h2>
+<h3 id="wiki-h3-2">
+<a id="user-content-android-support" class="anchor" href="#android-support" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android support</h3>
+<p>Given that:</p>
+<ul>
+<li>mobile devices are becoming more and more powerful,</li>
+<li>the most known issues with NIO and SSLEngine in ADK were fixed since Ice Cream Sandwich, and</li>
+<li>users obviously want to reuse their codecs and handlers in their mobile applications,</li>
+</ul>
+<p>we decided to support Android (4.0 or above) officially.</p>
+<p>However, we do not have an automated testsuite for Android yet.  If you find any issues with Android, please feel free to <a href="https://github.com/netty/netty/issues">file an issue</a>.  Please also consider contributing to the project to make Android tests a part of the build process.</p>
+<h3 id="wiki-h3-3">
+<a id="user-content-channelhandlercontextattr--channelattr" class="anchor" href="#channelhandlercontextattr--channelattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
+</h3>
+<p>Both <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
+<p>To address this issue, we decided to keep only one map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> internally.  <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> always uses <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
+<h3 id="wiki-h3-4">
+<a id="user-content-channelhasattr" class="anchor" href="#channelhasattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Channel.hasAttr(...)</code>
+</h3>
+<p>It is now possible to check if an attribute exists or not efficiently.</p>
+<h3 id="wiki-h3-5">
+<a id="user-content-easier-and-more-precise-buffer-leak-tracking" class="anchor" href="#easier-and-more-precise-buffer-leak-tracking" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Easier and more precise buffer leak tracking</h3>
+<p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
+<p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
+<h3 id="wiki-h3-6">
+<a id="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" href="#pooledbytebufallocator-as-the-default-allocator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
+<p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
+<h3 id="wiki-h3-7">
+<a id="user-content-globally-unique-channel-id" class="anchor" href="#globally-unique-channel-id" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Globally unique channel ID</h3>
+<p>Every <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
+<ul>
+<li>MAC address (EUI-48 or EUI-64), preferrably a globally unique one,</li>
+<li>the current process ID,</li>
+<li><code>System#currentTimeMillis()</code></li>
+<li><code>System#nanoTime()</code></li>
+<li>a random 32-bit integer, and</li>
+<li>a sequentially incremented 32-bit integer.</li>
+</ul>
+<p>The ID of a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
+<h3 id="wiki-h3-8">
+<a id="user-content-embeddedchannel-usability" class="anchor" href="#embeddedchannel-usability" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>EmbeddedChannel</code> usability</h3>
+<p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/4.1/api/io/netty/channel/embedded/EmbeddedChannel.html" rel="nofollow"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">EmbeddedChannel</span> ch <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> BEFORE:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> (<span class="pl-smi">FullHttpRequest</span>) ch<span class="pl-k">.</span>readInbound();&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> AFTER:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> ch<span class="pl-k">.</span>readInbound();</pre></div>
+<h3 id="wiki-h3-9">
+<a id="user-content-ability-to-use-executor-instead-of-threadfactory" class="anchor" href="#ability-to-use-executor-instead-of-threadfactory" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ability to use <code>Executor</code> instead of <code>ThreadFactory</code>
+</h3>
+<p>Some applications require a user to run his or her task in a given <code>Executor</code>.  4.x required a user to specify <code>ThreadFactory</code> when creating an event loop, but not anymore.</p>
+<p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1762">the pull request #1762</a>.</p>
+<h3 id="wiki-h3-10">
+<a id="user-content-class-loader-friendliness" class="anchor" href="#class-loader-friendliness" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Class loader friendliness</h3>
+<p>Some types such as <code>AttributeKey</code> were unfriendly to the applications that run in a container environment, but not anymore.</p>
+<h3 id="wiki-h3-11">
+<a id="user-content-bytebufallocatorcalculatenewcapacity" class="anchor" href="#bytebufallocatorcalculatenewcapacity" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ByteBufAllocator.calculateNewCapacity()</code>
+</h3>
+<p>The logic that calculates the new capacity of the expanded <code>ByteBuf</code> has been moved from <code>AbstractByteBuf</code> to <code>ByteBufAllocator</code> because <code>ByteBufAllocator</code> knows better about the capacity calculation of the buffers it manages.</p>
+<h2 id="wiki-h2-12">
+<a id="user-content-new-codecs-and-handlers" class="anchor" href="#new-codecs-and-handlers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New codecs and handlers</h2>
+<ul>
+<li>Binary memcache protocol codec</li>
+<li>Compression codecs
+<ul>
+<li>BZip2</li>
+<li>FastLZ</li>
+<li>LZ4</li>
+<li>LZF</li>
+</ul>
+</li>
+<li>DNS protocol codec</li>
+<li>HAProxy protocol codec</li>
+<li>MQTT protocol codec</li>
+<li>SPDY/3.1 support</li>
+<li>STOMP codec</li>
+<li>SOCKSx codec that supports version 4, 4a, and 5; see <code>socksx</code> package.</li>
+<li>
+<a href="http://netty.io/4.1/api/io/netty/handler/codec/xml/XmlFrameDecoder.html" rel="nofollow"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
+<li>
+<a href="http://netty.io/4.1/api/io/netty/handler/codec/json/JsonObjectDecoder.html" rel="nofollow"><code>JsonObjectDecoder</code></a> that enables streaming of JSON objects.</li>
+<li>IP filtering handlers</li>
+</ul>
+<h2 id="wiki-h2-13">
+<a id="user-content-other-codec-changes" class="anchor" href="#other-codec-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other codec changes</h2>
+<h3 id="wiki-h3-14">
+<a id="user-content-asciistring" class="anchor" href="#asciistring" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>AsciiString</code>
+</h3>
+<p><a href="http://netty.io/4.1/api/io/netty/handler/codec/AsciiString.html" rel="nofollow"><code>AsciiString</code></a> is a new <code>CharSequence</code> implementation which contains only 1-byte characters.  You will find this class useful when you deal with a US-ASCII or ISO-8859-1 string.</p>
+<p>For instance, the HTTP codec and STOMP codec in Netty use <code>AsciiString</code> to represent the header names.  Because <code>AsciiString</code> does not have any conversion cost when encoding it into a <code>ByteBuf</code>, it guarantees better performance than using <code>String</code>.</p>
+<h3 id="wiki-h3-15">
+<a id="user-content-textheaders" class="anchor" href="#textheaders" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>TextHeaders</code>
+</h3>
+<p><a href="http://netty.io/4.1/api/io/netty/handler/codec/TextHeaders.html" rel="nofollow"><code>TextHeaders</code></a> provides a generic data structure for HTTP header-like string <a href="http://en.wikipedia.org/wiki/Multimap" rel="nofollow">multimaps</a>.  <code>HttpHeaders</code> also has been rewritten using <code>TextHeaders</code>.</p>
+<h3 id="wiki-h3-16">
+<a id="user-content-messageaggregator" class="anchor" href="#messageaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>MessageAggregator</code>
+</h3>
+<p><a href="http://netty.io/4.1/api/io/netty/handler/codec/MessageAggregator.html" rel="nofollow"><code>MessageAggregator</code></a> provides generic functionality that aggregates multiple small messages into a larger one, just like <code>HttpObjectAggregator</code> does.  <code>HttpObjectAggregator</code> also has been rewritten using <code>MessageAggregator</code>.</p>
+<h3 id="wiki-h3-17">
+<a id="user-content-better-oversized-message-handling-with-httpobjectaggregator" class="anchor" href="#better-oversized-message-handling-with-httpobjectaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Better oversized message handling with <code>HttpObjectAggregator</code>
+</h3>
+<p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
+<p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
+<h3 id="wiki-h3-18">
+<a id="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" href="#chunkedinput-and-chunkedwritehandler" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
+</h3>
+<p><a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedInput.html" rel="nofollow"><code>ChunkedInput</code></a> has two new methods; <code>progress()</code> and <code>length()</code> which return the progress of its transfer and the total length of the stream respectively.  <a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedWriteHandler.html" rel="nofollow"><code>ChunkedWriteHandler</code></a> uses this information to notify <a href="http://netty.io/4.1/api/io/netty/channel/ChannelProgressiveFutureListener.html" rel="nofollow"><code>ChannelProgressiveFutureListener</code></a>.</p>
+<h3 id="wiki-h3-19">
+<a id="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" href="#snappyframedencoder-and-snappyframeddecoder" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
+</h3>
+<p>These two classes have been renamed to <code>SnappyFrameEncoder</code> and <code>SnappyFrameDecoder</code>. The old classes were marked as deprecated and they are actually the subclasses of the new ones.</p>
+
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="wiki-item">
-          <h1>New and noteworthy in 4.1</h1>
-          <div class="alert alert-info">
-            Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">a Github Wiki page?</a>
-            You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/New-and-noteworthy-in-4.1">here!</a>
-          </div>
-          <div class="row">
-          <div class="col-md-9">
-          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
-                  <div class="markdown-body">
-                    <p>This document walks you through the list of notable changes and new features between Netty 4.1 and 4.0.</p>
-          <h2 id="wiki-h2-0">
-          <a id="user-content-tldr" class="anchor" href="#tldr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TL;DR</h2>
-          <p>Although we did our best to keep the backward compatibility from 4.0, 4.1 contains multiple additions which might not be fully backward-compatible with 4.0. Please make sure to recompile your application against the new version.</p>
-          <p>When you recompile your application, you might find some deprecation warnings. Please make sure to fix them all by using the suggested alternative, so that you have less trouble when upgrading to the next version.</p>
-          <h2 id="wiki-h2-1">
-          <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Core changes</h2>
-          <h3 id="wiki-h3-2">
-          <a id="user-content-android-support" class="anchor" href="#android-support" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Android support</h3>
-          <p>Given that:</p>
-          <ul>
-          <li>mobile devices are becoming more and more powerful,</li>
-          <li>the most known issues with NIO and SSLEngine in ADK were fixed since Ice Cream Sandwich, and</li>
-          <li>users obviously want to reuse their codecs and handlers in their mobile applications,</li>
-          </ul>
-          <p>we decided to support Android (4.0 or above) officially.</p>
-          <p>However, we do not have an automated testsuite for Android yet.  If you find any issues with Android, please feel free to <a href="https://github.com/netty/netty/issues">file an issue</a>.  Please also consider contributing to the project to make Android tests a part of the build process.</p>
-          <h3 id="wiki-h3-3">
-          <a id="user-content-channelhandlercontextattr--channelattr" class="anchor" href="#channelhandlercontextattr--channelattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
-          </h3>
-          <p>Both <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
-          <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> internally.  <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> always uses <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
-          <h3 id="wiki-h3-4">
-          <a id="user-content-channelhasattr" class="anchor" href="#channelhasattr" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Channel.hasAttr(...)</code>
-          </h3>
-          <p>It is now possible to check if an attribute exists or not efficiently.</p>
-          <h3 id="wiki-h3-5">
-          <a id="user-content-easier-and-more-precise-buffer-leak-tracking" class="anchor" href="#easier-and-more-precise-buffer-leak-tracking" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Easier and more precise buffer leak tracking</h3>
-          <p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
-          <p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
-          <h3 id="wiki-h3-6">
-          <a id="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" href="#pooledbytebufallocator-as-the-default-allocator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
-          <p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
-          <h3 id="wiki-h3-7">
-          <a id="user-content-globally-unique-channel-id" class="anchor" href="#globally-unique-channel-id" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Globally unique channel ID</h3>
-          <p>Every <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> now has a globally unique ID which is generated from:</p>
-          <ul>
-          <li>MAC address (EUI-48 or EUI-64), preferrably a globally unique one,</li>
-          <li>the current process ID,</li>
-          <li><code>System#currentTimeMillis()</code></li>
-          <li><code>System#nanoTime()</code></li>
-          <li>a random 32-bit integer, and</li>
-          <li>a sequentially incremented 32-bit integer.</li>
-          </ul>
-          <p>The ID of a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
-          <h3 id="wiki-h3-8">
-          <a id="user-content-embeddedchannel-usability" class="anchor" href="#embeddedchannel-usability" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>EmbeddedChannel</code> usability</h3>
-          <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/4.1/api/io/netty/channel/embedded/EmbeddedChannel.html" rel="nofollow"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
-          <div class="highlight highlight-source-java"><pre><span class="pl-smi">EmbeddedChannel</span> ch <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> BEFORE:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> (<span class="pl-smi">FullHttpRequest</span>) ch<span class="pl-k">.</span>readInbound();&#x000A;&#x000A;<span class="pl-c"><span class="pl-c">//</span> AFTER:</span>&#x000A;<span class="pl-smi">FullHttpRequest</span> req <span class="pl-k">=</span> ch<span class="pl-k">.</span>readInbound();</pre></div>
-          <h3 id="wiki-h3-9">
-          <a id="user-content-ability-to-use-executor-instead-of-threadfactory" class="anchor" href="#ability-to-use-executor-instead-of-threadfactory" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ability to use <code>Executor</code> instead of <code>ThreadFactory</code>
-          </h3>
-          <p>Some applications require a user to run his or her task in a given <code>Executor</code>.  4.x required a user to specify <code>ThreadFactory</code> when creating an event loop, but not anymore.</p>
-          <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1762">the pull request #1762</a>.</p>
-          <h3 id="wiki-h3-10">
-          <a id="user-content-class-loader-friendliness" class="anchor" href="#class-loader-friendliness" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Class loader friendliness</h3>
-          <p>Some types such as <code>AttributeKey</code> were unfriendly to the applications that run in a container environment, but not anymore.</p>
-          <h3 id="wiki-h3-11">
-          <a id="user-content-bytebufallocatorcalculatenewcapacity" class="anchor" href="#bytebufallocatorcalculatenewcapacity" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ByteBufAllocator.calculateNewCapacity()</code>
-          </h3>
-          <p>The logic that calculates the new capacity of the expanded <code>ByteBuf</code> has been moved from <code>AbstractByteBuf</code> to <code>ByteBufAllocator</code> because <code>ByteBufAllocator</code> knows better about the capacity calculation of the buffers it manages.</p>
-          <h2 id="wiki-h2-12">
-          <a id="user-content-new-codecs-and-handlers" class="anchor" href="#new-codecs-and-handlers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>New codecs and handlers</h2>
-          <ul>
-          <li>Binary memcache protocol codec</li>
-          <li>Compression codecs
-          <ul>
-          <li>BZip2</li>
-          <li>FastLZ</li>
-          <li>LZ4</li>
-          <li>LZF</li>
-          </ul>
-          </li>
-          <li>DNS protocol codec</li>
-          <li>HAProxy protocol codec</li>
-          <li>MQTT protocol codec</li>
-          <li>SPDY/3.1 support</li>
-          <li>STOMP codec</li>
-          <li>SOCKSx codec that supports version 4, 4a, and 5; see <code>socksx</code> package.</li>
-          <li>
-          <a href="http://netty.io/4.1/api/io/netty/handler/codec/xml/XmlFrameDecoder.html" rel="nofollow"><code>XmlFrameDecoder</code></a> that enables streaming of XML documents.</li>
-          <li>
-          <a href="http://netty.io/4.1/api/io/netty/handler/codec/json/JsonObjectDecoder.html" rel="nofollow"><code>JsonObjectDecoder</code></a> that enables streaming of JSON objects.</li>
-          <li>IP filtering handlers</li>
-          </ul>
-          <h2 id="wiki-h2-13">
-          <a id="user-content-other-codec-changes" class="anchor" href="#other-codec-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Other codec changes</h2>
-          <h3 id="wiki-h3-14">
-          <a id="user-content-asciistring" class="anchor" href="#asciistring" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>AsciiString</code>
-          </h3>
-          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/AsciiString.html" rel="nofollow"><code>AsciiString</code></a> is a new <code>CharSequence</code> implementation which contains only 1-byte characters.  You will find this class useful when you deal with a US-ASCII or ISO-8859-1 string.</p>
-          <p>For instance, the HTTP codec and STOMP codec in Netty use <code>AsciiString</code> to represent the header names.  Because <code>AsciiString</code> does not have any conversion cost when encoding it into a <code>ByteBuf</code>, it guarantees better performance than using <code>String</code>.</p>
-          <h3 id="wiki-h3-15">
-          <a id="user-content-textheaders" class="anchor" href="#textheaders" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>TextHeaders</code>
-          </h3>
-          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/TextHeaders.html" rel="nofollow"><code>TextHeaders</code></a> provides a generic data structure for HTTP header-like string <a href="http://en.wikipedia.org/wiki/Multimap" rel="nofollow">multimaps</a>.  <code>HttpHeaders</code> also has been rewritten using <code>TextHeaders</code>.</p>
-          <h3 id="wiki-h3-16">
-          <a id="user-content-messageaggregator" class="anchor" href="#messageaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>MessageAggregator</code>
-          </h3>
-          <p><a href="http://netty.io/4.1/api/io/netty/handler/codec/MessageAggregator.html" rel="nofollow"><code>MessageAggregator</code></a> provides generic functionality that aggregates multiple small messages into a larger one, just like <code>HttpObjectAggregator</code> does.  <code>HttpObjectAggregator</code> also has been rewritten using <code>MessageAggregator</code>.</p>
-          <h3 id="wiki-h3-17">
-          <a id="user-content-better-oversized-message-handling-with-httpobjectaggregator" class="anchor" href="#better-oversized-message-handling-with-httpobjectaggregator" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Better oversized message handling with <code>HttpObjectAggregator</code>
-          </h3>
-          <p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
-          <p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
-          <h3 id="wiki-h3-18">
-          <a id="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" href="#chunkedinput-and-chunkedwritehandler" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
-          </h3>
-          <p><a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedInput.html" rel="nofollow"><code>ChunkedInput</code></a> has two new methods; <code>progress()</code> and <code>length()</code> which return the progress of its transfer and the total length of the stream respectively.  <a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedWriteHandler.html" rel="nofollow"><code>ChunkedWriteHandler</code></a> uses this information to notify <a href="http://netty.io/4.1/api/io/netty/channel/ChannelProgressiveFutureListener.html" rel="nofollow"><code>ChannelProgressiveFutureListener</code></a>.</p>
-          <h3 id="wiki-h3-19">
-          <a id="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" href="#snappyframedencoder-and-snappyframeddecoder" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
-          </h3>
-          <p>These two classes have been renamed to <code>SnappyFrameEncoder</code> and <code>SnappyFrameDecoder</code>. The old classes were marked as deprecated and they are actually the subclasses of the new ones.</p>
-          
-                  </div>
-          
-              </div></div>
-          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
-          <div class="toc well">
-          <ul class="nav nav-list nav-stacked">
-          <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="TL;DR">TL;DR</a>
-          </li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Android support">Android support</a>
-          </li><li><a href="#wiki-h3-3" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
-          </li><li><a href="#wiki-h3-4" title="Channel.hasAttr(...)">Channel.hasAttr(...)</a>
-          </li><li><a href="#wiki-h3-5" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
-          </li><li><a href="#wiki-h3-6" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
-          </li><li><a href="#wiki-h3-7" title="Globally unique channel ID">Globally unique channel ID</a>
-          </li><li><a href="#wiki-h3-8" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
-          </li><li><a href="#wiki-h3-9" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
-          </li><li><a href="#wiki-h3-10" title="Class loader friendliness">Class loader friendliness</a>
-          </li><li><a href="#wiki-h3-11" title="ByteBufAllocator.calculateNewCapacity()">ByteBufAllocator.calculateNewCapacity()</a>
-          </li></ul></li><li><a href="#wiki-h2-12" title="New codecs and handlers">New codecs and handlers</a>
-          </li><li><a href="#wiki-h2-13" title="Other codec changes">Other codec changes</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="AsciiString">AsciiString</a>
-          </li><li><a href="#wiki-h3-15" title="TextHeaders">TextHeaders</a>
-          </li><li><a href="#wiki-h3-16" title="MessageAggregator">MessageAggregator</a>
-          </li><li><a href="#wiki-h3-17" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
-          </li><li><a href="#wiki-h3-18" title="ChunkedInput and ChunkedWriteHandler">ChunkedInput and ChunkedWriteHandler</a>
-          </li><li><a href="#wiki-h3-19" title="SnappyFramedEncoder and SnappyFramedDecoder">SnappyFramedEncoder and SnappyFramedDecoder</a>
-          </li><li><a href="#wiki-h3-20" title="Pages 27">Pages 27</a>
-          </li></ul>
-          </li></ul>
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <div class="text-right">
-                <small>Last retrieved on 18-Dec-2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../lib/common.footer.js" type="text/javascript"></script>
-  
+
+    </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="TL;DR">TL;DR</a>
+</li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Android support">Android support</a>
+</li><li><a href="#wiki-h3-3" title="ChannelHandlerContext.attr(..) == Channel.attr(..)">ChannelHandlerContext.attr(..) == Channel.attr(..)</a>
+</li><li><a href="#wiki-h3-4" title="Channel.hasAttr(...)">Channel.hasAttr(...)</a>
+</li><li><a href="#wiki-h3-5" title="Easier and more precise buffer leak tracking">Easier and more precise buffer leak tracking</a>
+</li><li><a href="#wiki-h3-6" title="PooledByteBufAllocator as the default allocator">PooledByteBufAllocator as the default allocator</a>
+</li><li><a href="#wiki-h3-7" title="Globally unique channel ID">Globally unique channel ID</a>
+</li><li><a href="#wiki-h3-8" title="EmbeddedChannel usability">EmbeddedChannel usability</a>
+</li><li><a href="#wiki-h3-9" title="Ability to use Executor instead of ThreadFactory">Ability to use Executor instead of ThreadFactory</a>
+</li><li><a href="#wiki-h3-10" title="Class loader friendliness">Class loader friendliness</a>
+</li><li><a href="#wiki-h3-11" title="ByteBufAllocator.calculateNewCapacity()">ByteBufAllocator.calculateNewCapacity()</a>
+</li></ul></li><li><a href="#wiki-h2-12" title="New codecs and handlers">New codecs and handlers</a>
+</li><li><a href="#wiki-h2-13" title="Other codec changes">Other codec changes</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="AsciiString">AsciiString</a>
+</li><li><a href="#wiki-h3-15" title="TextHeaders">TextHeaders</a>
+</li><li><a href="#wiki-h3-16" title="MessageAggregator">MessageAggregator</a>
+</li><li><a href="#wiki-h3-17" title="Better oversized message handling with HttpObjectAggregator">Better oversized message handling with HttpObjectAggregator</a>
+</li><li><a href="#wiki-h3-18" title="ChunkedInput and ChunkedWriteHandler">ChunkedInput and ChunkedWriteHandler</a>
+</li><li><a href="#wiki-h3-19" title="SnappyFramedEncoder and SnappyFramedDecoder">SnappyFramedEncoder and SnappyFramedDecoder</a>
+</li><li><a href="#wiki-h3-20" title="Pages 27">Pages 27</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 13-Jan-2020</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -1,380 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.17.Final released</title>
-    <title>Netty: Netty 4.0.17.Final released</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../../../../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../../../../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../../../../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../../../../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../../../../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="news-item" id="main-content">
-              <h1>
-                Netty 4.0.17.Final released
-              </h1>
-              <p class="byline">
-                <small>
-                  by
-                  <a href="https://github.com/normanmaurer">normanmaurer</a>
-                  <br>
-                  on
-                  <time datetime="2014-02-25">25-Feb-2014</time>
-                </small>
-              </p>
-              <div class="news-content">
-                <p>We are happy to announce the relase of Netty 4.0.17.Final. This release again fixes a lot of bugs together with 4.0.16.Final and also two regressions introduced in 4.0.16.Final (this is why 4.0.16.Final was not announced).</p>
-                
-                <p>Beside this it also introduce a new native transport which is based on epoll edge-triggered (using C / JNI) for maximal performance and low latency. Release 4.0.17.Final and 4.0.16.Final fixes 45 issues/tasks/improvements in summary.</p>
-                
-                <p>So you should consider upgrading if you are using an early release. As always this release is backwards-compatible with earlier releases of the 4.0.x series.</p>
-                
-                <h2>Most important changes / fixes</h2>
-                
-                <ul>
-                <li>Introduce a native transport for linux using epoll ET (<a href="https://github.com/netty/netty/pull/2229">#2229</a>)</li>
-                <li>Web Socket server leaks a buffer during a handshake (<a href="https://github.com/netty/netty/issues/2188">#2188</a>)</li>
-                <li>Race condition in AbstractReferenceCountedByteBuf and AbstractReferenceCounted  (<a href="https://github.com/netty/netty/issues/2187">#2187</a>)</li>
-                <li>Allow to cancel non-flushed writes (<a href="https://github.com/netty/netty/pull/2214">#2214</a>) and (<a href="https://github.com/netty/netty/pull/2209">#2209</a>)</li>
-                <li>Race in DefaultPormise which could lead to out of order notification of listeners (<a href="https://github.com/netty/netty/pull/2186">#2186</a>) and (<a href="https://github.com/netty/netty/pull/2157">#2157</a>)</li>
-                <li>Fix for releasing of the internal cumulation buffer in ByteToMessageDecoder (<a href="https://github.com/netty/netty/pull/2184">#2184</a>)</li>
-                <li>Server sending websocket frame too quickly after upgrade causes client disconnect (<a href="https://github.com/netty/netty/issues/2173">#2173</a>)</li>
-                <li>Not wakeup the EventLoop for writes as they will not cause a flush anyway (<a href="https://github.com/netty/netty/pull/2172">#2172</a>)</li>
-                <li>Not throw an exception if WS subprotocol is not supported but just drop the header as stated in the RFC's (<a href="https://github.com/netty/netty/pull/2149">#2149</a>)</li>
-                <li>Calling Channel.read() within channelReadComplete() not works when AutoRead is false (<a href="https://github.com/netty/netty/issues/2254">#2254</a>)</li>
-                </ul>
-                
-                
-                <p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.16.Final">here</a> and <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.17.Final">here</a> for the complete list of the changes.</p>
-                
-                <p>As always please let us know if you find any issues. We love feedback!</p>
-                
-                <h2>Special notes</h2>
-                
-                <h3>Native epoll edge-triggered transport</h3>
-                
-                <p>This release features a new native <a href="http://linux.die.net/man/4/epoll">epoll</a> based transport that uses <a href="http://en.wikipedia.org/wiki/Epoll#Triggering_modes">edge-triggered</a> mode for maximal performance and low latency. This transport only works on Linux (as this is the OS which uses epoll), so if you not use Linux you can stop reading here ;)</p>
-                
-                <p>The transport is part of the netty-transport-native-epoll artifact but is also included in netty-all. To make use of it just configure the <code>Bootstrap</code> or <code>ServerBootstrap</code> as usual but provide the specific <code>Channel</code> and <code>EventLoopGroup</code>.</p>
-                
-                <p>For any example refer to the next code snipped.</p>
-                
-                <pre><code>EventLoopGroup group = new EpollEventLoopGroup();&#x000A;try {&#x000A;    ServerBootstrap b = new ServerBootstrap();&#x000A;    b.group(group)&#x000A;     .childHandler(new YourInitializer())&#x000A;     .channel(EpollServerSocketChannel.class);&#x000A;&#x000A;&#x000A;    Channel ch = b.bind(port).sync().channel();&#x000A;    ch.closeFuture().sync();&#x000A;} finally {&#x000A;    group.shutdownGracefully().sync();&#x000A;}&#x000A;</code></pre>
-                
-                <p>Beside the usual <code>ChannelOption</code>s the Native Transport allows to enable <a href="http://baus.net/on-tcp_cork/">TCP_CORK</a> which may come in handy if you implement a HTTP Server.</p>
-                
-                <p>Be aware this transport only includes <code>SocketChannel</code> and ServerSocketChannel implementations at the moment and so can only be used for TCP. This may change in the future. Also note while the transport pass all our Unit Tests and works in our benchmark there may be still issues that need to get fixed, so this transport is still considered somewhat experimental. But if you are brave enough to try please provide feedback :)</p>
-                
-                <h1>Thank You</h1>
-                
-                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-                
-                <ul>
-                <li><a href="https://github.com/blucas">@blucas</a></li>
-                <li><a href="https://github.com/cmcmaugh">@cmcmaugh</a></li>
-                <li><a href="https://github.com/danbev">@danbev</a></li>
-                <li><a href="https://github.com/daniilguit">@daniilguit</a></li>
-                <li><a href="https://github.com/daschl">@daschl</a></li>
-                <li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-                <li><a href="https://github.com/Jacob201311">@Jacob201311</a></li>
-                <li><a href="https://github.com/jjongsma">@jjongsma</a></li>
-                <li><a href="https://github.com/jpinner">@jpinner</a></li>
-                <li><a href="https://github.com/jsiebens">@jsiebens</a></li>
-                <li><a href="https://github.com/leogomes">@leogomes</a></li>
-                <li><a href="https://github.com/md-5">@md-5</a></li>
-                <li><a href="https://github.com/MiddleBen">@MiddleBen</a></li>
-                <li><a href="https://github.com/mkw">@mkw</a></li>
-                <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-                <li><a href="https://github.com/npordash">@npordash</a></li>
-                <li><a href="https://github.com/posix4e">@posix4e</a></li>
-                <li><a href="https://github.com/shevek">@shevek</a></li>
-                <li><a href="https://github.com/stIncMale">@stIncMale</a></li>
-                <li><a href="https://github.com/superzhu">@superzhu</a></li>
-                <li><a href="https://github.com/trustin">@trustin</a></li>
-                <li><a href="https://github.com/valodzka">@valodzka</a></li>
-                <li><a href="https://github.com/vschafer">@vschafer</a></li>
-                <li><a href="https://github.com/xfrag">@xfrag</a></li>
-                </ul>
-              </div>
-              <ul class="pager">
-                <li class="previous">
-                  <a href="../../../../news/2014/01/21/4-0-15-Final.html">&larr; Older</a>
-                </li>
-                <li>
-                  <a href="../../../index.html">List all news items</a>
-                </li>
-                <li class="next">
-                  <a href="../../../../news/2014/04/01/4-0-18-Final.html">Newer &rarr;</a>
-                </li>
-              </ul>
-            </div>
-            <div class="comments">
-              
-                          <div id="disqus_thread"></div>
-                          <script type="text/javascript">
-                          var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2014/02/25/4-0-17-Final.html";
-                          var disqus_developer = null;
-                          var disqus_identifier = "news/2014-02-25-4-0-17-Final.html";
-                          (function() {
-                            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-                          })();
-                          </script>
-                          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../../../../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../../../lib/common.footer.js" type="text/javascript"></script>
-  
+<head>
+<meta charset="UTF-8">
+<title>Netty.news: Netty 4.0.17.Final released</title>
+<title>Netty: Netty 4.0.17.Final released</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../../../../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../../../../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../../../../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../../../../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../../../../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../../../../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../../../../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../../../../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../../../../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<div class="news-item" id="main-content">
+<h1>
+Netty 4.0.17.Final released
+</h1>
+<p class="byline">
+<small>
+by
+<a href="https://github.com/normanmaurer">normanmaurer</a>
+<br>
+on
+<time datetime="2014-02-25">25-Feb-2014</time>
+</small>
+</p>
+<div class="news-content">
+<p>We are happy to announce the relase of Netty 4.0.17.Final. This release again fixes a lot of bugs together with 4.0.16.Final and also two regressions introduced in 4.0.16.Final (this is why 4.0.16.Final was not announced).</p>
+
+<p>Beside this it also introduce a new native transport which is based on epoll edge-triggered (using C / JNI) for maximal performance and low latency. Release 4.0.17.Final and 4.0.16.Final fixes 45 issues/tasks/improvements in summary.</p>
+
+<p>So you should consider upgrading if you are using an early release. As always this release is backwards-compatible with earlier releases of the 4.0.x series.</p>
+
+<h2>Most important changes / fixes</h2>
+
+<ul>
+<li>Introduce a native transport for linux using epoll ET (<a href="https://github.com/netty/netty/pull/2229">#2229</a>)</li>
+<li>Web Socket server leaks a buffer during a handshake (<a href="https://github.com/netty/netty/issues/2188">#2188</a>)</li>
+<li>Race condition in AbstractReferenceCountedByteBuf and AbstractReferenceCounted  (<a href="https://github.com/netty/netty/issues/2187">#2187</a>)</li>
+<li>Allow to cancel non-flushed writes (<a href="https://github.com/netty/netty/pull/2214">#2214</a>) and (<a href="https://github.com/netty/netty/pull/2209">#2209</a>)</li>
+<li>Race in DefaultPormise which could lead to out of order notification of listeners (<a href="https://github.com/netty/netty/pull/2186">#2186</a>) and (<a href="https://github.com/netty/netty/pull/2157">#2157</a>)</li>
+<li>Fix for releasing of the internal cumulation buffer in ByteToMessageDecoder (<a href="https://github.com/netty/netty/pull/2184">#2184</a>)</li>
+<li>Server sending websocket frame too quickly after upgrade causes client disconnect (<a href="https://github.com/netty/netty/issues/2173">#2173</a>)</li>
+<li>Not wakeup the EventLoop for writes as they will not cause a flush anyway (<a href="https://github.com/netty/netty/pull/2172">#2172</a>)</li>
+<li>Not throw an exception if WS subprotocol is not supported but just drop the header as stated in the RFC's (<a href="https://github.com/netty/netty/pull/2149">#2149</a>)</li>
+<li>Calling Channel.read() within channelReadComplete() not works when AutoRead is false (<a href="https://github.com/netty/netty/issues/2254">#2254</a>)</li>
+</ul>
+
+
+<p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.16.Final">here</a> and <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.17.Final">here</a> for the complete list of the changes.</p>
+
+<p>As always please let us know if you find any issues. We love feedback!</p>
+
+<h2>Special notes</h2>
+
+<h3>Native epoll edge-triggered transport</h3>
+
+<p>This release features a new native <a href="http://linux.die.net/man/4/epoll">epoll</a> based transport that uses <a href="http://en.wikipedia.org/wiki/Epoll#Triggering_modes">edge-triggered</a> mode for maximal performance and low latency. This transport only works on Linux (as this is the OS which uses epoll), so if you not use Linux you can stop reading here ;)</p>
+
+<p>The transport is part of the netty-transport-native-epoll artifact but is also included in netty-all. To make use of it just configure the <code>Bootstrap</code> or <code>ServerBootstrap</code> as usual but provide the specific <code>Channel</code> and <code>EventLoopGroup</code>.</p>
+
+<p>For any example refer to the next code snipped.</p>
+
+<pre><code>EventLoopGroup group = new EpollEventLoopGroup();&#x000A;try {&#x000A;    ServerBootstrap b = new ServerBootstrap();&#x000A;    b.group(group)&#x000A;     .childHandler(new YourInitializer())&#x000A;     .channel(EpollServerSocketChannel.class);&#x000A;&#x000A;&#x000A;    Channel ch = b.bind(port).sync().channel();&#x000A;    ch.closeFuture().sync();&#x000A;} finally {&#x000A;    group.shutdownGracefully().sync();&#x000A;}&#x000A;</code></pre>
+
+<p>Beside the usual <code>ChannelOption</code>s the Native Transport allows to enable <a href="http://baus.net/on-tcp_cork/">TCP_CORK</a> which may come in handy if you implement a HTTP Server.</p>
+
+<p>Be aware this transport only includes <code>SocketChannel</code> and ServerSocketChannel implementations at the moment and so can only be used for TCP. This may change in the future. Also note while the transport pass all our Unit Tests and works in our benchmark there may be still issues that need to get fixed, so this transport is still considered somewhat experimental. But if you are brave enough to try please provide feedback :)</p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/blucas">@blucas</a></li>
+<li><a href="https://github.com/cmcmaugh">@cmcmaugh</a></li>
+<li><a href="https://github.com/danbev">@danbev</a></li>
+<li><a href="https://github.com/daniilguit">@daniilguit</a></li>
+<li><a href="https://github.com/daschl">@daschl</a></li>
+<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
+<li><a href="https://github.com/Jacob201311">@Jacob201311</a></li>
+<li><a href="https://github.com/jjongsma">@jjongsma</a></li>
+<li><a href="https://github.com/jpinner">@jpinner</a></li>
+<li><a href="https://github.com/jsiebens">@jsiebens</a></li>
+<li><a href="https://github.com/leogomes">@leogomes</a></li>
+<li><a href="https://github.com/md-5">@md-5</a></li>
+<li><a href="https://github.com/MiddleBen">@MiddleBen</a></li>
+<li><a href="https://github.com/mkw">@mkw</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/npordash">@npordash</a></li>
+<li><a href="https://github.com/posix4e">@posix4e</a></li>
+<li><a href="https://github.com/shevek">@shevek</a></li>
+<li><a href="https://github.com/stIncMale">@stIncMale</a></li>
+<li><a href="https://github.com/superzhu">@superzhu</a></li>
+<li><a href="https://github.com/trustin">@trustin</a></li>
+<li><a href="https://github.com/valodzka">@valodzka</a></li>
+<li><a href="https://github.com/vschafer">@vschafer</a></li>
+<li><a href="https://github.com/xfrag">@xfrag</a></li>
+</ul>
+
+
+</div>
+<ul class="pager">
+<li class="previous">
+<a href="../../../../news/2014/01/21/4-0-15-Final.html">&larr; Older</a>
+</li>
+<li>
+<a href="../../../index.html">List all news items</a>
+</li>
+<li class="next">
+<a href="../../../../news/2014/04/01/4-0-18-Final.html">Newer &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="comments">
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'netty0';
+            var disqus_url = "http://netty.io/news/2014/02/25/4-0-17-Final.html";
+            var disqus_developer = null;
+            var disqus_identifier = "news/2014-02-25-4-0-17-Final.html";
+            (function() {
+              var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+          
+</div>
+</div>
+<div class="col-md-3">
+<div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../../../../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

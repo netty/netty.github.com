@@ -1,393 +1,398 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.news: Netty 4.0.51.Final and 4.1.15.Final released</title>
-    <title>Netty: Netty 4.0.51.Final and 4.1.15.Final released</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../../../../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../../../../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../../../../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../../../../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../../../../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../../../../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../../../../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../../../../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../../../../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="news-item" id="main-content">
-              <h1>
-                Netty 4.0.51.Final and 4.1.15.Final released
-              </h1>
-              <p class="byline">
-                <small>
-                  by
-                  <a href="https://github.com/normanmaurer">normanmaurer</a>
-                  <br>
-                  on
-                  <time datetime="2017-08-25">25-Aug-2017</time>
-                </small>
-              </p>
-              <div class="news-content">
-                <p>I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
-                These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.</p>
-                
-                <p>With this release we also support ALPN when using Java9 and so you should be able to use HTTP/2 without the need of using any native SSL implementation.
-                That said using a native SSL implementation may still be beneficially for maximal performance.</p>
-                
-                <p>The most important changes for 4.0.51.Final and 4.1.15.Final are:</p>
-                
-                <ul>
-                <li>Support JDK9-native ALPN (<a href="https://github.com/netty/netty/pull/7126">#7126</a>)</li>
-                <li>More bullet-proof way of detecting if ipv6 is supported or not when using the native transport (<a href="https://github.com/netty/netty/pull/7022">#7022</a>)</li>
-                <li>DelegatingSslContext should also be able to configure the SslHandler (<a href="https://github.com/netty/netty/pull/7135">#7135</a>)</li>
-                <li>Netty 4.1.14.Final fails to load on android (<a href="https://github.com/netty/netty/issues/7117">#7117</a>)</li>
-                <li>Include JNIEXPORT on exported symbols (<a href="https://github.com/netty/netty/pull/7127">#7127</a>)</li>
-                <li>Unify KQueue and Epoll wait timeout approach (<a href="https://github.com/netty/netty/pull/7042">#7042</a>)</li>
-                <li>Make NativeLibraryLoader check java.library.path first (<a href="https://github.com/netty/netty/pull/7102">#7102</a>)</li>
-                <li>Use the ByteBufAllocator when copy a ReadOnlyByteBufferBuf and so also be able to release it without the GC when the Cleaner is present (<a href="https://github.com/netty/netty/pull/7107">#7107</a>)</li>
-                <li>Ensure netty builds with java9 (build 9+181) (<a href="https://github.com/netty/netty/pull/7106">#7106</a>)</li>
-                <li>Make configurable the initial and max size of <code>InternalThreadLocal.stringBuilder</code> (<a href="https://github.com/netty/netty/pull/7093">#7093</a>)</li>
-                <li>Fix endless loop in ByteBufUtil#writeAscii (<a href="https://github.com/netty/netty/pull/7096">#7096</a>)</li>
-                <li>Correctly support SO_TIMEOUT for OioDatagramChannel (<a href="https://github.com/netty/netty/pull/7046">#7046</a>)</li>
-                <li>Ensure we null out the previous set InetAddress on java.net.DatagramPacket (<a href="https://github.com/netty/netty/pull/7064">#7064</a>)</li>
-                <li>Correctly handle connect/disconnect in EpollDatagramChannel (<a href="https://github.com/netty/netty/pull/6193">#6193</a>)</li>
-                <li>Shutting down the outbound side of the channel should not accept future writes (<a href="https://github.com/netty/netty/pull/7041">#7041</a>)</li>
-                </ul>
-                
-                
-                <p>The most important changes for 4.1.15.Final only are:</p>
-                
-                <ul>
-                <li>Decouple DnsCache and DnsCacheEntry (<a href="https://github.com/netty/netty/pull/7129">#7129</a>)</li>
-                <li>KQueue detect peer close without EVFILT_READ (<a href="https://github.com/netty/netty/pull/7124">#7124</a>)</li>
-                <li>Support the little endian floats and doubles by ByteBuf (<a href="https://github.com/netty/netty/pull/7099">#7099</a>)</li>
-                <li>We should prefer heap buffers when using the OIO transport to reduce memory copies (<a href="https://github.com/netty/netty/pull/7065">#7065</a>)</li>
-                <li>First call channelReadComplete(...) before flush(...) for better performance (<a href="https://github.com/netty/netty/pull/7031">#7031</a>)</li>
-                <li>HTTP/2 Child Channel and FrameCodec Feature Parity (<a href="https://github.com/netty/netty/pull/6896">#6896</a>)</li>
-                </ul>
-                
-                
-                <p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.51.Final">4.0.51.Final</a> and <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.15.Final">4.1.15.Final</a>.</p>
-                
-                <p>All changes that are in 4.0.51.Final are also included in 4.1.15.Final. All changes only have milestone 4.1.15.Final do not affect 4.0.51.Final.</p>
-                
-                <p>As always, please let us know if you find any issues. We love feedback!</p>
-                
-                <h2>More feature complete new HTTP/2 API</h2>
-                
-                <p>A while a go we started to implement a new HTTP/2 API which tries to make writing HTTP/2 code easier when using Netty. For this API we basically create a new Channel per HTTP/2 stream and so each HTTP/2 stream will have its own ChannelPipeline. This allows reuse of existing ChannelHandlers and also feels more "netty-like" in general.</p>
-                
-                <p>For more detail how to use this API please have a look at the <a href="https://github.com/netty/netty/blob/4.1/codec-http2/src/main/java/io/netty/handler/codec/http2/Http2MultiplexCodec.java">Http2MultiplexCodec</a>, and also the <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/http2/helloworld/multiplex/server">Http2 multiple examples</a>.</p>
-                
-                <p>That said we are not planing to remove the "old" API anytime soon but working on improving the "new" API with the end-goal of eventually replacing the "old" completely at some point.
-                Please give it a try and let us know how it works for you.</p>
-                
-                <h1>Thank You</h1>
-                
-                <p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-                
-                <ul>
-                <li><a href="https://github.com/alobodzki">@alobodzki</a></li>
-                <li><a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a></li>
-                <li><a href="https://github.com/doom369">@doom369</a></li>
-                <li><a href="https://github.com/dschobel">@dschobel</a></li>
-                <li><a href="https://github.com/ejona86">@ejona86</a></li>
-                <li><a href="https://github.com/eun-ice">@eun-ice</a></li>
-                <li><a href="https://github.com/fenik17">@fenik17</a></li>
-                <li><a href="https://github.com/jayv">@jayv</a></li>
-                <li><a href="https://github.com/johnou">@johnou</a></li>
-                <li><a href="https://github.com/lime62">@lime62</a></li>
-                <li><a href="https://github.com/liuhualh">@liuhualh</a></li>
-                <li><a href="https://github.com/louxiu">@louxiu</a></li>
-                <li><a href="https://github.com/michaelandrepearce">@michaelandrepearce</a></li>
-                <li><a href="https://github.com/MKudo">@MKudo</a></li>
-                <li><a href="https://github.com/mrniko">@mrniko</a></li>
-                <li><a href="https://github.com/nhnFreespirit">@nhnFreespirit</a></li>
-                <li><a href="https://github.com/nitsanw">@nitsanw</a></li>
-                <li><a href="https://github.com/nmittler">@nmittler</a></li>
-                <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-                <li><a href="https://github.com/perezd">@perezd</a></li>
-                <li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-                <li><a href="https://github.com/rschmitt">@rschmitt</a></li>
-                <li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-                <li><a href="https://github.com/trustin">@trustin</a></li>
-                <li><a href="https://github.com/violetagg">@violetagg</a></li>
-                </ul>
-              </div>
-              <ul class="pager">
-                <li class="previous">
-                  <a href="../../../../news/2017/08/03/4-0-50-Final-4-1-14-Final.html">&larr; Older</a>
-                </li>
-                <li>
-                  <a href="../../../index.html">List all news items</a>
-                </li>
-                <li class="next">
-                  <a href="../../../../news/2017/09/25/4-0-52-Final-4-1-16-Final.html">Newer &rarr;</a>
-                </li>
-              </ul>
-            </div>
-            <div class="comments">
-              
-                          <div id="disqus_thread"></div>
-                          <script type="text/javascript">
-                          var disqus_shortname = 'netty0';
-                          var disqus_url = "http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html";
-                          var disqus_developer = null;
-                          var disqus_identifier = "news/2017-08-25-4-0-51-Final-4-1-15-Final";
-                          (function() {
-                            var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
-                            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                            (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
-                          })();
-                          </script>
-                          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
-            </div>
-          </div>
-          <div class="col-md-3">
-            <div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../../../../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../../../../lib/common.footer.js" type="text/javascript"></script>
-  
+<head>
+<meta charset="UTF-8">
+<title>Netty.news: Netty 4.0.51.Final and 4.1.15.Final released</title>
+<title>Netty: Netty 4.0.51.Final and 4.1.15.Final released</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../../../../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../../../../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../../../../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../../../../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../../../../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../../../../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../../../../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../../../../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../../../../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<div class="news-item" id="main-content">
+<h1>
+Netty 4.0.51.Final and 4.1.15.Final released
+</h1>
+<p class="byline">
+<small>
+by
+<a href="https://github.com/normanmaurer">normanmaurer</a>
+<br>
+on
+<time datetime="2017-08-25">25-Aug-2017</time>
+</small>
+</p>
+<div class="news-content">
+<p>I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
+These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.</p>
+
+<p>With this release we also support ALPN when using Java9 and so you should be able to use HTTP/2 without the need of using any native SSL implementation.
+That said using a native SSL implementation may still be beneficially for maximal performance.</p>
+
+<p>The most important changes for 4.0.51.Final and 4.1.15.Final are:</p>
+
+<ul>
+<li>Support JDK9-native ALPN (<a href="https://github.com/netty/netty/pull/7126">#7126</a>)</li>
+<li>More bullet-proof way of detecting if ipv6 is supported or not when using the native transport (<a href="https://github.com/netty/netty/pull/7022">#7022</a>)</li>
+<li>DelegatingSslContext should also be able to configure the SslHandler (<a href="https://github.com/netty/netty/pull/7135">#7135</a>)</li>
+<li>Netty 4.1.14.Final fails to load on android (<a href="https://github.com/netty/netty/issues/7117">#7117</a>)</li>
+<li>Include JNIEXPORT on exported symbols (<a href="https://github.com/netty/netty/pull/7127">#7127</a>)</li>
+<li>Unify KQueue and Epoll wait timeout approach (<a href="https://github.com/netty/netty/pull/7042">#7042</a>)</li>
+<li>Make NativeLibraryLoader check java.library.path first (<a href="https://github.com/netty/netty/pull/7102">#7102</a>)</li>
+<li>Use the ByteBufAllocator when copy a ReadOnlyByteBufferBuf and so also be able to release it without the GC when the Cleaner is present (<a href="https://github.com/netty/netty/pull/7107">#7107</a>)</li>
+<li>Ensure netty builds with java9 (build 9+181) (<a href="https://github.com/netty/netty/pull/7106">#7106</a>)</li>
+<li>Make configurable the initial and max size of <code>InternalThreadLocal.stringBuilder</code> (<a href="https://github.com/netty/netty/pull/7093">#7093</a>)</li>
+<li>Fix endless loop in ByteBufUtil#writeAscii (<a href="https://github.com/netty/netty/pull/7096">#7096</a>)</li>
+<li>Correctly support SO_TIMEOUT for OioDatagramChannel (<a href="https://github.com/netty/netty/pull/7046">#7046</a>)</li>
+<li>Ensure we null out the previous set InetAddress on java.net.DatagramPacket (<a href="https://github.com/netty/netty/pull/7064">#7064</a>)</li>
+<li>Correctly handle connect/disconnect in EpollDatagramChannel (<a href="https://github.com/netty/netty/pull/6193">#6193</a>)</li>
+<li>Shutting down the outbound side of the channel should not accept future writes (<a href="https://github.com/netty/netty/pull/7041">#7041</a>)</li>
+</ul>
+
+
+<p>The most important changes for 4.1.15.Final only are:</p>
+
+<ul>
+<li>Decouple DnsCache and DnsCacheEntry (<a href="https://github.com/netty/netty/pull/7129">#7129</a>)</li>
+<li>KQueue detect peer close without EVFILT_READ (<a href="https://github.com/netty/netty/pull/7124">#7124</a>)</li>
+<li>Support the little endian floats and doubles by ByteBuf (<a href="https://github.com/netty/netty/pull/7099">#7099</a>)</li>
+<li>We should prefer heap buffers when using the OIO transport to reduce memory copies (<a href="https://github.com/netty/netty/pull/7065">#7065</a>)</li>
+<li>First call channelReadComplete(...) before flush(...) for better performance (<a href="https://github.com/netty/netty/pull/7031">#7031</a>)</li>
+<li>HTTP/2 Child Channel and FrameCodec Feature Parity (<a href="https://github.com/netty/netty/pull/6896">#6896</a>)</li>
+</ul>
+
+
+<p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.51.Final">4.0.51.Final</a> and <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.15.Final">4.1.15.Final</a>.</p>
+
+<p>All changes that are in 4.0.51.Final are also included in 4.1.15.Final. All changes only have milestone 4.1.15.Final do not affect 4.0.51.Final.</p>
+
+<p>As always, please let us know if you find any issues. We love feedback!</p>
+
+<h2>More feature complete new HTTP/2 API</h2>
+
+<p>A while a go we started to implement a new HTTP/2 API which tries to make writing HTTP/2 code easier when using Netty. For this API we basically create a new Channel per HTTP/2 stream and so each HTTP/2 stream will have its own ChannelPipeline. This allows reuse of existing ChannelHandlers and also feels more "netty-like" in general.</p>
+
+<p>For more detail how to use this API please have a look at the <a href="https://github.com/netty/netty/blob/4.1/codec-http2/src/main/java/io/netty/handler/codec/http2/Http2MultiplexCodec.java">Http2MultiplexCodec</a>, and also the <a href="https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/http2/helloworld/multiplex/server">Http2 multiple examples</a>.</p>
+
+<p>That said we are not planing to remove the "old" API anytime soon but working on improving the "new" API with the end-goal of eventually replacing the "old" completely at some point.
+Please give it a try and let us know how it works for you.</p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/alobodzki">@alobodzki</a></li>
+<li><a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a></li>
+<li><a href="https://github.com/doom369">@doom369</a></li>
+<li><a href="https://github.com/dschobel">@dschobel</a></li>
+<li><a href="https://github.com/ejona86">@ejona86</a></li>
+<li><a href="https://github.com/eun-ice">@eun-ice</a></li>
+<li><a href="https://github.com/fenik17">@fenik17</a></li>
+<li><a href="https://github.com/jayv">@jayv</a></li>
+<li><a href="https://github.com/johnou">@johnou</a></li>
+<li><a href="https://github.com/lime62">@lime62</a></li>
+<li><a href="https://github.com/liuhualh">@liuhualh</a></li>
+<li><a href="https://github.com/louxiu">@louxiu</a></li>
+<li><a href="https://github.com/michaelandrepearce">@michaelandrepearce</a></li>
+<li><a href="https://github.com/MKudo">@MKudo</a></li>
+<li><a href="https://github.com/mrniko">@mrniko</a></li>
+<li><a href="https://github.com/nhnFreespirit">@nhnFreespirit</a></li>
+<li><a href="https://github.com/nitsanw">@nitsanw</a></li>
+<li><a href="https://github.com/nmittler">@nmittler</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/perezd">@perezd</a></li>
+<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
+<li><a href="https://github.com/rschmitt">@rschmitt</a></li>
+<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
+<li><a href="https://github.com/trustin">@trustin</a></li>
+<li><a href="https://github.com/violetagg">@violetagg</a></li>
+</ul>
+
+
+</div>
+<ul class="pager">
+<li class="previous">
+<a href="../../../../news/2017/08/03/4-0-50-Final-4-1-14-Final.html">&larr; Older</a>
+</li>
+<li>
+<a href="../../../index.html">List all news items</a>
+</li>
+<li class="next">
+<a href="../../../../news/2017/09/25/4-0-52-Final-4-1-16-Final.html">Newer &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="comments">
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'netty0';
+            var disqus_url = "http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html";
+            var disqus_developer = null;
+            var disqus_identifier = "news/2017-08-25-4-0-51-Final-4-1-15-Final";
+            (function() {
+              var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+          
+</div>
+</div>
+<div class="col-md-3">
+<div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../../../../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

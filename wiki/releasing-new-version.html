@@ -1,422 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <title>Netty.docs: Releasing new version</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link href="../images/favicon.ico" rel="shortcut icon">
-    <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
-    <style>
-      body {
-        padding-top: 60px;
-      }
-    </style>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
-    <script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
-    <script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
-    <link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
-    <link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
-    <link href="../lib/common.css" rel="stylesheet" type="text/css">
-    <script src="../lib/common.js" type="text/javascript"></script>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <a class="sr-only" href="#content" id="top">Skip navigation</a>
-    <nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../index.html">
-            <span class="navbar-brand-logo"></span>
-            Netty project
-          </a>
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: Releasing new version</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2020/01/13/4-1-45-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.45.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.45.Final
+<small>&dash; 13-Jan-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>Releasing new version</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/Releasing-new-version">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/Releasing-new-version">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
+        <div class="markdown-body">
+          <h2 id="wiki-h2-0">
+<a id="user-content-before-getting-started" class="anchor" href="#before-getting-started" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before getting started</h2>
+<ul>
+<li>
+<p><a href="http://central.sonatype.org/pages/ossrh-guide.html" rel="nofollow">Read the OSSRH guide from Sonatype.</a></p>
+</li>
+<li>
+<p><a href="https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven" rel="nofollow">Create a GnuPG key to sign the artifacts.</a></p>
+</li>
+<li>
+<p>Configure your <code>~/.m2/settings.xml</code> contains the following configuration:</p>
+<div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;      &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;        &lt;<span class="pl-ent">httpHeaders</span>&gt;&#x000A;          <span class="pl-c"><span class="pl-c">&lt;!--</span></span>&#x000A;<span class="pl-c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="pl-c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="pl-c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="pl-c">          <span class="pl-c">--&gt;</span></span>&#x000A;          &lt;<span class="pl-ent">property</span>&gt;&#x000A;            &lt;<span class="pl-ent">name</span>&gt;User-Agent&lt;/<span class="pl-ent">name</span>&gt;&#x000A;            &lt;<span class="pl-ent">value</span>&gt;Apache-Maven&lt;/<span class="pl-ent">value</span>&gt;&#x000A;          &lt;/<span class="pl-ent">property</span>&gt;&#x000A;        &lt;/<span class="pl-ent">httpHeaders</span>&gt;&#x000A;      &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
+</li>
+</ul>
+<h2 id="wiki-h2-1">
+<a id="user-content-standard-maven-release-procedure" class="anchor" href="#standard-maven-release-procedure" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard Maven release procedure</h2>
+<p>You must be familiar with the standard Maven release procedure, which uses <a href="http://maven.apache.org/maven-release/maven-release-plugin/" rel="nofollow">maven-release-plugin</a>:</p>
+<ol>
+<li>
+<a href="https://docs.sonatype.org/display/Repository/Stage+a+Release" rel="nofollow">Stage the new release</a> into the staging repository.</li>
+<li>Verify the staged files are all good.  If not, <a href="https://docs.sonatype.org/display/Repository/Dropping+a+Staging+Repository" rel="nofollow">drop the staging repository</a> and try again.</li>
+<li>
+<a href="https://docs.sonatype.org/display/Repository/Closing+a+Staging+Repository" rel="nofollow">Close the staging repository</a> so that no more modifications are made into the staging repository.</li>
+<li>
+<a href="https://docs.sonatype.org/display/Repository/Releasing+a+Staging+Repository" rel="nofollow">Release the staging repository</a> so that the new release is synchronized into the Maven central repository.</li>
+</ol>
+<h2 id="wiki-h2-2">
+<a id="user-content-netty-3" class="anchor" href="#netty-3" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty 3</h2>
+<p>Following the standard Maven release procedure should be enough.</p>
+<h2 id="wiki-h2-3">
+<a id="user-content-netty-4-and-beyond" class="anchor" href="#netty-4-and-beyond" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty 4 and beyond</h2>
+<p>The release procedure must be performed from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives" rel="nofollow">RHEL 6 or its derivatives</a> so that we can easily ensure the ABI compatibility of the native libraries we ship. Install <a class="internal present" href="setting-up-development-environment#install-the-necessary-build-tools.html">the required packages</a> as well.</p>
+<h2 id="wiki-h2-4">
+<a id="user-content-nettytomcatnative" class="anchor" href="#nettytomcatnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a>
+</h2>
+<p>Because we ship both Linux and Mac OS X artifacts, the release procedure is even more complicated.</p>
+<ol>
+<li>
+<p>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives" rel="nofollow">RHEL 6 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet. Write down the repository name which was used for staging (like onetty-1102).</p>
+</li>
+<li>
+<p>On your Mac OS X and 64-bit Windows, whose build environment is set up as documented <a class="internal present" href="forked-tomcat-native.html">here</a>, run the following commands to deploy the release artifacts to the staging repository:</p>
+<pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release -DskipAll=true clean package gpg:sign org.sonatype.plugins:nexus-staging-maven-plugin:deploy \\ &#x000A;-DstagingRepositoryId=ionetty-1102 -DnexusUrl=https://oss.sonatype.org -DserverId=sonatype-nexus-staging&#x000A;... The artifact with OSX or Windows native library will be deployed. ...&#x000A;... Please replace ionetty-1102 with the correct id.  ...&#x000A;</code></pre>
+</li>
+<li>
+<p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p>
+</li>
+<li>
+<p>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</p>
+</li>
+</ol>
+<h2 id="wiki-h2-5">
+<a id="user-content-close-the-milestone-in-github" class="anchor" href="#close-the-milestone-in-github" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Close the milestone in Github</h2>
+<p>Go <a href="https://github.com/netty/netty/milestones">here</a> to close the released milestone.</p>
+<h2 id="wiki-h2-6">
+<a id="user-content-upload-a-tarball" class="anchor" href="#upload-a-tarball" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upload a tarball</h2>
+<p>We use <a href="https://bintray.com/netty/downloads/netty/view" rel="nofollow">bintray.com</a> for hosting tarballs.</p>
+<ol>
+<li>Log in with your account.</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/new/version" rel="nofollow">Add a new version</a>.
+<ol>
+<li>Type the version number and release date.  Note that the release date format is <code>dd/mm/yyyy</code>.</li>
+<li>Click the 'Create Version' button.</li>
+</ol>
+</li>
+<li>Put additional information to the newly created version.
+<ol>
+<li>Type the name of the Git tag in the 'VCS tag' field. (e.g. <code>netty-4.1.0.Beta1</code>)</li>
+<li>Click the 'Update Version' button.</li>
+</ol>
+</li>
+<li>Go to <a href="https://bintray.com/netty/downloads/netty/view" rel="nofollow">the download page</a>.</li>
+<li>Click the link to the version you've just created, which will lead you to the version page.</li>
+<li>Upload the tarball file.
+<ol>
+<li>Click the 'Upload Files' link.</li>
+<li>Upload the tarball file (e.g. <code>netty-4.1.0.Beta1.tar.bz2</code>) by dragging and dropping the file into the 'Drag files here' area.</li>
+<li>Click the 'Save Changes' button once the upload is finished.</li>
+</ol>
+</li>
+<li>Publish the tarball file.
+<ol>
+<li>Bintray will warn you that you have 1 unpublished item. Click the 'Publish' button.</li>
+</ol>
+</li>
+<li>Add the published tarball to the download list.
+<ol>
+<li>You've uploaded the tarball successfully, but the page will say 'No direct downloads selected for this package.'  It is because you did not make the tarball file visible in the download list.</li>
+<li>Click the 'Files' tab.  You will see the tarball file you've uploaded.</li>
+<li>Move your mouse cursor over the 'Actions' link of the tarball file, which will display a submenu.</li>
+<li>Click the 'Show in download list'.</li>
+<li>Now go back to the 'General' tab. Your tarball should be visible in the direct download list.</li>
+</ol>
+</li>
+</ol>
+<h2 id="wiki-h2-7">
+<a id="user-content-update-the-new-and-noteworthy-page" class="anchor" href="#update-the-new-and-noteworthy-page" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update the 'new and noteworthy' page</h2>
+<p>We have a dedicated 'new and noteworthy' page for each minor versions.  Add or update it if necessary.  If you added one, add it also to <a class="internal present" href="new-and-noteworthy.html">New and noteworthy</a> list.</p>
+<h2 id="wiki-h2-8">
+<a id="user-content-update-the-web-site" class="anchor" href="#update-the-web-site" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update the web site</h2>
+<p>Our official web site is built with <a href="http://awestruct.org/" rel="nofollow">Awestruct</a>. Please make sure you are familiar with Awestruct and its related markup languages such as <a href="http://haml.info/" rel="nofollow">HAML</a> and Markdown.</p>
+<p>If you did not yet, clone the web site project:</p>
+<pre><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre>
+<p><code>_config/site.yml</code> contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
+<pre><code>releases:&#x000A;  - version: 5.0.0.Alpha1&#x000A;    date: 22-Dec-2013&#x000A;    stable: false&#x000A;    branch: master&#x000A;  - version: 4.0.21.Final&#x000A;    date: 01-Jul-2014&#x000A;    stable: true&#x000A;  - version: 3.9.2.Final&#x000A;    date: 11-Jun-2014&#x000A;    stable: true&#x000A;</code></pre>
+<p>Update it with the new version number and release date.  You could also update the stability and the Git branch if necessary.</p>
+<p>Try to generate the web site to confirm that the new version shows up in the generated web site.  The generated web site is located in the <code>_site</code> directory and you can browse it from your favorite web browser by opening <code>_site/index.html</code>.</p>
+<pre><code>_bin/clean.sh&#x000A;_bin/generate.sh&#x000A;</code></pre>
+<p>Update the Javadoc and Xref to the latest one.  You can copy them from your <code>netty/target/checkout/all/target</code> directory:</p>
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> 4.1 <span class="pl-c"><span class="pl-c">#</span> or the version you are working on</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/api <span class="pl-c1">.</span>  <span class="pl-c"><span class="pl-c">#</span> Note no trailing slash!</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/xref <span class="pl-c1">.</span> <span class="pl-c"><span class="pl-c">#</span> Note no trailing slash!</span>&#x000A;git add -A <span class="pl-c1">.</span>&#x000A;<span class="pl-c1">cd</span> ..</pre></div>
+<p>Also, don't forget to add <code>_config/site.yml</code> we updated to the Git index when you commit:</p>
+<pre><code>git add _config/site.yml&#x000A;git commit -m "Release 4.1.0.Beta1"&#x000A;git push&#x000A;</code></pre>
+<p>Now you are ready to push the web site:</p>
+<pre><code>_bin/deploy.sh&#x000A;</code></pre>
+<h2 id="wiki-h2-9">
+<a id="user-content-make-an-announcement" class="anchor" href="#make-an-announcement" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make an announcement</h2>
+<p>Write a blog post.  The blog posts are located in the <code>news</code> directory of the web site project.</p>
+<p>Make sure the file name does not contains a dot (.) or a whitespace (e.g. OK: <code>2014-07-04-4-1-0-Beta1-released.html.md</code> NOT OK: <code>2014-07-04-4.1.0.Beta1-released.html.md</code></p>
+<p>Deploy the new blog post using the <code>_bin/deploy.sh</code> script.</p>
+<p>Once the new blog post is up, make another announcement via your personal Twitter account, and retweet it using our official Twitter account.</p>
+
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a href="../news/2019/12/18/4-1-44-Final.html">
-                News
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../news/index.html">
-                    <i class="fa fa-archive"></i>
-                    Archive
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../downloads.html">
-                Downloads
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.1.44.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.1.44.Final
-                    <small>&dash; 18-Dec-2019</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    4.0.56.Final
-                    <small>&dash; 05-Feb-2018</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
-                    <i class="fa fa-cloud-download"></i>
-                    3.10.6.Final
-                    <small>&dash; 29-Jun-2016</small>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tldrlegal.com/l/APACHE2">
-                    <i class="fa fa-gavel"></i>
-                    Apache License 2.0
-                  </a>
-                </li>
-                <li>
-                  <a href="https://bintray.com/netty/downloads/netty/">
-                    <i class="fa fa-archive"></i>
-                    Previous Releases
-                  </a>
-                </li>
-                <li>
-                  <a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
-                    <i class="fa fa-flask"></i>
-                    Nightly Builds
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../wiki/index.html">
-                Documentation
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="../wiki/user-guide.html">
-                    <i class="fa fa-book"></i>
-                    User guide
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.1/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.1
-                  </a>
-                </li>
-                <li>
-                  <a href="../4.0/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 4.0
-                  </a>
-                </li>
-                <li>
-                  <a href="../3.10/api/index.html">
-                    <i class="fa fa-file-text"></i>
-                    Javadoc - 3.10
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/all-documents.html">
-                    <i class="fa fa-list"></i>
-                    All Documents
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-articles.html">
-                    <i class="fa fa-bookmark"></i>
-                    Related Articles
-                  </a>
-                </li>
-                <li class="hidden-xs" id="bookpromo-dropdown">
-                  <a href="https://www.manning.com/maurer/">
-                    <img src="../images/netty-in-action.gif">
-                    <br>
-                    <small>
-                      Use code <strong>mlnettyco</strong>
-                      <br>
-                      for a 37% discount!
-                    </small>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="../community.html">
-                Get Involved
-              </a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="https://github.com/netty/netty">
-                    <i class="fa fa-github-square"></i>
-                    Github
-                  </a>
-                </li>
-                <li>
-                  <a href="https://stackoverflow.com/questions/tagged/netty">
-                    <i class="fa fa-stack-overflow"></i>
-                    StackOverflow
-                  </a>
-                </li>
-                <li>
-                  <a href="https://twitter.com/netty_project">
-                    <i class="fa fa-twitter-square"></i>
-                    @netty_project
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/developer-guide.html">
-                    <i class="fa fa-cogs"></i>
-                    Developer Guide
-                  </a>
-                </li>
-                <li>
-                  <a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
-                    <i class="fa fa-comment"></i>
-                    IRC Chat
-                  </a>
-                </li>
-                <li>
-                  <a href="../sponsor/thanks.html">
-                    <i class="fa fa-usd"></i>
-                    Sponsors
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/adopters.html">
-                    <i class="fa fa-users"></i>
-                    Adopters
-                  </a>
-                </li>
-                <li>
-                  <a href="../wiki/related-projects.html">
-                    <i class="fa fa-chain"></i>
-                    Related Projects
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li class="visible-xs" id="bookpromo-nav">
-              <a href="https://www.manning.com/maurer/">
-                <img src="../images/netty-in-action.gif">
-                <br>
-                <small>
-                  Use code <strong>mlnettyco</strong>
-                  <br>
-                  for a 37% discount!
-                </small>
-              </a>
-            </li>
-            <li>
-              <a href="https://feeds.feedburner.com/netty_project">
-                <i class="fa fa-rss"></i>
-              </a>
-            </li>
-          </ul>
-          <form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
-            <div class="form-group">
-              <input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
-            </div>
-          </form>
-        </div>
-      </div>
-    </nav>
-    <div id="content">
-      <div class="container">
-        <div class="wiki-item">
-          <h1>Releasing new version</h1>
-          <div class="alert alert-info">
-            Did you know this page is automatically generated from
-            <a href="https://github.com/netty/netty/wiki/Releasing-new-version">a Github Wiki page?</a>
-            You can improve it by yourself
-            <a href="https://github.com/netty/netty/wiki/Releasing-new-version">here!</a>
-          </div>
-          <div class="row">
-          <div class="col-md-9">
-          <div id="wiki-body" class="mt-4 flex-auto min-width-0 gollum-markdown-content">
-                  <div class="markdown-body">
-                    <h2 id="wiki-h2-0">
-          <a id="user-content-before-getting-started" class="anchor" href="#before-getting-started" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Before getting started</h2>
-          <ul>
-          <li>
-          <p><a href="http://central.sonatype.org/pages/ossrh-guide.html" rel="nofollow">Read the OSSRH guide from Sonatype.</a></p>
-          </li>
-          <li>
-          <p><a href="https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven" rel="nofollow">Create a GnuPG key to sign the artifacts.</a></p>
-          </li>
-          <li>
-          <p>Configure your <code>~/.m2/settings.xml</code> contains the following configuration:</p>
-          <div class="highlight highlight-text-xml"><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;      &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;        &lt;<span class="pl-ent">httpHeaders</span>&gt;&#x000A;          <span class="pl-c"><span class="pl-c">&lt;!--</span></span>&#x000A;<span class="pl-c">            Override User-Agent header which is used when deploying an artifact</span>&#x000A;<span class="pl-c">            so that Sonatype Nexus does not create multiple staging repositories</span>&#x000A;<span class="pl-c">            when artifacts are deployed from different platforms (e.g. Linux and OSX).</span>&#x000A;<span class="pl-c">          <span class="pl-c">--&gt;</span></span>&#x000A;          &lt;<span class="pl-ent">property</span>&gt;&#x000A;            &lt;<span class="pl-ent">name</span>&gt;User-Agent&lt;/<span class="pl-ent">name</span>&gt;&#x000A;            &lt;<span class="pl-ent">value</span>&gt;Apache-Maven&lt;/<span class="pl-ent">value</span>&gt;&#x000A;          &lt;/<span class="pl-ent">property</span>&gt;&#x000A;        &lt;/<span class="pl-ent">httpHeaders</span>&gt;&#x000A;      &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
-          </li>
-          </ul>
-          <h2 id="wiki-h2-1">
-          <a id="user-content-standard-maven-release-procedure" class="anchor" href="#standard-maven-release-procedure" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard Maven release procedure</h2>
-          <p>You must be familiar with the standard Maven release procedure, which uses <a href="http://maven.apache.org/maven-release/maven-release-plugin/" rel="nofollow">maven-release-plugin</a>:</p>
-          <ol>
-          <li>
-          <a href="https://docs.sonatype.org/display/Repository/Stage+a+Release" rel="nofollow">Stage the new release</a> into the staging repository.</li>
-          <li>Verify the staged files are all good.  If not, <a href="https://docs.sonatype.org/display/Repository/Dropping+a+Staging+Repository" rel="nofollow">drop the staging repository</a> and try again.</li>
-          <li>
-          <a href="https://docs.sonatype.org/display/Repository/Closing+a+Staging+Repository" rel="nofollow">Close the staging repository</a> so that no more modifications are made into the staging repository.</li>
-          <li>
-          <a href="https://docs.sonatype.org/display/Repository/Releasing+a+Staging+Repository" rel="nofollow">Release the staging repository</a> so that the new release is synchronized into the Maven central repository.</li>
-          </ol>
-          <h2 id="wiki-h2-2">
-          <a id="user-content-netty-3" class="anchor" href="#netty-3" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty 3</h2>
-          <p>Following the standard Maven release procedure should be enough.</p>
-          <h2 id="wiki-h2-3">
-          <a id="user-content-netty-4-and-beyond" class="anchor" href="#netty-4-and-beyond" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Netty 4 and beyond</h2>
-          <p>The release procedure must be performed from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives" rel="nofollow">RHEL 6 or its derivatives</a> so that we can easily ensure the ABI compatibility of the native libraries we ship. Install <a class="internal present" href="setting-up-development-environment#install-the-necessary-build-tools.html">the required packages</a> as well.</p>
-          <h2 id="wiki-h2-4">
-          <a id="user-content-nettytomcatnative" class="anchor" href="#nettytomcatnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a>
-          </h2>
-          <p>Because we ship both Linux and Mac OS X artifacts, the release procedure is even more complicated.</p>
-          <ol>
-          <li>
-          <p>Perform a release from 64-bit <a href="http://en.wikipedia.org/wiki/Red_Hat_Enterprise_Linux_derivatives" rel="nofollow">RHEL 6 or its derivatives</a> like you did for Netty 4.  However, do not close the staging repository just yet. Write down the repository name which was used for staging (like onetty-1102).</p>
-          </li>
-          <li>
-          <p>On your Mac OS X and 64-bit Windows, whose build environment is set up as documented <a class="internal present" href="forked-tomcat-native.html">here</a>, run the following commands to deploy the release artifacts to the staging repository:</p>
-          <pre><code>$ git checkout netty-tcnative-[version]&#x000A;... You'll get a warning about detached HEAD ...&#x000A;$ mvn -Psonatype-oss-release -DskipAll=true clean package gpg:sign org.sonatype.plugins:nexus-staging-maven-plugin:deploy \\ &#x000A;-DstagingRepositoryId=ionetty-1102 -DnexusUrl=https://oss.sonatype.org -DserverId=sonatype-nexus-staging&#x000A;... The artifact with OSX or Windows native library will be deployed. ...&#x000A;... Please replace ionetty-1102 with the correct id.  ...&#x000A;</code></pre>
-          </li>
-          <li>
-          <p>Make sure both the Linux, Mac OS X, and Windows artifacts have been deployed into the same staging repositories.  If they are deployed into two or three different staging repositories, drop them all and figure out what was the problem.</p>
-          </li>
-          <li>
-          <p>If all three JARs (e.g. <code>netty-tcnative-1.1.30.Fork1-linux-x86_64.jar</code>, <code>netty-tcnative-1.1.30.Fork1-osx-x86_64.jar</code>, and <code>netty-tcnative-1.1.30-Fork1-windows-x86_64.jar</code>) exist in the same staging repository, close and release the staging repository.</p>
-          </li>
-          </ol>
-          <h2 id="wiki-h2-5">
-          <a id="user-content-close-the-milestone-in-github" class="anchor" href="#close-the-milestone-in-github" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Close the milestone in Github</h2>
-          <p>Go <a href="https://github.com/netty/netty/milestones">here</a> to close the released milestone.</p>
-          <h2 id="wiki-h2-6">
-          <a id="user-content-upload-a-tarball" class="anchor" href="#upload-a-tarball" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Upload a tarball</h2>
-          <p>We use <a href="https://bintray.com/netty/downloads/netty/view" rel="nofollow">bintray.com</a> for hosting tarballs.</p>
-          <ol>
-          <li>Log in with your account.</li>
-          <li>
-          <a href="https://bintray.com/netty/downloads/netty/new/version" rel="nofollow">Add a new version</a>.
-          <ol>
-          <li>Type the version number and release date.  Note that the release date format is <code>dd/mm/yyyy</code>.</li>
-          <li>Click the 'Create Version' button.</li>
-          </ol>
-          </li>
-          <li>Put additional information to the newly created version.
-          <ol>
-          <li>Type the name of the Git tag in the 'VCS tag' field. (e.g. <code>netty-4.1.0.Beta1</code>)</li>
-          <li>Click the 'Update Version' button.</li>
-          </ol>
-          </li>
-          <li>Go to <a href="https://bintray.com/netty/downloads/netty/view" rel="nofollow">the download page</a>.</li>
-          <li>Click the link to the version you've just created, which will lead you to the version page.</li>
-          <li>Upload the tarball file.
-          <ol>
-          <li>Click the 'Upload Files' link.</li>
-          <li>Upload the tarball file (e.g. <code>netty-4.1.0.Beta1.tar.bz2</code>) by dragging and dropping the file into the 'Drag files here' area.</li>
-          <li>Click the 'Save Changes' button once the upload is finished.</li>
-          </ol>
-          </li>
-          <li>Publish the tarball file.
-          <ol>
-          <li>Bintray will warn you that you have 1 unpublished item. Click the 'Publish' button.</li>
-          </ol>
-          </li>
-          <li>Add the published tarball to the download list.
-          <ol>
-          <li>You've uploaded the tarball successfully, but the page will say 'No direct downloads selected for this package.'  It is because you did not make the tarball file visible in the download list.</li>
-          <li>Click the 'Files' tab.  You will see the tarball file you've uploaded.</li>
-          <li>Move your mouse cursor over the 'Actions' link of the tarball file, which will display a submenu.</li>
-          <li>Click the 'Show in download list'.</li>
-          <li>Now go back to the 'General' tab. Your tarball should be visible in the direct download list.</li>
-          </ol>
-          </li>
-          </ol>
-          <h2 id="wiki-h2-7">
-          <a id="user-content-update-the-new-and-noteworthy-page" class="anchor" href="#update-the-new-and-noteworthy-page" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update the 'new and noteworthy' page</h2>
-          <p>We have a dedicated 'new and noteworthy' page for each minor versions.  Add or update it if necessary.  If you added one, add it also to <a class="internal present" href="new-and-noteworthy.html">New and noteworthy</a> list.</p>
-          <h2 id="wiki-h2-8">
-          <a id="user-content-update-the-web-site" class="anchor" href="#update-the-web-site" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Update the web site</h2>
-          <p>Our official web site is built with <a href="http://awestruct.org/" rel="nofollow">Awestruct</a>. Please make sure you are familiar with Awestruct and its related markup languages such as <a href="http://haml.info/" rel="nofollow">HAML</a> and Markdown.</p>
-          <p>If you did not yet, clone the web site project:</p>
-          <pre><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre>
-          <p><code>_config/site.yml</code> contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
-          <pre><code>releases:&#x000A;  - version: 5.0.0.Alpha1&#x000A;    date: 22-Dec-2013&#x000A;    stable: false&#x000A;    branch: master&#x000A;  - version: 4.0.21.Final&#x000A;    date: 01-Jul-2014&#x000A;    stable: true&#x000A;  - version: 3.9.2.Final&#x000A;    date: 11-Jun-2014&#x000A;    stable: true&#x000A;</code></pre>
-          <p>Update it with the new version number and release date.  You could also update the stability and the Git branch if necessary.</p>
-          <p>Try to generate the web site to confirm that the new version shows up in the generated web site.  The generated web site is located in the <code>_site</code> directory and you can browse it from your favorite web browser by opening <code>_site/index.html</code>.</p>
-          <pre><code>_bin/clean.sh&#x000A;_bin/generate.sh&#x000A;</code></pre>
-          <p>Update the Javadoc and Xref to the latest one.  You can copy them from your <code>netty/target/checkout/all/target</code> directory:</p>
-          <div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> 4.1 <span class="pl-c"><span class="pl-c">#</span> or the version you are working on</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/api <span class="pl-c1">.</span>  <span class="pl-c"><span class="pl-c">#</span> Note no trailing slash!</span>&#x000A;rsync -aiP --delete <span class="pl-k">~</span>/Workspace/netty/target/checkout/all/target/xref <span class="pl-c1">.</span> <span class="pl-c"><span class="pl-c">#</span> Note no trailing slash!</span>&#x000A;git add -A <span class="pl-c1">.</span>&#x000A;<span class="pl-c1">cd</span> ..</pre></div>
-          <p>Also, don't forget to add <code>_config/site.yml</code> we updated to the Git index when you commit:</p>
-          <pre><code>git add _config/site.yml&#x000A;git commit -m "Release 4.1.0.Beta1"&#x000A;git push&#x000A;</code></pre>
-          <p>Now you are ready to push the web site:</p>
-          <pre><code>_bin/deploy.sh&#x000A;</code></pre>
-          <h2 id="wiki-h2-9">
-          <a id="user-content-make-an-announcement" class="anchor" href="#make-an-announcement" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Make an announcement</h2>
-          <p>Write a blog post.  The blog posts are located in the <code>news</code> directory of the web site project.</p>
-          <p>Make sure the file name does not contains a dot (.) or a whitespace (e.g. OK: <code>2014-07-04-4-1-0-Beta1-released.html.md</code> NOT OK: <code>2014-07-04-4.1.0.Beta1-released.html.md</code></p>
-          <p>Deploy the new blog post using the <code>_bin/deploy.sh</code> script.</p>
-          <p>Once the new blog post is up, make another announcement via your personal Twitter account, and retweet it using our official Twitter account.</p>
-          
-                  </div>
-          
-              </div></div>
-          <div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
-          <div class="toc well">
-          <ul class="nav nav-list nav-stacked">
-          <li class="nav-header">Table of Contents
-          </li><li><a href="#wiki-h2-0" title="Before getting started">Before getting started</a>
-          </li><li><a href="#wiki-h2-1" title="Standard Maven release procedure">Standard Maven release procedure</a>
-          </li><li><a href="#wiki-h2-2" title="Netty 3">Netty 3</a>
-          </li><li><a href="#wiki-h2-3" title="Netty 4 and beyond">Netty 4 and beyond</a>
-          </li><li><a href="#wiki-h2-4" title="Netty/TomcatNative">Netty/TomcatNative</a>
-          </li><li><a href="#wiki-h2-5" title="Close the milestone in Github">Close the milestone in Github</a>
-          </li><li><a href="#wiki-h2-6" title="Upload a tarball">Upload a tarball</a>
-          </li><li><a href="#wiki-h2-7" title="Update the &apos;new and noteworthy&apos; page">Update the &apos;new and noteworthy&apos; page</a>
-          </li><li><a href="#wiki-h2-8" title="Update the web site">Update the web site</a>
-          </li><li><a href="#wiki-h2-9" title="Make an announcement">Make an announcement</a>
-          <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-10" title="Pages 27">Pages 27</a>
-          </li></ul>
-          </li></ul>
-          </div>
-          </div>
-          </div>
-          <div class="row">
-            <div class="col-md-9">
-              <div class="text-right">
-                <small>Last retrieved on 18-Dec-2019</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <hr>
-      <div id="footer">
-        <p>
-          Copyright &copy; 2019
-          <a href="../index.html">The Netty project</a>
-        </p>
-      </div>
-    </div>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../lib/common.footer.js" type="text/javascript"></script>
-  
+
+    </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="Before getting started">Before getting started</a>
+</li><li><a href="#wiki-h2-1" title="Standard Maven release procedure">Standard Maven release procedure</a>
+</li><li><a href="#wiki-h2-2" title="Netty 3">Netty 3</a>
+</li><li><a href="#wiki-h2-3" title="Netty 4 and beyond">Netty 4 and beyond</a>
+</li><li><a href="#wiki-h2-4" title="Netty/TomcatNative">Netty/TomcatNative</a>
+</li><li><a href="#wiki-h2-5" title="Close the milestone in Github">Close the milestone in Github</a>
+</li><li><a href="#wiki-h2-6" title="Upload a tarball">Upload a tarball</a>
+</li><li><a href="#wiki-h2-7" title="Update the &apos;new and noteworthy&apos; page">Update the &apos;new and noteworthy&apos; page</a>
+</li><li><a href="#wiki-h2-8" title="Update the web site">Update the web site</a>
+</li><li><a href="#wiki-h2-9" title="Make an announcement">Make an announcement</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-10" title="Pages 27">Pages 27</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 13-Jan-2020</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
