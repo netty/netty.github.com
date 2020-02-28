@@ -2,13 +2,105 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-01-13T15:55:23+01:00</updated>
+<updated>2020-02-28T11:17:19+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
 <entry>
+<id>http://netty.io/news/2020/02/28/4-1-46-Final.html</id>
+<title>Netty 4.1.46.Final released</title>
+<updated>2020-02-28T11:17:19+01:00</updated>
+<published>2020-02-28T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/02/28/4-1-46-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.46.Final, our second release of 2020. This is mostly a bug-fix release but also include a few new functionalities.
+
+For more details please read-on.
+
+The most important changes in this release are:
+
+
+Fix snappy crc32c checksum (#10048)
+Add SslHandshakeTimeoutException and use it for handshake timeouts (#10062)
+Correctly calculate the produced bytes in all cases when calling ReferenceCountedOpenSslEngine.wrap(...) (#10063)
+More strict parsing of initial line / http headers (#10058)
+Correctly handle lifecycle of clientHello ByteBuf in SslClientHelloHandler (#10030)
+HTTP/2 child channel may discard flush when done from an arbitrary thread (#10019)
+Remove "Content-Length" when decoding HTTP/1.1 message with both "Transfer-Encoding: chunked"...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.46.Final, our second release of 2020. This is mostly a bug-fix release but also include a few new functionalities.&lt;/p&gt;
+
+&lt;p&gt;For more details please read-on.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix snappy crc32c checksum (&lt;a href=&quot;https://github.com/netty/netty/pull/10048&quot;&gt;#10048&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add SslHandshakeTimeoutException and use it for handshake timeouts (&lt;a href=&quot;https://github.com/netty/netty/pull/10062&quot;&gt;#10062&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Correctly calculate the produced bytes in all cases when calling ReferenceCountedOpenSslEngine.wrap(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/10063&quot;&gt;#10063&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;More strict parsing of initial line / http headers (&lt;a href=&quot;https://github.com/netty/netty/pull/10058&quot;&gt;#10058&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Correctly handle lifecycle of clientHello ByteBuf in SslClientHelloHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/10030&quot;&gt;#10030&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;HTTP/2 child channel may discard flush when done from an arbitrary thread (&lt;a href=&quot;https://github.com/netty/netty/pull/10019&quot;&gt;#10019&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Remove &quot;Content-Length&quot; when decoding HTTP/1.1 message with both &quot;Transfer-Encoding: chunked&quot; and &quot;Content-Length&quot; (&lt;a href=&quot;https://github.com/netty/netty/pull/10003&quot;&gt;#10003&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DefaultHttp2ConnectionDecoder notifies frame listener before connection of GOAWAYs (&lt;a href=&quot;https://github.com/netty/netty/pull/10009&quot;&gt;#10009&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure ChannelOptions are applied in the same order as configured in *Bootstrap (&lt;a href=&quot;https://github.com/netty/netty/pull/9998&quot;&gt;#9998&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Copy IPV6-mapped-IPV4 addresses correctly in native code (&lt;a href=&quot;https://github.com/netty/netty/pull/9996&quot;&gt;#9996&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add SslClientHelloHandler which allows to do something based on the SSL ClientHello (&lt;a href=&quot;https://github.com/netty/netty/pull/9827&quot;&gt;#9827&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;SslHandler.wrap(...) must ensure it not loose the original exception when finishWrap(...) fails (&lt;a href=&quot;https://github.com/netty/netty/pull/9974&quot;&gt;#9974&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add ResolveAddressHandler which can be used to resolve addresses on the fly (&lt;a href=&quot;https://github.com/netty/netty/pull/9947&quot;&gt;#9947&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/221?closed=1&quot;&gt;4.1.46.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/andyxning&quot;&gt;@andyxning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/asalamon74&quot;&gt;@asalamon74&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/atcurtis&quot;&gt;@atcurtis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/artem-smotrakov&quot;&gt;@artem-smotrakov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/bergerst&quot;&gt;@bergerst&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyeonisism&quot;&gt;@hyeonisism&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ilopmar&quot;&gt;@ilopmar&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kbeckmann&quot;&gt;@kbeckmann&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kyze8439690&quot;&gt;@kyze8439690&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/LinShunKang&quot;&gt;@LinShunKang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/rdicroce&quot;&gt;@rdicroce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/seedeed&quot;&gt;@seedeed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/spencergibb&quot;&gt;@spencergibb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/subbarao&quot;&gt;@subbarao&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vitalybuka&quot;&gt;@vitalybuka&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yuanrw&quot;&gt;@yuanrw&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
+<entry>
 <id>http://netty.io/news/2020/01/13/4-1-45-Final.html</id>
 <title>Netty 4.1.45.Final released</title>
-<updated>2020-01-13T15:55:23+01:00</updated>
+<updated>2020-02-05T10:46:48+01:00</updated>
 <published>2020-01-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/01/13/4-1-45-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -85,7 +177,7 @@ Every idea and bug-report counts and so we thought it is worth mentioning those 
 <entry>
 <id>http://netty.io/news/2019/12/18/4-1-44-Final.html</id>
 <title>Netty 4.1.44.Final released</title>
-<updated>2019-12-18T15:35:34+01:00</updated>
+<updated>2020-02-05T10:46:48+01:00</updated>
 <published>2019-12-18T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/12/18/4-1-44-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -190,7 +282,7 @@ Change DefaultByteBufHolder.equals() to treat instances of different classes as 
 <entry>
 <id>http://netty.io/news/2019/10/24/4-1-43-Final.html</id>
 <title>Netty 4.1.43.Final released</title>
-<updated>2019-10-24T18:30:00+02:00</updated>
+<updated>2020-02-05T10:46:48+01:00</updated>
 <published>2019-10-24T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/10/24/4-1-43-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -280,7 +372,7 @@ Correctly propagate...
 <entry>
 <id>http://netty.io/news/2019/09/25/4-1-42-Final.html</id>
 <title>Netty 4.1.42.Final released</title>
-<updated>2019-09-25T19:22:53+02:00</updated>
+<updated>2020-02-05T10:46:48+01:00</updated>
 <published>2019-09-25T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/09/25/4-1-42-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -354,7 +446,7 @@ Fix...
 <entry>
 <id>http://netty.io/news/2019/09/12/4-1-41-Final.html</id>
 <title>Netty 4.1.41.Final released</title>
-<updated>2019-09-12T19:58:29+02:00</updated>
+<updated>2020-02-05T10:46:48+01:00</updated>
 <published>2019-09-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/09/12/4-1-41-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -501,7 +593,7 @@ bootstrap.group(group)
 <entry>
 <id>http://netty.io/news/2019/08/13/4-1-39-Final.html</id>
 <title>Netty 4.1.39.Final released</title>
-<updated>2019-08-13T20:13:14+02:00</updated>
+<updated>2019-08-13T20:14:03+02:00</updated>
 <published>2019-08-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/08/13/4-1-39-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -588,7 +680,7 @@ Most importantly it fixed multiple HTTP/2 security issues, for more details see 
 <entry>
 <id>http://netty.io/news/2019/07/24/4-1-38-Final.html</id>
 <title>Netty 4.1.38.Final released</title>
-<updated>2019-08-12T14:16:50+02:00</updated>
+<updated>2019-07-24T19:04:36+02:00</updated>
 <published>2019-07-24T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/07/24/4-1-38-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -673,7 +765,7 @@ Allow to disable...
 <entry>
 <id>http://netty.io/news/2019/06/28/4-1-37-Final.html</id>
 <title>Netty 4.1.37.Final released</title>
-<updated>2019-06-28T16:14:03+02:00</updated>
+<updated>2019-06-28T16:14:51+02:00</updated>
 <published>2019-06-28T00:00:00+00:00</published>
 <link href="http://netty.io/news/2019/06/28/4-1-37-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -4625,75 +4717,6 @@ For the details and all...
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/04/02/4-1-0-CR6.html</id>
-<title>Netty 4.1.0.CR6 released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-04-02T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/04/02/4-1-0-CR6.html" rel="alternate" type="text/html" />
-<author>
-<name>trustin</name>
-</author>
-<summary>
-We decided to release another release candidate before going final due to an interoperability issue with our DNS codec. It's only a few days since we released Netty 4.1.0.CR5, so this release contains relatively small number of changes.
-
-The notable changes in this release are:
-
-
-Customizable NIO and epoll select strategy (#4955 and #5044)
-Deprecate WRITE_BUFFER_LOW/HIGH_WATER_MARK in favor of WRITE_BUFFER_WATER_MARK (#5060 and #4858)
-Change the visibility of DefaultChannelId to public (#5057)
-Fix propagation of channelRegistered() event in ChannelInitializer (#4995)
-Fix incorrect name encoding/decoding in DNS records (#5064)
-Fix missing @Sharable annotation in MqttEncoder (#5063)
-Fix the bug where epoll ET with autoRead set to false will leave data...
-</summary>
-<content type="html">
-&lt;p&gt;We decided to release another release candidate before going final due to an interoperability issue with our DNS codec. It&#39;s only a few days since we released Netty 4.1.0.CR5, so this release contains relatively small number of changes.&lt;/p&gt;
-
-&lt;p&gt;The notable changes in this release are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Customizable NIO and epoll select strategy (&lt;a href=&quot;https://github.com/netty/netty/pull/4955&quot;&gt;#4955&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/pull/5044&quot;&gt;#5044&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Deprecate &lt;code&gt;WRITE_BUFFER_LOW/HIGH_WATER_MARK&lt;/code&gt; in favor of &lt;code&gt;WRITE_BUFFER_WATER_MARK&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/5060&quot;&gt;#5060&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/pull/4858&quot;&gt;#4858&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Change the visibility of &lt;code&gt;DefaultChannelId&lt;/code&gt; to public (&lt;a href=&quot;https://github.com/netty/netty/pull/5057&quot;&gt;#5057&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix propagation of &lt;code&gt;channelRegistered()&lt;/code&gt; event in &lt;code&gt;ChannelInitializer&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/4995&quot;&gt;#4995&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix incorrect name encoding/decoding in DNS records (&lt;a href=&quot;https://github.com/netty/netty/pull/5064&quot;&gt;#5064&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix missing &lt;code&gt;@Sharable&lt;/code&gt; annotation in &lt;code&gt;MqttEncoder&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/5063&quot;&gt;#5063&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix the bug where epoll ET with &lt;code&gt;autoRead&lt;/code&gt; set to &lt;code&gt;false&lt;/code&gt; will leave data on the RECV queue (&lt;a href=&quot;https://github.com/netty/netty/pull/5061&quot;&gt;#5061&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.0.CR6+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h2&gt;A note about API backward compatibility&lt;/h2&gt;
-
-&lt;p&gt;As our HTTP/2 and DNS codecs are still quite new. We &quot;mark&quot; them as experimental which means we may break the API backward compatibility of them in later releases.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jiafu1115&quot;&gt;@jiafu1115&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mp911de&quot;&gt;@mp911de&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tbcs&quot;&gt;@tbcs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
