@@ -2,9 +2,69 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-02-28T21:47:21+01:00</updated>
+<updated>2020-03-09T15:10:05+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/03/09/4-1-47-Final.html</id>
+<title>Netty 4.1.47.Final released</title>
+<updated>2020-03-09T15:10:05+01:00</updated>
+<published>2020-03-09T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/03/09/4-1-47-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.47.Final, just 1,5 weeks after our last release. This releases fixes an issue which could cause WINDOW_UPDATE_FRAMEs to be not flushed and so stale an HTTP/2 stream. This bug was serious enough that we decided we should do a followup release ASAP.
+
+The most important changes in this release are:
+
+
+Make sure we always flush window update frames in AbstractHttp2StreamChannel (#10075)
+Use MacOSDnsServerAddressStreamProvider when on the classpath and we are running on MacOS (#10079)
+Fix AssertionError in ScheduledFutureTask (#10073)
+Preserve order when using alternate event loops (#10069)
+
+
+
+For the details and all changes, please browse our issue...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.47.Final, just 1,5 weeks after our last release. This releases fixes an issue which could cause WINDOW_UPDATE_FRAMEs to be not flushed and so stale an HTTP/2 stream. This bug was serious enough that we decided we should do a followup release ASAP.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Make sure we always flush window update frames in AbstractHttp2StreamChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/10075&quot;&gt;#10075&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Use MacOSDnsServerAddressStreamProvider when on the classpath and we are running on MacOS (&lt;a href=&quot;https://github.com/netty/netty/pull/10079&quot;&gt;#10079&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix AssertionError in ScheduledFutureTask (&lt;a href=&quot;https://github.com/netty/netty/pull/10073&quot;&gt;#10073&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Preserve order when using alternate event loops (&lt;a href=&quot;https://github.com/netty/netty/pull/10069&quot;&gt;#10069&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.47.Final+is%3Aclosed&quot;&gt;4.1.47.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/atcurtis&quot;&gt;@atcurtis&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/djelinski&quot;&gt;@djelinski&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/parkcheolu&quot;&gt;@parkcheolu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/seedeed&quot;&gt;@seedeed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/TristanPerry&quot;&gt;@TristanPerry&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zlm0125&quot;&gt;@zlm0125&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/02/28/4-1-46-Final.html</id>
 <title>Netty 4.1.46.Final released</title>
@@ -4635,88 +4695,6 @@ A note about API...
 &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/04/04/4-0-36-Final.html</id>
-<title>Netty 4.0.36.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-04-04T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/04/04/4-0-36-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the release of Netty 4.0.36.Final today.
-
-This release contains 20+ changes, including bug-fixes, performance improvements and new features.
-
-The most important changes are:
-
-
-Not attempt to read from fd when channel is closed during read loop. (#5048)
-EPOLL SelectStrategy (#5044)
-EPOLL Socket Shutdown Fix (#5042)
-Read if needed on NEED_UNWRAP (#5039)
-Upgrade netty-tcnative to 1.1.33.Fork15 (#5025) (#4918)
-Speed up the slow path of FastThreadLocal (#5012)
-Fix setBytes when source is read-only ByteBuffer and target is pooled (#5011)
-fix propagation of channelRegistered event in ChannelInitializer (#4995)
-X509Certificate array used for trust managers is not a chain (#4973)
-Allow to customize NIO (channel) select strategies (#4955)
-
-
-
-For the details and all...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the release of Netty 4.0.36.Final today.&lt;/p&gt;
-
-&lt;p&gt;This release contains 20+ changes, including bug-fixes, performance improvements and new features.&lt;/p&gt;
-
-&lt;p&gt;The most important changes are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Not attempt to read from fd when channel is closed during read loop. (&lt;a href=&quot;https://github.com/netty/netty/pull/5048&quot;&gt;#5048&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;EPOLL SelectStrategy (&lt;a href=&quot;https://github.com/netty/netty/pull/5044&quot;&gt;#5044&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;EPOLL Socket Shutdown Fix (&lt;a href=&quot;https://github.com/netty/netty/pull/5042&quot;&gt;#5042&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Read if needed on NEED_UNWRAP (&lt;a href=&quot;https://github.com/netty/netty/pull/5039&quot;&gt;#5039&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Upgrade netty-tcnative to 1.1.33.Fork15 (&lt;a href=&quot;https://github.com/netty/netty/pull/5025&quot;&gt;#5025&lt;/a&gt;) (&lt;a href=&quot;https://github.com/netty/netty/issues/4918&quot;&gt;#4918&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Speed up the slow path of FastThreadLocal (&lt;a href=&quot;https://github.com/netty/netty/pull/5012&quot;&gt;#5012&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix setBytes when source is read-only ByteBuffer and target is pooled (&lt;a href=&quot;https://github.com/netty/netty/pull/5011&quot;&gt;#5011&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;fix propagation of channelRegistered event in ChannelInitializer (&lt;a href=&quot;https://github.com/netty/netty/pull/4995&quot;&gt;#4995&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;X509Certificate array used for trust managers is not a chain (&lt;a href=&quot;https://github.com/netty/netty/pull/4973&quot;&gt;#4973&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to customize NIO (channel) select strategies (&lt;a href=&quot;https://github.com/netty/netty/pull/4955&quot;&gt;#4955&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.36.Final+is%3Aclosed&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/daschl&quot;&gt;@daschl&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/erimatnor&quot;&gt;@erimatnor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/harbulot&quot;&gt;@harbulot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Karry&quot;&gt;@Karry&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ohmygodlin&quot;&gt;@ohmygodlin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ramtg&quot;&gt;@ramtg&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tbcs&quot;&gt;@tbcs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
