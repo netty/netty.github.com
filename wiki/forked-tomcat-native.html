@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2020/03/17/4-1-48-Final.html">
+<a href="../news/2020/04/22/4-1-49-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://dl.bintray.com/netty/downloads/netty-4.1.48.Final.tar.bz2">
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.49.Final.tar.bz2">
 <i class="fa fa-cloud-download"></i>
-4.1.48.Final
-<small>&dash; 17-Mar-2020</small>
+4.1.49.Final
+<small>&dash; 22-Apr-2020</small>
 </a>
 </li>
 <li>
@@ -259,7 +259,7 @@ You can improve it by yourself
 <h2 id="wiki-h2-0">
 <a id="user-content-artifacts" class="anchor" href="#artifacts" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Artifacts</h2>
 <p><code>netty-tcnative</code> is a multi-module project and builds a few artifacts, allowing it to be used in a variety of environments.</p>
-<table class="table table-hover">
+<table role="table">
 <thead>
 <tr>
 <th>ArtifactId</th>
@@ -304,7 +304,7 @@ You can improve it by yourself
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and the <code>netty-tcnative-boringssl-static</code> dependency appropriate for your platform:</p>
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> and provide distributions for the following platforms:</p>
-<table class="table table-hover">
+<table role="table">
 <thead>
 <tr>
 <th>Classifier</th>
@@ -331,7 +331,7 @@ You can improve it by yourself
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
 <div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Configure the os-maven-plugin extension to expand the classifier on <span class="pl-c">--&gt;</span></span>&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Fedora-"like" systems. <span class="pl-c">--&gt;</span></span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
-<table class="table table-hover">
+<table role="table">
 <thead>
 <tr>
 <th>Classifier</th>
@@ -436,7 +436,7 @@ You can improve it by yourself
 from the <code>chromium-stable</code> branch at build time from the <a href="https://boringssl.googlesource.com/boringssl/" rel="nofollow">upstream google git repo</a></p>
 <h3 id="wiki-h3-14">
 <a id="user-content-building-on-linux" class="anchor" href="#building-on-linux" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building on Linux</h3>
-<table class="table table-hover">
+<table role="table">
 <thead>
 <tr>
 <th>Prerequisite</th>
@@ -603,7 +603,7 @@ from the <code>chromium-stable</code> branch at build time from the <a href="htt
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 17-Mar-2020</small>
+<small>Last retrieved on 22-Apr-2020</small>
 </div>
 </div>
 </div>

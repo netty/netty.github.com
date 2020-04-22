@@ -2,9 +2,91 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-03-17T12:34:08+01:00</updated>
+<updated>2020-04-22T14:00:27+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/04/22/4-1-49-Final.html</id>
+<title>Netty 4.1.49.Final released</title>
+<updated>2020-04-22T14:00:27+02:00</updated>
+<published>2020-04-22T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/04/22/4-1-49-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.49.Final after a bit more then one month of work. This is mainly a bug-fix release but also contain a few other goodies.
+
+The most important changes in this release are:
+
+
+Ensure we support ALPN when using java 8u251 (#10196)
+Guard against overflow when calling CompositeByteBuf.addComponent(...) (#10197)
+Correctly propagate exceptions from inbound operations in all cases (#10176)
+Add support for HAProxyMessageEncoder (#10175)
+Add workaround for possible classloader deadlock when trying to load JNI code (#10190)
+Efficient BytBuf search algorithms (#9955)
+Allow Conscrypt to be used on Android (#10182)
+Stop sending DNS queries if promise is cancelled (#10171)
+Set IPV4_ONLY as default...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.49.Final after a bit more then one month of work. This is mainly a bug-fix release but also contain a few other goodies.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ensure we support ALPN when using java 8u251 (&lt;a href=&quot;https://github.com/netty/netty/pull/10196&quot;&gt;#10196&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Guard against overflow when calling CompositeByteBuf.addComponent(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/10197&quot;&gt;#10197&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Correctly propagate exceptions from inbound operations in all cases (&lt;a href=&quot;https://github.com/netty/netty/pull/10176&quot;&gt;#10176&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for HAProxyMessageEncoder (&lt;a href=&quot;https://github.com/netty/netty/pull/10175&quot;&gt;#10175&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add workaround for possible classloader deadlock when trying to load JNI code (&lt;a href=&quot;https://github.com/netty/netty/pull/10190&quot;&gt;#10190&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Efficient BytBuf search algorithms (&lt;a href=&quot;https://github.com/netty/netty/pull/9955&quot;&gt;#9955&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow Conscrypt to be used on Android (&lt;a href=&quot;https://github.com/netty/netty/pull/10182&quot;&gt;#10182&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Stop sending DNS queries if promise is cancelled (&lt;a href=&quot;https://github.com/netty/netty/pull/10171&quot;&gt;#10171&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Set IPV4_ONLY as default when NIC has only local IPv6 addresses (&lt;a href=&quot;https://github.com/netty/netty/pull/10170&quot;&gt;#10170&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;SslHandler should fail handshake / close promise and notify pipeline on removal (&lt;a href=&quot;https://github.com/netty/netty/pull/10161&quot;&gt;#10161&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Replace usage() with freeBytes() in thresholds within hot paths of PoolChunkList (&lt;a href=&quot;https://github.com/netty/netty/pull/10141&quot;&gt;#10141&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Introduce DomainWildcardMappingBuilder to fix wildcard matching according to RFC6125 (&lt;a href=&quot;https://github.com/netty/netty/pull/10132&quot;&gt;#10132&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Don&#39;t produce multiple calls to exceptionCaught(...) on SSL handshake failure (&lt;a href=&quot;https://github.com/netty/netty/pull/10134&quot;&gt;#10134&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update to netty-tcnative 2.0.30.Final to fix small memory leak (&lt;a href=&quot;https://github.com/netty/netty/pull/10118&quot;&gt;#10118&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.49.Final&quot;&gt;4.1.49.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/asanglard&quot;&gt;@asanglard&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/BenD10&quot;&gt;@BenD10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carryxyh&quot;&gt;@carryxyh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/GeXin666&quot;&gt;@GeXin666&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hecenjie&quot;&gt;@hecenjie&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jrhee17&quot;&gt;@jrhee17&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gnarea&quot;&gt;@gnarea&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lidavidm&quot;&gt;@lidavidm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/linasm&quot;&gt;@linasm&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/luffyke&quot;&gt;@luffyke&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/minwoox&quot;&gt;@minwoox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/netudima&quot;&gt;@netudima&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Neustradamus&quot;&gt;@Neustradamus&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/rmannibucau&quot;&gt;@rmannibucau&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/sdsantos&quot;&gt;@sdsantos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/seedeed&quot;&gt;@seedeed&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/szegedi&quot;&gt;@szegedi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vitaliy-kuzmich&quot;&gt;@vitaliy-kuzmich&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/xxDark&quot;&gt;@xxDark&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/03/17/4-1-48-Final.html</id>
 <title>Netty 4.1.48.Final released</title>
@@ -4604,91 +4686,6 @@ which is true if you have &lt;code&gt;netty-tcnative&lt;/code&gt; on your classp
 &lt;li&gt;&lt;a href=&quot;https://github.com/zhangkun83&quot;&gt;@zhangkun83&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/05/26/4-1-0-Final.html</id>
-<title>Netty 4.1.0.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-05-26T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/05/26/4-1-0-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-After over 2 years after the first release of a 4.1.0 Beta I am happy to announce the release of the next stable minor Netty version a.k.a 4.1.0.Final! All the hard work finally payed off ;)
-
-This release contains a lot of new stuff compared to 4.0.x, mostly in terms of new codecs but also other enhancements.
-
-Most notable features are:
-
-
-codec-dns       : Support for encode and decode DNS packets.
-codec-http2     : Support for HTTP/2.
-codec-memcached : Support for Memcached binary protocol.
-codec-mqtt      : Support for MQTT
-codec-redis    ...
-</summary>
-<content type="html">
-&lt;p&gt;After over 2 years after the first release of a 4.1.0 Beta I am happy to announce the release of the next stable minor Netty version a.k.a 4.1.0.Final! All the hard work finally payed off ;)&lt;/p&gt;
-
-&lt;p&gt;This release contains a lot of new stuff compared to 4.0.x, mostly in terms of new codecs but also other enhancements.&lt;/p&gt;
-
-&lt;p&gt;Most notable features are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;codec-dns       : Support for encode and decode &lt;a href=&quot;https://www.ietf.org/rfc/rfc1035.txt&quot;&gt;DNS&lt;/a&gt; packets.&lt;/li&gt;
-&lt;li&gt;codec-http2     : Support for &lt;a href=&quot;https://tools.ietf.org/html/rfc7540&quot;&gt;HTTP/2&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;codec-memcached : Support for &lt;a href=&quot;http://www.memcached.org&quot;&gt;Memcached&lt;/a&gt; binary protocol.&lt;/li&gt;
-&lt;li&gt;codec-mqtt      : Support for &lt;a href=&quot;http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html&quot;&gt;MQTT&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;codec-redis     : Support for &lt;a href=&quot;http://redis.io/topics/protocol&quot;&gt;Redis&lt;/a&gt; protocol.&lt;/li&gt;
-&lt;li&gt;codec-smtp      : Support for &lt;a href=&quot;https://www.ietf.org/rfc/rfc2821.txt&quot;&gt;SMTP&lt;/a&gt; protocol (only client side atm).&lt;/li&gt;
-&lt;li&gt;codec-stomp     : Support for &lt;a href=&quot;https://stomp.github.io/stomp-specification-1.2.html&quot;&gt;Stomp&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;handler-proxy   : Support for bulding proxies.&lt;/li&gt;
-&lt;li&gt;resolver-dns    : Alternative DNS resolver that is non-blocking and is using codec-dns.&lt;/li&gt;
-&lt;li&gt;resolver        : Resolver interfaces.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt; For the details and all changes, please browse &lt;a href=&quot;https://github.com/netty/netty/issues&quot;&gt;our issue tracker&lt;/a&gt; and look for all 4.1.0.x releases.&lt;/p&gt;
-
-&lt;h2&gt;Experimental APIs&lt;/h2&gt;
-
-&lt;p&gt;With this release we also introduce a new annotation (&lt;code&gt;@UnstableApi&lt;/code&gt;) that we will use in the future to mark certain APIs as unstable, and so should be free to change these at any time. This will allow us to provide certain features to users earlier while still be able to make slightly changes when needed.&lt;/p&gt;
-
-&lt;h2&gt;Notable changes&lt;/h2&gt;
-
-&lt;p&gt;As stated there are lot of changes, following are the more important for the &quot;general&quot; user, which are not related to
-new codecs.&lt;/p&gt;
-
-&lt;h3&gt;Default ByteBufAllocator&lt;/h3&gt;
-
-&lt;p&gt;The default used &lt;code&gt;ByteBufAllocator&lt;/code&gt; was changed to &lt;code&gt;PooledByteBufAllocator&lt;/code&gt;. So if you want to use &lt;code&gt;UnpooledByteBufAllocator&lt;/code&gt; you need to explicit configure it.&lt;/p&gt;
-
-&lt;h3&gt;Resolving during Bootstrap.connect(...)&lt;/h3&gt;
-
-&lt;p&gt;With this release of Netty you can make use of &lt;code&gt;resolver-dns&lt;/code&gt; which contains a fully asynchronous DNS resolver. This can be configure on the &lt;code&gt;Bootstrap&lt;/code&gt; and so allow to make the full DNS resolution during the connect non-blocking.&lt;/p&gt;
-
-&lt;p&gt;Using it is as simple as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;DnsAddressResolverGroup resolverGroup = new DnsAddressResolverGroup(
-        NioDatagramChannel.class, DnsServerAddress.defaultAddressList());
-
-NioEventLoopGroup group = new NioEventLoopGroup();
-Bootstrap bs = new Bootstrap()
-    .group(group)
-    .resolver(resolverGroup)
-    .handler(....);
-ChannelFuture future = bs.connect(InetSocketAddress.createUnresolved(&quot;netty.io&quot;, 80));
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;By default it will use the JDK name resolution, just as before, which is blocking :(&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;We would like to thank all of you who helped us improve Netty over the past years. No matter if it was through bug-reports, PRs, questions or feedback. Without you, the community, Netty would have not be possible!&lt;/p&gt;
 
 </content>
 </entry>
