@@ -2,9 +2,76 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-09-08T15:58:51+02:00</updated>
+<updated>2020-10-13T10:39:01+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/10/13/4-1-53-Final.html</id>
+<title>Netty 4.1.53.Final released</title>
+<updated>2020-10-13T10:39:01+02:00</updated>
+<published>2020-10-13T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/10/13/4-1-53-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.53.Final. This is mainly a bug-fix release but also fixes some regressions that may effect you.
+
+The most important changes in this release are:
+
+
+Fix regression when trying to bind an EpollDatagramChannel with port only (#10552)
+Fix NPE with MqttUnsubAckMessage - regression of MQTT5 support (#10557)
+Fix DeleteOnExitHook cause memory leak (#10560)
+Not truncate MQTT SUBACK reason codes (#10584)
+Only create ConnectTimeoutException if really needed (#10595)
+Correctly report back when we fail to select the key material and ensure we wrap(...) until everything was produced (#10610)
+Only set the keymaterial once and correctly handle errors during keymaterial setting on...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.53.Final. This is mainly a bug-fix release but also fixes some regressions that may effect you.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix regression when trying to bind an EpollDatagramChannel with port only (&lt;a href=&quot;https://github.com/netty/netty/pull/10552&quot;&gt;#10552&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix NPE with MqttUnsubAckMessage - regression of MQTT5 support (&lt;a href=&quot;https://github.com/netty/netty/pull/10557&quot;&gt;#10557&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix DeleteOnExitHook cause memory leak (&lt;a href=&quot;https://github.com/netty/netty/pull/10560&quot;&gt;#10560&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Not truncate MQTT SUBACK reason codes (&lt;a href=&quot;https://github.com/netty/netty/pull/10584&quot;&gt;#10584&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Only create ConnectTimeoutException if really needed (&lt;a href=&quot;https://github.com/netty/netty/pull/10595&quot;&gt;#10595&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Correctly report back when we fail to select the key material and ensure we wrap(...) until everything was produced (&lt;a href=&quot;https://github.com/netty/netty/pull/10610&quot;&gt;#10610&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Only set the keymaterial once and correctly handle errors during keymaterial setting on the client-side as well (&lt;a href=&quot;https://github.com/netty/netty/pull/10613&quot;&gt;#10613&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Avoid integer overflow in ByteBuf.ensureWritable (&lt;a href=&quot;https://github.com/netty/netty/pull/10648&quot;&gt;#10648&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.53.Final&quot;&gt;4.1.53.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. What makes me really proud and happy is that amount of new &quot;first-time contributors&quot; in this release. We &amp;lt;3 all of you :)&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/artem-smotrakov&quot;&gt;@artem-smotrakov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/divijvaidya&quot;&gt;@divijvaidya&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ffiredom&quot;&gt;@ffiredom&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mkavanagh&quot;&gt;@mkavanagh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/paul-lysak&quot;&gt;@paul-lysak&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wuxiansen&quot;&gt;@wuxiansen&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yosfik&quot;&gt;@yosfik&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/09/08/4-1-52-Final.html</id>
 <title>Netty 4.1.52.Final released</title>
@@ -4623,107 +4690,6 @@ do not affect 4.0.39.Final.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html</id>
-<title>Netty 4.0.38.Final and 4.1.2.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-07-01T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/07/01/4-0-38-Final-4-1-2-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the lastest bug-fix releases for our 4.0.x and 4.1.x series today.
-
-The releases contains a lot of changes, these include bug-fixes, performance enhancements and new features.
-
-The most important changes are for 4.0.38 and 4.1.2.Final:
-
-
-Be able to use Netty in JDK9 (#5475), (#5474 ), (#5473)
-Allow to inject RejectedExecutionHandler for different EventLoops and EventExecutors (#5441)
-Allow to set max capacity for task queue for EventExecutors and EventLoops (#5440)
-Add support for KeyManagerFactory when using SslProvider.OpenSsl (#5439)
-Add support for SNIHostName when using Java8+ (#5417)
-Pluggable resource leak detector (#5392)
-Ensure OpenSslClientContext / OpenSslServerContext can be garbage-collected (#5380)
-Use shaded dependency on JCTools instead of copy...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the lastest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
-
-&lt;p&gt;The releases contains a lot of changes, these include bug-fixes, performance enhancements and new features.&lt;/p&gt;
-
-&lt;p&gt;The most important changes are for 4.0.38 and 4.1.2.Final:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Be able to use Netty in JDK9 (&lt;a href=&quot;https://github.com/netty/netty/pull/5475&quot;&gt;#5475&lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/5474&quot;&gt;#5474 &lt;/a&gt;), (&lt;a href=&quot;https://github.com/netty/netty/pull/5473&quot;&gt;#5473&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to inject RejectedExecutionHandler for different EventLoops and EventExecutors (&lt;a href=&quot;https://github.com/netty/netty/pull/5441&quot;&gt;#5441&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to set max capacity for task queue for EventExecutors and EventLoops (&lt;a href=&quot;https://github.com/netty/netty/pull/5440&quot;&gt;#5440&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add support for KeyManagerFactory when using SslProvider.OpenSsl (&lt;a href=&quot;https://github.com/netty/netty/pull/5439&quot;&gt;#5439&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add support for SNIHostName when using Java8+ (&lt;a href=&quot;https://github.com/netty/netty/pull/5417&quot;&gt;#5417&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Pluggable resource leak detector (&lt;a href=&quot;https://github.com/netty/netty/pull/5392&quot;&gt;#5392&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure OpenSslClientContext / OpenSslServerContext can be garbage-collected (&lt;a href=&quot;https://github.com/netty/netty/pull/5380&quot;&gt;#5380&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use shaded dependency on JCTools instead of copy and paste (&lt;a href=&quot;https://github.com/netty/netty/pull/5316&quot;&gt;#5316&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes are for 4.1.2.Final only:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;DnsNameResolver should not bind locally. (&lt;a href=&quot;https://github.com/netty/netty/pull/5461&quot;&gt;#5461&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;DnsNameResolver does not resolve property A+CNAME answer (&lt;a href=&quot;https://github.com/netty/netty/pull/5413&quot;&gt;#5413&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Optimize HPACK usage to align more with Netty types and remove heavy object creations (&lt;a href=&quot;https://github.com/netty/netty/pull/5355&quot;&gt;#5355&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.0.38.Final+is%3Aclosed&quot;&gt;4.0.38.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.2.Final+is%3Aclosed&quot;&gt;4.1.2.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.38.Final are also included in 4.1.2.Final. All changes only have milestone 4.1.2.Final
-do not affect 4.0.38.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/artgon&quot;&gt;@artgon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/caillette&quot;&gt;@caillette&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fchevassu&quot;&gt;@fchevassu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/garethcollins&quot;&gt;@garethcollins&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/guidomedina&quot;&gt;@guidomedina&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jroper&quot;&gt;@jroper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kevinherron&quot;&gt;@kevinherron&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mertjuh&quot;&gt;@mertjuh&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mrokitka&quot;&gt;@mrokitka&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/npordash&quot;&gt;@npordash&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://githbu.com/rhart&quot;&gt;@rhart&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/SinaTadayon&quot;&gt;@SinaTadayon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ylgrgyq&quot;&gt;@ylgrgyq&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
