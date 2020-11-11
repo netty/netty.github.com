@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2020/10/13/4-1-53-Final.html">
+<a href="../news/2020/11/11/4-1-54-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://dl.bintray.com/netty/downloads/netty-4.1.53.Final.tar.bz2">
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.54.Final.tar.bz2">
 <i class="fa fa-cloud-download"></i>
-4.1.53.Final
-<small>&dash; 13-Oct-2020</small>
+4.1.54.Final
+<small>&dash; 11-Nov-2020</small>
 </a>
 </li>
 <li>
@@ -382,11 +382,11 @@ You can improve it by yourself
 <h4 id="wiki-h4-12">
 <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" href="#one-small-caveat-of-socket-buffer" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>One Small Caveat of Socket Buffer</h4>
 <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets:</p>
-<p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/dea5f9a0d1f03b26d68e1e877c1b69c8266b43669471343fe81c558d6d2da984/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
-<p><img src="https://camo.githubusercontent.com/5b595baf5071bf669f81d08b7554064f4142cc69/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
+<p><img src="https://camo.githubusercontent.com/ff6c8d47cf39681a072e4f4d52f02e60837f6c0fefeac629975b594ad9973f18/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
 <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
-<p><img src="https://camo.githubusercontent.com/24ed1176ecca468dfb2b8b017bb927a8715a16f2/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/dea5f9a0d1f03b26d68e1e877c1b69c8266b43669471343fe81c558d6d2da984/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <h4 id="wiki-h4-13">
 <a id="user-content-the-first-solution" class="anchor" href="#the-first-solution" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>The First Solution</h4>
 <p>Now let us get back to the <code>TIME</code> client example. We have the same problem here. A 32-bit integer is a very small amount of data, and it is not likely to be fragmented often. However, the problem is that it can be fragmented, and the possibility of fragmentation will increase as the traffic increases.</p>
@@ -498,7 +498,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 13-Oct-2020</small>
+<small>Last retrieved on 11-Nov-2020</small>
 </div>
 </div>
 </div>

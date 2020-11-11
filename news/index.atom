@@ -2,9 +2,97 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-10-13T10:39:01+02:00</updated>
+<updated>2020-11-11T10:50:44+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/11/11/4-1-54-Final.html</id>
+<title>Netty 4.1.54.Final released</title>
+<updated>2020-11-11T10:50:44+01:00</updated>
+<published>2020-11-11T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/11/11/4-1-54-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.54.Final. This is mainly a bug-fix release.
+
+The most important changes in this release are:
+
+
+Use special exception when failing because the SSLEngine was closed (#10783)
+codec-http2: Correct last-stream-id for HEADERS-triggered connection error (#10775)
+Drop unknown frames on connection stream (#10771)
+Avoid auto boxing in PoolChunk#removeAvailRun (#10769)
+Add reflection config for JMX runtime (#10753)
+Fix explicitly little-endian accessors in SwappedByteBuf (#10747)
+Rethrow NoSuchMethodError with more hints about incompatible native library versions (#10740)
+MQTT5: support multiple Subscription ID properties (#10734)
+Unregister all previous registered native methods if loading of native lib fails (#10719)
+Add NULL checks to fix possible undefined behaviour (#10718)
+DatagramDnsResponseDecoder should...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.54.Final. This is mainly a bug-fix release.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Use special exception when failing because the SSLEngine was closed (&lt;a href=&quot;https://github.com/netty/netty/pull/10783&quot;&gt;#10783&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;codec-http2: Correct last-stream-id for HEADERS-triggered connection error (&lt;a href=&quot;https://github.com/netty/netty/pull/10775&quot;&gt;#10775&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Drop unknown frames on connection stream (&lt;a href=&quot;https://github.com/netty/netty/pull/10771&quot;&gt;#10771&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Avoid auto boxing in PoolChunk#removeAvailRun (&lt;a href=&quot;https://github.com/netty/netty/pull/10769&quot;&gt;#10769&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add reflection config for JMX runtime (&lt;a href=&quot;https://github.com/netty/netty/pull/10753&quot;&gt;#10753&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix explicitly little-endian accessors in SwappedByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/10747&quot;&gt;#10747&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Rethrow NoSuchMethodError with more hints about incompatible native library versions (&lt;a href=&quot;https://github.com/netty/netty/pull/10740&quot;&gt;#10740&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;MQTT5: support multiple Subscription ID properties (&lt;a href=&quot;https://github.com/netty/netty/pull/10734&quot;&gt;#10734&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Unregister all previous registered native methods if loading of native lib fails (&lt;a href=&quot;https://github.com/netty/netty/pull/10719&quot;&gt;#10719&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add NULL checks to fix possible undefined behaviour (&lt;a href=&quot;https://github.com/netty/netty/pull/10718&quot;&gt;#10718&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DatagramDnsResponseDecoder should rethrow as CorruptedFrameException (&lt;a href=&quot;https://github.com/netty/netty/pull/10714&quot;&gt;#10714&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Minor performance improvement in websocket upgrade (&lt;a href=&quot;https://github.com/netty/netty/pull/10710&quot;&gt;#10710&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;We should have a special config that allows to configure half closure for DuplexChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/10701&quot;&gt;#10701&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow EventLoops to rethrow Error (&lt;a href=&quot;https://github.com/netty/netty/pull/10694&quot;&gt;#10694&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure we don&#39;t leak the ClassLoader in the backtrace (&lt;a href=&quot;https://github.com/netty/netty/pull/10691&quot;&gt;#10691&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Better hash algorithm in FingerprintTrustManagerFactory (&lt;a href=&quot;https://github.com/netty/netty/pull/10683&quot;&gt;#10683&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix #10614 by making UnorderedTPEExecutor.scheduleAtFixedRate run tasks more than once (&lt;a href=&quot;https://github.com/netty/netty/pull/10659&quot;&gt;#10659&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Provide new client and server websocket handshake exceptions (&lt;a href=&quot;https://github.com/netty/netty/pull/10646&quot;&gt;#10646&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Enable HTTP header validation in HttpServerUpgradeHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/10643&quot;&gt;#10643&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix native image build on modern GraalVM versions for the cases when the program uses netty-dns (&lt;a href=&quot;https://github.com/netty/netty/pull/10630&quot;&gt;#10630&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.54.Final&quot;&gt;4.1.54.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. What makes me really proud and happy is that amount of new &quot;first-time contributors&quot; in this release. We &amp;lt;3 all of you :)&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/artgon&quot;&gt;@artgon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aspcompiler&quot;&gt;@aspcompiler&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/artem-smotrakov&quot;&gt;@artem-smotrakov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dsyer&quot;&gt;@dsyer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/greenjustin&quot;&gt;@greenjustin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/matteobertozzi&quot;&gt;@matteobertozzi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/paul-lysak&quot;&gt;@paul-lysak&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/rpuch&quot;&gt;@rpuch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/stuartwdouglas&quot;&gt;@stuartwdouglas&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yuzawa-san&quot;&gt;@yuzawa-san&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/10/13/4-1-53-Final.html</id>
 <title>Netty 4.1.53.Final released</title>
@@ -4589,107 +4677,6 @@ do not affect 4.0.40.Final.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/07/15/4-0-39-Final-4-1-3-Final.html</id>
-<title>Netty 4.0.39.Final and 4.1.3.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-07-15T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/07/15/4-0-39-Final-4-1-3-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.
-
-The releases contain bug-fixes, performance enhancements and new features.
-
-The most important changes for 4.0.39 and 4.1.3.Final are:
-
-
-Fix JDK9 direct ByteBuffer cleaner invocation (#5538)
-Non-sticky thread groups in DefaultThreadFactory (#5533)
-Enforce Recycler limit when recycling from different threads (#5528)
-Avoid missed signals on a default promise (#5523)
-Ensure ChannelHandler.handlerAdded(...) callback is executed directly when added from ChannelFutureListener added to the registration future. (#5515)
-Not operate on serial execution assumption when using EventExecutor in the DefaultChannelPipeline.(#5506)
-Make AbstractChannel.outboundBuffer volatile (#5509)
-Fix improper synchronization in DefaultPromise (#5494)
-
-
-
-The most important changes for 4.1.3.Final only are:
-
-
-DnsNameResolver search domains...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
-
-&lt;p&gt;The releases contain bug-fixes, performance enhancements and new features.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.39 and 4.1.3.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fix JDK9 direct ByteBuffer cleaner invocation (&lt;a href=&quot;https://github.com/netty/netty/pull/5538&quot;&gt;#5538&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Non-sticky thread groups in DefaultThreadFactory (&lt;a href=&quot;https://github.com/netty/netty/pull/5533&quot;&gt;#5533&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Enforce Recycler limit when recycling from different threads (&lt;a href=&quot;https://github.com/netty/netty/pull/5528&quot;&gt;#5528&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Avoid missed signals on a default promise (&lt;a href=&quot;https://github.com/netty/netty/pull/5523&quot;&gt;#5523&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure ChannelHandler.handlerAdded(...) callback is executed directly when added from ChannelFutureListener added to the registration future. (&lt;a href=&quot;https://github.com/netty/netty/pull/5515&quot;&gt;#5515&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Not operate on serial execution assumption when using EventExecutor in the DefaultChannelPipeline.(&lt;a href=&quot;https://github.com/netty/netty/pull/5506&quot;&gt;#5506&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Make AbstractChannel.outboundBuffer volatile (&lt;a href=&quot;https://github.com/netty/netty/pull/5509&quot;&gt;#5509&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix improper synchronization in DefaultPromise (&lt;a href=&quot;https://github.com/netty/netty/pull/5494&quot;&gt;#5494&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.3.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;DnsNameResolver search domains support (&lt;a href=&quot;https://github.com/netty/netty/pull/5496&quot;&gt;#5496&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;DefaultHttp2RemoteFlowController reentry infinite loop (&lt;a href=&quot;https://github.com/netty/netty/pull/5525&quot;&gt;#5525&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/146?closed=1&quot;&gt;4.0.39.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/145?closed=1&quot;&gt;4.1.3.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.39.Final are also included in 4.1.3.Final. All changes only have milestone 4.1.3.Final
-do not affect 4.0.39.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/floragunncom&quot;&gt;@floragunncom&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/isdom&quot;&gt;@isdom&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/JeremiahDJordan&quot;&gt;@JeremiahDJordan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jkni&quot;&gt;@jkni&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/luyiisme&quot;&gt;@luyiisme&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/monkey-mas&quot;&gt;@monkey-mas&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/olix0r&quot;&gt;@olix0r&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/schmitch&quot;&gt;@schmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/snazy&quot;&gt;@snazy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/songxianjia&quot;&gt;@songxianjia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tbrooks8&quot;&gt;@tbrooks8&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/varming&quot;&gt;@varming&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
