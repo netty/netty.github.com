@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Netty.news: Netty/Incubator/Transport/Native/io_uring 0.0.1.Final released</title>
+<title>Netty: Netty/Incubator/Transport/Native/io_uring 0.0.1.Final released</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../../../../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../../../../news/2020/11/16/io_uring-0-0-1-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.54.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.1.54.Final
+<small>&dash; 11-Nov-2020</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-4.0.56.Final.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://dl.bintray.com/netty/downloads/netty-3.10.6.Final-dist.tar.bz2">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://bintray.com/netty/downloads/netty/">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../../../../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../../../../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../../../../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../../../../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../../../../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<i class="fa fa-comment"></i>
+IRC Chat
+</a>
+</li>
+<li>
+<a href="../../../../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../../../../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<div class="news-item" id="main-content">
+<h1>
+Netty/Incubator/Transport/Native/io_uring 0.0.1.Final released
+</h1>
+<p class="byline">
+<small>
+by
+<a href="https://github.com/normanmaurer">normanmaurer</a>
+<br>
+on
+<time datetime="2020-11-16">16-Nov-2020</time>
+</small>
+</p>
+<div class="news-content">
+<p>After multiple months of development I am happy to announce the first incubator release of our native io_uring based transport.
+If you don't know about io_uring I highly recommend getting up to speed by reading <a href="https://kernel.dk/io_uring.pdf">Efficient IO with io_uring</a> and
+<a href="https://unixism.net/loti/what_is_io_uring.html">Lord of the io_ring</a>. To make it short, it is a new way how programs can talk to the kernel (and be notified back) via memory mapped ring-buffers. This way it is possible to almost eliminate all syscalls that are usually needed for network I/O.</p>
+
+<h1>Incubator, what does this mean ?</h1>
+
+<p>To be able to work on new exciting features without "affecting" the core of netty we decided to start development of such features in the "incubator". This means these features will be developed in a seperate repository and only be merged back into the core netty repository once we feel that we can guarantee we not need to break the API anymore and consider these production ready. This hopefully helps to clarify expections and stability of the code and so people should be fully aware that APIs may change. Beside this it also allows to use different release schedules.</p>
+
+<h1>How can I use the io_uring based transport?</h1>
+
+<p>First of you need to run on x86_64 linux and have a recent kernel. To be able to use io_uring without encountering "slowdowns" and "bugs" you need at least using <a href="https://www.kernel.org">Linux Kernel</a> 5.9.0, any newer kernel will be fine as well. After this requirement is fullfilled it's just a matter of adding the right jar to your classpath and bootstrap using the right <code>EventLoopGroup</code> and <code>Channel</code> implementation.</p>
+
+<p>An example for maven would be:</p>
+
+<pre><code>&lt;dependency&gt;&#x000A;    &lt;groupId&gt;io.netty.incubator&lt;/groupId&gt;&#x000A;    &lt;artifactId&gt;netty-incubator-transport-native-io_uring&lt;/artifactId&gt;&#x000A;    &lt;version&gt;0.0.1.Final&lt;/version&gt;&#x000A;    &lt;classifier&gt;x86_64&lt;/classifier&gt;&#x000A;&lt;/dependency&gt;&#x000A;</code></pre>
+
+<p>Bootstrapping a server is as easy as:</p>
+
+<pre><code class="java">EventLoopGroup group = new IOUringEventLoopGroup();&#x000A;try {&#x000A;    final ChannelHandler serverHandler = ...;&#x000A;&#x000A;    ServerBootstrap b = new ServerBootstrap();&#x000A;    b.group(bossGroup, workerGroup)&#x000A;     .channel(IOUringServerSocketChannel.class)&#x000A;     .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {&#x000A;        @Override&#x000A;        public void initChannel(SocketChannel ch) throws Exception {&#x000A;            ChannelPipeline p = ch.pipeline();&#x000A;            p.addLast(serverHandler);&#x000A;        }&#x000A;    });&#x000A;&#x000A;    // Start the server.&#x000A;    ChannelFuture f = b.bind(PORT).sync();&#x000A;&#x000A;    // Wait until the server socket is closed.&#x000A;    f.channel().closeFuture().sync();&#x000A;} finally {&#x000A;    // Shut down all event loops to terminate all threads.&#x000A;    group.shutdownGracefully();&#x000A;}&#x000A;</code></pre>
+
+<p>The same is true for the client as well, just be sure you use the correct <code>Channel</code> and <code>EventLoop</code> implementation.</p>
+
+<h1>What features are supported at the moment ?</h1>
+
+<p>At the moment we support <code>IOUringServerChannel</code>, <code>IOUringChannel</code> and <code>IOUringDatagramChannel</code>, which basically means TCP and UDP. One gotcha is that <code>FileRegion</code> is currently not supported, but will be added in the future.</p>
+
+<h1>Where can I find the issue tracker / code etc ?</h1>
+
+<p>As stated before this feature is developed outside of the "normal" netty tree. You can find it in the <a href="https://github.com/netty/netty-incubator-transport-io_uring">netty-incubator-transport-io_uring</a> repository.</p>
+
+<h1>Are there any performance numbers?</h1>
+
+<p>While we plan to run some more advanced and real performance benchmarks in the future what we saw so far is really promising. To give you an idea let's have a look...</p>
+
+<p><strong>epoll</strong>:</p>
+
+<pre><code>./tcpkali  -m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  --connect-rate=200 -c 500 -T 30 127.0.0.1:8088&#x000A;Destination: [127.0.0.1]:8088&#x000A;Interface lo address [127.0.0.1]:0&#x000A;Using interface lo to connect to [127.0.0.1]:8088&#x000A;Ramped up to 500 connections.&#x000A;Total data sent:     35254.6 MiB (36967084668 bytes)&#x000A;Total data received: 35725.3 MiB (37460714661 bytes)&#x000A;Bandwidth per channel: 39.688⇅ Mbps (4961.0 kBps)&#x000A;Aggregate bandwidth: 9987.847↓, 9856.234↑ Mbps&#x000A;Packet rate estimate: 861701.3↓, 851472.0↑ (11↓, 43↑ TCP MSS/op)&#x000A;Test duration: 30.005 s.&#x000A;&#x000A;Running `target/release/echo_bench --address 'localhost:8088' --number 500 --duration 30 --length 128`&#x000A;Benchmarking: localhost:8088&#x000A;500 clients, running 128 bytes, 30 sec.&#x000A;&#x000A;Speed: 80820 request/sec, 80820 response/sec&#x000A;Requests: 2424626&#x000A;Responses: 2424625&#x000A;</code></pre>
+
+<p><strong>io_uring</strong></p>
+
+<pre><code>./tcpkali  -m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  --connect-rate=200 -c 500 -T 30 127.0.0.1:8081&#x000A;Destination: [127.0.0.1]:8081&#x000A;Interface lo address [127.0.0.1]:0&#x000A;Using interface lo to connect to [127.0.0.1]:8081&#x000A;Ramped up to 500 connections.&#x000A;Total data sent:     74653.1 MiB (78279409944 bytes)&#x000A;Total data received: 75180.9 MiB (78832885977 bytes)&#x000A;Bandwidth per channel: 83.793⇅ Mbps (10474.1 kBps)&#x000A;Aggregate bandwidth: 21021.980↓, 20874.387↑ Mbps&#x000A;Packet rate estimate: 1932417.0↓, 1793964.8↑ (11↓, 39↑ TCP MSS/op)&#x000A;Test duration: 30.0002 s.&#x000A;&#x000A;Running `target/release/echo_bench --address 'localhost:8081' --number 500 --duration 30 --length 128`&#x000A;Benchmarking: localhost:8081&#x000A;500 clients, running 128 bytes, 30 sec.&#x000A;&#x000A;Speed: 267371 request/sec, 267370 response/sec&#x000A;Requests: 8021137&#x000A;Responses: 8021128&#x000A;</code></pre>
+
+<p>This benchmark is basically sending data and expect the data to be echoed back. The server itself uses 1 thread to handle all of this. Please be aware this is only a quick benchmark on localhost and a "real" benchmark over the network with real hardware should be done to full understand the wins and gains.</p>
+
+<pre><code class="java">@Sharable&#x000A;public class EchoServerHandler extends ChannelInboundHandlerAdapter {&#x000A;&#x000A;    @Override&#x000A;    public void channelRead(ChannelHandlerContext ctx, Object msg) {&#x000A;        ctx.write(msg);&#x000A;    }&#x000A;&#x000A;    @Override&#x000A;    public void channelReadComplete(ChannelHandlerContext ctx) {&#x000A;        ctx.flush();&#x000A;    }&#x000A;&#x000A;    @Override&#x000A;    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {&#x000A;        // Close the connection when an exception is raised.&#x000A;        ctx.close();&#x000A;    }&#x000A;&#x000A;    @Override&#x000A;    public void channelWritabilityChanged(ChannelHandlerContext ctx) throws Exception {&#x000A;        // Ensure we are not writing to fast by stop reading if we can not flush out data fast enough.&#x000A;        if (ctx.channel().isWritable()) {&#x000A;            ctx.channel().config().setAutoRead(true);&#x000A;        } else {&#x000A;            ctx.flush();&#x000A;            if (!ctx.channel().isWritable()) {&#x000A;                ctx.channel().config().setAutoRead(false);&#x000A;            }&#x000A;        }&#x000A;    }&#x000A;}&#x000A;&#x000A;// This is using io_uring&#x000A;public class EchoIOUringServer {&#x000A;    private static final int PORT = Integer.parseInt(System.getProperty("port", "8081"));&#x000A;&#x000A;    public static void main(String []args) {&#x000A;        EventLoopGroup group = new IOUringEventLoopGroup(1);&#x000A;        final EchoServerHandler serverHandler = new EchoServerHandler();&#x000A;        try {&#x000A;            ServerBootstrap b = new ServerBootstrap();&#x000A;            b.group(bossGroup, workerGroup)&#x000A;                    .option(ChannelOption.SO_REUSEADDR, true)&#x000A;                    .channel(IOUringServerSocketChannel.class)&#x000A;                    .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {&#x000A;                        @Override&#x000A;                        public void initChannel(SocketChannel ch) throws Exception {&#x000A;                            ChannelPipeline p = ch.pipeline();&#x000A;                            //p.addLast(new LoggingHandler(LogLevel.INFO));&#x000A;                            p.addLast(serverHandler);&#x000A;                        }&#x000A;                    });&#x000A;&#x000A;            // Start the server.&#x000A;            ChannelFuture f = b.bind(PORT).sync();&#x000A;&#x000A;            // Wait until the server socket is closed.&#x000A;            f.channel().closeFuture().sync();&#x000A;        } catch (InterruptedException e) {&#x000A;            e.printStackTrace();&#x000A;        } finally {&#x000A;            // Shut down all event loops to terminate all threads.&#x000A;            group.shutdownGracefully();&#x000A;        }&#x000A;    }&#x000A;}&#x000A;&#x000A;// This is using epoll / syscalls &#x000A;public class EchoNioServer {&#x000A;    private static final int PORT = Integer.parseInt(System.getProperty("port", "8088"));&#x000A;&#x000A;    public static void main(String []args) {&#x000A;        EventLoopGroup group = new NioEventLoopGroup(1);&#x000A;        final EchoServerHandler serverHandler = new EchoServerHandler();&#x000A;        try {&#x000A;            ServerBootstrap b = new ServerBootstrap();&#x000A;            b.group(bossGroup, workerGroup)&#x000A;                    .option(ChannelOption.SO_REUSEADDR, true)&#x000A;                    .channel(NioServerSocketChannel.class)&#x000A;                    .childHandler(new ChannelInitializer&lt;SocketChannel&gt;() {&#x000A;                        @Override&#x000A;                        public void initChannel(SocketChannel ch) throws Exception {&#x000A;                            ChannelPipeline p = ch.pipeline();&#x000A;                            //p.addLast(new LoggingHandler(LogLevel.INFO));&#x000A;                            p.addLast(serverHandler);&#x000A;                        }&#x000A;                    });&#x000A;&#x000A;            // Start the server.&#x000A;            ChannelFuture f = b.bind(PORT).sync();&#x000A;&#x000A;            // Wait until the server socket is closed.&#x000A;            f.channel().closeFuture().sync();&#x000A;        } catch (InterruptedException e) {&#x000A;            e.printStackTrace();&#x000A;        } finally {&#x000A;            // Shut down all event loops to terminate all threads.&#x000A;            group.shutdownGracefully();&#x000A;        }&#x000A;    }&#x000A;}&#x000A;</code></pre>
+
+<h1>Thank You</h1>
+
+<p>Big thank you to all the people that were involved so far to make this happen. A special thank you goes out to <a href="https://github.com/1Jo1">Josef Grieb</a> who did start this project as part of <a href="https://github.com/netty/netty/wiki/Google-Summer-of-Code-Ideas-2020#add-io_uring-based-transport">GSOC 2020</a>. Without Josef this would not have been possible in this short time-frame. Beside Josef I would also like to say "thank you" to <a href="https://github.com/axboe">Jens Axboe</a>, whom is the main author of io_uring. Whenever we had questions or problems he was happy to help. That's what OSS is really about. OSS FTW!.</p>
+
+</div>
+<ul class="pager">
+<li class="previous">
+<a href="../../../../news/2020/11/11/4-1-54-Final.html">&larr; Older</a>
+</li>
+<li>
+<a href="../../../index.html">List all news items</a>
+</li>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
+</li>
+</ul>
+</div>
+<div class="comments">
+
+            <div id="disqus_thread"></div>
+            <script type="text/javascript">
+            var disqus_shortname = 'netty0';
+            var disqus_url = "http://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html";
+            var disqus_developer = null;
+            var disqus_identifier = "news/2020-11-16-io_uring-0-0-1-Final";
+            (function() {
+              var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName("head")[0] || document.getElementsByTagName("body")[0]).appendChild(dsq);
+            })();
+            </script>
+            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=netty0">comments powered by Disqus.</a></noscript>
+          
+</div>
+</div>
+<div class="col-md-3">
+<div id="twitter-timeline" class="hidden-xs hidden-sm hidden-print" role="complementary"><a class="twitter-timeline" href="https://twitter.com/netty_project" data-widget-id="412058459593383936">Tweets by @netty_project</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?"http":"https";if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2020
+<a href="../../../../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../lib/common.footer.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>
