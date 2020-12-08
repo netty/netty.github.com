@@ -2,9 +2,89 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-11-17T08:09:59+01:00</updated>
+<updated>2020-12-08T15:04:49+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/12/08/4-1-55-Final.html</id>
+<title>Netty 4.1.55.Final released</title>
+<updated>2020-12-08T15:04:49+01:00</updated>
+<published>2020-12-08T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/12/08/4-1-55-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.55.Final. This is mainly a bug-fix release.
+
+The most important changes in this release are:
+
+
+Enforce status code validation in CloseWebSocketFrame (#10846)
+Use aarch_64 in a consistent way (#10845)
+Initialize Recycler.INITIAL_CAPACITY before invoking InternalLogger.debug() (#10836)
+Fix caching for normal allocations (#10825)
+Fix NPE in ByteToMessageDecoder if the user removes the handler while channelInputClosed(...) is processing the buffer. (#10817)
+IovArray should support when there is no unsafe present (#10814)
+Don't use the cname cache when using DnsRecordResolveContext (#10808)
+Fix native image build for the cases when io.netty.util.NetUtil is initialized at run-time (#10799)
+Fix UnsafeByteBufUtil#setBytes() cause JVM crash (#10791)
+Add ABORT and COMMIT STOMP...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.55.Final. This is mainly a bug-fix release.&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Enforce status code validation in CloseWebSocketFrame (&lt;a href=&quot;https://github.com/netty/netty/pull/10846&quot;&gt;#10846&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Use aarch_64 in a consistent way (&lt;a href=&quot;https://github.com/netty/netty/pull/10845&quot;&gt;#10845&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Initialize Recycler.INITIAL_CAPACITY before invoking InternalLogger.debug() (&lt;a href=&quot;https://github.com/netty/netty/pull/10836&quot;&gt;#10836&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix caching for normal allocations (&lt;a href=&quot;https://github.com/netty/netty/pull/10825&quot;&gt;#10825&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix NPE in ByteToMessageDecoder if the user removes the handler while channelInputClosed(...) is processing the buffer. (&lt;a href=&quot;https://github.com/netty/netty/pull/10817&quot;&gt;#10817&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;IovArray should support when there is no unsafe present (&lt;a href=&quot;https://github.com/netty/netty/pull/10814&quot;&gt;#10814&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Don&#39;t use the cname cache when using DnsRecordResolveContext (&lt;a href=&quot;https://github.com/netty/netty/pull/10808&quot;&gt;#10808&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix native image build for the cases when io.netty.util.NetUtil is initialized at run-time (&lt;a href=&quot;https://github.com/netty/netty/pull/10799&quot;&gt;#10799&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix UnsafeByteBufUtil#setBytes() cause JVM crash (&lt;a href=&quot;https://github.com/netty/netty/pull/10791&quot;&gt;#10791&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add ABORT and COMMIT STOMP commands to the StompCommand enum (&lt;a href=&quot;https://github.com/netty/netty/pull/10790&quot;&gt;#10790&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.55.Final&quot;&gt;4.1.55.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Special notes&lt;/h1&gt;
+
+&lt;p&gt;In this release we changed the classifer for Linux AARCH64 to &lt;code&gt;linux-arch_64&lt;/code&gt;. This is consistent with what the os maven plugin is using for the platform and so makes it easier for us and the users in general. We did the same for netty-tcnative-* as well to keep things consistent.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/adutra&quot;&gt;@adutra&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ArjanSchouten&quot;&gt;@ArjanSchouten&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/benjaminroux&quot;&gt;@benjaminroux&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Ech0Fan&quot;&gt;@Ech0Fan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/henrychv&quot;&gt;@henrychv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/izeye&quot;&gt;@izeye&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/martinfurmanski&quot;&gt;@martinfurmanski&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/oxplay2&quot;&gt;@oxplay2&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/rpuch&quot;&gt;@rpuch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/XjCyan1de&quot;&gt;@XjCyan1de&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html</id>
 <title>Netty/Incubator/Transport/Native/io_uring 0.0.1.Final released</title>
@@ -4727,110 +4807,6 @@ do not affect 4.0.42.Final.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/willblackie&quot;&gt;@willblackie&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/yuzawa-san&quot;&gt;@yuzawa-san&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html</id>
-<title>Netty 4.0.41.Final and 4.1.5.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-08-29T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/08/29/4-0-41-Final-4-1-5-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.
-
-The releases contain bug-fixes, performance enhancements and new features.
-
-Important: These releases also fix a possible crash when using netty-tcnative-boringssl-static (see (#5733) so please upgrade ASAP if you this.
-
-The most important changes for 4.0.41.Final and 4.1.5.Final are:
-
-
-Result of ByteBufUtil.compare(ByteBuf a, ByteBuf b) is dependent on ByteOrder of supplied ByteBufs (#5732)
-Ensure fireChannelActive() is also called if Channel is closed in connect promise (#5724)
-Ensure SslHandler.close(...) will not throw exception if flush of pending messages fail (#5685)
-Static initializers can cause deadlock (#5730)
-Detect if netty-tcnative is in classpath or just tcnative...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
-
-&lt;p&gt;The releases contain bug-fixes, performance enhancements and new features.&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Important:&lt;/strong&gt; These releases also fix a possible crash when using netty-tcnative-boringssl-static (see (&lt;a href=&quot;https://github.com/netty/netty/pull/5733&quot;&gt;#5733&lt;/a&gt;) so please upgrade ASAP if you this.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.41.Final and 4.1.5.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Result of ByteBufUtil.compare(ByteBuf a, ByteBuf b) is dependent on ByteOrder of supplied ByteBufs (&lt;a href=&quot;https://github.com/netty/netty/pull/5732&quot;&gt;#5732&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure fireChannelActive() is also called if Channel is closed in connect promise (&lt;a href=&quot;https://github.com/netty/netty/pull/5724&quot;&gt;#5724&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure SslHandler.close(...) will not throw exception if flush of pending messages fail (&lt;a href=&quot;https://github.com/netty/netty/pull/5685&quot;&gt;#5685&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Static initializers can cause deadlock (&lt;a href=&quot;https://github.com/netty/netty/pull/5730&quot;&gt;#5730&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Detect if netty-tcnative is in classpath or just tcnative (&lt;a href=&quot;https://github.com/netty/netty/pull/5666&quot;&gt;#5666&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure direct ByteBuffer are wrapped in as direct ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/5629&quot;&gt;#5629&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to limit the maximum number of WeakOrderQueue instances per Thread (&lt;a href=&quot;https://github.com/netty/netty/pull/5592&quot;&gt;#5592&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure correct ordering if a ChannelInitializer adds another ChannelInitializer (&lt;a href=&quot;https://github.com/netty/netty/pull/5588&quot;&gt;#5588&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Servers should not send duplicate intermediate certificates (&lt;a href=&quot;https://github.com/netty/netty/pull/5606&quot;&gt;#5606&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Not try to double release empty buffer in Unpooled.wrappedBuffer (&lt;a href=&quot;https://github.com/netty/netty/pull/5605&quot;&gt;#5605&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure SslHandler not log false-positives when try to close the Channel due timeout (&lt;a href=&quot;https://github.com/netty/netty/pull/5604&quot;&gt;#5604&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Introduce allocation / pooling ratio in Recycler (&lt;a href=&quot;https://github.com/netty/netty/pull/5594&quot;&gt;#5594&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.5.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ensure we not log missleading errors if the promise was already failed due errors (&lt;a href=&quot;https://github.com/netty/netty/pull/5689&quot;&gt;#5689&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2 limit streams in all states (&lt;a href=&quot;https://github.com/netty/netty/pull/5671&quot;&gt;#5671&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Disable IPv6 address lookups when -Djava.net.preferIPv4Stack=false (&lt;a href=&quot;https://github.com/netty/netty/pull/5659&quot;&gt;#5659&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add NonStickyEventExecutorGroup (&lt;a href=&quot;https://github.com/netty/netty/pull/5579&quot;&gt;#5579&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix RejectedExecutionException when using DnsAddressResolverGroup (&lt;a href=&quot;https://github.com/netty/netty/pull/5612&quot;&gt;#5612&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/150?closed=1&quot;&gt;4.0.41.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/151?closed=1&quot;&gt;4.1.5.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.41.Final are also included in 4.1.5.Final. All changes only have milestone 4.1.5.Final
-do not affect 4.0.41.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/adityakishore&quot;&gt;@adityakishore&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/akhilk14&quot;&gt;@akhilk14&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/alexlehm&quot;&gt;@alexlehm&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/alkemist&quot;&gt;@alkemist&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/cconroy&quot;&gt;@cconroy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ferrybig&quot;&gt;@ferrybig&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/gustavonalle&quot;&gt;@gustavonalle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jamel&quot;&gt;@jamel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/LukasWysocki&quot;&gt;@LukasWysocki&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nlavan&quot;&gt;@nlavan&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tbcs&quot;&gt;@tbcs&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tkowalcz&quot;&gt;@tkowalcz&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tomer&quot;&gt;@tomer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/technocoreai&quot;&gt;@technocoreai&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tkaitchuck&quot;&gt;@tkaitchuck&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/xsir&quot;&gt;@xsir&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/yaroot&quot;&gt;@yaroot&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
