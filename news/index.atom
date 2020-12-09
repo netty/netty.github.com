@@ -2,13 +2,227 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-12-08T15:04:49+01:00</updated>
+<updated>2020-12-09T09:37:20+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
 <entry>
+<id>http://netty.io/news/2020/12/09/quic-0-0-1-Final.html</id>
+<title>Netty/Incubator/Codec/Quic 0.0.1.Final released</title>
+<updated>2020-12-09T09:37:20+01:00</updated>
+<published>2020-12-09T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/12/09/quic-0-0-1-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+After a bit more than 1 month of developement we are finally ready to release our first incubator version of Netty/Incubator/Codec/Quic.
+
+This codec provides a QUIC implementation of draft 32 by wrapping quiche and expose QUIC via the Channel API.
+
+Incubator, what does this mean ?
+
+To be able to work on new exciting features without "affecting" the core of netty we decided to start development of such features in the "incubator". This means these features will be developed in a seperate repository and only be merged back into the core netty repository once we feel that we can guarantee we not need...
+</summary>
+<content type="html">
+&lt;p&gt;After a bit more than 1 month of developement we are finally ready to release our first incubator version of Netty/Incubator/Codec/Quic.&lt;/p&gt;
+
+&lt;p&gt;This codec provides a QUIC implementation of &lt;a href=&quot;https://tools.ietf.org/html/draft-ietf-quic-transport-32&quot;&gt;draft 32&lt;/a&gt; by wrapping &lt;a href=&quot;https://github.com/cloudflare/quiche&quot;&gt;quiche&lt;/a&gt; and expose QUIC via the &lt;code&gt;Channel&lt;/code&gt; API.&lt;/p&gt;
+
+&lt;h1&gt;Incubator, what does this mean ?&lt;/h1&gt;
+
+&lt;p&gt;To be able to work on new exciting features without &quot;affecting&quot; the core of netty we decided to start development of such features in the &quot;incubator&quot;. This means these features will be developed in a seperate repository and only be merged back into the core netty repository once we feel that we can guarantee we not need to break the API anymore and consider these production ready. This hopefully helps to clarify expections and stability of the code and so people should be fully aware that APIs may change. Beside this it also allows to use different release schedules.&lt;/p&gt;
+
+&lt;h1&gt;How can I use the quic codec ?&lt;/h1&gt;
+
+&lt;p&gt;You we will need to include the right dependency for your platform. At the moment we only support either macOS x86_64 or linux x86_64. That said, this may change in the future.&lt;/p&gt;
+
+&lt;p&gt;An example for maven / linux would be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-quic&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
+    &amp;lt;classifier&amp;gt;linux-x86_64&amp;lt;/classifier&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or if you use macOS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-quic&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
+    &amp;lt;classifier&amp;gt;osx-x86_64&amp;lt;/classifier&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;How would I setup a QUIC server / client ?&lt;/h1&gt;
+
+&lt;p&gt;Bootstrapping a QUIC server that speaks HTTP/0.9 would look like that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;// We just want to support HTTP 0.9 as application protocol
+byte[] proto = new byte[] {
+        0x08, &#39;h&#39;, &#39;t&#39;, &#39;t&#39;, &#39;p&#39;, &#39;/&#39;, &#39;0&#39;, &#39;.&#39;, &#39;9&#39;
+};
+
+NioEventLoopGroup group = new NioEventLoopGroup(1);
+ChannelHandler codec = new QuicServerCodecBuilder()
+        .certificateChain(&quot;./src/test/resources/cert.crt&quot;)
+        .privateKey(&quot;./src/test/resources/cert.key&quot;)
+        .applicationProtocols(proto)
+        .maxIdleTimeout(5000, TimeUnit.MILLISECONDS)
+        // Configure some limits for the maximal number of streams (and the data) that we want to handle.
+        .initialMaxData(10000000)
+        .initialMaxStreamDataBidirectionalLocal(1000000)
+        .initialMaxStreamDataBidirectionalRemote(1000000)
+        .initialMaxStreamsBidirectional(100)
+        .initialMaxStreamsUnidirectional(100)
+
+        // Setup a token handler. In a production system you would want to implement and provide your
+        // custom one.
+        .tokenHandler(InsecureQuicTokenHandler.INSTANCE)
+        // ChannelHandler that is added into QuicChannel pipeline.
+        .handler(new ChannelInboundHandlerAdapter() {
+            @Override
+            public void channelActive(ChannelHandlerContext ctx) {
+                QuicChannel channel = (QuicChannel) ctx.channel();
+                // Create streams etc..
+            }
+
+            public void channelInactive(ChannelHandlerContext ctx) {
+                ((QuicChannel) ctx.channel()).collectStats().addListener(f -&amp;gt; {
+                    if (f.isSuccess()) {
+                        LOGGER.info(&quot;Connection closed: {}&quot;, f.getNow());
+                    }
+                });
+            }
+
+            @Override
+            public boolean isSharable() {
+                return true;
+            }
+        })
+        .streamHandler(new ChannelInitializer&amp;lt;QuicStreamChannel&amp;gt;() {
+            @Override
+            protected void initChannel(QuicStreamChannel ch)  {
+                // Add a LineBasedFrameDecoder here as we just want to do some simple HTTP 0.9 handling.
+                ch.pipeline().addLast(new LineBasedFrameDecoder(1024))
+                        .addLast(new ChannelInboundHandlerAdapter() {
+                    @Override
+                    public void channelRead(ChannelHandlerContext ctx, Object msg) {
+                        ByteBuf byteBuf = (ByteBuf) msg;
+                        try {
+                            if (byteBuf.toString(CharsetUtil.US_ASCII).trim().equals(&quot;GET /&quot;)) {
+                                ByteBuf buffer = ctx.alloc().directBuffer();
+                                buffer.writeCharSequence(&quot;Hello World!\r\n&quot;, CharsetUtil.US_ASCII);
+                                // Write the buffer and shutdown the output by writing a FIN.
+                                ctx.writeAndFlush(buffer).addListener(QuicStreamChannel.SHUTDOWN_OUTPUT);
+                            }
+                        } finally {
+                            byteBuf.release();
+                        }
+                    }
+                });
+            }
+        }).build();
+try {
+    Bootstrap bs = new Bootstrap();
+    Channel channel = bs.group(group)
+            .channel(NioDatagramChannel.class)
+            .handler(codec)
+            .bind(new InetSocketAddress(9999)).sync().channel();
+    channel.closeFuture().sync();
+} finally {
+    group.shutdownGracefully();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And the corespanding QUIC client like that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;// We just want to support HTTP 0.9 as application protocol
+byte[] proto = new byte[] {
+        0x08, &#39;h&#39;, &#39;t&#39;, &#39;t&#39;, &#39;p&#39;, &#39;/&#39;, &#39;0&#39;, &#39;.&#39;, &#39;9&#39;
+};
+
+NioEventLoopGroup group = new NioEventLoopGroup(1);
+try {
+    ChannelHandler codec = new QuicClientCodecBuilder()
+            .applicationProtocols(proto)
+            .maxIdleTimeout(5000, TimeUnit.MILLISECONDS)
+            .initialMaxData(10000000)
+            // As we don&#39;t want to support remote initiated streams just setup the limit for
+            // local initiated streams in this example.
+            .initialMaxStreamDataBidirectionalLocal(1000000)
+            .build();
+
+    Bootstrap bs = new Bootstrap();
+    Channel channel = bs.group(group)
+            .channel(NioDatagramChannel.class)
+            .handler(codec)
+            .bind(0).sync().channel();
+
+    QuicChannel quicChannel = QuicChannel.newBootstrap(channel)
+            .streamHandler(new ChannelInboundHandlerAdapter() {
+                @Override
+                public void channelActive(ChannelHandlerContext ctx) {
+                    // As we did not allow any remote initiated streams we will never see
+                    // this method called. That said just let us keep it here to demonstrate
+                    // that this handle would be called for each remote initiated stream.
+                    ctx.close();
+                }
+            })
+            .remoteAddress(new InetSocketAddress(NetUtil.LOCALHOST4, 9999))
+            .connect()
+            .get();
+
+    QuicStreamChannel streamChannel = quicChannel.createStream(QuicStreamType.BIDIRECTIONAL,
+            new ChannelInboundHandlerAdapter() {
+                @Override
+                public void channelRead(ChannelHandlerContext ctx, Object msg) {
+                    ByteBuf byteBuf = (ByteBuf) msg;
+                    System.err.println(byteBuf.toString(CharsetUtil.US_ASCII));
+                    byteBuf.release();
+                }
+
+                @Override
+                public void userEventTriggered(ChannelHandlerContext ctx, Object evt) {
+                    if (evt == ChannelInputShutdownReadComplete.INSTANCE) {
+                        // Close the connection once the remote peer did send the FIN
+                        // for this stream.
+                        ((QuicChannel) ctx.channel().parent()).close(true, 0,
+                                ctx.alloc().directBuffer(16)
+                                        .writeBytes(new byte[]{&#39;k&#39;, &#39;t&#39;, &#39;h&#39;, &#39;x&#39;, &#39;b&#39;, &#39;y&#39;, &#39;e&#39;}));
+                    }
+                }
+            }).sync().getNow();
+    // Write the data and send the FIN. After this its not possible anymore to write any more data.
+    streamChannel.writeAndFlush(Unpooled.copiedBuffer(&quot;GET /\r\n&quot;, CharsetUtil.US_ASCII))
+            .addListener(QuicStreamChannel.SHUTDOWN_OUTPUT);
+
+    // Wait for the stream channel and quic channel to be closed (this will happen after we
+    // received the FIN).  After this is done we will close the underlying datagram channel.
+    streamChannel.closeFuture().sync();
+    quicChannel.closeFuture().sync();
+    channel.close().sync();
+} finally {
+    group.shutdownGracefully();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;Where can I find the project ?&lt;/h1&gt;
+
+&lt;p&gt;The project itself lives on &lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;What&#39;s next ?&lt;/h1&gt;
+
+&lt;p&gt;While we are activly working on this project itself we also already started with an &lt;a href=&quot;https://github.com/netty/netty-incubator-codec-http3&quot;&gt;HTTP3 implementation&lt;/a&gt; on top of it.&lt;/p&gt;
+
+</content>
+</entry>
+<entry>
 <id>http://netty.io/news/2020/12/08/4-1-55-Final.html</id>
 <title>Netty 4.1.55.Final released</title>
-<updated>2020-12-08T15:04:49+01:00</updated>
+<updated>2020-12-09T09:24:59+01:00</updated>
 <published>2020-12-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/08/4-1-55-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -4689,126 +4903,6 @@ do not affect 4.0.43.Final.&lt;/p&gt;
 * &lt;a href=&quot;https://github.com/wangyuntao&quot;&gt;@wangyuntao&lt;/a&gt;
 * &lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;
 * &lt;a href=&quot;https://github.com/ZuluForce&quot;&gt;@ZuluForce&lt;/a&gt;&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2016/10/14/4-0-42-Final-4-1-6-Final.html</id>
-<title>Netty 4.0.42.Final and 4.1.6.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2016-10-14T00:00:00+00:00</published>
-<link href="http://netty.io/news/2016/10/14/4-0-42-Final-4-1-6-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.
-
-The releases contain bug-fixes, performance enhancements and new features.
-
-The most important changes for 4.0.42.Final and 4.1.6.Final are:
-
-
-Correctly throw IndexOutOfBoundsException when dst.remaining() is too big (#5878)
-Update Default Cipher List (#5906)
-Ensure removal of SslHandler not produce IllegalReferenceCountException (#5880)
-Ensure we not close NioDatagramChannel when SocketException is received (#5899)
-Regression: JVM crash in tcnative-boringssl during mutual TLS handshake with chain (#5841)
-Consolidate flushes even when no read in progress (#5808)
-Support any FileRegion implementation when using epoll transport (#5825)
-Ensure we not sent duplicate certificates when using OpenSslEngine (#5790)
-AbstractByteBuf.forEachByteDesc(ByteProcessor) starts from wrong index (#5783)
-Fix...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series today.&lt;/p&gt;
-
-&lt;p&gt;The releases contain bug-fixes, performance enhancements and new features.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.42.Final and 4.1.6.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Correctly throw IndexOutOfBoundsException when dst.remaining() is too big (&lt;a href=&quot;https://github.com/netty/netty/pull/5878&quot;&gt;#5878&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Update Default Cipher List (&lt;a href=&quot;https://github.com/netty/netty/pull/5906&quot;&gt;#5906&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure removal of SslHandler not produce IllegalReferenceCountException (&lt;a href=&quot;https://github.com/netty/netty/pull/5880&quot;&gt;#5880&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we not close NioDatagramChannel when SocketException is received (&lt;a href=&quot;https://github.com/netty/netty/pull/5899&quot;&gt;#5899&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Regression: JVM crash in tcnative-boringssl during mutual TLS handshake with chain (&lt;a href=&quot;https://github.com/netty/netty/issues/5841&quot;&gt;#5841&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Consolidate flushes even when no read in progress (&lt;a href=&quot;https://github.com/netty/netty/pull/5808&quot;&gt;#5808&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Support any FileRegion implementation when using epoll transport (&lt;a href=&quot;https://github.com/netty/netty/pull/5825&quot;&gt;#5825&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we not sent duplicate certificates when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/5790&quot;&gt;#5790&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AbstractByteBuf.forEachByteDesc(ByteProcessor) starts from wrong index (&lt;a href=&quot;https://github.com/netty/netty/pull/5783&quot;&gt;#5783&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix native library loading in Windows (&lt;a href=&quot;https://github.com/netty/netty/pull/5776&quot;&gt;#5776&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.6.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Use heapbuffers by default when using LocalChannel and LocalServerChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/5792&quot;&gt;#5792&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Provide extra info together with handshake complete event (&lt;a href=&quot;https://github.com/netty/netty/pull/5751&quot;&gt;#5751&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2: SETTINGS_HEADER_TABLE_SIZE should be an unsigned int (&lt;a href=&quot;https://github.com/netty/netty/pull/5798&quot;&gt;#5798&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add support for Client Subnet in DNS Queries (RFC7871) (&lt;a href=&quot;https://github.com/netty/netty/pull/5614&quot;&gt;#5614&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Do not change writerIndex when decode DnsPtrRecord (&lt;a href=&quot;https://github.com/netty/netty/pull/5784&quot;&gt;#5784&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2 Ensure default settings are correctly enforced and interfaces clarified (&lt;a href=&quot;https://github.com/netty/netty/pull/5845&quot;&gt;#5845&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/152?closed=1&quot;&gt;4.0.42.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/153?closed=1&quot;&gt;4.1.6.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.42.Final are also included in 4.1.6.Final. All changes only have milestone 4.1.6.Final
-do not affect 4.0.42.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Important change&lt;/h1&gt;
-
-&lt;p&gt;Start from version 4.1.6.Final the local transport will use HEAP buffers by default. See also (&lt;a href=&quot;https://github.com/netty/netty/pull/5792&quot;&gt;#5792&lt;/a&gt;).&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/blueswhisper&quot;&gt;@blueswhisper&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ChuntaoLu&quot;&gt;@ChuntaoLu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dobermai&quot;&gt;@dobermai&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/douglasc-nflx&quot;&gt;@douglasc-nflx&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/evgenyvsmirnov&quot;&gt;@evgenyvsmirnov&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ewie&quot;&gt;@ewie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/frouleau&quot;&gt;@frouleau&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jqmichael&quot;&gt;@jqmichael&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/joymufeng&quot;&gt;@joymufeng&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/knoyrok&quot;&gt;@knoyrok&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ktonga&quot;&gt;@ktonga&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MagicDroidX&quot;&gt;@MagicDroidX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MLeipziger&quot;&gt;@MLeipziger&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/monkey-mas&quot;&gt;@monkey-mas&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/npordash&quot;&gt;@npordash&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/patrickseptem&quot;&gt;@patrickseptem&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/olim7t&quot;&gt;@olim7t&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/otoolec&quot;&gt;@otoolec&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/qiaodaimadelaowang&quot;&gt;@qiaodaimadelaowang&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/radai-rosenblatt&quot;&gt;@radai-rosenblatt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rdhabalia&quot;&gt;@rdhabalia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/uglycow&quot;&gt;@uglycow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Underbalanced&quot;&gt;@Underbalanced&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/victornoel&quot;&gt;@victornoel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/willblackie&quot;&gt;@willblackie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/yuzawa-san&quot;&gt;@yuzawa-san&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 
 </content>
 </entry>
