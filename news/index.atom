@@ -2,9 +2,81 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2020-12-09T09:37:20+01:00</updated>
+<updated>2020-12-17T09:14:31+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2020/12/17/4-1-56-Final.html</id>
+<title>Netty 4.1.56.Final released</title>
+<updated>2020-12-17T09:14:31+01:00</updated>
+<published>2020-12-17T00:00:00+00:00</published>
+<link href="http://netty.io/news/2020/12/17/4-1-56-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the HttpPostMultipartRequestDecoder which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!
+
+The most important changes in this release are:
+
+
+Fix Bundle-NativeCode in MANIFEST file (#10867)
+Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (#10860)
+Fix infinite loop decoding multipart requests  (#10855)
+Ensure IovArray is usuable without sun.misc.Unsafe (#10870)
+Improve logging in DnsServerAddressStreamProviders (#10848)
+
+
+
+For the details and all changes, please browse our issue tracker for 4.1.56.Final.
+
+Special notes
+
+As this...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the &lt;code&gt;HttpPostMultipartRequestDecoder&lt;/code&gt; which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix Bundle-NativeCode in MANIFEST file (&lt;a href=&quot;https://github.com/netty/netty/pull/10867&quot;&gt;#10867&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (&lt;a href=&quot;https://github.com/netty/netty/pull/10860&quot;&gt;#10860&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix infinite loop decoding multipart requests  (&lt;a href=&quot;https://github.com/netty/netty/pull/10855&quot;&gt;#10855&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure IovArray is usuable without sun.misc.Unsafe (&lt;a href=&quot;https://github.com/netty/netty/pull/10870&quot;&gt;#10870&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improve logging in &lt;code&gt;DnsServerAddressStreamProviders&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/10848&quot;&gt;#10848&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.56.Final&quot;&gt;4.1.56.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Special notes&lt;/h1&gt;
+
+&lt;p&gt;As this release includes a fix for a possible infinite loop it&#39;s advised to upgrade asap if you use 4.1.55.Final.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/elharo&quot;&gt;@elharo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/henrychv&quot;&gt;@henrychv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jameskleeh&quot;&gt;@jameskleeh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/imandy&quot;&gt;@imandy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/terrarier2111&quot;&gt;@terrarier2111&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2020/12/09/quic-0-0-1-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.1.Final released</title>
@@ -4778,131 +4850,6 @@ do not affect 4.0.44.Final.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/zhoucen&quot;&gt;@zhoucen&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html</id>
-<title>Netty 4.0.43.Final and 4.1.7.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-01-12T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series. These releases contains 100+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
-Also its worth noting that these releases include as many community contributed changes as never before. This makes me extremely proud of our community. With these words in mind, OSS FTW!
-
-The most important changes for 4.0.43.Final and 4.1.7.Final are:
-
-
-OpenSSLContext Mutual Auth does not announce acceptable CAs (#6145)
-Ensure ReferenceCountedOpenSslEngine not swallow the close_notify (#6189)
-ByteBufUtil.compare int underflow (#6198)
-Potential endless loop in Recycler.Stack.scavengeSome (#6153)
-Ensure we use a MPMC queue in ThreadDeathWatcher as it...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series. These releases contains 100+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
-Also its worth noting that these releases include as many community contributed changes as never before. This makes me extremely proud of our community. With these words in mind, OSS FTW!&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.43.Final and 4.1.7.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;OpenSSLContext Mutual Auth does not announce acceptable CAs (&lt;a href=&quot;https://github.com/netty/netty/pull/6145&quot;&gt;#6145&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure ReferenceCountedOpenSslEngine not swallow the close_notify (&lt;a href=&quot;https://github.com/netty/netty/pull/6189&quot;&gt;#6189&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ByteBufUtil.compare int underflow (&lt;a href=&quot;https://github.com/netty/netty/pull/6198&quot;&gt;#6198&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Potential endless loop in Recycler.Stack.scavengeSome (&lt;a href=&quot;https://github.com/netty/netty/issues/6153&quot;&gt;#6153&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we use a MPMC queue in ThreadDeathWatcher as it may be used from multiple threads at the same time (&lt;a href=&quot;https://github.com/netty/netty/pull/6149&quot;&gt;#6149&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;NIO ServerChannel shouldn&#39;t close because of Exception (&lt;a href=&quot;https://github.com/netty/netty/pull/6107&quot;&gt;#6107&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Regression: SSL session contains extraneous NULL entries in peer certificate chain (&lt;a href=&quot;https://github.com/netty/netty/issues/6098&quot;&gt;#6098&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure alert is send when SSLException happens during calling SslHandler.unwrap(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/6047&quot;&gt;#6047&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use the correct alert depending on the CertificateException when using OpenSslEngine (&lt;a href=&quot;https://github.com/netty/netty/pull/6046&quot;&gt;#6046&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Adding ability to get Peer Creds on a UnixDomainSocket (&lt;a href=&quot;https://github.com/netty/netty/pull/5940&quot;&gt;#5940&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Reduce lock contention in resource leak (&lt;a href=&quot;https://github.com/netty/netty/pull/5934&quot;&gt;#5934&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correct handle HttpMessage that is EOF terminated (&lt;a href=&quot;https://github.com/netty/netty/pull/5957&quot;&gt;#5957&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix unbalanced quotes in Bundle-NativeCode manifest header(&lt;a href=&quot;https://github.com/netty/netty/pull/5949&quot;&gt;#5949&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix false-positives when using ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/6103&quot;&gt;#6103&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.7.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;DefaultHttp2Connection modifying child map while iterating (&lt;a href=&quot;https://github.com/netty/netty/pull/6197&quot;&gt;#6197&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix DefaultChannelId MAC address parsing bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6147&quot;&gt;#6147&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Do not limit the PID to be &amp;lt;= 4194304 (&lt;a href=&quot;https://github.com/netty/netty/pull/6144&quot;&gt;#6144&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix false-positives when using ResourceLeakDetector (&lt;a href=&quot;https://github.com/netty/netty/pull/6087&quot;&gt;#6087&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;retained[Slice|Duplicate] buffer reference count bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6024&quot;&gt;#6024&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;PlatformDependent ASCII hash code broken on big endian machines (&lt;a href=&quot;https://github.com/netty/netty/pull/5935&quot;&gt;#5935&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2 WeightedFairQueueByteDistributor Bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6004&quot;&gt;#6004&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/154?closed=1&quot;&gt;4.0.43.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/155?closed=1&quot;&gt;4.1.7.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.43.Final are also included in 4.1.7.Final. All changes only have milestone 4.1.7.Final
-do not affect 4.0.43.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Important note&lt;/h1&gt;
-
-&lt;p&gt;This release fixes a bug which could lead to false-positives in leak reports. So if you see leak reports in previous versions please upgrade and see if these still show up. This is related to (&lt;a href=&quot;https://github.com/netty/netty/pull/6087&quot;&gt;#6087&lt;/a&gt;) and (&lt;a href=&quot;https://github.com/netty/netty/pull/6103&quot;&gt;#6103&lt;/a&gt;).&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-*&lt;br /&gt;
-* &lt;a href=&quot;https://github.com/adrianluisgonzalez&quot;&gt;@adrianluisgonzalez&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/alkemist&quot;&gt;@alkemist&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/aniketbhatnagar&quot;&gt;@aniketbhatnagar&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/bm3780&quot;&gt;@bm3780&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/buchgr&quot;&gt;@buchgr&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/byoengguk&quot;&gt;@byoengguk&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/chringwer&quot;&gt;@chringwer&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/cmdc0de&quot;&gt;@cmdc0de&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/derbylock&quot;&gt;@derbylock&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/garydgregory&quot;&gt;@garydgregory&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/ichaki5748&quot;&gt;@ichaki5748&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/IgorAlelekov&quot;&gt;@IgorAlelekov&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/ijuma&quot;&gt;@ijuma&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/JackOfMostTrades&quot;&gt;@JackOfMostTrades&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/jellenelis&quot;&gt;@jellenelis&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/jo-kin&quot;&gt;@jo-kin&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/jrudolph&quot;&gt;@jrudolph&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/lowka&quot;&gt;@lowka&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/maliqq&quot;&gt;@maliqq&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/maseev&quot;&gt;@maseev&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/markdascher&quot;&gt;@markdascher&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/nhnFreespirit&quot;&gt;@nhnFreespirit&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/radai-rosenblatt&quot;&gt;@radai-rosenblatt&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/RevvyDevvyDoo&quot;&gt;@RevvyDevvyDoo&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/s1monw&quot;&gt;@s1monw&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/smaldini&quot;&gt;@smaldini&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/tjake&quot;&gt;@tjake&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/vkorenev&quot;&gt;@vkorenev&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/vonbarg&quot;&gt;@vonbarg&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/wangyuntao&quot;&gt;@wangyuntao&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/zsxwing&quot;&gt;@zsxwing&lt;/a&gt;
-* &lt;a href=&quot;https://github.com/ZuluForce&quot;&gt;@ZuluForce&lt;/a&gt;&lt;/p&gt;
 
 </content>
 </entry>
