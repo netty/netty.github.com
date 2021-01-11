@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.33.Final released</title>
-<title>Netty: Netty 4.0.33.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.3.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.3.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.33.Final released
+Netty/Incubator/Codec/Quic 0.0.3.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,74 +250,26 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-11-04">04-Nov-2015</time>
+<time datetime="2021-01-11">11-Jan-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.0.33.Final.</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.3.Final, which is our first release of the year :). This release is a bug-fix release, please consider upgrading as soon as possible as it also fixes a possible SEGV.</p>
 
-<p>This release contains 60+ changes, including bug-fixes, performance improvements and new features.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/3?closed=1">bug-tracker</a>.</p>
 
-<p>The most important changes are:</p>
-
-<ul>
-<li>Fix race-condition when allocate from multiple-thread (<a href="https://github.com/netty/netty/pull/4388">#4388</a>) (<a href="https://github.com/netty/netty/issues/4198">#4198</a>)</li>
-<li>OpenSslServerContext reinitializes the provided TrustManagerFactory with the key cert chain (<a href="https://github.com/netty/netty/pull/4387">#4387</a>) (<a href="https://github.com/netty/netty/issues/4355">#4355</a>)</li>
-<li>Improve size calculation of messages when written from outside the EventLoop (<a href="https://github.com/netty/netty/pull/4380">#4380</a>) (<a href="https://github.com/netty/netty/issues/4363">#4363</a>)</li>
-<li>Always return a real slice even when the length is 0 (<a href="https://github.com/netty/netty/pull/4368">#4368</a>)</li>
-<li>Fix possible assert error in GlobalEventExecutor  (<a href="https://github.com/netty/netty/pull/4367">#4367</a>) (<a href="https://github.com/netty/netty/issues/4357">#4357</a>)</li>
-<li>Correctly handle bitshifting if system does not support unaligned access (<a href="https://github.com/netty/netty/pull/4366">#4366</a>)</li>
-<li>Add *UnsafeHeapByteBuf for improve performance on systems with sun.misc.Unsafe (<a href="https://github.com/netty/netty/pull/4361">#4361</a>)</li>
-<li>Allow to disable reference count checks on every access of the ByteBuf (<a href="https://github.com/netty/netty/pull/4344">#4344</a>)</li>
-<li>A number of toString() methods on classes that implement ByteBufHolder can throw IllegalReferenceCountException (<a href="https://github.com/netty/netty/issues/4327">#4327</a>)</li>
-<li>Forward decoded messages more frequently (<a href="https://github.com/netty/netty/pull/4322">#4322</a>) (<a href="https://github.com/netty/netty/issues/4284">#4284</a>)</li>
-<li>Ensure pending tasks are run when EmbeddedChannel.close(...) (<a href="https://github.com/netty/netty/pull/4321">#4322</a>) (<a href="https://github.com/netty/netty/issues/4316">#4284</a></li>
-<li>Implement SSLSession.invalidate() and isValid() for OpenSSLEngine (<a href="https://github.com/netty/netty/pull/4307">#4307</a>)</li>
-<li><p>Add support for server-side renegotiation when using OpenSslEngine (<a href="https://github.com/netty/netty/pull/4304">#4304</a>)</p></li>
-<li><p>Correctly reset markers for all allocations when using PooledByteBufAllocator(<a href="https://github.com/netty/netty/pull/4278">#4278</a>)</p></li>
-</ul>
-
-
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.33.Final+is%3Aclosed">our issue tracker</a>.</p>
-
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/buchgr">@buchgr</a></li>
-<li><a href="https://github.com/freels">@freels</a></li>
-<li><a href="https://github.com/jroper">@jroper</a></li>
-<li><a href="https://github.com/luengnat">@luengnat</a></li>
-<li><a href="https://github.com/maxwindiff">@maxwindiff</a></li>
-<li><a href="https://github.com/merlimat">@merlimat</a></li>
-<li><a href="https://github.com/ninja-">@ninja-</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/prange">@prange</a></li>
-<li><a href="https://github.com/scf37">@scf37</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/skyao">@skyao</a></li>
-<li><a href="https://github.com/slachiewicz">@slachiewicz</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/stau">@stau</a></li>
-<li><a href="https://github.com/sverkera">@sverkera</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/10/13/3-10-5-Final.html">&larr; Older</a>
+<a href="../../../../news/2020/12/18/quic-0-0-2-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/11/10/4-1-0-Beta8.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -326,9 +278,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/11/04/4-0-33-Final.html";
+            var disqus_url = "http://netty.io/news/2021/01/11/quic-0-0-3-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-11-04-4-0-33-Final";
+            var disqus_identifier = "news/2021-01-11-quic-0-0-3-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

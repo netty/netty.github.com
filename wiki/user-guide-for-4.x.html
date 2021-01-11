@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2020/12/18/quic-0-0-2-Final.html">
+<a href="../news/2021/01/11/quic-0-0-3-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -295,7 +295,7 @@ Another inevitable case is when you have to deal with a legacy proprietary proto
 <li>Here, we specify to use the <a href="http://netty.io/4.1/api/io/netty/channel/socket/nio/NioServerSocketChannel.html" rel="nofollow"><code>NioServerSocketChannel</code></a> class which is used to instantiate a new <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> to accept incoming connections.</li>
 <li>The handler specified here will always be evaluated by a newly accepted <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>. The <a href="http://netty.io/4.1/api/io/netty/channel/ChannelInitializer.html" rel="nofollow"><code>ChannelInitializer</code></a> is a special handler that is purposed to help a user configure a new <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>.  It is most likely that you want to configure the <a href="http://netty.io/4.1/api/io/netty/channel/ChannelPipeline.html" rel="nofollow"><code>ChannelPipeline</code></a> of the new <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> by adding some handlers such as <code>DiscardServerHandler</code> to implement your network application.  As the application gets complicated, it is likely that you will add more handlers to the pipeline and extract this anonymous class into a top-level class eventually.</li>
 <li>You can also set the parameters which are specific to the <code>Channel</code> implementation. We are writing a TCP/IP server, so we are allowed to set the socket options such as <code>tcpNoDelay</code> and <code>keepAlive</code>. Please refer to the apidocs of <a href="http://netty.io/4.1/api/io/netty/channel/ChannelOption.html" rel="nofollow"><code>ChannelOption</code></a> and the specific <a href="http://netty.io/4.1/api/io/netty/channel/ChannelConfig.html" rel="nofollow"><code>ChannelConfig</code></a> implementations to get an overview about the supported <code>ChannelOption</code>s.</li>
-<li>Did you notice <code>option()</code> and <code>childOption()</code>?  <code>option()</code> is for the <a href="http://netty.io/4.1/api/io/netty/channel/socket/nio/NioServerSocketChannel.html" rel="nofollow"><code>NioServerSocketChannel</code></a> that accepts incoming connections. <code>childOption()</code> is for the <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>s accepted by the parent <a href="http://netty.io/4.1/api/io/netty/channel/ServerChannel.html" rel="nofollow"><code>ServerChannel</code></a>, which is <a href="http://netty.io/4.1/api/io/netty/channel/socket/nio/NioServerSocketChannel.html" rel="nofollow"><code>NioServerSocketChannel</code></a> in this case.</li>
+<li>Did you notice <code>option()</code> and <code>childOption()</code>?  <code>option()</code> is for the <a href="http://netty.io/4.1/api/io/netty/channel/socket/nio/NioServerSocketChannel.html" rel="nofollow"><code>NioServerSocketChannel</code></a> that accepts incoming connections. <code>childOption()</code> is for the <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>s accepted by the parent <a href="http://netty.io/4.1/api/io/netty/channel/ServerChannel.html" rel="nofollow"><code>ServerChannel</code></a>, which is <a href="http://netty.io/4.1/api/io/netty/channel/socket/nio/NioSocketChannel.html" rel="nofollow"><code>NioSocketChannel</code></a> in this case.</li>
 <li>We are ready to go now. What's left is to bind to the port and to start the server. Here, we bind to the port <code>8080</code> of all NICs (network interface cards) in the machine. You can now call the <code>bind()</code> method as many times as you want (with different bind addresses.)</li>
 </ol>
 <p>Congratulations! You've just finished your first server on top of Netty.</p>
@@ -491,7 +491,7 @@ Another inevitable case is when you have to deal with a legacy proprietary proto
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 18-Dec-2020</small>
+<small>Last retrieved on 11-Jan-2021</small>
 </div>
 </div>
 </div>
@@ -504,7 +504,7 @@ Another inevitable case is when you have to deal with a legacy proprietary proto
 <hr>
 <div id="footer">
 <p>
-Copyright &copy; 2020
+Copyright &copy; 2021
 <a href="../index.html">The Netty project</a>
 </p>
 </div>
