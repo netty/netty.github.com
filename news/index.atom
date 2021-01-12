@@ -2,9 +2,81 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-01-11T15:31:00+01:00</updated>
+<updated>2021-01-12T10:49:40+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/01/12/4-1-57-Final.html</id>
+<title>Netty 4.1.56.Final released</title>
+<updated>2021-01-12T10:49:40+01:00</updated>
+<published>2021-01-12T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/01/12/4-1-57-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the HttpPostMultipartRequestDecoder which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!
+
+The most important changes in this release are:
+
+
+Fix Bundle-NativeCode in MANIFEST file (#10867)
+Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (#10860)
+Fix infinite loop decoding multipart requests  (#10855)
+Ensure IovArray is usuable without sun.misc.Unsafe (#10870)
+Improve logging in DnsServerAddressStreamProviders (#10848)
+
+
+
+For the details and all changes, please browse our issue tracker for 4.1.56.Final.
+
+Special notes
+
+As this...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the &lt;code&gt;HttpPostMultipartRequestDecoder&lt;/code&gt; which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!&lt;/p&gt;
+
+&lt;p&gt;The most important changes in this release are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fix Bundle-NativeCode in MANIFEST file (&lt;a href=&quot;https://github.com/netty/netty/pull/10867&quot;&gt;#10867&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (&lt;a href=&quot;https://github.com/netty/netty/pull/10860&quot;&gt;#10860&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix infinite loop decoding multipart requests  (&lt;a href=&quot;https://github.com/netty/netty/pull/10855&quot;&gt;#10855&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure IovArray is usuable without sun.misc.Unsafe (&lt;a href=&quot;https://github.com/netty/netty/pull/10870&quot;&gt;#10870&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improve logging in &lt;code&gt;DnsServerAddressStreamProviders&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/10848&quot;&gt;#10848&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.56.Final&quot;&gt;4.1.56.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Special notes&lt;/h1&gt;
+
+&lt;p&gt;As this release includes a fix for a possible infinite loop it&#39;s advised to upgrade asap if you use 4.1.55.Final.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/elharo&quot;&gt;@elharo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/henrychv&quot;&gt;@henrychv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jameskleeh&quot;&gt;@jameskleeh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/imandy&quot;&gt;@imandy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/terrarier2111&quot;&gt;@terrarier2111&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/01/11/quic-0-0-3-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.3.Final released</title>
@@ -4571,123 +4643,6 @@ These releases contains bug-fixes, performance enhancements and feature so we en
 &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/04/30/4-0-46-Final-4-1-10-Final.html</id>
-<title>Netty 4.0.46.Final and 4.1.10.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-04-30T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/04/30/4-0-46-Final-4-1-10-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes for 4.0.46.Final and 4.1.10.Final are:
-
-
-NetUtil IPv6 bugs related to IPv4 and compression (#6613)
-Enable configuring available processors  (#6224)
-Add support for SNIMatcher when using SslProvider.OPENSSL* and Java8+ (#6534)
-Fix buffer leak in local transport when a close triggers the close of a remote peer and there are still messages in the inbound buffer. (#6650)
-Fix IllegalArgumentException when release a wrapped ByteBuffer on Java9 (#6644)
-VoidChannelPromise not notified when exception is thrown.  (#6634)
-Correctly handle...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.46.Final and 4.1.10.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;NetUtil IPv6 bugs related to IPv4 and compression (&lt;a href=&quot;https://github.com/netty/netty/pull/6613&quot;&gt;#6613&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Enable configuring available processors  (&lt;a href=&quot;https://github.com/netty/netty/pull/6224&quot;&gt;#6224&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add support for SNIMatcher when using SslProvider.OPENSSL* and Java8+ (&lt;a href=&quot;https://github.com/netty/netty/pull/#6534&quot;&gt;#6534&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix buffer leak in local transport when a close triggers the close of a remote peer and there are still messages in the inbound buffer. (&lt;a href=&quot;https://github.com/netty/netty/issues/6650&quot;&gt;#6650&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix IllegalArgumentException when release a wrapped ByteBuffer on Java9 (&lt;a href=&quot;https://github.com/netty/netty/issues/6644&quot;&gt;#6644&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;VoidChannelPromise not notified when exception is thrown.  (&lt;a href=&quot;https://github.com/netty/netty/pull/6634&quot;&gt;#6634&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle read-only ByteBuf in ByteToMessageDecoder (&lt;a href=&quot;https://github.com/netty/netty/pull/6639&quot;&gt;#6639&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to free direct buffers on java9 again  (&lt;a href=&quot;https://github.com/netty/netty/pull/6568&quot;&gt;#6568&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;NioEventLoop#rebuildSelector0 throws ClassCastException (&lt;a href=&quot;https://github.com/netty/netty/pull/6608&quot;&gt;#6608&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix OpenSslCertificateException error code validation  (&lt;a href=&quot;https://github.com/netty/netty/pull/6581&quot;&gt;#6581&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Limit the maximum size of the allocated outbound buffer to MAX_ENCRYPTED_PACKET_LENGTH (&lt;a href=&quot;https://github.com/netty/netty/pull/6569&quot;&gt;#6569&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow negative memoryAddress when calling PlatformDependent0.newDirectBuffer(...) (&lt;a href=&quot;https://github.com/netty/netty/pull/6575&quot;&gt;#6575&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Recognizing TLS Extension &quot;HeartBeat&quot; as Valid TLS Packet (&lt;a href=&quot;https://github.com/netty/netty/pull/6529&quot;&gt;#6529&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.10.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Notify connect promise of ProxyHandler after codecs are removed (&lt;a href=&quot;https://github.com/netty/netty/pull/6672&quot;&gt;#6672&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ability to extend SniHandler and configure it with arbitrary runtime data (&lt;a href=&quot;https://github.com/netty/netty/pull/6623&quot;&gt;#6623&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Do not throw ClassCastException when rule subnet version doesn&#39;t match remote IP version (&lt;a href=&quot;https://github.com/netty/netty/pull/6658&quot;&gt;#6658&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix HTTP/2 dependency tree corruption (&lt;a href=&quot;https://github.com/netty/netty/pull/6654&quot;&gt;#6654&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Avoid infinite loop in HTTP/2 distributor toString()  (&lt;a href=&quot;https://github.com/netty/netty/pull/6655&quot;&gt;#6655&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use jndi-dns to obtain default name servers (&lt;a href=&quot;https://github.com/netty/netty/pull/6590&quot;&gt;#6590&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;netty-codec: Manage read-flow explicitly in MessageAggregator (&lt;a href=&quot;https://github.com/netty/netty/pull/6604&quot;&gt;#6604&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Accept two ways to start HTTP/2 over clear text(version 2)
-(&lt;a href=&quot;https://github.com/netty/netty/pull/6496&quot;&gt;#6496&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/161?closed=1&quot;&gt;4.0.46.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/160?closed=1&quot;&gt;4.1.10.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.46.Final are also included in 4.1.10.Final. All changes only have milestone 4.1.10.Final do not affect 4.0.46.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/andrewmccall&quot;&gt;@andrewmccall&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/asajim&quot;&gt;@asajim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/boazavital&quot;&gt;@boazavital&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ByunghyunBang&quot;&gt;@ByunghyunBang&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/chhsiao90&quot;&gt;@chhsiao90&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dapengzhang0&quot;&gt;@dapengzhang0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ddossot&quot;&gt;@ddossot&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dschobel&quot;&gt;@dschobel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/durigon&quot;&gt;@durigon&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/eun-ice&quot;&gt;@eun-ice&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Erik-OShaughnessy&quot;&gt;@Erik-OShaughnessy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/FullDarkness19&quot;&gt;@FullDarkness19&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jeff303&quot;&gt;@jeff303&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kaja-mohideen&quot;&gt;@kaja-mohideen&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kennylbj&quot;&gt;@kennylbj&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kevinoliver&quot;&gt;@kevinoliver&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/lukaszx0&quot;&gt;@lukaszx0&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mcobrien&quot;&gt;@mcobrien&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nhw76&quot;&gt;@nhw76&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nika-begiashvili&quot;&gt;@nika-begiashvili&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ninja-&quot;&gt;@ninja-&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/snicoll&quot;&gt;@snicoll&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tomasherman&quot;&gt;@tomasherman&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trollheim&quot;&gt;@trollheim&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/yschimke&quot;&gt;@yschimke&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zvinlong&quot;&gt;@zvinlong&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
