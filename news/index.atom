@@ -2,57 +2,57 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-01-12T10:49:40+01:00</updated>
+<updated>2021-01-12T15:00:22+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
 <entry>
 <id>http://netty.io/news/2021/01/12/4-1-57-Final.html</id>
-<title>Netty 4.1.56.Final released</title>
-<updated>2021-01-12T10:49:40+01:00</updated>
+<title>Netty 4.1.57.Final released</title>
+<updated>2021-01-12T15:00:22+01:00</updated>
 <published>2021-01-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/01/12/4-1-57-Final.html" rel="alternate" type="text/html" />
 <author>
 <name>normanmaurer</name>
 </author>
 <summary>
-I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the HttpPostMultipartRequestDecoder which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!
+I am happy to announce the release of netty 4.1.57.Final. This releases is a bug-fix release.
 
 The most important changes in this release are:
 
 
-Fix Bundle-NativeCode in MANIFEST file (#10867)
-Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (#10860)
-Fix infinite loop decoding multipart requests  (#10855)
-Ensure IovArray is usuable without sun.misc.Unsafe (#10870)
-Improve logging in DnsServerAddressStreamProviders (#10848)
+We need to ensure we always drain the error stack when a callback throws
+(#10920)
+Add PushPromise and Priority Frame support in Http2FrameCodec (#10765)
+Add PushPromise and Priority Frame support in Http2FrameCodec (#10765)
+Improve performance of HPACK static table lookup (#10840)
+MQTT codec: foolproof SUBSCRIBE QoS encoding (#10874)
+Ensure we only register native methods once (#10876)
 
 
 
-For the details and all changes, please browse our issue tracker for 4.1.56.Final.
+For the details and all changes, please browse our issue tracker for 4.1.57.Final.
 
-Special notes
+Thank You
 
-As this...
+Every idea and bug-report counts and so we thought it is worth mentioning those who helped...
 </summary>
 <content type="html">
-&lt;p&gt;I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the &lt;code&gt;HttpPostMultipartRequestDecoder&lt;/code&gt; which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!&lt;/p&gt;
+&lt;p&gt;I am happy to announce the release of netty 4.1.57.Final. This releases is a bug-fix release.&lt;/p&gt;
 
 &lt;p&gt;The most important changes in this release are:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;Fix Bundle-NativeCode in MANIFEST file (&lt;a href=&quot;https://github.com/netty/netty/pull/10867&quot;&gt;#10867&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (&lt;a href=&quot;https://github.com/netty/netty/pull/10860&quot;&gt;#10860&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix infinite loop decoding multipart requests  (&lt;a href=&quot;https://github.com/netty/netty/pull/10855&quot;&gt;#10855&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure IovArray is usuable without sun.misc.Unsafe (&lt;a href=&quot;https://github.com/netty/netty/pull/10870&quot;&gt;#10870&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Improve logging in &lt;code&gt;DnsServerAddressStreamProviders&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/10848&quot;&gt;#10848&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;We need to ensure we always drain the error stack when a callback throws
+(&lt;a href=&quot;https://github.com/netty/netty/pull/10920&quot;&gt;#10920&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add PushPromise and Priority Frame support in Http2FrameCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/10765&quot;&gt;#10765&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add PushPromise and Priority Frame support in Http2FrameCodec (&lt;a href=&quot;https://github.com/netty/netty/pull/10765&quot;&gt;#10765&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Improve performance of HPACK static table lookup (&lt;a href=&quot;https://github.com/netty/netty/pull/10840&quot;&gt;#10840&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;MQTT codec: foolproof SUBSCRIBE QoS encoding (&lt;a href=&quot;https://github.com/netty/netty/pull/10874&quot;&gt;#10874&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure we only register native methods once (&lt;a href=&quot;https://github.com/netty/netty/pull/10876&quot;&gt;#10876&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;
 
 
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.56.Final&quot;&gt;4.1.56.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1&gt;Special notes&lt;/h1&gt;
-
-&lt;p&gt;As this release includes a fix for a possible infinite loop it&#39;s advised to upgrade asap if you use 4.1.55.Final.&lt;/p&gt;
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.57.Final&quot;&gt;4.1.57.Final&lt;/a&gt;.&lt;/p&gt;
 
 &lt;h1&gt;Thank You&lt;/h1&gt;
 
@@ -61,17 +61,17 @@ As this...
 &lt;p&gt;Please report an unintended omission.&lt;/p&gt;
 
 &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/AkiaCode&quot;&gt;@AkiaCode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/andsel&quot;&gt;@andsel&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/elharo&quot;&gt;@elharo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/henrychv&quot;&gt;@henrychv&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jameskleeh&quot;&gt;@jameskleeh&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/imandy&quot;&gt;@imandy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/delegacy&quot;&gt;@delegacy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Neustradamus&quot;&gt;@Neustradamus&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/terrarier2111&quot;&gt;@terrarier2111&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
