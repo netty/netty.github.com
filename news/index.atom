@@ -2,9 +2,60 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-01-12T15:18:50+01:00</updated>
+<updated>2021-01-13T14:11:08+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/01/13/4-1-58-Final.html</id>
+<title>Netty 4.1.58.Final released</title>
+<updated>2021-01-13T14:11:08+01:00</updated>
+<published>2021-01-13T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/01/13/4-1-58-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.58.Final, which contains only one bug-fix which fixes a regression which could cause the native libs to be not loaded correctly. This regression was introduced in netty 4.1.57.Final, which was released just yesterday. Due the nature of the regression we decided we should offer another release (with a fix) ASAP.
+
+The related issue / pr for the regression can be found in the provided links:
+
+
+Revert "Ensure we only register native methods once" (#10928)
+4.1.57 could not load a native library: netty_transport_native_unix_linux aarch_64/x86_64 (#10926)
+
+
+
+Thank You
+
+Every idea and bug-report counts and so we thought it...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.58.Final, which contains only one bug-fix which fixes a regression which could cause the native libs to be not loaded correctly. This regression was introduced in netty 4.1.57.Final, which was released just yesterday. Due the nature of the regression we decided we should offer another release (with a fix) ASAP.&lt;/p&gt;
+
+&lt;p&gt;The related issue / pr for the regression can be found in the provided links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Revert &quot;Ensure we only register native methods once&quot; (&lt;a href=&quot;https://github.com/netty/netty/pull/10928&quot;&gt;#10928&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;4.1.57 could not load a native library: netty_transport_native_unix_linux aarch_64/x86_64 (&lt;a href=&quot;https://github.com/netty/netty/issues/10926&quot;&gt;#10926&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/matteobertozzi&quot;&gt;@matteobertozzi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/01/12/4-1-57-Final.html</id>
 <title>Netty 4.1.57.Final released</title>
@@ -143,7 +194,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2020/12/17/4-1-56-Final.html</id>
 <title>Netty 4.1.56.Final released</title>
-<updated>2020-12-17T09:14:31+01:00</updated>
+<updated>2021-01-13T14:11:01+01:00</updated>
 <published>2020-12-17T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/17/4-1-56-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -4555,107 +4606,6 @@ These releases contains bug-fixes, performance enhancements and feature so we en
 &lt;li&gt;&lt;a href=&quot;https://github.com/u2032&quot;&gt;@u2032&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/wilkinsona&quot;&gt;@wilkinsona&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/05/12/4-0-47-Final-4-1-11-Final.html</id>
-<title>Netty 4.0.47.Final and 4.1.11.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-05-12T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/05/12/4-0-47-Final-4-1-11-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes for 4.0.47.Final and 4.1.11.Final are:
-
-
-OpenSslEngine wrap may generate bad data if multiple src buffers (#6715)
-Ensure Netty is usable on Java7 (#6703)
-Not try to compresses HttpMessage if IDENTITY header value is set (#6690)
-ByteToMessageDecoder#handlerRemoved may release cumulation buffer prematurely (#6728)
-ByteBuf#ensureWritable(int, boolean) should not throw
-(#6721)
-
-
-
-The most important change for 4.1.11.Final is:
-
-
-New native transport for kqueue (#6000)
-
-
-
-For the details and all changes, please browse our issue tracker for 4.0.47.Final and 4.1.11.Final.
-
-All changes that are...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.47.Final and 4.1.11.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;OpenSslEngine wrap may generate bad data if multiple src buffers (&lt;a href=&quot;https://github.com/netty/netty/pull/6715&quot;&gt;#6715&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure Netty is usable on Java7 (&lt;a href=&quot;https://github.com/netty/netty/pull/6703&quot;&gt;#6703&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Not try to compresses HttpMessage if IDENTITY header value is set (&lt;a href=&quot;https://github.com/netty/netty/pull/6690&quot;&gt;#6690&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ByteToMessageDecoder#handlerRemoved may release cumulation buffer prematurely (&lt;a href=&quot;https://github.com/netty/netty/pull/6728&quot;&gt;#6728&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ByteBuf#ensureWritable(int, boolean) should not throw
-(&lt;a href=&quot;https://github.com/netty/netty/pull/6721&quot;&gt;#6721&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important change for 4.1.11.Final is:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;New native transport for kqueue (&lt;a href=&quot;https://github.com/netty/netty/pull/6000&quot;&gt;#6000&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/162?closed=1&quot;&gt;4.0.47.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/163?closed=1&quot;&gt;4.1.11.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.47.Final are also included in 4.1.11.Final. All changes only have milestone 4.1.11.Final do not affect 4.0.47.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;KQueue transport&lt;/h1&gt;
-
-&lt;p&gt;The new 4.1.11.Final release contains a native transport for kqueue which you may want to check out. This transport also supports Unix Domain Sockets, just as the native epoll transport does.&lt;/p&gt;
-
-&lt;p&gt;For more details please check the apidocs and our &lt;a href=&quot;https://github.com/netty/netty/tree/netty-4.1.11.Final/transport-native-kqueue/src/test/java/io/netty/channel/kqueue&quot;&gt;tests&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1&gt;Important note&lt;/h1&gt;
-
-&lt;p&gt;This release also fixes a &lt;a href=&quot;https://github.com/netty/netty/pull/6715&quot;&gt;regression&lt;/a&gt; when using &lt;code&gt;SslProvider.OPENSSL&lt;/code&gt; and &lt;code&gt;SslProvider.OPENSSL_REFCNT&lt;/code&gt; that was introduced in 4.0.46.Final / 4.1.10.Final so we strongly encourage you to upgrade if you are using one of these releases and want to make use of the native SSLEngine implementation.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/herberteuler&quot;&gt;@herberteuler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jchambers&quot;&gt;@jchambers&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fengjiachun&quot;&gt;@fengjiachun&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mereshow&quot;&gt;@mereshow&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mkw&quot;&gt;@mkw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mskaric&quot;&gt;@mskaric&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Spikhalskiy&quot;&gt;@Spikhalskiy&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vkostyukov&quot;&gt;@vkostyukov&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
