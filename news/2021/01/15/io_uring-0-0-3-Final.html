@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.35.Final released</title>
-<title>Netty: Netty 4.1.35.Final released</title>
+<title>Netty.news: Netty/Incubator/Transport/Native/io_uring 0.0.3.Final released</title>
+<title>Netty: Netty/Incubator/Transport/Native/io_uring 0.0.3.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.35.Final released
+Netty/Incubator/Transport/Native/io_uring 0.0.3.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,120 +250,26 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2019-04-17">17-Apr-2019</time>
+<time datetime="2021-01-15">15-Jan-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>Today we announce the release of netty 4.1.35.Final. This release contains mostly bugfixes, some improvements and a few performance wins.
-If you use netty-tcnative or netty-tcnative-boringssl-static you also need to upgrade to 2.0.25.Final.</p>
+<p>I am happy to announce the release of netty-incubator-transport-io_uring 0.0.3.Final. This release is a bug-fix release, please consider upgrading as soon as possible as it also contains a workaround for an io_uring bug that could lead to a memory leak.</p>
 
-<p>The most important changes in this release are:</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/3?closed=1">bug-tracker</a>.</p>
 
-<ul>
-<li>Only try to use OpenSslX509TrustManagerWrapper when using Java 7+ (<a href="https://github.com/netty/netty/pull/9065">#9065</a>)</li>
-<li>DnsNameResolver.resolve(...) should notify future as soon as one preferred record was resolved (<a href="https://github.com/netty/netty/pull/9050">#9050</a>)</li>
-<li>Correctly calculate ttl for AuthoritativeNameServer when update existing records (<a href="https://github.com/netty/netty/pull/9051">#9051</a>)</li>
-<li>DnsNameResolver.resolveAll(...) should also contain non preferred addresses (<a href="https://github.com/netty/netty/pull/9044">#9044</a>)</li>
-<li>Websocket client closing handshake to support "force close" after given timeout (<a href="https://github.com/netty/netty/pull/8883">#8883</a>)</li>
-<li>Correctly handle overflow in Native.kevent(...) when EINTR is detected (<a href="https://github.com/netty/netty/pull/9024">#9024</a>)</li>
-<li>DnsNameResolver.resolveAll(...) should not include duplicates (<a href="https://github.com/netty/netty/pull/9021">#9021</a>)</li>
-<li>Skip execution of Channel*Handler method if annotated with @Skip and just use the next handler in the pipeline (<a href="https://github.com/netty/netty/pull/8988">#8988</a>)</li>
-<li>Allow to offload / customize key signing operations when using BoringSSL (<a href="https://github.com/netty/netty/pull/8943">#8943</a>)</li>
-<li>Allow to offload certificate validation when using BoringSSL (<a href="https://github.com/netty/netty/pull/8974">#8974</a>)</li>
-<li>Add user possibility to skip the evaluation of a certain websocket extensions (<a href="https://github.com/netty/netty/pull/8910">#8910</a>)</li>
-<li>Don't try to put back MemoryRegionCache.Entry objects into the Recycler when recycled because of a finalizer (<a href="https://github.com/netty/netty/pull/8955">#8955</a>)</li>
-<li>Fix possible ByteBuf leak when CompositeByteBuf is resized (<a href="https://github.com/netty/netty/pull/8946">#8946</a>)</li>
-<li>Allow to automatically trim the PoolThreadCache in a timely interval (<a href="https://github.com/netty/netty/pull/8941">#8941</a>)</li>
-<li>Support ALLOW_HALF_CLOSURE channel option on Unix domain socket. (<a href="https://github.com/netty/netty/pull/8932">#8932</a>)</li>
-<li>Correctly produce ssl alert when certificate validation fails on the client-side when using native SSL implementation (<a href="https://github.com/netty/netty/pull/8949">#8949</a>)</li>
-<li>Fix HttpUtil.isKeepAlive to behave correctly when Connection is a comma separated list defect (<a href="https://github.com/netty/netty/pull/8924">#8924</a>)</li>
-</ul>
-
-
-<p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/milestone/208?closed=1">4.1.35.Final</a>.</p>
-
-<h1>Notes about new features / improvements</h1>
-
-<p>This section contains some details about some changes that deserve a bit more attentions. Please check the related PRs for even more details.</p>
-
-<h2>Offload various handshake related operations from the EventLoop</h2>
-
-<p>This release added various features related to offload handshake related operations from the EventLoop when netty-tcnative-boringssl-static is used. This can be very helpfully if you need to do any blocking operation in your <code>KeyManager</code> or <code>TrustManager</code> implementation. As these are still considered as "experimental" as these were just added you explicit need to enable the offloading via <code>-Dio.netty.handler.ssl.openssl.useTasks=true</code>.</p>
-
-<p>Beside this you will need to use the <code>SslContext</code> methods that take another Executor in its parameters.</p>
-
-<p>Related PRs:</p>
-
-<ul>
-<li>Allow to offload / customize key signing operations when using BoringSSL (<a href="https://github.com/netty/netty/pull/8943">#8943</a>)</li>
-<li>Allow to offload certificate validation when using BoringSSL (<a href="https://github.com/netty/netty/pull/8974">#8974</a>)</li>
-</ul>
-
-
-<h2>Offload key signing operations</h2>
-
-<p>When using netty-tcnative-boringssl-static it is now possible to offload the key-signing completely (a.k.a keyless SSL). This can be done by implementations <code>OpenSslPrivateKeyMethod</code> and set your implementation via <code>ReferenceCountedOpenSslContext.setPrivateKeyMethod(...)</code>.</p>
-
-<p>Please note that this feature is still considered experimental and so is marked with <code>@UnstableApi</code>.</p>
-
-<p>For more details see (<a href="https://github.com/netty/netty/pull/8943">#8943</a>).</p>
-
-<h2>Performance improvements when using BoringSSL</h2>
-
-<p>We now use <a href="https://boringssl.googlesource.com/boringssl/+/chromium-stable/PORTING.md#crypto_buffer">CRYPTO_BUFFER</a> when netty-tcnative-boringssl-static is used which allows us to remove the overhead of multiple parsing operations related to the certificate chain.</p>
-
-<p>For more details see (<a href="https://github.com/netty/netty-tcnative/pull/445">#455</a>).</p>
-
-<h1>New Team Members</h1>
-
-<p>I am happy to announce that <a href="https://github.com/franz1981">@franz1981</a> and <a href="https://github.com/njhill">@njhill</a> were added to the Netty Team to recognize all the hard and amazing work both of them did in the past. Congratulations to both!</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/amizurov">@amizurov</a></li>
-<li><a href="https://github.com/BELUGABEHR">@BELUGABEHR</a></li>
-<li><a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a></li>
-<li><a href="https://github.com/daschl">@daschl</a></li>
-<li><a href="https://github.com/doom369">@doom369</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/eolivelli">@eolivelli</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/fzakaria">@fzakaria</a></li>
-<li><a href="https://github.com/gfYaya">@gfYaya</a></li>
-<li><a href="https://github.com/kachayev">@kachayev</a></li>
-<li><a href="https://github.com/kwart">@kwart</a></li>
-<li><a href="https://github.com/lh44">@lh44</a></li>
-<li><a href="https://github.com/liuhaozzu">@liuhaozzu</a></li>
-<li><a href="https://github.com/njhill">@njhill</a></li>
-<li><a href="https://github.com/magnus-gustafsson">@magnus-gustafsson</a></li>
-<li><a href="https://github.com/Mr00Anderson">@Mr00Anderson</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/pcperera">@pcperera</a></li>
-<li><a href="https://github.com/qeesung">@qeesung</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/sureshkrishnamoorthy">@sureshkrishnamoorthy</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/vikashsingh009">@vikashsingh009</a></li>
-<li><a href="https://github.com/violetagg">@violetagg</a></li>
-<li><a href="https://github.com/vkostyukov">@vkostyukov</a></li>
-<li><a href="https://github.com/Wingfril">@Wingfril</a></li>
-<li><a href="https://github.com/zhongl">@zhongl</a></li>
-</ul>
-
+<p>For more details about this transport in general please read our <a href="https://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2019/03/08/4-1-34-Final.html">&larr; Older</a>
+<a href="../../../../news/2021/01/13/4-1-58-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2019/04/30/4-1-36-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -372,9 +278,9 @@ If you use netty-tcnative or netty-tcnative-boringssl-static you also need to up
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2019/04/17/4-1-35-Final.html";
+            var disqus_url = "http://netty.io/news/2021/01/15/io_uring-0-0-3-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2019-04-17-4-1-35-Final";
+            var disqus_identifier = "news/2021-01-15-io_uring-0-0-3-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

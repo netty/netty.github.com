@@ -2,9 +2,34 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-01-13T14:11:08+01:00</updated>
+<updated>2021-01-15T11:04:33+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/01/15/io_uring-0-0-3-Final.html</id>
+<title>Netty/Incubator/Transport/Native/io_uring 0.0.3.Final released</title>
+<updated>2021-01-15T11:04:33+01:00</updated>
+<published>2021-01-15T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/01/15/io_uring-0-0-3-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty-incubator-transport-io_uring 0.0.3.Final. This release is a bug-fix release, please consider upgrading as soon as possible as it also contains a workaround for an io_uring bug that could lead to a memory leak.
+
+For more details related to this release see our bug-tracker.
+
+For more details about this transport in general please read our initial announcement....
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty-incubator-transport-io_uring 0.0.3.Final. This release is a bug-fix release, please consider upgrading as soon as possible as it also contains a workaround for an io_uring bug that could lead to a memory leak.&lt;/p&gt;
+
+&lt;p&gt;For more details related to this release see our &lt;a href=&quot;https://github.com/netty/netty-incubator-transport-io_uring/milestone/3?closed=1&quot;&gt;bug-tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For more details about this transport in general please read our &lt;a href=&quot;https://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html&quot;&gt;initial announcement&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/01/13/4-1-58-Final.html</id>
 <title>Netty 4.1.58.Final released</title>
@@ -4506,105 +4531,6 @@ These releases contains bug-fixes, performance enhancements and feature so we en
 &lt;li&gt;&lt;a href=&quot;https://github.com/tellison&quot;&gt;@tellison&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/testn&quot;&gt;@testn&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/tonyshenkk&quot;&gt;@tonyshenkk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/wilkinsona&quot;&gt;@wilkinsona&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html</id>
-<title>Netty 4.0.48.Final and 4.1.12.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-06-09T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/06/09/4-0-48-Final-4-1-12-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes for 4.0.48.Final and 4.1.12.Final are:
-
-
-Allow to access memoryAddress of wrapped ByteBuf for ReadOnlyByteBuf (#6826)
-Correctly exclude netty-tcnative classes from the all jar (#6793)
-Netty force encodes already encoded responses (#6785)
-Fix the encode bug in SctpOutboundByteStreamHandler (#6775)
-Fix handle of ByteBuf with multi nioBuffer in EpollDatagramChannel (#6764)
-Ensure SslUtils and so SslHandler works when using with Little-Endian buffers (#6713)
-
-
-
-The most important changes for 4.1.12.Final are:
-
-
-HttpObjectEncoder#isContentAlwaysEmpty cannot be overridden by subclasses (#6788)
-RedisDecoder infinite loop (#6787)
-UnixResolverDnsServerAddressStreamProvider default...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.48.Final and 4.1.12.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Allow to access memoryAddress of wrapped ByteBuf for ReadOnlyByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/6826&quot;&gt;#6826&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly exclude netty-tcnative classes from the all jar (&lt;a href=&quot;https://github.com/netty/netty/pull/6793&quot;&gt;#6793&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Netty force encodes already encoded responses (&lt;a href=&quot;https://github.com/netty/netty/pull/6785&quot;&gt;#6785&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix the encode bug in SctpOutboundByteStreamHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/6775&quot;&gt;#6775&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix handle of ByteBuf with multi nioBuffer in EpollDatagramChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/6764&quot;&gt;#6764&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure SslUtils and so SslHandler works when using with Little-Endian buffers (&lt;a href=&quot;https://github.com/netty/netty/pull/6713&quot;&gt;#6713&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.12.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;HttpObjectEncoder#isContentAlwaysEmpty cannot be overridden by subclasses (&lt;a href=&quot;https://github.com/netty/netty/pull/6788&quot;&gt;#6788&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;RedisDecoder infinite loop (&lt;a href=&quot;https://github.com/netty/netty/pull/6787&quot;&gt;#6787&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;UnixResolverDnsServerAddressStreamProvider default name server selection and ordering bug (&lt;a href=&quot;https://github.com/netty/netty/pull/6748&quot;&gt;#6748&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;KQueueSocket#setTrafficClass exceptions (&lt;a href=&quot;https://github.com/netty/netty/pull/6749&quot;&gt;#6749&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/163?closed=1&quot;&gt;4.0.48.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/164?closed=1&quot;&gt;4.1.12.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.48.Final are also included in 4.1.12.Final. All changes only have milestone 4.1.12.Final do not affect 4.0.48.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Important&lt;/h1&gt;
-
-&lt;p&gt;These releases update to netty-tcnative 2.0.3.Final which fixes a small native memory leak which happened when you destroy an OpenSSLContext. So if you create a lot and destroy a lot of these its important to update.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/CharlieYuQi&quot;&gt;@CharlieYuQi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jasontedor&quot;&gt;@jasontedor&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jhrussell&quot;&gt;@jhrussell&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mcobrien&quot;&gt;@mcobrien&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mkw&quot;&gt;@mkw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/NSProgrammer&quot;&gt;@NSProgrammer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Sammers21&quot;&gt;@Sammers21&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/sudheeshkatkam&quot;&gt;@sudheeshkatkam&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/sunrenjie&quot;&gt;@sunrenjie&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/u2032&quot;&gt;@u2032&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/wilkinsona&quot;&gt;@wilkinsona&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
