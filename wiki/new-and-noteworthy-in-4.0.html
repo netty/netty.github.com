@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/01/15/io_uring-0-0-3-Final.html">
+<a href="../news/2021/02/08/4-1-59-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://dl.bintray.com/netty/downloads/netty-4.1.58.Final.tar.bz2">
+<a href="https://dl.bintray.com/netty/downloads/netty-4.1.59.Final.tar.bz2">
 <i class="fa fa-cloud-download"></i>
-4.1.58.Final
-<small>&dash; 13-Jan-2021</small>
+4.1.59.Final
+<small>&dash; 08-Feb-2021</small>
 </a>
 </li>
 <li>
@@ -449,7 +449,7 @@ You can improve it by yourself
 <div class="highlight highlight-source-java"><pre><span class="pl-c"><span class="pl-c">//</span> Before:</span>&#x000A;<span class="pl-k">void</span> handleUpstream(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelEvent</span> e);&#x000A;<span class="pl-k">void</span> handleDownstream(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelEvent</span> e);&#x000A; &#x000A;<span class="pl-c"><span class="pl-c">//</span> After:</span>&#x000A;<span class="pl-k">void</span> channelRegistered(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelUnregistered(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelActive(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelInactive(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> message);&#x000A; &#x000A;<span class="pl-k">void</span> bind(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">SocketAddress</span> localAddress, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> connect(&#x000A;        <span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">SocketAddress</span> remoteAddress,&#x000A;        <span class="pl-smi">SocketAddress</span> localAddress, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> disconnect(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> close(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> deregister(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> write(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> message, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> flush(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> read(<span class="pl-smi">ChannelHandlerContext</span> ctx);</pre></div>
 <p><code>ChannelHandlerContext</code> has also been changed to reflect the changes mentioned above:</p>
 <div class="highlight highlight-source-java"><pre><span class="pl-c"><span class="pl-c">//</span> Before:</span>&#x000A;ctx<span class="pl-k">.</span>sendUpstream(evt);&#x000A; &#x000A;<span class="pl-c"><span class="pl-c">//</span> After:</span>&#x000A;ctx<span class="pl-k">.</span>fireChannelRead(receivedMessage);</pre></div>
-<p>All these changes mean a user cannot extend the non-existing <code>ChannelEvent</code> interface anymore.  How then does a user define his or her own event type such as <code>IdleStateEvent</code>?  <code>ChannelInboundHandler</code> in 4.0 has a handler method called <code>userEventTriggered()</code> which is dedicated to this specific user case.</p>
+<p>All these changes mean a user cannot extend the non-existing <code>ChannelEvent</code> interface anymore.  How then does a user define his or her own event type such as <code>IdleStateEvent</code>?  <code>ChannelHandlerContext</code> in 4.0 has a <code>fireUserEventTriggered</code> method for triggering custom events and  <code>ChannelInboundHandler</code> now has a handler method called <code>userEventTriggered()</code> which is dedicated to the specific user case of dealing with custom events.</p>
 <h4 id="wiki-h4-18">
 <a id="user-content-simplified-channel-state-model" class="anchor" href="#simplified-channel-state-model" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Simplified channel state model</h4>
 <p>When a new connected <code>Channel</code> is created in 3.x, at least three <code>ChannelStateEvent</code>s are triggered: <code>channelOpen</code>, <code>channelBound</code>, and <code>channelConnected</code>.  When a <code>Channel</code> is closed, at least 3 more: <code>channelDisconnected</code>, <code>channelUnbound</code>, and <code>channelClosed</code>.</p>
@@ -675,7 +675,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 15-Jan-2021</small>
+<small>Last retrieved on 08-Feb-2021</small>
 </div>
 </div>
 </div>
