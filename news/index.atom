@@ -2,9 +2,314 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-02-08T14:51:16+01:00</updated>
+<updated>2021-03-04T11:05:28+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/03/04/http3-0-0-1-Final.html</id>
+<title>Netty/Incubator/Codec/Http3 0.0.1.Final released</title>
+<updated>2021-03-04T11:05:28+01:00</updated>
+<published>2021-03-04T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/03/04/http3-0-0-1-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+After a few months of work I am happy to announce the first incubator release of our own HTTP/3 codec. This codec is a pure Java implementation (written from scratch) that is using our own QUIC abstraction under the hood.
+
+While it is still early days this implementation is mostly "feature-complete" and as far as we are aware of full-functional. Please test it out and provide feedback and/or PRs :)
+
+Incubator, what does this mean ?
+
+To be able to work on new exciting features without "affecting" the core of netty we decided to start development of such features in the "incubator". This...
+</summary>
+<content type="html">
+&lt;p&gt;After a few months of work I am happy to announce the first incubator release of our own &lt;a href=&quot;https://quicwg.org/base-drafts/draft-ietf-quic-http.html&quot;&gt;HTTP/3&lt;/a&gt; codec. This codec is a pure Java implementation (written from scratch) that is using our own &lt;a href=&quot;https://datatracker.ietf.org/doc/draft-ietf-quic-transport/?include_text=1&quot;&gt;QUIC&lt;/a&gt; abstraction under the hood.&lt;/p&gt;
+
+&lt;p&gt;While it is still early days this implementation is mostly &quot;feature-complete&quot; and as far as we are aware of full-functional. Please test it out and provide feedback and/or PRs :)&lt;/p&gt;
+
+&lt;h1&gt;Incubator, what does this mean ?&lt;/h1&gt;
+
+&lt;p&gt;To be able to work on new exciting features without &quot;affecting&quot; the core of netty we decided to start development of such features in the &quot;incubator&quot;. This means these features will be developed in a seperate repository and only be merged back into the core netty repository once we feel that we can guarantee we not need to break the API anymore and consider these production ready. This hopefully helps to clarify expections and stability of the code and so people should be fully aware that APIs may change. Beside this it also allows to use different release schedules.&lt;/p&gt;
+
+&lt;h1&gt;How can I use the HTTP/3 codec ?&lt;/h1&gt;
+
+&lt;p&gt;You we will need to include the right dependency of the HTTP/3 codec and QUIC codec. At the moment we support Linux (x86_64), MacOS (x86_64) and Windows (x86_64) for the QUIC codec.&lt;/p&gt;
+
+&lt;p&gt;An example for maven / linux would be:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-quic&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.7.Final&amp;lt;/version&amp;gt;
+    &amp;lt;classifier&amp;gt;linux-x86_64&amp;lt;/classifier&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-http3&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or if you use macOS:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-quic&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.7.Final&amp;lt;/version&amp;gt;
+    &amp;lt;classifier&amp;gt;osx-x86_64&amp;lt;/classifier&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-http3&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or if you use windows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-quic&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.7.Final&amp;lt;/version&amp;gt;
+    &amp;lt;classifier&amp;gt;windows-x86_64&amp;lt;/classifier&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;netty-incubator-codec-http3&amp;lt;/artifactId&amp;gt;
+    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can also simplify things by using the &lt;a href=&quot;https://github.com/trustin/os-maven-plugin&quot;&gt;os-maven-plugin&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;How would I setup a HTTP/3 server / HTTP/3 client?&lt;/h1&gt;
+
+&lt;p&gt;Bootstrapping a HTTP/3 server looks like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public final class Http3ServerExample {
+    private static final byte[] CONTENT = &quot;Hello World!\r\n&quot;.getBytes(CharsetUtil.US_ASCII);
+    private Http3ServerExample() { }
+
+    public static void main(String... args) throws Exception {
+        class Http3ServerHandler extends Http3RequestStreamInboundHandler {
+            @Override
+            protected void channelRead(
+                    ChannelHandlerContext ctx, Http3HeadersFrame frame, boolean isLast) {
+                if (isLast) {
+                    writeResponse(ctx);
+                }
+                ReferenceCountUtil.release(frame);
+            }
+
+            @Override
+            protected void channelRead(
+                    ChannelHandlerContext ctx, Http3DataFrame frame, boolean isLast) {
+                if (isLast) {
+                    writeResponse(ctx);
+                }
+                ReferenceCountUtil.release(frame);
+            }
+
+            private void writeResponse(ChannelHandlerContext ctx) {
+                Http3HeadersFrame headersFrame = new DefaultHttp3HeadersFrame();
+                headersFrame.headers().status(&quot;200&quot;);
+                headersFrame.headers().set(&quot;server&quot;, &quot;netty&quot;);
+                ctx.write(headersFrame);
+                ctx.writeAndFlush(new DefaultHttp3DataFrame(Unpooled.wrappedBuffer(CONTENT)))
+                            .addListener(QuicStreamChannel.SHUTDOWN_OUTPUT);
+            }
+        }
+
+        SelfSignedCertificate cert = new SelfSignedCertificate();
+        QuicSslContext sslContext = QuicSslContextBuilder.forServer(cert.key(), null, cert.cert())
+                .applicationProtocols(Http3.supportedApplicationProtocols()).build();
+        ChannelHandler codec = Http3.newQuicServerCodecBuilder()
+                .sslContext(sslContext)
+                .maxIdleTimeout(5000, TimeUnit.MILLISECONDS)
+                .initialMaxData(10000000)
+                .initialMaxStreamDataBidirectionalLocal(1000000)
+                .initialMaxStreamDataBidirectionalRemote(1000000)
+                .initialMaxStreamsBidirectional(100)
+                .tokenHandler(InsecureQuicTokenHandler.INSTANCE)
+                .handler(new ChannelInitializer&amp;lt;QuicChannel&amp;gt;() {
+                    @Override
+                    protected void initChannel(QuicChannel ch) {
+                        // Called for each connection
+                        ch.pipeline().addLast(new Http3ServerConnectionHandler(
+                                new ChannelInitializer&amp;lt;QuicStreamChannel&amp;gt;() {
+                                    // Called for each request-stream,
+                                    @Override
+                                    protected void initChannel(QuicStreamChannel ch) {
+                                        ch.pipeline().addLast(new Http3ServerHandler());
+                                    }
+                                });
+                    }
+                }).build();
+
+        NioEventLoopGroup group = new NioEventLoopGroup(1);
+        try {
+            Bootstrap bs = new Bootstrap();
+            Channel channel = bs.group(group)
+                    .channel(NioDatagramChannel.class)
+                    .handler(codec)
+                    .bind(new InetSocketAddress(9999)).sync().channel();
+            channel.closeFuture().sync();
+        } finally {
+            group.shutdownGracefully();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And the corespanding HTTP/3 client like that:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;public final class Http3ClientExample {
+    private Http3ClientExample() { }
+
+    public static void main(String... args) throws Exception {
+        class Http3ClientHandler extends Http3RequestStreamInboundHandler {
+            @Override
+            protected void channelRead(
+                    ChannelHandlerContext ctx, Http3HeadersFrame frame, boolean isLast) {
+                releaseFrameAndCloseIfLast(ctx, frame, isLast);
+            }
+
+            @Override
+            protected void channelRead(
+                    ChannelHandlerContext ctx, Http3DataFrame frame, boolean isLast) {
+                System.out.print(frame.content().toString(CharsetUtil.US_ASCII));
+                releaseFrameAndCloseIfLast(ctx, frame, isLast);
+            }
+
+            private void releaseFrameAndCloseIfLast(
+                    ChannelHandlerContext ctx, Http3RequestStreamFrame frame, boolean isLast) {
+                ReferenceCountUtil.release(frame);
+                if (isLast) {
+                    ctx.close();
+                }
+            }
+        }
+
+        QuicSslContext context = QuicSslContextBuilder.forClient()
+                .trustManager(InsecureTrustManagerFactory.INSTANCE)
+                .applicationProtocols(Http3.supportedApplicationProtocols()).build();
+        ChannelHandler codec = Http3.newQuicClientCodecBuilder()
+                .sslContext(context)
+                .maxIdleTimeout(5000, TimeUnit.MILLISECONDS)
+                .initialMaxData(10000000)
+                .initialMaxStreamDataBidirectionalLocal(1000000)
+                .build();
+        NioEventLoopGroup group = new NioEventLoopGroup(1);
+
+        try {
+            Bootstrap bs = new Bootstrap();
+            Channel channel = bs.group(group)
+                    .channel(NioDatagramChannel.class)
+                    .handler(codec)
+                    .bind(0).sync().channel();
+
+            QuicChannel quicChannel = QuicChannel.newBootstrap(channel)
+                    .handler(new Http3ClientConnectionHandler())
+                    .remoteAddress(new InetSocketAddress(NetUtil.LOCALHOST4, 9999))
+                    .connect()
+                    .get();
+
+            QuicStreamChannel streamChannel = 
+                    Http3.newRequestStream(quicChannel, new Http3ClientHandler()).sync().getNow();
+
+            // Write the Header frame and send the FIN to mark the end of the request.
+            // After this its not possible anymore to write any more data.
+            Http3HeadersFrame frame = new DefaultHttp3HeadersFrame();
+            frame.headers().method(&quot;GET&quot;).path(&quot;/&quot;);
+            streamChannel.writeAndFlush(frame)
+                    .addListener(QuicStreamChannel.SHUTDOWN_OUTPUT).sync();
+
+            // Wait for the stream channel and quic channel to be closed (this will happen
+            // after we received the FIN).
+            // After this is done we will close the underlying datagram channel.
+            streamChannel.closeFuture().sync();
+
+            // After we received the response lets also close the underlying QUIC channel
+            // and datagram channel.
+            quicChannel.close().sync();
+            channel.close().sync();
+        } finally {
+            group.shutdownGracefully();
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1&gt;Converting layer&lt;/h1&gt;
+
+&lt;p&gt;To make it easier for people we also include a &quot;converting&quot; layer which allows to just act on the usual &lt;code&gt;HttpResponse&lt;/code&gt; / &lt;code&gt;HttpRequest&lt;/code&gt; and &lt;code&gt;HttpContent&lt;/code&gt; objects (like you are used too from the HTTP/1 codec). To make use of it just add it to the &lt;code&gt;ChannelPipeline&lt;/code&gt; as show here:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;class Http1RequestHandler extends ChannelInboundHandlerAdapter {
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        if (msg instanceof LastHttpContent) {
+             FullHttpResponse response = new DefaultFullHttpResponse(
+                    HttpVersion.HTTP_1_1, OK, CONTENT.retainedDuplicate());
+             response.headers().setInt(HttpHeaderNames.CONTENT_LENGTH, CONTENT.readableBytes());
+             ctx.writeAndFlush(response);
+        }
+    }
+}
+
+SelfSignedCertificate cert = new SelfSignedCertificate();
+QuicSslContext sslContext = QuicSslContextBuilder.forServer(cert.key(), null, cert.cert())
+           .applicationProtocols(Http3.supportedApplicationProtocols()).earlyData(true).build();
+ChannelHandler codec = Http3.newQuicServerCodecBuilder()
+        .option(QuicChannelOption.UDP_SEGMENTS, 10)
+        .sslContext(sslContext)
+        .maxIdleTimeout(5000, TimeUnit.MILLISECONDS)
+        .maxSendUdpPayloadSize(1500)
+        .maxRecvUdpPayloadSize(1500)
+        .initialMaxData(10000000)
+        .initialMaxStreamDataBidirectionalLocal(1000000)
+        .initialMaxStreamDataBidirectionalRemote(1000000)
+        .initialMaxStreamsBidirectional(100000)
+        .tokenHandler(InsecureQuicTokenHandler.INSTANCE)
+        .handler(new ChannelInitializer&amp;lt;QuicChannel&amp;gt;() {
+                    @Override
+                    protected void initChannel(QuicChannel ch) {
+                        ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
+                            @Override
+                            public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+                                System.err.println(&quot;INACTIVE&quot;);
+                                ((QuicChannel) ctx.channel()).collectStats().addListener(f -&amp;gt; {
+                                    System.err.println(f.getNow());
+                                });
+                            }
+                        });
+                        ch.pipeline().addLast(new Http3ServerConnectionHandler(
+                                new ChannelInitializer&amp;lt;QuicStreamChannel&amp;gt;() {
+                                    // Called for each request-stream,
+                                    @Override
+                                    protected void initChannel(QuicStreamChannel ch) {
+                                        ch.pipeline().addLast(new Http3FrameToHttpObjectCodec(true));
+                                        ch.pipeline().addLast(new Http1RequestHandler());
+                                    }
+                                }));
+                    }
+        }).build();
+
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Also note that this adapter handler supports server and client.&lt;/p&gt;
+
+&lt;h1&gt;Important notes&lt;/h1&gt;
+
+&lt;p&gt;For maximal performance you should use the native &lt;code&gt;epoll&lt;/code&gt; (&lt;code&gt;EpollDatagramChannel&lt;/code&gt; / &lt;code&gt;EpollEventLoopGroup&lt;/code&gt;) transport that is included by netty as it can use &lt;code&gt;sendmmsg&lt;/code&gt; / &lt;code&gt;recvmmsg&lt;/code&gt; which will help to improve the throughtput.&lt;/p&gt;
+
+&lt;h1&gt;Where can I find the project ?&lt;/h1&gt;
+
+&lt;p&gt;The project itself lives on &lt;a href=&quot;https://github.com/netty/netty-incubator-codec-http3&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/02/08/4-1-59-Final.html</id>
 <title>Netty 4.1.59.Final released</title>
@@ -4405,108 +4710,6 @@ Please give it a try and let us know how it works for you.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html</id>
-<title>Netty 4.0.50.Final and 4.1.14.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-08-03T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/08/03/4-0-50-Final-4-1-14-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes for 4.0.50.Final and 4.1.14.Final are:
-
-
-Fix hash function and hash table size in Snappy (#7038)
-Correctly run all pending tasks for EmbeddedChannel when the Channel is closed (#6897)
-Allow to use oldest Channel out of the Simple / FixedChannelPool on acquire (#7018)
-Correctly handle unsigned int values returned from TCP_INFO (#7011)
-ByteBufs which are not resizable should not throw in ensureWritable(int, boolean) (#7004)
-Automatically detect shaded packagePrefix (#6995)
-Correct typo in artifactId...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.50.Final and 4.1.14.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fix hash function and hash table size in Snappy (&lt;a href=&quot;https://github.com/netty/netty/pull/7038&quot;&gt;#7038&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly run all pending tasks for EmbeddedChannel when the Channel is closed (&lt;a href=&quot;https://github.com/netty/netty/pull/6897&quot;&gt;#6897&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to use oldest Channel out of the Simple / FixedChannelPool on acquire (&lt;a href=&quot;https://github.com/netty/netty/pull/7018&quot;&gt;#7018&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle unsigned int values returned from TCP_INFO (&lt;a href=&quot;https://github.com/netty/netty/pull/7011&quot;&gt;#7011&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ByteBufs which are not resizable should not throw in ensureWritable(int, boolean) (&lt;a href=&quot;https://github.com/netty/netty/pull/7004&quot;&gt;#7004&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Automatically detect shaded packagePrefix (&lt;a href=&quot;https://github.com/netty/netty/pull/6995&quot;&gt;#6995&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correct typo in artifactId of dependency in bom pom.xml (&lt;a href=&quot;https://github.com/netty/netty/pull/6989&quot;&gt;#6989&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AbstractByteBuf.ensureWritable(...) should check if buffer was released (&lt;a href=&quot;https://github.com/netty/netty/pull/6978&quot;&gt;#6978&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Record release when enable detailed leak detection (&lt;a href=&quot;https://github.com/netty/netty/pull/6972&quot;&gt;#6972&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;OpenSslEngine protocol selection must be contiguous (&lt;a href=&quot;https://github.com/netty/netty/pull/6964&quot;&gt;#6964&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Revert &quot;Revert &quot;SslHandler avoid calling wrap/unwrap when unnecessary&quot;&quot; (&lt;a href=&quot;https://github.com/netty/netty/pull/6806&quot;&gt;#6806&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Also use realloc when shrink the buffer (&lt;a href=&quot;https://github.com/netty/netty/pull/6943&quot;&gt;#6943&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.14.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Configures HTTP2 pipeline with more proper way (&lt;a href=&quot;https://github.com/netty/netty/pull/6952&quot;&gt;#6952&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow IP_TRANSPARENT to be set on redirecting socket (&lt;a href=&quot;https://github.com/netty/netty/pull/7037&quot;&gt;#7037&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Http2FrameLogger avoid hex dump of the ByteBufs when log disabled (&lt;a href=&quot;https://github.com/netty/netty/pull/7026&quot;&gt;#7026&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Http2ConnectionHandler: allow graceful shutdown to wait forever (&lt;a href=&quot;https://github.com/netty/netty/pull/6954&quot;&gt;#6954&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Writing to released ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/issues/6951&quot;&gt;#6951&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allowed Netty Epoll/Kqueue to work in IPv6 Only environments (&lt;a href=&quot;https://github.com/netty/netty/pull/6994&quot;&gt;#6994&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AbstractByteBuf.setCharSequence(...) must not expand buffer (&lt;a href=&quot;https://github.com/netty/netty/pull/6957&quot;&gt;#6957&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2 enforce HTTP message flow (&lt;a href=&quot;https://github.com/netty/netty/pull/6962&quot;&gt;#6962&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use the correct murmur3 C1 value (&lt;a href=&quot;https://github.com/netty/netty/pull/6988&quot;&gt;#6988&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;SslHandler aggregation of plaintext data on write (&lt;a href=&quot;https://github.com/netty/netty/pull/6720&quot;&gt;#6720&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;OpenSslEngine option to wrap/unwrap multiple packets per call (&lt;a href=&quot;https://github.com/netty/netty/pull/6365&quot;&gt;#6365&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/168?closed=1&quot;&gt;4.0.50.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/169?closed=1&quot;&gt;4.1.14.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.50.Final are also included in 4.1.14.Final. All changes only have milestone 4.1.14.Final do not affect 4.0.50.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/albertok&quot;&gt;@albertok&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bfiorini&quot;&gt;@bfiorini&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/chhsiao90&quot;&gt;@chhsiao90&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Gordiychuk&quot;&gt;@Gordiychuk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kevinoliver&quot;&gt;@kevinoliver&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/lothbrok72&quot;&gt;@lothbrok72&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MartyIX&quot;&gt;@MartyIX&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nayato&quot;&gt;@nayato&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ppatierno&quot;&gt;@ppatierno&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rschmitt&quot;&gt;@rschmitt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/tsachev&quot;&gt;@tsachev&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zspencer&quot;&gt;@zspencer&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
