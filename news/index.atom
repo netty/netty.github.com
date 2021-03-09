@@ -2,9 +2,107 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-03-04T11:05:28+01:00</updated>
+<updated>2021-03-09T11:37:22+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/03/09/4-1-60-Final.html</id>
+<title>Netty 4.1.60.Final released</title>
+<updated>2021-03-09T11:37:22+01:00</updated>
+<published>2021-03-09T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/03/09/4-1-60-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.60.Final, which beside fixing various bugs also contains a security fix which may affect you if you use the codec-http2 package and proxy HTTP/2 to HTTP/1.1 .
+This release also includes a change that makes it possible to enable client side SSL session caching when using our native SSL implementation.
+
+For more details about the impact of the CVE (CVE-2021-21295) check the Security Advisory.
+
+The most important changes are:
+
+
+Validate Content-Length header in HTTP/2 decoder (CVE-2021-21295)
+Enable stateless resumption for TLSv1.3 by default when using OpenSSL / BoringSSL (#10997)
+Allow blocking calls when parsing etcResolver/hosts files (#11009)
+fixed...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.60.Final, which beside fixing various bugs also contains a security fix which may affect you if you use the &lt;code&gt;codec-http2&lt;/code&gt; package and proxy HTTP/2 to HTTP/1.1 .
+This release also includes a change that makes it possible to enable client side SSL session caching when using our native SSL implementation.&lt;/p&gt;
+
+&lt;p&gt;For more details about the impact of the CVE (CVE-2021-21295) check the &lt;a href=&quot;https://github.com/netty/netty/security/advisories/GHSA-wm47-8v5p-wjpj&quot;&gt;Security Advisory&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The most important changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Validate Content-Length header in HTTP/2 decoder (&lt;a href=&quot;https://github.com/netty/netty/commit/89c241e3b1795ff257af4ad6eadc616cb2fb3dc4&quot;&gt;CVE-2021-21295&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Enable stateless resumption for TLSv1.3 by default when using OpenSSL / BoringSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/10997&quot;&gt;#10997&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow blocking calls when parsing etcResolver/hosts files (&lt;a href=&quot;https://github.com/netty/netty/pull/11009&quot;&gt;#11009&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;fixed ipv6 address join ipv4 group failed (&lt;a href=&quot;https://github.com/netty/netty/pull/11015&quot;&gt;#11015&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Propagate SSLException to the Http2StreamChannels (&lt;a href=&quot;https://github.com/netty/netty/pull/11023&quot;&gt;#11023&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Less noisy logging in DnsServerAddressStreamProviders (&lt;a href=&quot;https://github.com/netty/netty/pull/11031&quot;&gt;#11031&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;HttpPostMultipartRequestDecoder performance regression (&lt;a href=&quot;https://github.com/netty/netty/issues/10508&quot;&gt;#10508&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for UDP_SEGMENT (GSO) when using sendmmsg (&lt;a href=&quot;https://github.com/netty/netty/pull/11038&quot;&gt;#11038&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure removal from queue happens before writeAndFlush(...) is called (&lt;a href=&quot;https://github.com/netty/netty/pull/11049&quot;&gt;#11049&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix NPE that can happen in the WriteTimeoutHandler when multiple executors are used (&lt;a href=&quot;https://github.com/netty/netty/pull/11053&quot;&gt;#11053&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Support session cache for client and server when using native SSLEngine implementation (&lt;a href=&quot;https://github.com/netty/netty/pull/10994&quot;&gt;#10994&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow to config dns bind address in DnsNameResolver (&lt;a href=&quot;https://github.com/netty/netty/pull/11061&quot;&gt;#11061&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Important notes&lt;/h1&gt;
+
+&lt;h2&gt;SSL Session caching&lt;/h2&gt;
+
+&lt;p&gt;As stated before this release includes a change which allows to use SSL session caching on the client side when using our native SSL implementation. Unfortunally the use of the cache may trigger a JDK bug on the remote peer if the remote peer uses the JDK SSL implementation for TLSv1.3. Because of that we decided to not enable the session caching by default on the client-side. If you still want to enable it you can either use &lt;code&gt;-Dio.netty.handler.ssl.openssl.sessionCacheClient=true&lt;/code&gt; or explict enable it via the &lt;code&gt;OpenSslContext&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;OpenSslContext context = ...;
+contest.sessionContext().setSessionCacheEnabled(true);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;GSO support for &lt;code&gt;EpollDatagramChannel&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;This release also adds support for GSO (&lt;code&gt;UDP_SEGMENT&lt;/code&gt;) when using the native &lt;code&gt;EpollDatagramChannel&lt;/code&gt; and running on a system with a recent enough kernel. You can make use of this by writing &lt;code&gt;SegmentedDatagramPacket&lt;/code&gt;s to the channel.&lt;/p&gt;
+
+&lt;p&gt;For more detail on GSO please read &lt;a href=&quot;https://blog.cloudflare.com/accelerating-udp-packet-transmission-for-quic/&quot;&gt;the blogpost by cloudflare&lt;/a&gt; which explains how this can be used to maximize performance when using &lt;code&gt;QUIC&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;CVE-2021-21295 - request smuggling&lt;/h2&gt;
+
+&lt;p&gt;This release fixes a possible security problem which have allowes for request smuggling, check the &lt;a href=&quot;https://github.com/netty/netty/security/advisories/GHSA-wm47-8v5p-wjpj&quot;&gt;Security Advisory&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/artgon&quot;&gt;@artgon&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Arun-LinkedIn&quot;&gt;@Arun-LinkedIn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aztosca&quot;&gt;@aztosca&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dadepo&quot;&gt;@dadepo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/discko&quot;&gt;@discko&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/horizonzy&quot;&gt;@horizonzy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Shoothzj&quot;&gt;@Shoothzj&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/strugcoder&quot;&gt;@strugcoder&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/wineway&quot;&gt;@wineway&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/zentol&quot;&gt;@zentol&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/03/04/http3-0-0-1-Final.html</id>
 <title>Netty/Incubator/Codec/Http3 0.0.1.Final released</title>
@@ -4597,119 +4695,6 @@ These releases contains bug-fixes, performance enhancements and feature so we en
 &lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/takeseem&quot;&gt;@takeseem&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html</id>
-<title>Netty 4.0.51.Final and 4.1.15.Final released</title>
-<updated>2017-11-03T15:01:51+01:00</updated>
-<published>2017-08-25T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/08/25/4-0-51-Final-4-1-15-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-With this release we also support ALPN when using Java9 and so you should be able to use HTTP/2 without the need of using any native SSL implementation.
-That said using a native SSL implementation may still be beneficially for maximal performance.
-
-The most important changes for 4.0.51.Final and 4.1.15.Final are:
-
-
-Support JDK9-native ALPN (#7126)
-More bullet-proof way of detecting if ipv6 is supported or not when using the native transport (#7022)
-DelegatingSslContext should...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after 1 month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;With this release we also support ALPN when using Java9 and so you should be able to use HTTP/2 without the need of using any native SSL implementation.
-That said using a native SSL implementation may still be beneficially for maximal performance.&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.51.Final and 4.1.15.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Support JDK9-native ALPN (&lt;a href=&quot;https://github.com/netty/netty/pull/7126&quot;&gt;#7126&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;More bullet-proof way of detecting if ipv6 is supported or not when using the native transport (&lt;a href=&quot;https://github.com/netty/netty/pull/7022&quot;&gt;#7022&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;DelegatingSslContext should also be able to configure the SslHandler (&lt;a href=&quot;https://github.com/netty/netty/pull/7135&quot;&gt;#7135&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Netty 4.1.14.Final fails to load on android (&lt;a href=&quot;https://github.com/netty/netty/issues/7117&quot;&gt;#7117&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Include JNIEXPORT on exported symbols (&lt;a href=&quot;https://github.com/netty/netty/pull/7127&quot;&gt;#7127&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Unify KQueue and Epoll wait timeout approach (&lt;a href=&quot;https://github.com/netty/netty/pull/7042&quot;&gt;#7042&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Make NativeLibraryLoader check java.library.path first (&lt;a href=&quot;https://github.com/netty/netty/pull/7102&quot;&gt;#7102&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use the ByteBufAllocator when copy a ReadOnlyByteBufferBuf and so also be able to release it without the GC when the Cleaner is present (&lt;a href=&quot;https://github.com/netty/netty/pull/7107&quot;&gt;#7107&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure netty builds with java9 (build 9+181) (&lt;a href=&quot;https://github.com/netty/netty/pull/7106&quot;&gt;#7106&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Make configurable the initial and max size of &lt;code&gt;InternalThreadLocal.stringBuilder&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/7093&quot;&gt;#7093&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix endless loop in ByteBufUtil#writeAscii (&lt;a href=&quot;https://github.com/netty/netty/pull/7096&quot;&gt;#7096&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly support SO_TIMEOUT for OioDatagramChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/7046&quot;&gt;#7046&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we null out the previous set InetAddress on java.net.DatagramPacket (&lt;a href=&quot;https://github.com/netty/netty/pull/7064&quot;&gt;#7064&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle connect/disconnect in EpollDatagramChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/6193&quot;&gt;#6193&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Shutting down the outbound side of the channel should not accept future writes (&lt;a href=&quot;https://github.com/netty/netty/pull/7041&quot;&gt;#7041&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.15.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Decouple DnsCache and DnsCacheEntry (&lt;a href=&quot;https://github.com/netty/netty/pull/7129&quot;&gt;#7129&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;KQueue detect peer close without EVFILT_READ (&lt;a href=&quot;https://github.com/netty/netty/pull/7124&quot;&gt;#7124&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Support the little endian floats and doubles by ByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/7099&quot;&gt;#7099&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;We should prefer heap buffers when using the OIO transport to reduce memory copies (&lt;a href=&quot;https://github.com/netty/netty/pull/7065&quot;&gt;#7065&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;First call channelReadComplete(...) before flush(...) for better performance (&lt;a href=&quot;https://github.com/netty/netty/pull/7031&quot;&gt;#7031&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HTTP/2 Child Channel and FrameCodec Feature Parity (&lt;a href=&quot;https://github.com/netty/netty/pull/6896&quot;&gt;#6896&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.51.Final&quot;&gt;4.0.51.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.15.Final&quot;&gt;4.1.15.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.51.Final are also included in 4.1.15.Final. All changes only have milestone 4.1.15.Final do not affect 4.0.51.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h2&gt;More feature complete new HTTP/2 API&lt;/h2&gt;
-
-&lt;p&gt;A while a go we started to implement a new HTTP/2 API which tries to make writing HTTP/2 code easier when using Netty. For this API we basically create a new Channel per HTTP/2 stream and so each HTTP/2 stream will have its own ChannelPipeline. This allows reuse of existing ChannelHandlers and also feels more &quot;netty-like&quot; in general.&lt;/p&gt;
-
-&lt;p&gt;For more detail how to use this API please have a look at the &lt;a href=&quot;https://github.com/netty/netty/blob/4.1/codec-http2/src/main/java/io/netty/handler/codec/http2/Http2MultiplexCodec.java&quot;&gt;Http2MultiplexCodec&lt;/a&gt;, and also the &lt;a href=&quot;https://github.com/netty/netty/tree/4.1/example/src/main/java/io/netty/example/http2/helloworld/multiplex/server&quot;&gt;Http2 multiple examples&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;That said we are not planing to remove the &quot;old&quot; API anytime soon but working on improving the &quot;new&quot; API with the end-goal of eventually replacing the &quot;old&quot; completely at some point.
-Please give it a try and let us know how it works for you.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/alobodzki&quot;&gt;@alobodzki&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dschobel&quot;&gt;@dschobel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/eun-ice&quot;&gt;@eun-ice&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jayv&quot;&gt;@jayv&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/lime62&quot;&gt;@lime62&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/liuhualh&quot;&gt;@liuhualh&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/louxiu&quot;&gt;@louxiu&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/michaelandrepearce&quot;&gt;@michaelandrepearce&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MKudo&quot;&gt;@MKudo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mrniko&quot;&gt;@mrniko&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nhnFreespirit&quot;&gt;@nhnFreespirit&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nitsanw&quot;&gt;@nitsanw&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/nmittler&quot;&gt;@nmittler&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/perezd&quot;&gt;@perezd&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rkapsi&quot;&gt;@rkapsi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/rschmitt&quot;&gt;@rschmitt&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
