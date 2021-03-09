@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Announcing the new web site</title>
-<title>Netty: Announcing the new web site</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.8.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.8.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,49 +242,57 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Announcing the new web site
+Netty/Incubator/Codec/Quic 0.0.8.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2011-11-04">04-Nov-2011</time>
+<time datetime="2021-03-09">09-Mar-2021</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<div class="body">
-<p>Hello Netty community,</p>
-<p>I have successfully finished the migration of our web site from the <span class="wikiexternallink"><a href="http://jboss.org/">JBoss.org</a></span> to our own domain, <span class="wikiexternallink"><a href="http://netty.io/">netty.io</a></span>. The new web site and its complete source code is hosted at <span class="wikiexternallink"><a href="https://github.com/netty/netty-website/">Github</a></span>.</p>
-<p>In this announcement, I'd like to mention what this means for us:</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.8.Final, just after our release of netty 4.1.60.Final earlier today.</p>
+
+<p>This release not only fixes a few bugs but also makes use of the new <a href="https://github.com/netty/netty/pull/11038">GSO</a> support in netty if the <code>EpollDatagramChannel</code> is used. This change helps to improve the throughput in our benchmarks quite a bit when running <a href="https://github.com/nghttp2/nghttp2/tree/quic">h2load</a> (patched for QUIC / HTTP3 support) against our <a href="https://github.com/netty/netty-incubator-codec-http3">HTTP3</a> implementation.</p>
+
+<p><strong>Without GSO</strong>:</p>
+
+<pre><code>norman@ubuntu-dev:~$ LD_PRELOAD="/home/norman/Apps/OpenSSL_1_1_1g-quic-draft-33/lib/libssl.so.1.1 /home/norman/Apps/OpenSSL_1_1_1g-quic-draft-33/lib/libcrypto.so.1.1"  /home/norman/Apps/nghttp2-quic/bin/h2load  -n 10 -m 1 -c 1 -t 1 -T 30 --npn-list=h3-29 https://10.211.55.8:8888&#x000A;starting benchmark...&#x000A;spawning thread #0: 1 total client(s). 10 total requests&#x000A;TLS Protocol: TLSv1.3&#x000A;Cipher: TLS_AES_128_GCM_SHA256&#x000A;Server Temp Key: X25519 253 bits&#x000A;Application protocol: h3-29&#x000A;progress: 10% done&#x000A;progress: 20% done&#x000A;progress: 30% done&#x000A;progress: 40% done&#x000A;progress: 50% done&#x000A;progress: 60% done&#x000A;progress: 70% done&#x000A;progress: 80% done&#x000A;progress: 90% done&#x000A;progress: 100% done&#x000A;&#x000A;finished in 4.00s, 2.50 req/s, 250.36MB/s&#x000A;requests: 10 total, 10 started, 10 done, 10 succeeded, 0 failed, 0 errored, 0 timeout&#x000A;status codes: 10 2xx, 0 3xx, 0 4xx, 0 5xx&#x000A;traffic: 1000.31MB (1048896064) total, 30B (30) headers (space savings 70.00%), 1000.00MB (1048576000) data&#x000A;UDP datagram: 18509 sent, 864619 received&#x000A;                     min         max         mean         sd        +/- sd&#x000A;time for request:   377.25ms    436.32ms    398.96ms     19.83ms    60.00%&#x000A;time for connect:     4.46ms      4.46ms      4.46ms         0us   100.00%&#x000A;time to 1st byte:     6.58ms      6.58ms      6.58ms         0us   100.00%&#x000A;req/s           :       2.50        2.50        2.50        0.00   100.00%&#x000A;</code></pre>
+
+<p><strong>With GSO</strong>:</p>
+
+<pre><code>norman@ubuntu-dev:~$ LD_PRELOAD="/home/norman/Apps/OpenSSL_1_1_1g-quic-draft-33/lib/libssl.so.1.1 /home/norman/Apps/OpenSSL_1_1_1g-quic-draft-33/lib/libcrypto.so.1.1"  /home/norman/Apps/nghttp2-quic/bin/h2load  -n 10 -m 1 -c 1 -t 1 -T 30 --npn-list=h3-29 https://10.211.55.8:8888&#x000A;starting benchmark...&#x000A;spawning thread #0: 1 total client(s). 10 total requests&#x000A;TLS Protocol: TLSv1.3&#x000A;Cipher: TLS_AES_128_GCM_SHA256&#x000A;Server Temp Key: X25519 253 bits&#x000A;Application protocol: h3-29&#x000A;progress: 10% done&#x000A;progress: 20% done&#x000A;progress: 30% done&#x000A;progress: 40% done&#x000A;progress: 50% done&#x000A;progress: 60% done&#x000A;progress: 70% done&#x000A;progress: 80% done&#x000A;progress: 90% done&#x000A;progress: 100% done&#x000A;&#x000A;finished in 2.51s, 3.98 req/s, 398.08MB/s&#x000A;requests: 10 total, 10 started, 10 done, 10 succeeded, 0 failed, 0 errored, 0 timeout&#x000A;status codes: 10 2xx, 0 3xx, 0 4xx, 0 5xx&#x000A;traffic: 1000.31MB (1048896064) total, 30B (30) headers (space savings 70.00%), 1000.00MB (1048576000) data&#x000A;UDP datagram: 4342 sent, 864341 received&#x000A;                     min         max         mean         sd        +/- sd&#x000A;time for request:   231.79ms    272.21ms    250.80ms     15.04ms    40.00%&#x000A;time for connect:     3.50ms      3.50ms      3.50ms         0us   100.00%&#x000A;time to 1st byte:     4.67ms      4.67ms      4.67ms         0us   100.00%&#x000A;req/s           :       3.98        3.98        3.98        0.00   100.00%&#x000A;</code></pre>
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/7?closed=1">bug-tracker</a>.</p>
+
+<p>The most important changes are:</p>
+
 <ul>
-<li>We are no longer a member of the JBoss Community.</li>
-<li>The user forum is replaced with <span class="wikiexternallink"><a href="http://stackoverflow.com/questions/tagged/netty">StackOverflow</a></span>. Please don't forget to tag your questions with 'netty'.</li>
-<li>The developer forum is replaced with a <span class="wikiexternallink"><a href="https://groups.google.com/d/forum/netty">Google Group</a></span>. Invitations will be sent to the subscribers.</li>
-<li>JIRA is replaced with <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues">the Github issue tracker</a></span>.</li>
-<li>Wiki is replaced with <span class="wikiexternallink"><a href="https://github.com/netty/netty/wiki">the Github wiki</a></span>.</li>
-<li>The announcement forum is replaced with the news section of the web site. We will post interesting news and articles there. <span class="wikiexternallink"><a href="http://feeds.feedburner.com/netty_project">(RSS Feed)</a></span>
-</li>
+<li>Add support for qlog (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/197">#197</a>)</li>
+<li>Add QuicStreamLimitChangedEvent that will be fired once we can create more streams again (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/198">#198</a>)</li>
+<li>Ensure we always call quiche_conn_on_timeout(...) when a timeout is about to run (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/206">#206</a>)</li>
+<li>Rewrite QuicheQuicStreamChannel to not do any extra queued and also handle writability better (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/208">#208</a>)</li>
+<li>Update to latest quiche commit (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/211">#211</a>)</li>
+<li>Support shutting down the stream with an error code (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/213">#213</a>)</li>
+<li>Make use of GSO when possible  (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/204">#204</a>)</li>
 </ul>
-<p>The old web site at <a href="http://jboss.org/netty">http://jboss.org/netty</a> will contain announcements to redirect you to the new web site. All forums, JIRA project, and wiki pages will go read-only, too.</p>
-<p>With this big move, I believe, both the users and developers will take advantage of the best-of-the-breed services. Contributing to the web site content and documentation will also become much easier because everything is now hosted at Git repositories. Just fork it and send a pull request.</p>
-<p>I'd like to thank <span class="wikiexternallink"><a href="http://twitter.com/jobs">Twitter</a></span> for allowing me to take the exciting opportunity to join the flock and to spend more time on the project and make this move happen.</p>
-<p>What do you think about the new web site? Does it look good? What do you miss from the old web site? What would make it even better? Let us know!</p>
-</div>
-</div>
+
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
-<li class="previous disabled">
-<a href="#">&larr; Older</a>
+<li class="previous">
+<a href="../../../../news/2021/03/09/4-1-60-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2011/11/10/update-on-new-web-site.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -293,9 +301,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2011/11/04/new-web-site.html";
+            var disqus_url = "http://netty.io/news/2021/03/09/quic-0-0-8-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "4860753674551072685";
+            var disqus_identifier = "news/2021-03-09-quic-0-0-8-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
