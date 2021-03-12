@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.5.9.Final is out</title>
-<title>Netty: Netty 3.5.9.Final is out</title>
+<title>Netty.news: Netty/Incubator/Codec/Http3 0.0.2.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Http3 0.0.2.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.5.9.Final is out
+Netty/Incubator/Codec/Http3 0.0.2.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,52 +250,31 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2012-10-29">29-Oct-2012</time>
+<time datetime="2021-03-12">12-Mar-2021</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>The Netty Team just cut another bug-fix release of the 3.5.x series for you. Beside of bug-fixes it also contain a handful of improvements. No new features were added.</p>
-<p><span>But </span><strong><span>important</span></strong><span> things first..</span></p>
-<h2 id="HImprovements"><span><span>Improvements</span></span></h2>
-<p>A few small improvements are also included, as we felt you will like them:</p>
-<div class="wikimodel-emptyline"></div>
-<ul>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/658">[658]</a></span> SslHandler only parse packet length one time per packet</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/641">[641]</a></span> IdleStateEvents should be handled in the Worker-Thread</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/657">[657]</a></span> Add utility method to SslHandler to detect if a buffer contains encrypted data</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/638">[638]</a></span> Force destroy of direct buffer one shutdown</li>
-</ul>
-<h2 id="HBugfixes"><span><span>Bugfixes</span></span></h2>
-<p>The most important are:</p>
-<ul>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/634">[634]</a></span> Fix NPE in OrderedMemoryAwareThreadPoolExecutor</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/637">[637]</a></span> Flush in ChunkedWriteHandler may get missed</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/679">[679]</a></span> NPE in HashedWheelTimer because of a JDK bug</li>
-</ul>
-<h2 id="HGeneral"><span><span>General</span></span></h2>
-<p>For all of the other changes please checkout our <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.5.9.Final">issue tracker</a></span>. </p>
-<p>The JAR file can be found on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.9.Final%7Cjar">Maven Central</a></span> or  you can also get the full tarball from <span class="wikiexternallink"><a href="http://netty.io/downloads.html">the download page</a></span>. Whatever you prefer...</p>
-<p>Please let us know if you have any problems or questions.</p>
-</div>
+<p>After we just announce the initial release of our http3 codec a week ago I am happy to announce the next release today. This release fixes various bugs and now fully pass the <a href="https://github.com/kazu-yamamoto/h3spec">h3spec http3 tests</a>.
+Beside bug-fixes we also upgraded to <a href="https://netty.io/news/2021/03/09/4-1-60-Final.html">netty 4.1.60.Final</a> and <a href="https://netty.io/news/2021/03/09/quic-0-0-8-Final.html">netty-incubator-codec-quic 0.0.8.Final</a>.</p>
+
+<p>For more details on how to make use of this code please read our <a href="https://netty.io/news/2021/03/04/http3-0-0-1-Final.html">initial announcement</a>.</p>
+
+<p>All the details on the recent changes for this release can be found in our <a href="https://github.com/netty/netty-incubator-codec-http3/milestone/2">issue tracker</a>.</p>
+
+<h1>Where can I find the project ?</h1>
+
+<p>The project itself lives on <a href="https://github.com/netty/netty-incubator-codec-http3">GitHub</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2012/09/30/3-5-8-final.html">&larr; Older</a>
+<a href="../../../../news/2021/03/09/quic-0-0-8-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2012/10/29/4-0-0-alpha6.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -304,9 +283,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2012/10/29/3-5-9-final.html";
+            var disqus_url = "http://netty.io/news/2021/03/12/http3-0-0-2-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "7274507553640229214";
+            var disqus_identifier = "news/2021-03-12-http3-0-0-2-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
