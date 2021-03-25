@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.18.Final released</title>
-<title>Netty: Netty 4.0.18.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.9.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.9.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.18.Final released
+Netty/Incubator/Codec/Quic 0.0.9.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,96 +250,36 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2014-04-01">01-Apr-2014</time>
+<time datetime="2021-03-25">25-Mar-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>No this is not an April fool, just the truth... We are happy to announce the relase of Netty 4.0.18.Final. The release comes with a massive amount of improvements and fixes so you should consider to upgrade ASAP. In total we fixed / resolved 50 issues / tasks, so this release contains a lot of stuff.</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.9.Final.</p>
 
-<p>Please read on for more details on the changes. As always this release is backwards-compatible with earlier releases of the 4.0.x series.</p>
-
-<h2>Most important changes / fixes</h2>
+<p>This release introduces two new abstractions that allows:</p>
 
 <ul>
-<li>Implement thread-local cache for PooledByteBufAllocator (<a href="https://github.com/netty/netty/issues/808">#808</a>) (<a href="https://github.com/netty/netty/pull/2284">#2284</a>) (<a href="https://github.com/netty/netty/issues/2264">#2264</a>)</li>
-<li>Write optimized Queue implementation for NioEventLoop (<a href="https://github.com/netty/netty/issues/1259">#1259</a>) (<a href="https://github.com/netty/netty/pull/2265">#2265</a>)</li>
-<li>Add ZLIB_OR_NONE wrapper support to JdkZlibDecoder (<a href="https://github.com/netty/netty/issues/2016">#2016</a>) (<a href="https://github.com/netty/netty/pull/2269">#2269</a>)</li>
-<li>NPE when using epoll transport (<a href="https://github.com/netty/netty/issues/2262">#2262</a>)</li>
-<li>epoll transport always calls ChannelInboundHandler.channelActive(), even when connection fails (<a href="https://github.com/netty/netty/issues/2280">#2280</a>) (<a href="https://github.com/netty/netty/issues/2292">#2292</a>)</li>
-<li>Thread contention in ChannelHandlerAdapter.isSharable (<a href="https://github.com/netty/netty/issues/2289">#2289</a>) (<a href="https://github.com/netty/netty/pull/2296">#2296</a>)</li>
-<li>Shutdown fails with native epoll (<a href="https://github.com/netty/netty/issues/2297">#2297</a>)</li>
-<li>Blocking in SingleThreadEventExecutor#startThread (<a href="https://github.com/netty/netty/issues/2307">#2307</a>) (<a href="https://github.com/netty/netty/pull/2310">#2310</a>)</li>
-<li>Blocking in SelectorProvider#provider (<a href="https://github.com/netty/netty/issues/2308">#2308</a>)</li>
-<li>Netty 4.0.15 no longer works on Android (<a href="https://github.com/netty/netty/issues/2330">#2330</a>)</li>
-<li>"Promise already done" warning when cancelling ChannelFuture returned by bootstrap.connect() (<a href="https://github.com/netty/netty/issues/2349">#2349</a>)</li>
+<li>support of GSO for any <code>Channel</code> that supports it by let the user plug-in the correct implementation (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/222">#222</a>)</li>
+<li>support for different flush strategies to ensure packets are transfered in a timely manner  (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/228">#228</a>)</li>
 </ul>
 
 
-<p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.18.Final">here</a> for the complete list of the changes.</p>
+<p>Beside these there are various other small changes.</p>
 
-<p>As always please let us know if you find any issues. We love feedback!</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/8?closed=1">bug-tracker</a>.</p>
 
-<h2>Special notes</h2>
-
-<h3>ThreadLocal cache for PooledByteBufAllocator</h3>
-
-<p>One important thing to note about this release is that it now ships with ThreadLocal based caches for PooledByteBufAllocator to reduce conditions when allocate buffers very frequently from different Threads. This brings our implementation even closer to the <a href="https://github.com/jemalloc/jemalloc">jemalloc</a> implementation itself, as jemalloc uses a similar way to handle this kind of problem.</p>
-
-<p>To give you some idea about the impact have a look at these different condition graphs. The first shows the conditions before the caches were added and the second with them added (with the same workload).</p>
-
-<p><img src="/images/pooledbytebufallocator_condition_before.png" alt="PooledByteBufAllocator without caches" /></p>
-
-<p><img src="/images/pooledbytebufallocator_condition_after.png" alt="PooledByteBufAllocator with caches" /></p>
-
-<p>This change makes a big-difference in performance if you push things hard enough. For more details please check the <a href="https://github.com/netty/netty/pull/2284">pull-request #2284</a>.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/aaronriekenberg">@aaronriekenberg</a></li>
-<li><a href="https://github.com/andrewgaul">@andrewgaul</a></li>
-<li><a href="https://github.com/blucas">@blucas</a></li>
-<li><a href="https://github.com/caiiiycuk">@caiiiycuk</a></li>
-<li><a href="https://github.com/CoNDoRip">@CoNDoRip</a></li>
-<li><a href="https://github.com/danbev">@danbev</a></li>
-<li><a href="https://github.com/daschl">@daschl</a></li>
-<li><a href="https://github.com/ddossot">@ddossot</a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/hepin1989">@hepin1989</a></li>
-<li><a href="https://github.com/itzg">@itzg</a></li>
-<li><a href="https://github.com/JatinderSingh">@JatinderSingh</a></li>
-<li><a href="https://github.com/jakobbuchgraber">@jakobbuchgraber</a></li>
-<li><a href="https://github.com/jchambers">@jchambers</a></li>
-<li><a href="https://github.com/laczoka">@laczoka</a></li>
-<li><a href="https://github.com/m0wfo">@m0wfo</a></li>
-<li><a href="https://github.com/mkw">@mkw</a></li>
-<li><a href="https://github.com/ngocdaothanh">@ngocdaothanh</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/opinali">@opinali</a></li>
-<li><a href="https://github.com/p000ison">@p000ison</a></li>
-<li><a href="https://github.com/superzhu">@superzhu</a></li>
-<li><a href="https://github.com/tea-dragon">@tea-dragon</a></li>
-<li><a href="https://github.com/thatsnotright">@thatsnotright</a></li>
-<li><a href="https://github.com/Tochemey">@Tochemey</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/tsingxu">@tsingxu</a></li>
-<li><a href="https://github.com/valodzka">@valodzka</a></li>
-<li><a href="https://github.com/xhumanoid">@xhumanoid</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2014/02/25/4-0-17-Final.html">&larr; Older</a>
+<a href="../../../../news/2021/03/12/http3-0-0-2-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2014/04/30/release-day.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -348,9 +288,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2014/04/01/4-0-18-Final.html";
+            var disqus_url = "http://netty.io/news/2021/03/25/quic-0-0-9-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2014-04-01-4-0-18-Final.html";
+            var disqus_identifier = "news/2021-03-25-quic-0-0-9-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';

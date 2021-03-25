@@ -2,9 +2,54 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-03-12T11:26:28+01:00</updated>
+<updated>2021-03-25T12:28:14+01:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/03/25/quic-0-0-9-Final.html</id>
+<title>Netty/Incubator/Codec/Quic 0.0.9.Final released</title>
+<updated>2021-03-25T12:28:14+01:00</updated>
+<published>2021-03-25T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/03/25/quic-0-0-9-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty-incubator-codec-quic 0.0.9.Final.
+
+This release introduces two new abstractions that allows:
+
+
+support of GSO for any Channel that supports it by let the user plug-in the correct implementation (#222)
+support for different flush strategies to ensure packets are transfered in a timely manner  (#228)
+
+
+
+Beside these there are various other small changes.
+
+For more details related to this release see our bug-tracker.
+
+For more details about this codec in general please read our initial announcement....
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty-incubator-codec-quic 0.0.9.Final.&lt;/p&gt;
+
+&lt;p&gt;This release introduces two new abstractions that allows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;support of GSO for any &lt;code&gt;Channel&lt;/code&gt; that supports it by let the user plug-in the correct implementation (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/222&quot;&gt;#222&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;support for different flush strategies to ensure packets are transfered in a timely manner  (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/228&quot;&gt;#228&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Beside these there are various other small changes.&lt;/p&gt;
+
+&lt;p&gt;For more details related to this release see our &lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/milestone/8?closed=1&quot;&gt;bug-tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For more details about this codec in general please read our &lt;a href=&quot;https://netty.io/news/2020/12/09/quic-0-0-1-Final.html&quot;&gt;initial announcement&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/03/12/http3-0-0-2-Final.html</id>
 <title>Netty/Incubator/Codec/Http3 0.0.2.Final released</title>
@@ -4535,105 +4580,6 @@ Beside...
 &lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.19.Final&quot;&gt;4.1.19.Final&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/12/11/4-0-54-Final-4-1-18-Final.html</id>
-<title>Netty 4.0.54.Final and 4.1.18.Final released</title>
-<updated>2018-04-04T14:11:24+02:00</updated>
-<published>2017-12-11T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/12/11/4-0-54-Final-4-1-18-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after a month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-Especially 4.1.18.Final saw various performance improvements compared to the previous version. Most notable here are the improvements when using the SslHandler for writing outbound data and quicker ramping up of the amount that will be read from the socket in general when the AdaptiveRecvByteBufAllocator is used (this is the default).
-
-The most important changes for 4.0.54.Final and 4.1.18.Final are:
-
-
-Ensure we not try to call select when the AbstractSniHandler was already...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series after a month of development.
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;Especially 4.1.18.Final saw various performance improvements compared to the previous version. Most notable here are the improvements when using the &lt;code&gt;SslHandler&lt;/code&gt; for writing outbound data and quicker ramping up of the amount that will be read from the socket in general when the &lt;code&gt;AdaptiveRecvByteBufAllocator&lt;/code&gt; is used (this is the default).&lt;/p&gt;
-
-&lt;p&gt;The most important changes for 4.0.54.Final and 4.1.18.Final are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Ensure we not try to call &lt;code&gt;select&lt;/code&gt; when the &lt;code&gt;AbstractSniHandler&lt;/code&gt; was already removed from the pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/7475&quot;&gt;#7475&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Not call java methods from within JNI init code to prevent class loading deadlocks (&lt;a href=&quot;https://github.com/netty/netty/pull/7480&quot;&gt;#7480&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fixed default OpenSsl cipher suites (&lt;a href=&quot;https://github.com/netty/netty/pull/7450&quot;&gt;#7450&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Dont use ThreadDeathWatcher to cleanup PoolThreadCache if FastThreadLocalThread with wrapped Runnable is used (&lt;a href=&quot;https://github.com/netty/netty/pull/7445&quot;&gt;#7445&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly propagate channelInactive even if cleanup throws (&lt;a href=&quot;https://github.com/netty/netty/pull/7415&quot;&gt;#7415&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix writing of empty LastHttpContent with trailers (&lt;a href=&quot;https://github.com/netty/netty/pull/7420&quot;&gt;#7420&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AbstractByteBuf readSlice bound check bug (&lt;a href=&quot;https://github.com/netty/netty/pull/7416&quot;&gt;#7416&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Dont fire an SslHandshakeEvent if the handshake was not started at all (&lt;a href=&quot;https://github.com/netty/netty/pull/7368&quot;&gt;#7368&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle 205 Reset Content response with transfer-encoding (&lt;a href=&quot;https://github.com/netty/netty/pull/7397&quot;&gt;#7397&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;CompositeBytebuf.copy() and copy(...) should respect the allocator (&lt;a href=&quot;https://github.com/netty/netty/pull/7395&quot;&gt;#7395&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;The most important changes for 4.1.18.Final only are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;H2C upgrades should be ineligible for flow control (&lt;a href=&quot;https://github.com/netty/netty/pull/7400&quot;&gt;#7400&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Enforce writeSpinCount to limit resource consumption per socket (&lt;a href=&quot;https://github.com/netty/netty/pull/7478&quot;&gt;#7478&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Add SniCompletionEvent which allows to easily retrieve the hostname that was used to select the SslContext (&lt;a href=&quot;https://github.com/netty/netty/pull/7444&quot;&gt;#7444&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;SslHandler aggregation prefer copy over CompositeByteBuf (&lt;a href=&quot;https://github.com/netty/netty/pull/7468&quot;&gt;#7468&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AdaptiveRecvByteBufAllocator should ramp up while reading (&lt;a href=&quot;https://github.com/netty/netty/pull/7466&quot;&gt;#7466&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Http2ConnectionHandler Http2ConnectionPrefaceAndSettingsFrameWrittenEvent propagation (&lt;a href=&quot;https://github.com/netty/netty/pull/7460&quot;&gt;#7460&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;EDNS Client Subnet is not encoded correctly when source prefix length is not a multiple of 8 (&lt;a href=&quot;https://github.com/netty/netty/pull/7457&quot;&gt;#7457&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Allow to detect failed query caused by an Timeout / IO error and also not cache these (&lt;a href=&quot;https://github.com/netty/netty/pull/7411&quot;&gt;#7411&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;DefaultHttpHeader.names().toArray(...) may throw ArrayStoreException (&lt;a href=&quot;https://github.com/netty/netty/pull/7429&quot;&gt;#7429&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HttpConversionUtil TE filtering robustness (&lt;a href=&quot;https://github.com/netty/netty/pull/7422&quot;&gt;#7422&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix DN resolution when ndots is greater than 1 (&lt;a href=&quot;https://github.com/netty/netty/pull/7414&quot;&gt;#7414&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;codec-http2: Improve h1 to h2 header conversion (&lt;a href=&quot;https://github.com/netty/netty/pull/7399&quot;&gt;#7399&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;EpollSocketChannelConfig.getOptions() must not throw if TCP_FASTOPEN_CONNECT is not supported (&lt;a href=&quot;https://github.com/netty/netty/pull/7407&quot;&gt;#7407&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Don&#39;t try to use UnixResolverDnsServerAddressStreamProvider when on Windows (&lt;a href=&quot;https://github.com/netty/netty/pull/7403&quot;&gt;#7403&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use Netty&#39;s DefaultPriorityQueue instead of JDK&#39;s PriorityQueue for scheduled tasks  (&lt;a href=&quot;https://github.com/netty/netty/pull/7384&quot;&gt;#7384&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.0.54.Final&quot;&gt;4.0.54.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.18.Final&quot;&gt;4.1.18.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;All changes that are in 4.0.54.Final are also included in 4.1.18.Final. All changes only have milestone 4.1.18.Final do not affect 4.0.54.Final.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/anuraaga&quot;&gt;@anuraaga&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Jianzhu91&quot;&gt;@Jianzhu91&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/las1991&quot;&gt;@las1991&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/lutovich&quot;&gt;@lutovich&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mcnulty&quot;&gt;@mcnulty&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mikkokar&quot;&gt;@mikkokar&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/pkolaczk&quot;&gt;@pkolaczk&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/SgtSilvio&quot;&gt;@SgtSilvio&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/shyiko&quot;&gt;@shyiko&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/snrky&quot;&gt;@snrky&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/thomdev&quot;&gt;@thomdev&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/timothyjward&quot;&gt;@timothyjward&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zhanglong318&quot;&gt;@zhanglong318&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/zyxist&quot;&gt;@zyxist&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
 
 </content>
 </entry>
