@@ -2,9 +2,97 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-03-25T12:28:14+01:00</updated>
+<updated>2021-03-30T12:44:11+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/03/30/4-1-61-Final.html</id>
+<title>Netty 4.1.61.Final released</title>
+<updated>2021-03-30T12:44:11+02:00</updated>
+<published>2021-03-30T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/03/30/4-1-61-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty 4.1.61.Final, which beside fixing various bugs also contains a security fix which may affect you if you use the codec-http2 package and proxy HTTP/2 to HTTP/1.1. This fix is a follow up of the previous fix done as part of CVE-2021-21295 as we missed to handle one case.
+
+For more details about the impact of the CVE (CVE-2021-21409) check the Security Advisory.
+
+The most important changes are:
+
+
+Validate Content-Length header in HTTP/2 decoder (CVE-2021-21409)
+Add support for UDP_GRO (#11120)
+DefaultThreadFactory must not use Thread.currentThread() when constructed without ThreadGroup (#11119)
+Let's use gcc10 when cross-compiling for LSE support...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty 4.1.61.Final, which beside fixing various bugs also contains a security fix which may affect you if you use the &lt;code&gt;codec-http2&lt;/code&gt; package and proxy HTTP/2 to HTTP/1.1. This fix is a follow up of the previous fix done as part of &lt;a href=&quot;https://github.com/netty/netty/security/advisories/GHSA-wm47-8v5p-wjpj&quot;&gt;CVE-2021-21295&lt;/a&gt; as we missed to handle one case.&lt;/p&gt;
+
+&lt;p&gt;For more details about the impact of the CVE (CVE-2021-21409) check the &lt;a href=&quot;https://github.com/netty/netty/security/advisories/GHSA-f256-j965-7f32&quot;&gt;Security Advisory&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The most important changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Validate Content-Length header in HTTP/2 decoder (&lt;a href=&quot;https://github.com/netty/netty/commit/b0fa4d5aab4215f3c22ce6123dd8dd5f38dc0432&quot;&gt;CVE-2021-21409&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for UDP_GRO (&lt;a href=&quot;https://github.com/netty/netty/pull/11120&quot;&gt;#11120&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DefaultThreadFactory must not use Thread.currentThread() when constructed without ThreadGroup (&lt;a href=&quot;https://github.com/netty/netty/pull/11119&quot;&gt;#11119&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Let&#39;s use gcc10 when cross-compiling for LSE support (&lt;a href=&quot;https://github.com/netty/netty/pull/11112&quot;&gt;#11112&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow to have an empty path when convert a CONNECT request (&lt;a href=&quot;https://github.com/netty/netty/pull/11108&quot;&gt;#11108&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure we can correctly propagate exceptions to streams even if endStream flag is set (&lt;a href=&quot;https://github.com/netty/netty/pull/11105&quot;&gt;#11105&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Do not send GOAWAY frame before connection preface (&lt;a href=&quot;https://github.com/netty/netty/pull/11107&quot;&gt;#11107&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Continue reading when the number of bytes is less then the configured number of bytes when using DatagramChannels (&lt;a href=&quot;https://github.com/netty/netty/pull/11089&quot;&gt;#11089&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow to configure the maximum number of message to write per eventloop (&lt;a href=&quot;https://github.com/netty/netty/pull/11086&quot;&gt;#11086&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;SslHandler flushing with TCP Fast Open fix (&lt;a href=&quot;https://github.com/netty/netty/pull/11077&quot;&gt;#11077&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Also support CompositeByteBuf with SegmentedDatagramPacket (&lt;a href=&quot;https://github.com/netty/netty/pull/11081&quot;&gt;#11081&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Return correct result for Futures that are returned from UnorderedThreadPoolExecutor (&lt;a href=&quot;https://github.com/netty/netty/pull/11074&quot;&gt;#11074&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix alignment handling for pooled direct buffers (&lt;a href=&quot;https://github.com/netty/netty/pull/11106&quot;&gt;#11106&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/236?closed=1&quot;&gt;4.1.61.Final&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Important notes&lt;/h1&gt;
+
+&lt;h2&gt;CVE-2021-21409 - request smuggling&lt;/h2&gt;
+
+&lt;p&gt;This release fixes a possible security problem which have allowes for request smuggling, check the &lt;a href=&quot;https://github.com/netty/netty/security/advisories/GHSA-f256-j965-7f32&quot;&gt;Security Advisory&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;h2&gt;GRO support for &lt;code&gt;EpollDatagramChannel&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;This release also adds support for GRO (&lt;code&gt;UDP_SEGMENT&lt;/code&gt;) when using the native &lt;code&gt;EpollDatagramChannel&lt;/code&gt; and running on a system with a recent enough kernel. You can make use of this by using the &lt;code&gt;EpollChannelOption.UDP_GRO&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;p&gt;For more detail on GRO please read &lt;a href=&quot;https://lwn.net/Articles/768995/&quot;&gt;the LWN article&lt;/a&gt; which explains how this can be used to maximize performance when using &lt;code&gt;QUIC&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;LSE support for AARCH64&lt;/h2&gt;
+
+&lt;p&gt;This release switched to use GCC10 for cross-compiling and so enable the usage of LSE when running on AARCH64. Using LSE can have a huge performance impact. For more details please read the &lt;a href=&quot;https://mysqlonarm.github.io/ARM-LSE-and-MySQL/&quot;&gt;MySQL on ARM blogpost&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/alalag1&quot;&gt;@alalag1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/elharo&quot;&gt;@elharo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/meshcow&quot;&gt;@meshcow&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/stuartwdouglas&quot;&gt;@stuartwdouglas&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/03/25/quic-0-0-9-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.9.Final released</title>
@@ -4537,49 +4625,6 @@ These releases contains bug-fixes, performance enhancements and feature so we en
 &lt;li&gt;&lt;a href=&quot;https://github.com/thomdev&quot;&gt;@thomdev&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2017/12/18/4-1-19-Final.html</id>
-<title>Netty 4.1.19.Final released</title>
-<updated>2018-04-04T14:11:24+02:00</updated>
-<published>2017-12-18T00:00:00+00:00</published>
-<link href="http://netty.io/news/2017/12/18/4-1-19-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-Unfortunately just a week after we released netty 4.1.18.Final we found a regression which could cause a core-dump when using one of the native transports and trying to write a CompositeByteBuf. To fix this regression we just released netty 4.1.19.Final . If you use 4.1.18.Final and one of the native transports we highly recommend upgrading to this new release to ensure you not see any core-dumps.
-
-This regression only exists on the 4.1 release series and NOT on the 4.0 series, which means a new 4.0 release was not needed.
-
-For more details on the problem please read:
-
-
-FileDescriptor writev core dump (#7507)
-
-
-
-Beside...
-</summary>
-<content type="html">
-&lt;p&gt;Unfortunately just a week after we released netty 4.1.18.Final we found a regression which could cause a core-dump when using one of the native transports and trying to write a &lt;code&gt;CompositeByteBuf&lt;/code&gt;. To fix this regression we just released netty 4.1.19.Final . If you use 4.1.18.Final and one of the native transports we highly recommend upgrading to this new release to ensure you not see any core-dumps.&lt;/p&gt;
-
-&lt;p&gt;This regression only exists on the 4.1 release series and &lt;em&gt;NOT&lt;/em&gt; on the 4.0 series, which means a new 4.0 release was not needed.&lt;/p&gt;
-
-&lt;p&gt;For more details on the problem please read:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;FileDescriptor writev core dump (&lt;a href=&quot;https://github.com/netty/netty/pull/7507&quot;&gt;#7507&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Beside this regression-fix we also fixed 2 other issues, one of the changes fixes a bug which made it impossible to use native transports of netty as java9 modules.&lt;/p&gt;
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.19.Final&quot;&gt;4.1.19.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
 
 </content>
 </entry>
