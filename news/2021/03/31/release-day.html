@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.10.1.Final released</title>
-<title>Netty: Netty 3.10.1.Final released</title>
+<title>Netty.news: Release day for HTTP/3, QUIC and IO_URING</title>
+<title>Netty: Release day for HTTP/3, QUIC and IO_URING</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.10.1.Final released
+Release day for HTTP/3, QUIC and IO_URING
 </h1>
 <p class="byline">
 <small>
@@ -250,49 +250,52 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-03-23">23-Mar-2015</time>
+<time datetime="2021-03-31">31-Mar-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>We have just released a new version in Netty 3 branch - 3.10.1.Final.</p>
+<p>After announcing the release of <a href="https://netty.io/news/2021/03/31/4-1-62-Final.html">netty-4.1.62.Final</a> earlier today I have more news to share... We did another three releases today.</p>
 
-<h3>3.10.1.Final</h3>
+<h2>Netty/Incubator/Codec/Quic 0.0.10.Final released</h2>
 
-<ul>
-<li><a href="https://github.com/netty/netty/issues/3326">#3326</a> and <a href="https://github.com/netty/netty/pull/3327">#3327</a> - HTTP multipart request with filename containing ";" causes exception</li>
-<li><a href="https://github.com/netty/netty/issues/3504">#3504</a> - Privacy violation in io.netty.handler.codec.socks.SocksAuthRequest</li>
-<li><a href="https://github.com/netty/netty/pull/3508">#3508</a> - Safely encode Strings to ASCII in HttpObjectEncoder</li>
-</ul>
+<p>The new release of netty-incubator-codec-quic comes with a few small bug-fixes but most importantly with this release we started to also support linux-aarch64, which means you will not only be able to use the quic codec itself on linux-aarch64 but also our <a href="https://github.com/netty/netty-incubator-codec-http3">http3 codec</a> that depends on it.</p>
 
+<p>For more details about the included changes please check the <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/9?closed=1">issue-tracker</a></p>
 
-<p>You can also browse our issue tracker  (<a href="https://github.com/netty/netty/issues?q=milestone%3A3.10.1.Final">3.10.1.Final</a>) for the gory detail.</p>
+<h2>Netty/Incubator/Codec/Http3 0.0.3.Final released</h2>
 
-<p>As always, please let us know if you find something to fix, improve, discuss, or even criticize.  We love your feedback!</p>
+<p>As stated above you are now be able to run the http3 codec on linux-aarch64 as well, but thats not all. This release also includes a few small bugfixes when it comes to handling CONNECT requests and push streams in general</p>
+
+<p>For more details about the included changes please check the <a href="https://github.com/netty/netty-incubator-codec-http3/milestone/3?closed=1">issue-tracker</a></p>
+
+<h2>Netty/Incubator/Native/Transport/IOUring 0.0.5.Final released</h2>
+
+<p>The new release of netty-incubator-transport-io_uring contains various interesting changes. First of we now use GCC10 when cross compile and so may be able to make use of LSE when you run on aarch64. Beside this this release also add support for UDP_GSO to increase the performance when sending datagrams over the wire.</p>
+
+<p>For more details about the included changes please check the <a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/5?closed=1">issue-tracker</a></p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/dittos">@dittos</a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/luciferous">@luciferous</a></li>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/petardp">@petardp</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/03/04/three-releases.html">&larr; Older</a>
+<a href="../../../../news/2021/03/31/4-1-62-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/04/02/4-0-27-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -301,9 +304,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/03/23/3-10-1-Final.html";
+            var disqus_url = "http://netty.io/news/2021/03/31/release-day.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-03-23-3-10-1-Final.html";
+            var disqus_identifier = "news/2021-03-31-release-day";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
