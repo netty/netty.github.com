@@ -2,9 +2,30 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-03-31T14:52:32+02:00</updated>
+<updated>2021-04-01T16:35:02+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/04/01/4-1-63-Final.html</id>
+<title>Netty 4.1.63.Final released - Regression fix</title>
+<updated>2021-04-01T16:35:02+02:00</updated>
+<published>2021-04-01T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/04/01/4-1-63-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+Today we decided that we should do another netty release as just after we released  4.1.62.Final we noticed another regression that could lead to an re-entrance problem in the SslHandler. This could cause encoding problems in some rare cases. As the SslHandler is a critical component of netty we think a quick release is warranted.
+
+For more details please see (#11133)....
+</summary>
+<content type="html">
+&lt;p&gt;Today we decided that we should do another netty release as just after we released  &lt;a href=&quot;https://github.com/netty/netty/milestone/237?closed=1&quot;&gt;4.1.62.Final&lt;/a&gt; we noticed another regression that could lead to an re-entrance problem in the &lt;code&gt;SslHandler&lt;/code&gt;. This could cause encoding problems in some rare cases. As the &lt;code&gt;SslHandler&lt;/code&gt; is a critical component of netty we think a quick release is warranted.&lt;/p&gt;
+
+&lt;p&gt;For more details please see (&lt;a href=&quot;https://github.com/netty/netty/pull/11133&quot;&gt;#11133&lt;/a&gt;).&lt;/p&gt;
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/03/31/release-day.html</id>
 <title>Release day for HTTP/3, QUIC and IO_URING</title>
@@ -4392,96 +4413,6 @@ HttpProxyHandler...
 &lt;li&gt;&lt;a href=&quot;https://github.com/teaey&quot;&gt;@teaey&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/xpromache&quot;&gt;@xpromache&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2018/02/21/4-1-22-Final.html</id>
-<title>Netty 4.1.22.Final released</title>
-<updated>2018-04-04T14:11:24+02:00</updated>
-<published>2018-02-21T00:00:00+00:00</published>
-<link href="http://netty.io/news/2018/02/21/4-1-22-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest release of the 4.1 series.
-
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes are:
-
-
-To detect Android, check the VM property rather than the classpath  (#7679)
-Propagate full Unsafe unavailability reason in PlatformDependent (#7684)
-Use long for http2 ping payload (#7690)
-Introduce an alternative IdentityCipherSuiteFilter that defaults to supportedCiphers (#7691)
-Reduce the default number of objects retained by the Recycler per thread  (#7701)
-Bump Conscrypt version to 1.0.0 (#7703)
-ByteBufUtil to not pool direct memory by default (#7704)
-NioDatagramChannel invalid usage of internalNioBuffer (#7705)
-Http2MultiplexCodec now propagates SETTINGS and GOAWAY frames in pipeline...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest release of the 4.1 series.&lt;/p&gt;
-
-&lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;To detect Android, check the VM property rather than the classpath  (&lt;a href=&quot;https://github.com/netty/netty/pull/7679&quot;&gt;#7679&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Propagate full Unsafe unavailability reason in PlatformDependent (&lt;a href=&quot;https://github.com/netty/netty/pull/7684&quot;&gt;#7684&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Use long for http2 ping payload (&lt;a href=&quot;https://github.com/netty/netty/pull/7690&quot;&gt;#7690&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Introduce an alternative IdentityCipherSuiteFilter that defaults to supportedCiphers (&lt;a href=&quot;https://github.com/netty/netty/pull/7691&quot;&gt;#7691&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Reduce the default number of objects retained by the Recycler per thread  (&lt;a href=&quot;https://github.com/netty/netty/pull/7701&quot;&gt;#7701&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Bump Conscrypt version to 1.0.0 (&lt;a href=&quot;https://github.com/netty/netty/pull/7703&quot;&gt;#7703&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ByteBufUtil to not pool direct memory by default (&lt;a href=&quot;https://github.com/netty/netty/pull/7704&quot;&gt;#7704&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;NioDatagramChannel invalid usage of internalNioBuffer (&lt;a href=&quot;https://github.com/netty/netty/pull/7705&quot;&gt;#7705&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Http2MultiplexCodec now propagates SETTINGS and GOAWAY frames in pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/7711&quot;&gt;#7711&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle the case when converting of value fails and return null or default value (&lt;a href=&quot;https://github.com/netty/netty/pull/7715&quot;&gt;#7715&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;DefaultHeaders / CharSequenceValueConverter should treat boolean consistently (&lt;a href=&quot;https://github.com/netty/netty/pull/7720&quot;&gt;#7720&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Get memory address from Unsafe for OpenSSL (&lt;a href=&quot;https://github.com/netty/netty/pull/7725&quot;&gt;#7725&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;SSL connection not closed properly after handshake failure (&lt;a href=&quot;https://github.com/netty/netty/pull/7727&quot;&gt;#7727&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Epoll flush/writabilityChange deadlock (&lt;a href=&quot;https://github.com/netty/netty/pull/7730&quot;&gt;#7730&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Fix Snappy decoding of large 2-byte literal lengths and copy offsets (&lt;a href=&quot;https://github.com/netty/netty/pull/7731&quot;&gt;#7731&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we always release the AddressEnvelope when doing DNS queries. (&lt;a href=&quot;https://github.com/netty/netty/pull/7734&quot;&gt;#7734&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.22.Final&quot;&gt;4.1.22.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1&gt;Important notes&lt;/h1&gt;
-
-&lt;h2&gt;HTTP2&lt;/h2&gt;
-
-&lt;p&gt;We changed the payload type for ping frames from &lt;code&gt;ByteBuf&lt;/code&gt; to &lt;code&gt;long&lt;/code&gt; as this simplifies things and the payload is 8 bytes all the time as defined by the RFC.&lt;/p&gt;
-
-&lt;p&gt;As always, please let us know if you find any issues. We love feedback!&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://githob.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/blucas&quot;&gt;@blucas&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bsideup&quot;&gt;@bsideup&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/dnault&quot;&gt;@dnault&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jianglai&quot;&gt;@jianglai&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jkinkead&quot;&gt;@jkinkead&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/johnou&quot;&gt;@johnou&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jyane&quot;&gt;@jyane&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/laosijikaichele&quot;&gt;@laosijikaichele&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mrniko&quot;&gt;@mrniko&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/shorea&quot;&gt;@shorea&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
