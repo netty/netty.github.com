@@ -2,9 +2,62 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-04-01T16:35:02+02:00</updated>
+<updated>2021-05-04T13:59:32+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/05/03/quic-0-0-11-Final.html</id>
+<title>Netty/Incubator/Codec/Quic 0.0.11.Final released</title>
+<updated>2021-05-04T13:59:32+02:00</updated>
+<published>2021-05-03T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/05/03/quic-0-0-11-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+I am happy to announce the release of netty-incubator-codec-quic 0.0.11.Final.
+
+This release introduces two new abstractions that allows:
+
+
+Preload classes before calling native OnLoad function to prevent classloader leak (#260)
+Only access static field once we ensured we could load the native lib (#255)
+Update quiche so we can support QUIC v1 as well (#256)
+Allow to configure which QUIC version is used (#254)
+Allow the user to query which QUIC versions are currently supported (#253)
+Allows use direct buffers when trying to read from a stream (#247)
+
+
+
+Beside these there are various other small changes.
+
+For more details related to this release see our bug-tracker.
+
+For more details about...
+</summary>
+<content type="html">
+&lt;p&gt;I am happy to announce the release of netty-incubator-codec-quic 0.0.11.Final.&lt;/p&gt;
+
+&lt;p&gt;This release introduces two new abstractions that allows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Preload classes before calling native OnLoad function to prevent classloader leak (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/260&quot;&gt;#260&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Only access static field once we ensured we could load the native lib (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/255&quot;&gt;#255&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Update quiche so we can support QUIC v1 as well (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/256&quot;&gt;#256&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow to configure which QUIC version is used (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/254&quot;&gt;#254&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allow the user to query which QUIC versions are currently supported (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/253&quot;&gt;#253&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Allows use direct buffers when trying to read from a stream (&lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/pull/247&quot;&gt;#247&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Beside these there are various other small changes.&lt;/p&gt;
+
+&lt;p&gt;For more details related to this release see our &lt;a href=&quot;https://github.com/netty/netty-incubator-codec-quic/milestone/10?closed=1&quot;&gt;bug-tracker&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For more details about this codec in general please read our &lt;a href=&quot;https://netty.io/news/2020/12/09/quic-0-0-1-Final.html&quot;&gt;initial announcement&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/04/01/4-1-63-Final.html</id>
 <title>Netty 4.1.63.Final released - Regression fix</title>
@@ -4323,96 +4376,6 @@ Importantly it also fixes a &lt;a href=&quot;https://github.com/netty/netty/pull
 &lt;li&gt;&lt;a href=&quot;https://github.com/Stefan-Weber&quot;&gt;@Stefan-Weber&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/syermakov&quot;&gt;@syermakov&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2018/04/04/4-1-23-Final.html</id>
-<title>Netty 4.1.23.Final released</title>
-<updated>2018-04-04T19:47:24+02:00</updated>
-<published>2018-04-04T00:00:00+00:00</published>
-<link href="http://netty.io/news/2018/04/04/4-1-23-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest release of the 4.1 series.
-
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-
-The most important changes are:
-
-
-SctpMessageCompletionHandler may leak ByteBuf for fragmented messages (#7832)
-Don't replace all connection headers when sending h2c upgrade request (#7824)
-ChunkedWriteHandler: avoid writing two times the same message (#7822)
-Limit the number of bytes to use to copy the content of a direct buffer to OutputStream (#7813)
-NIO read spin event loop spin when half closed (#7801)
-HttpServerUpgradeHandler shouldn't wait for flush to reshape pipeline (#7807)
-Support Redis inline commands (#7687)
-Ensure we not schedule multiple timeouts for close notify (#7799)
-HttpProxyHandler...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest release of the 4.1 series.&lt;/p&gt;
-
-&lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.&lt;/p&gt;
-
-&lt;p&gt;The most important changes are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;SctpMessageCompletionHandler may leak ByteBuf for fragmented messages (&lt;a href=&quot;https://github.com/netty/netty/pull/7832&quot;&gt;#7832&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Don&#39;t replace all connection headers when sending h2c upgrade request (&lt;a href=&quot;https://github.com/netty/netty/pull/7824&quot;&gt;#7824&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;ChunkedWriteHandler: avoid writing two times the same message (&lt;a href=&quot;https://github.com/netty/netty/pull/7822&quot;&gt;#7822&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Limit the number of bytes to use to copy the content of a direct buffer to OutputStream (&lt;a href=&quot;https://github.com/netty/netty/pull/7813&quot;&gt;#7813&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;NIO read spin event loop spin when half closed (&lt;a href=&quot;https://github.com/netty/netty/pull/7801&quot;&gt;#7801&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HttpServerUpgradeHandler shouldn&#39;t wait for flush to reshape pipeline (&lt;a href=&quot;https://github.com/netty/netty/pull/7807&quot;&gt;#7807&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Support Redis inline commands (&lt;a href=&quot;https://github.com/netty/netty/pull/7687&quot;&gt;#7687&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Ensure we not schedule multiple timeouts for close notify (&lt;a href=&quot;https://github.com/netty/netty/pull/7799&quot;&gt;#7799&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;HttpProxyHandler generates invalid CONNECT url and Host header when address is resolved (&lt;a href=&quot;https://github.com/netty/netty/pull/7784&quot;&gt;#7784&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly handle non IOException during read in NioServerSocketChannel (&lt;a href=&quot;https://github.com/netty/netty/pull/7806&quot;&gt;#7806&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Correctly record creation stacktrace in ResourceLeakDetector. (&lt;a href=&quot;https://github.com/netty/netty/pull/7782&quot;&gt;#7782&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;PendingWriteQueue to handle write operations with void future (&lt;a href=&quot;https://github.com/netty/netty/pull/7780&quot;&gt;#7780&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;IovArray.add(...) should check if buffer has memory address (&lt;a href=&quot;https://github.com/netty/netty/pull/7774&quot;&gt;#7774&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;FixedCompositeByteBuf should allow to access memoryAddress / array when wrap a single buffer (&lt;a href=&quot;https://github.com/netty/netty/pull/7773&quot;&gt;#7773&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Close SSLEngine when connection fails. (&lt;a href=&quot;https://github.com/netty/netty/pull/7746&quot;&gt;#7746&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Workaround SSLEngine.unwrap(...) bug in Android 5.0 (&lt;a href=&quot;https://github.com/netty/netty/pull/7761&quot;&gt;#7761&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Flush task should not flush messages that were written since last flush attempt (&lt;a href=&quot;https://github.com/netty/netty/pull/7743&quot;&gt;#7743&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Copies from read-only heap ByteBuffer to direct ByteBuf can avoid stealth ByteBuf allocation and additional copies (&lt;a href=&quot;https://github.com/netty/netty/pull/7739&quot;&gt;#7739&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.23.Final&quot;&gt;4.1.23.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/amizurov&quot;&gt;@amizurov&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bryce-anderson&quot;&gt;@bryce-anderson&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://githob.com/carl-mastrangelo&quot;&gt;@carl-mastrangelo&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/CodingFabian&quot;&gt;@CodingFabian&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/doom369&quot;&gt;@doom369&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ivankelly&quot;&gt;@ivankelly&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/jox&quot;&gt;@jox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kachayev&quot;&gt;@kachayev&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/khitrin&quot;&gt;@khitrin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ldaley&quot;&gt;@ldaley&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/MarkVilkel&quot;&gt;@MarkVilkel&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mseitner&quot;&gt;@mseitner&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/teaey&quot;&gt;@teaey&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/xpromache&quot;&gt;@xpromache&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 

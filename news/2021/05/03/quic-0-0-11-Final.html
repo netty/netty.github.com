@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.6.2.Final released</title>
-<title>Netty: Netty 3.6.2.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.11.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.11.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.6.2.Final released
+Netty/Incubator/Codec/Quic 0.0.11.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,51 +250,40 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2013-01-16">16-Jan-2013</time>
+<time datetime="2021-05-03">03-May-2021</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>While we spend most of our time working on the first beta of the next major version of Netty , we also spend some time to fix bugs and add new features to our current stable series.  </p>
-<p>As result of this we released another stable version out of the 3.6.x series today. Say "Hi" to Netty 3.6.2.Final!</p>
-<p>The release includes bug-fixes, enhancements and also new features. So if you are interested keep reading...</p>
-<h1 id="HBugfixes"><span><span>Bugfixes</span></span></h1>
-<p>Here are the most important bug-fixes:</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.11.Final.</p>
+
+<p>This release introduces two new abstractions that allows:</p>
+
 <ul>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/915">[#915]</a></span> SSL handshake may be done twice</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/921">[#921]</a></span> WebSocket07ClientHandshaker may throw a NPE</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/926">[#926]</a></span> Chrome requires version header in SPDY_SESSION_PUSHED_SYN_STREAM</li>
+<li>Preload classes before calling native OnLoad function to prevent classloader leak (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/260">#260</a>)</li>
+<li>Only access static field once we ensured we could load the native lib (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/255">#255</a>)</li>
+<li>Update quiche so we can support QUIC v1 as well (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/256">#256</a>)</li>
+<li>Allow to configure which QUIC version is used (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/254">#254</a>)</li>
+<li>Allow the user to query which QUIC versions are currently supported (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/253">#253</a>)</li>
+<li>Allows use direct buffers when trying to read from a stream (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/247">#247</a>)</li>
 </ul>
-<div>
-<h1 id="HNewstuffandimprovements"><span><span>New stuff and improvements</span></span></h1>
-<h2 id="HAddSockscodec"><span><span>Add Socks codec</span></span></h2>
-<p>This release comes with a socks codec. Be aware that it only works with Java 6 or higher because of some classes that are only available since Java 6. Checkout the "org.jboss.netty.handler.codec.socks" package for all the classes and their javadocs.</p>
-</div>
-<h1 id="HSupportasyncbindofServerChannel"><span><span>Support async bind of ServerChannel</span></span></h1>
-<p>Previous this release it was not possible to use the loved ServerBootstrap to bind to a Socket in an async fashion. This was because the ServerBootstrap.bind(..) method is blocking till the bound operation completes. Unfortunately this is often not what you want as want to do other tasks while the bind operation completes.</p>
-<div class="wikimodel-emptyline"></div>
-<p>To overcome this limitation while still keep backward compatibility we introduced 2 new methods to ServerBootstrap. These are the async counterparts of the existing bind() and bind(SocketAddress) methods.</p>
-<p>Here you see async bind in action...</p>
-<div class="wikimodel-emptyline"></div>
-<script src="https://gist.github.com/4547247.js"></script><p>Special thanks go out to the <span class="wikiexternallink"><a href="http://vertx.io">vert-x</a></span> project which made us aware of the problem. So we hope you enjoy it <img src="/resources/icons/silk/emoticon_smile.png" class="wikimodel-freestanding" alt="emoticon_smile"></p>
-<h2 id="HGeneral"><span><span>General</span></span></h2>
-<p>For a complete list of changes please checkout our <span><span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.6.2.Final">issue tracker</a></span>.  To download Netty, as usual, please visit <span class="wikilink"><a href="http://netty.io/downloads.html">the downloads page</a></span> or get it via maven like usual.</span></p>
-<p>Please let us know if you have any problems or questions.</p>
-</div>
+
+
+<p>Beside these there are various other small changes.</p>
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/10?closed=1">bug-tracker</a>.</p>
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2013/01/04/3-6-1-final.html">&larr; Older</a>
+<a href="../../../../news/2021/04/01/4-1-63-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2013/02/15/4-0-0-beta1.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -303,9 +292,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2013/01/16/3-6-2-final.html";
+            var disqus_url = "http://netty.io/news/2021/05/03/quic-0-0-11-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "2329357110694322164";
+            var disqus_identifier = "news/2021-05-03-quic-0-0-11-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
