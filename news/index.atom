@@ -2,9 +2,152 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2021-05-10T10:36:29+02:00</updated>
+<updated>2021-05-19T14:45:14+02:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
+<entry>
+<id>http://netty.io/news/2021/05/19/4-1-65-Final.html</id>
+<title>Netty 4.1.65.Final released</title>
+<updated>2021-05-19T14:45:14+02:00</updated>
+<published>2021-05-19T00:00:00+00:00</published>
+<link href="http://netty.io/news/2021/05/19/4-1-65-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+We are happy to announce the release of netty 4.1.65.Final, which beside fixes multiple bugs and includes some performance improvements as well.
+As netty 4.1.64.Final did include two regressions which were found quickly after the release we decided to not announce it all and just roll a 4.1.65.Final which includes everything.
+
+The most important changes are:
+
+
+Fire SslHandshakeCompletionEvent after the last decoded data chunk (#11148)
+Log fewer stack traces from initialisation code (#11164)
+Fix StreamBufferingEncoder GOAWAY bug (#11144)
+Ensure DnsNameResolver resolves the host(computer) name on Windows (#11167)
+Fix support for IP_RECVORIGDSTADDR when using native epoll transport (#11173)
+BouncyCastle support (#11157)
+SimpleChannelPromiseAggregator use first exception instead of last (#11168)
+Add a...
+</summary>
+<content type="html">
+&lt;p&gt;We are happy to announce the release of netty 4.1.65.Final, which beside fixes multiple bugs and includes some performance improvements as well.
+As netty 4.1.64.Final did include two regressions which were found quickly after the release we decided to not announce it all and just roll a 4.1.65.Final which includes everything.&lt;/p&gt;
+
+&lt;p&gt;The most important changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Fire SslHandshakeCompletionEvent after the last decoded data chunk (&lt;a href=&quot;https://github.com/netty/netty/pull/11148&quot;&gt;#11148&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Log fewer stack traces from initialisation code (&lt;a href=&quot;https://github.com/netty/netty/pull/11164&quot;&gt;#11164&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix StreamBufferingEncoder GOAWAY bug (&lt;a href=&quot;https://github.com/netty/netty/pull/11144&quot;&gt;#11144&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure DnsNameResolver resolves the host(computer) name on Windows (&lt;a href=&quot;https://github.com/netty/netty/pull/11167&quot;&gt;#11167&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix support for IP_RECVORIGDSTADDR when using native epoll transport (&lt;a href=&quot;https://github.com/netty/netty/pull/11173&quot;&gt;#11173&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;BouncyCastle support (&lt;a href=&quot;https://github.com/netty/netty/pull/11157&quot;&gt;#11157&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;SimpleChannelPromiseAggregator use first exception instead of last (&lt;a href=&quot;https://github.com/netty/netty/pull/11168&quot;&gt;#11168&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add a new HTTP/2 pseudo header :protocol (&lt;a href=&quot;https://github.com/netty/netty/pull/11192&quot;&gt;#11192&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Enable TLSv1.3 when using BouncyCastle ALPN support (&lt;a href=&quot;https://github.com/netty/netty/pull/11193&quot;&gt;#11193&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Correctly throw ErrorDataDecoderException for errors while decoding (&lt;a href=&quot;https://github.com/netty/netty/pull/11198&quot;&gt;#11198&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Destroy HttpPostMultipartRequestDecoder if contructor throws (&lt;a href=&quot;https://github.com/netty/netty/pull/11207&quot;&gt;#11207&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ReferenceCountedOpenSslEngine unwrap handshake complete status fix (&lt;a href=&quot;https://github.com/netty/netty/pull/11210&quot;&gt;#11210&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix Memory release not correctly in Multipart Decoder (&lt;a href=&quot;https://github.com/netty/netty/pull/11188&quot;&gt;#11188&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Preload classes before calling native OnLoad function to prevent classloader deadlock (&lt;a href=&quot;https://github.com/netty/netty/pull/11215&quot;&gt;#11215&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Only fall back to CNAME on A/AAAA queries (&lt;a href=&quot;https://github.com/netty/netty/pull/11216&quot;&gt;#11216&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Re-order list of resolvers according to their searchOrder (&lt;a href=&quot;https://github.com/netty/netty/pull/11236&quot;&gt;#11236&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Disable TLSv1 and TLSv1.1 by default (&lt;a href=&quot;https://github.com/netty/netty/pull/11237&quot;&gt;#11237&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Use tasks by default when using openssl based SSL provider (&lt;a href=&quot;https://github.com/netty/netty/pull/11242&quot;&gt;#11242&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add DefaultHostsFileEntriesResolver#addresses to provide all hosts file&#39;s entries for a hostname (&lt;a href=&quot;https://github.com/netty/netty/pull/11246&quot;&gt;#11246&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Introduce BrotliDecoder (&lt;a href=&quot;https://github.com/netty/netty/pull/10960&quot;&gt;#10960&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix loading of the native library for DNS resolution on MacOS (&lt;a href=&quot;https://github.com/netty/netty/pull/11260&quot;&gt;#11260&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For the details and all changes, please browse our issue tracker for &lt;a href=&quot;https://github.com/netty/netty/milestone/240?closed=1&quot;&gt;4.1.65.Final&lt;/a&gt; and &lt;a href=&quot;https://github.com/netty/netty/milestone/239?closed=1&quot;&gt;4.1.6.4.Final&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;Important notes&lt;/h1&gt;
+
+&lt;h2&gt;Classloader deadlock workaround&lt;/h2&gt;
+
+&lt;p&gt;It seems like more recent version of the JDK can trigger a classloader deadlock easily when trying to load our JNI based code. This release includes a work-around for this while the OpenJDK developers are investigating on how this can be fixed in the OpenJDK itself.
+For more details please check (&lt;a href=&quot;https://github.com/netty/netty/pull/11215&quot;&gt;#11215&lt;/a&gt;), which contains all the related links.&lt;/p&gt;
+
+&lt;h2&gt;Disable TLSv1 and TLSv1.1 by default&lt;/h2&gt;
+
+&lt;p&gt;As TLSv1 and TLSv1.1 are considered insecure and are also disabled by default now in the OpenJDK we did follow the same path here. That said if you still need to supported these you can explicit enable them when using the &lt;code&gt;SslContextBuilder&lt;/code&gt; to build the &lt;code&gt;SslContext&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;HTTP Brotli support&lt;/h2&gt;
+
+&lt;p&gt;To be able to make use of the new &lt;a href=&quot;https://github.com/netty/netty/pull/10960&quot;&gt;BrotliDecoder&lt;/a&gt; you need to ensure the &lt;a href=&quot;https://github.com/hyperxpro/Brotli4j&quot;&gt;Brotli4J&lt;/a&gt; jars are on your class-path.&lt;/p&gt;
+
+&lt;p&gt;For example if you use maven this would be done by specify the following dependencies:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.aayushatharva.brotli4j&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;brotli4j&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;runtime&amp;lt;/scope&amp;gt;
+    &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.aayushatharva.brotli4j&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;native-linux-x86_64&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;runtime&amp;lt;/scope&amp;gt;
+    &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.aayushatharva.brotli4j&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;native-osx-x86_64&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;runtime&amp;lt;/scope&amp;gt;
+    &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+    &amp;lt;groupId&amp;gt;com.aayushatharva.brotli4j&amp;lt;/groupId&amp;gt;
+    &amp;lt;artifactId&amp;gt;native-windows-x86_64&amp;lt;/artifactId&amp;gt;
+    &amp;lt;scope&amp;gt;runtime&amp;lt;/scope&amp;gt;
+    &amp;lt;version&amp;gt;1.4.2&amp;lt;/version&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Once the dependencies are added HTTP decompression for brotli will be supported out of the box.&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/abezhovets&quot;&gt;@abezhovets&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bhashinee&quot;&gt;@benevans&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Bhashinee&quot;&gt;@Bhashinee&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/boris-unckel&quot;&gt;@boris-unckel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chenqwwq&quot;&gt;@chenqwwq&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/dapengzhang0&quot;&gt;@dapengzhang0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/fredericBregier&quot;&gt;@fredericBregier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gwre-ivan&quot;&gt;@gwre-ivan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpron&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jameskleeh&quot;&gt;@jameskleeh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kevinw66&quot;&gt;@kevinw66&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/koh-osug&quot;&gt;@koh-osug&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/LiyuanLacfo&quot;&gt;@LiyuanLacfo&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/NiteshKant&quot;&gt;@NiteshKant&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/njhill&quot;&gt;@njhill&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/roycarser&quot;&gt;@roycarser&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/skyguard1&quot;&gt;@skyguard1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/slandelle&quot;&gt;@slandelle&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Stwissel&quot;&gt;@Stwissel&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/terrarier2111&quot;&gt;@terrarier2111&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/vietj&quot;&gt;@vietj&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
 <entry>
 <id>http://netty.io/news/2021/05/03/quic-0-0-11-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.11.Final released</title>
@@ -4301,81 +4444,6 @@ Implement isWritable and ensureWritable on ReadOnlyByteBufferBuf....
 &lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://github.com/windie&quot;&gt;@windie&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2018/04/19/4-1-24-Final.html</id>
-<title>Netty 4.1.24.Final released</title>
-<updated>2021-05-10T10:36:29+02:00</updated>
-<published>2018-04-19T00:00:00+00:00</published>
-<link href="http://netty.io/news/2018/04/19/4-1-24-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-I'm happy to announce the latest release of the 4.1 series.
-
-These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-Importantly it also fixes a regression of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.
-
-The most important changes are:
-
-
-Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (#7878)
-Filter DNS results so they only contain the expected type when multiple types are present (#7875)
-Only reset readIsPending if outboundBuffer is not empty (#7874)
-AsciiString#indexOf out of bounds (#7866)
-
-
-
-For the details and all changes, please browse our issue tracker for  4.1.24.Final.
-
-Thank You
-
-Every idea...
-</summary>
-<content type="html">
-&lt;p&gt;I&#39;m happy to announce the latest release of the 4.1 series.&lt;/p&gt;
-
-&lt;p&gt;These releases contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.
-Importantly it also fixes a &lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;regression&lt;/a&gt; of 4.1.23.Final which could lead to have resources not cleaned up correctly in some cases.&lt;/p&gt;
-
-&lt;p&gt;The most important changes are:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Fix eternal loop in Recycler.WeakOrderQueue.Head#run() that blocks ObjectCleaner thread  (&lt;a href=&quot;https://github.com/netty/netty/pull/7878&quot;&gt;#7878&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Filter DNS results so they only contain the expected type when multiple types are present (&lt;a href=&quot;https://github.com/netty/netty/pull/7875&quot;&gt;#7875&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;Only reset readIsPending if outboundBuffer is not empty (&lt;a href=&quot;https://github.com/netty/netty/pull/7874&quot;&gt;#7874&lt;/a&gt;)&lt;/li&gt;
-&lt;li&gt;AsciiString#indexOf out of bounds (&lt;a href=&quot;https://github.com/netty/netty/pull/7866&quot;&gt;#7866&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For the details and all changes, please browse our issue tracker for  &lt;a href=&quot;https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.24.Final&quot;&gt;4.1.24.Final&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/anuraaga&quot;&gt;@anuraaga&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Bennett-Lynch&quot;&gt;@Bennett-Lynch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/bradforj287&quot;&gt;@bradforj287&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/davidmoten&quot;&gt;@davidmoten&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ejona86&quot;&gt;@ejona86&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/fenik17&quot;&gt;@fenik17&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/gustavonalle&quot;&gt;@gustavonalle&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/ikurovsky&quot;&gt;@ikurovsky&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/JLofgren&quot;&gt;@JLofgren&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/kubuzetto&quot;&gt;@kubuzetto&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/mosesn&quot;&gt;@mosesn&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/Stefan-Weber&quot;&gt;@Stefan-Weber&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/syermakov&quot;&gt;@syermakov&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/trustin&quot;&gt;@trustin&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 

@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/05/03/quic-0-0-11-Final.html">
+<a href="../news/2021/05/19/4-1-65-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.63.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.65.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.63.Final
-<small>&dash; 01-Apr-2021</small>
+4.1.65.Final
+<small>&dash; 19-May-2021</small>
 </a>
 </li>
 <li>
@@ -298,11 +298,50 @@ You can improve it by yourself
 <h2 id="wiki-h2-1">
 <a id="user-content-how-to-download-netty-tcnative-boringssl-uber-jar" class="anchor" href="#how-to-download-netty-tcnative-boringssl-uber-jar" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative-boringssl "uber" jar</h2>
 <p>This is the simplest dependency to use, since it doesn't require a platform-specific classifier:</p>
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+<div class="highlight highlight-text-xml position-relative" data-snippet-clipboard-copy-content="&lt;project&gt;
+  ...
+  &lt;dependencies&gt;
+    ...
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.netty&lt;/groupId&gt;
+      &lt;artifactId&gt;netty-tcnative-boringssl-static&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0.Final&lt;/version&gt;
+    &lt;/dependency&gt;
+    ...
+  &lt;/dependencies&gt;
+  ...
+&lt;/project&gt;
+"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <h2 id="wiki-h2-2">
 <a id="user-content-how-to-download-netty-tcnative-boringssl-static" class="anchor" href="#how-to-download-netty-tcnative-boringssl-static" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative-boringssl-static</h2>
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and the <code>netty-tcnative-boringssl-static</code> dependency appropriate for your platform:</p>
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+<div class="highlight highlight-text-xml position-relative" data-snippet-clipboard-copy-content="&lt;project&gt;
+  ...
+  &lt;dependencies&gt;
+    ...
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.netty&lt;/groupId&gt;
+      &lt;artifactId&gt;netty-tcnative-boringssl-static&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0.Final&lt;/version&gt;
+      &lt;classifier&gt;${os.detected.classifier}&lt;/classifier&gt;
+    &lt;/dependency&gt;
+    ...
+  &lt;/dependencies&gt;
+  ...
+  &lt;build&gt;
+    ...
+    &lt;extensions&gt;
+      &lt;extension&gt;
+        &lt;groupId&gt;kr.motd.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;os-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.4.0.Final&lt;/version&gt;
+      &lt;/extension&gt;
+    &lt;/extensions&gt;
+    ...
+  &lt;/build&gt;
+  ...
+&lt;/project&gt;
+"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative-boringssl-static&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> and provide distributions for the following platforms:</p>
 <table role="table">
 <thead>
@@ -329,7 +368,38 @@ You can improve it by yourself
 <h2 id="wiki-h2-3">
 <a id="user-content-how-to-download-netty-tcnative" class="anchor" href="#how-to-download-netty-tcnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative</h2>
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Configure the os-maven-plugin extension to expand the classifier on <span class="pl-c">--&gt;</span></span>&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Fedora-"like" systems. <span class="pl-c">--&gt;</span></span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+<div class="highlight highlight-text-xml position-relative" data-snippet-clipboard-copy-content='&lt;project&gt;
+  &lt;properties&gt;
+    &lt;!-- Configure the os-maven-plugin extension to expand the classifier on --&gt;
+    &lt;!-- Fedora-"like" systems. --&gt;
+     &lt;os.detection.classifierWithLikes&gt;fedora&lt;/os.detection.classifierWithLikes&gt;
+  &lt;/properties&gt;
+  ...
+  &lt;dependencies&gt;
+    ...
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.netty&lt;/groupId&gt;
+      &lt;artifactId&gt;netty-tcnative&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0.Final&lt;/version&gt;
+      &lt;classifier&gt;${os.detected.classifier}&lt;/classifier&gt;
+    &lt;/dependency&gt;
+    ...
+  &lt;/dependencies&gt;
+  ...
+  &lt;build&gt;
+    ...
+    &lt;extensions&gt;
+      &lt;extension&gt;
+        &lt;groupId&gt;kr.motd.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;os-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.4.0.Final&lt;/version&gt;
+      &lt;/extension&gt;
+    &lt;/extensions&gt;
+    ...
+  &lt;/build&gt;
+  ...
+&lt;/project&gt;
+'><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">properties</span>&gt;&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Configure the os-maven-plugin extension to expand the classifier on <span class="pl-c">--&gt;</span></span>&#x000A;    <span class="pl-c"><span class="pl-c">&lt;!--</span> Fedora-"like" systems. <span class="pl-c">--&gt;</span></span>&#x000A;     &lt;<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;fedora&lt;/<span class="pl-ent">os</span>.detection.classifierWithLikes&gt;&#x000A;  &lt;/<span class="pl-ent">properties</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${os.detected.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;  ...&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    ...&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    ...&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <p>Netty-tcnative uses classifiers when deploying to <a href="http://repo1.maven.org/maven2/io/netty/netty-tcnative/" rel="nofollow">Maven Central</a> to provide distributions for the various platforms. On Linux it should be noted that OpenSSL uses a different soname for Fedora derivatives than other Linux releases. Starting with version <code>1.1.33.Fork7</code>, we work around this limitation by deploying two separate versions for Linux (see the table below).</p>
 <table role="table">
 <thead>
@@ -358,11 +428,84 @@ You can improve it by yourself
 </tbody>
 </table>
 <p>Using <code>classifierWithLikes</code> will configure the <code>os-maven-plugin</code> to alter the generated <code>os.detected.classifier</code> property. If your build contains other dependencies that rely on <code>os.detected.classifier</code>, you can manually create the netty-tcnative classifier with the <code>antrun</code> plugin:</p>
-<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${tcnative.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      <span class="pl-c"><span class="pl-c">&lt;!--</span> Use os-maven-plugin to initialize the "os.detected" properties <span class="pl-c">--&gt;</span></span>&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    &lt;<span class="pl-ent">plugins</span>&gt;&#x000A;      <span class="pl-c"><span class="pl-c">&lt;!--</span> Use Ant to configure the appropriate "tcnative.classifier" property <span class="pl-c">--&gt;</span></span>&#x000A;      &lt;<span class="pl-ent">plugin</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;maven-antrun-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">executions</span>&gt;&#x000A;          &lt;<span class="pl-ent">execution</span>&gt;&#x000A;            &lt;<span class="pl-ent">phase</span>&gt;initialize&lt;/<span class="pl-ent">phase</span>&gt;&#x000A;            &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;              &lt;<span class="pl-ent">exportAntProperties</span>&gt;true&lt;/<span class="pl-ent">exportAntProperties</span>&gt;&#x000A;              &lt;<span class="pl-ent">target</span>&gt;&#x000A;                &lt;<span class="pl-ent">condition</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>tcnative.classifier<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}-fedora<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">else</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}<span class="pl-pds">"</span></span>&gt;&#x000A;                  &lt;<span class="pl-ent">isset</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>os.detected.release.fedora<span class="pl-pds">"</span></span>/&gt;&#x000A;                &lt;/<span class="pl-ent">condition</span>&gt;&#x000A;              &lt;/<span class="pl-ent">target</span>&gt;&#x000A;            &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;            &lt;<span class="pl-ent">goals</span>&gt;&#x000A;              &lt;<span class="pl-ent">goal</span>&gt;run&lt;/<span class="pl-ent">goal</span>&gt;&#x000A;            &lt;/<span class="pl-ent">goals</span>&gt;&#x000A;          &lt;/<span class="pl-ent">execution</span>&gt;&#x000A;        &lt;/<span class="pl-ent">executions</span>&gt;&#x000A;      &lt;/<span class="pl-ent">plugin</span>&gt;&#x000A;    &lt;/<span class="pl-ent">plugins</span>&gt;&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+<div class="highlight highlight-text-xml position-relative" data-snippet-clipboard-copy-content='&lt;project&gt;
+  &lt;dependencies&gt;
+    &lt;dependency&gt;
+      &lt;groupId&gt;io.netty&lt;/groupId&gt;
+      &lt;artifactId&gt;netty-tcnative&lt;/artifactId&gt;
+      &lt;version&gt;2.0.0.Final&lt;/version&gt;
+      &lt;classifier&gt;${tcnative.classifier}&lt;/classifier&gt;
+    &lt;/dependency&gt;
+  &lt;/dependencies&gt;
+
+  &lt;build&gt;
+    &lt;extensions&gt;
+      &lt;!-- Use os-maven-plugin to initialize the "os.detected" properties --&gt;
+      &lt;extension&gt;
+        &lt;groupId&gt;kr.motd.maven&lt;/groupId&gt;
+        &lt;artifactId&gt;os-maven-plugin&lt;/artifactId&gt;
+        &lt;version&gt;1.4.0.Final&lt;/version&gt;
+      &lt;/extension&gt;
+    &lt;/extensions&gt;
+    &lt;plugins&gt;
+      &lt;!-- Use Ant to configure the appropriate "tcnative.classifier" property --&gt;
+      &lt;plugin&gt;
+        &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;
+        &lt;artifactId&gt;maven-antrun-plugin&lt;/artifactId&gt;
+        &lt;executions&gt;
+          &lt;execution&gt;
+            &lt;phase&gt;initialize&lt;/phase&gt;
+            &lt;configuration&gt;
+              &lt;exportAntProperties&gt;true&lt;/exportAntProperties&gt;
+              &lt;target&gt;
+                &lt;condition property="tcnative.classifier"
+                           value="${os.detected.classifier}-fedora"
+                           else="${os.detected.classifier}"&gt;
+                  &lt;isset property="os.detected.release.fedora"/&gt;
+                &lt;/condition&gt;
+              &lt;/target&gt;
+            &lt;/configuration&gt;
+            &lt;goals&gt;
+              &lt;goal&gt;run&lt;/goal&gt;
+            &lt;/goals&gt;
+          &lt;/execution&gt;
+        &lt;/executions&gt;
+      &lt;/plugin&gt;
+    &lt;/plugins&gt;
+  &lt;/build&gt;
+&lt;/project&gt;
+'><pre>&lt;<span class="pl-ent">project</span>&gt;&#x000A;  &lt;<span class="pl-ent">dependencies</span>&gt;&#x000A;    &lt;<span class="pl-ent">dependency</span>&gt;&#x000A;      &lt;<span class="pl-ent">groupId</span>&gt;io.netty&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;      &lt;<span class="pl-ent">artifactId</span>&gt;netty-tcnative&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;      &lt;<span class="pl-ent">version</span>&gt;2.0.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;<span class="pl-ent">classifier</span>&gt;${tcnative.classifier}&lt;/<span class="pl-ent">classifier</span>&gt;&#x000A;    &lt;/<span class="pl-ent">dependency</span>&gt;&#x000A;  &lt;/<span class="pl-ent">dependencies</span>&gt;&#x000A;&#x000A;  &lt;<span class="pl-ent">build</span>&gt;&#x000A;    &lt;<span class="pl-ent">extensions</span>&gt;&#x000A;      <span class="pl-c"><span class="pl-c">&lt;!--</span> Use os-maven-plugin to initialize the "os.detected" properties <span class="pl-c">--&gt;</span></span>&#x000A;      &lt;<span class="pl-ent">extension</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;kr.motd.maven&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;os-maven-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">version</span>&gt;1.4.0.Final&lt;/<span class="pl-ent">version</span>&gt;&#x000A;      &lt;/<span class="pl-ent">extension</span>&gt;&#x000A;    &lt;/<span class="pl-ent">extensions</span>&gt;&#x000A;    &lt;<span class="pl-ent">plugins</span>&gt;&#x000A;      <span class="pl-c"><span class="pl-c">&lt;!--</span> Use Ant to configure the appropriate "tcnative.classifier" property <span class="pl-c">--&gt;</span></span>&#x000A;      &lt;<span class="pl-ent">plugin</span>&gt;&#x000A;        &lt;<span class="pl-ent">groupId</span>&gt;org.apache.maven.plugins&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;        &lt;<span class="pl-ent">artifactId</span>&gt;maven-antrun-plugin&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;        &lt;<span class="pl-ent">executions</span>&gt;&#x000A;          &lt;<span class="pl-ent">execution</span>&gt;&#x000A;            &lt;<span class="pl-ent">phase</span>&gt;initialize&lt;/<span class="pl-ent">phase</span>&gt;&#x000A;            &lt;<span class="pl-ent">configuration</span>&gt;&#x000A;              &lt;<span class="pl-ent">exportAntProperties</span>&gt;true&lt;/<span class="pl-ent">exportAntProperties</span>&gt;&#x000A;              &lt;<span class="pl-ent">target</span>&gt;&#x000A;                &lt;<span class="pl-ent">condition</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>tcnative.classifier<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}-fedora<span class="pl-pds">"</span></span>&#x000A;                           <span class="pl-e">else</span>=<span class="pl-s"><span class="pl-pds">"</span>${os.detected.classifier}<span class="pl-pds">"</span></span>&gt;&#x000A;                  &lt;<span class="pl-ent">isset</span> <span class="pl-e">property</span>=<span class="pl-s"><span class="pl-pds">"</span>os.detected.release.fedora<span class="pl-pds">"</span></span>/&gt;&#x000A;                &lt;/<span class="pl-ent">condition</span>&gt;&#x000A;              &lt;/<span class="pl-ent">target</span>&gt;&#x000A;            &lt;/<span class="pl-ent">configuration</span>&gt;&#x000A;            &lt;<span class="pl-ent">goals</span>&gt;&#x000A;              &lt;<span class="pl-ent">goal</span>&gt;run&lt;/<span class="pl-ent">goal</span>&gt;&#x000A;            &lt;/<span class="pl-ent">goals</span>&gt;&#x000A;          &lt;/<span class="pl-ent">execution</span>&gt;&#x000A;        &lt;/<span class="pl-ent">executions</span>&gt;&#x000A;      &lt;/<span class="pl-ent">plugin</span>&gt;&#x000A;    &lt;/<span class="pl-ent">plugins</span>&gt;&#x000A;  &lt;/<span class="pl-ent">build</span>&gt;&#x000A;&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <h2 id="wiki-h2-4">
 <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h2>
 <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
-<div class="highlight highlight-source-java"><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">File</span> certificate <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>certificate<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-smi">File</span> privateKey <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>privateKey<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-smi">SslContext</span> sslContext <span class="pl-k">=</span>&#x000A;    <span class="pl-smi">SslContextBuilder</span><span class="pl-k">.</span>forServer(certificate, privateKey)&#x000A;                     .sslProvider(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>)&#x000A;                     .build();&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;  &#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-c1">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;  &#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
+<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content='public static void main(String[] args) throws Exception {
+  File certificate = new File("certificate");
+  File privateKey = new File("privateKey");
+  SslContext sslContext =
+    SslContextBuilder.forServer(certificate, privateKey)
+                     .sslProvider(SslProvider.OPENSSL)
+                     .build();
+  ...
+}
+
+public class MyChannelInitializer extends ChannelInitializer&lt;SocketChannel&gt; {
+
+  private final SslContext sslCtx;
+  
+  public MyChannelInitializer(SslContext sslCtx) {
+    this.sslCtx = sslCtx;
+  }
+  
+  @Override
+  public void initChannel(SocketChannel ch) throws Exception {
+    ChannelPipeline p = ch.pipeline();
+    if (sslCtx != null) {
+      p.addLast(sslCtx.newHandler(ch.alloc()));
+    }
+    ...
+  }
+}
+'><pre><span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-k">void</span> main(<span class="pl-k">String</span>[] args) throws <span class="pl-smi">Exception</span> {&#x000A;  <span class="pl-smi">File</span> certificate <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>certificate<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-smi">File</span> privateKey <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">File</span>(<span class="pl-s"><span class="pl-pds">"</span>privateKey<span class="pl-pds">"</span></span>);&#x000A;  <span class="pl-smi">SslContext</span> sslContext <span class="pl-k">=</span>&#x000A;    <span class="pl-smi">SslContextBuilder</span><span class="pl-k">.</span>forServer(certificate, privateKey)&#x000A;                     .sslProvider(<span class="pl-smi">SslProvider</span><span class="pl-c1"><span class="pl-k">.</span>OPENSSL</span>)&#x000A;                     .build();&#x000A;  <span class="pl-c1">...</span>&#x000A;}&#x000A;&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyChannelInitializer</span> <span class="pl-k">extends</span> <span class="pl-e">ChannelInitializer&lt;<span class="pl-smi">SocketChannel</span>&gt;</span> {&#x000A;&#x000A;  <span class="pl-k">private</span> <span class="pl-k">final</span> <span class="pl-smi">SslContext</span> sslCtx;&#x000A;  &#x000A;  <span class="pl-k">public</span> <span class="pl-en">MyChannelInitializer</span>(<span class="pl-smi">SslContext</span> <span class="pl-v">sslCtx</span>) {&#x000A;    <span class="pl-c1">this</span><span class="pl-k">.</span>sslCtx <span class="pl-k">=</span> sslCtx;&#x000A;  }&#x000A;  &#x000A;  <span class="pl-k">@Override</span>&#x000A;  <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">initChannel</span>(<span class="pl-smi">SocketChannel</span> <span class="pl-v">ch</span>) <span class="pl-k">throws</span> <span class="pl-smi">Exception</span> {&#x000A;    <span class="pl-smi">ChannelPipeline</span> p <span class="pl-k">=</span> ch<span class="pl-k">.</span>pipeline();&#x000A;    <span class="pl-k">if</span> (sslCtx <span class="pl-k">!=</span> <span class="pl-c1">null</span>) {&#x000A;      p<span class="pl-k">.</span>addLast(sslCtx<span class="pl-k">.</span>newHandler(ch<span class="pl-k">.</span>alloc()));&#x000A;    }&#x000A;    <span class="pl-c1">...</span>&#x000A;  }&#x000A;}</pre></div>
 <p>Netty will unpack the shared library provided by the netty-tcnative-XXX artifact into a temporary directory and load it using <code>java.lang.System.load(String)</code>.</p>
 <h3 id="wiki-h3-5">
 <a id="user-content-prerequisites-for-dynamically-linked-netty-tcnative" class="anchor" href="#prerequisites-for-dynamically-linked-netty-tcnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Prerequisites for Dynamically Linked <code>netty-tcnative</code>
@@ -479,18 +622,34 @@ from the <code>chromium-stable</code> branch at build time from the <a href="htt
 </tbody>
 </table>
 <p>Build the package and install it into your local Maven repository:</p>
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;./mvnw clean install</pre></div>
+<div class="highlight highlight-source-shell position-relative" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+cd netty-tcnative
+# To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
+git checkout netty-tcnative-[version]
+# To build a snapshot: (e.g. 2.0.0.Final)
+git checkout [branch]
+./mvnw clean install
+"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;./mvnw clean install</pre></div>
 <h3 id="wiki-h3-15">
 <a id="user-content-building-on-linux-s390x" class="anchor" href="#building-on-linux-s390x" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Building on Linux (s390x)</h3>
 <p>To build <code>netty-tcnative</code> libraries for Linux on IBM Z (s390x), follow the instructions provided <a href="https://github.com/linux-on-ibm-z/docs/wiki/Building-netty-tcnative">here</a> and install it into your local Maven repository.</p>
 <h3 id="wiki-h3-16">
 <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Building on Mac OS X</h3>
 <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12" rel="nofollow">Xcode</a>. After this make sure you install the command line tools as well:</p>
-<div class="highlight highlight-source-shell"><pre>xcode-select --install</pre></div>
+<div class="highlight highlight-source-shell position-relative" data-snippet-clipboard-copy-content="xcode-select --install
+"><pre>xcode-select --install</pre></div>
 <p>Clone the <code>netty-tcnative</code> repository and use <a href="http://brew.sh/" rel="nofollow">Homebrew</a> to install the required packages:</p>
-<div class="highlight highlight-source-shell"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;brew bundle</pre></div>
+<div class="highlight highlight-source-shell position-relative" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+cd netty-tcnative
+brew bundle
+"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;brew bundle</pre></div>
 <p>Build the package and install it into your local Maven repository:</p>
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;./mvnw clean install</pre></div>
+<div class="highlight highlight-source-shell position-relative" data-snippet-clipboard-copy-content="# To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
+git checkout netty-tcnative-[version]
+# To build a snapshot: (e.g. 2.0.0.Final)
+git checkout [branch]
+./mvnw clean install
+"><pre><span class="pl-c"><span class="pl-c">#</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-c">#</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;./mvnw clean install</pre></div>
 <h3 id="wiki-h3-17">
 <a id="user-content-building-on-windows" class="anchor" href="#building-on-windows" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Building on Windows</h3>
 <p>This section describes how to build on 64-bit Windows. Some of these steps may have to be tailored when building on 32-bit systems.</p>
@@ -558,13 +717,23 @@ from the <code>chromium-stable</code> branch at build time from the <a href="htt
 </li>
 </ul>
 <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
-<div class="highlight highlight-source-batchfile"><pre><span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat<span class="pl-pds">"</span></span> x86_amd64</pre></div>
+<div class="highlight highlight-source-batchfile position-relative" data-snippet-clipboard-copy-content='"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86_amd64
+'><pre><span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat<span class="pl-pds">"</span></span> x86_amd64</pre></div>
 <p>Clone <code>netty-tcnative</code> and build it:</p>
-<div class="highlight highlight-source-batchfile"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-k">REM</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;mvnw clean install</pre></div>
+<div class="highlight highlight-source-batchfile position-relative" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+cd netty-tcnative
+REM To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
+git checkout netty-tcnative-[version]
+REM To build a snapshot: (e.g. 2.0.0.Final)
+git checkout [branch]
+mvnw clean install
+"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-k">cd</span> netty-tcnative&#x000A;<span class="pl-c"><span class="pl-k">REM</span> To build a specific version: (e.g. netty-tcnative-2.0.0.Final)</span>&#x000A;git checkout netty-tcnative-[version]&#x000A;<span class="pl-c"><span class="pl-k">REM</span> To build a snapshot: (e.g. 2.0.0.Final)</span>&#x000A;git checkout [branch]&#x000A;mvnw clean install</pre></div>
 <h2 id="wiki-h2-18">
 <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Creating a new fork</h2>
 <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
-<pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre>
+<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="$ git checkout bootstrap
+$ ./new-fork 1.1.29 1
+"><pre><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre></div>
 <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
 
               </div>
@@ -603,7 +772,7 @@ from the <code>chromium-stable</code> branch at build time from the <a href="htt
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 10-May-2021</small>
+<small>Last retrieved on 19-May-2021</small>
 </div>
 </div>
 </div>
