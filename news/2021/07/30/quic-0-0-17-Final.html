@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.9.9.Final released</title>
-<title>Netty: Netty 3.9.9.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.17.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.17.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.9.9.Final released
+Netty/Incubator/Codec/Quic 0.0.17.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,42 +250,39 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-07-21">21-Jul-2015</time>
+<time datetime="2021-07-30">30-Jul-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 3.9.9.Final.</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.17.Final.</p>
 
-<p>These releases contains two bug-fixes.</p>
+<p>This release fixes a few bugs but also introduced support for SNI.</p>
+
+<p>The most interesting changes are:</p>
 
 <ul>
-<li>Fix cookie encoding when maxAge is greater than 24 days (<a href="https://github.com/netty/netty/issues/4008">#4008</a>)</li>
-<li>Fix invalid check arguments in 'OpenSslServerContext.setTicketKeys' (<a href="https://github.com/netty/netty/issues/4009">#4009</a>)</li>
+<li>Correctly use jlong and jint in native function definition to fix possible segfault (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/311">#311</a>)</li>
+<li>Ensure the connectPromise is also notified when the channel is closed due the draining timeout (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/312">#312</a>)</li>
+<li>Add support for SNI (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/313">#313</a>)</li>
 </ul>
 
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
+<p>Beside these there are various other small changes.</p>
 
-<h1>Thank You</h1>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/16?closed=1">bug-tracker</a>.</p>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/jroper">@jroper</a></li>
-<li><a href="https://github.com/0mok">@0mok</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/06/30/3-10-4-Final.html">&larr; Older</a>
+<a href="../../../../news/2021/07/16/4-1-66-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/07/24/4-0-30-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -294,9 +291,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/07/21/3-9-9-Final.html";
+            var disqus_url = "http://netty.io/news/2021/07/30/quic-0-0-17-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-07-21-3-9-9-Final";
+            var disqus_identifier = "news/2021-07-30-quic-0-0-17-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
