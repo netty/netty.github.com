@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/08/16/4-1-67-Final.html">
+<a href="../news/2021/09/09/4-1-68-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.67.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.68.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.67.Final
-<small>&dash; 16-Aug-2021</small>
+4.1.68.Final
+<small>&dash; 09-Sep-2021</small>
 </a>
 </li>
 <li>
@@ -276,8 +276,12 @@ You can improve it by yourself
 <li>Some operations would allow to use the <code>VoidChannelPromise</code> and some not.</li>
 </ul>
 <h3 id="wiki-h3-5">
-<a id="user-content-futureaddlisteners--removelistener--removelisteners-removed" class="anchor" href="#futureaddlisteners--removelistener--removelisteners-removed" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Future.addListeners(...) / removeListener(...) / removeListeners(...) removed</h3>
-<p>We removed the ability to remove previous added listeners. This feature was not really used and so it allowed us to remove some complexity and remove some API surface.</p>
+<a id="user-content-api-changes-to-promise-and-future" class="anchor" href="#api-changes-to-promise-and-future" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API changes to Promise and Future</h3>
+<ul>
+<li>The <code>Future.addListeners()</code>, <code>Future.removeListeners()</code>, and <code>Future.removeListener()</code> have been removed. We removed the ability to remove previous added listeners. This feature was not really used and so it allowed us to remove some complexity and remove some API surface.</li>
+<li>A <code>Future.isFailed()</code> method has been added, that checks that the future is both completed and failed. This is similar to the existing <code>Future.isSuccess()</code> which checks that a future is both completed and successfully so.</li>
+<li>New <code>Future.map()</code> and <code>Future.flatMap()</code> methods have been added, which makes it easy to compose and create new futures based on existing ones. These methods handle failures and cancellation properly through propagation.</li>
+</ul>
 <h3 id="wiki-h3-6">
 <a id="user-content-channelpipelineaddeventexecutorgroup-removed" class="anchor" href="#channelpipelineaddeventexecutorgroup-removed" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelPipeline.add*(EventExecutorGroup...) removed</h3>
 <p>In netty 4.x we added the ability to add <code>ChannelHandler</code>s to a <code>ChannelPipeline</code> with an explicit <code>EventExecutorGroup</code>. While this seemed like a good idea it turned out that it has quite some problems when it comes to life-cycles:</p>
@@ -287,6 +291,10 @@ You can improve it by yourself
 <li>correctly implement "visibility" in terms of concurrent access / modifications of the pipeline is quite problematic as well.</li>
 </ul>
 <p>With this in mind we realised that really what the user mostly want is to have the incoming messages handled by another thread to process the business-logic. This is better be done in a custom implementation provided by the user as the user has a better handle on when things can be destroyed or not.</p>
+<h3 id="wiki-h3-7">
+<a id="user-content-channeleventloop-renamed-to-channelexecutor" class="anchor" href="#channeleventloop-renamed-to-channelexecutor" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>Channel.eventLoop()</code> renamed to <code>Channel.executor()</code>
+</h3>
+<p>In netty 5.x we added the <code>executor()</code> method to <code>ChannelOutboundInvoker</code> and as this method returns <code>EventExecutor</code> we did decide to remove the <code>eventLoop()</code> method from <code>Channel</code> and just override <code>executor()</code> to return <code>EventLoop</code> for <code>Channel</code>.</p>
 
               </div>
 
@@ -300,9 +308,10 @@ You can improve it by yourself
 </li><li><a href="#wiki-h3-2" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
 </li><li><a href="#wiki-h3-3" title="ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal">ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</a>
 </li><li><a href="#wiki-h3-4" title="VoidChannelPromise removal">VoidChannelPromise removal</a>
-</li><li><a href="#wiki-h3-5" title="Future.addListeners(...) / removeListener(...) / removeListeners(...) removed">Future.addListeners(...) / removeListener(...) / removeListeners(...) removed</a>
+</li><li><a href="#wiki-h3-5" title="API changes to Promise and Future">API changes to Promise and Future</a>
 </li><li><a href="#wiki-h3-6" title="ChannelPipeline.add*(EventExecutorGroup...) removed">ChannelPipeline.add*(EventExecutorGroup...) removed</a>
-</li><li><a href="#wiki-h3-7" title="Pages 28">Pages 28</a>
+</li><li><a href="#wiki-h3-7" title="Channel.eventLoop() renamed to Channel.executor()">Channel.eventLoop() renamed to Channel.executor()</a>
+</li><li><a href="#wiki-h3-8" title="Pages 28">Pages 28</a>
 </li></ul>
 </li></ul>
 </div>
@@ -312,7 +321,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-Aug-2021</small>
+<small>Last retrieved on 09-Sep-2021</small>
 </div>
 </div>
 </div>
