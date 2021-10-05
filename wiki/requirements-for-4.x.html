@@ -293,12 +293,12 @@ HTTP/2 over TLS mandates the use of <a href="https://tools.ietf.org/html/rfc7301
 <a id="user-content-tls-with-jdk-jetty-alpnnpn" class="anchor" href="#tls-with-jdk-jetty-alpnnpn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>TLS with JDK (Jetty ALPN/NPN)</h3>
 <p>If you are not able to use OpenSSL then the alternative is to use the JDK for TLS.</p>
 <p>Java does not currently support ALPN or NPN (<a href="https://bugs.openjdk.java.net/browse/JDK-8051498" rel="nofollow">there is a tracking issue</a> so go upvote it!). For lack of support in the JDK we need to use the <a href="https://github.com/jetty-project/jetty-alpn%22">Jetty-ALPN</a> (or <a href="https://github.com/jetty-project/jetty-npn">Jetty-NPN</a> if on Java &lt; 8) bootclasspath extension for OpenJDK. To do this, add a <code>Xbootclasspath</code> JVM option referencing the path to the Jetty <code>alpn-boot</code> jar.</p>
-<div class="highlight highlight-source-shell position-relative" data-snippet-clipboard-copy-content="java -Xbootclasspath/p:/path/to/jetty/alpn/extension.jar ...
+<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="java -Xbootclasspath/p:/path/to/jetty/alpn/extension.jar ...
 "><pre>java -Xbootclasspath/p:/path/to/jetty/alpn/extension.jar ...</pre></div>
 <p>Note that you must use the <a href="http://www.eclipse.org/jetty/documentation/current/alpn-chapter.html#alpn-versions" rel="nofollow">release of the Jetty-ALPN jar</a> specific to the version of Java you are using.</p>
 <h4 id="wiki-h4-6">
 <a id="user-content-jdk-ciphers" class="anchor" href="#jdk-ciphers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>JDK Ciphers</h4>
-<p>Java 7 does not support <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">the cipher suites recommended</a> by the HTTP2 RFC. To address this we suggest servers use Java 8 where possible or use an alternative JCE implementation such as <a href="https://www.bouncycastle.org/java.html" rel="nofollow">Bouncy Castle</a>. If this is not practical it is possible to use other ciphers but you need to ensure that the services you intend to call also support these ciphers forbidden by the HTTP/2 RFC and have evaluated the security risks of doing so.</p>
+<p>Java 7 does <strong>not</strong> support <a href="https://tools.ietf.org/html/rfc7540#section-9.2.2" rel="nofollow">the cipher suites recommended</a> by the HTTP2 RFC. To address this we suggest servers use Java 8 where possible or use an alternative JCE implementation such as <a href="https://www.bouncycastle.org/java.html" rel="nofollow">Bouncy Castle</a>. If this is not practical it is possible to use other ciphers but you need to ensure that the services you intend to call also support these ciphers forbidden by the HTTP/2 RFC and have evaluated the security risks of doing so.</p>
 <p>Users should be aware that GCM is <a href="https://bugzilla.redhat.com/show_bug.cgi?id=1135504" rel="nofollow"><em>very</em> slow (1 MB/s)</a> before Java 8u60. With Java 8u60 GCM is 10x faster (10-20 MB/s), but that is still slow compared to OpenSSL (~200 MB/s), especially with AES-NI support (~1 GB/s). GCM cipher suites are the only suites available that comply with HTTP2's cipher requirements.</p>
 <h3 id="wiki-h3-7">
 <a id="user-content-enabling-alpn-or-npn" class="anchor" href="#enabling-alpn-or-npn" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Enabling ALPN or NPN</h3>
@@ -319,7 +319,7 @@ HTTP/2 over TLS mandates the use of <a href="https://tools.ietf.org/html/rfc7301
 </li></ul></li><li><a href="#wiki-h3-5" title="TLS with JDK (Jetty ALPN/NPN)">TLS with JDK (Jetty ALPN/NPN)</a>
 <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-6" title="JDK Ciphers">JDK Ciphers</a>
 </li></ul></li><li><a href="#wiki-h3-7" title="Enabling ALPN or NPN">Enabling ALPN or NPN</a>
-</li><li><a href="#wiki-h3-8" title="Pages 28">Pages 28</a>
+</li><li><a href="#wiki-h3-8" title="Pages 29">Pages 29</a>
 </li></ul>
 </li></ul>
 </div>
@@ -329,7 +329,7 @@ HTTP/2 over TLS mandates the use of <a href="https://tools.ietf.org/html/rfc7301
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 09-Sep-2021</small>
+<small>Last retrieved on 05-Oct-2021</small>
 </div>
 </div>
 </div>

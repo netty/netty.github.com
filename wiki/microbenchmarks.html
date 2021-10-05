@@ -254,7 +254,7 @@ You can improve it by yourself
 <a id="user-content-running-the-benchmarks" class="anchor" href="#running-the-benchmarks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Running the Benchmarks</h2>
 <p>You can run the benchmarks from the command line through maven or directly in your IDE. To run all tests with the default settings, use <code>mvn -DskipTests=false test</code>. You need to explicitly set <code>skipTests=false</code> because we don't want to run the (potentially time consuming) microbenchmarks to be executed as unit tests during regular test runs.</p>
 <p>If all goes well, you'll see JMH performing warmup and benchmark iterations on the number of forks, presenting you with nice a nice summary. Here's how a typical benchmark run looks like (you'll see lots of them in the output):</p>
-<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="# Fork: 2 of 2
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="# Fork: 2 of 2
 # Warmup: 10 iterations, 1 s each
 # Measurement: 10 iterations, 1 s each
 # Threads: 1 thread, will synchronize iterations
@@ -286,7 +286,7 @@ Result : 11650.238 ±(99.9%) 229.698 ops/ms
   Confidence interval (99.9%): [11420.540, 11879.937]
 "><pre><code># Fork: 2 of 2&#x000A;# Warmup: 10 iterations, 1 s each&#x000A;# Measurement: 10 iterations, 1 s each&#x000A;# Threads: 1 thread, will synchronize iterations&#x000A;# Benchmark mode: Throughput, ops/time&#x000A;# Running: io.netty.microbench.buffer.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_1_0&#x000A;# Warmup Iteration   1: 8454.103 ops/ms&#x000A;# Warmup Iteration   2: 11551.524 ops/ms&#x000A;# Warmup Iteration   3: 11677.575 ops/ms&#x000A;# Warmup Iteration   4: 11404.954 ops/ms&#x000A;# Warmup Iteration   5: 11553.299 ops/ms&#x000A;# Warmup Iteration   6: 11514.766 ops/ms&#x000A;# Warmup Iteration   7: 11661.768 ops/ms&#x000A;# Warmup Iteration   8: 11667.577 ops/ms&#x000A;# Warmup Iteration   9: 11551.240 ops/ms&#x000A;# Warmup Iteration  10: 11692.991 ops/ms&#x000A;Iteration   1: 11633.877 ops/ms&#x000A;Iteration   2: 11740.063 ops/ms&#x000A;Iteration   3: 11751.798 ops/ms&#x000A;Iteration   4: 11260.071 ops/ms&#x000A;Iteration   5: 11461.010 ops/ms&#x000A;Iteration   6: 11642.912 ops/ms&#x000A;Iteration   7: 11808.595 ops/ms&#x000A;Iteration   8: 11683.780 ops/ms&#x000A;Iteration   9: 11750.292 ops/ms&#x000A;Iteration  10: 11769.986 ops/ms&#x000A;&#x000A;Result : 11650.238 ±(99.9%) 229.698 ops/ms&#x000A;  Statistics: (min, avg, max) = (11260.071, 11650.238, 11808.595), stdev = 169.080&#x000A;  Confidence interval (99.9%): [11420.540, 11879.937]&#x000A;</code></pre></div>
 <p>Finally, the test output will looks similar to this (depending on your system setup and configuration):</p>
-<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="Benchmark                                                                Mode   Samples         Mean   Mean error    Units
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="Benchmark                                                                Mode   Samples         Mean   Mean error    Units
 i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_1_0          thrpt        20    11658.812      120.728   ops/ms
 i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_2_256        thrpt        20    10308.626      147.528   ops/ms
 i.n.m.b.ByteBufAllocatorBenchmark.pooledDirectAllocAndFree_3_1024       thrpt        20     8855.815       55.933   ops/ms
@@ -317,12 +317,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 993.382 sec - in
 <h2 id="wiki-h2-1">
 <a id="user-content-writing-benchmarks" class="anchor" href="#writing-benchmarks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Writing Benchmarks</h2>
 <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="public class MyBenchmark extends AbstractMicrobenchmark {
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public class MyBenchmark extends AbstractMicrobenchmark {
 
 }
 "><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
 <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="@GenerateMicroBenchmark
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="@GenerateMicroBenchmark
 public void measureSomethingHere() {
 
 }
@@ -337,11 +337,11 @@ public void measureSomethingHere() {
 <li>Number of Forks: 2</li>
 </ul>
 <p>These settings can be customized through system properties at runtime (<code>warmupIterations</code>, <code>measureIterations</code> and <code>forks</code>):</p>
-<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="mvn -DskipTests=false -DwarmupIterations=2 -DmeasureIterations=3 -Dforks=1 test
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="mvn -DskipTests=false -DwarmupIterations=2 -DmeasureIterations=3 -Dforks=1 test
 "><pre><code>mvn -DskipTests=false -DwarmupIterations=2 -DmeasureIterations=3 -Dforks=1 test&#x000A;</code></pre></div>
 <p>Note that it is generally not advised to use that few iterations, but it sometimes is helpful to see if the benchmark works and then run comprehensive benchmarks at a later point.</p>
 <p>Note that you can also customize those default settings on a per-test basis through annotations:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="@Warmup(iterations = 20)
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="@Warmup(iterations = 20)
 @Fork(1)
 public class MyBenchmark extends AbstractMicrobenchmark {
 
@@ -359,7 +359,7 @@ public class MyBenchmark extends AbstractMicrobenchmark {
 </li><li><a href="#wiki-h2-0" title="Running the Benchmarks">Running the Benchmarks</a>
 </li><li><a href="#wiki-h2-1" title="Writing Benchmarks">Writing Benchmarks</a>
 </li><li><a href="#wiki-h2-2" title="Customizing Runtime Conditions">Customizing Runtime Conditions</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Pages 28">Pages 28</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Pages 29">Pages 29</a>
 </li></ul>
 </li></ul>
 </div>
@@ -369,7 +369,7 @@ public class MyBenchmark extends AbstractMicrobenchmark {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 09-Sep-2021</small>
+<small>Last retrieved on 05-Oct-2021</small>
 </div>
 </div>
 </div>

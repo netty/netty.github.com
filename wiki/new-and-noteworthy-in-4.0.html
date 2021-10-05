@@ -360,7 +360,7 @@ You can improve it by yourself
 <a id="user-content-most-buffers-are-dynamic-with-maximum-capacity" class="anchor" href="#most-buffers-are-dynamic-with-maximum-capacity" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Most buffers are dynamic with maximum capacity</h3>
 <p>In 3.x, buffers were fixed or dynamic.  The capacity of a fixed buffer does not change once it is created while the capacity of a dynamic buffer changes whenever its <code>write*(...)</code> method requires more space.</p>
 <p>Since 4.0, all buffers are dynamic.  However, they are better than the old dynamic buffers.  You can decrease or increase the capacity of a buffer more easily and more safely.  It's easy because there is a new method <code>ByteBuf.capacity(int newCapacity)</code>. It's safe because you can set the maximum capacity of a buffer so that it does not grow boundlessly.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="// No more dynamicBuffer() - use buffer().
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="// No more dynamicBuffer() - use buffer().
 ByteBuf buf = Unpooled.buffer();
 
 // Increase the capacity of the buffer.
@@ -381,7 +381,7 @@ buf.capacity(512);
 <h3 id="wiki-h3-8">
 <a id="user-content-little-endian-support-changes" class="anchor" href="#little-endian-support-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Little endian support changes</h3>
 <p>Little endian support has been changed significantly.  Previously, a user was supposed to specify a <code>LittleEndianHeapChannelBufferFactory</code> or wrap an existing buffer with the desired byte order to get a little endian buffer.  4.0 adds a new method: <code>ByteBuf.order(ByteOrder)</code>.  It returns a view of the callee with the desired byte order:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="import io.netty.buffer.ByteBuf;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import java.nio.ByteOrder;
  
@@ -406,7 +406,7 @@ assert buf == buf.order(ByteOrder.BIG_ENDIAN);
 <li>Timely deallocation of direct buffers</li>
 </ul>
 <p>To take advantage of this feature, unless a user wants to get an unpooled buffer, he or she should get a buffer from a <a href="http://netty.io/4.0/api/index.html?io/netty/buffer/AbstractByteBufAllocator.html" rel="nofollow"><code>ByteBufAllocator</code></a>:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="Channel channel = ...;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="Channel channel = ...;
 ByteBufAllocator alloc = channel.alloc();
 ByteBuf buf = alloc.buffer(512);
 ....
@@ -473,7 +473,7 @@ channel.write(buf2)
 <h4 id="wiki-h4-16">
 <a id="user-content-new-channelhandler-type-hierarchy" class="anchor" href="#new-channelhandler-type-hierarchy" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>New <code>ChannelHandler</code> type hierarchy</h4>
 <p>In 3.x, <code>ChannelHandler</code> was just a tag interface, and <code>ChannelUpstreamHandler</code>, <code>ChannelDownstreamHandler</code>, and <code>LifeCycleAwareChannelHandler</code> defined the actual handler methods.  In Netty 4, <code>ChannelHandler</code> merges <code>LifeCycleAwareChannelHandler</code> along with a couple more methods which are useful to both an inbound and an outbound handler:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="public interface ChannelHandler {
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public interface ChannelHandler {
     void handlerAdded(ChannelHandlerContext ctx) throws Exception;
     void handlerRemoved(ChannelHandlerContext ctx) throws Exception;
     void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception;
@@ -485,7 +485,7 @@ channel.write(buf2)
 <a id="user-content-channelhandler-with-no-event-object" class="anchor" href="#channelhandler-with-no-event-object" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>ChannelHandler</code> with no event object</h4>
 <p>In 3.x, every I/O operation created a <code>ChannelEvent</code> object.  For each read / write, it additionally created a new <code>ChannelBuffer</code>.  It simplified the internals of Netty quite a lot because it delegates resource management and buffer pooling to the JVM.  However, it often was the root cause of GC pressure and uncertainty which are sometimes observed in a Netty-based application under high load.</p>
 <p>4.0 removes event object creation almost completely by replacing the event objects with strongly typed method invocations.  3.x had catch-all event handler methods such as <code>handleUpstream()</code> and <code>handleDownstream()</code>, but this is not the case anymore.  Every event type has its own handler method now:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="// Before:
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="// Before:
 void handleUpstream(ChannelHandlerContext ctx, ChannelEvent e);
 void handleDownstream(ChannelHandlerContext ctx, ChannelEvent e);
  
@@ -508,7 +508,7 @@ void flush(ChannelHandlerContext ctx);
 void read(ChannelHandlerContext ctx);
 "><pre><span class="pl-c"><span class="pl-c">//</span> Before:</span>&#x000A;<span class="pl-k">void</span> handleUpstream(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelEvent</span> e);&#x000A;<span class="pl-k">void</span> handleDownstream(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelEvent</span> e);&#x000A; &#x000A;<span class="pl-c"><span class="pl-c">//</span> After:</span>&#x000A;<span class="pl-k">void</span> channelRegistered(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelUnregistered(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelActive(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelInactive(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> channelRead(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> message);&#x000A; &#x000A;<span class="pl-k">void</span> bind(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">SocketAddress</span> localAddress, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> connect(&#x000A;        <span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">SocketAddress</span> remoteAddress,&#x000A;        <span class="pl-smi">SocketAddress</span> localAddress, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> disconnect(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> close(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> deregister(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> write(<span class="pl-smi">ChannelHandlerContext</span> ctx, <span class="pl-smi">Object</span> message, <span class="pl-smi">ChannelPromise</span> promise);&#x000A;<span class="pl-k">void</span> flush(<span class="pl-smi">ChannelHandlerContext</span> ctx);&#x000A;<span class="pl-k">void</span> read(<span class="pl-smi">ChannelHandlerContext</span> ctx);</pre></div>
 <p><code>ChannelHandlerContext</code> has also been changed to reflect the changes mentioned above:</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="// Before:
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="// Before:
 ctx.sendUpstream(evt);
  
 // After:
@@ -550,7 +550,7 @@ ctx.fireChannelRead(receivedMessage);
 <h3 id="wiki-h3-25">
 <a id="user-content-deregistration-and-re-registration-of-a-channel-fromto-an-io-thread" class="anchor" href="#deregistration-and-re-registration-of-a-channel-fromto-an-io-thread" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Deregistration and re-registration of a Channel from·to an I/O thread</h3>
 <p>Once a new <code>Channel</code> is created in 3.x, it is completely tied to a single I/O thread until its underlying socket is closed.  In 4.0, a user can deregister a <code>Channel</code> from its I/O thread to gain the full control of its underlying JDK socket.  For example, you can take advantage of high-level non-blocking I/O Netty provides to deal with complex protocols, and then later deregister the <code>Channel</code> and switch to blocking mode to transfer a file at possible maximum throughput.  Of course, it is possible to register the deregistered <code>Channel</code> back again.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="java.nio.channels.FileChannel myFile = ...;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="java.nio.channels.FileChannel myFile = ...;
 java.nio.channels.SocketChannel mySocket = java.nio.channels.SocketChannel.open();
  
 // Perform some blocking operation here.
@@ -576,7 +576,7 @@ anotherGroup.register(ch);
 <h3 id="wiki-h3-26">
 <a id="user-content-scheduling-an-arbitrary-task-to-be-run-by-an-io-thread" class="anchor" href="#scheduling-an-arbitrary-task-to-be-run-by-an-io-thread" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Scheduling an arbitrary task to be run by an I/O thread</h3>
 <p>When a <code>Channel</code> is registered to an <code>EventLoopGroup</code>, the <code>Channel</code> is actually registered to one of the <code>EventLoop</code>s which is managed by the <code>EventLoopGroup</code>.  <code>EventLoop</code> implements <code>java.util.concurrent.ScheduledExecutorService</code>.  It means a user can execute or schedule an arbitrary <code>Runnable</code> or <code>Callable</code> in an I/O thread where the user's channel belongs to.  Along with the new well-defined thread model, which will be explained later, it became extremely easier to write a thread-safe handler.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="public class MyHandler extends ChannelOutboundHandlerAdapter {
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public class MyHandler extends ChannelOutboundHandlerAdapter {
     ...
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise p) {
         ...
@@ -604,7 +604,7 @@ public class Main {
 </h3>
 <p>There are two ways to configure the socket parameters of a <code>Channel</code> in Netty.  One is to call the setters of a <code>ChannelConfig</code> explicitly, such as <code>SocketChannelConfig.setTcpNoDelay(true)</code>.  It is the most type-safe way.  The other is to call <code>ChannelConfig.setOption()</code> method.  Sometimes you have to determine what socket options to configure in runtime, and this method is ideal for such cases.  However, it is error-prone in 3.x because a user has to specify the option as a pair of a string and an object.  If a user calls with the wrong option name or value, he or she will encounter a <code>ClassCastException</code> or the specified option might even be ignored silently.</p>
 <p>4.0 introduces a new type called <code>ChannelOption</code>, which provides type-safe access to socket options.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content='ChannelConfig cfg = ...;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='ChannelConfig cfg = ...;
  
 // Before:
 cfg.setOption("tcpNoDelay", true);
@@ -618,7 +618,7 @@ cfg.setOption(ChannelOption.TCP_NODELAY, 0); // Compile error
 <h3 id="wiki-h3-29">
 <a id="user-content-attributemap" class="anchor" href="#attributemap" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>AttributeMap</h3>
 <p>In response to user demand, you can attach any object to <code>Channel</code> and <code>ChannelHandlerContext</code>.  A new interface called <code>AttributeMap</code>, which <code>Channel</code> and <code>ChannelHandlerContext</code> extend, has been added.  Instead, <code>ChannelLocal</code> and <code>Channel.attachment</code> are removed.  The attributes are garbage-collected when their associated <code>Channel</code> is garbage-collected.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content='public class MyHandler extends ChannelInboundHandlerAdapter {
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='public class MyHandler extends ChannelInboundHandlerAdapter {
  
     private static final AttributeKey&lt;MyState&gt; STATE =
             AttributeKey.valueOf("MyHandler.state");
@@ -640,7 +640,7 @@ cfg.setOption(ChannelOption.TCP_NODELAY, 0); // Compile error
 <a id="user-content-new-bootstrap-api" class="anchor" href="#new-bootstrap-api" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>New bootstrap API</h3>
 <p>The bootstrap API has been rewritten from scratch although its purpose stays same; it performs the typical steps required to make a server or a client up and running, often found in boilerplate code.</p>
 <p>The new bootstrap also employs a fluent interface.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="public static void main(String[] args) throws Exception {
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public static void main(String[] args) throws Exception {
     // Configure the server.
     EventLoopGroup bossGroup = new NioEventLoopGroup();
     EventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -719,7 +719,7 @@ cfg.setOption(ChannelOption.TCP_NODELAY, 0); // Compile error
 </ul>
 <h6>
 <a id="user-content-write-ordering---mix-eventloop-thread-and-other-threads" class="anchor" href="#write-ordering---mix-eventloop-thread-and-other-threads" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Write Ordering - Mix <code>EventLoop</code> thread and other threads</h6>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="Channel ch = ...;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="Channel ch = ...;
 ByteBuf a, b, c = ...;
 
 // From Thread 1 - Not the EventLoop thread
@@ -738,7 +738,7 @@ ch.write(c);
 <h3 id="wiki-h3-34">
 <a id="user-content-no-more-executionhandler---its-in-the-core" class="anchor" href="#no-more-executionhandler---its-in-the-core" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>No more <code>ExecutionHandler</code> - it's in the core.</h3>
 <p>You can specify an <code>EventExecutor</code> when you add a <code>ChannelHandler</code> to a <code>ChannelPipeline</code> to tell the pipeline to always invoke the handler methods of the added <code>ChannelHandler</code> via the specified <code>EventExecutor</code>.</p>
-<div class="highlight highlight-source-java position-relative" data-snippet-clipboard-copy-content="Channel ch = ...;
+<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="Channel ch = ...;
 ChannelPipeline p = ch.pipeline();
 EventExecutor e1 = new DefaultEventExecutor(16);
 EventExecutor e2 = new DefaultEventExecutor(8);
@@ -765,7 +765,7 @@ p.addLast(e2, new MyHardDiskAccessingHandler());
 <h3 id="wiki-h3-37">
 <a id="user-content-http-codec" class="anchor" href="#http-codec" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>HTTP codec</h3>
 <p>HTTP decoders now always generates multiple message objects per a single HTTP message:</p>
-<div class="snippet-clipboard-content position-relative" data-snippet-clipboard-copy-content="1       * HttpRequest / HttpResponse
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="1       * HttpRequest / HttpResponse
 0 - n   * HttpContent
 1       * LastHttpContent
 "><pre><code>1       * HttpRequest / HttpResponse&#x000A;0 - n   * HttpContent&#x000A;1       * LastHttpContent&#x000A;</code></pre></div>
@@ -857,7 +857,7 @@ p.addLast(e2, new MyHardDiskAccessingHandler());
 </li></ul></li><li><a href="#wiki-h2-39" title="Case study: porting the Factorial example">Case study: porting the Factorial example</a>
 <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-40" title="Porting the server">Porting the server</a>
 </li><li><a href="#wiki-h3-41" title="Porting the client">Porting the client</a>
-</li><li><a href="#wiki-h3-42" title="Pages 28">Pages 28</a>
+</li><li><a href="#wiki-h3-42" title="Pages 29">Pages 29</a>
 </li></ul>
 </li></ul>
 </div>
@@ -867,7 +867,7 @@ p.addLast(e2, new MyHardDiskAccessingHandler());
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 09-Sep-2021</small>
+<small>Last retrieved on 05-Oct-2021</small>
 </div>
 </div>
 </div>
