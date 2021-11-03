@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/10/11/4-1-69-Final.html">
+<a href="../news/2021/10/11/4-1-70-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.69.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.70.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.69.Final
-<small>&dash; 11-Oct-2021</small>
+4.1.70.Final
+<small>&dash; 03-Nov-2021</small>
 </a>
 </li>
 <li>
@@ -264,23 +264,71 @@ You can improve it by yourself
 <p><a href="https://github.com/netty/netty-website/blob/153b76239eb41ee287fac062cbb5d9537441def2/meetups/contributor_meetups/2021-10-28/slides.pdf">https://github.com/netty/netty-website/blob/153b76239eb41ee287fac062cbb5d9537441def2/meetups/contributor_meetups/2021-10-28/slides.pdf</a></p>
 <h3 id="wiki-h3-4">
 <a id="user-content-recording" class="anchor" href="#recording" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recording</h3>
-<p><a href="https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.mp4">https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.mp4</a>
-<a href="https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.vtt">https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.vtt</a> (transcript)</p>
+<ul>
+<li><a href="https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.mp4">https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.mp4</a></li>
+<li>
+<a href="https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.vtt">https://github.com/netty/netty-website/blob/master/meetups/contributor_meetups/2021-10-28/Netty%20Contributor%20Meetup-20211028%201536-1.vtt</a> (transcript)</li>
+</ul>
 <h3 id="wiki-h3-5">
 <a id="user-content-notes--action-items" class="anchor" href="#notes--action-items" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Notes / Action Items</h3>
-<p>TBD</p>
+<h4 id="wiki-h4-6">
+<a id="user-content-buffer-updates" class="anchor" href="#buffer-updates" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Buffer updates:</h4>
+<p>Chris did provide some updates related to the buffer api.</p>
+<p>General:</p>
+<ul>
+<li>We addressed all the feedback</li>
+<li>Made the lifecycle easier</li>
+<li>Started to convert modules to the new buffer api</li>
+</ul>
+<p>Life-cycle:</p>
+<ul>
+<li>No reference counting is visible anymore</li>
+<li>Buffers are always owned and there is no slice / duplicate methods anymore because of this</li>
+<li>You have to use new apis like split / copy / send as a replacement</li>
+</ul>
+<p>Integration:</p>
+<ul>
+<li>More tightly integrated as its now possible to set the "new allocator" via the config.</li>
+<li>A default implementation is provided</li>
+<li>A new leak detector implementation was written work with the new Buffer API and implementation.</li>
+</ul>
+<p>Questions:
+Vladimir: Is the allocator implementation still the same ? What about configuration etc ?
+Chris: It’s the same in terms of the algorithm, but we would like to revisit the default value / config for the allocator.</p>
+<p>Vladimir: Would be good to publish docs about tuning etc…
+Norman: Yes we should do this! Adding an action item.</p>
+<p>Julien: I was wondering which codecs are using the new API yet
+Chris / Nitesh: At the moment there are not a lot of codecs that are using this. We are currently working on porting HTTP/1. Please check and provide feedback: <a href="https://github.com/netty/netty/pull/11711">https://github.com/netty/netty/pull/11711</a></p>
+<p>Julien: Is it possible to mix match the new API and old API
+Chris: Yes you can do that.. There are conversation methods.</p>
+<p>Norman: We should aim to have everything moved over too the new API when we release Beta1.</p>
+<h4 id="wiki-h4-7">
+<a id="user-content-repository-split" class="anchor" href="#repository-split" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Repository split</h4>
+<p>Chris: We want to move less used / less expertise things to contrib.</p>
+<p>Simon: How do you “onboard” new maintainers etc for contrib ?
+Norman: No idea yet... Let's add an action item</p>
+<h3 id="wiki-h3-8">
+<a id="user-content-action-items" class="anchor" href="#action-items" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Action Items</h3>
+<ul class="contains-task-list">
+<li class="task-list-item">
+<input type="checkbox" id="" disabled class="task-list-item-checkbox"> Add docs related to configure / tuning the buffer allocator</li>
+<li class="task-list-item">
+<input type="checkbox" id="" disabled class="task-list-item-checkbox"> Think about how to on-board new maintainers / contributors to the contrib modules</li>
+<li class="task-list-item">
+<input type="checkbox" id="" disabled class="task-list-item-checkbox"> Should we even have a separate org for contrib modules? Finagle is doing this</li>
+</ul>
 <hr>
-<h2 id="wiki-h2-6">
+<h2 id="wiki-h2-9">
 <a id="user-content-september-28-2021" class="anchor" href="#september-28-2021" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>September 28, 2021</h2>
 <p>This meetup was focussed on discussing HTTP/2 API changes (<a href="https://github.com/netty/netty/pull/11603">https://github.com/netty/netty/pull/11603</a>).</p>
-<h3 id="wiki-h3-7">
+<h3 id="wiki-h3-10">
 <a id="user-content-slides-1" class="anchor" href="#slides-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Slides</h3>
 <p><a href="https://github.com/netty/netty-website/blob/db820b93fff5711e0d1e698f3199164c7fa54918/meetups/contributor_meetups/2021-09-28/slides.pdf">https://github.com/netty/netty-website/blob/db820b93fff5711e0d1e698f3199164c7fa54918/meetups/contributor_meetups/2021-09-28/slides.pdf</a></p>
-<h3 id="wiki-h3-8">
+<h3 id="wiki-h3-11">
 <a id="user-content-recording-1" class="anchor" href="#recording-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Recording</h3>
 <p><a href="https://github.com/netty/netty-website/blob/db820b93fff5711e0d1e698f3199164c7fa54918/meetups/contributor_meetups/2021-09-28/recording.mp4">https://github.com/netty/netty-website/blob/db820b93fff5711e0d1e698f3199164c7fa54918/meetups/contributor_meetups/2021-09-28/recording.mp4</a></p>
-<h3 id="wiki-h3-9">
-<a id="user-content-action-items" class="anchor" href="#action-items" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Action Items</h3>
+<h3 id="wiki-h3-12">
+<a id="user-content-action-items-1" class="anchor" href="#action-items-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Action Items</h3>
 <ul class="contains-task-list">
 <li class="task-list-item">
 <input type="checkbox" id="" disabled class="task-list-item-checkbox"> * H2 Encoder and flow controller on the child channel → should we move to parent channel to start? Avoid potential re-ordering and have complete visibility on connection level state?
@@ -296,7 +344,7 @@ You can improve it by yourself
 </ul>
 </li>
 <li class="task-list-item">
-<input type="checkbox" id="" disabled class="task-list-item-checkbox"> Community Meetups → setup wiki to capture content from meetups, create spot where folks can request topics for next meetup.
+<input type="checkbox" id="" disabled class="task-list-item-checkbox" checked> Community Meetups → setup wiki to capture content from meetups, create spot where folks can request topics for next meetup.
 <ul>
 <li>stakeholders: norman</li>
 </ul>
@@ -308,7 +356,7 @@ You can improve it by yourself
 </ul>
 </li>
 </ul>
-<h3 id="wiki-h3-10">
+<h3 id="wiki-h3-13">
 <a id="user-content-notes" class="anchor" href="#notes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Notes</h3>
 <ul>
 <li>Community: Bimontly meetings, share agenda, keep notes for folks that aren’t able to attend</li>
@@ -349,11 +397,14 @@ You can improve it by yourself
 </li><li><a href="#wiki-h3-3" title="Slides">Slides</a>
 </li><li><a href="#wiki-h3-4" title="Recording">Recording</a>
 </li><li><a href="#wiki-h3-5" title="Notes / Action Items">Notes / Action Items</a>
-</li></ul></li><li><a href="#wiki-h2-6" title="September 28, 2021">September 28, 2021</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-7" title="Slides">Slides</a>
-</li><li><a href="#wiki-h3-8" title="Recording">Recording</a>
-</li><li><a href="#wiki-h3-9" title="Action Items">Action Items</a>
-</li><li><a href="#wiki-h3-10" title="Notes">Notes</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h4-6" title="Buffer updates:">Buffer updates:</a>
+</li><li><a href="#wiki-h4-7" title="Repository split">Repository split</a>
+</li></ul></li><li><a href="#wiki-h3-8" title="Action Items">Action Items</a>
+</li></ul></li><li><a href="#wiki-h2-9" title="September 28, 2021">September 28, 2021</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-10" title="Slides">Slides</a>
+</li><li><a href="#wiki-h3-11" title="Recording">Recording</a>
+</li><li><a href="#wiki-h3-12" title="Action Items">Action Items</a>
+</li><li><a href="#wiki-h3-13" title="Notes">Notes</a>
 </li></ul>
 </li></ul>
 </div>
@@ -363,7 +414,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 29-Oct-2021</small>
+<small>Last retrieved on 03-Nov-2021</small>
 </div>
 </div>
 </div>
