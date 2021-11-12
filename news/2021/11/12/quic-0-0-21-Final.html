@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.0.Beta6 released</title>
-<title>Netty: Netty 4.1.0.Beta6 released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.21.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.21.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,7 +242,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.0.Beta6 released
+Netty/Incubator/Codec/Quic 0.0.21.Final released
 </h1>
 <p class="byline">
 <small>
@@ -250,101 +250,37 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-09-02">02-Sep-2015</time>
+<time datetime="2021-11-12">12-Nov-2021</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.1.0.Beta6 after 3 months of hard work.</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.21.Final. This is mainly a feature release!</p>
 
-<p>This release contains 90+ changes, including bug-fixes, improvements and new features and will hopefully be the last beta release before move to
-release canidate status. So please test and provide feedback as soon as possible!</p>
+<p><strong>Important:</strong> This release changes the artifactId from  <code>netty-incubator-codec-quic</code> to <code>netty-incubator-codec-native-quic</code> to ensure that its possible to depend on multiple different architectures without ending up with duplicated classes on the classpath. Please change your dependency informations to reflect this.</p>
 
-<p>One of the most important changes is the full support of HTTP/2 as specified by <a href="https://tools.ietf.org/html/rfc7540">RFC7540</a>.
-Beside this the release contains a regression fix in terms of HTTP speed that was introduced in the past and so the speed is back to the
-same level as in 4.0.31.Final.</p>
-
-<p>The most important changes are:</p>
+<p>The changes are:</p>
 
 <ul>
-<li>Faster and more memory efficient headers for HTTP, HTTP/2, STOMP and SPDY (<a href="https://github.com/netty/netty/pull/4051">#4051</a>)</li>
-<li>IllegalReferenceCountException in DNS resolver (<a href="https://github.com/netty/netty/issues/3797">#3797</a>)</li>
-<li>HTTP/2 GOAWAY Reference Count Issue (<a href="https://github.com/netty/netty/pull/3786">#3786</a>)</li>
-<li>Update HTTP/2 to RFCs (<a href="https://github.com/netty/netty/pull/3830">#3830</a>)</li>
-<li>Http2ConnectionHandler breaks channelReadComplete pipeline notification (<a href="https://github.com/netty/netty/pull/3948">#3948</a>)</li>
-<li>Regression in codec-http 4.1.0.Beta4 and later (<a href="https://github.com/netty/netty/issues/3962">#3962</a>)</li>
-<li>DnsResolver.resolve(...) fails when ipaddress is used (<a href="https://github.com/netty/netty/pull/3993">#3993</a>)</li>
-<li>NPE in DnsNameResolver in conjunction with a negative caching policy (<a href="https://github.com/netty/netty/issues/4065">#4065</a>)</li>
-<li>Add DnsNameResolver.resolveAll(...) which allows to resolve a name to many ips (<a href="https://github.com/netty/netty/issues/4035">#4035</a>)</li>
+<li>Split native and classes to extra modules (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/357">#357</a>)</li>
+<li>Add zero rtt support for server (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/356">#356</a>)</li>
+<li>Use a CompositeByteBuf for GSO (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/355">#355</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.31.Final+is%3Aclosed">our issue tracker</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.21.Final+is%3Aclosed">bug-tracker</a>.</p>
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Special Notes</h1>
-
-<p>All the new features / fixes included in 4.0.31.Final are also included in this release. See <a href="https://github.com/netty/netty/issues?page=1&amp;q=milestone%3A4.0.31.Final+is%3Aclosed">GitHub issues</a>
-for more details.</p>
-
-<p>Beside this the DnsNameResolver received an API overhaul, so ensure to check this out.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/Apache9">@Apache9</a></li>
-<li><a href="https://github.com/blucas">@blucas</a></li>
-<li><a href="https://github.com/bobymicroby">@bobymicroby</a></li>
-<li><a href="https://github.com/buchgr">@buchgr</a></li>
-<li><a href="https://github.com/burtonator">@burtonator</a></li>
-<li><a href="https://github.com/chrisprobst">@chrisprobst</a></li>
-<li><a href="https://github.com/darabos">@darabos</a></li>
-<li><a href="https://github.com/dmk23">@dmk23</a></li>
-<li><a href="https://github.com/dop251">@dop251</a></li>
-<li><a href="https://github.com/eincs">@eincs</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/FeiWongReed">@FeiWongReed</a></li>
-<li><a href="https://github.com/flirtomania">@flirtomania</a></li>
-<li><a href="https://github.com/fratboy">@fratboy</a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/gjesse">@gjesse</a></li>
-<li><a href="https://github.com/grgvineet">@grgvineet</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/ioanbsu">@ioanbsu</a></li>
-<li><a href="https://github.com/jorcasso">@jorcasso</a></li>
-<li><a href="https://github.com/karuturi">@karuturi</a></li>
-<li><a href="https://github.com/kubes">@kubes</a></li>
-<li><a href="https://github.com/leogomes">@leogomes</a></li>
-<li><a href="https://github.com/louiscryan">@louiscryan</a></li>
-<li><a href="https://github.com/merlimat">@merlimat</a></li>
-<li><a href="https://github.com/ninja-">@ninja-</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/stuartwdouglas">@stuartwdouglas</a></li>
-<li><a href="https://github.com/sunng87">@sunng87</a></li>
-<li><a href="https://github.com/tomasol">@tomasol</a></li>
-<li><a href="https://github.com/tomaszc">@tomaszc</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/wumo">@wumo</a></li>
-<li><a href="https://github.com/yawkat">@yawkat</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/09/02/4-0-31-Final.html">&larr; Older</a>
+<a href="../../../../news/2021/11/04/quic-0-0-20-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/09/30/4-0-32-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -353,9 +289,9 @@ for more details.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/09/02/4-1-0-Beta6.html";
+            var disqus_url = "http://netty.io/news/2021/11/12/quic-0-0-21-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-09-02-4-1-0-Beta6";
+            var disqus_identifier = "news/2021-11-12-quic-0-0-21-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
