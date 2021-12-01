@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.4.3.Final released!</title>
-<title>Netty: Netty 3.4.3.Final released!</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.24.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.24.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -242,43 +242,43 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.4.3.Final released!
+Netty/Incubator/Codec/Quic 0.0.24.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2012-05-05">05-May-2012</time>
+<time datetime="2021-12-01">01-Dec-2021</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>The Netty project team is proud to announce the final release of Netty 3.4.3. This is a bugfix release of the 3.4.x series</p>
-<p>The JAR file can be found on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.4.3.Final%7Cbundle">Maven central repository</a></span>. You can also get the full tarball from <span class="wikilink"><a href="http://netty.io/downloads.html">the download page</a></span>.</p>
-<p>The most important bugfix is the removal of a deadlock in <tt>ChunkedWriteHandler</tt> that could kick in sometimes. See <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/297">#297</a></span> for more details. Beside this we also ship two small low-risk features which may be helpful for some users:</p>
+<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.24.Final, which beside bug-fixes also introduce support for 0-RTT on the client-side.</p>
+
+<p>The most important changes are:</p>
+
 <ul>
-<li>
-<tt>ChannelLocal</tt> implements <tt>Iterable</tt> now. See <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/307">#307</a></span>.</li>
-<li>
-<tt>SslHandler</tt> allow to detect incoming <tt>close_notify</tt> messages via a <tt>ChannelFuture</tt> that get notified. See <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/137">#137</a></span>
-</li>
+<li>Add zero rtt support for client (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/362">#362</a>)</li>
+<li>Correctly set cache size and timeout (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/366">#366</a>)</li>
+<li>Correctly fire SslHandshakeCompletionEvent.SUCCESS on the client side (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/367">#367</a>)</li>
 </ul>
-<p>Beside this we had a handful of other bugfixes which are included. For the detailed list of the changes, please refer to <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.4.3.Final">the issue tracker page</a></span>.</p>
-<p><strong>Please do not use the release as it contains a regression in <tt>ChunkedWriteHandler</tt>, use 3.4.4.Final!</strong></p>
-</div>
+
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.24.Final">bug-tracker</a>.</p>
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2012/04/27/3-4-2-final.html">&larr; Older</a>
+<a href="../../../../news/2021/11/22/quic-0-0-22-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2012/05/06/3-4-4-final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -287,9 +287,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2012/05/05/3-4-3-final.html";
+            var disqus_url = "http://netty.io/news/2021/12/01/quic-0-0-24-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "2237986317610675810";
+            var disqus_identifier = "news/2021-12-01-quic-0-0-24-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
