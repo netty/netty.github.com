@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/12/01/quic-0-0-24-Final.html">
+<a href="../news/2021/12/09/4-1-71-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.70.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.71.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.70.Final
-<small>&dash; 03-Nov-2021</small>
+4.1.71.Final
+<small>&dash; 09-Dec-2021</small>
 </a>
 </li>
 <li>
@@ -254,20 +254,37 @@ You can improve it by yourself
 <h2 id="wiki-h2-1">
 <a id="user-content-core-changes" class="anchor" href="#core-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Core changes</h2>
 <h3 id="wiki-h3-2">
+<a id="user-content-new-buffer-api-replaces-bytebuf" class="anchor" href="#new-buffer-api-replaces-bytebuf" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>New Buffer API replaces ByteBuf</h3>
+<p>Netty 5 introduces a new Buffer API, that is simpler and safer to use than ByteBuf.
+For details, see <a href="https://github.com/netty/netty/pull/11347">the pull request #11347</a>.
+In summary, the new API has the following headline differences:</p>
+<ul>
+<li>Aliasing is no longer allowed. In other words, you can no longer have multiple buffers referring to the same memory.
+** This means <code>slice</code>, <code>duplicate</code>, and their retaining variants are gone.
+** New APIs are introduced as replacements: <code>split</code>, <code>readSplit</code>, and <code>send</code>. The contracts of these methods prevent aliasing.</li>
+<li>Reference counting is effectively gone.
+** The <code>retain</code> and <code>release</code> methods are gone. Buffers instead have a <code>close</code> method, which will be called at the end of the lifetime for the buffer.
+** APIs and integrations should be designed such that buffers always have a unique and clear ownership. "Borrowing" of buffers should be minimised and discouraged in APIs, since reference counting can no longer be used to keep track of borrows or references at runtime.</li>
+<li>The <code>send</code> method and Send interface can be used to encode the transfer of ownership in the type system.</li>
+<li>Buffers are always big-endian, and the <code>*LE</code> methods are gone.
+** To perform little-endian reads or writes, use the <code>reverseBytes</code> family of methods on <code>Integer</code>, <code>Long</code>, etc. in conjunction with the big-endian read and write methods on the buffer.</li>
+<li>Buffer implementations have higher test coverage, and more consistent behaviours.</li>
+</ul>
+<h3 id="wiki-h3-3">
 <a id="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Simplified handler type hierarchy</h3>
 <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into [<code>ChannelHandler</code>].  [<code>ChannelHandler</code>] now has both inbound and outbound handler methods.</p>
 <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been deprecated and replaced by [<code>ChannelHandlerAdapter</code>].</p>
 <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by [<code>ChannelHandlerAppender</code>].</p>
 <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
-<h3 id="wiki-h3-3">
+<h3 id="wiki-h3-4">
 <a id="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>channelRead0()</code> → <code>messageReceived()</code>
 </h3>
 <p>I know.  It was <a href="https://github.com/netty/netty/issues/1590">a silly mistake</a>.  If you are using [<code>SimpleChannelInboundHandler</code>], you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
-<h3 id="wiki-h3-4">
+<h3 id="wiki-h3-5">
 <a id="user-content-progressivefuture--progressivepromise-and-channelprogressivefuture--channelprogressivepromise-removal" class="anchor" href="#progressivefuture--progressivepromise-and-channelprogressivefuture--channelprogressivepromise-removal" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</h3>
 <p>The support for Progressive<em>Future / Progressive</em>Promise was completely removed in netty 5. The reason for this was that while it may have been useful sometimes it also did require that all handlers in the pipeline take special action here if they did chain up promises. This was not really the case and is quite cumbersome to do in reality.</p>
 <p>Due the stated problems we decided that it would be best to just remove this feature all together as there was not much usage of this feature anyway. It is better to not support something at all than have something only work "sometimes". This also means there is less code to maintain.</p>
-<h3 id="wiki-h3-5">
+<h3 id="wiki-h3-6">
 <a id="user-content-voidchannelpromise-removal" class="anchor" href="#voidchannelpromise-removal" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>VoidChannelPromise removal</h3>
 <p>In netty 4.1.x it was possible to use the <code>voidPromise()</code> method to obtain a special <code>ChannelPromise</code> implementation that could be used for various IO operations (like <code>write</code>) to reduce the number of objects created. While the motivation of this feature was good it turned out that this special case of a <code>ChannelPromise</code> did actually bring a lot of problems:</p>
 <ul>
@@ -275,14 +292,14 @@ You can improve it by yourself
 <li>wait() / sync() operations were not supported at all.</li>
 <li>Some operations would allow to use the <code>VoidChannelPromise</code> and some not.</li>
 </ul>
-<h3 id="wiki-h3-6">
+<h3 id="wiki-h3-7">
 <a id="user-content-api-changes-to-promise-and-future" class="anchor" href="#api-changes-to-promise-and-future" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API changes to Promise and Future</h3>
 <ul>
 <li>The <code>Future.addListeners()</code>, <code>Future.removeListeners()</code>, and <code>Future.removeListener()</code> have been removed. We removed the ability to remove previous added listeners. This feature was not really used and so it allowed us to remove some complexity and remove some API surface.</li>
 <li>A <code>Future.isFailed()</code> method has been added, that checks that the future is both completed and failed. This is similar to the existing <code>Future.isSuccess()</code> which checks that a future is both completed and successfully so.</li>
 <li>New <code>Future.map()</code> and <code>Future.flatMap()</code> methods have been added, which makes it easy to compose and create new futures based on existing ones. These methods handle failures and cancellation properly through propagation.</li>
 </ul>
-<h3 id="wiki-h3-7">
+<h3 id="wiki-h3-8">
 <a id="user-content-channelpipelineaddeventexecutorgroup-removed" class="anchor" href="#channelpipelineaddeventexecutorgroup-removed" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelPipeline.add*(EventExecutorGroup...) removed</h3>
 <p>In netty 4.x we added the ability to add <code>ChannelHandler</code>s to a <code>ChannelPipeline</code> with an explicit <code>EventExecutorGroup</code>. While this seemed like a good idea it turned out that it has quite some problems when it comes to life-cycles:</p>
 <ul>
@@ -291,20 +308,39 @@ You can improve it by yourself
 <li>correctly implement "visibility" in terms of concurrent access / modifications of the pipeline is quite problematic as well.</li>
 </ul>
 <p>With this in mind we realised that really what the user mostly want is to have the incoming messages handled by another thread to process the business-logic. This is better be done in a custom implementation provided by the user as the user has a better handle on when things can be destroyed or not.</p>
-<h3 id="wiki-h3-8">
+<h3 id="wiki-h3-9">
 <a id="user-content-channeleventloop-renamed-to-channelexecutor" class="anchor" href="#channeleventloop-renamed-to-channelexecutor" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>Channel.eventLoop()</code> renamed to <code>Channel.executor()</code>
 </h3>
 <p>In netty 5.x we added the <code>executor()</code> method to <code>ChannelOutboundInvoker</code> and as this method returns <code>EventExecutor</code> we did decide to remove the <code>eventLoop()</code> method from <code>Channel</code> and just override <code>executor()</code> to return <code>EventLoop</code> for <code>Channel</code>.</p>
-<h2 id="wiki-h2-9">
+<h2 id="wiki-h2-10">
 <a id="user-content-codec-changes" class="anchor" href="#codec-changes" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Codec changes</h2>
-<h3 id="wiki-h3-10">
+<h3 id="wiki-h3-11">
 <a id="user-content-compression-support" class="anchor" href="#compression-support" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Compression support</h3>
 <p>All our compression implementations were changed to make use of the new <a href="https://github.com/netty/netty/pull/11685">Compression API</a> to make it easier to re-use in different codecs without the need to create an extra <code>EmbeddedChannel</code>.</p>
-<h3 id="wiki-h3-11">
+<h3 id="wiki-h3-12">
 <a id="user-content-http-codec" class="anchor" href="#http-codec" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>HTTP Codec</h3>
 <ul>
 <li>Dropped support for multi-part from netty-core. This is to be migrated to netty 5 as a contributor repository in the future. (<a href="https://github.com/netty/netty/pull/11830">https://github.com/netty/netty/pull/11830</a>)</li>
 <li>Dropped older websocket drafts (<a href="https://github.com/netty/netty/pull/11831">https://github.com/netty/netty/pull/11831</a>)</li>
+</ul>
+<h3 id="wiki-h3-13">
+<a id="user-content-rarely-used-codecs-moved-to-netty-contrib" class="anchor" href="#rarely-used-codecs-moved-to-netty-contrib" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Rarely used codecs moved to Netty Contrib</h3>
+<p>To slim the code base down and ease the maintenance burden, the following codecs and handlers have been moved to <a href="https://github.com/netty-contrib">Netty Contrib</a>:</p>
+<ul>
+<li>netty-codec-xml</li>
+<li>netty-codec-redis</li>
+<li>netty-codec-memcache</li>
+<li>netty-codec-stomp</li>
+<li>netty-codec-haproxy</li>
+<li>netty-codec-mqtt</li>
+<li>netty-codec-socks</li>
+<li>netty-handler-proxy</li>
+<li><code>io.netty.handler.codec.json</code></li>
+<li><code>io.netty.handler.codec.marshalling</code></li>
+<li><code>io.netty.handler.codec.protobuf</code></li>
+<li><code>io.netty.handler.codec.serialization</code></li>
+<li><code>io.netty.handler.codec.xml</code></li>
+<li><code>io.netty.handler.pcap</code></li>
 </ul>
 
               </div>
@@ -317,16 +353,18 @@ You can improve it by yourself
 </li><li>
 <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 29">Pages 29</a>
 </li></ul></li><li><a href="#wiki-h2-1" title="Core changes">Core changes</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
-</li><li><a href="#wiki-h3-3" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
-</li><li><a href="#wiki-h3-4" title="ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal">ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</a>
-</li><li><a href="#wiki-h3-5" title="VoidChannelPromise removal">VoidChannelPromise removal</a>
-</li><li><a href="#wiki-h3-6" title="API changes to Promise and Future">API changes to Promise and Future</a>
-</li><li><a href="#wiki-h3-7" title="ChannelPipeline.add*(EventExecutorGroup...) removed">ChannelPipeline.add*(EventExecutorGroup...) removed</a>
-</li><li><a href="#wiki-h3-8" title="Channel.eventLoop() renamed to Channel.executor()">Channel.eventLoop() renamed to Channel.executor()</a>
-</li></ul></li><li><a href="#wiki-h2-9" title="Codec changes">Codec changes</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-10" title="Compression support">Compression support</a>
-</li><li><a href="#wiki-h3-11" title="HTTP Codec">HTTP Codec</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="New Buffer API replaces ByteBuf">New Buffer API replaces ByteBuf</a>
+</li><li><a href="#wiki-h3-3" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
+</li><li><a href="#wiki-h3-4" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
+</li><li><a href="#wiki-h3-5" title="ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal">ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</a>
+</li><li><a href="#wiki-h3-6" title="VoidChannelPromise removal">VoidChannelPromise removal</a>
+</li><li><a href="#wiki-h3-7" title="API changes to Promise and Future">API changes to Promise and Future</a>
+</li><li><a href="#wiki-h3-8" title="ChannelPipeline.add*(EventExecutorGroup...) removed">ChannelPipeline.add*(EventExecutorGroup...) removed</a>
+</li><li><a href="#wiki-h3-9" title="Channel.eventLoop() renamed to Channel.executor()">Channel.eventLoop() renamed to Channel.executor()</a>
+</li></ul></li><li><a href="#wiki-h2-10" title="Codec changes">Codec changes</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-11" title="Compression support">Compression support</a>
+</li><li><a href="#wiki-h3-12" title="HTTP Codec">HTTP Codec</a>
+</li><li><a href="#wiki-h3-13" title="Rarely used codecs moved to Netty Contrib">Rarely used codecs moved to Netty Contrib</a>
 </li></ul>
 </li></ul>
 </div>
@@ -336,7 +374,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 01-Dec-2021</small>
+<small>Last retrieved on 09-Dec-2021</small>
 </div>
 </div>
 </div>
