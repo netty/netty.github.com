@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/12/09/4-1-71-Final.html">
+<a href="../news/2021/12/13/4-1-72-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.71.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.72.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.71.Final
-<small>&dash; 09-Dec-2021</small>
+4.1.72.Final
+<small>&dash; 13-Dec-2021</small>
 </a>
 </li>
 <li>
@@ -275,8 +275,7 @@ You can improve it by yourself
     &lt;/server&gt;
   &lt;/servers&gt;
   ...
-&lt;/settings&gt;
-'><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
+&lt;/settings&gt;'><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
 </li>
 </ul>
 <h2 id="wiki-h2-2">
@@ -292,20 +291,16 @@ Monitor the <a href="https://github.com/netty/netty/actions/workflows/ci-release
 <a id="user-content-finish-the-release" class="anchor" href="#finish-the-release" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Finish the release</h3>
 <p>Netty 4.x releases must be done by using OpenJDK8 which can be downloaded from <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a>. Once downloaded and installed create a <code>JAVA8_HOME</code> env which points to the installation.</p>
 <p>For example:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-"><pre><code>export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"><pre><code>export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&#x000A;</code></pre></div>
 <p>Once this is done you are ready to finish the release.</p>
 <p>First get the name of the current staged release (this release was staged by the GitHub workflow before).</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/list_staged_release.sh
-"><pre><code>./scripts/list_staged_release.sh&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/list_staged_release.sh"><pre><code>./scripts/list_staged_release.sh&#x000A;</code></pre></div>
 <p>Now with this staging id you can run the script to finish the release. The script takes the staging id as first argument and the name of the tag as the second. So for example if you would try to finish the release of netty 4.1.64.Final you would run the following command:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final
-"><pre><code>./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final"><pre><code>./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final&#x000A;</code></pre></div>
 <p>Once the script completes the release of netty itself is done and it will be "promoted" to maven central.</p>
 <p>Now it's time to copy over all the apidocs and xref files to the netty website (if you didn't checkout the website yet read [Update the web site|Releasing-new-version#update-the-web-site]).</p>
 <p>For this we have another script that you need to run:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final
-"><pre><code>./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final"><pre><code>./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final&#x000A;</code></pre></div>
 <h3 id="wiki-h3-5">
 <a id="user-content-what-to-do-in-case-of-failure-" class="anchor" href="#what-to-do-in-case-of-failure-" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>What to do in case of failure ?</h3>
 <p>It is possible the <code>scripts/finish_release.sh</code> may fail as the validation failed:</p>
@@ -318,24 +313,20 @@ Monitor the <a href="https://github.com/netty/netty/actions/workflows/ci-release
 [ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
 [ERROR]
 [ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn &lt;args&gt; -rf :netty-parent
-"><pre><code>[ERROR] Failed to execute goal org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8:rc-close (default-cli) on project netty-parent: Could not perform action: there are failing staging rules!: Staging rules failure! -&gt; [Help 1]&#x000A;[ERROR]&#x000A;[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.&#x000A;[ERROR] Re-run Maven using the -X switch to enable full debug logging.&#x000A;[ERROR]&#x000A;[ERROR] For more information about the errors and possible solutions, please read the following articles:&#x000A;[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException&#x000A;[ERROR]&#x000A;[ERROR] After correcting the problems, you can resume the build with the command&#x000A;[ERROR]   mvn &lt;args&gt; -rf :netty-parent&#x000A;</code></pre></div>
+[ERROR]   mvn &lt;args&gt; -rf :netty-parent"><pre><code>[ERROR] Failed to execute goal org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8:rc-close (default-cli) on project netty-parent: Could not perform action: there are failing staging rules!: Staging rules failure! -&gt; [Help 1]&#x000A;[ERROR]&#x000A;[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.&#x000A;[ERROR] Re-run Maven using the -X switch to enable full debug logging.&#x000A;[ERROR]&#x000A;[ERROR] For more information about the errors and possible solutions, please read the following articles:&#x000A;[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException&#x000A;[ERROR]&#x000A;[ERROR] After correcting the problems, you can resume the build with the command&#x000A;[ERROR]   mvn &lt;args&gt; -rf :netty-parent&#x000A;</code></pre></div>
 <p>In this case login to <a href="https://oss.sonatype.org" rel="nofollow">https://oss.sonatype.org</a> and check why the validation failed and fix it. Once done re-run the script.</p>
 <h2 id="wiki-h2-6">
 <a id="user-content-update-the-web-site" class="anchor" href="#update-the-web-site" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Update the web site</h2>
 <p>Our official web site is built with <a href="http://awestruct.org/" rel="nofollow">Awestruct</a>. Please make sure you are familiar with Awestruct and its related markup languages such as <a href="http://haml.info/" rel="nofollow">HAML</a> and Markdown.</p>
 <p>If you did not yet, clone the web site project:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone git@github.com:netty/netty-website.git
-cd netty-website
-"><pre><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre></div>
+cd netty-website"><pre><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre></div>
 <p>If you don't have Awestruct installed yet the easiest way to do so is to use <a href="https://bundler.io" rel="nofollow">bundler</a>:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="gem install bundler
-"><pre><code>gem install bundler&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="gem install bundler"><pre><code>gem install bundler&#x000A;</code></pre></div>
 <p>After this is done ensure you have all dependencies installed by executing bundle in the <code>netty-website</code> directory.
 This will take care of installing all the needed dependencies and Awestruct itself.
 Note, if you don't want bundler to install the dependencies system-wide, you can tell it to keep them local to the <code>netty-website</code> directory by running <code>bundle config set --local path .bundle</code> inside the <code>netty-website</code> directory.</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="bundle
-"><pre><code>bundle&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="bundle"><pre><code>bundle&#x000A;</code></pre></div>
 <p><code>_config/site.yml</code> contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="releases:
   - version: 4.1.65.Final
@@ -346,21 +337,18 @@ Note, if you don't want bundler to install the dependencies system-wide, you can
     stable: true
   - version: 3.10.6.Final
     date: 29-Jun-2016
-    stable: true
-"><pre><code>releases:&#x000A;  - version: 4.1.65.Final&#x000A;    date: 19-May-2021&#x000A;    stable: stable&#x000A;  - version: 4.0.56.Final&#x000A;    date: 05-Feb-2018&#x000A;    stable: true&#x000A;  - version: 3.10.6.Final&#x000A;    date: 29-Jun-2016&#x000A;    stable: true&#x000A;</code></pre></div>
+    stable: true"><pre><code>releases:&#x000A;  - version: 4.1.65.Final&#x000A;    date: 19-May-2021&#x000A;    stable: stable&#x000A;  - version: 4.0.56.Final&#x000A;    date: 05-Feb-2018&#x000A;    stable: true&#x000A;  - version: 3.10.6.Final&#x000A;    date: 29-Jun-2016&#x000A;    stable: true&#x000A;</code></pre></div>
 <p>Update it with the new version number and release date.</p>
 <p>After this add a new entry to the news/ folder which has the release details.
 Make sure the file name does not contains a dot (.) or a whitespace (e.g. OK: <code>2014-07-04-4-1-0-Beta1-released.html.md</code> NOT OK: <code>2014-07-04-4.1.0.Beta1-released.html.md</code></p>
 <p>Try to generate the web site to confirm that the new version shows up in the generated web site.</p>
 <p>This can done via:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="bundle exec awestruct -d -u https://netty.io
-"><pre><code>bundle exec awestruct -d -u https://netty.io&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="bundle exec awestruct -d -u https://netty.io"><pre><code>bundle exec awestruct -d -u https://netty.io&#x000A;</code></pre></div>
 <p>Now you should be able to access the website via <a href="http://localhost:4242" rel="nofollow">http://localhost:4242</a>.</p>
 <p>If everything looks like expected its time to commit the changes:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='git add *
 git commit -m "Release 4.1.64.Final"
-git push
-'><pre><code>git add *&#x000A;git commit -m "Release 4.1.64.Final"&#x000A;git push&#x000A;</code></pre></div>
+git push'><pre><code>git add *&#x000A;git commit -m "Release 4.1.64.Final"&#x000A;git push&#x000A;</code></pre></div>
 <p>After this the website will be automatically build and deployed by a GitHub action.</p>
 <h2 id="wiki-h2-7">
 <a id="user-content-nettytomcatnative" class="anchor" href="#nettytomcatnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a>
@@ -397,15 +385,12 @@ Monitor the <a href="https://github.com/netty/netty-incubator-codec-quic/actions
 <a id="user-content-finish-the-release-1" class="anchor" href="#finish-the-release-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Finish the release</h3>
 <p>Netty/Incubator/Codec/Quic releases must be done by using OpenJDK8 which can be downloaded from <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a>. Once downloaded and installed create a <code>JAVA8_HOME</code> env which points to the installation.</p>
 <p>For example:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
-"><pre><code>export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"><pre><code>export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&#x000A;</code></pre></div>
 <p>Once this is done you are ready to finish the release.</p>
 <p>First get the name of the current staged release (this release was staged by the GitHub workflow before).</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/list_staged_release.sh
-"><pre><code>./scripts/list_staged_release.sh&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/list_staged_release.sh"><pre><code>./scripts/list_staged_release.sh&#x000A;</code></pre></div>
 <p>Now with this staging id you can run the script to finish the release. The script takes the staging id as first argument and the name of the tag as the second. So for example if you would try to finish the release of netty-incubator-codec-quic 0.0.13.Final you would run the following command:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/finish_release.sh ionetty-1398 netty-incubator-codec-quic-0.0.13.Final
-"><pre><code>./scripts/finish_release.sh ionetty-1398 netty-incubator-codec-quic-0.0.13.Final&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/finish_release.sh ionetty-1398 netty-incubator-codec-quic-0.0.13.Final"><pre><code>./scripts/finish_release.sh ionetty-1398 netty-incubator-codec-quic-0.0.13.Final&#x000A;</code></pre></div>
 <p>Once the script completes the release of netty itself is done and it will be "promoted" to maven central.</p>
 
               </div>
@@ -439,7 +424,7 @@ Monitor the <a href="https://github.com/netty/netty-incubator-codec-quic/actions
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 09-Dec-2021</small>
+<small>Last retrieved on 13-Dec-2021</small>
 </div>
 </div>
 </div>

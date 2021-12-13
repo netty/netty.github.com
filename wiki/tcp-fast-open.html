@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2021/12/09/4-1-71-Final.html">
+<a href="../news/2021/12/13/4-1-72-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.71.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.72.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.71.Final
-<small>&dash; 09-Dec-2021</small>
+4.1.72.Final
+<small>&dash; 13-Dec-2021</small>
 </a>
 </li>
 <li>
@@ -280,8 +280,7 @@ The file may contain one of the following values:</p>
 This is done in different ways for servers and clients.</p>
 <p>For servers, you set the <code>ChannelOption.TCP_FASTOPEN</code> as an option on the <code>ServerBootstrap</code>:</p>
 <div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ServerBootstrap sb = ...;
-sb.option(ChannelOption.TCP_FASTOPEN, maxPendingFastOpen);
-"><pre><span class="pl-smi">ServerBootstrap</span> sb <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;sb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN</span>, maxPendingFastOpen);</pre></div>
+sb.option(ChannelOption.TCP_FASTOPEN, maxPendingFastOpen);"><pre><span class="pl-smi">ServerBootstrap</span> sb <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;sb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN</span>, maxPendingFastOpen);</pre></div>
 <p>And that's all it takes.
 The option specifies how many fast-open requests can be pending on the socket at any one time.
 This limits the system resources that can be tied up in fast-open payloads for connections that haven't been established.
@@ -289,8 +288,7 @@ See the <a href="https://tools.ietf.org/html/rfc7413#appendix-A.2" rel="nofollow
 <p>For clients, the situation is a little more involved.
 You first set the <code>ChannelOption.TCP_FASTOPEN_CONNECT</code> option to <code>true</code> on <code>Bootstrap</code>:</p>
 <div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="Bootstrap cb = ...;
-cb.option(ChannelOption.TCP_FASTOPEN_CONNECT, true);
-"><pre><span class="pl-smi">Bootstrap</span> cb <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;cb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN_CONNECT</span>, <span class="pl-c1">true</span>);</pre></div>
+cb.option(ChannelOption.TCP_FASTOPEN_CONNECT, true);"><pre><span class="pl-smi">Bootstrap</span> cb <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;cb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN_CONNECT</span>, <span class="pl-c1">true</span>);</pre></div>
 <p>Then, you also have to decide what data is allowed to be sent alongside the SYN packet, taking into consideration that it may arrive multiple times due to retransmission.
 This data then needs to be placed in the channels outbound buffer <em>before</em> the channel is connected.
 To obtain a channel before it's connected, we call <code>register</code>.
@@ -305,8 +303,7 @@ ByteBuf normalData = ...;
 
 channel.write(fastOpenData);           // Write TFO data.
 channel.connect(remoteAddress).sync(); // Establish connection (flushes TFO data).
-channel.write(normalData);             // TCP connection works like normal now.
-"><pre><span class="pl-smi">Bootstrap</span> cb <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Bootstrap</span>();&#x000A;cb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN_CONNECT</span>, <span class="pl-c1">true</span>);&#x000A;<span class="pl-c"><span class="pl-c">//</span> ...set handler, etc...</span>&#x000A;<span class="pl-smi">Channel</span> channel <span class="pl-k">=</span> cb<span class="pl-k">.</span>register()<span class="pl-k">.</span>sync()<span class="pl-k">.</span>channel(); <span class="pl-c"><span class="pl-c">//</span> Get unconnected channel.</span>&#x000A;&#x000A;<span class="pl-smi">ByteBuf</span> fastOpenData <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;<span class="pl-smi">ByteBuf</span> normalData <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;&#x000A;channel<span class="pl-k">.</span>write(fastOpenData);           <span class="pl-c"><span class="pl-c">//</span> Write TFO data.</span>&#x000A;channel<span class="pl-k">.</span>connect(remoteAddress)<span class="pl-k">.</span>sync(); <span class="pl-c"><span class="pl-c">//</span> Establish connection (flushes TFO data).</span>&#x000A;channel<span class="pl-k">.</span>write(normalData);             <span class="pl-c"><span class="pl-c">//</span> TCP connection works like normal now.</span></pre></div>
+channel.write(normalData);             // TCP connection works like normal now."><pre><span class="pl-smi">Bootstrap</span> cb <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">Bootstrap</span>();&#x000A;cb<span class="pl-k">.</span>option(<span class="pl-smi">ChannelOption</span><span class="pl-c1"><span class="pl-k">.</span>TCP_FASTOPEN_CONNECT</span>, <span class="pl-c1">true</span>);&#x000A;<span class="pl-c"><span class="pl-c">//</span> ...set handler, etc...</span>&#x000A;<span class="pl-smi">Channel</span> channel <span class="pl-k">=</span> cb<span class="pl-k">.</span>register()<span class="pl-k">.</span>sync()<span class="pl-k">.</span>channel(); <span class="pl-c"><span class="pl-c">//</span> Get unconnected channel.</span>&#x000A;&#x000A;<span class="pl-smi">ByteBuf</span> fastOpenData <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;<span class="pl-smi">ByteBuf</span> normalData <span class="pl-k">=</span> <span class="pl-c1">...</span>;&#x000A;&#x000A;channel<span class="pl-k">.</span>write(fastOpenData);           <span class="pl-c"><span class="pl-c">//</span> Write TFO data.</span>&#x000A;channel<span class="pl-k">.</span>connect(remoteAddress)<span class="pl-k">.</span>sync(); <span class="pl-c"><span class="pl-c">//</span> Establish connection (flushes TFO data).</span>&#x000A;channel<span class="pl-k">.</span>write(normalData);             <span class="pl-c"><span class="pl-c">//</span> TCP connection works like normal now.</span></pre></div>
 <p>An important aspect about the above: we call <code>connect()</code> on the channel produced by <code>register()</code>.
 We cannot use the <code>Bootstrap.connect()</code> method, because that will create another new channel with its own outbound buffer.</p>
 
@@ -329,7 +326,7 @@ We cannot use the <code>Bootstrap.connect()</code> method, because that will cre
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 09-Dec-2021</small>
+<small>Last retrieved on 13-Dec-2021</small>
 </div>
 </div>
 </div>
