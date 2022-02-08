@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2022/01/12/4-1-73-Final.html">
+<a href="../news/2022/02/08/4-1-74-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,10 +61,10 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.73.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.74.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.73.Final
-<small>&dash; 12-Jan-2022</small>
+4.1.74.Final
+<small>&dash; 08-Feb-2022</small>
 </a>
 </li>
 <li>
@@ -256,7 +256,8 @@ You can improve it by yourself
 <p>You must use 64-bit operating system.</p>
 <h2 id="wiki-h2-2">
 <a id="user-content-install-the-necessary-build-tools" class="anchor" href="#install-the-necessary-build-tools" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Install the necessary build tools</h2>
-<p>You must have 64-bit OpenJDK 8 or above from a vendor like <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a> or <a href="https://www.azul.com/downloads/zulu-community/" rel="nofollow">Azul Systems</a>, <a href="http://maven.apache.org/" rel="nofollow">Apache Maven 3.1.1</a> or above, and <a href="http://git-scm.com/" rel="nofollow">Git</a> installed on your machine.  If you are on Linux, you have to install the following packages:</p>
+<p>You must have 64-bit OpenJDK 8 or above from a vendor like <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a> or <a href="https://www.azul.com/downloads/zulu-community/" rel="nofollow">Azul Systems</a>, <a href="http://maven.apache.org/" rel="nofollow">Apache Maven 3.1.1</a> or above, and <a href="http://git-scm.com/" rel="nofollow">Git</a> installed on your machine.</p>
+<p>If you are on Linux, you have to install the following packages:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="# yum install lsb-core autoconf automake libtool make tar \
               glibc-devel libaio-devel openssl-devel apr-devel \
               lksctp-tools
@@ -264,29 +265,39 @@ You can improve it by yourself
 # apt-get install autoconf automake libtool make tar \
                   libaio-dev libssl-dev libapr1-dev \
                   lksctp-tools"><pre><code># yum install lsb-core autoconf automake libtool make tar \&#x000A;              glibc-devel libaio-devel openssl-devel apr-devel \&#x000A;              lksctp-tools&#x000A;&#x000A;# apt-get install autoconf automake libtool make tar \&#x000A;                  libaio-dev libssl-dev libapr1-dev \&#x000A;                  lksctp-tools&#x000A;</code></pre></div>
-<p>To build netty-tcnative (namely it's BoringSSL part), install also <code>cmake</code>, <code>ninja-build</code> and <code>golang</code> packages. The <code>ninja-build</code> and <code>golang</code> on Fedora/CentOS are available in the <a href="https://fedoraproject.org/wiki/EPEL" rel="nofollow">Fedora EPEL</a> repository.</p>
+<p>Or if using MacOS:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="brew install autoconf automake libtool openssl"><pre><code>brew install autoconf automake libtool openssl&#x000A;</code></pre></div>
+<p>And need to pay attention to the configuration of git.
+If using Windows, when you checkout code, LF will be automatically converted to CRLF:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="git config --global core.autocrlf true"><pre><code>git config --global core.autocrlf true&#x000A;</code></pre></div>
+<p>Or if using MacOS, when you commit code, CRLF will be automatically converted to LF:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="git config --global core.autocrlf input"><pre><code>git config --global core.autocrlf input&#x000A;</code></pre></div>
+<p>You may also check <a class="internal present" href="native-transports#building-the-native-transports.html">Building The Native Transports</a> for more information.</p>
+<p>To build netty-tcnative (namely, it's BoringSSL part), install also <code>cmake</code>, <code>ninja-build</code> and <code>golang</code> packages. The <code>ninja-build</code> and <code>golang</code> on Fedora/CentOS are available in the <a href="https://fedoraproject.org/wiki/EPEL" rel="nofollow">Fedora EPEL</a> repository.</p>
+<h2 id="wiki-h2-3">
+<a id="user-content-verify-the-build" class="anchor" href="#verify-the-build" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Verify the build</h2>
 <p>Then check out the code, and verify that your build environment works with <code>./mvnw install -DskipTests -T1C</code>.
 This also primes your local Maven cache, allowing you to build individual modules later.</p>
-<h2 id="wiki-h2-3">
+<h2 id="wiki-h2-4">
 <a id="user-content-set-up-intellij-idea" class="anchor" href="#set-up-intellij-idea" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Set up IntelliJ IDEA</h2>
 <p>Netty project team uses <a href="http://www.jetbrains.com/idea/" rel="nofollow">IntelliJ IDEA</a> as the primary IDE, although we are fine with using other development environments as long as you adhere to our coding style.</p>
-<h3 id="wiki-h3-4">
+<h3 id="wiki-h3-5">
 <a id="user-content-use-the-same-bit-version-with-your-os" class="anchor" href="#use-the-same-bit-version-with-your-os" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Use the same-bit version with your OS</h3>
 <p>If you are on 64-bit operating system, use the 64-bit version of IntelliJ IDEA.  For instance, the start menu shortcut points to the 32-bit binary even if you are using 64-bit Windows.  You'll have to find the <code>idea64.exe</code> in the installation directory and use it instead.  Otherwise, you'll see IntelliJ IDEA complains that it cannot find <code>io.netty:netty-tcnative:windows-x86_32</code>.</p>
-<h3 id="wiki-h3-5">
+<h3 id="wiki-h3-6">
 <a id="user-content-uncheck-use---release--compiler-setting" class="anchor" href="#uncheck-use---release--compiler-setting" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Uncheck <code>Use --release …</code> compiler setting</h3>
 <p>Netty versions 4.1 and older target Java 6 as the minimum required Java version, and thus needs to compile to Java 6 byte code.
 However, for performance, the code base also includes references to newer Java APIs, appropriately guarded with runtime version checks.
 For this reason, Netty has to be compiled with <code>--source</code> and <code>--target</code> flags, but IntelliJ will by default use the newer <code>--release</code> flag instead, which also enables API version checks.</p>
 <p>Using the <code>--release</code> flag will cause IntelliJ to produce compilation errors when building the Netty project, so it has to be disabled in the <a href="https://www.jetbrains.com/help/idea/troubleshooting-common-maven-issues.html#check_compiler_settings" rel="nofollow">Compiler Settings dialog</a>.</p>
-<h3 id="wiki-h3-6">
+<h3 id="wiki-h3-7">
 <a id="user-content-code-style" class="anchor" href="#code-style" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Code style</h3>
 <p>Download <a href="http://netty.io/files/IntelliJ%20IDEA%20Code%20Style.zip" rel="nofollow">this code style configuration</a> and unzip <code>Netty project.xml</code> into <code>&lt;IntelliJ config directory&gt;/codestyles</code> directory.  Choose 'Netty project' as the default code style.</p>
-<h3 id="wiki-h3-7">
+<h3 id="wiki-h3-8">
 <a id="user-content-inspection-profile" class="anchor" href="#inspection-profile" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Inspection profile</h3>
 <p>Download, unzip, and import <a href="http://netty.io/files/IntelliJ%20IDEA%20Inspection%20Profile.xml.zip" rel="nofollow">this inspection profile</a> into your IntelliJ IDEA and use it as the default.  See <a href="http://www.jetbrains.com/idea/webhelp/customizing-profiles.html#d1372841e358" rel="nofollow">here</a> to learn how to import an inspection profile.</p>
 <p>Ensure your modification does not introduce any inspection warning. If you think it's a false positive, suppress the warning by using the <code>@SuppressWarnings</code> annotation or <code>noinspection</code> line comment as guided by the IDE.  For more information about using the inspector, please refer to <a href="http://www.jetbrains.com/idea/webhelp/inspecting-source-code.html" rel="nofollow">the web help pages</a>.</p>
-<h3 id="wiki-h3-8">
+<h3 id="wiki-h3-9">
 <a id="user-content-copyright-profile" class="anchor" href="#copyright-profile" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Copyright profile</h3>
 <p>Copyright text:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content='Copyright $today.year The Netty Project
@@ -306,7 +317,7 @@ under the License.'><pre lang="plain"><code>Copyright $today.year The Netty Proj
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="The Netty project licenses"><pre><code>The Netty project licenses&#x000A;</code></pre></div>
 <p>Allow replacing copyright if old copyright contains:</p>
 <div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="The Netty project licenses"><pre><code>The Netty project licenses&#x000A;</code></pre></div>
-<h2 id="wiki-h2-9">
+<h2 id="wiki-h2-10">
 <a id="user-content-set-up-eclipse-with-m2e-and-java-78" class="anchor" href="#set-up-eclipse-with-m2e-and-java-78" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Set up Eclipse with M2E and Java 7/8</h2>
 <ol>
 <li>Ensure you are using the 64-bit version of Eclipse.</li>
@@ -331,13 +342,14 @@ under the License.'><pre lang="plain"><code>Copyright $today.year The Netty Proj
 <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 29">Pages 29</a>
 </li></ul></li><li><a href="#wiki-h2-1" title="Use 64-bit operating system">Use 64-bit operating system</a>
 </li><li><a href="#wiki-h2-2" title="Install the necessary build tools">Install the necessary build tools</a>
-</li><li><a href="#wiki-h2-3" title="Set up IntelliJ IDEA">Set up IntelliJ IDEA</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Use the same-bit version with your OS">Use the same-bit version with your OS</a>
-</li><li><a href="#wiki-h3-5" title="Uncheck Use --release … compiler setting">Uncheck Use --release … compiler setting</a>
-</li><li><a href="#wiki-h3-6" title="Code style">Code style</a>
-</li><li><a href="#wiki-h3-7" title="Inspection profile">Inspection profile</a>
-</li><li><a href="#wiki-h3-8" title="Copyright profile">Copyright profile</a>
-</li></ul></li><li><a href="#wiki-h2-9" title="Set up Eclipse with M2E and Java 7/8">Set up Eclipse with M2E and Java 7/8</a>
+</li><li><a href="#wiki-h2-3" title="Verify the build">Verify the build</a>
+</li><li><a href="#wiki-h2-4" title="Set up IntelliJ IDEA">Set up IntelliJ IDEA</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-5" title="Use the same-bit version with your OS">Use the same-bit version with your OS</a>
+</li><li><a href="#wiki-h3-6" title="Uncheck Use --release … compiler setting">Uncheck Use --release … compiler setting</a>
+</li><li><a href="#wiki-h3-7" title="Code style">Code style</a>
+</li><li><a href="#wiki-h3-8" title="Inspection profile">Inspection profile</a>
+</li><li><a href="#wiki-h3-9" title="Copyright profile">Copyright profile</a>
+</li></ul></li><li><a href="#wiki-h2-10" title="Set up Eclipse with M2E and Java 7/8">Set up Eclipse with M2E and Java 7/8</a>
 </li></ul>
 </div>
 </div>
@@ -346,7 +358,7 @@ under the License.'><pre lang="plain"><code>Copyright $today.year The Netty Proj
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 12-Jan-2022</small>
+<small>Last retrieved on 08-Feb-2022</small>
 </div>
 </div>
 </div>
