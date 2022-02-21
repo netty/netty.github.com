@@ -185,9 +185,9 @@ Developer Guide
 </a>
 </li>
 <li>
-<a href="https://webchat.freenode.net/?channels=%23netty&amp;uio=MT1mYWxzZSY5PXRydWU13">
+<a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-IRC Chat
+Discord Channel
 </a>
 </li>
 <li>
@@ -260,14 +260,24 @@ For details, see <a href="https://github.com/netty/netty/pull/11347">the pull re
 In summary, the new API has the following headline differences:</p>
 <ul>
 <li>Aliasing is no longer allowed. In other words, you can no longer have multiple buffers referring to the same memory.
-** This means <code>slice</code>, <code>duplicate</code>, and their retaining variants are gone.
-** New APIs are introduced as replacements: <code>split</code>, <code>readSplit</code>, and <code>send</code>. The contracts of these methods prevent aliasing.</li>
+<ul>
+<li>This means <code>slice</code>, <code>duplicate</code>, and their retaining variants are gone.</li>
+<li>New APIs are introduced as replacements: <code>split</code>, <code>readSplit</code>, and <code>send</code>. The contracts of these methods prevent aliasing.</li>
+</ul>
+</li>
 <li>Reference counting is effectively gone.
-** The <code>retain</code> and <code>release</code> methods are gone. Buffers instead have a <code>close</code> method, which will be called at the end of the lifetime for the buffer.
-** APIs and integrations should be designed such that buffers always have a unique and clear ownership. "Borrowing" of buffers should be minimised and discouraged in APIs, since reference counting can no longer be used to keep track of borrows or references at runtime.</li>
+<ul>
+<li>The <code>retain</code> and <code>release</code> methods are gone. Buffers instead have a <code>close</code> method, which will be called at the end of the lifetime for the buffer.</li>
+<li>APIs and integrations should be designed such that buffers always have a unique and clear ownership. "Borrowing" of buffers should be minimised and discouraged in APIs, since reference counting can no longer be used to keep track of borrows or references at runtime.</li>
+<li>Most places where <code>retain</code> was used were effectively just trying to cancel the effect of an unconditional <code>release</code> in a super-class. In these cases, you can use <code>split</code>, since you most likely only want to pass down the readable part of the buffer anyway.</li>
+</ul>
+</li>
 <li>The <code>send</code> method and Send interface can be used to encode the transfer of ownership in the type system.</li>
 <li>Buffers are always big-endian, and the <code>*LE</code> methods are gone.
-** To perform little-endian reads or writes, use the <code>reverseBytes</code> family of methods on <code>Integer</code>, <code>Long</code>, etc. in conjunction with the big-endian read and write methods on the buffer.</li>
+<ul>
+<li>To perform little-endian reads or writes, use the <code>reverseBytes</code> family of methods on <code>Integer</code>, <code>Long</code>, etc. in conjunction with the big-endian read and write methods on the buffer.</li>
+</ul>
+</li>
 <li>Buffer implementations have higher test coverage, and more consistent behaviours.</li>
 </ul>
 <h3 id="wiki-h3-3">
@@ -322,6 +332,7 @@ In summary, the new API has the following headline differences:</p>
 <ul>
 <li>Dropped support for multi-part from netty-core. This is to be migrated to netty 5 as a contributor repository in the future. (<a href="https://github.com/netty/netty/pull/11830">https://github.com/netty/netty/pull/11830</a>)</li>
 <li>Dropped older websocket drafts (<a href="https://github.com/netty/netty/pull/11831">https://github.com/netty/netty/pull/11831</a>)</li>
+<li>HTTP/2 Header validation is now enabled by default. This will cause malformed requests to be rejected by default.</li>
 </ul>
 <h3 id="wiki-h3-13">
 <a id="user-content-rarely-used-codecs-moved-to-netty-contrib" class="anchor" href="#rarely-used-codecs-moved-to-netty-contrib" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Rarely used codecs moved to Netty Contrib</h3>
@@ -374,7 +385,7 @@ In summary, the new API has the following headline differences:</p>
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 08-Feb-2022</small>
+<small>Last retrieved on 21-Feb-2022</small>
 </div>
 </div>
 </div>
