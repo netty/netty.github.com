@@ -330,12 +330,12 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 993.382 sec - in
 <p>Writing the benchmark itself is not hard, but getting it right is. This not because the microbench project is difficult to use, but more because you need to avoid common pitfalls when writing them. Thankfully, the JMH suite provides helpful annotations and features to mitigate most of them. To get started, you need to make your benchmark extend the <code>AbstractMicrobenchmark</code>, which makes sure the test gets run through JUnit and configures some defaults:</p>
 <div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public class MyBenchmark extends AbstractMicrobenchmark {
 
-}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
+}"><pre><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-smi">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
 <p>The next step is to create a method which is annotated with <code>@GenerateMicroBenchmark</code> (and give it a descriptive name):</p>
 <div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="@GenerateMicroBenchmark
 public void measureSomethingHere() {
 
-}"><pre><span class="pl-k">@GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-k">void</span> measureSomethingHere() {&#x000A;&#x000A;}</pre></div>
+}"><pre><span class="pl-c1">@</span><span class="pl-c1">GenerateMicroBenchmark</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">measureSomethingHere</span>() {&#x000A;&#x000A;}</pre></div>
 <p>The best idea now is to look <a href="http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/" rel="nofollow">here</a> for samples and inspiration on how to write proper JMH tests. Also, check out <a href="http://shipilev.net/#benchmarking" rel="nofollow">the talks</a> of one of the main authors from JMH.</p>
 <h2 id="wiki-h2-3">
 <a id="user-content-customizing-runtime-conditions" class="anchor" href="#customizing-runtime-conditions" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Customizing Runtime Conditions</h2>
@@ -353,7 +353,7 @@ public void measureSomethingHere() {
 @Fork(1)
 public class MyBenchmark extends AbstractMicrobenchmark {
 
-}"><pre><span class="pl-k">@Warmup</span>(<span class="pl-c1">iterations</span> <span class="pl-k">=</span> <span class="pl-c1">20</span>)&#x000A;<span class="pl-k">@Fork</span>(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-e">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
+}"><pre><span class="pl-c1">@</span><span class="pl-c1">Warmup</span>(<span class="pl-s1">iterations</span> = <span class="pl-c1">20</span>)&#x000A;<span class="pl-c1">@</span><span class="pl-c1">Fork</span>(<span class="pl-c1">1</span>)&#x000A;<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">MyBenchmark</span> <span class="pl-k">extends</span> <span class="pl-smi">AbstractMicrobenchmark</span> {&#x000A;&#x000A;}</pre></div>
 <p>This can be done on a per-class and per-method (benchmark) basis. Note that command line arguments always override the annotation defaults.</p>
 
               </div>
@@ -376,7 +376,7 @@ public class MyBenchmark extends AbstractMicrobenchmark {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 17-Mar-2022</small>
+<small>Last retrieved on 08-Apr-2022</small>
 </div>
 </div>
 </div>

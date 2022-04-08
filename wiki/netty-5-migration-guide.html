@@ -270,7 +270,24 @@ You can improve it by yourself
 <h2 id="wiki-h2-2">
 <a id="user-content-buffers" class="anchor" href="#buffers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Buffers</h2>
 <p>Netty 5 introduces a new Buffer API, that is simpler and safer to use than <code>ByteBuf</code>.</p>
-<p><strong>Adaptors</strong></p>
+<h3 id="wiki-h3-3">
+<a id="user-content-enabling" class="anchor" href="#enabling" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Enabling</h3>
+<p>The transports are currently (in the Alpha1) able to write both <code>Buffer</code> and <code>ByteBuf</code> objects, so either can be used for outputs.</p>
+<p>To get <code>Buffer</code> instances from read operations, the <code>ChannelOption.RCVBUF_ALLOCATOR_USE_BUFFER</code> has to be set to <code>true</code>:</p>
+<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="// For ServerBootstrap:
+sb.childOption(ChannelOption.RCVBUF_ALLOCATOR_USE_BUFFER, true);
+
+// For Bootstrap:
+cb.option(ChannelOption.RCVBUF_ALLOCATOR_USE_BUFFER, true);"><pre><code>// For ServerBootstrap:&#x000A;sb.childOption(ChannelOption.RCVBUF_ALLOCATOR_USE_BUFFER, true);&#x000A;&#x000A;// For Bootstrap:&#x000A;cb.option(ChannelOption.RCVBUF_ALLOCATOR_USE_BUFFER, true);&#x000A;</code></pre></div>
+<p>When this is enabled, the <code>ChannelHandler.channelRead()</code> of the first handler will be given <code>Buffer</code> instances instead of <code>ByteBuf</code> instances.</p>
+<h3 id="wiki-h3-4">
+<a id="user-content-capacity" class="anchor" href="#capacity" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Capacity</h3>
+<p>The Netty 4.1 <code>ByteBuf</code> would automatically expand in capacity as needed when written to, until a certain maximum capacity.</p>
+<p>The new <code>Buffer</code> API no longer do this, and no longer have a capacity and max-capacity distinction.
+Code should instead allocate properly sized buffers (the size argument is now mandatory), and/or call <code>ensureWritable()</code> as needed.
+The <code>ensureWritable()</code> method can now also take arguments that allow it to a compaction (the same as the old <code>discardReadBytes()</code>) and expansion at the same time, in a single memory copy.</p>
+<h3 id="wiki-h3-5">
+<a id="user-content-adaptors" class="anchor" href="#adaptors" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Adaptors</h3>
 <p>A set of adaptors are included, which can convert between the two APIs, and allow them to co-exist, until all handles and relevant code has been migrated.</p>
 <p>The <code>ByteBufBuffer.wrap()</code> method takes a <code>ByteBuf</code> instance and returns a <code>Buffer</code> - a buffer instance of the new API.
 Conversely, the <code>ByteBufAdaptor.intoByteBuf</code> method takes a <code>Buffer</code> and returns a <code>ByteBuf</code>.
@@ -278,34 +295,35 @@ Both of these methods will do the conversion in the most efficient way possible,
 <p>A <code>BufferConversionHandler</code> is also included, which can be inserted into the pipeline between handles that rely on different APIs.
 Note that the <code>BufferConversionHandler</code> is unable to convert any <code>ByteBufHolder</code> or <code>BufferHolder</code> objects.
 Objects that contain <code>Buffer</code> or <code>ByteBuf</code> instances will need to be converted with e.g. a custom <code>MessageToMessageCodec</code>.</p>
-<p><strong>Changes in API</strong></p>
+<h3 id="wiki-h3-6">
+<a id="user-content-changes-in-api" class="anchor" href="#changes-in-api" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Changes in API</h3>
 <p>The key difference in the new <code>Buffer</code> API is that <em>aliasing</em> is no longer allowed.
 Aliasing is when two or more buffer objects refer to the same underlying memory.
 This means that methods like <code>slice()</code> and <code>duplicate()</code> are no longer available.
 On the other hand, the life-cycle handling is simplified, and reference counting can be entirely removed from the API.</p>
 <p>Where you would have used <code>slice()</code>, <code>duplicate()</code>, and their <code>retain*</code> variants, and the <code>retian()</code> family of methods, you will now instead use <code>split()</code>, <code>readSplit()</code>, and <code>copy()</code>.</p>
 <p>The <code>split</code> family of methods are similar to <code>slice()</code>, except they can only slice at the ends of the buffer, and the returned buffer slice is <em>removed</em> from the original buffer, thus preventing aliasing.</p>
-<p>The <code>retain()</code> and <code>release()</code> methods are gone. Buffers instead have a <code>close()</code> method, which will be called the end of the lifetime for hte buffer. The buffers implement <code>AutoCloseable</code> as a convenience when the scope and lifetime of a buffer is entirely local.</p>
+<p>The <code>retain()</code> and <code>release()</code> methods are gone. Buffers instead have a <code>close()</code> method, which will be called the end of the lifetime for the buffer. The buffers implement <code>AutoCloseable</code> as a convenience when the scope and lifetime of a buffer is entirely local.</p>
 <p>Most places where <code>retain()</code> was used were effectively to cancel the effect of an unconditional <code>release()</code> in a super-class or sub-class.
 In these cases, <code>split()</code> can be used instead, since these cases usually involve passing around a readable section of the buffer, and <code>split()</code> results in two buffers that must each be closed.</p>
 <p>There is a new <code>send()</code> method, which can be used to encode in the type system that the "ownership" of a buffer moves from one place to another.
 For instance, this is used by the <code>CompositeBuffer</code> factory methods to ensure that the composite buffer obtains exclusive access to the component buffers.
 This prevents aliasing via buffer composition.</p>
-<p>The buffers are now always big-endian, and hte <code>*LE</code> accessor methods are gone.
+<p>The buffers are now always big-endian, and the <code>*LE</code> accessor methods are gone.
 To perform little-endian reads or writes, use the <code>reverseBytes</code> methods in <code>Integer</code> or <code>Long</code>, in conjunction with the big-endian read or write.</p>
-<h2 id="wiki-h2-3">
+<h2 id="wiki-h2-7">
 <a id="user-content-future--promise" class="anchor" href="#future--promise" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Future / Promise</h2>
-<h3 id="wiki-h3-4">
+<h3 id="wiki-h3-8">
 <a id="user-content-channelfuture--channelpromise-removal" class="anchor" href="#channelfuture--channelpromise-removal" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelFuture / ChannelPromise removal</h3>
 <p>To simplify the API and type-hierarchy we decided to remove the <code>ChannelFuture</code> / <code>ChannelPromise</code> (and all it sub-types / implementations) completely. As a replacement <code>Future&lt;Void&gt;</code> and <code>Promise&lt;Void&gt;</code> are use directly.</p>
-<h3 id="wiki-h3-5">
+<h3 id="wiki-h3-9">
 <a id="user-content-progressivefuture--progressivepromise-and-channelprogressivefuture--channelprogressivepromise-removal" class="anchor" href="#progressivefuture--progressivepromise-and-channelprogressivefuture--channelprogressivepromise-removal" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</h3>
 <p>The support for Progressive<em>Future / Progressive</em>Promise was completely removed in netty 5. The reason for this was that while it may have been useful sometimes it also did require that all handlers in the pipeline take special action here if they did chain up promises. This was not really the case and is quite cumbersome to do in reality.</p>
 <p>Due the stated problems we decided that it would be best to just remove this feature all together as there was not much usage of this feature anyway. It is better to not support something at all than have something only work "sometimes". This also means there is less code to maintain.</p>
-<h3 id="wiki-h3-6">
+<h3 id="wiki-h3-10">
 <a id="user-content-voidchannelpromise-removal" class="anchor" href="#voidchannelpromise-removal" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>VoidChannelPromise removal</h3>
 <p>In netty 4.1.x it was possible to use the <code>voidPromise()</code> method to obtain a special <code>ChannelPromise</code> implementation that could be used for various IO operations (like <code>write</code>) to reduce the number of objects created. While the motivation of this feature was good it turned out that this special case of a <code>ChannelPromise</code> did actually bring a lot of problems:</p>
-<h3 id="wiki-h3-7">
+<h3 id="wiki-h3-11">
 <a id="user-content-api-changes-to-promise-and-future" class="anchor" href="#api-changes-to-promise-and-future" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>API changes to Promise and Future</h3>
 <ul>
 <li>The <code>Future.addListeners()</code>, <code>Future.removeListeners()</code>, and <code>Future.removeListener()</code> have been removed. We removed the ability to remove previous added listeners. This feature was not really used and so it allowed us to remove some complexity and remove some API surface.</li>
@@ -313,19 +331,19 @@ To perform little-endian reads or writes, use the <code>reverseBytes</code> meth
 <li>New <code>Future.map()</code> and <code>Future.flatMap()</code> methods have been added, which makes it easy to compose and create new futures based on existing ones. These methods handle failures and cancellation properly through propagation.</li>
 <li>New methods were added to convert to <code>CompletionStage</code> and so make it easier to interopt with other APIs.</li>
 </ul>
-<h2 id="wiki-h2-8">
+<h2 id="wiki-h2-12">
 <a id="user-content-channel" class="anchor" href="#channel" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Channel</h2>
-<h3 id="wiki-h3-9">
+<h3 id="wiki-h3-13">
 <a id="user-content-channeleventloop-renamed-to-channelexecutor" class="anchor" href="#channeleventloop-renamed-to-channelexecutor" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>Channel.eventLoop()</code> renamed to <code>Channel.executor()</code>
 </h3>
 <p>In netty 5.x we added the <code>executor()</code> method to <code>ChannelOutboundInvoker</code> and as this method returns <code>EventExecutor</code> we did decide to remove the <code>eventLoop()</code> method from <code>Channel</code> and just override <code>executor()</code> to return <code>EventLoop</code> for <code>Channel</code>.</p>
-<h3 id="wiki-h3-10">
+<h3 id="wiki-h3-14">
 <a id="user-content-return-types-changes-from-channelfuture-to-futurevoid" class="anchor" href="#return-types-changes-from-channelfuture-to-futurevoid" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Return types changes from <code>ChannelFuture</code> to <code>Future&lt;Void&gt;</code>
 </h3>
 <p>As we removed <code>ChannelFuture</code> / <code>ChannelPromise</code> we also changed the return type of the methods to <code>Future&lt;Void&gt;</code></p>
-<h2 id="wiki-h2-11">
+<h2 id="wiki-h2-15">
 <a id="user-content-channelpipeline" class="anchor" href="#channelpipeline" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelPipeline</h2>
-<h3 id="wiki-h3-12">
+<h3 id="wiki-h3-16">
 <a id="user-content-channelpipelineaddeventexecutorgroup-removed" class="anchor" href="#channelpipelineaddeventexecutorgroup-removed" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelPipeline.add*(EventExecutorGroup...) removed</h3>
 <p>In netty 4.x we added the ability to add <code>ChannelHandler</code>s to a <code>ChannelPipeline</code> with an explicit <code>EventExecutorGroup</code>. While this seemed like a good idea it turned out that it has quite some problems when it comes to life-cycles:</p>
 <ul>
@@ -334,27 +352,27 @@ To perform little-endian reads or writes, use the <code>reverseBytes</code> meth
 <li>correctly implement "visibility" in terms of concurrent access / modifications of the pipeline is quite problematic as well.</li>
 </ul>
 <p>With this in mind we realised that really what the user mostly want is to have the incoming messages handled by another thread to process the business-logic. This is better be done in a custom implementation provided by the user as the user has a better handle on when things can be destroyed or not.</p>
-<h3 id="wiki-h3-13">
+<h3 id="wiki-h3-17">
 <a id="user-content-return-types-changes-from-channelfuture-to-futurevoid-1" class="anchor" href="#return-types-changes-from-channelfuture-to-futurevoid-1" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Return types changes from <code>ChannelFuture</code> to <code>Future&lt;Void&gt;</code>
 </h3>
 <p>As we removed <code>ChannelFuture</code> / <code>ChannelPromise</code> we also changed the return type of the methods to <code>Future&lt;Void&gt;</code></p>
-<h2 id="wiki-h2-14">
+<h2 id="wiki-h2-18">
 <a id="user-content-channelhandler" class="anchor" href="#channelhandler" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>ChannelHandler</h2>
 <p>Netty 5 greatly simplify the type-hierarchy for <code>ChannelHandler</code>s.</p>
-<h3 id="wiki-h3-15">
+<h3 id="wiki-h3-19">
 <a id="user-content-simplified-handler-type-hierarchy" class="anchor" href="#simplified-handler-type-hierarchy" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Simplified handler type hierarchy</h3>
 <p><code>ChannelInboundHandler</code> and <code>ChannelOutboundHandler</code> have been merged into [<code>ChannelHandler</code>].  [<code>ChannelHandler</code>] now has both inbound and outbound handler methods. All outbound methods that took a <code>ChannelPromise</code> have been changed to return <code>Future&lt;Void&gt;</code>. This change makes usage less error-prone and simplifies the API.</p>
 <p><code>ChannelInboundHandlerAdapter</code>, <code>ChannelOutboundHandlerAdapter</code>, and <code>ChannelDuplexHandlerAdapter</code> have been removed and replaced by [<code>ChannelHandlerAdapter</code>].</p>
 <p>Because it is now impossible to tell if a handler is an inbound handler or an outbound handler, <code>CombinedChannelDuplexHandler</code> has been replaced by [<code>ChannelHandlerAppender</code>].</p>
 <p>For more information about this change, please refer to <a href="https://github.com/netty/netty/pull/1999">the pull request #1999</a>.</p>
-<h3 id="wiki-h3-16">
+<h3 id="wiki-h3-20">
 <a id="user-content-channelread0--messagereceived" class="anchor" href="#channelread0--messagereceived" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>channelRead0()</code> → <code>messageReceived()</code>
 </h3>
 <p>If you are using [<code>SimpleChannelInboundHandler</code>], you have to rename <code>channelRead0()</code> to <code>messageReceived()</code>.</p>
-<h2 id="wiki-h2-17">
+<h2 id="wiki-h2-21">
 <a id="user-content-eventloopgroup--eventloop" class="anchor" href="#eventloopgroup--eventloop" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>EventLoopGroup / EventLoop</h2>
-<p>While in netty 4.x we had different <code>EventLoopGroup</code> / <code>EventLoop</code> implementations for the various different transports (i.e. <code>NioEventLoopGroup</code>, <code>EpollEventLoopGroup</code>....) we changes this in netty 5 to just have one <code>EventLoopGroup</code> implementation which is called <code>MultiThreadEventLoopGroup</code>. This <code>MultiThreadEventLoopGroup</code> takes an <code>IoHandlerFactory</code> which is specific to the transport itself (i.e. <code>NioHandler.newFactory()</code>, <code>EpollHandler.newFactory()</code>....). This change gives a lot of advantages. For example it is easy to extend the <code>MultiThreadEventLoopGroup</code> and so decorate things or add custom metrics etc. This implementation can then be re-used across different transports. This is very similar to what the JDK provides with <code>ThreadPoolExecutor</code> in terms of the possibility of customisations.</p>
-<h2 id="wiki-h2-18">
+<p>While in netty 4.x we had different <code>EventLoopGroup</code> / <code>EventLoop</code> implementations for the various different transports (i.e. <code>NioEventLoopGroup</code>, <code>EpollEventLoopGroup</code>....) we changed this in netty 5 to just have one <code>EventLoopGroup</code> implementation which is called <code>MultiThreadEventLoopGroup</code>. This <code>MultiThreadEventLoopGroup</code> takes an <code>IoHandlerFactory</code> which is specific to the transport itself (i.e. <code>NioHandler.newFactory()</code>, <code>EpollHandler.newFactory()</code>....). This change gives a lot of advantages. For example it is easy to extend the <code>MultiThreadEventLoopGroup</code> and so decorate things or add custom metrics etc. This implementation can then be re-used across different transports. This is very similar to what the JDK provides with <code>ThreadPoolExecutor</code> in terms of the possibility of customisations.</p>
+<h2 id="wiki-h2-22">
 <a id="user-content-rarely-used-codecs-moved-to-netty-contrib" class="anchor" href="#rarely-used-codecs-moved-to-netty-contrib" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Rarely used codecs moved to Netty Contrib</h2>
 <p>To slim the code base down and ease the maintenance burden, the following codecs and handlers have been moved to <a href="https://github.com/netty-contrib">Netty Contrib</a>:</p>
 <ul>
@@ -385,22 +403,26 @@ To perform little-endian reads or writes, use the <code>reverseBytes</code> meth
 <ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 30">Pages 30</a>
 </li></ul></li><li><a href="#wiki-h2-1" title="Package">Package</a>
 </li><li><a href="#wiki-h2-2" title="Buffers">Buffers</a>
-</li><li><a href="#wiki-h2-3" title="Future / Promise">Future / Promise</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="ChannelFuture / ChannelPromise removal">ChannelFuture / ChannelPromise removal</a>
-</li><li><a href="#wiki-h3-5" title="ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal">ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</a>
-</li><li><a href="#wiki-h3-6" title="VoidChannelPromise removal">VoidChannelPromise removal</a>
-</li><li><a href="#wiki-h3-7" title="API changes to Promise and Future">API changes to Promise and Future</a>
-</li></ul></li><li><a href="#wiki-h2-8" title="Channel">Channel</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-9" title="Channel.eventLoop() renamed to Channel.executor()">Channel.eventLoop() renamed to Channel.executor()</a>
-</li><li><a href="#wiki-h3-10" title="Return types changes from ChannelFuture to Future&lt;Void&gt;">Return types changes from ChannelFuture to Future&lt;Void&gt;</a>
-</li></ul></li><li><a href="#wiki-h2-11" title="ChannelPipeline">ChannelPipeline</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-12" title="ChannelPipeline.add*(EventExecutorGroup...) removed">ChannelPipeline.add*(EventExecutorGroup...) removed</a>
-</li><li><a href="#wiki-h3-13" title="Return types changes from ChannelFuture to Future&lt;Void&gt;">Return types changes from ChannelFuture to Future&lt;Void&gt;</a>
-</li></ul></li><li><a href="#wiki-h2-14" title="ChannelHandler">ChannelHandler</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-15" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
-</li><li><a href="#wiki-h3-16" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
-</li></ul></li><li><a href="#wiki-h2-17" title="EventLoopGroup / EventLoop">EventLoopGroup / EventLoop</a>
-</li><li><a href="#wiki-h2-18" title="Rarely used codecs moved to Netty Contrib">Rarely used codecs moved to Netty Contrib</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Enabling">Enabling</a>
+</li><li><a href="#wiki-h3-4" title="Capacity">Capacity</a>
+</li><li><a href="#wiki-h3-5" title="Adaptors">Adaptors</a>
+</li><li><a href="#wiki-h3-6" title="Changes in API">Changes in API</a>
+</li></ul></li><li><a href="#wiki-h2-7" title="Future / Promise">Future / Promise</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-8" title="ChannelFuture / ChannelPromise removal">ChannelFuture / ChannelPromise removal</a>
+</li><li><a href="#wiki-h3-9" title="ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal">ProgressiveFuture / ProgressivePromise and ChannelProgressiveFuture / ChannelProgressivePromise removal</a>
+</li><li><a href="#wiki-h3-10" title="VoidChannelPromise removal">VoidChannelPromise removal</a>
+</li><li><a href="#wiki-h3-11" title="API changes to Promise and Future">API changes to Promise and Future</a>
+</li></ul></li><li><a href="#wiki-h2-12" title="Channel">Channel</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-13" title="Channel.eventLoop() renamed to Channel.executor()">Channel.eventLoop() renamed to Channel.executor()</a>
+</li><li><a href="#wiki-h3-14" title="Return types changes from ChannelFuture to Future&lt;Void&gt;">Return types changes from ChannelFuture to Future&lt;Void&gt;</a>
+</li></ul></li><li><a href="#wiki-h2-15" title="ChannelPipeline">ChannelPipeline</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-16" title="ChannelPipeline.add*(EventExecutorGroup...) removed">ChannelPipeline.add*(EventExecutorGroup...) removed</a>
+</li><li><a href="#wiki-h3-17" title="Return types changes from ChannelFuture to Future&lt;Void&gt;">Return types changes from ChannelFuture to Future&lt;Void&gt;</a>
+</li></ul></li><li><a href="#wiki-h2-18" title="ChannelHandler">ChannelHandler</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-19" title="Simplified handler type hierarchy">Simplified handler type hierarchy</a>
+</li><li><a href="#wiki-h3-20" title="channelRead0() → messageReceived()">channelRead0() → messageReceived()</a>
+</li></ul></li><li><a href="#wiki-h2-21" title="EventLoopGroup / EventLoop">EventLoopGroup / EventLoop</a>
+</li><li><a href="#wiki-h2-22" title="Rarely used codecs moved to Netty Contrib">Rarely used codecs moved to Netty Contrib</a>
 </li></ul>
 </div>
 </div>
@@ -409,7 +431,7 @@ To perform little-endian reads or writes, use the <code>reverseBytes</code> meth
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 17-Mar-2022</small>
+<small>Last retrieved on 08-Apr-2022</small>
 </div>
 </div>
 </div>
