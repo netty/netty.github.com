@@ -269,14 +269,18 @@ on
 <div class="news-content">
 <p>We are happy to announce the second Alpha release of the upcoming netty 5.0.0. This release is another big milestone for us and the community, towards the eventual final release of Netty 5. While it is still a long road to the final release we expect things to become more stable with each release and so make it easier for people to keep up-to-date.</p>
 
-<p>These are the major changes since Alpha 1:
-* All protocols and codecs have been migrated to the new buffer API, <em>except</em> HTTP/2, and the compression codecs. These remaining codecs will be migrated later.
-* Support for <code>ByteBuf</code> has been removed from the transports. Codecs and handlers that still rely on <code>ByteBuf</code> must now have a <code>BufferConversionHandler</code> placed in front of them in the pipeline.
-* <code>ByteBuf</code> and related APIs have been removed.
-* To support the uses of <code>ByteBuf</code> that remain in the code base, Alpha 2 now depends on Netty 4.1.75.Final for its <code>ByteBuf</code> implementation. This dependency is temporary and will be removed once everything has been migrated.
-* Write methods on <code>Buffer</code> will now grow the buffer if more capacity is need.
-* A new <code>SensitiveBufferAllocator</code> has been added, which will zero out the memory on allocation.
-* A number of convenience methods have been added to <code>Buffer</code>.</p>
+<p>These are the major changes since Alpha 1:</p>
+
+<ul>
+<li>All protocols and codecs have been migrated to the new buffer API, <em>except</em> HTTP/2, and the compression codecs. These remaining codecs will be migrated later.</li>
+<li>Support for <code>ByteBuf</code> has been removed from the transports. Codecs and handlers that still rely on <code>ByteBuf</code> must now have a <code>BufferConversionHandler</code> placed in front of them in the pipeline.</li>
+<li><code>ByteBuf</code> and related APIs have been removed.</li>
+<li>To support the uses of <code>ByteBuf</code> that remain in the code base, Alpha 2 now depends on Netty 4.1.75.Final for its <code>ByteBuf</code> implementation. This dependency is temporary and will be removed once everything has been migrated.</li>
+<li>Write methods on <code>Buffer</code> will now grow the buffer if more capacity is need.</li>
+<li>A new <code>SensitiveBufferAllocator</code> has been added, which will zero out the memory on allocation.</li>
+<li>A number of convenience methods have been added to <code>Buffer</code>.</li>
+</ul>
+
 
 <p>To make it easier to experiment with netty 5 while still use 4.1 at the same time, we have put Netty 5 into its own <code>io.netty5</code> package. This allows to have both version co-exist at the same time. As this a new major version we also started to introduce breaking changes where it makes sense. These changes were mostly motivation by lessons learned during the life-time of netty 4.1.x. We really hope you enjoy these changes and if not provide feedback in what we should address :)</p>
 
