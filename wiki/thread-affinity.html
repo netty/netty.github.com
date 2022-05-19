@@ -200,7 +200,7 @@ Developer Guide
 <li>
 <a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-Discord Channel
+Discord Server
 </a>
 </li>
 <li>
@@ -263,14 +263,14 @@ You can improve it by yourself
                 <p>If you're developing low-latency network applications with Netty, you're probably aware of the thing called thread affinity. Thread affinity can be used to force your application threads to run on a particular CPU core or set of CPUs.
 By doing so, you can eliminate threads migration during the operating system scheduling process. Fortunately, there's a java library called <a href="https://github.com/OpenHFT/Java-Thread-Affinity">Java-Thread-Affinity</a> which can be easily integrated with your Netty application.</p>
 <p>First, add the following dependency to your Maven <code>pom.xml</code> file:</p>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;dependency&gt;
     &lt;groupId&gt;net.openhft&lt;/groupId&gt;
     &lt;artifactId&gt;affinity&lt;/artifactId&gt;
     &lt;version&gt;3.0.6&lt;/version&gt;
 &lt;/dependency&gt;"><pre>&lt;<span class="pl-ent">dependency</span>&gt;&#x000A;    &lt;<span class="pl-ent">groupId</span>&gt;net.openhft&lt;/<span class="pl-ent">groupId</span>&gt;&#x000A;    &lt;<span class="pl-ent">artifactId</span>&gt;affinity&lt;/<span class="pl-ent">artifactId</span>&gt;&#x000A;    &lt;<span class="pl-ent">version</span>&gt;3.0.6&lt;/<span class="pl-ent">version</span>&gt;&#x000A;&lt;/<span class="pl-ent">dependency</span>&gt;</pre></div>
 <p>Second, create an AffinityThreadFactory with a particular strategy and pass it to the EventLoopGroup which would contain latency-sensitive threads.
 Here's an example:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='final int acceptorThreads = 1;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='final int acceptorThreads = 1;
 final int workerThreads = 10;
 EventLoopGroup acceptorGroup = new NioEventLoopGroup(acceptorThreads);
 ThreadFactory threadFactory = new AffinityThreadFactory("atf_wrk", AffinityStrategies.DIFFERENT_CORE);
@@ -285,7 +285,7 @@ ServerBootstrap serverBootstrap = new ServerBootstrap().group(acceptorGroup, wor
           </div>
 
 <div class="text-right clearfix">
-<small>Last retrieved on 16-May-2022</small>
+<small>Last retrieved on 19-May-2022</small>
 </div>
 </div>
 

@@ -200,7 +200,7 @@ Developer Guide
 <li>
 <a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-Discord Channel
+Discord Server
 </a>
 </li>
 <li>
@@ -267,10 +267,10 @@ You can improve it by yourself
 <h2 id="wiki-h2-1">
 <a id="user-content-basics-of-reference-counting" class="anchor" href="#basics-of-reference-counting" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Basics of reference counting</h2>
 <p>The initial reference count of a reference-counted object is 1:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ctx.alloc().directBuffer();
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ctx.alloc().directBuffer();
 assert buf.refCnt() == 1;"><pre><span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = <span class="pl-s1">ctx</span>.<span class="pl-en">alloc</span>().<span class="pl-en">directBuffer</span>();&#x000A;<span class="pl-k">assert</span> <span class="pl-s1">buf</span>.<span class="pl-en">refCnt</span>() == <span class="pl-c1">1</span>;</pre></div>
 <p>When you release the reference-counted object, its reference count is decreased by 1.  If the reference count reaches 0, the reference-counted object is deallocated or returned to the object pool it came from:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="assert buf.refCnt() == 1;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="assert buf.refCnt() == 1;
 // release() returns true only if the reference count becomes 0.
 boolean destroyed = buf.release();
 assert destroyed;
@@ -278,7 +278,7 @@ assert buf.refCnt() == 0;"><pre><span class="pl-k">assert</span> <span class="pl
 <h3 id="wiki-h3-2">
 <a id="user-content-dangling-reference" class="anchor" href="#dangling-reference" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Dangling reference</h3>
 <p>Attempting to access the reference-counted object, whose reference count is 0, will trigger an <code>IllegalReferenceCountException</code>:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='assert buf.refCnt() == 0;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='assert buf.refCnt() == 0;
 try {
   buf.writeLong(0xdeadbeef);
   throw new Error("should not reach here");
@@ -288,7 +288,7 @@ try {
 <h3 id="wiki-h3-3">
 <a id="user-content-increasing-the-reference-count" class="anchor" href="#increasing-the-reference-count" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Increasing the reference count</h3>
 <p>A reference count can also be incremented via the <code>retain()</code> operation, as long as it is not yet destroyed:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ctx.alloc().directBuffer();
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ctx.alloc().directBuffer();
 assert buf.refCnt() == 1;
 
 buf.retain();
@@ -305,7 +305,7 @@ assert buf.refCnt() == 1;"><pre><span class="pl-smi">ByteBuf</span> <span class=
 <li>If a component consumes a reference-counted object and knows nothing else will access it anymore (i.e., does not pass along a reference to yet another component), the component should destroy it.</li>
 </ul>
 <p>Here is a simple example:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public ByteBuf a(ByteBuf input) {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public ByteBuf a(ByteBuf input) {
     input.writeByte(42);
     return input;
 }
@@ -406,7 +406,7 @@ public void main() {
 <h3 id="wiki-h3-5">
 <a id="user-content-derived-buffers" class="anchor" href="#derived-buffers" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Derived buffers</h3>
 <p><code>ByteBuf.duplicate()</code>, <code>ByteBuf.slice()</code> and <code>ByteBuf.order(ByteOrder)</code> create a <em>derived</em> buffer which shares the memory region of the parent buffer.  A derived buffer does not have its own reference count, but shares the reference count of the parent buffer.</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf parent = ctx.alloc().directBuffer();
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf parent = ctx.alloc().directBuffer();
 ByteBuf derived = parent.duplicate();
 
 // Creating a derived buffer does not increase the reference count.
@@ -414,7 +414,7 @@ assert parent.refCnt() == 1;
 assert derived.refCnt() == 1;"><pre><span class="pl-smi">ByteBuf</span> <span class="pl-s1">parent</span> = <span class="pl-s1">ctx</span>.<span class="pl-en">alloc</span>().<span class="pl-en">directBuffer</span>();&#x000A;<span class="pl-smi">ByteBuf</span> <span class="pl-s1">derived</span> = <span class="pl-s1">parent</span>.<span class="pl-en">duplicate</span>();&#x000A;&#x000A;<span class="pl-c">// Creating a derived buffer does not increase the reference count.</span>&#x000A;<span class="pl-k">assert</span> <span class="pl-s1">parent</span>.<span class="pl-en">refCnt</span>() == <span class="pl-c1">1</span>;&#x000A;<span class="pl-k">assert</span> <span class="pl-s1">derived</span>.<span class="pl-en">refCnt</span>() == <span class="pl-c1">1</span>;</pre></div>
 <p>In contrast, <code>ByteBuf.copy()</code> and <code>ByteBuf.readBytes(int)</code> are <em>not derived</em> buffers.  The returned <code>ByteBuf</code> is allocated and will need to be released.</p>
 <p>Note that a parent buffer and its derived buffers share the same reference count, and the reference count does not increase when a derived buffer is created.  Therefore, if you are going to pass a derived buffer to an other component of your application, you will have to call <code>retain()</code> on it first.</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf parent = ctx.alloc().directBuffer(512);
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf parent = ctx.alloc().directBuffer(512);
 parent.writeBytes(...);
 
 try {
@@ -442,7 +442,7 @@ public void process(ByteBuf buf) {
 <h3 id="wiki-h3-8">
 <a id="user-content-inbound-messages" class="anchor" href="#inbound-messages" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Inbound messages</h3>
 <p>When an event loop reads data into a <code>ByteBuf</code> and triggers a <code>channelRead()</code> event with it, it is the responsibility of the <code>ChannelHandler</code> in the corresponding pipeline to release the buffer.  Therefore, the handler that consumes the received data should call <code>release()</code> on the data in its <code>channelRead()</code> handler method:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
     ByteBuf buf = (ByteBuf) msg;
     try {
         ...
@@ -451,13 +451,13 @@ public void process(ByteBuf buf) {
     }
 }"><pre><span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-s1">msg</span>) {&#x000A;    <span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = (<span class="pl-smi">ByteBuf</span>) <span class="pl-s1">msg</span>;&#x000A;    <span class="pl-k">try</span> {&#x000A;        ...&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-s1">buf</span>.<span class="pl-en">release</span>();&#x000A;    }&#x000A;}</pre></div>
 <p>As explained in the 'Who destroys?' section of this document, if your handler passes the buffer (or any reference-counted object) to the next handler, you don't need to release it:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
     ByteBuf buf = (ByteBuf) msg;
     ...
     ctx.fireChannelRead(buf);
 }"><pre><span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-s1">msg</span>) {&#x000A;    <span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = (<span class="pl-smi">ByteBuf</span>) <span class="pl-s1">msg</span>;&#x000A;    ...&#x000A;    <span class="pl-s1">ctx</span>.<span class="pl-en">fireChannelRead</span>(<span class="pl-s1">buf</span>);&#x000A;}</pre></div>
 <p>Note that <code>ByteBuf</code> isn't the only reference-counted type in Netty.  If you are dealing with the messages generated by decoders, it is very likely that the message is also reference-counted:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="// Assuming your handler is placed next to `HttpRequestDecoder`
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="// Assuming your handler is placed next to `HttpRequestDecoder`
 public void channelRead(ChannelHandlerContext ctx, Object msg) {
     if (msg instanceof HttpRequest) {
         HttpRequest req = (HttpRequest) msg;
@@ -473,7 +473,7 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) {
     }
 }"><pre><span class="pl-c">// Assuming your handler is placed next to `HttpRequestDecoder`</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-s1">msg</span>) {&#x000A;    <span class="pl-k">if</span> (<span class="pl-s1">msg</span> <span class="pl-k">instanceof</span> <span class="pl-smi">HttpRequest</span>) {&#x000A;        <span class="pl-smi">HttpRequest</span> <span class="pl-s1">req</span> = (<span class="pl-smi">HttpRequest</span>) <span class="pl-s1">msg</span>;&#x000A;        ...&#x000A;    }&#x000A;    <span class="pl-k">if</span> (<span class="pl-s1">msg</span> <span class="pl-k">instanceof</span> <span class="pl-smi">HttpContent</span>) {&#x000A;        <span class="pl-smi">HttpContent</span> <span class="pl-s1">content</span> = (<span class="pl-smi">HttpContent</span>) <span class="pl-s1">msg</span>;&#x000A;        <span class="pl-k">try</span> {&#x000A;            ...&#x000A;        } <span class="pl-k">finally</span> {&#x000A;            <span class="pl-s1">content</span>.<span class="pl-en">release</span>();&#x000A;        }&#x000A;    }&#x000A;}</pre></div>
 <p>If you are in doubt or you want to simplify releasing the messages, you can use <code>ReferenceCountUtil.release()</code>:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="public void channelRead(ChannelHandlerContext ctx, Object msg) {
     try {
         ...
     } finally {
@@ -484,7 +484,7 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) {
 <h3 id="wiki-h3-9">
 <a id="user-content-outbound-messages" class="anchor" href="#outbound-messages" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Outbound messages</h3>
 <p>Unlike inbound messages, outbound messages are created by your application, and it is the responsibility of Netty to release these after writing them out to the wire.  However, the handlers that intercept your write requests should make sure to release any intermediary objects properly. (e.g. encoders)</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='// Simple-pass through
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='// Simple-pass through
 public void write(ChannelHandlerContext ctx, Object message, ChannelPromise promise) {
     System.err.println("Writing: " + message);
     ctx.write(message, promise);
@@ -515,7 +515,7 @@ public void write(ChannelHandlerContext ctx, Object message, ChannelPromise prom
 <p><code>LEAK: ByteBuf.release() was not called before it's garbage-collected. Enable advanced leak reporting to find out where the leak occurred. To enable advanced leak reporting, specify the JVM option '-Dio.netty.leakDetectionLevel=advanced' or call ResourceLeakDetector.setLevel()</code></p>
 </blockquote>
 <p>Relaunch your application with the JVM option mentioned above and  you will see the recent locations of your application where the leaked buffer was accessed.  The following output shows a leak from our unit test (<code>XmlFrameDecoderTest.testDecodeWithXml()</code>):</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="Running io.netty.handler.codec.xml.XmlFrameDecoderTest
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="Running io.netty.handler.codec.xml.XmlFrameDecoderTest
 15:03:36.886 [main] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.
 Recent access records: 1
 #1:
@@ -541,9 +541,9 @@ Created at:
 	io.netty.channel.embedded.EmbeddedChannel.writeInbound(EmbeddedChannel.java:176)
 	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithXml(XmlFrameDecoderTest.java:147)
 	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithTwoMessages(XmlFrameDecoderTest.java:133)
-	..."><pre class="notranslate"><code class="notranslate">Running io.netty.handler.codec.xml.XmlFrameDecoderTest&#x000A;15:03:36.886 [main] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.&#x000A;Recent access records: 1&#x000A;#1:&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.toString(AdvancedLeakAwareByteBuf.java:697)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithXml(XmlFrameDecoderTest.java:157)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithTwoMessages(XmlFrameDecoderTest.java:133)&#x000A;	...&#x000A;&#x000A;Created at:&#x000A;	io.netty.buffer.UnpooledByteBufAllocator.newDirectBuffer(UnpooledByteBufAllocator.java:55)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:155)&#x000A;	io.netty.buffer.UnpooledUnsafeDirectByteBuf.copy(UnpooledUnsafeDirectByteBuf.java:465)&#x000A;	io.netty.buffer.WrappedByteBuf.copy(WrappedByteBuf.java:697)&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.copy(AdvancedLeakAwareByteBuf.java:656)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoder.extractFrame(XmlFrameDecoder.java:198)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoder.decode(XmlFrameDecoder.java:174)&#x000A;	io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:227)&#x000A;	io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:140)&#x000A;	io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)&#x000A;	io.netty.channel.embedded.EmbeddedEventLoop.invokeChannelRead(EmbeddedEventLoop.java:142)&#x000A;	io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:317)&#x000A;	io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)&#x000A;	io.netty.channel.embedded.EmbeddedChannel.writeInbound(EmbeddedChannel.java:176)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithXml(XmlFrameDecoderTest.java:147)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithTwoMessages(XmlFrameDecoderTest.java:133)&#x000A;	...&#x000A;</code></pre></div>
+	..."><pre class="notranslate"><code>Running io.netty.handler.codec.xml.XmlFrameDecoderTest&#x000A;15:03:36.886 [main] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.&#x000A;Recent access records: 1&#x000A;#1:&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.toString(AdvancedLeakAwareByteBuf.java:697)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithXml(XmlFrameDecoderTest.java:157)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithTwoMessages(XmlFrameDecoderTest.java:133)&#x000A;	...&#x000A;&#x000A;Created at:&#x000A;	io.netty.buffer.UnpooledByteBufAllocator.newDirectBuffer(UnpooledByteBufAllocator.java:55)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:155)&#x000A;	io.netty.buffer.UnpooledUnsafeDirectByteBuf.copy(UnpooledUnsafeDirectByteBuf.java:465)&#x000A;	io.netty.buffer.WrappedByteBuf.copy(WrappedByteBuf.java:697)&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.copy(AdvancedLeakAwareByteBuf.java:656)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoder.extractFrame(XmlFrameDecoder.java:198)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoder.decode(XmlFrameDecoder.java:174)&#x000A;	io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:227)&#x000A;	io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:140)&#x000A;	io.netty.channel.ChannelHandlerInvokerUtil.invokeChannelReadNow(ChannelHandlerInvokerUtil.java:74)&#x000A;	io.netty.channel.embedded.EmbeddedEventLoop.invokeChannelRead(EmbeddedEventLoop.java:142)&#x000A;	io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:317)&#x000A;	io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)&#x000A;	io.netty.channel.embedded.EmbeddedChannel.writeInbound(EmbeddedChannel.java:176)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithXml(XmlFrameDecoderTest.java:147)&#x000A;	io.netty.handler.codec.xml.XmlFrameDecoderTest.testDecodeWithTwoMessages(XmlFrameDecoderTest.java:133)&#x000A;	...&#x000A;</code></pre></div>
 <p>If you use Netty 5 or above, an additional information is provided to help you find which handler handled the leaked buffer lastly.  The following example shows that the leaked buffer was handled by the handler whose name is <code>EchoServerHandler#0</code> and then garbage-collected, which means it is likely that <code>EchoServerHandler#0</code> forgot to release the buffer:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="12:05:24.374 [nioEventLoop-1-1] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="12:05:24.374 [nioEventLoop-1-1] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.
 Recent access records: 2
 #2:
 	Hint: 'EchoServerHandler#0' will handle the message from this point.
@@ -574,7 +574,7 @@ Created at:
 	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)
 	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)
 	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)
-	java.lang.Thread.run(Thread.java:744)"><pre class="notranslate"><code class="notranslate">12:05:24.374 [nioEventLoop-1-1] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.&#x000A;Recent access records: 2&#x000A;#2:&#x000A;	Hint: 'EchoServerHandler#0' will handle the message from this point.&#x000A;	io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:329)&#x000A;	io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:133)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;#1:&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.writeBytes(AdvancedLeakAwareByteBuf.java:589)&#x000A;	io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:208)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;Created at:&#x000A;	io.netty.buffer.UnpooledByteBufAllocator.newDirectBuffer(UnpooledByteBufAllocator.java:55)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:155)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:146)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:107)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;</code></pre></div>
+	java.lang.Thread.run(Thread.java:744)"><pre class="notranslate"><code>12:05:24.374 [nioEventLoop-1-1] ERROR io.netty.util.ResourceLeakDetector - LEAK: ByteBuf.release() was not called before it's garbage-collected.&#x000A;Recent access records: 2&#x000A;#2:&#x000A;	Hint: 'EchoServerHandler#0' will handle the message from this point.&#x000A;	io.netty.channel.DefaultChannelHandlerContext.fireChannelRead(DefaultChannelHandlerContext.java:329)&#x000A;	io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:846)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:133)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;#1:&#x000A;	io.netty.buffer.AdvancedLeakAwareByteBuf.writeBytes(AdvancedLeakAwareByteBuf.java:589)&#x000A;	io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:208)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:125)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;Created at:&#x000A;	io.netty.buffer.UnpooledByteBufAllocator.newDirectBuffer(UnpooledByteBufAllocator.java:55)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:155)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:146)&#x000A;	io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:107)&#x000A;	io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:123)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:485)&#x000A;	io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:452)&#x000A;	io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:346)&#x000A;	io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:794)&#x000A;	java.lang.Thread.run(Thread.java:744)&#x000A;</code></pre></div>
 <h3 id="wiki-h3-11">
 <a id="user-content-leak-detection-levels" class="anchor" href="#leak-detection-levels" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Leak detection levels</h3>
 <p>There are currently 4 levels of leak detection:</p>
@@ -589,7 +589,7 @@ Created at:
 <code>PARANOID</code> - Same with <code>ADVANCED</code> except that it's for every single buffer.  Useful for automated testing phase. You could fail the build if the build output contains '<code>LEAK: </code>'.</li>
 </ul>
 <p>You can specify the leak detection level as a JVM option <code>-Dio.netty.leakDetection.level</code></p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="java -Dio.netty.leakDetection.level=advanced ..."><pre class="notranslate"><code class="notranslate">java -Dio.netty.leakDetection.level=advanced ...&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="java -Dio.netty.leakDetection.level=advanced ..."><pre class="notranslate"><code>java -Dio.netty.leakDetection.level=advanced ...&#x000A;</code></pre></div>
 <p><strong>NOTE</strong>: This property used to be called <code>io.netty.leakDetectionLevel</code>.</p>
 <h3 id="wiki-h3-12">
 <a id="user-content-best-practices-to-avoid-leaks" class="anchor" href="#best-practices-to-avoid-leaks" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Best practices to avoid leaks</h3>
@@ -602,7 +602,7 @@ Created at:
 <h3 id="wiki-h3-13">
 <a id="user-content-fixing-leaks-in-unit-tests" class="anchor" href="#fixing-leaks-in-unit-tests" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Fixing leaks in unit tests</h3>
 <p>It is very easy to forget to release a buffer or a message in a unit test.  It will generate a leak warning, but it does not necessarily mean that your application has a leak.  Instead of wrapping your unit tests with <code>try-finally</code> blocks to release all buffers, you can use <code>ReferenceCountUtil.releaseLater()</code> utility method:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="import static io.netty.util.ReferenceCountUtil.*;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="import static io.netty.util.ReferenceCountUtil.*;
 
 @Test
 public void testSomething() throws Exception {
@@ -647,7 +647,7 @@ public void testSomething() throws Exception {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-May-2022</small>
+<small>Last retrieved on 19-May-2022</small>
 </div>
 </div>
 </div>

@@ -200,7 +200,7 @@ Developer Guide
 <li>
 <a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-Discord Channel
+Discord Server
 </a>
 </li>
 <li>
@@ -269,7 +269,7 @@ You can improve it by yourself
 <h3 id="wiki-h3-2">
 <a id="user-content-user-friendliness" class="anchor" href="#user-friendliness" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>User-friendliness</h3>
 <p>Have you ever forgotten to call <code>java.nio.ByteBuffer.flip()</code> and wondered why the buffer does not contain anything?  It never happens in <code>ByteBuf</code> because it has two indexes, one for reads and one for writes:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ...;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBuf buf = ...;
 buf.writeUnsignedInt(42);
 assertThat(buf.readUnsignedInt(), is(42));"><pre><span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = ...;&#x000A;<span class="pl-s1">buf</span>.<span class="pl-en">writeUnsignedInt</span>(<span class="pl-c1">42</span>);&#x000A;<span class="pl-en">assertThat</span>(<span class="pl-s1">buf</span>.<span class="pl-en">readUnsignedInt</span>(), <span class="pl-en">is</span>(<span class="pl-c1">42</span>));</pre></div>
 <p>It has a richer set of access methods to more easily access a buffer's contents. For example, it has accessor methods for signed and unsigned integers, searches, and strings.</p>
@@ -282,7 +282,7 @@ assertThat(buf.readUnsignedInt(), is(42));"><pre><span class="pl-smi">ByteBuf</s
 <p>To be reclaimed, <code>java.nio.ByteBuffer</code> relies on the JVM garbage collector.  It works OK for heap buffers, but not direct buffers.  By design, direct buffers are expected to live a long time. Thus, allocating many short-lived direct NIO buffers often causes an <code>OutOfMemoryError</code>.  Also, deallocating a direct buffer explicitly using the (hidden, proprietary) API isn't very fast.</p>
 <p>A <code>ByteBuf</code>'s life cycle is bound to its reference count. When its count goes to zero, its underlying memory region (<code>byte[]</code> or direct buffer) is explicitly dereferenced, deallocated, or returned to the pool.</p>
 <p>Netty also provides a solid buffer pool implementation that does not waste CPU cycles or memory bandwidth with zeroing its buffer:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBufAllocator alloc = PooledByteBufAllocator.DEFAULT;
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="ByteBufAllocator alloc = PooledByteBufAllocator.DEFAULT;
 ByteBuf buf = alloc.directBuffer(1024);
 ...
 buf.release(); // The direct buffer is returned to the pool."><pre><span class="pl-smi">ByteBufAllocator</span> <span class="pl-s1">alloc</span> = <span class="pl-smi">PooledByteBufAllocator</span>.<span class="pl-c1">DEFAULT</span>;&#x000A;<span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = <span class="pl-s1">alloc</span>.<span class="pl-en">directBuffer</span>(<span class="pl-c1">1024</span>);&#x000A;...&#x000A;<span class="pl-s1">buf</span>.<span class="pl-en">release</span>(); <span class="pl-c">// The direct buffer is returned to the pool.</span></pre></div>
@@ -293,7 +293,7 @@ buf.release(); // The direct buffer is returned to the pool."><pre><span class="
 <p>Performing a task asynchronously - scheduling a task and getting notified on completion - is common, and should be easy. When <code>java.util.concurrent.Future</code> appeared first, our excitement didn't last long.  We had to <em>block</em> to get notified on completion.  In asynchronous programming, you specify <em>what to do</em> on completion rather than wait for the outcome.</p>
 <p><code>io.netty.concurrent.Future</code> is a subtype of JDK <code>Future</code>.  It lets you add a listener which will be invoked by an event loop when the future is fulfilled.</p>
 <p><code>io.netty.util.concurrent.EventExecutor</code> is a single-threaded event loop that extends <code>java.util.concurrent.ScheduledExecutorService</code>. You can build your own event loop or use it as a feature-rich task executor.  Usually, you create multiple <code>EventExecutor</code>s to take advantage of parallelism:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="EventExecutorGroup group = new DefaultEventExecutorGroup(4); // 4 threads
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="EventExecutorGroup group = new DefaultEventExecutorGroup(4); // 4 threads
 Future&lt;?&gt; f = group.submit(new Runnable() { ... });
 f.addListener(new FutureListener&lt;?&gt; {
   public void operationComplete(Future&lt;?&gt; f) {
@@ -304,7 +304,7 @@ f.addListener(new FutureListener&lt;?&gt; {
 <h3 id="wiki-h3-6">
 <a id="user-content-the-global-event-loop" class="anchor" href="#the-global-event-loop" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>The global event loop</h3>
 <p>Sometimes you want a unique executor that is always available and that doesn't need life cycle management. <code>GlobalEventExecutor</code> is a single-threaded singleton <code>EventExecutor</code> which starts its thread lazily and stops when there have been no pending tasks for a while.</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content="GlobalEventExecutor.INSTANCE.execute(new Runnable() { ... });"><pre><span class="pl-smi">GlobalEventExecutor</span>.<span class="pl-c1">INSTANCE</span>.<span class="pl-en">execute</span>(<span class="pl-k">new</span> <span class="pl-smi">Runnable</span>() { ... });</pre></div>
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="GlobalEventExecutor.INSTANCE.execute(new Runnable() { ... });"><pre><span class="pl-smi">GlobalEventExecutor</span>.<span class="pl-c1">INSTANCE</span>.<span class="pl-en">execute</span>(<span class="pl-k">new</span> <span class="pl-smi">Runnable</span>() { ... });</pre></div>
 <p>Internally, Netty uses it to notify the termination of other <code>EventExecutor</code>s.</p>
 <h2 id="wiki-h2-7">
 <a id="user-content-platform-dependent-operations" class="anchor" href="#platform-dependent-operations" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Platform-dependent operations</h2>
@@ -316,7 +316,7 @@ f.addListener(new FutureListener&lt;?&gt; {
 <h3 id="wiki-h3-9">
 <a id="user-content-thread-local-object-pool" class="anchor" href="#thread-local-object-pool" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Thread-local object pool</h3>
 <p>If your thread is long-running and you allocate many short-living objects of same type, you can use a thread-local object pool, called <code>Recycler</code>. It reduces the amount of the garbage you produce, saving memory bandwidth consumption and load on the garbage collector.</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='public class MyObject {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='public class MyObject {
 
   private static final Recycler&lt;MyObject&gt; RECYCLER = new Recycler&lt;MyObject&gt;() {
     protected MyObject newObject(Recycler.Handle&lt;MyObject&gt; handle) {
@@ -352,7 +352,7 @@ obj.recycle();'><pre><span class="pl-k">public</span> <span class="pl-k">class</
 <h3 id="wiki-h3-10">
 <a id="user-content-user-extensible-enum" class="anchor" href="#user-extensible-enum" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>User-extensible enum</h3>
 <p><code>enum</code> is great for a static set of constants, but you cannot extend one.  When you need to add more constants in runtime or allow third parties to define additional constants, use the extensible <code>io.netty.util.ConstantPool</code> instead:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='public final class Foo extends AbstractConstant&lt;Foo&gt; {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='public final class Foo extends AbstractConstant&lt;Foo&gt; {
   Foo(int id, String name) {
     super(id, name);
   }
@@ -383,7 +383,7 @@ private final class YourConstants {
 <h3 id="wiki-h3-11">
 <a id="user-content-attribute-map" class="anchor" href="#attribute-map" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Attribute map</h3>
 <p>Use <code>io.netty.util.AttributeMap</code> interface for a fast, type-safe, thread-safe collection of key-value pairs:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='public class Foo extends DefaultAttributeMap {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='public class Foo extends DefaultAttributeMap {
   ...
 }
 
@@ -482,7 +482,7 @@ for the Efficient Implementation of a Timer Facility," Varghese and Lauck)</a>.<
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-May-2022</small>
+<small>Last retrieved on 19-May-2022</small>
 </div>
 </div>
 </div>

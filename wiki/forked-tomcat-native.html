@@ -200,7 +200,7 @@ Developer Guide
 <li>
 <a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-Discord Channel
+Discord Server
 </a>
 </li>
 <li>
@@ -317,7 +317,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 <h2 id="wiki-h2-3">
 <a id="user-content-how-to-download-netty-tcnative-boringssl-uber-jar" class="anchor" href="#how-to-download-netty-tcnative-boringssl-uber-jar" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative-boringssl "uber" jar</h2>
 <p>This is the simplest dependency to use, since it doesn't require a platform-specific classifier:</p>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;project&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;project&gt;
   ...
   &lt;dependencies&gt;
     ...
@@ -333,7 +333,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 <h2 id="wiki-h2-4">
 <a id="user-content-how-to-download-netty-tcnative-boringssl-static" class="anchor" href="#how-to-download-netty-tcnative-boringssl-static" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative-boringssl-static</h2>
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and the <code>netty-tcnative-boringssl-static</code> dependency appropriate for your platform:</p>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;project&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="&lt;project&gt;
   ...
   &lt;dependencies&gt;
     ...
@@ -385,7 +385,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 <h2 id="wiki-h2-5">
 <a id="user-content-how-to-download-netty-tcnative" class="anchor" href="#how-to-download-netty-tcnative" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative</h2>
 <p>In your application's <code>pom.xml</code>, add the <code>os-maven-plugin</code> extension and <code>netty-tcnative</code> dependency:</p>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;project&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;project&gt;
   &lt;properties&gt;
     &lt;!-- Configure the os-maven-plugin extension to expand the classifier on --&gt;
     &lt;!-- Fedora-"like" systems. --&gt;
@@ -444,7 +444,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 </tbody>
 </table>
 <p>Using <code>classifierWithLikes</code> will configure the <code>os-maven-plugin</code> to alter the generated <code>os.detected.classifier</code> property. If your build contains other dependencies that rely on <code>os.detected.classifier</code>, you can manually create the netty-tcnative classifier with the <code>antrun</code> plugin:</p>
-<div class="highlight highlight-text-xml position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;project&gt;
+<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;project&gt;
   &lt;dependencies&gt;
     &lt;dependency&gt;
       &lt;groupId&gt;io.netty&lt;/groupId&gt;
@@ -493,7 +493,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 <h2 id="wiki-h2-6">
 <a id="user-content-how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to use</h2>
 <p>To use the OpenSSL-based <code>SSLEngine</code> implementation, use <code>io.netty.handler.ssl.SslContext</code> class:</p>
-<div class="highlight highlight-source-java position-relative overflow-auto" data-snippet-clipboard-copy-content='public static void main(String[] args) throws Exception {
+<div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='public static void main(String[] args) throws Exception {
   File certificate = new File("certificate");
   File privateKey = new File("privateKey");
   SslContext sslContext =
@@ -636,7 +636,7 @@ from the <code>chromium-stable</code> branch at build time from the <a href="htt
 </tbody>
 </table>
 <p>Build the package and install it into your local Maven repository:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
 cd netty-tcnative
 # To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
 git checkout netty-tcnative-[version]
@@ -649,13 +649,13 @@ git checkout [branch]
 <h3 id="wiki-h3-18">
 <a id="user-content-building-on-mac-os-x" class="anchor" href="#building-on-mac-os-x" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Building on Mac OS X</h3>
 <p>First of you need to install <a href="https://itunes.apple.com/de/app/xcode/id497799835?mt=12" rel="nofollow">Xcode</a>. After this make sure you install the command line tools as well:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="xcode-select --install"><pre>xcode-select --install</pre></div>
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="xcode-select --install"><pre>xcode-select --install</pre></div>
 <p>Clone the <code>netty-tcnative</code> repository and use <a href="http://brew.sh/" rel="nofollow">Homebrew</a> to install the required packages:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
 cd netty-tcnative
 brew bundle"><pre>git clone https://github.com/netty/netty-tcnative.git&#x000A;<span class="pl-c1">cd</span> netty-tcnative&#x000A;brew bundle</pre></div>
 <p>Build the package and install it into your local Maven repository:</p>
-<div class="highlight highlight-source-shell position-relative overflow-auto" data-snippet-clipboard-copy-content="# To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
+<div class="highlight highlight-source-shell notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="# To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
 git checkout netty-tcnative-[version]
 # To build a snapshot: (e.g. 2.0.0.Final)
 git checkout [branch]
@@ -727,9 +727,9 @@ git checkout [branch]
 </li>
 </ul>
 <p>Now, start the command prompt (<code>cmd.exe</code>) and load the environment variables required for Visual C++:</p>
-<div class="highlight highlight-source-batchfile position-relative overflow-auto" data-snippet-clipboard-copy-content='"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86_amd64'><pre><span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat<span class="pl-pds">"</span></span> x86_amd64</pre></div>
+<div class="highlight highlight-source-batchfile notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='"C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat" x86_amd64'><pre><span class="pl-s"><span class="pl-pds">"</span>C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\vcvarsall.bat<span class="pl-pds">"</span></span> x86_amd64</pre></div>
 <p>Clone <code>netty-tcnative</code> and build it:</p>
-<div class="highlight highlight-source-batchfile position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
+<div class="highlight highlight-source-batchfile notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone https://github.com/netty/netty-tcnative.git
 cd netty-tcnative
 REM To build a specific version: (e.g. netty-tcnative-2.0.0.Final)
 git checkout netty-tcnative-[version]
@@ -739,8 +739,8 @@ mvnw clean install"><pre>git clone https://github.com/netty/netty-tcnative.git&#
 <h2 id="wiki-h2-20">
 <a id="user-content-creating-a-new-fork" class="anchor" href="#creating-a-new-fork" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Creating a new fork</h2>
 <p>Checking out the branch <code>bootstrap</code> and running the <code>new-fork</code> script with the upstream tcnative version will bring you to a new fully mavenized branch whose name is identical to the upstream tcnative version.  For example:</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git checkout bootstrap
-$ ./new-fork 1.1.29 1"><pre class="notranslate"><code class="notranslate">$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre></div>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="$ git checkout bootstrap
+$ ./new-fork 1.1.29 1"><pre class="notranslate"><code>$ git checkout bootstrap&#x000A;$ ./new-fork 1.1.29 1&#x000A;</code></pre></div>
 <p>will create a new branch called <code>1.1.29</code>, which contains a mavenized fork of <code>tcnative-1.1.29</code>.  Please note that the fork does not contain any patches that will change the main source code of <code>tcnative</code>.  You will probably want to cherry-pick some commits from other branches that were patched already.</p>
 
               </div>
@@ -780,7 +780,7 @@ $ ./new-fork 1.1.29 1"><pre class="notranslate"><code class="notranslate">$ git 
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-May-2022</small>
+<small>Last retrieved on 19-May-2022</small>
 </div>
 </div>
 </div>

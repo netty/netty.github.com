@@ -200,7 +200,7 @@ Developer Guide
 <li>
 <a href="https://discord.gg/GkGzzdQM5d">
 <i class="fa fa-comment"></i>
-Discord Channel
+Discord Server
 </a>
 </li>
 <li>
@@ -266,7 +266,7 @@ You can improve it by yourself
 <a id="user-content-this-page-needs-work" class="anchor" href="#this-page-needs-work" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>This page needs work!</h2>
 <p>Please read <a href="http://netty.io/3.8/guide/" rel="nofollow">this</a> until the user guide is moved to the wiki.</p>
 <p>There is a bug in section <a href="http://netty.io/3.8/guide/#start.9" rel="nofollow">1.6 Writing a Time Client</a>, the TimeClientHandler.java should transfer received signed int to "unsigned int".</p>
-<div class="snippet-clipboard-content position-relative overflow-auto" data-snippet-clipboard-copy-content="     @Override
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="     @Override
          public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {
          ChannelBuffer buf = (ChannelBuffer) e.getMessage();
          long currentTimeMillis = buf.readInt();
@@ -275,7 +275,7 @@ You can improve it by yourself
          currentTimeMillis = (currentTimeMillis - 2208988800L) * 1000L;
          System.out.println(new Date(currentTimeMillis));
          e.getChannel().close();
-     }"><pre class="notranslate"><code class="notranslate">     @Override&#x000A;         public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {&#x000A;         ChannelBuffer buf = (ChannelBuffer) e.getMessage();&#x000A;         long currentTimeMillis = buf.readInt();&#x000A;         currentTimeMillis = currentTimeMillis &gt;= 0 ? currentTimeMillis : &#x000A;        	 currentTimeMillis &amp; 0x0FFFFFFFFL;&#x000A;         currentTimeMillis = (currentTimeMillis - 2208988800L) * 1000L;&#x000A;         System.out.println(new Date(currentTimeMillis));&#x000A;         e.getChannel().close();&#x000A;     }&#x000A;</code></pre></div>
+     }"><pre class="notranslate"><code>     @Override&#x000A;         public void messageReceived(ChannelHandlerContext ctx, MessageEvent e) {&#x000A;         ChannelBuffer buf = (ChannelBuffer) e.getMessage();&#x000A;         long currentTimeMillis = buf.readInt();&#x000A;         currentTimeMillis = currentTimeMillis &gt;= 0 ? currentTimeMillis : &#x000A;        	 currentTimeMillis &amp; 0x0FFFFFFFFL;&#x000A;         currentTimeMillis = (currentTimeMillis - 2208988800L) * 1000L;&#x000A;         System.out.println(new Date(currentTimeMillis));&#x000A;         e.getChannel().close();&#x000A;     }&#x000A;</code></pre></div>
 
               </div>
 
@@ -295,7 +295,7 @@ You can improve it by yourself
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-May-2022</small>
+<small>Last retrieved on 19-May-2022</small>
 </div>
 </div>
 </div>
