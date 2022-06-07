@@ -277,7 +277,7 @@ on
 <li><code>ByteBuf</code> and related APIs have been removed.</li>
 <li>To support the uses of <code>ByteBuf</code> that remain in the code base, Alpha 2 now depends on Netty 4.1.75.Final for its <code>ByteBuf</code> implementation. This dependency is temporary and will be removed once everything has been migrated.</li>
 <li>Write methods on <code>Buffer</code> will now grow the buffer if more capacity is need.</li>
-<li>A new <code>SensitiveBufferAllocator</code> has been added, which will zero out the memory on allocation.</li>
+<li>A new <code>SensitiveBufferAllocator</code> has been added, which will zero out the memory when buffers are closed.</li>
 <li>A number of convenience methods have been added to <code>Buffer</code>.</li>
 </ul>
 
