@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2022/07/22/5-0-0-Alpha4.html">
+<a href="../news/2022/08/26/4-1-80-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -68,10 +68,10 @@ Downloads
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.79.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.80.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.79.Final
-<small>&dash; 11-Jul-2022</small>
+4.1.80.Final
+<small>&dash; 26-Aug-2022</small>
 </a>
 </li>
 <li>
@@ -283,7 +283,7 @@ You can improve it by yourself
 <tbody>
 <tr>
 <td>netty-tcnative-{os_arch}</td>
-<td>This is the "default" artifact which is dynamically linked to both <a href="https://apr.apache.org/" rel="nofollow">libapr-1</a> and <a href="https://www.openssl.org/" rel="nofollow">OpenSSL</a>. To use this artifact, your system must have both libapr-1 and OpenSSL installed and configured. This artifact is useful for production environments where the site administrator is free to upgrade OpenSSL without having to rebuild the application.</td>
+<td>This is the "default" artifact which is dynamically linked to both <a href="https://apr.apache.org/" rel="nofollow">libapr-1</a> and <a href="https://www.openssl.org/" rel="nofollow">OpenSSL</a>. To use this artifact, your system must have both libapr-1 and OpenSSL installed and configured. This artifact is useful for production environments where the site administrator is free to upgrade OpenSSL without having to rebuild the application. This version isn't supported on Windows, unless you make and install your own APR and OpenSSL builds.</td>
 <td>yes</td>
 </tr>
 <tr>
@@ -311,9 +311,12 @@ You can improve it by yourself
 <h2 id="wiki-h2-2">
 <a id="user-content-gradle-and-bazel" class="anchor" href="#gradle-and-bazel" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Gradle and Bazel</h2>
 <p>The maven packaging changed a bit in version <code>2.0.49.Final</code>.
-The changes were fine for Maven users, but causes some trouble for Gradle and Bazel users.
-For Gradle, the solution is to explicitly declare the <code>tcnative</code> dependencies with classifiers.
-For Bazel, the solution is to use a Bazel version that contain this fix: <a href="https://github.com/bazelbuild/rules_jvm_external/pull/687">https://github.com/bazelbuild/rules_jvm_external/pull/687</a></p>
+The changes were fine for Maven users, but causes some trouble for Gradle and Bazel users.</p>
+<ul>
+<li>For Gradle, the solution is to explicitly declare the <code>tcnative</code> dependencies <em>with classifiers</em>.</li>
+<li>For Bazel, the solution is to use a Bazel version that contain this fix: <a href="https://github.com/bazelbuild/rules_jvm_external/pull/687">https://github.com/bazelbuild/rules_jvm_external/pull/687</a>
+</li>
+</ul>
 <h2 id="wiki-h2-3">
 <a id="user-content-how-to-download-netty-tcnative-boringssl-uber-jar" class="anchor" href="#how-to-download-netty-tcnative-boringssl-uber-jar" aria-hidden="true"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>How to download netty-tcnative-boringssl "uber" jar</h2>
 <p>This is the simplest dependency to use, since it doesn't require a platform-specific classifier:</p>
@@ -427,7 +430,7 @@ For Bazel, the solution is to use a Bazel version that contain this fix: <a href
 <tbody>
 <tr>
 <td>windows-x86_64</td>
-<td>Windows distribution</td>
+<td>Windows distribution (we recommend using boringssl instead; see below for complications)</td>
 </tr>
 <tr>
 <td>osx-x86_64</td>
@@ -780,7 +783,7 @@ $ ./new-fork 1.1.29 1"><pre class="notranslate"><code>$ git checkout bootstrap&#
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 22-Jul-2022</small>
+<small>Last retrieved on 26-Aug-2022</small>
 </div>
 </div>
 </div>
