@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2022/09/13/4-1-82-Final.html">
+<a href="../news/2022/10/11/4-1-83-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -61,17 +61,17 @@ Downloads
 </a>
 <ul class="dropdown-menu">
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha4.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha5.tar.gz">
 <i class="fa fa-cloud-download"></i>
-5.0.0.Alpha4
-<small>&dash; 22-Jul-2022</small>
+5.0.0.Alpha5
+<small>&dash; 28-Sep-2022</small>
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.82.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.83.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.82.Final
-<small>&dash; 13-Sep-2022</small>
+4.1.83.Final
+<small>&dash; 11-Oct-2022</small>
 </a>
 </li>
 <li>
@@ -280,7 +280,8 @@ You can improve it by yourself
 <p>we decided to support Android (4.0 or above) officially.</p>
 <p>However, we do not have an automated testsuite for Android yet.  If you find any issues with Android, please feel free to <a href="https://github.com/netty/netty/issues">file an issue</a>.  Please also consider contributing to the project to make Android tests a part of the build process.</p>
 <h3 id="wiki-h3-4">
-<a id="user-content-channelhandlercontextattr--channelattr" class="anchor" aria-hidden="true" href="#channelhandlercontextattr--channelattr"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
+<a id="user-content-channelhandlercontextattr--channelattr" class="anchor" aria-hidden="true" href="#channelhandlercontextattr--channelattr"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+<code>ChannelHandlerContext.attr(..)</code> == <code>Channel.attr(..)</code>
 </h3>
 <p>Both <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> implement the interface <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> to enable a user to attach one or more user-defined attributes to them.  What sometimes made a user confused was that a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> and a <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandlerContext.html" rel="nofollow"><code>ChannelHandlerContext</code></a> had its own storage for the user-defined attributes.  For example, even if you put an attribute 'KEY_X' via <code>Channel.attr(KEY_X).set(valueX)</code>, you will never find it via <code>ChannelHandlerContext.attr(KEY_X).get()</code> and vice versa.  This behavior is not only confusing but also is waste of memory.</p>
 <p>To address this issue, we decided to keep only one map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> internally.  <a href="http://netty.io/4.1/api/io/netty/util/AttributeMap.html" rel="nofollow"><code>AttributeMap</code></a> always uses <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as its key. <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> ensures uniqueness between each key, and thus there's no point of having more than one attribute map per <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a>.  As long as a user defines its own <a href="http://netty.io/4.1/api/io/netty/util/AttributeKey.html" rel="nofollow"><code>AttributeKey</code></a> as a private static final field of his or her <a href="http://netty.io/4.1/api/io/netty/channel/ChannelHandler.html" rel="nofollow"><code>ChannelHandler</code></a>, there will be no risk of duplicate keys.</p>
@@ -293,7 +294,8 @@ You can improve it by yourself
 <p>Previously, it was not easy to find where the buffer leak occurred, and the leak warning was not very helpful.  We now have an advanced leak reporting mechanism which can be enabled at the cost of increased overhead.</p>
 <p>See <a class="internal present" href="reference-counted-objects.html">Reference counted objects</a> for more information.  This feature also has been backported to 4.0.14.Final due to its importance.</p>
 <h3 id="wiki-h3-7">
-<a id="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" aria-hidden="true" href="#pooledbytebufallocator-as-the-default-allocator"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>PooledByteBufAllocator</code> as the default allocator</h3>
+<a id="user-content-pooledbytebufallocator-as-the-default-allocator" class="anchor" aria-hidden="true" href="#pooledbytebufallocator-as-the-default-allocator"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+<code>PooledByteBufAllocator</code> as the default allocator</h3>
 <p>In 4.x, <code>UnpooledByteBufAllocator</code> was the default allocator in spite of its limitation.  Now that <code>PooledByteBufAllocator</code> has been in the wild for a while and we have advanced buffer leak tracking mechanism, it is time to make it a new default.</p>
 <h3 id="wiki-h3-8">
 <a id="user-content-globally-unique-channel-id" class="anchor" aria-hidden="true" href="#globally-unique-channel-id"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>Globally unique channel ID</h3>
@@ -308,7 +310,8 @@ You can improve it by yourself
 </ul>
 <p>The ID of a <a href="http://netty.io/4.1/api/io/netty/channel/Channel.html" rel="nofollow"><code>Channel</code></a> can be obtained using the <code>Channel.id()</code> method.</p>
 <h3 id="wiki-h3-9">
-<a id="user-content-embeddedchannel-usability" class="anchor" aria-hidden="true" href="#embeddedchannel-usability"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>EmbeddedChannel</code> usability</h3>
+<a id="user-content-embeddedchannel-usability" class="anchor" aria-hidden="true" href="#embeddedchannel-usability"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+<code>EmbeddedChannel</code> usability</h3>
 <p><code>readInbound()</code> and <code>readOutbound()</code> in <a href="http://netty.io/4.1/api/io/netty/channel/embedded/EmbeddedChannel.html" rel="nofollow"><code>EmbeddedChannel</code></a> return an ad-hoc type parameter so you do not need to downcast their return values.  This will reduce the verbosity of your unit test code quite a bit.</p>
 <div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="EmbeddedChannel ch = ...;
 
@@ -374,11 +377,13 @@ FullHttpRequest req = ch.readInbound();"><pre><span class="pl-smi">EmbeddedChann
 <p>In 4.0, there was no way to reject an oversized HTTP message before a client sends the content even if 100-continue header was present.</p>
 <p>This release adds an overridable method called <code>handleOversizedMessage</code> so that a user can perform his or her preferred task.  By default, it responds with '413 Request Entity Too Large' response and closed the connection.</p>
 <h3 id="wiki-h3-19">
-<a id="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" aria-hidden="true" href="#chunkedinput-and-chunkedwritehandler"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
+<a id="user-content-chunkedinput-and-chunkedwritehandler" class="anchor" aria-hidden="true" href="#chunkedinput-and-chunkedwritehandler"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+<code>ChunkedInput</code> and <code>ChunkedWriteHandler</code>
 </h3>
 <p><a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedInput.html" rel="nofollow"><code>ChunkedInput</code></a> has two new methods; <code>progress()</code> and <code>length()</code> which return the progress of its transfer and the total length of the stream respectively.  <a href="http://netty.io/4.1/api/io/netty/handler/stream/ChunkedWriteHandler.html" rel="nofollow"><code>ChunkedWriteHandler</code></a> uses this information to notify <a href="http://netty.io/4.1/api/io/netty/channel/ChannelProgressiveFutureListener.html" rel="nofollow"><code>ChannelProgressiveFutureListener</code></a>.</p>
 <h3 id="wiki-h3-20">
-<a id="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" aria-hidden="true" href="#snappyframedencoder-and-snappyframeddecoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a><code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
+<a id="user-content-snappyframedencoder-and-snappyframeddecoder" class="anchor" aria-hidden="true" href="#snappyframedencoder-and-snappyframeddecoder"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 001.06 1.06l1.25-1.25a2 2 0 112.83 2.83l-2.5 2.5a2 2 0 01-2.83 0 .75.75 0 00-1.06 1.06 3.5 3.5 0 004.95 0l2.5-2.5a3.5 3.5 0 00-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 010-2.83l2.5-2.5a2 2 0 012.83 0 .75.75 0 001.06-1.06 3.5 3.5 0 00-4.95 0l-2.5 2.5a3.5 3.5 0 004.95 4.95l1.25-1.25a.75.75 0 00-1.06-1.06l-1.25 1.25a2 2 0 01-2.83 0z"></path></svg></a>
+<code>SnappyFramedEncoder</code> and <code>SnappyFramedDecoder</code>
 </h3>
 <p>These two classes have been renamed to <code>SnappyFrameEncoder</code> and <code>SnappyFrameDecoder</code>. The old classes were marked as deprecated and they are actually the subclasses of the new ones.</p>
 
@@ -420,7 +425,7 @@ FullHttpRequest req = ch.readInbound();"><pre><span class="pl-smi">EmbeddedChann
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 13-Sep-2022</small>
+<small>Last retrieved on 11-Oct-2022</small>
 </div>
 </div>
 </div>
