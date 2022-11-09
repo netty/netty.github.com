@@ -2,13 +2,90 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
 <entry>
+<id>http://netty.io/news/2022/11/09/4-1-85-Final.html</id>
+<title>Netty 4.1.84.Final released</title>
+<updated>2022-11-09T21:56:46+00:00</updated>
+<published>2022-11-09T00:00:00+00:00</published>
+<link href="http://netty.io/news/2022/11/09/4-1-85-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>chrisvest</name>
+</author>
+<summary>
+We are happy to announce the release of netty 4.1.85.Final.
+This release is a bug-fix release.
+
+The most important changes are:
+
+
+A bug in FlowControlHandler that broke auto-read has been fixed (#12467)
+The HTTP/2 HPACK encoder is now faster at encoding headers that have many values (#12665)
+A potential memory leak bug has been fixed in the pooled allocator (#12897)
+Fix an issue with the Blockhound integration, which could cause the MacOSDnsServerAddressStreamProvider
+to be flagged as making blocking calls (#12913)
+Inconsitencies in how epoll, kqueue, and NIO handle RDHUP have been fixed (#12930)
+ByteToMessageDecoder now handle situations where the same ByteBuf instance is read multiple times (#12922)
+The check that...
+</summary>
+<content type="html">
+&lt;p&gt;We are happy to announce the release of netty 4.1.85.Final.
+This release is a bug-fix release.&lt;/p&gt;
+
+&lt;p&gt;The most important changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A bug in &lt;code&gt;FlowControlHandler&lt;/code&gt; that broke auto-read has been fixed (&lt;a href=&quot;https://github.com/netty/netty/pull/12467&quot;&gt;#12467&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The HTTP/2 HPACK encoder is now faster at encoding headers that have many values (&lt;a href=&quot;https://github.com/netty/netty/pull/12665&quot;&gt;#12665&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;A potential memory leak bug has been fixed in the pooled allocator (&lt;a href=&quot;https://github.com/netty/netty/pull/12897&quot;&gt;#12897&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix an issue with the Blockhound integration, which could cause the &lt;code&gt;MacOSDnsServerAddressStreamProvider&lt;/code&gt;
+to be flagged as making blocking calls (&lt;a href=&quot;https://github.com/netty/netty/pull/12913&quot;&gt;#12913&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Inconsitencies in how epoll, kqueue, and NIO handle RDHUP have been fixed (&lt;a href=&quot;https://github.com/netty/netty/pull/12930&quot;&gt;#12930&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ByteToMessageDecoder&lt;/code&gt; now handle situations where the same &lt;code&gt;ByteBuf&lt;/code&gt; instance is read multiple times (&lt;a href=&quot;https://github.com/netty/netty/pull/12922&quot;&gt;#12922&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The check that ensures the HTTP/1 &lt;code&gt;Content-Length&lt;/code&gt; header is unique, now no longer causes headers to be rearranged (change their order) (&lt;a href=&quot;https://github.com/netty/netty/pull/12921&quot;&gt;#12921&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix a &lt;code&gt;NullPointerException&lt;/code&gt; bug with class initialisation order between &lt;code&gt;InternalLogger&lt;/code&gt; and &lt;code&gt;InternalThreadLocalMap&lt;/code&gt; (&lt;a href=&quot;https://github.com/netty/netty/pull/12942&quot;&gt;#12942&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;When the &lt;code&gt;netty-resolver-dns-native-macos&lt;/code&gt; classes can&#39;t load their native bindings, they now only print a short error message instead of the huge stack trace it printed previously. The stack trace is still included if DEBUG logging is enabled (&lt;a href=&quot;https://github.com/netty/netty/pull/12950&quot;&gt;#12950&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Graal native-image meta-data is now placed in the recommended location, and no longer causes warnings to be printed (&lt;a href=&quot;https://github.com/netty/netty/pull/12951&quot;&gt;#12951&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The HTTP/1 and HTTP/2 codecs now properly support RFC 8297 Early Hints (&lt;a href=&quot;https://github.com/netty/netty/pull/12918&quot;&gt;#12918&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Subclasses of &lt;code&gt;FastThreadLocalThread&lt;/code&gt; can now tell the Netty Blockhound integration that they should be allowed to make blocking calls (&lt;a href=&quot;https://github.com/netty/netty/pull/12978&quot;&gt;#12978&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Validation of HTTP/2 connection headers have been moved from &lt;code&gt;Http2Headers&lt;/code&gt; to &lt;code&gt;HpackDecoder&lt;/code&gt;, so that outgoing headers are not validated (&lt;a href=&quot;https://github.com/netty/netty/pull/12975&quot;&gt;#12975&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gbrdead&quot;&gt;@gbrdead&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/amirhadadi&quot;&gt;@amirhadadi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/needmorecode&quot;&gt;@needmorecode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/laosijikaichele&quot;&gt;@laosijikaichele&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/horizonzy&quot;&gt;@horizonzy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gnodet&quot;&gt;@gnodet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/scottmitch&quot;&gt;@scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/thobe&quot;&gt;@thobe&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/violetagg&quot;&gt;@violetagg&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/gradinac&quot;&gt;@gradinac&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cavallium&quot;&gt;@cavallium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jchrys&quot;&gt;@jchrys&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/mostroverkhov&quot;&gt;@mostroverkhov&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
+<entry>
 <id>http://netty.io/news/2022/10/11/4-1-84-Final.html</id>
 <title>Netty 4.1.84.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-10-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/10/11/4-1-84-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -76,7 +153,7 @@ Apart from the macOS specific native code integrations, there are no differences
 <entry>
 <id>http://netty.io/news/2022/09/28/5-0-0-Alpha5.html</id>
 <title>Netty 5.0.0.Alpha5 released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-09-28T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/09/28/5-0-0-Alpha5.html" rel="alternate" type="text/html" />
 <author>
@@ -123,7 +200,7 @@ There is a new HTTP headers API,...
 <entry>
 <id>http://netty.io/news/2022/09/13/4-1-82-Final.html</id>
 <title>Netty 4.1.82.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-09-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/09/13/4-1-82-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -184,7 +261,7 @@ This release is a bug-fix release.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2022/09/08/4-1-81-Final.html</id>
 <title>Netty 4.1.81.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-09-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/09/08/4-1-81-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -248,7 +325,7 @@ Every idea and bug-report counts...
 <entry>
 <id>http://netty.io/news/2022/08/26/4-1-80-Final.html</id>
 <title>Netty 4.1.80.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-08-26T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/08/26/4-1-80-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -322,7 +399,7 @@ Avoid including header values in header validation failure...
 <entry>
 <id>http://netty.io/news/2022/07/22/5-0-0-Alpha4.html</id>
 <title>Netty 5.0.0.Alpha4 released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-07-22T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/07/22/5-0-0-Alpha4.html" rel="alternate" type="text/html" />
 <author>
@@ -369,7 +446,7 @@ Allow to create all SocketChannel and DatagramChannel implementations with a Pro
 <entry>
 <id>http://netty.io/news/2022/07/11/4-1-79-Final.html</id>
 <title>Netty 4.1.79.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-07-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/07/11/4-1-79-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -434,7 +511,7 @@ The most important changes are:&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2022/07/08/5-0-0-Alpha3.html</id>
 <title>Netty 5.0.0.Alpha3 released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-07-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/07/08/5-0-0-Alpha3.html" rel="alternate" type="text/html" />
 <author>
@@ -493,7 +570,7 @@ Make half-closure a core-concept of...
 <entry>
 <id>http://netty.io/news/2022/06/14/4-1-78-Final.html</id>
 <title>Netty 4.1.78.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-06-14T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/06/14/4-1-78-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -552,7 +629,7 @@ The most important changes are:&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2022/05/16/5-0-0-Alpha2.html</id>
 <title>Netty 5.0.0.Alpha2 released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-05-16T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/05/16/5-0-0-Alpha2.html" rel="alternate" type="text/html" />
 <author>
@@ -594,7 +671,7 @@ Support for ByteBuf has been removed...
 <entry>
 <id>http://netty.io/news/2022/05/06/2-1-77-Final.html</id>
 <title>Netty 4.1.77.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-05-06T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/05/06/2-1-77-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -654,7 +731,7 @@ For the details and all changes, please browse our issue tracker for &lt;a href=
 <entry>
 <id>http://netty.io/news/2022/04/12/4-1-76-Final.html</id>
 <title>Netty 4.1.76.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-04-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/04/12/4-1-76-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -718,7 +795,7 @@ The HTTP/2 header validation that rejects duplicate pseudo-headers, which was...
 <entry>
 <id>http://netty.io/news/2022/03/17/5-0-0-Alpha1.html</id>
 <title>Netty 5.0.0.Alpha1 released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-03-17T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/03/17/5-0-0-Alpha1.html" rel="alternate" type="text/html" />
 <author>
@@ -743,7 +820,7 @@ To make it easier to experiment with netty 5 while still use 4.1 at the same tim
 <entry>
 <id>http://netty.io/news/2022/03/10/4-1-75-Final.html</id>
 <title>Netty 4.1.75.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-03-10T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/03/10/4-1-75-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -829,7 +906,7 @@ Allow more...
 <entry>
 <id>http://netty.io/news/2022/02/08/4-1-74-Final.html</id>
 <title>Netty 4.1.74.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-02-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/02/08/4-1-74-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -913,7 +990,7 @@ For the details...
 <entry>
 <id>http://netty.io/news/2022/01/12/4-1-73-Final.html</id>
 <title>Netty 4.1.73.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2022-01-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/01/12/4-1-73-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1017,7 +1094,7 @@ If you suffer from the mentioned problem please report back to us and use the pr
 <entry>
 <id>http://netty.io/news/2021/12/14/multiple_releases.html</id>
 <title>Multiple incubator libraries released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-12-14T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/12/14/multiple_releases.html" rel="alternate" type="text/html" />
 <author>
@@ -1056,7 +1133,7 @@ For more details please check the specific issue tracker for the libraries as li
 <entry>
 <id>http://netty.io/news/2021/12/13/4-1-72-Final.html</id>
 <title>Netty 4.1.72.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-12-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/12/13/4-1-72-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1107,7 +1184,7 @@ Update to log4j2 2.15.0 to fix...
 <entry>
 <id>http://netty.io/news/2021/12/09/4-1-71-Final.html</id>
 <title>Netty 4.1.71.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-12-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/12/09/4-1-71-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1176,7 +1253,7 @@ Fix reentrancy bug in SslHandler...
 <entry>
 <id>http://netty.io/news/2021/12/01/quic-0-0-24-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.24.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-12-01T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/12/01/quic-0-0-24-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1219,7 +1296,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/11/22/quic-0-0-22-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.22.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-11-22T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/11/22/quic-0-0-22-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1260,7 +1337,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/11/12/quic-0-0-21-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.21.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-11-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/11/12/quic-0-0-21-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1307,7 +1384,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/11/04/quic-0-0-20-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.20.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-11-04T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/11/04/quic-0-0-20-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1360,7 +1437,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/10/11/4-1-70-Final.html</id>
 <title>Netty 4.1.70.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-10-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/10/11/4-1-70-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1422,7 +1499,7 @@ Every idea...
 <entry>
 <id>http://netty.io/news/2021/10/11/4-1-69-Final.html</id>
 <title>Netty 4.1.69.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-10-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/10/11/4-1-69-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1505,7 +1582,7 @@ For the details and all changes, please browse our issue...
 <entry>
 <id>http://netty.io/news/2021/09/09/4-1-68-Final.html</id>
 <title>Netty 4.1.68.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-09-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/09/09/4-1-68-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1586,7 +1663,7 @@ Add...
 <entry>
 <id>http://netty.io/news/2021/08/16/4-1-67-Final.html</id>
 <title>Netty 4.1.67.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-08-16T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/08/16/4-1-67-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1661,7 +1738,7 @@ Distribute weight...
 <entry>
 <id>http://netty.io/news/2021/07/30/quic-0-0-17-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.17.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-07-30T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/07/30/quic-0-0-17-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1712,7 +1789,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/07/16/4-1-66-Final.html</id>
 <title>Netty 4.1.66.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-07-16T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/07/16/4-1-66-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1832,7 +1909,7 @@ Accept smaller server_max_window_bits than requested...
 <entry>
 <id>http://netty.io/news/2021/05/19/4-1-65-Final.html</id>
 <title>Netty 4.1.65.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-05-19T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/05/19/4-1-65-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1975,7 +2052,7 @@ For more details please check (&lt;a href=&quot;https://github.com/netty/netty/p
 <entry>
 <id>http://netty.io/news/2021/05/03/quic-0-0-11-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.11.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-05-03T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/05/03/quic-0-0-11-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2028,7 +2105,7 @@ For more details about...
 <entry>
 <id>http://netty.io/news/2021/04/01/4-1-63-Final.html</id>
 <title>Netty 4.1.63.Final released - Regression fix</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-04-01T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/04/01/4-1-63-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2049,7 +2126,7 @@ For more details please see (#11133)....
 <entry>
 <id>http://netty.io/news/2021/03/31/release-day.html</id>
 <title>Release day for HTTP/3, QUIC and IO_URING</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-31T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/31/release-day.html" rel="alternate" type="text/html" />
 <author>
@@ -2106,7 +2183,7 @@ As stated above you are now able to run the http3 codec on linux-aarch64 as well
 <entry>
 <id>http://netty.io/news/2021/03/31/4-1-62-Final.html</id>
 <title>Netty 4.1.62.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-31T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/31/4-1-62-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2123,7 +2200,7 @@ Just after releasing netty 4.1.61.Final yesterday we decided to do a quick follo
 <entry>
 <id>http://netty.io/news/2021/03/30/4-1-61-Final.html</id>
 <title>Netty 4.1.61.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-30T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/30/4-1-61-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2211,7 +2288,7 @@ Let's use gcc10 when cross-compiling for LSE support...
 <entry>
 <id>http://netty.io/news/2021/03/25/quic-0-0-9-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.9.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-25T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/25/quic-0-0-9-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2256,7 +2333,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2021/03/12/http3-0-0-2-Final.html</id>
 <title>Netty/Incubator/Codec/Http3 0.0.2.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/12/http3-0-0-2-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2291,7 +2368,7 @@ Beside bug-fixes we also upgraded to &lt;a href=&quot;https://netty.io/news/2021
 <entry>
 <id>http://netty.io/news/2021/03/09/quic-0-0-8-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.8.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/09/quic-0-0-8-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2402,7 +2479,7 @@ req/s           :       3.98        3.98        3.98        0.00   100.00%
 <entry>
 <id>http://netty.io/news/2021/03/09/4-1-60-Final.html</id>
 <title>Netty 4.1.60.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/09/4-1-60-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2500,7 +2577,7 @@ contest.sessionContext().setSessionCacheEnabled(true);
 <entry>
 <id>http://netty.io/news/2021/03/04/http3-0-0-1-Final.html</id>
 <title>Netty/Incubator/Codec/Http3 0.0.1.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-03-04T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/03/04/http3-0-0-1-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2805,7 +2882,7 @@ ChannelHandler codec = Http3.newQuicServerCodecBuilder()
 <entry>
 <id>http://netty.io/news/2021/02/08/4-1-59-Final.html</id>
 <title>Netty 4.1.59.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-02-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/02/08/4-1-59-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2883,7 +2960,7 @@ Override...
 <entry>
 <id>http://netty.io/news/2021/01/15/io_uring-0-0-3-Final.html</id>
 <title>Netty/Incubator/Transport/Native/io_uring 0.0.3.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-01-15T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/01/15/io_uring-0-0-3-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2908,7 +2985,7 @@ For more details about this transport in general please read our initial announc
 <entry>
 <id>http://netty.io/news/2021/01/13/4-1-58-Final.html</id>
 <title>Netty 4.1.58.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-01-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/01/13/4-1-58-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2959,7 +3036,7 @@ Every idea and bug-report counts and so we thought it...
 <entry>
 <id>http://netty.io/news/2021/01/12/4-1-57-Final.html</id>
 <title>Netty 4.1.57.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-01-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/01/12/4-1-57-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3044,7 +3121,7 @@ Please report an unintended omission.
 <entry>
 <id>http://netty.io/news/2021/01/11/quic-0-0-3-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.3.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2021-01-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2021/01/11/quic-0-0-3-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3069,7 +3146,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2020/12/18/quic-0-0-2-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.2.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2020-12-18T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/18/quic-0-0-2-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3094,7 +3171,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2020/12/17/4-1-56-Final.html</id>
 <title>Netty 4.1.56.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2020-12-17T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/17/4-1-56-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3166,7 +3243,7 @@ As this...
 <entry>
 <id>http://netty.io/news/2020/12/09/quic-0-0-1-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.1.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2020-12-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/09/quic-0-0-1-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3380,7 +3457,7 @@ try {
 <entry>
 <id>http://netty.io/news/2020/12/08/4-1-55-Final.html</id>
 <title>Netty 4.1.55.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
+<updated>2022-11-09T21:56:46+00:00</updated>
 <published>2020-12-08T00:00:00+00:00</published>
 <link href="http://netty.io/news/2020/12/08/4-1-55-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3454,247 +3531,6 @@ Add ABORT and COMMIT STOMP...
 &lt;li&gt;&lt;a href=&quot;https://github.com/XjCyan1de&quot;&gt;@XjCyan1de&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html</id>
-<title>Netty/Incubator/Transport/Native/io_uring 0.0.1.Final released</title>
-<updated>2022-10-12T01:28:30+00:00</updated>
-<published>2020-11-16T00:00:00+00:00</published>
-<link href="http://netty.io/news/2020/11/16/io_uring-0-0-1-Final.html" rel="alternate" type="text/html" />
-<author>
-<name>normanmaurer</name>
-</author>
-<summary>
-After multiple months of development I am happy to announce the first incubator release of our native io_uring based transport.
-If you don't know about io_uring I highly recommend getting up to speed by reading Efficient IO with io_uring and
-Lord of the io_ring. To make it short, it is a new way how programs can talk to the kernel (and be notified back) via memory mapped ring-buffers. This way it is possible to almost eliminate all syscalls that are usually needed for network I/O.
-
-Incubator, what does this mean ?
-
-To be able to work on new exciting features without "affecting" the core...
-</summary>
-<content type="html">
-&lt;p&gt;After multiple months of development I am happy to announce the first incubator release of our native io_uring based transport.
-If you don&#39;t know about io_uring I highly recommend getting up to speed by reading &lt;a href=&quot;https://kernel.dk/io_uring.pdf&quot;&gt;Efficient IO with io_uring&lt;/a&gt; and
-&lt;a href=&quot;https://unixism.net/loti/what_is_io_uring.html&quot;&gt;Lord of the io_ring&lt;/a&gt;. To make it short, it is a new way how programs can talk to the kernel (and be notified back) via memory mapped ring-buffers. This way it is possible to almost eliminate all syscalls that are usually needed for network I/O.&lt;/p&gt;
-
-&lt;h1&gt;Incubator, what does this mean ?&lt;/h1&gt;
-
-&lt;p&gt;To be able to work on new exciting features without &quot;affecting&quot; the core of netty we decided to start development of such features in the &quot;incubator&quot;. This means these features will be developed in a seperate repository and only be merged back into the core netty repository once we feel that we can guarantee we not need to break the API anymore and consider these production ready. This hopefully helps to clarify expections and stability of the code and so people should be fully aware that APIs may change. Beside this it also allows to use different release schedules.&lt;/p&gt;
-
-&lt;h1&gt;How can I use the io_uring based transport?&lt;/h1&gt;
-
-&lt;p&gt;First of you need to run on x86_64 linux and have a recent kernel. To be able to use io_uring without encountering &quot;slowdowns&quot; and &quot;bugs&quot; you need at least using &lt;a href=&quot;https://www.kernel.org&quot;&gt;Linux Kernel&lt;/a&gt; 5.9.0, any newer kernel will be fine as well. After this requirement is fullfilled it&#39;s just a matter of adding the right jar to your classpath and bootstrap using the right &lt;code&gt;EventLoopGroup&lt;/code&gt; and &lt;code&gt;Channel&lt;/code&gt; implementation.&lt;/p&gt;
-
-&lt;p&gt;An example for maven would be:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;lt;dependency&amp;gt;
-    &amp;lt;groupId&amp;gt;io.netty.incubator&amp;lt;/groupId&amp;gt;
-    &amp;lt;artifactId&amp;gt;netty-incubator-transport-native-io_uring&amp;lt;/artifactId&amp;gt;
-    &amp;lt;version&amp;gt;0.0.1.Final&amp;lt;/version&amp;gt;
-    &amp;lt;classifier&amp;gt;linux-x86_64&amp;lt;/classifier&amp;gt;
-&amp;lt;/dependency&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Bootstrapping a server is as easy as:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;EventLoopGroup group = new IOUringEventLoopGroup();
-try {
-    final ChannelHandler serverHandler = ...;
-
-    ServerBootstrap b = new ServerBootstrap();
-    b.group(bossGroup, workerGroup)
-     .channel(IOUringServerSocketChannel.class)
-     .childHandler(new ChannelInitializer&amp;lt;SocketChannel&amp;gt;() {
-        @Override
-        public void initChannel(SocketChannel ch) throws Exception {
-            ChannelPipeline p = ch.pipeline();
-            p.addLast(serverHandler);
-        }
-    });
-
-    // Start the server.
-    ChannelFuture f = b.bind(PORT).sync();
-
-    // Wait until the server socket is closed.
-    f.channel().closeFuture().sync();
-} finally {
-    // Shut down all event loops to terminate all threads.
-    group.shutdownGracefully();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;The same is true for the client as well, just be sure you use the correct &lt;code&gt;Channel&lt;/code&gt; and &lt;code&gt;EventLoop&lt;/code&gt; implementation.&lt;/p&gt;
-
-&lt;h1&gt;What features are supported at the moment ?&lt;/h1&gt;
-
-&lt;p&gt;At the moment we support &lt;code&gt;IOUringServerChannel&lt;/code&gt;, &lt;code&gt;IOUringChannel&lt;/code&gt; and &lt;code&gt;IOUringDatagramChannel&lt;/code&gt;, which basically means TCP and UDP. One gotcha is that &lt;code&gt;FileRegion&lt;/code&gt; is currently not supported, but will be added in the future.&lt;/p&gt;
-
-&lt;h1&gt;Where can I find the issue tracker / code etc ?&lt;/h1&gt;
-
-&lt;p&gt;As stated before this feature is developed outside of the &quot;normal&quot; netty tree. You can find it in the &lt;a href=&quot;https://github.com/netty/netty-incubator-transport-io_uring&quot;&gt;netty-incubator-transport-io_uring&lt;/a&gt; repository.&lt;/p&gt;
-
-&lt;h1&gt;Are there any performance numbers?&lt;/h1&gt;
-
-&lt;p&gt;While we plan to run some more advanced and real performance benchmarks in the future what we saw so far is really promising. To give you an idea let&#39;s have a look...&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;epoll&lt;/strong&gt;:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;./tcpkali  -m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  --connect-rate=200 -c 500 -T 30 127.0.0.1:8088
-Destination: [127.0.0.1]:8088
-Interface lo address [127.0.0.1]:0
-Using interface lo to connect to [127.0.0.1]:8088
-Ramped up to 500 connections.
-Total data sent:     35254.6 MiB (36967084668 bytes)
-Total data received: 35725.3 MiB (37460714661 bytes)
-Bandwidth per channel: 39.688⇅ Mbps (4961.0 kBps)
-Aggregate bandwidth: 9987.847↓, 9856.234↑ Mbps
-Packet rate estimate: 861701.3↓, 851472.0↑ (11↓, 43↑ TCP MSS/op)
-Test duration: 30.005 s.
-
-Running `target/release/echo_bench --address &#39;localhost:8088&#39; --number 500 --duration 30 --length 128`
-Benchmarking: localhost:8088
-500 clients, running 128 bytes, 30 sec.
-
-Speed: 80820 request/sec, 80820 response/sec
-Requests: 2424626
-Responses: 2424625
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;strong&gt;io_uring&lt;/strong&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;./tcpkali  -m xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  --connect-rate=200 -c 500 -T 30 127.0.0.1:8081
-Destination: [127.0.0.1]:8081
-Interface lo address [127.0.0.1]:0
-Using interface lo to connect to [127.0.0.1]:8081
-Ramped up to 500 connections.
-Total data sent:     74653.1 MiB (78279409944 bytes)
-Total data received: 75180.9 MiB (78832885977 bytes)
-Bandwidth per channel: 83.793⇅ Mbps (10474.1 kBps)
-Aggregate bandwidth: 21021.980↓, 20874.387↑ Mbps
-Packet rate estimate: 1932417.0↓, 1793964.8↑ (11↓, 39↑ TCP MSS/op)
-Test duration: 30.0002 s.
-
-Running `target/release/echo_bench --address &#39;localhost:8081&#39; --number 500 --duration 30 --length 128`
-Benchmarking: localhost:8081
-500 clients, running 128 bytes, 30 sec.
-
-Speed: 267371 request/sec, 267370 response/sec
-Requests: 8021137
-Responses: 8021128
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This benchmark is basically sending data and expect the data to be echoed back. The server itself uses 1 thread to handle all of this. Please be aware this is only a quick benchmark on localhost and a &quot;real&quot; benchmark over the network with real hardware should be done to full understand the wins and gains.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;@Sharable
-public class EchoServerHandler extends ChannelInboundHandlerAdapter {
-
-    @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) {
-        ctx.write(msg);
-    }
-
-    @Override
-    public void channelReadComplete(ChannelHandlerContext ctx) {
-        ctx.flush();
-    }
-
-    @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-        // Close the connection when an exception is raised.
-        ctx.close();
-    }
-
-    @Override
-    public void channelWritabilityChanged(ChannelHandlerContext ctx) throws Exception {
-        // Ensure we are not writing to fast by stop reading if we can not flush out data fast enough.
-        if (ctx.channel().isWritable()) {
-            ctx.channel().config().setAutoRead(true);
-        } else {
-            ctx.flush();
-            if (!ctx.channel().isWritable()) {
-                ctx.channel().config().setAutoRead(false);
-            }
-        }
-    }
-}
-
-// This is using io_uring
-public class EchoIOUringServer {
-    private static final int PORT = Integer.parseInt(System.getProperty(&quot;port&quot;, &quot;8081&quot;));
-
-    public static void main(String []args) {
-        EventLoopGroup group = new IOUringEventLoopGroup(1);
-        final EchoServerHandler serverHandler = new EchoServerHandler();
-        try {
-            ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .option(ChannelOption.SO_REUSEADDR, true)
-                    .channel(IOUringServerSocketChannel.class)
-                    .childHandler(new ChannelInitializer&amp;lt;SocketChannel&amp;gt;() {
-                        @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
-                            ChannelPipeline p = ch.pipeline();
-                            //p.addLast(new LoggingHandler(LogLevel.INFO));
-                            p.addLast(serverHandler);
-                        }
-                    });
-
-            // Start the server.
-            ChannelFuture f = b.bind(PORT).sync();
-
-            // Wait until the server socket is closed.
-            f.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            // Shut down all event loops to terminate all threads.
-            group.shutdownGracefully();
-        }
-    }
-}
-
-// This is using epoll / syscalls 
-public class EchoNioServer {
-    private static final int PORT = Integer.parseInt(System.getProperty(&quot;port&quot;, &quot;8088&quot;));
-
-    public static void main(String []args) {
-        EventLoopGroup group = new NioEventLoopGroup(1);
-        final EchoServerHandler serverHandler = new EchoServerHandler();
-        try {
-            ServerBootstrap b = new ServerBootstrap();
-            b.group(bossGroup, workerGroup)
-                    .option(ChannelOption.SO_REUSEADDR, true)
-                    .channel(NioServerSocketChannel.class)
-                    .childHandler(new ChannelInitializer&amp;lt;SocketChannel&amp;gt;() {
-                        @Override
-                        public void initChannel(SocketChannel ch) throws Exception {
-                            ChannelPipeline p = ch.pipeline();
-                            //p.addLast(new LoggingHandler(LogLevel.INFO));
-                            p.addLast(serverHandler);
-                        }
-                    });
-
-            // Start the server.
-            ChannelFuture f = b.bind(PORT).sync();
-
-            // Wait until the server socket is closed.
-            f.channel().closeFuture().sync();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } finally {
-            // Shut down all event loops to terminate all threads.
-            group.shutdownGracefully();
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h1&gt;Thank You&lt;/h1&gt;
-
-&lt;p&gt;Big thank you to all the people that were involved so far to make this happen. A special thank you goes out to &lt;a href=&quot;https://github.com/1Jo1&quot;&gt;Josef Grieb&lt;/a&gt; who did start this project as part of &lt;a href=&quot;https://github.com/netty/netty/wiki/Google-Summer-of-Code-Ideas-2020#add-io_uring-based-transport&quot;&gt;GSOC 2020&lt;/a&gt;. Without Josef this would not have been possible in this short time-frame. Beside Josef I would also like to say &quot;thank you&quot; to &lt;a href=&quot;https://github.com/axboe&quot;&gt;Jens Axboe&lt;/a&gt;, whom is the main author of io_uring. Whenever we had questions or problems he was happy to help. That&#39;s what OSS is really about. OSS FTW!.&lt;/p&gt;
 
 </content>
 </entry>
