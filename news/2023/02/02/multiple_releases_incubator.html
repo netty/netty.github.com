@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.0.Beta7 released</title>
-<title>Netty: Netty 4.1.0.Beta7 released</title>
+<title>Netty.news: Multiple incubator libraries released</title>
+<title>Netty: Multiple incubator libraries released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.0.Beta7 released
+Multiple incubator libraries released
 </h1>
 <p class="byline">
 <small>
@@ -263,55 +263,71 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-10-05">05-Oct-2015</time>
+<time datetime="2023-02-02">02-Feb-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.1.0.Beta7 after fixing a lot of issues since the last beta release.</p>
+<p>I am happy to announce the release of a new version of all our incubator libraries.</p>
 
-<p>This release contains a lot of fixes but also API improvements in the HTTP/2 codec.</p>
-
-<p>The most important changes are:</p>
+<p>The releases include:</p>
 
 <ul>
-<li>DefaultHttp2RemoteFlowController may not write all pending bytes  (<a href="https://github.com/netty/netty/pull/4258">#4258</a>) (<a href="https://github.com/netty/netty/issues/4242">#4242</a>)</li>
-<li>Ensure close caused by write will happen before write promise is notified (<a href="https://github.com/netty/netty/pull/4225">#4225</a>)</li>
-<li>SpdyHttpEncoder fails to convert HttpResponse to SpdyFrame (<a href="https://github.com/netty/netty/pull/4190">#4190</a>) (<a href="https://github.com/netty/netty/issues/4185">#4185</a>)</li>
-<li>StompHeaders constants can no longer be used to fetch headers from DefaultHeaders (<a href="https://github.com/netty/netty/issues/4247">#4247</a>)</li>
-<li>DefaultHttp2RemoteFlowController not allocating all available bytes (<a href="https://github.com/netty/netty/pull/4282">#4282</a>) (<a href="https://github.com/netty/netty/issues/4266">#4266</a>)</li>
+<li><a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/18?closed=1">netty-incubator-transport-io_uring 0.0.17.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-quic/milestone/34?closed=1">netty-incubator-codec-quic 0.0.36.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-http3/milestone/14?closed=1">netty-incubator-codec-http3 0.0.16.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-bom/milestone/2?closed=1">netty-incubator-bom 0.0.6.Final</a></li>
 </ul>
 
 
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta7">our issue tracker</a>.</p>
+<h1>Important changes:</h1>
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
+<p>For more details please check the specific issue tracker for the libraries as listed above.</p>
 
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<h2>netty-incubator-transport-io_uring 0.0.17.Final</h2>
 
 <ul>
-<li><a href="https://github.com/blucas">@blucas</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/fratboy">@fratboy</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/silvaran">@silvaran</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
+<li>Replace stdlib write/read with send/recv (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/188">#188</a>)</li>
+<li>Correctly handle nextHdr() so we not return null to early (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/184">#184</a>)</li>
+<li>Correctly handle unresolvable InetSocketAddress when using IOUringDatagramChannel (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/185">#185</a>)</li>
+<li>Add support for client / server side TCP_FAST_OPEN (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/183">#183</a>)</li>
+<li>Upgrade to latest netty and netty-tcnative versions (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/182">#182</a>)</li>
+</ul>
+
+
+<h2>netty-incubator-codec-http3 0.0.16.Final</h2>
+
+<ul>
+<li>Upgrade netty and netty quic (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/210">#210</a>)</li>
+<li>Complete write promise in Http3FrameToHttpObjectCodec (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/211">#211</a>)</li>
+<li>Fix Host->:authority translation when URI is in origin-form (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/213">#213</a>)</li>
+</ul>
+
+
+<h2>netty-incubator-codec-quic 0.0.36.Final</h2>
+
+<ul>
+<li>Ensure we produce and send window update frames all the times when data is read by stream (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/471">#471</a>)</li>
+<li>Upgrade to netty 4.1.87.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/466">#466</a>)</li>
+</ul>
+
+
+<h2>netty-incubator-bom-0.0.6.Final</h2>
+
+<ul>
+<li>Update to latest incubator releases (<a href="https://github.com/netty/netty-incubator-bom/pull/3">#3</a>)</li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/09/30/4-0-32-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/01/12/4-1-87-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/10/13/3-10-5-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -320,9 +336,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/10/05/4-1-0-Beta7.html";
+            var disqus_url = "http://netty.io/news/2023/02/02/multiple_releases_incubator.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-10-05-4-1-0-Beta7";
+            var disqus_identifier = "news/2023-02-02-multiple_releases_incubator";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
