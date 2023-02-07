@@ -277,7 +277,7 @@ on
 <li>Allow to create all <em>SocketChannel and </em>DatagramChannel implementations with a ProtocolFamily. The ProtocolFamily influence for example if Unix Domain Sockets should be used. This also allowed to remove the Domain*Channel implementations and make things "consistent".</li>
 <li>Rename ChannelOption.RECVBUF_ALLOCATOR to RECVBUFFER_ALLOCATOR.</li>
 <li>Support Unix Domain Socket implementations of the JDK</li>
-<li>Change EventLoop / IoHandler to take and IoHandle for regstration to allow registering other things then Channel to an EventLoop in the future.</li>
+<li>Change EventLoop / IoHandler to take and IoHandle for registration to allow registering other things then Channel to an EventLoop in the future.</li>
 <li>Cleanup RecvBufferAllocator</li>
 <li>Fix disconnect() implementation on our native implementation for macOS.</li>
 <li>Replace synchronized with java Locks for better support of Loom.</li>
@@ -288,7 +288,7 @@ on
 
 <p>To make it easier to experiment with netty 5 while still use 4.1 at the same time, we have put Netty 5 into its own <code>io.netty5</code> package. This allows to have both version co-exist at the same time. As this a new major version we also started to introduce breaking changes where it makes sense. These changes were mostly motivation by lessons learned during the life-time of netty 4.1.x. We really hope you enjoy these changes and if not provide feedback in what we should address :)</p>
 
-<p>We will soon start to change the default branch of netty to main and so be more strict about changes that will be accepted for 4.1. While this might sound like a "limitation" it will  help to keep the possibility of a regression to a minimum for 4.1. Important bugfixes will ofcourse still be ported to 4.1 as well.  With all this said we don't plan to stop supporting 4.1.x any time soon. Both versions will be supported in parallel for now.</p>
+<p>We will soon start to change the default branch of netty to main and so be more strict about changes that will be accepted for 4.1. While this might sound like a "limitation" it will  help to keep the possibility of a regression to a minimum for 4.1. Important bugfixes will of course still be ported to 4.1 as well.  With all this said we don't plan to stop supporting 4.1.x any time soon. Both versions will be supported in parallel for now.</p>
 
 <p>To help users to try the next major version of netty we started to write down all the "required" things to do in terms of migrating netty 4.1.x code to 5.0.0. The migration guide can be found on our <a href="https://github.com/netty/netty/wiki/Netty-5-Migration-Guide">website</a>.</p>
 

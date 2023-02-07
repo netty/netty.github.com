@@ -285,7 +285,7 @@ on
 <li>Correctly convert supported signature algorithms when using BoringSSL (<a href="https://github.com/netty/netty/pull/8481">#8481</a>)</li>
 <li>Nio|Epoll|KqueueEventLoop task execution might throw UnsupportedOperationException (<a href="https://github.com/netty/netty/pull/8476">#8476</a>)</li>
 <li>Return the correct pointer from ReferenceCountedOpenSslContext.context() and sslCtxPointer() (<a href="https://github.com/netty/netty/pull/8562">#8562</a>)</li>
-<li>ReferenceCountedOpenSslEngine SSLSession.getLocalCertificates() / getLocalPrincipial() did not work when KeyManagerFactory was used (<a href="https://github.com/netty/netty/pull/8560">#8560</a>)</li>
+<li>ReferenceCountedOpenSslEngine SSLSession.getLocalCertificates() / getLocalPrincipal() did not work when KeyManagerFactory was used (<a href="https://github.com/netty/netty/pull/8560">#8560</a>)</li>
 <li>AbstractChannel swallows potential errors by ignoring throwable (<a href="https://github.com/netty/netty/pull/8499">#8499</a>)</li>
 <li>Allow adjusting of lead detection sampling interval (<a href="https://github.com/netty/netty/pull/8568">#8568</a>)</li>
 <li>Recover from Selector IOException (<a href="https://github.com/netty/netty/pull/8569">#8569</a>)</li>
@@ -305,7 +305,7 @@ on
 
 <h2>Deprecation of OIO and "sub-transports"</h2>
 
-<p>In preparation of Netty 5 we marked the OIO transpor (and any sub-transports that depend on it) as <code>@deprecated</code>. These will be removed in netty 5 and everyone should switch to either the NIO transport or one of the native transports, EPOLL or KQueue. For more details see <a href="https://github.com/netty/netty/pull/8579">#8579</a></p>
+<p>In preparation of Netty 5 we marked the OIO transport (and any sub-transports that depend on it) as <code>@deprecated</code>. These will be removed in netty 5 and everyone should switch to either the NIO transport or one of the native transports, EPOLL or KQueue. For more details see <a href="https://github.com/netty/netty/pull/8579">#8579</a></p>
 
 <h1>Thank You</h1>
 

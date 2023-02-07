@@ -291,13 +291,13 @@ on
 
 <h3>Http Codec</h3>
 
-<p>We did various optimizations in our Http Codec to higher our throughtput. The performance win is dramatic.</p>
+<p>We did various optimizations in our Http Codec to higher our throughput. The performance win is dramatic.</p>
 
 <p>First of we allow you to disable the verification of headers now. This means you can disable the verification of header names and values and so also except non-us-ascii names/values. This is most of the times not a big problem but was not allowed pefore. By disable the verification you can get a much higher throughput.</p>
 
 <p>To disable it you need to pass <code>false</code> to the constructor of <code>HttpRequestDecoder</code>or `HttpResponseDecoder. Please check the apidocs for the details.</p>
 
-<p>The other optimization we did alows you to create an optimized <code>CharSequence</code> which you can use as header name and value. This <code>CharSequence</code> is optimized for reuse and should so be used if you have names or values that never changes. Encoding such a <code>CharSequence</code> is much faster then optimize a normal <code>String</code> and so should be considered in such cases.</p>
+<p>The other optimization we did allows you to create an optimized <code>CharSequence</code> which you can use as header name and value. This <code>CharSequence</code> is optimized for reuse and should so be used if you have names or values that never changes. Encoding such a <code>CharSequence</code> is much faster then optimize a normal <code>String</code> and so should be considered in such cases.</p>
 
 <p>To generate it use the <code>HttpHeaders.newEntity(String)</code> method.</p>
 
