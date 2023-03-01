@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.81.Final released</title>
-<title>Netty: Netty 4.1.81.Final released</title>
+<title>Netty.news: Netty/Incubator/Transport/io_uring 0.0.19.Final released</title>
+<title>Netty: Netty/Incubator/Transport/io_uring 0.0.19.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,59 +255,54 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.81.Final released
+Netty/Incubator/Transport/io_uring 0.0.19.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/chrisvest">chrisvest</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2022-09-08">08-Sep-2022</time>
+<time datetime="2023-02-28">28-Feb-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.81.Final.</p>
-
-<p>This release is fixes a number of regressions and bugs that were introduced in the previous release.</p>
+<p>We are happy to announce the release of Netty/Incubator/Transport/io_uring 0.0.19.Final.
+This release is a bug fix release which focus on issues related to client side usage.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Fix a regression SslContext private key loading (<a href="https://github.com/netty/netty/pull/12743">#12743</a>)</li>
-<li>Fix a bug in SslContext private key reading fall-back path (<a href="https://github.com/netty/netty/pull/12746">#12746</a>)</li>
-<li>Fix a buffer leak regression in HttpClientCodec (<a href="https://github.com/netty/netty/pull/12762">#12762</a>)</li>
-<li>Fix a bug where some HttpMessage implementations, that also implement HttpContent, were not handled correctly (<a href="https://github.com/netty/netty/pull/12751">#12751</a>)</li>
-<li>The MessageFormatter and FormattingTuple classes are now usable in the public API (<a href="https://github.com/netty/netty/pull/12763">#12763</a>)</li>
-<li>Connection related headers in HTTP/2 frames are now rejected, in compliance with the specification (<a href="https://github.com/netty/netty/pull/12755">#12755</a>)</li>
+<li>Correctly handle ERROR_EALREADY_NEGATIVE (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/198">#198</a>)</li>
+<li>Correctly signal successful connect when TCP_FAST_OPEN was used and it was succesful (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/197">#197</a>)</li>
 </ul>
 
 
+<p>For more details please visit our <a href="https://github.com/netty/netty-incubator-transport-io_uring/issues?q=is%3Aclosed+milestone%3A0.0.19.Final">bug tracker</a></p>
+
+<p>For all the other changes please check the 0.0.19.Final release notes.</p>
+
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.</p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
 
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/yawkat">@yawkat</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/geoand">@geoand</a></li>
-<li><a href="https://github.com/yoa1226">@yoa1226</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2022/08/26/4-1-80-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/02/22/io_uring_0-0-18-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2022/09/13/4-1-82-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -316,9 +311,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2022/09/08/4-1-81-Final.html";
+            var disqus_url = "http://netty.io/news/2023/02/28/io_uring_0-0-19-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2022-09-08-4-1-81-Final";
+            var disqus_identifier = "news/2023-02-28-io_uring_0-0-19-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
