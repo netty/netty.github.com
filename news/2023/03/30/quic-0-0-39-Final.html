@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.76.Final released</title>
-<title>Netty: Netty 4.1.76.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.39.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.39.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,67 +255,43 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.76.Final released
+Netty/Incubator/Codec/Quic 0.0.39.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/chrisvest">chrisvest</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2022-04-12">12-Apr-2022</time>
+<time datetime="2023-03-30">30-Mar-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.76.Final. This release is a bug-fix release.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.39.Final. This release is mostly a bug-fix release but also add the possibility to inspect details about why the remote peer closed the connection.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Upgraded the optional <code>netty-tcnative</code> dependency to version 2.0.51.Final (<a href="https://github.com/netty/netty/pull/12162">#12162</a>)</li>
-<li>Upgraded the optional <code>log4j</code> dependency to version 2.17.2 (<a href="https://github.com/netty/netty/pull/12261">#12261</a>)</li>
-<li>The <code>netty-all</code> module now declare an automatic module name, making it useable with Java Modules. (<a href="https://github.com/netty/netty/pull/12188">#12188</a>)</li>
-<li>It is now possible to configure arbitrary socket options for the native epoll and kqueue transports. Refer to your operating system documentation for what options are available. (<a href="https://github.com/netty/netty/pull/12246">#12246</a>)</li>
-<li>It is now possible to explicitly bind channels to either IPv4 or IPv6. (<a href="https://github.com/netty/netty/pull/12270">#12270</a>)</li>
-<li>The HTTP/2 header validation that rejects duplicate pseudo-headers, which was added in 4.1.75.Final, has been changed so it no longer breaks older versions of gRPC. (<a href="https://github.com/netty/netty/pull/12289">#12289</a>)</li>
-<li>Fix a <code>NullPointerException</code> that was hiding the real cause of certain  HTTP/2 header decoding errors. (<a href="https://github.com/netty/netty/pull/12232">#12232</a>)</li>
+<li>Upgrade to quiche version that fixes final_size for RESET_STREAM (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/491">#491</a>)</li>
+<li>Update to latest quiche version which added support for key updates (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/497">#497</a>)</li>
+<li>Add QuicConnectionCloseEvent to be able to inspect why the remote peer closed the connection (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/314">#314</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/issues?page=1&amp;q=is%3Aclosed+milestone%3A4.1.76.Final">4.1.76.Final</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/37?closed=1">bug-tracker</a>.</p>
 
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.</p>
-
-<p>Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/andrewvo148">@andrewvo148</a></li>
-<li><a href="https://github.com/amizurov">@amizurov</a></li>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/coderbruis">@coderbruis</a></li>
-<li><a href="https://github.com/gorden5566">@gorden5566</a></li>
-<li><a href="https://github.com/hyperxpro">@hyperxpro</a></li>
-<li><a href="https://github.com/Kvicii">@Kvicii</a></li>
-<li><a href="https://github.com/kvr000">@kvr000</a></li>
-<li><a href="https://github.com/NickleHuang">@NickleHuang</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/schlosna">@schlosna</a></li>
-<li><a href="https://github.com/zhangOranges">@zhangOranges</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2022/03/17/5-0-0-Alpha1.html">&larr; Older</a>
+<a href="../../../../news/2023/03/14/4-1-90-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2022/05/06/2-1-77-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -324,9 +300,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2022/04/12/4-1-76-Final.html";
+            var disqus_url = "http://netty.io/news/2023/03/30/quic-0-0-39-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2022-04-12-4-1-76-Final";
+            var disqus_identifier = "news/2023-03-30-quic-0-0-39-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
