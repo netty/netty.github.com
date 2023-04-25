@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2023/04/03/4-1-91-Final.html">
+<a href="../news/2023/04/25/4-1-92-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -68,10 +68,10 @@ Downloads
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.91.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.92.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.91.Final
-<small>&dash; 03-Apr-2023</small>
+4.1.92.Final
+<small>&dash; 25-Apr-2023</small>
 </a>
 </li>
 <li>
@@ -291,7 +291,7 @@ Objects that contain <code>Buffer</code> or <code>ByteBuf</code> instances will 
 Aliasing is when two or more buffer objects refer to the same underlying memory.
 This means that methods like <code>slice()</code> and <code>duplicate()</code> are no longer available.
 On the other hand, the life-cycle handling is simplified, and reference counting can be entirely removed from the API.</p>
-<p>Where you would have used <code>slice()</code>, <code>duplicate()</code>, and their <code>retain*</code> variants, and the <code>retian()</code> family of methods, you will now instead use <code>split()</code>, <code>readSplit()</code>, and <code>copy()</code>.</p>
+<p>Where you would have used <code>slice()</code>, <code>duplicate()</code>, and their <code>retain*</code> variants, and the <code>retain()</code> family of methods, you will now instead use <code>split()</code>, <code>readSplit()</code>, and <code>copy()</code>.</p>
 <p>The <code>split</code> family of methods are similar to <code>slice()</code>, except they can only slice at the ends of the buffer, and the returned buffer slice is <em>removed</em> from the original buffer, thus preventing aliasing.</p>
 <p>The <code>retain()</code> and <code>release()</code> methods are gone. Buffers instead have a <code>close()</code> method, which will be called the end of the lifetime for the buffer. The buffers implement <code>AutoCloseable</code> as a convenience when the scope and lifetime of a buffer is entirely local.</p>
 <p>Most places where <code>retain()</code> was used were effectively to cancel the effect of an unconditional <code>release()</code> in a super-class or sub-class.
@@ -467,7 +467,7 @@ Both of these can be intercepted by methods defined in <code>ChannelHandler</cod
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 03-Apr-2023</small>
+<small>Last retrieved on 25-Apr-2023</small>
 </div>
 </div>
 </div>
