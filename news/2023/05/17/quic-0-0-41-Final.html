@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.35.Final released</title>
-<title>Netty: Netty 4.0.35.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.39.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.39.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.35.Final released
+Netty/Incubator/Codec/Quic 0.0.39.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,89 +263,35 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2016-03-21">21-Mar-2016</time>
+<time datetime="2023-05-17">17-May-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.0.35.Final after almost 2 months of hard work.</p>
-
-<p>This release contains 90+ changes, including bug-fixes, performance improvements and new features.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.39.Final. This release is mostly a bug-fix release but also add the possibility to inspect details about why the remote peer closed the connection.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Add support for TCP_DEFER_ACCEPT and TCP_QUICKACK (<a href="https://github.com/netty/netty/pull/4951">#4951</a>)</li>
-<li>WebSocketHandshaker.finishHandshake could result in recursive channelRead event (<a href="https://github.com/netty/netty/issues/4533">#4533</a>) (<a href="https://github.com/netty/netty/pull/4815">#4815</a>)</li>
-<li>Enabling SNI, OpenSSL client from netty does not work (<a href="https://github.com/netty/netty/issues/4746">#4746</a>)    (<a href="https://github.com/netty/netty/pull/4791">#4791</a>)</li>
-<li>Certificate failing set in OpenSslServerContext on Linux (<a href="https://github.com/netty/netty/issues/4793">#4793</a>)</li>
-<li>Enable SSL_MODE_ACCEPT_MOVING_WRITE_BUFFER when using OpenSslContext (<a href="https://github.com/netty/netty/pull/4816">#4816</a>)</li>
-<li>OpenSslContext throws UnsupportedOperationException when Unsafe not available (<a href="https://github.com/netty/netty/issues/4828">#4828</a>) (<a href="https://github.com/netty/netty/pull/4843">#4843</a>)</li>
-<li>Correctly pass ChannelPromise on to the next ChannelOutboundHandler when use CombinedChannelDuplexHandler (<a href="https://github.com/netty/netty/pull/4838">#4838</a>)</li>
-<li>Fix segfault if UnpooledUnsafeHeapByteBuf.getShort(..) is used and UNALGINED access is not possible. (<a href="https://github.com/netty/netty/pull/4845">#4845</a>) (<a href="https://github.com/netty/netty/issues/4841">#4841</a>)</li>
-<li>Ensure handlerAdded(...) and handlerRemoved(...) is always called from the right thread (<a href="https://github.com/netty/netty/pull/4863">#4863</a>)</li>
-<li>Ensure read components can be discarded when COMPOSITE_CUMULATOR is used (<a href="https://github.com/netty/netty/pull/4880">#4880</a>)</li>
-<li>Correctly set the alert type depending of the CertificateException (<a href="https://github.com/netty/netty/pull/4885">#4885</a>)</li>
-<li>NetUtil can prevent using Netty due to SecurityManager denial (<a href="https://github.com/netty/netty/issues/4936">#4936</a>) (<a href="https://github.com/netty/netty/pull/4977">#4977</a>)</li>
-<li>Guard against re-entrance in PendingWriteQueue (<a href="https://github.com/netty/netty/pull/4969">#4969</a>)</li>
-<li>Change arena to thread cache mapping algorithm to be closer to ideal (<a href="https://github.com/netty/netty/pull/4983">#4983</a>)</li>
-<li>Ensure all pending SSL data is written before closing channel during handshake error (<a href="https://github.com/netty/netty/pull/5003">#5003</a>)</li>
-<li>Add ! to allowed cookie value chars (<a href="https://github.com/netty/netty/pull/4998">#4998</a>)</li>
+<li>Upgrade to quiche version that fixes final_size for RESET_STREAM (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/491">#491</a>)</li>
+<li>Update to latest quiche version which added support for key updates (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/497">#497</a>)</li>
+<li>Add QuicConnectionCloseEvent to be able to inspect why the remote peer closed the connection (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/314">#314</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.35.Final+is%3Aclosed">our issue tracker</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/37?closed=1">bug-tracker</a>.</p>
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/buchgr">@buchgr</a></li>
-<li><a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a></li>
-<li><a href="https://github.com/cnapagoda">@cnapagoda</a></li>
-<li><a href="https://github.com/doom369">@doom369</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/floragunncom">@floragunncom</a></li>
-<li><a href="https://github.com/Harry5573">@Harry5573</a></li>
-<li><a href="https://github.com/IgorAlelekov">@IgorAlelekov</a></li>
-<li><a href="https://github.com/jamel">@jamel</a></li>
-<li><a href="https://github.com/jchambers">@jchambers</a></li>
-<li><a href="https://github.com/jiafu1115">@jiafu1115</a></li>
-<li><a href="https://github.com/jknair">@jknair</a></li>
-<li><a href="https://github.com/johnou">@johnou</a></li>
-<li><a href="https://github.com/jroper">@jroper</a></li>
-<li><a href="https://github.com/kerumai">@kerumai</a></li>
-<li><a href="https://github.com/liuzhengyang">@liuzhengyang</a></li>
-<li><a href="https://github.com/maxwindiff">@maxwindiff</a></li>
-<li><a href="https://github.com/mm-binary">@mm-binary</a></li>
-<li><a href="https://github.com/mosesn">@mosesn</a></li>
-<li><a href="https://github.com/mrniko">@mrniko</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/robeden">@robeden</a></li>
-<li><a href="https://github.com/rtimush">@rtimush</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/tbcs">@tbcs</a></li>
-<li><a href="https://github.com/tmihalcin">@tmihalcin</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/vietj">@vietj</a></li>
-<li><a href="https://github.com/windie">@windie</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2016/02/20/4-1-0-CR3.html">&larr; Older</a>
+<a href="../../../../news/2023/04/27/multiple_releases_incubator.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2016/03/21/4-1-0-CR4.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -354,9 +300,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2016/03/21/4-0-35-Final.html";
+            var disqus_url = "http://netty.io/news/2023/05/17/quic-0-0-41-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2016-03-21-4-0-35-Final";
+            var disqus_identifier = "news/2023-05-17-quic-0-0-41-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
