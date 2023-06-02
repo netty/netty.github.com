@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2023/05/25/4-1-93-Final.html">
+<a href="../news/2023/06/01/quic-0-0-45-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -480,7 +480,7 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) {
     } finally {
         ReferenceCountUtil.release(msg);
     }
-}"><pre><span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-s1">msg</span>) {&#x000A;    <span class="pl-k">try</span> {&#x000A;        ...&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-s1">ReferenceCountUtil</span>.<span class="pl-en">release</span>(<span class="pl-s1">msg</span>);&#x000A;    }&#x000A;}</pre></div>
+}"><pre><span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelRead</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>, <span class="pl-smi">Object</span> <span class="pl-s1">msg</span>) {&#x000A;    <span class="pl-k">try</span> {&#x000A;        ...&#x000A;    } <span class="pl-k">finally</span> {&#x000A;        <span class="pl-smi">ReferenceCountUtil</span>.<span class="pl-en">release</span>(<span class="pl-s1">msg</span>);&#x000A;    }&#x000A;}</pre></div>
 <p>Alternatively, you could consider extending <code>SimpleChannelHandler</code> which calls <code>ReferenceCountUtil.release(msg)</code> for all messages you receive.</p>
 <h3 id="wiki-h3-9">
 <a id="user-content-outbound-messages" class="anchor" aria-hidden="true" href="#outbound-messages"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Outbound messages</h3>
@@ -611,7 +611,7 @@ public void testSomething() throws Exception {
     // and then release it when the test thread is terminated.
     ByteBuf buf = releaseLater(Unpooled.directBuffer(512));
     ...
-}"><pre><span class="pl-k">import</span> <span class="pl-k">static</span> <span class="pl-s1">io</span>.<span class="pl-s1">netty</span>.<span class="pl-s1">util</span>.<span class="pl-s1">ReferenceCountUtil</span>.*;&#x000A;&#x000A;<span class="pl-c1">@</span><span class="pl-c1">Test</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">testSomething</span>() <span class="pl-k">throws</span> <span class="pl-s1">Exception</span> {&#x000A;    <span class="pl-c">// ReferenceCountUtil.releaseLater() will keep the reference of buf,</span>&#x000A;    <span class="pl-c">// and then release it when the test thread is terminated.</span>&#x000A;    <span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = <span class="pl-en">releaseLater</span>(<span class="pl-s1">Unpooled</span>.<span class="pl-en">directBuffer</span>(<span class="pl-c1">512</span>));&#x000A;    ...&#x000A;}</pre></div>
+}"><pre><span class="pl-k">import</span> <span class="pl-k">static</span> <span class="pl-s1">io</span>.<span class="pl-s1">netty</span>.<span class="pl-s1">util</span>.<span class="pl-s1">ReferenceCountUtil</span>.*;&#x000A;&#x000A;<span class="pl-c1">@</span><span class="pl-c1">Test</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">testSomething</span>() <span class="pl-k">throws</span> <span class="pl-s1">Exception</span> {&#x000A;    <span class="pl-c">// ReferenceCountUtil.releaseLater() will keep the reference of buf,</span>&#x000A;    <span class="pl-c">// and then release it when the test thread is terminated.</span>&#x000A;    <span class="pl-smi">ByteBuf</span> <span class="pl-s1">buf</span> = <span class="pl-en">releaseLater</span>(<span class="pl-smi">Unpooled</span>.<span class="pl-en">directBuffer</span>(<span class="pl-c1">512</span>));&#x000A;    ...&#x000A;}</pre></div>
 <hr>
 <p><strong>External Links:</strong></p>
 <p><a href="http://stackoverflow.com/questions/28647048/why-do-we-need-to-manually-handle-reference-counting-for-netty-bytebuf-if-jvm-gc" rel="nofollow">Why do we need to manually handle reference counting for Netty ByteBuf if JVM GC is still in place?</a></p>
@@ -648,7 +648,7 @@ public void testSomething() throws Exception {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 25-May-2023</small>
+<small>Last retrieved on 02-Jun-2023</small>
 </div>
 </div>
 </div>

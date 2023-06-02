@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Three releases a day: 5.0.0.Alpha1, 4.0.14, and 3.9.0</title>
-<title>Netty: Three releases a day: 5.0.0.Alpha1, 4.0.14, and 3.9.0</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.45.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.45.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,55 +255,47 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Three releases a day: 5.0.0.Alpha1, 4.0.14, and 3.9.0
+Netty/Incubator/Codec/Quic 0.0.45.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2013-12-22">22-Dec-2013</time>
+<time datetime="2023-06-01">01-Jun-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>Right before taking my two-week vacation, I decided to release three versions from three different branches for your fun and profit in the holiday season this year.  Please enjoy and make me happy thanks to the amount of bug reports and feature requests I'll see when I'm back. ;-)</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.45.Final. This release is mostly a bug-fix release but also contains one breaking change.</p>
 
-<h3>5.0.0.Alpha1</h3>
-
-<p>This is our new attempt to clean up the overall design even more.  Fortunately, the changes are not really big thanks to the many changes we made in 4.x, and you might actually like it due to its simplicity.  I wrote a dedicated page for the list of the notable changes <a href="http://netty.io/wiki/new-and-noteworthy-in-5.0.html">here</a>.</p>
-
-<h3>4.0.14.Final</h3>
+<p>The most important changes are:</p>
 
 <ul>
-<li>Advanced leak tracking mechanism that enables you find where you leaked a buffer easily. Read <a href="http://netty.io/wiki/reference-counted-objects.html">this article</a> for more information.</li>
-<li>SPDY/3.1 support</li>
-<li>Support for <code>charset</code> property in HTTP multipart request boundary</li>
-<li><a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.14.Final">11 bug fixes</a></li>
+<li>Replace EarlyDataSendCallback with SslEarlyDataReadyEvent (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/520">#520</a>)</li>
+<li>Fix support for TLS1.3 early data (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/522">#522</a>)</li>
+<li>Add native-image support (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/510">#510</a>)#</li>
 </ul>
 
 
-<h3>3.9.0.Final</h3>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/43?closed=1">bug-tracker</a>.</p>
 
-<ul>
-<li>Improved <code>SslHandler</code> performance (backported from 4.x)</li>
-<li>SPDY/3.1 support</li>
-<li>Faster <code>ChannelBuffers.EMPTY_BUFFER</code></li>
-<li>Support for <code>charset</code> property in HTTP multipart request boundary (backported from 4.x)</li>
-<li><a href="https://github.com/netty/netty/issues?q=milestone%3A3.9.0.Final">a couple bug fixes</a></li>
-</ul>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
+<h1>Breaking API change</h1>
+
+<p>This release replaces the old <code>EarlyDataSendCallback</code> with the usage of <code>SslEarlyDataReadyEvent</code> to be more consistent with Netty APIs. For more details see (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/520">#520</a>).</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2013/12/02/4-0-13-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/05/25/4-1-93-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2014/01/21/4-0-15-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -312,9 +304,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2013/12/22/three-releases-a-day.html";
+            var disqus_url = "http://netty.io/news/2023/06/01/quic-0-0-45-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2013-12-22-three-releases-a-day.html";
+            var disqus_identifier = "news/2023-06-01-quic-0-0-45-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
