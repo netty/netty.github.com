@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.6.Final released</title>
-<title>Netty: Netty 4.0.6.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.46.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.46.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.6.Final released
+Netty/Incubator/Codec/Quic 0.0.46.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,57 +263,34 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2013-08-01">01-Aug-2013</time>
+<time datetime="2023-06-13">13-Jun-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>Wheels are still moving fast and so here is the next bug-fix release out of the  4.x tree. This release includes bug-fixes and performance improvements.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.46.Final. This release fixes a native memory leak and so we encourage everyone to upgrade as soon as possible.</p>
 
-<p>In summary we closed 25 issues.</p>
-
-<p>This release would have been not possible without the feedback of our community. We welcome everyone to <a href="http://netty.io/community.html">become a part of it</a>, and help us to make Netty even better!</p>
-
-<h2>Important changes</h2>
+<p>The most important changes are:</p>
 
 <ul>
-<li>ChannelOutboundBuffer OOM Bug . (<a href="https://github.com/netty/netty/issues/1681">#1681</a>)</li>
-<li>Call to flush squashed by reentrancy check . (<a href="https://github.com/netty/netty/issues/1679">#1679</a>)</li>
-<li>ByteToMessageDecoder can pass a released buffer to PortUnificationServerHandler (<a href="https://github.com/netty/netty/issues/1664">#1664</a>)</li>
-<li>MessageToMessageEncoder.write() cause ArrayIndexOutOfBoundsException: -1 exception if encode() cause any exception . (<a href="https://github.com/netty/netty/issues/1656">#1656</a>)</li>
+<li>Ensure private key and cert chain are always destroyed even when the result is not used (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/530">#530</a>)</li>
+<li>Add missing ReleaseByteArrayElements to fix memory leak (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/534">#534</a>)</li>
 </ul>
 
 
-<p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.6.Final">here</a> for the complete list of the changes.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.46.Final">bug-tracker</a>.</p>
 
-<h2>Acknowledge</h2>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/aphyr">@aphyr</a></li>
-<li><a href="https://github.com/eugen-yakovets">@eugen-yakovets</a></li>
-<li><a href="https://github.com/fguerout">@fguerout</a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/gsoltis">@gsoltis</a></li>
-<li><a href="https://github.com/jpinner">@jpinner</a></li>
-<li><a href="https://github.com/jwils">@jwils</a></li>
-<li><a href="https://github.com/Megaprog">@Megaprog</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/tantaman">@tantaman</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2013/07/23/4-0-4-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/06/01/quic-0-0-45-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2013/08/08/4-0-7-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -322,9 +299,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2013/08/01/4-0-6-Final.html";
+            var disqus_url = "http://netty.io/news/2023/06/13/quic-0-0-46-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2013-08-01-4-0-6-Final.html";
+            var disqus_identifier = "news/2023-06-13-quic-0-0-46-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
