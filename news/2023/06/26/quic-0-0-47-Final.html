@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.20.Final released</title>
-<title>Netty: Netty 4.0.20.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.47.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.47.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.20.Final released
+Netty/Incubator/Codec/Quic 0.0.47.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,76 +263,34 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2014-06-12">12-Jun-2014</time>
+<time datetime="2023-06-26">26-Jun-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>Just one day after the release of Netty 3.9.2.Final we are happy to announce the release of Netty 4.0.20.Final.
-This release contains a lot of bug-fixes but also performance improvements and other goodies. As always this release is fully-compatible
-with previous netty 4.0.x releases.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.47.Final. This release fixes a possible buffer leak when using the native epoll transport and so we encourage everyone to upgrade as soon as possible.</p>
 
-<p>For mre details please refer to the next sections.</p>
-
-<h2>Most important changes / fixes</h2>
+<p>The most important changes are:</p>
 
 <ul>
-<li>Improve the allocation performance of pooled buffers larger than 8 KiB (<a href="https://github.com/netty/netty/issues/2518">#2518</a>)</li>
-<li>Use ByteBuf.readSlice(...).retain() to minimize memory copies (<a href="https://github.com/netty/netty/pull/2477">#2464</a>)</li>
-<li>ByteBuf implementation should only invert bytes if ByteOrder differ from native ByteOrder (<a href="https://github.com/netty/netty/issues/2436">#2436</a> and (<a href="https://github.com/netty/netty/pull/2531">#2531</a>)</li>
-<li>Introduce faster ThreadLocal (<a href="https://github.com/netty/netty/pull/2556">#2556</a>)</li>
-<li>Optimize DefaultChannelPipeline in terms of memory usage and initialization time (<a href="https://github.com/netty/netty/pull/2546">#2546</a>)</li>
-<li>Thread cache eviction task can erroneously prevent jvm from exiting (<a href="https://github.com/netty/netty/issues/2519">#2519</a>)</li>
-<li>Add OpenSslEngine (<a href="https://github.com/netty/netty/pull/2464">#2464</a>)</li>
+<li>Don't leak ByteBuf when sending segments will use the whole send quantum (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/540">#540</a>)</li>
+<li>Remove dependency on commons-codec (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/543">#543</a>)</li>
 </ul>
 
 
-<p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.20.Final">here</a> for the complete list of the changes.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.47.Final">bug-tracker</a>.</p>
 
-<p>As always please let us know if you find any issues. We love feedback!</p>
-
-<h2>Special notes</h2>
-
-<h3>Using OpenSslEngine</h3>
-
-<p>For details how to use OpenSslEngine please refer to our <a href="/wiki/forked-tomcat-native.html#wiki-h2-1">Forked Tomcat Native</a> page.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/54k">@54k </a></li>
-<li><a href="https://github.com/andreypanasenko">@andreypanasenko </a></li>
-<li><a href="https://github.com/belliottsmith">@belliottsmith </a></li>
-<li><a href="https://github.com/blucas">@blucas </a></li>
-<li><a href="https://github.com/boboyada">@boboyada </a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/j3h">@j3h</a></li>
-<li><a href="https://github.com/jchambers">@jchambers</a></li>
-<li><a href="https://github.com/jeje">@jeje</a></li>
-<li><a href="https://github.com/jpinner">@jpinner</a></li>
-<li><a href="https://github.com/liyichao">@liyichao</a></li>
-<li><a href="https://github.com/MiguelGL">@MiguelGL</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/sunng87">@sunng87</a></li>
-<li><a href="https://github.com/tea-dragon">@tea-dragon</a></li>
-<li><a href="https://github.com/tjake">@tjake</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/racorn">@racorn</a></li>
-</ul>
-
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2014/06/11/3-9-2-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/06/19/4-1-94-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2014/07/01/4-0-21-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -341,9 +299,9 @@ with previous netty 4.0.x releases.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2014/06/12/4-0-20-Final.html";
+            var disqus_url = "http://netty.io/news/2023/06/26/quic-0-0-47-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2014-06-12-4-0-20-Final.html";
+            var disqus_identifier = "news/2023-06-26-quic-0-0-47-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
