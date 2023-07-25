@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.0.Beta8 released</title>
-<title>Netty: Netty 4.1.0.Beta8 released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.49.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.49.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.0.Beta8 released
+Netty/Incubator/Codec/Quic 0.0.49.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,48 +263,37 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-11-10">10-Nov-2015</time>
+<time datetime="2023-07-25">25-Jul-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.1.0.Beta8. This will be the last beta release for 4.1 and we aim releasing 4.1.0.CR1 next week.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.49.Final.</p>
 
-<p>Because of this please test this release asap so we can fix any remaining issues in a timely manner.</p>
-
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.0.Beta8">our issue tracker</a>.</p>
-
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>The most important changes are:</p>
 
 <ul>
-<li><a href="https://github.com/blucas">@blucas</a></li>
-<li><a href="https://github.com/buchgr">@buchgr</a></li>
-<li><a href="https://github.com/dmk23">@dmk23</a></li>
-<li><a href="https://github.com/dustismo">@dustismo</a></li>
-<li><a href="https://github.com/louiscryan">@louiscryan</a></li>
-<li><a href="https://github.com/ninja-">@ninja-</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/rdicroce">@rdicroce</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
+<li>Directly close stream when STREAM_STOPPED is received (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/550">#550</a>)</li>
+<li>Don't leak buffers when segments are used and the connect promise is failed (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/551">#551</a>)</li>
+<li>Add leak tracking to QuicheQuicConnection (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/552">#552</a>)</li>
+<li>Update used BoringSSL version to match netty-tcnative-boringssl-static (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/555">#555</a>)</li>
+<li>Upgrade to latest netty release (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/563">#563</a>)</li>
 </ul>
 
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.49.Final">bug-tracker</a>.</p>
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/11/04/4-0-33-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/07/20/4-1-95-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2016/01/25/4-1-0-CR1.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -313,9 +302,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/11/10/4-1-0-Beta8.html";
+            var disqus_url = "http://netty.io/news/2023/07/25/quic-0-0-49-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-11-10-4-1-0-Beta8";
+            var disqus_identifier = "news/2023-07-25-quic-0-0-49-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
