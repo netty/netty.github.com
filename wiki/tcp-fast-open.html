@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2023/08/23/4-1-97-Final.html">
+<a href="../news/2023/09/05/quic-0-0-50-Final-http-0-0-20-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -263,7 +263,7 @@ You can improve it by yourself
 <div id="wiki-body" class="gollum-markdown-content">
               <div class="markdown-body">
                 <h2 id="wiki-h2-1">
-<a id="user-content-preface" class="anchor" aria-hidden="true" href="#preface"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Preface</h2>
+<a id="user-content-preface" class="anchor" aria-hidden="true" tabindex="-1" href="#preface"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Preface</h2>
 <p>TCP Fast Open, or TFO for short, is an extension to the TCP protocol that allow a small amount of data to be sent alongside the initial SYN packet, when a TCP connection is being established.
 This can save round-trips and reduce response time in certain cases.</p>
 <p>TFO cannot always be used, however, because it changes how TCP behave:
@@ -277,7 +277,7 @@ Since version <code>4.1.61.Final</code>, the <code>SslHandler</code> in Netty wi
 Specifically, server-side and client-side TFO is only supported on the epoll transport, and it requires support to be enabled in the Linux kernel.
 Since version <code>4.1.67.Final</code>, TCP FastOpen will also be supported for client-side connections on the <code>kqueue</code> transport.</p>
 <h2 id="wiki-h2-2">
-<a id="user-content-enabling-tfo" class="anchor" aria-hidden="true" href="#enabling-tfo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Enabling TFO</h2>
+<a id="user-content-enabling-tfo" class="anchor" aria-hidden="true" tabindex="-1" href="#enabling-tfo"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Enabling TFO</h2>
 <p>First, TFO needs to be supported and enabled in the operating system.
 On <em>MacOS</em>, this is enabled by default.
 On <em>Linux</em>, this is controlled with the <code>/proc/sys/net/ipv4/tcp_fastopen</code> file.
@@ -345,7 +345,7 @@ We cannot use the <code>Bootstrap.connect()</code> method, because that will cre
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 23-Aug-2023</small>
+<small>Last retrieved on 05-Sep-2023</small>
 </div>
 </div>
 </div>

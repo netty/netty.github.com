@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.26.Final released</title>
-<title>Netty: Netty 4.1.26.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.50.Final and Netty/Incubator/Codec/HTTP3 0.0.20.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.50.Final and Netty/Incubator/Codec/HTTP3 0.0.20.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.26.Final released
+Netty/Incubator/Codec/Quic 0.0.50.Final and Netty/Incubator/Codec/HTTP3 0.0.20.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,112 +263,44 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2018-07-10">10-Jul-2018</time>
+<time datetime="2023-09-05">05-Sep-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the latest release of the 4.1 series after almost 2 month of hard work.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.50.Final and netty-incubator-codec-http3 0.0.20.Final.</p>
 
-<p>These release contains bug-fixes, performance enhancements and feature so we encourage everyone to upgrade.</p>
-
-<p>The most important changes are:</p>
+<p>The most important changes for the quic codec are:</p>
 
 <ul>
-<li>Add OpenSslX509KeyManagerFactory which makes it even easier for people get the maximum performance when using OpenSSL / LibreSSL / BoringSSL  with netty (<a href="https://github.com/netty/netty/pull/8084">#8084</a>)</li>
-<li>Do not log explicit no unsafe, fixes helper method (<a href="https://github.com/netty/netty/pull/8111">#8111</a>)</li>
-<li>Fix support for shading native libraries which was broken (<a href="https://github.com/netty/netty/pull/8091">#8091</a>)</li>
-<li>Remove usage of ObjectCleaner (<a href="https://github.com/netty/netty/pull/8064">#8064</a>)</li>
-<li>Reorder channel state changes in Http2MultiplexCodec child channel (<a href="https://github.com/netty/netty/pull/8070">#8070</a>)</li>
-<li>Remove id from DnsQueryContextManager whenever the promise is fulfilled (<a href="https://github.com/netty/netty/pull/8058">#8058</a>)</li>
-<li>HpackDecoder treats invalid pseudo-headers as stream level errors (<a href="https://github.com/netty/netty/pull/8046">#8046</a>)</li>
-<li>Allow to cache keymaterial when using OpenSSL (<a href="https://github.com/netty/netty/pull/8036">#8036</a>)</li>
-<li>Epoll and Kqueue shouldn't read by default (<a href="https://github.com/netty/netty/pull/8024">#8024</a>)</li>
-<li>Defer channelInactive and channelUnregistered events in Http2MultiplexCodec (<a href="https://github.com/netty/netty/pull/8021">#8021</a>)</li>
-<li>Provide an API for controlling and h2c upgrade response stream in Http2MultiplexCodec (<a href="https://github.com/netty/netty/pull/7968">#7968</a>)</li>
-<li>Fix CharSequenceValueConverter.convertToByte implementation for AsciiString (<a href="https://github.com/netty/netty/pull/7994">#7994</a>)</li>
-<li>Set (and override) websocket handshake headers after custom headers (<a href="https://github.com/netty/netty/pull/7975">#7975</a>)</li>
-<li>Allow to schedule tasks up to Long.MAX_VALUE (<a href="https://github.com/netty/netty/pull/7972">#7972</a>)</li>
-<li>Correctly let Http2UnknownFrame extend HttpStreamFrame (<a href="https://github.com/netty/netty/pull/7976">#7976</a>)</li>
-<li>Read until all data is consumed when EOF is detected  (<a href="https://github.com/netty/netty/pull/7961">#7961</a>)</li>
-<li>Propagate pong frames in WebSocketProtocolHandler (<a href="https://github.com/netty/netty/pull/7955">#7955</a>)</li>
-<li>Remove HpackDecoder.maxHeaderListSizeGoAway (<a href="https://github.com/netty/netty/pull/7911">#7911</a>)</li>
-<li>Guard against calling malloc(0) when create ByteBuffer (<a href="https://github.com/netty/netty/pull/7948">#7948</a>)</li>
-<li>Correctly clear the error stack in all cases when using ReferenceCountedOpenSslEngine (<a href="https://github.com/netty/netty/pull/7941">#7941</a>)</li>
-<li>Correctly copy existing elements when CodecOutputList.add(index, element) is used (<a href="https://github.com/netty/netty/pull/7931">#7931</a>)</li>
+<li>Correctly handle optional client auth on the client(<a href="https://github.com/netty/netty-incubator-codec-quic/pull/567">#567</a>)</li>
+<li>Update to netty 4.1.97.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/569">#569</a>)</li>
+<li>Update to quiche 0.18.0 (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/571">#571</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse our issue tracker for  <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.26.Final">4.1.26.Final</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.50.Final">bug-tracker</a>.</p>
 
-<h1>Special notes</h1>
-
-<p>While this release contains many different changes, some deserve some more details.</p>
-
-<h1>Optimize performance when using <code>SslProvider.OPENSSL</code> and <code>SslProvider.OPENSSL_REFCNT</code></h1>
-
-<p>While you already could observe a huge performance win using our native SSL implementation we improved handshake times a lot in this release by caching the keymaterial during handshakes.</p>
-
-<p>While we can do this automatically when you configure the <code>SslContext</code> to use files we can not do this without risk when you use a <code>KeyManagerFactory</code> for doing so. If you do so please consider either using <code>OpenSslX509KeyManagerFactory</code> or <code>OpenSslCachingX509KeyManagerFactory</code>.</p>
-
-<p>The performance win we could observe were reducing the handshake latency by ~30-40% and the CPU usage during handshaking by up to 50%.</p>
-
-<p>How much improvement you see highly depends on your service and the length of the used keychain etc so take the numbers of some caution.</p>
-
-<h1>netty-tcnative compatibility</h1>
-
-<p>Please ensure you also update your netty-tcnative release to 2.0.12.Final as this release is not compatible with earlier releases of netty-tcnative.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>The most important changes for the http3 codec are:</p>
 
 <ul>
-<li><a href="https://github.com/Bennett-Lynch">@Bennett-Lynch</a></li>
-<li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
-<li><a href="https://github.com/caorong">@caorong</a></li>
-<li><a href="https://github.com/carryxyh">@carryxyh</a></li>
-<li><a href="https://github.com/cchantep">@cchantep</a></li>
-<li><a href="https://github.com/DiegoEliasCosta">@DiegoEliasCosta</a></li>
-<li><a href="https://github.com/dschobel">@dschobel</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/ewie">@ewie</a></li>
-<li><a href="https://github.com/hc-codersatlas">@hc-codersatlas</a></li>
-<li><a href="https://github.com/henrik-lindqvist">@henrik-lindqvist</a></li>
-<li><a href="https://github.com/jasontedor">@jasontedor</a></li>
-<li><a href="https://github.com/jianyuanzh">@jianyuanzh</a></li>
-<li><a href="https://github.com/jozefbalga">@jozefbalga</a></li>
-<li><a href="https://github.com/jo-kin">@jo-kin</a></li>
-<li><a href="https://github.com/kachayev">@kachayev</a></li>
-<li><a href="https://github.com/mosesn">@mosesn</a></li>
-<li><a href="https://github.com/nicktrav">@nicktrav</a></li>
-<li><a href="https://github.com/njhill">@njhill</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/ossdev07">@ossdev07</a></li>
-<li><a href="https://github.com/pifuant">@pifuant</a></li>
-<li><a href="https://github.com/radai-rosenblatt">@radai-rosenblatt</a></li>
-<li><a href="https://github.com/rockwotj">@rockwotj</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/seut">@seut</a></li>
-<li><a href="https://github.com/smlance">@smlance</a></li>
-<li><a href="https://github.com/tbrooks8">@tbrooks8</a></li>
-<li><a href="https://github.com/tomerd">@tomerd</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/vsabella">@vsabella</a></li>
-<li><a href="https://github.com/zekaryu">@zekaryu</a></li>
+<li>Correctly handle optional client auth on the client(<a href="hhttps://github.com/netty/netty-incubator-codec-http3/pull/236">#236</a>)</li>
+<li>Upgrade to latest quic release (<a href="https://github.com/netty/netty-incubator-codec-http3/commit/73196d01cd5644ba0517ce9cfa8a5f586f95af5c">73196d01cd5644ba0517ce9cfa8a5f586f95af5c</a>)</li>
+<li>Upgrade to netty 4.1.97.Final  (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/237">#237</a>)</li>
 </ul>
 
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-http3/issues?q=is%3Aclosed+milestone%3A0.0.20.Final">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2018/05/14/4-1-25-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/08/23/4-1-97-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2018/07/11/4-1-27-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -377,9 +309,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2018/07/10/4-1-26-Final.html";
+            var disqus_url = "http://netty.io/news/2023/09/05/quic-0-0-50-Final-http-0-0-20-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2018-07-10-4-1-26-Final";
+            var disqus_identifier = "news/2023-09-05-quic-0-0-50-Final-http-0-0-20-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
