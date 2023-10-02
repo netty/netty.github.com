@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.58.Final released</title>
-<title>Netty: Netty 4.1.58.Final released</title>
+<title>Netty.news: Multiple incubator libraries released</title>
+<title>Netty: Multiple incubator libraries released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.58.Final released
+Multiple incubator libraries released
 </h1>
 <p class="byline">
 <small>
@@ -263,44 +263,59 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2021-01-13">13-Jan-2021</time>
+<time datetime="2023-10-02">02-Oct-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I am happy to announce the release of netty 4.1.58.Final, which contains only one bug-fix which fixes a regression which could cause the native libs to be not loaded correctly. This regression was introduced in netty 4.1.57.Final, which was released just yesterday. Due the nature of the regression we decided we should offer another release (with a fix) ASAP.</p>
+<p>I am happy to announce the release of a new version of all our incubator libraries.</p>
 
-<p>The related issue / pr for the regression can be found in the provided links:</p>
+<p>The releases include:</p>
 
 <ul>
-<li>Revert "Ensure we only register native methods once" (<a href="https://github.com/netty/netty/pull/10928">#10928</a>)</li>
-<li>4.1.57 could not load a native library: netty_transport_native_unix_linux aarch_64/x86_64 (<a href="https://github.com/netty/netty/issues/10926">#10926</a>)</li>
+<li><a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/21?closed=1">netty-incubator-transport-io_uring 0.0.21.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-quic/milestone/38?closed=1">netty-incubator-codec-quic 0.0.40.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-http3/milestone/16?closed=1">netty-incubator-codec-http3 0.0.18.Final</a></li>
 </ul>
 
 
-<h1>Thank You</h1>
+<h1>Important changes:</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.</p>
+<p>For more details please check the specific issue tracker for the libraries as listed above.</p>
 
-<p>Please report an unintended omission.</p>
+<h2>netty-incubator-transport-io_uring 0.0.17.Final</h2>
 
 <ul>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/matteobertozzi">@matteobertozzi</a></li>
-<li><a href="https://github.com/njhill">@njhill</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li>Upgrade netty and netty-tcnative to latest releases  (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/203">#203</a>)</li>
+</ul>
+
+
+<h2>netty-incubator-codec-http3 0.0.18.Final</h2>
+
+<ul>
+<li>Ensure FIN will only sent after all data was written (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/222">#222</a>)</li>
+<li>Don't set a default MAX_HEADER_LIST_SIZE (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/221">#221</a>)</li>
+<li>Disable dynamic qpack table by default (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/223">#223</a>)</li>
+</ul>
+
+
+<h2>netty-incubator-codec-quic 0.0.36.Final</h2>
+
+<ul>
+<li>Upgrade to latest quiche sha (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/502">#502</a>)</li>
+<li>Upgrade to netty 4.1.92.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/501">#501</a>)</li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2021/01/12/4-1-57-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/09/21/4-1-99-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2021/01/15/io_uring-0-0-3-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -309,9 +324,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2021/01/13/4-1-58-Final.html";
+            var disqus_url = "http://netty.io/news/2023/10/02/multiple_releases_incubator.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2021-01-13-4-1-58-Final";
+            var disqus_identifier = "news/2023-10-02-multiple_releases_incubator";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
