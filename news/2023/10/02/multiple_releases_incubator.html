@@ -267,14 +267,14 @@ on
 </small>
 </p>
 <div class="news-content">
-<p>I am happy to announce the release of a new version of all our incubator libraries.</p>
+<p>I am happy to announce the release of a new version of all our incubator libraries. This includes releases for io_uring support, http3 and quic. Please consider upgrading if you use any of these.</p>
 
 <p>The releases include:</p>
 
 <ul>
-<li><a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/21?closed=1">netty-incubator-transport-io_uring 0.0.21.Final</a></li>
-<li><a href="https://github.com/netty/netty-incubator-codec-quic/milestone/38?closed=1">netty-incubator-codec-quic 0.0.40.Final</a></li>
-<li><a href="https://github.com/netty/netty-incubator-codec-http3/milestone/16?closed=1">netty-incubator-codec-http3 0.0.18.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-transport-io_uring/milestone/23?closed=1">netty-incubator-transport-io_uring 0.0.23.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-http3/milestone/19?closed=1">netty-incubator-codec-http3 0.0.21.Final</a></li>
+<li><a href="https://github.com/netty/netty-incubator-codec-quic/milestone/49?closed=1">netty-incubator-codec-quic 0.0.51.Final</a></li>
 </ul>
 
 
@@ -282,27 +282,33 @@ on
 
 <p>For more details please check the specific issue tracker for the libraries as listed above.</p>
 
-<h2>netty-incubator-transport-io_uring 0.0.17.Final</h2>
+<h2>netty-incubator-transport-io_uring 0.0.23.Final</h2>
 
 <ul>
-<li>Upgrade netty and netty-tcnative to latest releases  (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/203">#203</a>)</li>
+<li>Update to latest netty version (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/219">#219</a>)</li>
+<li>Use '-Xcheck:jni' during testsuite run to detect JNI bugs (<a href="https://github.com/netty/netty-incubator-transport-io_uring/pull/218">#218</a>)</li>
 </ul>
 
 
-<h2>netty-incubator-codec-http3 0.0.18.Final</h2>
+<h2>netty-incubator-codec-http3 0.0.21.Final</h2>
 
 <ul>
-<li>Ensure FIN will only sent after all data was written (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/222">#222</a>)</li>
-<li>Don't set a default MAX_HEADER_LIST_SIZE (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/221">#221</a>)</li>
-<li>Disable dynamic qpack table by default (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/223">#223</a>)</li>
+<li>Change API of Http3RequestStreamInboundHandler to better handle FIN (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/240">#240</a>)</li>
+<li>Upgrade to latest netty release (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/244">#244</a>)</li>
+<li>Upgrade to netty-incubator-codec-quic 0.0.51.Final (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/246">#246</a>)</li>
 </ul>
 
 
-<h2>netty-incubator-codec-quic 0.0.36.Final</h2>
+<h2>netty-incubator-codec-quic 0.0.51.Final</h2>
 
 <ul>
-<li>Upgrade to latest quiche sha (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/502">#502</a>)</li>
-<li>Upgrade to netty 4.1.92.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/501">#501</a>)</li>
+<li>Update to latest boringssl chromium-stable commit (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/570">#570</a>)</li>
+<li>Fixed Android connection not working (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/577">#577</a>)</li>
+<li>Fix bug related to memoryAddress access when unsafe is not accessible and Datagram extension is used (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/579">#579</a>)</li>
+<li>Ensure we always delete the local reference used to access the weak reference (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/587">#587</a>)</li>
+<li>Do not try to delete a global handle with the local handles APIs (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/588">#588</a>)</li>
+<li>Use '-Xcheck:jni' during testsuite run to detect JNI bugs (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/589">#589</a>)</li>
+<li>Upgrade to netty 4.1.99.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/590">#590</a>)</li>
 </ul>
 
 
