@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.17.Final released</title>
-<title>Netty: Netty/Incubator/Codec/Quic 0.0.17.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/HTTP3 0.0.22.Final released</title>
+<title>Netty: Netty/Incubator/Codec/HTTP3 0.0.22.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty/Incubator/Codec/Quic 0.0.17.Final released
+Netty/Incubator/Codec/HTTP3 0.0.22.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,39 +263,33 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2021-07-30">30-Jul-2021</time>
+<time datetime="2023-11-07">07-Nov-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>I am happy to announce the release of netty-incubator-codec-quic 0.0.17.Final.</p>
+<p>We are happy to announce the release of netty-incubator-codec-http3 0.0.22.Final. This release is mostly a bug-fix release related to QPACK.</p>
 
-<p>This release fixes a few bugs but also introduced support for SNI.</p>
-
-<p>The most interesting changes are:</p>
+<p>The most important changes are:</p>
 
 <ul>
-<li>Correctly use jlong and jint in native function definition to fix possible segfault (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/311">#311</a>)</li>
-<li>Ensure the connectPromise is also notified when the channel is closed due the draining timeout (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/312">#312</a>)</li>
-<li>Add support for SNI (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/313">#313</a>)</li>
+<li>QPACK: Correctly encode / decode indexes (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/250">#250</a>)</li>
+<li>QPACK: Fix absolute indexing in the dynamic table (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/251">#251</a>)</li>
+<li>QPACK: Max table capacity value should be used to encode required insert count value (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/257">#257</a>)</li>
 </ul>
 
 
-<p>Beside these there are various other small changes.</p>
-
-<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/16?closed=1">bug-tracker</a>.</p>
-
-<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-http3/issues?q=is%3Aclosed+milestone%3A0.0.22.Final">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2021/07/16/4-1-66-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/11/06/quic-0-0-52-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2021/08/16/4-1-67-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -304,9 +298,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2021/07/30/quic-0-0-17-Final.html";
+            var disqus_url = "http://netty.io/news/2023/11/07/http3-0-0-22-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2021-07-30-quic-0-0-17-Final";
+            var disqus_identifier = "news/2023-11-07-http3-0-0-22-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
