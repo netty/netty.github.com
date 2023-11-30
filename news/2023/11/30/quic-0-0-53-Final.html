@@ -278,17 +278,16 @@ But also contains one breaking change which you might encounter.</p>
 <li>Remove QuicStreamChannel.WRITE_FIN (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/620">#620</a>)</li>
 <li>Support connection migration on the server-side (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/615">#615</a>)</li>
 <li>Propagate events for path related activities (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/623">#623</a>)</li>
-<li>POnly close channel when receiving a STOP_SENDING frame (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/626">#626</a>)</li>
+<li>Only close channel when receiving a STOP_SENDING frame (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/626">#626</a>)</li>
 </ul>
 
 
-<h1>Breaking change</h1>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/51?closed=1">bug-tracker</a>.
+For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
+
+<h2>Breaking change</h2>
 
 <p>The <code>QuicConnectEvent</code> was removed in favor of different <code>QuicPathEvent</code> subtypes. If you use <code>QuicConnectEvent</code> in your code you will need to replace it by the correct sub-class of <code>QuicPathEvent</code>.</p>
-
-<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/51?closed=1">bug-tracker</a>.</p>
-
-<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 </div>
 <ul class="pager">
