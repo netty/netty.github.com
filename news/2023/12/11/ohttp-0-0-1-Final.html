@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.95.Final released</title>
-<title>Netty: Netty 4.1.95.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/OHTTP 0.0.1.Final released</title>
+<title>Netty: Netty/Incubator/Codec/OHTTP 0.0.1.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.95.Final released
+Netty/Incubator/Codec/OHTTP 0.0.1.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,62 +263,33 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2023-07-20">20-Jul-2023</time>
+<time datetime="2023-12-11">11-Dec-2023</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.95.Final. This is mainly a bug-fix release but also add a few small features.</p>
+<p>We are happy to announce the first release of netty-incubator-codec-ohttp a.k.a 0.0.1.Final. This release also contains an implementation of <a href="https://www.rfc-editor.org/rfc/rfc9292.html">Binary HTTP</a> as Binary HTTP is used by <a href="https://www.ietf.org/archive/id/draft-ietf-ohai-ohttp-10.html">Oblivious HTTP</a>.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Add resource leak listener (<a href="https://github.com/netty/netty/pull/13466">#13466</a>)</li>
-<li>Reduce object allocations during SslHandler.flush(...) (<a href="https://github.com/netty/netty/pull/13472">#13472</a>)</li>
-<li>Ensure ByteBuf.capacity(...) will never throw AssertionError (<a href="https://github.com/netty/netty/pull/13478">#13478</a>)</li>
-<li>Make transport.Bootstrap usable with no netty-resolver on classpath (<a href="https://github.com/netty/netty/pull/13488">#13488</a>)</li>
-<li>Correctly retain slice when calling ReplayingDecoderByteBuf.retainedSlice(...) (<a href="https://github.com/netty/netty/pull/13496">#13496</a>)</li>
-<li>Always increment Stream Id on createStream(...) (<a href="https://github.com/netty/netty/pull/13485">#13485</a>)</li>
-<li>Fix BrotliEncoder bug that does not mark ByteBuf it encodes as read (<a href="https://github.com/netty/netty/pull/13497">#13497</a>)</li>
-<li>Enhance CertificateException message when throw due hostname validation (<a href="https://github.com/netty/netty/pull/13381">#13381</a>)</li>
+<li>Initial commit of OHTTP implementation for netty (<a href="https://github.com/netty/netty-incubator-codec-ohttp/commit/df8d7f8b78c2c49c0f0e9886abbb2517ff568300">df8d7f8b78c2c49c0f0e9886abbb2517ff568300</a>)</li>
+<li>Make it easier to support custom OHttpVersion implementations (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/2">#2</a>)</li>
+<li>Simplify API for users and also simplify internal usage (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/4">#4</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.95.Final+is%3Aclosed">bug tracker</a></p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
-
-<p>Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/alecharmon">@alecharmon</a></li>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/codekrolik2">@codekrolik2</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/goolnen">@goolnen</a></li>
-<li><a href="https://github.com/hyperxpro">@hyperxpro</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/laosijikaichele">@laosijikaichele</a></li>
-<li><a href="https://github.com/liangxs">@liangxs</a></li>
-<li><a href="https://github.com/mostroverkhov">@mostroverkhov</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/stefanklas">@stefanklas</a></li>
-<li><a href="https://github.com/vietj">@vietj</a></li>
-<li><a href="https://github.com/wangjing112">@wangjing112</a></li>
-</ul>
-
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-ohttp/milestone/1?closed=1">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2023/07/03/quic-0-0-48-Final.html">&larr; Older</a>
+<a href="../../../../news/2023/11/30/quic-0-0-53-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2023/07/25/quic-0-0-49-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -327,9 +298,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2023/07/20/4-1-95-Final.html";
+            var disqus_url = "http://netty.io/news/2023/12/11/ohttp-0-0-1-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2023-07-20-4-1-95-Final";
+            var disqus_identifier = "news/2023-12-11-ohttp-0-0-1-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
