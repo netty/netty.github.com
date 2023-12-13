@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.101.Final released</title>
-<title>Netty: Netty 4.1.101.Final released</title>
+<title>Netty.news: Netty 4.1.103.Final released</title>
+<title>Netty: Netty 4.1.103.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.101.Final released
+Netty 4.1.103.Final released
 </h1>
 <p class="byline">
 <small>
@@ -267,38 +267,18 @@ on
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.101.Final. This is (mostly) a bug-fix release, which beside fixing correctness bugs also fixes a performance issue when DatagramChannel is used. If you use DatagramChannel you should consider the upgrade as soon as possible.</p>
+<p>We are happy to announce the release of netty 4.1.103.Final. This is (mostly) a bug-fix release, but also contains a change which helps to workaround a bug in grpc-java &lt; 1.59.1 that can cause problems when upgrade netty when also using grpc-java.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Add service-loaded extension points for channel initialization (<a href="https://github.com/netty/netty/pull/13565">#13565</a>)</li>
-<li>Added check for pseudo-headers in trailers (<a href="https://github.com/netty/netty/pull/13603">#13603</a>)</li>
-<li>Automatically close Http2StreamChannel when Http2FrameStreamExceptionreaches end ofChannelPipeline (<a href="https://github.com/netty/netty/pull/13651">#13651</a>)</li>
-<li>Throwing a stackless exception if RST_FRAME rate is exceeded (<a href="https://github.com/netty/netty/pull/13657">#13657</a>)</li>
-<li>Only enable the RST limit for servers by default (<a href="https://github.com/netty/netty/pull/13671">#13671</a>)</li>
-<li>Change default value of MAX_MESSAGES_PER_READ for DatagramChannel implementations (<a href="https://github.com/netty/netty/pull/13676">#13676</a>)</li>
-<li>Descriptive message for errors related to unknown http2 streams (<a href="https://github.com/netty/netty/pull/13691">#13691</a>)</li>
+<li>Workaround for regex bug in Android SDK (<a href="https://github.com/netty/netty/pull/13695">#13695</a>)</li>
+<li>Use Http2Headers.size() instead of isEmpty() (<a href="https://github.com/netty/netty/pull/13717">#13717</a>)</li>
+<li>Add support for RISC-V (<a href="https://github.com/netty/netty/pull/13770">#13770</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.101.Final+is%3Aclosed">bug tracker</a></p>
-
-<h2>Add service-loaded extension points for channel initialization</h2>
-
-<p>Netty is used by many libraries and frameworks that (reasonably) hide the fact that they use Netty under the covers. When Netty is hidden, it is hard, or sometimes impossible, to modify the channel pipelines, attributes, or options, from the outside. It might not even be clear if a framework or library makes use of Netty at all. However, we sometimes want to apply some changes, or make some checks, to most or all channels that are initialized by Netty, regardless of the framework or library that is using Netty in the given case.</p>
-
-<p>Some examples of use-cases are:</p>
-
-<ul>
-<li>Web application firewalls.</li>
-<li>Server-side request forgery filters.</li>
-<li>Intrusion detection.</li>
-<li>Metrics gathering.</li>
-</ul>
-
-
-<p>To address these use-cases in a way that don't require integrators to somehow find every Netty usage in a process, we introduce a service-loaded extension point that hooks into the channel initialization process. For more details on how this works and how this should be used see (<a href="https://github.com/netty/netty/pull/13565">#13565</a>).</p>
+<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.103.Final+is%3Aclosed">bug tracker</a></p>
 
 <h1>Thank You</h1>
 
@@ -307,16 +287,17 @@ on
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/adwsingh">@adwsingh</a></li>
+<li><a href="https://github.com/andsel">@andsel</a></li>
 <li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/dmstocking">@dmstocking</a></li>
+<li><a href="https://github.com/fishb1">@fishb1</a></li>
 <li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/hyperxpro">@hyperxpro</a></li>
 <li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/isaacrivriv">@isaacrivriv</a></li>
-<li><a href="https://github.com/j-bahr">@j-bahr</a></li>
-<li><a href="https://github.com/mostroverkhov">@mostroverkhov</a></li>
+<li><a href="https://github.com/imangry">@imangry</a></li>
+<li><a href="https://github.com/jorsol">@jorsol</a></li>
+<li><a href="https://github.com/laosijikaichele">@laosijikaichele</a></li>
+<li><a href="https://github.com/luhenry">@luhenry</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/zakkak">@zakkak</a></li>
 </ul>
 
 
