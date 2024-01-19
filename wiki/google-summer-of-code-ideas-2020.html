@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2024/01/16/4-1-105-Final.html">
+<a href="../news/2024/01/19/4-1-106-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -264,7 +264,7 @@ You can improve it by yourself
               <div class="markdown-body">
                 <h1>
 <a id="user-content-add-io_uring-based-transport" class="anchor" aria-hidden="true" tabindex="-1" href="#add-io_uring-based-transport"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Add io_uring based transport</h1>
-<h2 id="wiki-h2-1">
+<h2 id="wiki-h2-0">
 <a id="user-content-description" class="anchor" aria-hidden="true" tabindex="-1" href="#description"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Description</h2>
 <p>Netty supports various transports out of the box which depending on the Operation System can be used. At the moment it supports:</p>
 <ul>
@@ -283,27 +283,27 @@ You can improve it by yourself
 </ul>
 <p>Using syscalls served us very well over the last years but as syscalls became more expensive (and will most likely become even more expensive in the future) due of spectre and meltdown there is interest to reduce syscalls.</p>
 <p>A very promising way of doing so is io_uring (<a href="https://kernel.dk/io_uring.pdf" rel="nofollow">https://kernel.dk/io_uring.pdf</a>) [1, 2]. It provides an abstraction and API which allows to communicate with the kernel for IO operations which does mostly eliminate the need of syscalls all together. While it is out of scope to explain the exact inner working of io_uring the most important detail is that is offers a way to communicate through ring-buffers that use memory that is mapped into userspace and kernel space.</p>
-<h2 id="wiki-h2-2">
+<h2 id="wiki-h2-1">
 <a id="user-content-expected-outcomesbenefitsdeliverables" class="anchor" aria-hidden="true" tabindex="-1" href="#expected-outcomesbenefitsdeliverables"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Expected outcomes/benefits/deliverables</h2>
 <p>To ensure netty can make use of io_uring in the future we need to write a new transport that will make use of the provided API. Due to the fact that this is using C APIs it will needed to be done via JNI (just like the Native Epoll Transport).</p>
-<h2 id="wiki-h2-3">
+<h2 id="wiki-h2-2">
 <a id="user-content-required-skills" class="anchor" aria-hidden="true" tabindex="-1" href="#required-skills"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Required skills</h2>
 <ul>
 <li>Experience with Java and C programming languages (including how to use it from Java code == JNI)</li>
 <li>Understanding of Linux and its network API</li>
 </ul>
-<h2 id="wiki-h2-4">
+<h2 id="wiki-h2-3">
 <a id="user-content-complexity" class="anchor" aria-hidden="true" tabindex="-1" href="#complexity"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Complexity:</h2>
 <ul>
 <li>hard</li>
 </ul>
-<h2 id="wiki-h2-5">
+<h2 id="wiki-h2-4">
 <a id="user-content-potential-mentors" class="anchor" aria-hidden="true" tabindex="-1" href="#potential-mentors"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Potential mentors</h2>
 <ul>
 <li>Francesco Nigro</li>
 <li>Norman Maurer</li>
 </ul>
-<h2 id="wiki-h2-6">
+<h2 id="wiki-h2-5">
 <a id="user-content-related-resources" class="anchor" aria-hidden="true" tabindex="-1" href="#related-resources"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Related resources</h2>
 <ul>
 <li><a href="https://kernel.dk/io_uring.pdf" rel="nofollow">https://kernel.dk/io_uring.pdf</a></li>
@@ -311,7 +311,7 @@ You can improve it by yourself
 </ul>
 <h1>
 <a id="user-content-regression-testsuite" class="anchor" aria-hidden="true" tabindex="-1" href="#regression-testsuite"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Regression testsuite</h1>
-<h2 id="wiki-h2-7">
+<h2 id="wiki-h2-6">
 <a id="user-content-description-1" class="anchor" aria-hidden="true" tabindex="-1" href="#description-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Description</h2>
 <p>Netty currently contains a mix of unit tests and integration tests which are run as part of PR validations but also nightly. While this helped us to ensure we did not add any regressions in terms of functionality it does not help to catch other type of regressions like:</p>
 <ul>
@@ -321,31 +321,31 @@ You can improve it by yourself
 <li>GC pressure</li>
 </ul>
 <p>To help us detect these type of problems we would like enhance the current test suite to include tests / tools that help us to ensure we do not regress in the above mentioned cases.</p>
-<h2 id="wiki-h2-8">
+<h2 id="wiki-h2-7">
 <a id="user-content-expected-outcomesbenefitsdeliverables-1" class="anchor" aria-hidden="true" tabindex="-1" href="#expected-outcomesbenefitsdeliverables-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Expected outcomes/benefits/deliverables</h2>
 <ul>
 <li>Be able to run test suite as part of CI builds and fail the build if a regression is detected</li>
 <li>Generate graphs that show trends related to allocations / memory usage etc</li>
 </ul>
-<h2 id="wiki-h2-9">
+<h2 id="wiki-h2-8">
 <a id="user-content-required-skills-1" class="anchor" aria-hidden="true" tabindex="-1" href="#required-skills-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Required skills</h2>
 <ul>
 <li>Familiar with Java</li>
 <li>Familiar with test frameworks</li>
 <li>Familiar with docker</li>
 </ul>
-<h2 id="wiki-h2-10">
+<h2 id="wiki-h2-9">
 <a id="user-content-potential-mentors-1" class="anchor" aria-hidden="true" tabindex="-1" href="#potential-mentors-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Potential mentors</h2>
 <ul>
 <li>Francesco Nigro</li>
 <li>Norman Maurer</li>
 </ul>
-<h2 id="wiki-h2-11">
+<h2 id="wiki-h2-10">
 <a id="user-content-complexity-1" class="anchor" aria-hidden="true" tabindex="-1" href="#complexity-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Complexity</h2>
 <ul>
 <li>Medium</li>
 </ul>
-<h2 id="wiki-h2-12">
+<h2 id="wiki-h2-11">
 <a id="user-content-related-resources-1" class="anchor" aria-hidden="true" tabindex="-1" href="#related-resources-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Related Resources:</h2>
 <ul>
 <li><a href="https://github.com/CodingFabian/allocation-tracker">https://github.com/CodingFabian/allocation-tracker</a></li>
@@ -354,26 +354,26 @@ You can improve it by yourself
 </ul>
 <h1>
 <a id="user-content-implement-event-loop-telemetry" class="anchor" aria-hidden="true" tabindex="-1" href="#implement-event-loop-telemetry"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Implement event loop telemetry</h1>
-<h2 id="wiki-h2-13">
+<h2 id="wiki-h2-12">
 <a id="user-content-description-2" class="anchor" aria-hidden="true" tabindex="-1" href="#description-2"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Description</h2>
 <p>Netty comes with its own implementations of different event loop types, but they lack observability: providing counters and metrics on them to allow an external observer
 to understand how they're being used would help users to both tune and acknowledge performance bottleneck of applications or misconfigurations to achieve a target load.
 Observability often comes at a price, but ideally its impacts should be measurable by its own and carefully designed and implemented to be more lightweight as possible.</p>
-<h2 id="wiki-h2-14">
+<h2 id="wiki-h2-13">
 <a id="user-content-expected-outcomesbenefitsdeliverables-2" class="anchor" aria-hidden="true" tabindex="-1" href="#expected-outcomesbenefitsdeliverables-2"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Expected outcomes/benefits/deliverables</h2>
 <p>Design, implementing and benchmarking the effectiveness of the proposed metrics with different use cases and their impacts if compared when telemetry isn't used.</p>
-<h2 id="wiki-h2-15">
+<h2 id="wiki-h2-14">
 <a id="user-content-required-skills-2" class="anchor" aria-hidden="true" tabindex="-1" href="#required-skills-2"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Required skills</h2>
 <ul>
 <li>Experience with Java and benchmarking</li>
 <li>[Understanding of queuing theory]</li>
 </ul>
-<h2 id="wiki-h2-16">
+<h2 id="wiki-h2-15">
 <a id="user-content-complexity-2" class="anchor" aria-hidden="true" tabindex="-1" href="#complexity-2"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Complexity:</h2>
 <ul>
 <li>medium</li>
 </ul>
-<h2 id="wiki-h2-17">
+<h2 id="wiki-h2-16">
 <a id="user-content-potential-mentors-2" class="anchor" aria-hidden="true" tabindex="-1" href="#potential-mentors-2"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Potential mentors</h2>
 <ul>
 <li>Francesco Nigro</li>
@@ -381,7 +381,7 @@ Observability often comes at a price, but ideally its impacts should be measurab
 </ul>
 <h1>
 <a id="user-content-implement-native-event-loop-telemetry" class="anchor" aria-hidden="true" tabindex="-1" href="#implement-native-event-loop-telemetry"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Implement native event loop telemetry</h1>
-<h2 id="wiki-h2-18">
+<h2 id="wiki-h2-17">
 <a id="user-content-description-3" class="anchor" aria-hidden="true" tabindex="-1" href="#description-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Description</h2>
 <p>Netty supports various transports out of the box which depending on the Operation System can be used. At the moment it supports:</p>
 <ul>
@@ -391,22 +391,22 @@ Observability often comes at a price, but ideally its impacts should be measurab
 </ul>
 <p>The last twos have specific JNI implementations in Netty itself, while the first makes use what Java NIO offers with few changes.
 Specific metrics and telemetry data could be collected on such native transport implementations that could help observes/troubleshoots a running system.</p>
-<h2 id="wiki-h2-19">
+<h2 id="wiki-h2-18">
 <a id="user-content-expected-outcomesbenefitsdeliverables-3" class="anchor" aria-hidden="true" tabindex="-1" href="#expected-outcomesbenefitsdeliverables-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Expected outcomes/benefits/deliverables</h2>
 <p>Design, implementing and benchmarking the effectiveness of the proposed metrics with different use cases and their impacts if compared when telemetry isn't used.</p>
-<h2 id="wiki-h2-20">
+<h2 id="wiki-h2-19">
 <a id="user-content-required-skills-3" class="anchor" aria-hidden="true" tabindex="-1" href="#required-skills-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Required skills</h2>
 <ul>
 <li>Experience with Java and benchmarking</li>
 <li>Experience with Java and C programming languages (including how to use it from Java code == JNI)</li>
 <li>Understanding of Linux and its network API</li>
 </ul>
-<h2 id="wiki-h2-21">
+<h2 id="wiki-h2-20">
 <a id="user-content-complexity-3" class="anchor" aria-hidden="true" tabindex="-1" href="#complexity-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Complexity:</h2>
 <ul>
 <li>medium</li>
 </ul>
-<h2 id="wiki-h2-22">
+<h2 id="wiki-h2-21">
 <a id="user-content-potential-mentors-3" class="anchor" aria-hidden="true" tabindex="-1" href="#potential-mentors-3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>Potential mentors</h2>
 <ul>
 <li>Francesco Nigro</li>
@@ -426,30 +426,34 @@ Specific metrics and telemetry data could be collected on such native transport 
 <div class="toc well">
 <ul class="nav nav-list nav-stacked">
 <li class="nav-header">Table of Contents
-</li><li>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-0" title="Pages 30">Pages 30</a>
-</li></ul></li><li><a href="#wiki-h2-1" title="Description">Description</a>
-</li><li><a href="#wiki-h2-2" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
-</li><li><a href="#wiki-h2-3" title="Required skills">Required skills</a>
-</li><li><a href="#wiki-h2-4" title="Complexity:">Complexity:</a>
-</li><li><a href="#wiki-h2-5" title="Potential mentors">Potential mentors</a>
-</li><li><a href="#wiki-h2-6" title="Related resources">Related resources</a>
-</li><li><a href="#wiki-h2-7" title="Description">Description</a>
-</li><li><a href="#wiki-h2-8" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
-</li><li><a href="#wiki-h2-9" title="Required skills">Required skills</a>
-</li><li><a href="#wiki-h2-10" title="Potential mentors">Potential mentors</a>
-</li><li><a href="#wiki-h2-11" title="Complexity">Complexity</a>
-</li><li><a href="#wiki-h2-12" title="Related Resources:">Related Resources:</a>
-</li><li><a href="#wiki-h2-13" title="Description">Description</a>
-</li><li><a href="#wiki-h2-14" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
-</li><li><a href="#wiki-h2-15" title="Required skills">Required skills</a>
-</li><li><a href="#wiki-h2-16" title="Complexity:">Complexity:</a>
-</li><li><a href="#wiki-h2-17" title="Potential mentors">Potential mentors</a>
-</li><li><a href="#wiki-h2-18" title="Description">Description</a>
-</li><li><a href="#wiki-h2-19" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
-</li><li><a href="#wiki-h2-20" title="Required skills">Required skills</a>
-</li><li><a href="#wiki-h2-21" title="Complexity:">Complexity:</a>
-</li><li><a href="#wiki-h2-22" title="Potential mentors">Potential mentors</a>
+</li><li><a href="#wiki-h2-0" title="Description">Description</a>
+</li><li><a href="#wiki-h2-1" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
+</li><li><a href="#wiki-h2-2" title="Required skills">Required skills</a>
+</li><li><a href="#wiki-h2-3" title="Complexity:">Complexity:</a>
+</li><li><a href="#wiki-h2-4" title="Potential mentors">Potential mentors</a>
+</li><li><a href="#wiki-h2-5" title="Related resources">Related resources</a>
+</li><li><a href="#wiki-h2-6" title="Description">Description</a>
+</li><li><a href="#wiki-h2-7" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
+</li><li><a href="#wiki-h2-8" title="Required skills">Required skills</a>
+</li><li><a href="#wiki-h2-9" title="Potential mentors">Potential mentors</a>
+</li><li><a href="#wiki-h2-10" title="Complexity">Complexity</a>
+</li><li><a href="#wiki-h2-11" title="Related Resources:">Related Resources:</a>
+</li><li><a href="#wiki-h2-12" title="Description">Description</a>
+</li><li><a href="#wiki-h2-13" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
+</li><li><a href="#wiki-h2-14" title="Required skills">Required skills</a>
+</li><li><a href="#wiki-h2-15" title="Complexity:">Complexity:</a>
+</li><li><a href="#wiki-h2-16" title="Potential mentors">Potential mentors</a>
+</li><li><a href="#wiki-h2-17" title="Description">Description</a>
+</li><li><a href="#wiki-h2-18" title="Expected outcomes/benefits/deliverables">Expected outcomes/benefits/deliverables</a>
+</li><li><a href="#wiki-h2-19" title="Required skills">Required skills</a>
+</li><li><a href="#wiki-h2-20" title="Complexity:">Complexity:</a>
+</li><li><a href="#wiki-h2-21" title="Potential mentors">Potential mentors</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-22" title="Toggle tagle of contents
+
+      Pages 30">Toggle tagle of contents
+
+      Pages 30</a>
+</li></ul>
 </li></ul>
 </div>
 </div>
@@ -458,7 +462,7 @@ Specific metrics and telemetry data could be collected on such native transport 
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-Jan-2024</small>
+<small>Last retrieved on 19-Jan-2024</small>
 </div>
 </div>
 </div>
