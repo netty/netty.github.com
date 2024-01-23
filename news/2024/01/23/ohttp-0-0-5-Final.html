@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.0.Final released</title>
-<title>Netty: Netty 4.0.0.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/OHTTP 0.0.5.Final released</title>
+<title>Netty: Netty/Incubator/Codec/OHTTP 0.0.5.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,79 +255,40 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.0.Final released
+Netty/Incubator/Codec/OHTTP 0.0.5.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2013-07-16">16-Jul-2013</time>
+<time datetime="2024-01-23">23-Jan-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>After more than a year of journey for an even better networking application framework, we finally released Netty 4.0.0.Final yesterday, which is the official stable version with <a href="http://netty.io/wiki/new-and-noteworthy.html">the vast number of changes</a>.</p>
+<p>We are happy to announce the release of netty-incubator-codec-ohttp 0.0.5.Final. This release provides some performance improvements when using the native HPKE implementation and one API breaking change.</p>
 
-<p>I'd like to thank everyone who was involved in the development of this monumental release.  In spite of many backward-incompatible changes between releases, which sometimes might have looked fickle, the early adopters were extremely patient and helpful to drive us in a right direction.  Some of them even tested the unstable releases in their production environment, which was crucial to our decision to release the final version.  If this release is unusually rock-solid and high-performing, it's thanks to all of those great people for sure.</p>
-
-<p>What would be waiting in front of us?  We are excited that we are going to make the version 4 much more stable, to improve documentation, to give advise to help those who migrate 3.x-based apps to 4, and to make Netty faster than ever.  I hope you <a href="http://netty.io/community.html">become a part of all these efforts</a>.</p>
-
-<h2>Changes since 4.0.0.CR9</h2>
-
-<h3>Removal of <code>MessageList</code></h3>
-
-<p>I must admit <code>MesageList</code> was pain in the butt.  Instead of forcing a handler always loop over the list of messages, I split <code>ChannelInboundHandler.messageReceived(ctx, list)</code> into two event handler methods:</p>
+<p>The most important changes are:</p>
 
 <ul>
-<li>channelRead(ctx, msg)</li>
-<li>channelReadComplete(ctx)</li>
+<li>Rename method to be less missleading (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/44">#44</a>)</li>
+<li>Reuse EVP_HPKE_KEY when using BoringSSLOHttpCryptoProvider.setupHPKEBaseR (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/23">#23</a>)</li>
 </ul>
 
 
-<p>When Netty reads one or more messages, <code>channelRead()</code> event is triggered for each message.  Once the current read operation is finished, <code>channelReadComplete()</code> is triggered to tell the handler that the last <code>channelRead()</code> was the last message in the current batch.</p>
-
-<p>Similarly, for outbound, write(ctx, list) has been split into the following:</p>
-
-<ul>
-<li>write(ctx, msg, promise)</li>
-<li>flush(ctx)</li>
-</ul>
-
-
-<p>Instead of writing a list of messages with a promise, a user is now supposed to call <code>write(msg)</code> multiple times and then call <code>flush()</code> to actually flush the buffered messages.</p>
-
-<p>Please note that <code>flush()</code> doesn't have a promise with it.  You must write something to get notified on completion.  As you did in 3.x, the trick of writing an empty buffer works here, too.</p>
-
-<h4>Related miscellaneous changes</h4>
-
-<ul>
-<li><code>ChannelInboundHandler.channelReadSuspended()</code> has been replaced by <code>channelReadComplete()</code> introduced above, because they are essentially same.</li>
-<li>Because <code>MessageList</code> is gone, codec framework now uses <code>List&lt;Object&gt;</code> instead of <code>MessageList</code> as an output parameter.</li>
-</ul>
-
-
-<h3>Other changes</h3>
-
-<ul>
-<li><code>UnpooledByteBufAllocator</code> is the default allocator.  We suspect there might be a leak in the <code>PooledByteBufAllocator</code>.  Until the investigation is complete and any bugs found are fixed, we are defaulting to <code>UnpooledByteBufAllocator</code>.</li>
-<li><code>ByteBuf</code> is now an abstract class rather than an interface. I found that converting <code>ByteBuf</code> from an interface to an abstract class gives the nice performance boost of around 5%.  Hence <code>ByteBuf</code> was converted to an abstract class.</li>
-<li><code>Channel.id()</code> has been removed.  It was practically impossible to generate a unique ID of a <code>Channel</code> with the new API because there is no way to manage the global map of the taken IDs</li>
-</ul>
-
-
-<p>Visit <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Final">here</a> for the complete list of the changes.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-ohttp/milestone/5?closed=1">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2013/07/02/4-0-0-CR9.html">&larr; Older</a>
+<a href="../../../../news/2024/01/19/4-1-106-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2013/07/16/4-0-1-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -336,9 +297,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2013/07/16/4-0-0-Final.html";
+            var disqus_url = "http://netty.io/news/2024/01/23/ohttp-0-0-5-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2013-07-16-4-0-0-Final.html";
+            var disqus_identifier = "news/2024-01-23-ohttp-0-0-5-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
