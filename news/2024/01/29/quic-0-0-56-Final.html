@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.0.Alpha7 released</title>
-<title>Netty: Netty 4.0.0.Alpha7 released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.56.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.56.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.0.Alpha7 released
+Netty/Incubator/Codec/Quic 0.0.56.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,41 +263,49 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2012-11-09">09-Nov-2012</time>
+<time datetime="2024-01-29">29-Jan-2024</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>While trying to get Netty 4.0.0 ready for productions we thought it would be time to cut another alpha release.</p>
-<p>This release introduce <strong>NO </strong>API-Changes, so you should be safe to upgrade from Alpha6.</p>
-<div class="wikimodel-emptyline"></div>
-<h1 id="HBugfixes"><span><span>Bugfixes</span></span></h1>
-<p>The list of most important bug-fixes:</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.56.Final.
+This release is a bug fix release.</p>
+
+<p>The most important changes are:</p>
+
 <ul>
-<li>Fixes for SPDY handling  <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/705">[#705|</a></span> , <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/706">[#706]</a></span>
-</li>
-<li>Fix bug in DefaultCompositeByteBuf which could lead to an IndexOutOfBoundException <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/708">[#708]</a></span> </li>
+<li>Update to latest quiche code (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/647">#647</a>)</li>
+<li>Fire SniCompletionEvent as soon as the SNI hostname was selected(<a href="https://github.com/netty/netty-incubator-codec-quic/pull/644">#644</a>)</li>
+<li>Ensure we also set the QuicConnectionId when the id has a length of 0. (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/649">#649</a>)</li>
+<li>Copy a missing field in QuicServerCodecBuilder's copy constructor (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/641">#641</a>)</li>
 </ul>
-<div>
-<h1 id="HFeatures"><span><span>Features</span></span></h1>
-<p>This release now contains HTTP Post support again.  See <span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/709">[#709]</a></span> for more details..</p>
-</div>
-<div>
-<h1 id="HMisc"><span><span>Misc</span></span></h1>
-<p>Thanks again for all the feedback and help to make Netty 4.0.0 even more awesome. For more details please refer to our <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.0.Alpha7">issue tracker</a></span>. You can grab the download via our <span class="wikiexternallink"><a href="http://netty.io/downloads.html">website</a></span> or maven as usual.</p>
-</div>
-</div>
+
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.56.Final+is%3Aclosed">bug-tracker</a>.</p>
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/simonatan">@simonatan</a></li>
+</ul>
+
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2012/10/29/4-0-0-alpha6.html">&larr; Older</a>
+<a href="../../../../news/2024/01/23/ohttp-0-0-5-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2012/11/11/3-5-10-final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -306,9 +314,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2012/11/09/4-0-0-alpha7.html";
+            var disqus_url = "http://netty.io/news/2024/01/29/quic-0-0-56-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "503654809585842678";
+            var disqus_identifier = "news/2024-01-29-quic-0-0-56-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
