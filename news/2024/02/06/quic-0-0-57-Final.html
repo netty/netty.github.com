@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.96.Final released</title>
-<title>Netty: Netty 4.1.96.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.57.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.57.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.96.Final released
+Netty/Incubator/Codec/Quic 0.0.57.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,23 +263,30 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2023-07-27">27-Jul-2023</time>
+<time datetime="2024-02-06">06-Feb-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.96.Final. This releases fixes a performance regression introduced in 4.1.95.Final and a small regression in HTTP/2.
-Because of that we urge everyone to upgrade as soon as possible.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.57.Final.
+This release is a bug fix release which fixes an issue which could lead to high memory usage due missing cleanup of closed connections in some cases.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Move the PoolThreadCache finalizer to a separate object (<a href="https://github.com/netty/netty/pull/13510">#13510</a>)</li>
-<li>Fix kevent(..) failed: Invalid argument (<a href="https://github.com/netty/netty/pull/13503">#13503</a>)</li>
-<li>Revert "Always increment Stream Id on createStream (#13485)" to fix b…ug which caused sending multiple RST frames for the same id (<a href="https://github.com/netty/netty/commit/013c38298f6d28ec14543d02ede9bb6a6472ca3f">1735b4230a4935cbecedb48fd687c67aba950068</a>)</li>
+<li>Update to quiche 0.3.0 (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/651">#651</a>)</li>
+<li>Reduce memory usage of QuicheQuicChannel (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/653">#653</a>)</li>
+<li>Correctly fail connect future if failure in parent pipeline accours (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/657">#657</a>)</li>
+<li>Ensure QuicheQuicChannel is always removed from the QuicheQuicChannel (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/660">#660</a>)</li>
+<li>Reduce native memory usage of QuicheQuicConnection (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/661">#661</a>)</li>
+<li>Ensure we correctly detect closure if ssl tasks are offloaded. (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/663">#663</a>)</li>
+<li>Don't cache local and remote address as these might change during the lifetime (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/664">#664</a>)</li>
+<li>Correctly handle lifetimes and channel state (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/665">#665</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.96.Final+is%3Aclosed">bug tracker</a></p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.57.Final+is%3Aclosed">bug-tracker</a>.</p>
+
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
@@ -288,13 +295,6 @@ Because of that we urge everyone to upgrade as soon as possible.</p>
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/hyperxpro">@hyperxpro</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/ikhoon">@ikhoon</a></li>
-<li><a href="https://github.com/liangxs">@liangxs</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
 </ul>
 
@@ -302,13 +302,13 @@ Because of that we urge everyone to upgrade as soon as possible.</p>
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2023/07/25/quic-0-0-49-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/01/29/quic-0-0-56-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2023/08/23/4-1-97-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -317,9 +317,9 @@ Because of that we urge everyone to upgrade as soon as possible.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2023/07/27/4-1-96-Final.html";
+            var disqus_url = "http://netty.io/news/2024/02/06/quic-0-0-57-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2023-07-27-4-1-96-Final";
+            var disqus_identifier = "news/2024-02-06-quic-0-0-57-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
