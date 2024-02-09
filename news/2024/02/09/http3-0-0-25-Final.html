@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Additional update on the new web site</title>
-<title>Netty: Additional update on the new web site</title>
+<title>Netty.news: Netty/Incubator/Codec/HTTP3 0.0.25.Final released</title>
+<title>Netty: Netty/Incubator/Codec/HTTP3 0.0.25.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,33 +255,42 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Additional update on the new web site
+Netty/Incubator/Codec/HTTP3 0.0.25.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2011-11-10">10-Nov-2011</time>
+<time datetime="2024-02-09">09-Feb-2024</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>Recently we announced our new web site at <span class="wikiexternallink"><a href="http://netty.io/">http://netty.io/</a></span> but Red Hat have informed me that there are some outstanding issues related to the migration. As such we've been requested to move back to the original site at <span class="wikiexternallink"><a href="http://jboss.org/netty/">http://jboss.org/netty/</a></span> until these have been addressed. I apologize for any confusion caused.</p>
-<p>Hopefully we will be able to continue using <span class="wikiexternallink"><a href="http://stackoverflow.com/questions/tagged/netty">StackOverflow</a></span> and <span class="wikiexternallink"><a href="https://groups.google.com/d/forum/netty">Google Groups</a></span> as the Netty community agreed.</p>
-</div>
+<p>We are happy to announce the release of netty-incubator-codec-http3 0.0.25.Final. This release is  a bug-fix release which also fixes a possible buffer leak, so please consider upgrading ASAP.</p>
+
+<p>The most important changes are:</p>
+
+<ul>
+<li>Do not require :authority pseudo header (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/212">#212</a>)</li>
+<li>Update to netty-4.1.106.Final (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/277">#277</a>)</li>
+<li>Upgrade to latest quic release (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/282">#282</a>)</li>
+<li>Drain queued writes when Http3FrameCodec is removed (<a href="https://github.com/netty/netty-incubator-codec-http3/pull/280">#280</a>)</li>
+</ul>
+
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-http3/issues?q=is%3Aclosed+milestone%3A0.0.25.Final">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2011/11/04/new-web-site.html">&larr; Older</a>
+<a href="../../../../news/2024/02/06/quic-0-0-57-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2011/11/17/websockets.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -290,9 +299,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2011/11/10/update-on-new-web-site.html";
+            var disqus_url = "http://netty.io/news/2024/02/09/http3-0-0-25-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "5141893513386736180";
+            var disqus_identifier = "news/2024-02-09-http3-0-0-25-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
