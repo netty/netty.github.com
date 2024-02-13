@@ -2,13 +2,91 @@
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom">
 <id>http://netty.io/</id>
 <title>Netty</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <link href="http://netty.io/news/index.atom" rel="self" type="application/atom+xml" />
 <link href="http://netty.io/" rel="alternate" type="text/html" />
 <entry>
+<id>http://netty.io/news/2024/02/13/4-1-107-Final.html</id>
+<title>Netty 4.1.107.Final released</title>
+<updated>2024-02-13T09:50:04+00:00</updated>
+<published>2024-02-13T00:00:00+00:00</published>
+<link href="http://netty.io/news/2024/02/13/4-1-107-Final.html" rel="alternate" type="text/html" />
+<author>
+<name>normanmaurer</name>
+</author>
+<summary>
+We are happy to announce the release of netty 4.1.107.Final.
+
+The most important changes are:
+
+
+Speedup pseudoheader lookup (#13747)
+Add support for the Partitioned attribute in cookies (#13769)
+Reduce HTTP 1.1 Full msg pipeline traversals (#13785)
+DnsNameResolver: Add DnsQueryIdSpace class to reduce overhead while generating IDs (#13795)
+Fix copy-paste mistake in LazyX509Certificate.getIssuerAlternativeNames() (#13797)
+HTTP2: lastStreamCreated() does return the wrong value when all stream ids were used (#13807)
+HTTP2: Update local window should not fail queued frames (#13812)
+DnsNameResolver: Allways call bind() during bootstrap (#13817)
+HTTP: HttpObjectDecoder must not use HTTPMessage once it is passed to the next handler in the ChannelPipeline (#13818)
+Ensure key / values are shared between resumed sessions...
+</summary>
+<content type="html">
+&lt;p&gt;We are happy to announce the release of netty 4.1.107.Final.&lt;/p&gt;
+
+&lt;p&gt;The most important changes are:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Speedup pseudoheader lookup (&lt;a href=&quot;https://github.com/netty/netty/issues/13747&quot;&gt;#13747&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add support for the Partitioned attribute in cookies (&lt;a href=&quot;https://github.com/netty/netty/issues/13769&quot;&gt;#13769&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Reduce HTTP 1.1 Full msg pipeline traversals (&lt;a href=&quot;https://github.com/netty/netty/issues/13785&quot;&gt;#13785&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DnsNameResolver: Add DnsQueryIdSpace class to reduce overhead while generating IDs (&lt;a href=&quot;https://github.com/netty/netty/issues/13795&quot;&gt;#13795&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fix copy-paste mistake in LazyX509Certificate.getIssuerAlternativeNames() (&lt;a href=&quot;https://github.com/netty/netty/issues/13797&quot;&gt;#13797&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;HTTP2: lastStreamCreated() does return the wrong value when all stream ids were used (&lt;a href=&quot;https://github.com/netty/netty/issues/13807&quot;&gt;#13807&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;HTTP2: Update local window should not fail queued frames (&lt;a href=&quot;https://github.com/netty/netty/issues/13812&quot;&gt;#13812&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DnsNameResolver: Allways call bind() during bootstrap (&lt;a href=&quot;https://github.com/netty/netty/issues/13817&quot;&gt;#13817&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;HTTP: HttpObjectDecoder must not use HTTPMessage once it is passed to the next handler in the ChannelPipeline (&lt;a href=&quot;https://github.com/netty/netty/issues/13818&quot;&gt;#13818&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ensure key / values are shared between resumed sessions (&lt;a href=&quot;https://github.com/netty/netty/issues/13819&quot;&gt;#13819&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;SSLSession.getLastAccessedTime() and getCreationTime() should not be equal when session is reused (&lt;a href=&quot;https://github.com/netty/netty/issues/13825&quot;&gt;#13825&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Snappy: Use unsigned short to handle 2 ^ 16 input size instead of 2 ^ 15 (&lt;a href=&quot;https://github.com/netty/netty/issues/13828&quot;&gt;#13828&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;For more details please visit our &lt;a href=&quot;https://github.com/netty/netty/issues?q=milestone%3A4.1.107.Final+is%3Aclosed&quot;&gt;bug tracker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;Thank You&lt;/h1&gt;
+
+&lt;p&gt;Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.&lt;/p&gt;
+
+&lt;p&gt;Please report an unintended omission.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/adwsingh&quot;&gt;@adwsingh&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/aramired&quot;&gt;@aramired&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/charlesconnell&quot;&gt;@charlesconnell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/chrisvest&quot;&gt;@chrisvest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/DaveCTurner&quot;&gt;@DaveCTurner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/DreamLettuce&quot;&gt;@DreamLettuce&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/franz1981&quot;&gt;@franz1981&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/hyperxpro&quot;&gt;@hyperxpro&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/idelpivnitskiy&quot;&gt;@idelpivnitskiy&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/jnqco&quot;&gt;@jnqco&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/JoeCqupt&quot;&gt;@JoeCqupt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/lucamolteni&quot;&gt;@lucamolteni&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/normanmaurer&quot;&gt;@normanmaurer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/RaphiMC&quot;&gt;@RaphiMC&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Scottmitch&quot;&gt;@Scottmitch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/simonatan&quot;&gt;@simonatan&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/yawkat&quot;&gt;@yawkat&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+</content>
+</entry>
+<entry>
 <id>http://netty.io/news/2024/02/09/http3-0-0-25-Final.html</id>
 <title>Netty/Incubator/Codec/HTTP3 0.0.25.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-02-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/02/09/http3-0-0-25-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -49,7 +127,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2024/02/06/quic-0-0-57-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.57.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-02-06T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/02/06/quic-0-0-57-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -109,7 +187,7 @@ This release is a bug fix release which fixes an issue which could lead to high 
 <entry>
 <id>http://netty.io/news/2024/01/29/quic-0-0-56-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.56.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-29T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/29/quic-0-0-56-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -178,7 +256,7 @@ This release is a bug fix release.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2024/01/23/ohttp-0-0-5-Final.html</id>
 <title>Netty/Incubator/Codec/OHTTP 0.0.5.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-23T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/23/ohttp-0-0-5-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -215,7 +293,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2024/01/19/4-1-106-Final.html</id>
 <title>Netty 4.1.106.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-19T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/19/4-1-106-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -278,7 +356,7 @@ This bug existed since a very long time but was only discovered this week.&lt;/p
 <entry>
 <id>http://netty.io/news/2024/01/18/http3-0-0-24-Final.html</id>
 <title>Netty/Incubator/Codec/HTTP3 0.0.24.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-18T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/18/http3-0-0-24-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -315,7 +393,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2024/01/16/4-1-105-Final.html</id>
 <title>Netty 4.1.105.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-16T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/16/4-1-105-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -386,7 +464,7 @@ Every idea and bug-report counts, and so we thought it is worth...
 <entry>
 <id>http://netty.io/news/2024/01/12/ohttp-0-0-4-Final.html</id>
 <title>Netty/Incubator/Codec/OHTTP 0.0.4.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2024-01-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2024/01/12/ohttp-0-0-4-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -437,7 +515,7 @@ Allow...
 <entry>
 <id>http://netty.io/news/2023/12/15/4-1-104-Final.html</id>
 <title>Netty 4.1.104.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-12-15T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/12/15/4-1-104-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -494,7 +572,7 @@ Please report an unintended omission.
 <entry>
 <id>http://netty.io/news/2023/12/14/quic-0-0-55-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.55.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-12-14T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/12/14/quic-0-0-55-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -535,7 +613,7 @@ For more details about this codec in general please read our &lt;a href=&quot;ht
 <entry>
 <id>http://netty.io/news/2023/12/13/4-1-103-Final.html</id>
 <title>Netty 4.1.103.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-12-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/12/13/4-1-103-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -614,7 +692,7 @@ Please report an unintended omission.
 <entry>
 <id>http://netty.io/news/2023/12/11/ohttp-0-0-1-Final.html</id>
 <title>Netty/Incubator/Codec/OHTTP 0.0.1.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-12-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/12/11/ohttp-0-0-1-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -653,7 +731,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2023/11/30/quic-0-0-53-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.53.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-11-30T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/11/30/quic-0-0-53-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -710,7 +788,7 @@ For more details about this codec in general please read our &lt;a href=&quot;ht
 <entry>
 <id>http://netty.io/news/2023/11/17/io_uring_0-0-24-Final.html</id>
 <title>Netty/Incubator/Transport/io_uring 0.0.24.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-11-17T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/11/17/io_uring_0-0-24-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -779,7 +857,7 @@ This release is a bug fix release.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2023/11/09/4-1-101-Final.html</id>
 <title>Netty 4.1.101.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-11-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/11/09/4-1-101-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -858,7 +936,7 @@ Descriptive message for errors related to unknown http2...
 <entry>
 <id>http://netty.io/news/2023/11/07/http3-0-0-22-Final.html</id>
 <title>Netty/Incubator/Codec/HTTP3 0.0.22.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-11-07T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/11/07/http3-0-0-22-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -897,7 +975,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2023/11/06/quic-0-0-52-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.52.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-11-06T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/11/06/quic-0-0-52-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -940,7 +1018,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/10/10/4-1-100-Final.html</id>
 <title>Netty 4.1.100.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-10-10T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/10/10/4-1-100-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1008,7 +1086,7 @@ This is done by limiting the amount of RST frames a remote peer can send on a co
 <entry>
 <id>http://netty.io/news/2023/10/02/multiple_releases_incubator.html</id>
 <title>Multiple incubator libraries released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-10-02T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/10/02/multiple_releases_incubator.html" rel="alternate" type="text/html" />
 <author>
@@ -1105,7 +1183,7 @@ Fix bug...
 <entry>
 <id>http://netty.io/news/2023/09/21/4-1-99-Final.html</id>
 <title>Netty 4.1.99.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-09-21T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/09/21/4-1-99-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1163,7 +1241,7 @@ Every idea and bug-report counts, and...
 <entry>
 <id>http://netty.io/news/2023/09/21/4-1-98-Final.html</id>
 <title>Netty 4.1.98.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-09-21T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/09/21/4-1-98-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1221,7 +1299,7 @@ Enable client side session cache when using native SSL by...
 <entry>
 <id>http://netty.io/news/2023/09/05/quic-0-0-50-Final-http-0-0-20-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.50.Final and Netty/Incubator/Codec/HTTP3 0.0.20.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-09-05T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/09/05/quic-0-0-50-Final-http-0-0-20-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1282,7 +1360,7 @@ For more details related to this release see our bug-tracker....
 <entry>
 <id>http://netty.io/news/2023/08/23/4-1-97-Final.html</id>
 <title>Netty 4.1.97.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-08-23T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/08/23/4-1-97-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1354,7 +1432,7 @@ Every idea and bug-report counts, and so we thought it is worth mentioning those
 <entry>
 <id>http://netty.io/news/2023/07/27/4-1-96-Final.html</id>
 <title>Netty 4.1.96.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-07-27T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/07/27/4-1-96-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1419,7 +1497,7 @@ Because of that we urge everyone to upgrade as soon as possible.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2023/07/25/quic-0-0-49-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.49.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-07-25T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/07/25/quic-0-0-49-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1466,7 +1544,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/07/20/4-1-95-Final.html</id>
 <title>Netty 4.1.95.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-07-20T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/07/20/4-1-95-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1543,7 +1621,7 @@ Every idea and bug-report counts, and so we thought it is...
 <entry>
 <id>http://netty.io/news/2023/07/03/quic-0-0-48-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.48.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-07-03T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/07/03/quic-0-0-48-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1582,7 +1660,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/06/26/quic-0-0-47-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.47.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-06-26T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/06/26/quic-0-0-47-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1623,7 +1701,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/06/19/4-1-94-Final.html</id>
 <title>Netty 4.1.94.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-06-19T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/06/19/4-1-94-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1694,7 +1772,7 @@ Delay possibility to reuse transaction id when query is...
 <entry>
 <id>http://netty.io/news/2023/06/13/quic-0-0-46-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.46.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-06-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/06/13/quic-0-0-46-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1735,7 +1813,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/06/01/quic-0-0-45-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.45.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-06-01T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/06/01/quic-0-0-45-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1786,7 +1864,7 @@ This release replaces the old EarlyDataSendCallback with the usage of SslEarlyDa
 <entry>
 <id>http://netty.io/news/2023/05/25/4-1-93-Final.html</id>
 <title>Netty 4.1.93.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-05-25T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/05/25/4-1-93-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1866,7 +1944,7 @@ Every idea and bug-report counts, and...
 <entry>
 <id>http://netty.io/news/2023/05/17/quic-0-0-41-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.41.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-05-17T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/05/17/quic-0-0-41-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -1909,7 +1987,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/04/27/multiple_releases_incubator.html</id>
 <title>Multiple incubator libraries released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-04-27T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/04/27/multiple_releases_incubator.html" rel="alternate" type="text/html" />
 <author>
@@ -1998,7 +2076,7 @@ Upgrade to netty 4.1.92.Final (#501)...
 <entry>
 <id>http://netty.io/news/2023/04/25/4-1-92-Final.html</id>
 <title>Netty 4.1.92.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-04-25T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/04/25/4-1-92-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2065,7 +2143,7 @@ For more details please visit our &lt;a href=&quot;https://github.com/netty/nett
 <entry>
 <id>http://netty.io/news/2023/04/03/4-1-91-Final.html</id>
 <title>Netty 4.1.91.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-04-03T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/04/03/4-1-91-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2137,7 +2215,7 @@ This is a bug-fix release, which contains an important fix for our native SSL im
 <entry>
 <id>http://netty.io/news/2023/03/30/quic-0-0-39-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.39.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-03-30T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/03/30/quic-0-0-39-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2180,7 +2258,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/03/14/4-1-90-Final.html</id>
 <title>Netty 4.1.90.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-03-14T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/03/14/4-1-90-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2260,7 +2338,7 @@ This is a bug-fix release, but also includes some performance improvements. Plea
 <entry>
 <id>http://netty.io/news/2023/03/09/quic-0-0-38-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.38.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-03-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/03/09/quic-0-0-38-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2305,7 +2383,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/03/06/quic-0-0-37-Final.html</id>
 <title>Netty/Incubator/Codec/Quic 0.0.37.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-03-06T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/03/06/quic-0-0-37-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2346,7 +2424,7 @@ For more details about this codec in general please read our initial announcemen
 <entry>
 <id>http://netty.io/news/2023/02/28/io_uring_0-0-19-Final.html</id>
 <title>Netty/Incubator/Transport/io_uring 0.0.19.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-02-28T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/02/28/io_uring_0-0-19-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2409,7 +2487,7 @@ This release is a bug fix release which focus on issues related to client side u
 <entry>
 <id>http://netty.io/news/2023/02/22/io_uring_0-0-18-Final.html</id>
 <title>Netty/Incubator/Transport/io_uring 0.0.18.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-02-22T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/02/22/io_uring_0-0-18-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2476,7 +2554,7 @@ This release is a bug fix release, which means we encourage everyone to upgrade 
 <entry>
 <id>http://netty.io/news/2023/02/13/4-1-89-Final.html</id>
 <title>Netty 4.1.89.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-02-13T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/02/13/4-1-89-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2545,7 +2623,7 @@ This release contains a fix for two regressions that were introduced by 4.1.88.F
 <entry>
 <id>http://netty.io/news/2023/02/12/4-1-88-Final.html</id>
 <title>Netty 4.1.88.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-02-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/02/12/4-1-88-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2639,7 +2717,7 @@ This release contains a mix of bug-fixes, performance improvements and enhanceme
 <entry>
 <id>http://netty.io/news/2023/02/02/multiple_releases_incubator.html</id>
 <title>Multiple incubator libraries released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-02-02T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/02/02/multiple_releases_incubator.html" rel="alternate" type="text/html" />
 <author>
@@ -2744,7 +2822,7 @@ Ensure we produce and send window...
 <entry>
 <id>http://netty.io/news/2023/01/12/4-1-87-Final.html</id>
 <title>Netty 4.1.87.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2023-01-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2023/01/12/4-1-87-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2837,7 +2915,7 @@ This release is a bug-fix release.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2022/12/12/4-1-86-Final.html</id>
 <title>Netty 4.1.86.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2022-12-12T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/12/12/4-1-86-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2913,7 +2991,7 @@ Beside this this release contains various small bug-fixes.&lt;/p&gt;
 <entry>
 <id>http://netty.io/news/2022/11/09/4-1-85-Final.html</id>
 <title>Netty 4.1.85.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2022-11-09T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/11/09/4-1-85-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -2990,7 +3068,7 @@ to be flagged as making blocking calls (&lt;a href=&quot;https://github.com/nett
 <entry>
 <id>http://netty.io/news/2022/10/11/4-1-84-Final.html</id>
 <title>Netty 4.1.84.Final released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
+<updated>2024-02-13T09:50:04+00:00</updated>
 <published>2022-10-11T00:00:00+00:00</published>
 <link href="http://netty.io/news/2022/10/11/4-1-84-Final.html" rel="alternate" type="text/html" />
 <author>
@@ -3052,53 +3130,6 @@ This release is a bug-fix release.&lt;/p&gt;
 
 &lt;p&gt;The Netty 4.1.83.Final version suffered a mis-compilation in the macOS KQueue native binaries during the release process.
 Apart from the macOS specific native code integrations, there are no differences between the 4.1.83.Final and 4.1.84.Final versions we&#39;ve released to Maven Central.&lt;/p&gt;
-
-</content>
-</entry>
-<entry>
-<id>http://netty.io/news/2022/09/28/5-0-0-Alpha5.html</id>
-<title>Netty 5.0.0.Alpha5 released</title>
-<updated>2024-02-09T10:58:44+00:00</updated>
-<published>2022-09-28T00:00:00+00:00</published>
-<link href="http://netty.io/news/2022/09/28/5-0-0-Alpha5.html" rel="alternate" type="text/html" />
-<author>
-<name>chrisvest</name>
-</author>
-<summary>
-We are happy to announce the forth Alpha release of the upcoming netty 5.0.0. This release removes a lot of code-duplication and API cleanup. Besides this it also adds support for Unix Domain Sockets when using the JDK NIO implementation.
-
-We plan to continue to release often while in Alpha* to allow people to provide feedback easily and get changes in a frequent manner.
-
-These are the major changes since Alpha 5:
-
-
-The AbstractChannel has been simplified and stream-lined, increasing the body of shared code between the various transports, and making it easier to implement new transports.
-There is a new HTTP headers API,...
-</summary>
-<content type="html">
-&lt;p&gt;We are happy to announce the forth Alpha release of the upcoming netty 5.0.0. This release removes a lot of code-duplication and API cleanup. Besides this it also adds support for Unix Domain Sockets when using the JDK NIO implementation.&lt;/p&gt;
-
-&lt;p&gt;We plan to continue to release often while in Alpha* to allow people to provide feedback easily and get changes in a frequent manner.&lt;/p&gt;
-
-&lt;p&gt;These are the major changes since Alpha 5:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;AbstractChannel&lt;/code&gt; has been simplified and stream-lined, increasing the body of shared code between the various transports, and making it easier to implement new transports.&lt;/li&gt;
-&lt;li&gt;There is a new HTTP headers API, copied from ServiceTalk, that replaces the previous &lt;code&gt;DefaultHeaders&lt;/code&gt; family of APIs.&lt;/li&gt;
-&lt;li&gt;With the new HTTP header APIs, we are now also validating HTTP/1 and HTTP/2 headers more strictly.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;Buffer&lt;/code&gt; leak detection has been improved, and numerous leaks have been fixed as a result.&lt;/li&gt;
-&lt;li&gt;Mutation methods have been removed from &lt;code&gt;AsciiString&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Conditional meta-data used by &lt;code&gt;native-image&lt;/code&gt; is now generated automatically.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;For more details on all the changes that went into this release please check &lt;a href=&quot;https://github.com/netty/netty/milestone/260?closed=1&quot;&gt;our issue tracker&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;To make it easier to experiment with netty 5 while still use 4.1 at the same time, we have put Netty 5 into its own &lt;code&gt;io.netty5&lt;/code&gt; package. This allows to have both version co-exist at the same time. As this a new major version we also started to introduce breaking changes where it makes sense. These changes were mostly motivation by lessons learned during the life-time of netty 4.1.x. We really hope you enjoy these changes and if not provide feedback in what we should address :)&lt;/p&gt;
-
-&lt;p&gt;We will soon start to change the default branch of netty to main and so be more strict about changes that will be accepted for 4.1. While this might sound like a &quot;limitation&quot; it will  help to keep the possibility of a regression to a minimum for 4.1. Important bugfixes will of course still be ported to 4.1 as well.  With all this said we don&#39;t plan to stop supporting 4.1.x any time soon. Both versions will be supported in parallel for now.&lt;/p&gt;
-
-&lt;p&gt;To help users to try the next major version of netty we started to write down all the &quot;required&quot; things to do in terms of migrating netty 4.1.x code to 5.0.0. The migration guide can be found on our &lt;a href=&quot;https://github.com/netty/netty/wiki/Netty-5-Migration-Guide&quot;&gt;website&lt;/a&gt;.&lt;/p&gt;
 
 </content>
 </entry>
