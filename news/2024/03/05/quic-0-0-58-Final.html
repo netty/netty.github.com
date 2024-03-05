@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.91.Final released</title>
-<title>Netty: Netty 4.1.91.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.58.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.58.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.91.Final released
+Netty/Incubator/Codec/Quic 0.0.58.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,30 +263,27 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2023-04-03">03-Apr-2023</time>
+<time datetime="2024-03-05">05-Mar-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.91.Final.
-This is a bug-fix release, which contains an important fix for our native SSL implementation that fixes a problem that could lead to problems in your state-machines. See <a href="https://github.com/netty/netty/pull/13314">#13314</a>.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.58.Final.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Fire a PrematureChannelClosureException when Channel is closed while aggregating is still in progress (<a href="https://github.com/netty/netty/pull/13290">#13290</a>)</li>
-<li>Connect without password if server returns NO_AUTH when using Socks5 (<a href="https://github.com/netty/netty/pull/13290">#13290</a>)</li>
-<li>Use optional resolution of sun.net.dns (<a href="https://github.com/netty/netty/pull/13303">#13303</a>)</li>
-<li>Introduce Http2MultiplexActiveStreamsException that can be used to propagate an error to all active streams (<a href="https://github.com/netty/netty/pull/13306">#13306</a>)</li>
-<li>Use the correct error when reset a stream (<a href="https://github.com/netty/netty/pull/13309">#13309</a>)</li>
-<li>Update: Add snappy support on HttpContentDecoder (<a href="https://github.com/netty/netty/pull/13312">#13312</a>)</li>
-<li>Don't unwrap multiple records until we notified the caller about the finished handshake (<a href="https://github.com/netty/netty/pull/13314">#13314</a>)</li>
-<li>Handle EHOSTUNREACH errors in io.netty.channel.unix.Errors  (<a href="https://github.com/netty/netty/pull/13317">#13317</a>)</li>
+<li>Correctly implement equals / hashCode method for our SSLSession implementation (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/666">#666</a>)</li>
+<li>Add ReferenceCountUtil.touch(...) calls before we store messages into a queue to make debugging leaks easier (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/668">#668</a>)</li>
+<li>Upgrade to netty 4.1.107.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/669">#669</a>)</li>
+<li>Update to latest boringssl chromium-stable commit (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/675">#675</a>)</li>
+<li>Allow to obtain the "current" local / remote socket address of a QuicChannel (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/677">#677</a>)</li>
+<li>Fail writes with ChannelOutputShutdownException when STREAM_STOPPED is received (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/683">#683</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.91.Final+is%3Aclosed">bug tracker</a></p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.58.Final+is%3Aclosed">bug-tracker</a>.</p>
 
-<p>For all the other changes please check the 4.1.91.Final release notes.</p>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
@@ -295,33 +292,22 @@ This is a bug-fix release, which contains an important fix for our native SSL im
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/adhanoti">@adhanoti</a></li>
-<li><a href="https://github.com/alrossi">@alrossi</a></li>
-<li><a href="https://github.com/cfredri4">@cfredri4</a></li>
-<li><a href="https://github.com/EvanMi">@EvanMi</a></li>
-<li><a href="https://github.com/FelixMarxIBM">@FelixMarxIBM</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/human-user">@human-user</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/naveensrinivasan">@naveensrinivasan</a></li>
+<li><a href="https://github.com/heixiaoma">@heixiaoma</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/redcinelli">@redcinelli</a></li>
-<li><a href="https://github.com/small-thunder">@small-thunder</a></li>
-<li><a href="https://github.com/tristantarrant">@tristantarrant</a></li>
-<li><a href="https://github.com/violetagg">@violetagg</a></li>
+<li><a href="https://github.com/simonatan">@simonatan</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2023/03/30/quic-0-0-39-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/02/19/io_uring_0-0-25-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2023/04/25/4-1-92-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -330,9 +316,9 @@ This is a bug-fix release, which contains an important fix for our native SSL im
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2023/04/03/4-1-91-Final.html";
+            var disqus_url = "http://netty.io/news/2024/03/05/quic-0-0-58-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2023-04-03-4-1-91-Final";
+            var disqus_identifier = "news/2024-03-05-quic-0-0-58-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
