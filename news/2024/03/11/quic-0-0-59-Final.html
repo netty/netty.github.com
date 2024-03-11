@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.91.Final released</title>
-<title>Netty: Netty 4.1.91.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.58.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.58.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.91.Final released
+Netty/Incubator/Codec/Quic 0.0.58.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,30 +263,27 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2023-04-03">03-Apr-2023</time>
+<time datetime="2024-03-11">11-Mar-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.1.91.Final.
-This is a bug-fix release, which contains an important fix for our native SSL implementation that fixes a problem that could lead to problems in your state-machines. See <a href="https://github.com/netty/netty/pull/13314">#13314</a>.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.59.Final. This release includes the new <code>QuicCodecDispatcher</code> which should be used when <code>SO_REUSEPORT</code> is used. This <code>ChannelHandler</code> does quarantee the routing / dispatching of QUIC packets to the correct <code>codec</code>.</p>
+
+<p>For more details on how to use <code>QuicCodecDispatcher</code> please have a look at our <a href="https://github.com/netty/netty-incubator-codec-quic/blob/netty-incubator-codec-parent-quic-0.0.59.Final/codec-native-quic/src/test/java/io/netty/incubator/codec/quic/example/QuicServerSoReusePortExample.java">QuicServerSoReusePortExample</a>. An alrernative way how to handle this would be to implement your own <code>ebpf</code> programm that ensures the correct dispatching. See the javadocs of <code>QuicCodecDispatcher</code> for more details.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Fire a PrematureChannelClosureException when Channel is closed while aggregating is still in progress (<a href="https://github.com/netty/netty/pull/13290">#13290</a>)</li>
-<li>Connect without password if server returns NO_AUTH when using Socks5 (<a href="https://github.com/netty/netty/pull/13290">#13290</a>)</li>
-<li>Use optional resolution of sun.net.dns (<a href="https://github.com/netty/netty/pull/13303">#13303</a>)</li>
-<li>Introduce Http2MultiplexActiveStreamsException that can be used to propagate an error to all active streams (<a href="https://github.com/netty/netty/pull/13306">#13306</a>)</li>
-<li>Use the correct error when reset a stream (<a href="https://github.com/netty/netty/pull/13309">#13309</a>)</li>
-<li>Update: Add snappy support on HttpContentDecoder (<a href="https://github.com/netty/netty/pull/13312">#13312</a>)</li>
-<li>Don't unwrap multiple records until we notified the caller about the finished handshake (<a href="https://github.com/netty/netty/pull/13314">#13314</a>)</li>
-<li>Handle EHOSTUNREACH errors in io.netty.channel.unix.Errors  (<a href="https://github.com/netty/netty/pull/13317">#13317</a>)</li>
+<li>Fix exception message for exceptions caused by receiving a STOP_SENDING frame (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/684">#684</a>)</li>
+<li>Add QuicTimeoutClosedChannelException which will be used to fail writes for streams when the Channel was closed because of a idle timeout (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/685">#685</a>)</li>
+<li>Add QuicCodecDispatcher that should be used when SO_REUSEPORT is used (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/687">#687</a>)</li>
+<li>Only try to find index for QUIC packets with short header format (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/692">#692</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.91.Final+is%3Aclosed">bug tracker</a></p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.58.Final+is%3Aclosed">bug-tracker</a>.</p>
 
-<p>For all the other changes please check the 4.1.91.Final release notes.</p>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
@@ -295,33 +292,21 @@ This is a bug-fix release, which contains an important fix for our native SSL im
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/adhanoti">@adhanoti</a></li>
-<li><a href="https://github.com/alrossi">@alrossi</a></li>
-<li><a href="https://github.com/cfredri4">@cfredri4</a></li>
-<li><a href="https://github.com/EvanMi">@EvanMi</a></li>
-<li><a href="https://github.com/FelixMarxIBM">@FelixMarxIBM</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/human-user">@human-user</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/naveensrinivasan">@naveensrinivasan</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/redcinelli">@redcinelli</a></li>
-<li><a href="https://github.com/small-thunder">@small-thunder</a></li>
-<li><a href="https://github.com/tristantarrant">@tristantarrant</a></li>
-<li><a href="https://github.com/violetagg">@violetagg</a></li>
+<li><a href="https://github.com/ehaydenr">@ehaydenr</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2023/03/30/quic-0-0-39-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/03/05/quic-0-0-58-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2023/04/25/4-1-92-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -330,9 +315,9 @@ This is a bug-fix release, which contains an important fix for our native SSL im
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2023/04/03/4-1-91-Final.html";
+            var disqus_url = "http://netty.io/news/2024/03/11/quic-0-0-59-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2023-04-03-4-1-91-Final";
+            var disqus_identifier = "news/2024-03-11-quic-0-0-59-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
