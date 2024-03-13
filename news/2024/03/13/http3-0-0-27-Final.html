@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.59.Final released</title>
-<title>Netty: Netty/Incubator/Codec/Quic 0.0.59.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/HTTP3 0.0.27.Final released</title>
+<title>Netty: Netty/Incubator/Codec/HTTP3 0.0.27.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty/Incubator/Codec/Quic 0.0.59.Final released
+Netty/Incubator/Codec/HTTP3 0.0.27.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,50 +263,31 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2024-03-11">11-Mar-2024</time>
+<time datetime="2024-03-13">13-Mar-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.59.Final. This release includes the new <code>QuicCodecDispatcher</code> which should be used when <code>SO_REUSEPORT</code> is used. This <code>ChannelHandler</code> does quarantee the routing / dispatching of QUIC packets to the correct <code>codec</code>.</p>
-
-<p>For more details on how to use <code>QuicCodecDispatcher</code> please have a look at our <a href="https://github.com/netty/netty-incubator-codec-quic/blob/netty-incubator-codec-parent-quic-0.0.59.Final/codec-native-quic/src/test/java/io/netty/incubator/codec/quic/example/QuicServerSoReusePortExample.java">QuicServerSoReusePortExample</a>. An alrernative way how to handle this would be to implement your own <code>ebpf</code> programm that ensures the correct dispatching. See the javadocs of <code>QuicCodecDispatcher</code> for more details.</p>
+<p>We are happy to announce the release of netty-incubator-codec-http3 0.0.27.Final. This release update its netty-incubator-codec-quic version to 0.0.60.Final, which fixes two security issues.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Fix exception message for exceptions caused by receiving a STOP_SENDING frame (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/684">#684</a>)</li>
-<li>Add QuicTimeoutClosedChannelException which will be used to fail writes for streams when the Channel was closed because of a idle timeout (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/685">#685</a>)</li>
-<li>Add QuicCodecDispatcher that should be used when SO_REUSEPORT is used (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/687">#687</a>)</li>
-<li>Only try to find index for QUIC packets with short header format (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/692">#692</a>)</li>
+<li>Upgrade to new netty-incubator-codec-quic release which fixes CVE-2024-1410 and CVE-2024-1765 (<a href="https://github.com/netty/netty-incubator-codec-http3/issues/293">#293</a>)</li>
 </ul>
 
 
-<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.59.Final+is%3Aclosed">bug-tracker</a>.</p>
-
-<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
-
-<p>Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/ehaydenr">@ehaydenr</a></li>
-</ul>
-
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-http3/issues?q=is%3Aclosed+milestone%3A0.0.27.Final">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2024/03/05/quic-0-0-58-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/03/11/quic-0-0-59-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
 <li class="next">
-<a href="../../../../news/2024/03/13/http3-0-0-27-Final.html">Newer &rarr;</a>
+<a href="../../../../news/2024/03/13/quic-0-0-60-Final.html">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -315,9 +296,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2024/03/11/quic-0-0-59-Final.html";
+            var disqus_url = "http://netty.io/news/2024/03/13/http3-0-0-27-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2024-03-11-quic-0-0-59-Final";
+            var disqus_identifier = "news/2024-03-13-http3-0-0-27-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
