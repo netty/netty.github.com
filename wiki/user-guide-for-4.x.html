@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2024/03/26/quic-0-0-62-Final.html">
+<a href="../news/2024/03/28/http3-0-0-28-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -757,9 +757,9 @@ public void channelRead(ChannelHandlerContext ctx, Object msg) {
 <p>Much simpler and elegant, right? The same technique can be applied on the server side. Let us update the <code>TimeServerHandler</code> first this time:</p>
 <div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="@Override
 public void channelActive(ChannelHandlerContext ctx) {
-    ChannelFuture f = ctx.channel().writeAndFlush(new UnixTime());
+    ChannelFuture f = ctx.writeAndFlush(new UnixTime());
     f.addListener(ChannelFutureListener.CLOSE);
-}"><pre><span class="pl-c1">@</span><span class="pl-c1">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelActive</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>) {&#x000A;    <span class="pl-smi">ChannelFuture</span> <span class="pl-s1">f</span> = <span class="pl-s1">ctx</span>.<span class="pl-en">channel</span>().<span class="pl-en">writeAndFlush</span>(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>());&#x000A;    <span class="pl-s1">f</span>.<span class="pl-en">addListener</span>(<span class="pl-smi">ChannelFutureListener</span>.<span class="pl-c1">CLOSE</span>);&#x000A;}</pre></div>
+}"><pre><span class="pl-c1">@</span><span class="pl-c1">Override</span>&#x000A;<span class="pl-k">public</span> <span class="pl-smi">void</span> <span class="pl-s1">channelActive</span>(<span class="pl-smi">ChannelHandlerContext</span> <span class="pl-s1">ctx</span>) {&#x000A;    <span class="pl-smi">ChannelFuture</span> <span class="pl-s1">f</span> = <span class="pl-s1">ctx</span>.<span class="pl-en">writeAndFlush</span>(<span class="pl-k">new</span> <span class="pl-smi">UnixTime</span>());&#x000A;    <span class="pl-s1">f</span>.<span class="pl-en">addListener</span>(<span class="pl-smi">ChannelFutureListener</span>.<span class="pl-c1">CLOSE</span>);&#x000A;}</pre></div>
 <p>Now, the only missing piece is an encoder, which is an implementation of <a href="http://netty.io/4.1/api/io/netty/channel/ChannelOutboundHandler.html" rel="nofollow"><code>ChannelOutboundHandler</code></a> that translates a <code>UnixTime</code> back into a <a href="http://netty.io/4.1/api/io/netty/buffer/ByteBuf.html" rel="nofollow"><code>ByteBuf</code></a>. It's much simpler than writing a decoder because there's no need to deal with packet fragmentation and assembly when encoding a message.</p>
 <div class="highlight highlight-source-java notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="package io.netty.example.time;
 
@@ -845,7 +845,7 @@ public class TimeEncoder extends ChannelOutboundHandlerAdapter {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 26-Mar-2024</small>
+<small>Last retrieved on 28-Mar-2024</small>
 </div>
 </div>
 </div>
