@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.32.Final released</title>
-<title>Netty: Netty 4.1.32.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/OHTTP 0.0.10.Final released</title>
+<title>Netty: Netty/Incubator/Codec/OHTTP 0.0.10.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.32.Final released
+Netty/Incubator/Codec/OHTTP 0.0.10.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,93 +263,31 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2018-11-29">29-Nov-2018</time>
+<time datetime="2024-05-02">02-May-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>Today we announce the release of netty 4.1.32.Final. This release contains mostly bugfixes, some improvements and a few performance wins. Together with this you should also update to netty-tcnative 2.0.20.Final.</p>
-
-<p>Please also check the <code>Important notes</code> section below before upgrading.</p>
+<p>We are happy to announce the release of netty-incubator-codec-ohttp 0.0.10.Final. This release is a bug-fix release.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>PlatformDependent.maxDirectMemory() must respect io.netty.maxDirectMemory (<a href="https://github.com/netty/netty/pull/8452">#8452</a>)</li>
-<li>Don't swallow intermediate write failures in MessageToMessageEncoder (<a href="https://github.com/netty/netty/pull/8454">#8454</a>)</li>
-<li>Make Http2StreamFrameToHttpObjectCodec truly @Sharable (<a href="https://github.com/netty/netty/pull/8482">#8482</a>)</li>
-<li>Fix incorrect sizing of temp byte arrays in (Unsafe)ByteBufUtil (<a href="https://github.com/netty/netty/pull/8484">#8484</a>)</li>
-<li>SSLHandler may throw AssertionError if writes occur before channelActive (<a href="https://github.com/netty/netty/pull/8486">#8486</a>)</li>
-<li>Handshake timeout may never be scheduled if handshake starts via a flush (<a href="https://github.com/netty/netty/pull/8494">#8494</a>)</li>
-<li>Defer HTTP/2 stream transition state on initial write until headers are written (<a href="https://github.com/netty/netty/pull/8471">#8471</a>)</li>
-<li>Correctly convert between openssl / boringssl and java cipher names when using TLSv1.3 (<a href="https://github.com/netty/netty/pull/8485">#8485</a>)</li>
-<li>Correctly convert supported signature algorithms when using BoringSSL (<a href="https://github.com/netty/netty/pull/8481">#8481</a>)</li>
-<li>Nio|Epoll|KqueueEventLoop task execution might throw UnsupportedOperationException (<a href="https://github.com/netty/netty/pull/8476">#8476</a>)</li>
-<li>Return the correct pointer from ReferenceCountedOpenSslContext.context() and sslCtxPointer() (<a href="https://github.com/netty/netty/pull/8562">#8562</a>)</li>
-<li>ReferenceCountedOpenSslEngine SSLSession.getLocalCertificates() / getLocalPrincipal() did not work when KeyManagerFactory was used (<a href="https://github.com/netty/netty/pull/8560">#8560</a>)</li>
-<li>AbstractChannel swallows potential errors by ignoring throwable (<a href="https://github.com/netty/netty/pull/8499">#8499</a>)</li>
-<li>Allow adjusting of lead detection sampling interval (<a href="https://github.com/netty/netty/pull/8568">#8568</a>)</li>
-<li>Recover from Selector IOException (<a href="https://github.com/netty/netty/pull/8569">#8569</a>)</li>
-<li>Combine flushes in DnsNameResolver to allow usage of sendmmsg to reduce syscall costs (<a href="https://github.com/netty/netty/pull/8470">#8470</a>)</li>
-<li>Mark OIO based transports as deprecated as preparation for removal in Netty 5 (<a href="https://github.com/netty/netty/pull/8579">#8579</a>)</li>
-<li>LocationAwareSlf4jLogger does not correctly format log message (<a href="https://github.com/netty/netty/pull/8595">#8595</a>)</li>
-<li>Fix offset calculation in PooledByteBufAllocator when used (<a href="https://github.com/netty/netty/pull/8597">#8597</a>)</li>
-<li>Harden ref-counting concurrency semantics (<a href="https://github.com/netty/netty/pull/8583">#8583</a>)</li>
+<li>Correctly respond with plain text BAD_REQUEST when prefix can not be decoded (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/61">#61</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse our issue tracker for  <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.32.Final">4.1.32.Final</a>.</p>
-
-<h1>Important notes</h1>
-
-<p>This section will give some more details about more important changes that either change behaviour or add support for some important feature.</p>
-
-<h2>Deprecation of OIO and "sub-transports"</h2>
-
-<p>In preparation of Netty 5 we marked the OIO transport (and any sub-transports that depend on it) as <code>@deprecated</code>. These will be removed in netty 5 and everyone should switch to either the NIO transport or one of the native transports, EPOLL or KQueue. For more details see <a href="https://github.com/netty/netty/pull/8579">#8579</a></p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/Andremoniy">@Andremoniy</a></li>
-<li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
-<li><a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a></li>
-<li><a href="https://github.com/carryxyh">@carryxyh</a></li>
-<li><a href="https://github.com/doom369">@doom369</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/Feri73">@Feri73</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/gartmann">@gartmann</a></li>
-<li><a href="https://github.com/IgorAlelekov">@IgorAlelekov</a></li>
-<li><a href="https://github.com/johnou">@johnou</a></li>
-<li><a href="https://github.com/JStroom">@JStroom</a></li>
-<li><a href="https://github.com/luastar">@luastar</a></li>
-<li><a href="https://github.com/merlimat">@merlimat</a></li>
-<li><a href="https://github.com/njhill">@njhill</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/sullis">@sullis</a></li>
-<li><a href="https://github.com/strongmanwj">@strongmanwj</a></li>
-<li><a href="https://github.com/tbrooks8">@tbrooks8</a></li>
-<li><a href="https://github.com/tjake">@tjake</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/uxgnoz">@uxgnoz</a></li>
-<li><a href="https://github.com/vietj">@vietj</a></li>
-</ul>
-
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-ohttp/milestone/10?closed=1">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2018/10/30/4-1-31-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/04/16/ohttp-0-0-9-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2019/01/21/4-1-33-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -358,9 +296,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2018/11/29/4-1-32-Final.html";
+            var disqus_url = "http://netty.io/news/2024/05/02/ohttp-0-0-10-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2018-11-29-4-1-32-Final";
+            var disqus_identifier = "news/2024-05-02-ohttp-0-0-10-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
