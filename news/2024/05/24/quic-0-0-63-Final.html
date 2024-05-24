@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.29.Final released</title>
-<title>Netty: Netty 4.1.29.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.63.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.63.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.29.Final released
+Netty/Incubator/Codec/Quic 0.0.63.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,75 +263,53 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2018-08-24">24-Aug-2018</time>
+<time datetime="2024-05-24">24-May-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>Today we announce the release of netty 4.1.29.Final. This release contains bugfixes and some improvements.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.63.Final. This release fixes a few issues but also introduce a possible breaking change (shouldn't affect most people).</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Correctly handle DNS redirects for NS servers that have no ADDITIONAL records (<a href="https://github.com/netty/netty/pull/8177">#8177</a>)</li>
-<li>Ensure multiple shaded version of the same netty artifact can be loaded as long as the shaded prefix is different (<a href="https://github.com/netty/netty/pull/8207">#8207</a>)</li>
-<li>Set initial SNI hostname when creating an OpenSSL engine in client mode (<a href="https://github.com/netty/netty/pull/8178">#8178</a>)</li>
-<li>DnsNameResolver hangs if search domain results in invalid hostname (<a href="https://github.com/netty/netty/pull/8180">#8180</a>)</li>
-<li>Workaround JDK bug that will cause an AssertionError when calling ServerSocketChannel.config().getOptions() (<a href="https://github.com/netty/netty/pull/8183">#8183</a>)</li>
-<li>Ensure NIO transport can be used on Java6 again (<a href="https://github.com/netty/netty/pull/8168">#8168</a>)</li>
-<li>Lazily initialize NativeDatagramPacketArray and IovArray in EpollEventLoop (<a href="https://github.com/netty/netty/pull/8160">#8160</a>)</li>
+<li>Update to netty 4.1.110.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/718">#718</a>)</li>
+<li>Remove usage of QuicheError in public API as its an implementation detail of Quiche (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/711">#711</a>)</li>
+<li>Update to latest quiche commit sha. (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/716">#716</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse our issue tracker for  <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.29.Final">4.1.29.Final</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.63.Final+is%3Aclosed">bug-tracker</a>.</p>
 
-<h1>Important notes</h1>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
-<h2>DnsNameResolver API breakage</h2>
+<h1>Breaking change</h1>
 
-<p>We had to slightly break the DnsNameResolver API to fix (<a href="https://github.com/netty/netty/pull/8177">#8177</a>). Lucky enough changes are very slim you are affect but please read on if you use the resolver.</p>
-
-<p><code>DnsNameResolver.authoritativeDnsServerCache()</code> will now return an instance of <code>AuthoritativeDnsServerCache</code> and the previous used <code>DnsNameResolver.uncachedRedirectDnsServerStream(...)</code> was replaced by <code>newRedirectDnsServerStream(...)</code> (which is protected).</p>
-
-<h2>Memory usage of the native epoll transport</h2>
-
-<p>We reduced again the memory usage of the native epoll transport by change some code to init memory lazily. For more details check (<a href="https://github.com/netty/netty/pull/8160">#8160</a>).</p>
-
-<h2>Shading of native transports and netty-tcnative</h2>
-
-<p>It should now be possible to shade multiple versions of the native transports of netty and netty-tcnative and use them in the same JVM without any problems. As netty is used in a lot of different projects / libraries this may be useful for you. For any example how you would do shading / use shading check out <a href="https://github.com/netty/netty/tree/netty-4.1.29.Final/testsuite-shading">testsuite-shading</a> which uses maven but the same steps should apply for other build tools as well.
-For more details see (<a href="https://github.com/netty/netty/issues/7272">#7272</a>), which has all the related PRs linked.</p>
+<p>This release removes <code>QuicheError</code> from public API and replace it by <code>QuicTransportError</code>. For more details see (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/711">#711</a>)</p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/hc-codersatlas">@hc-codersatlas</a></li>
-<li><a href="https://github.com/jianglai">@jianglai</a></li>
-<li><a href="https://github.com/koo-taejin">@koo-taejin</a></li>
-<li><a href="https://github.com/meshcow">@meshcow</a></li>
-<li><a href="https://github.com/nitsanw">@nitsanw</a></li>
-<li><a href="https://github.com/njhill">@njhill</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/rkapsi">@rkapsi</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/steveniemitz">@steveniemitz</a></li>
-<li><a href="https://github.com/vincent-grosbois">@vincent-grosbois</a></li>
-<li><a href="https://github.com/vkostyukov">@vkostyukov</a></li>
-<li><a href="https://github.com/Wingfril">@Wingfril</a></li>
+<li><a href="https://github.com/simonatan">@simonatan</a></li>
+<li><a href="https://github.com/thomdev">@thomdev</a></li>
+<li><a href="https://github.com/yxwang1">@yxwang1</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2018/07/27/4-1-28-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/05/22/4-1-110-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2018/09/28/4-1-30-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -340,9 +318,9 @@ For more details see (<a href="https://github.com/netty/netty/issues/7272">#7272
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2018/08/24/4-1-29-Final.html";
+            var disqus_url = "http://netty.io/news/2024/05/24/quic-0-0-63-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2018-08-24-4-1-29-Final";
+            var disqus_identifier = "news/2024-05-24-quic-0-0-63-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
