@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.56.Final released</title>
-<title>Netty: Netty 4.1.56.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.64.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.64.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -255,7 +255,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.56.Final released
+Netty/Incubator/Codec/Quic 0.0.64.Final released
 </h1>
 <p class="byline">
 <small>
@@ -263,60 +263,47 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2020-12-17">17-Dec-2020</time>
+<time datetime="2024-06-10">10-Jun-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>I am happy to announce the release of netty 4.1.56.Final. This releases fixes a regression in the <code>HttpPostMultipartRequestDecoder</code> which was introduced in the last release that could lead to an infinite loop. If you make use of this class you should upgrade ASAP!</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.64.Final. This release fixes multiple issues related to handling QUIC packets so you should upgrade as soon as possible.</p>
 
-<p>The most important changes in this release are:</p>
+<p>The most important changes are:</p>
 
 <ul>
-<li>Fix Bundle-NativeCode in MANIFEST file (<a href="https://github.com/netty/netty/pull/10867">#10867</a>)</li>
-<li>Workaround possible JDK bug in SSLEngineImpl when using TLSv1.3 that lead to multiple notifications (<a href="https://github.com/netty/netty/pull/10860">#10860</a>)</li>
-<li>Fix infinite loop decoding multipart requests  (<a href="https://github.com/netty/netty/pull/10855">#10855</a>)</li>
-<li>Ensure IovArray is usuable without sun.misc.Unsafe (<a href="https://github.com/netty/netty/pull/10870">#10870</a>)</li>
-<li>Improve logging in <code>DnsServerAddressStreamProviders</code> (<a href="https://github.com/netty/netty/pull/10848">#10848</a>)</li>
+<li>Only create a new QuicChannel when receiving an INITIAL packet (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/720">#720</a>)</li>
+<li>Correctly handle multiple INITIAL packets (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/721">#721</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/issues?q=is%3Aclosed+milestone%3A4.1.56.Final">4.1.56.Final</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.64.Final+is%3Aclosed">bug-tracker</a>.</p>
 
-<h1>Special notes</h1>
-
-<p>As this release includes a fix for a possible infinite loop it's advised to upgrade asap if you use 4.1.55.Final.</p>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area.</p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
 
 <p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/doom369">@doom369</a></li>
-<li><a href="https://github.com/elharo">@elharo</a></li>
-<li><a href="https://github.com/fredericBregier">@fredericBregier</a></li>
-<li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/henrychv">@henrychv</a></li>
-<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/jameskleeh">@jameskleeh</a></li>
-<li><a href="https://github.com/imandy">@imandy</a></li>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/terrarier2111">@terrarier2111</a></li>
+<li><p><a href="https://github.com/ehaydenr">@ehaydenr</a></p></li>
+<li><p><a href="https://github.com/normanmaurer">@normanmaurer</a></p></li>
+<li><a href="https://github.com/poisonriver">@poisonriver</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2020/12/09/quic-0-0-1-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/06/04/ohttp-0-0-11-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2020/12/18/quic-0-0-2-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -325,9 +312,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2020/12/17/4-1-56-Final.html";
+            var disqus_url = "http://netty.io/news/2024/06/10/quic-0-0-64-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2020-12-17-4-1-56-Final";
+            var disqus_identifier = "news/2024-06-10-quic-0-0-64-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
