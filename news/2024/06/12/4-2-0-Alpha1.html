@@ -302,15 +302,15 @@ on
 
 <p>This has changed in 4.2.0, here you will use one <code>EventLoopGroup</code> implementation for all transports. This allows for easier customization of it (think of it like <code>ThreadPoolExecutor</code> that can be extended and customized). To make this possible we extracted the whole IO handling / multiplexing to another class that is injected into the <code>MultiThreadIoEventLoopGroup</code>.</p>
 
-<p>For example:
-<code>&#x000A;new EpollEventLoop();</code></p>
+<p>For example:</p>
 
-<p>becomes
-```
-new MultiThreadIoEventLoopGroup(EpollIoHandler.newFactory();</p>
+<pre><code class="java">new EpollEventLoop();&#x000A;</code></pre>
 
-<p>```
-Other transports follow the same pattern.</p>
+<p>becomes</p>
+
+<pre><code class="java">new MultiThreadIoEventLoopGroup(EpollIoHandler.newFactory();&#x000A;</code></pre>
+
+<p>Other transports follow the same pattern.</p>
 
 <p><code>MultiThreadIoEventLoopGroup</code> and <code>SingleThreadIoEventLoop</code> provide various methods that can be overridden by the user and so provide the ability to:</p>
 
