@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 3.5.0.Beta1 released!</title>
-<title>Netty: Netty 3.5.0.Beta1 released!</title>
+<title>Netty.news: Netty 4.2.0.Alpha1 released</title>
+<title>Netty: Netty 4.2.0.Alpha1 released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,55 +268,98 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 3.5.0.Beta1 released!
+Netty 4.2.0.Alpha1 released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2012-05-25">25-May-2012</time>
+<time datetime="2024-06-12">12-Jun-2024</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p>The Netty project team is proud to announce the first beta release of Netty 3.5.0. Please note that it's a beta release, so you might need to test it thoroughly before putting it into production.</p>
-<p>The JAR file is already on <span class="wikiexternallink"><a href="http://search.maven.org/#artifactdetails%7Cio.netty%7Cnetty%7C3.5.0.Beta1%7Cbundle">Maven central repository</a></span>. You can also get the full tarball from <span class="wikilink"><a href="http://netty.io/downloads.html">the download page</a></span>.</p>
-<p>This version introduces various features. The most important are:</p>
+<p>We are happy to announce the release of the first alpha for the upcoming netty version 4.2.0. Everyone using netty 4.1.x should be able to upgrade to 4.2.0.Alpha1 without any API breakage. The only new requirement is JDK8 or later. This release has all the fixes that are also included in <code>4.1.111.Final</code>.</p>
+
+<p>We encourage users of netty 4.1.x to try out this alpha release and so provide feedback if any breakage is noticed. This will help us to be  aware of any problems early in the release cycle. That said, be aware that this is only an alpha release and so <strong>shouldn't</strong> be considered for production usage.</p>
+
+<p>Netty 4.2.0 will come with some exciting new features, two of which are already included in this first alpha release:</p>
+
 <ul>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/353">SPDY3</a></span> support. Thanks again to our friends at twitter!</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/216">NIO UDP Multicast</a></span> support (only available when using jdk7)</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/271">Gathering Writes</a></span> support (only available when using jdk7)</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/286">HTTP POST</a></span> support</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/340">Handler</a></span> for traffic shaping</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/340">Handler</a></span> for IP based filtering</li>
-<li>
-<span class="wikiexternallink"><a href="https://github.com/netty/netty/pull/324">Encoder/Decoder</a></span> that supports marshall / unmarshall of java objects via JBoss Marshalling (can be used as replacement for <tt>ObjectEncoder</tt>/<tt>ObjectDecoder</tt>)</li>
+<li>New way how <code>EventLoopGroup</code>s are constructed (the old way is still preserved but marked as <code>@deprecated</code>)</li>
+<li>io_uring based transport</li>
 </ul>
-<p><strong>API Breakage in SPDY</strong></p>
-<p>Please note that this release includes some "small" API Breakage in the spdy package, which should not effect most of you. All static field values that were located in the <tt>SpdyHeaders.HttpNames</tt> class were moved to the <tt>Spdy2Headers.HttpNames</tt> class. The ones that are now in <tt>SpdyHeaders.HttpNames</tt> are related to SPDY3. The ones in <tt>Spdy2Headers</tt> are the old ones that are related to SPDY2.</p>
-<p>Along with the new features mentioned above, this release also includes many other bugfixes.</p>
-<p>For the detailed list of the changes, please refer to <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues?q=milestone%3A3.5.0.Beta1">the issue tracker page</a></span>.</p>
-<p>Enjoy!</p>
-</div>
+
+
+<p>For more details please visit our <a href="https://github.com/netty/netty/milestone/291?closed=1">bug tracker</a></p>
+
+<h2>New Features</h2>
+
+<h3>EventLoopGroup changes</h3>
+
+<p>In previous versions of netty the <code>EventLoopGroup</code> implementation was tightly coupled to the respective <code>Channel</code> implementation. This made it very hard to extend existing <code>EventLoopGroup</code>s to add funcionality like instruments (especially because you might want to use different transports based on the platform you are running on).</p>
+
+<p>This has changed in 4.2.0, here you will use one <code>EventLoopGroup</code> implementation for all transports. This allows for easier customization of it (think of it like <code>ThreadPoolExecutor</code> that can be extended and customized). To make this possible we extracted the whole IO handling / multiplexing to another class that is injected into the <code>MultiThreadIoEventLoopGroup</code>.</p>
+
+<p>For example:
+<code>&#x000A;new EpollEventLoop();</code></p>
+
+<p>becomes
+```
+new MultiThreadIoEventLoopGroup(EpollIoHandler.newFactory();</p>
+
+<p>```
+Other transports follow the same pattern.</p>
+
+<p><code>MultiThreadIoEventLoopGroup</code> and <code>SingleThreadIoEventLoop</code> provide various methods that can be overridden by the user and so provide the ability to:</p>
+
+<ul>
+<li>get a count of registered channels / handles</li>
+<li>understand how long the io processing vs task processing took</li>
+<li>how many channels / handles were processed per loop run</li>
+<li>customize / decorate promises</li>
+</ul>
+
+
+<p>Furthermore, it is now possible to register other things than <code>Channel</code>s, which provides a lot of possibilites to re-use netty components and also add support for other <code>IoHandle</code> implementations which does not exists as of today. For example, this could be used to implement <code>file IO</code> with <code>io_uring</code>.</p>
+
+<h3>io_uring support</h3>
+
+<p>This release contains io_uring support for its transports based on our incubator version with changes related to the above mentioned <code>EventLoopGroup</code> changes.</p>
+
+<p>Once 4.2.0 is considered stable we plan to stop mantaining the incubator version of io_uring and so only provide it for 4.2.x in the future.</p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
+<li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/He-Pin">@He-Pin</a></li>
+<li><a href="https://github.com/honglh">@honglh</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/shoothzj">@shoothzj</a></li>
+<li><a href="https://github.com/vietj">@vietj</a></li>
+<li><a href="https://github.com/violetagg">@violetagg</a></li>
+<li><a href="https://github.com/yawkat">@yawkat</a></li>
+</ul>
+
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2012/05/16/3-4-5-final.html">&larr; Older</a>
+<a href="../../../../news/2024/06/11/4-1-111-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2012/05/29/3-4-6-final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -325,9 +368,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2012/05/25/3-5-0-beta1.html";
+            var disqus_url = "http://netty.io/news/2024/06/12/4-2-0-Alpha1.html";
             var disqus_developer = null;
-            var disqus_identifier = "6721345938511975155";
+            var disqus_identifier = "news/2024-06-12-4-2-0-Alpha1";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
