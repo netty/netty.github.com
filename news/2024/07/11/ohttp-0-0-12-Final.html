@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.56.Final released</title>
-<title>Netty: Netty/Incubator/Codec/Quic 0.0.56.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/OHTTP 0.0.12.Final released</title>
+<title>Netty: Netty/Incubator/Codec/OHTTP 0.0.12.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty/Incubator/Codec/Quic 0.0.56.Final released
+Netty/Incubator/Codec/OHTTP 0.0.12.Final released
 </h1>
 <p class="byline">
 <small>
@@ -276,49 +276,38 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2024-01-29">29-Jan-2024</time>
+<time datetime="2024-07-11">11-Jul-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.56.Final.
-This release is a bug fix release.</p>
+<p>We are happy to announce the release of netty-incubator-codec-ohttp 0.0.12.Final. This release is a bug-fix release.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Update to latest quiche code (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/647">#647</a>)</li>
-<li>Fire SniCompletionEvent as soon as the SNI hostname was selected(<a href="https://github.com/netty/netty-incubator-codec-quic/pull/644">#644</a>)</li>
-<li>Ensure we also set the QuicConnectionId when the id has a length of 0. (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/649">#649</a>)</li>
-<li>Copy a missing field in QuicServerCodecBuilder's copy constructor (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/641">#641</a>)</li>
+<li>Correctly release native resources in JNI code (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/65">#65</a>)</li>
+<li>Don't leak native memory for random generated keys (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/66">#66</a>)</li>
+<li>Correctly detect when allocation fails and return correct (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/67">#67</a>)</li>
+<li>Add cache digest on creation of BoringSSLHPKEContext (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/68">#68</a>)</li>
+<li>Use constant-time equals for private key material (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/69">#69</a>)</li>
+<li>Add missing equals / hashCode implementations
+(<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/70">#70</a>)</li>
+<li>Correctly implement encoding / decoding Key Configuration Media Type (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/75">#75</a>)</li>
 </ul>
 
 
-<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=milestone%3A0.0.56.Final+is%3Aclosed">bug-tracker</a>.</p>
-
-<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
-
-<h1>Thank You</h1>
-
-<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
-
-<p>Please report an unintended omission.</p>
-
-<ul>
-<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/simonatan">@simonatan</a></li>
-</ul>
-
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-ohttp/milestone/12?closed=1">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2024/01/23/ohttp-0-0-5-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/07/03/4-2-0-Alpha2.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2024/02/06/quic-0-0-57-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -327,9 +316,9 @@ This release is a bug fix release.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2024/01/29/quic-0-0-56-Final.html";
+            var disqus_url = "http://netty.io/news/2024/07/11/ohttp-0-0-12-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2024-01-29-quic-0-0-56-Final";
+            var disqus_identifier = "news/2024-07-11-ohttp-0-0-12-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
