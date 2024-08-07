@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: To use SLF4J or not, that is the question</title>
-<title>Netty: To use SLF4J or not, that is the question</title>
+<title>Netty.news: Netty/Incubator/Codec/OHTTP 0.0.14.Final released</title>
+<title>Netty: Netty/Incubator/Codec/OHTTP 0.0.14.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,51 +268,40 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-To use SLF4J or not, that is the question
+Netty/Incubator/Codec/OHTTP 0.0.14.Final released
 </h1>
 <p class="byline">
 <small>
 by
-<a href="https://github.com/trustin">trustin</a>
+<a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2011-11-22">22-Nov-2011</time>
+<time datetime="2024-08-07">07-Aug-2024</time>
 </small>
 </p>
 <div class="news-content">
-<div class="entry-content">
-<p><em>UPDATE</em>: It's noteworthy that the logging layer we are discussing on is not part of user API. That is, it's not intended for use by users but by developer (committer).</p>
-<p>There was recently <span class="wikiexternallink"><a href="https://github.com/netty/netty/issues/64">a discussion</a></span> in the community about whether we should switch from our own logging layer to something else such as <span class="wikiexternallink"><a href="http://www.slf4j.org/">SLF4J</a></span> or java.util.logging in Netty 4. The following is the list of the options we discussed and the related opinions:</p>
+<p>We are happy to announce the release of netty-incubator-codec-ohttp 0.0.14.Final. This release is a bug-fix release.</p>
+
+<p>The most important changes are:</p>
+
 <ul>
-<li>Keep the current thin logging layer and modernize it so that it's as easy to use as SLF4J.<ul>
-<li>Why: Zero dependency. Netty itself does not log very much.</li>
-<li>Drawback: It doesn't make much sense to have a logging layer. Netty should focus on I/O.</li>
+<li>Validate that header names are only lowercase (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/81">#81</a>)</li>
+<li>Add utility class which contains methods which helps to convert HTTP/1.x to BHTTP messages (<a href="https://github.com/netty/netty-incubator-codec-ohttp/pull/82">#82</a>)</li>
 </ul>
-</li>
-<li>Use SLF4J.<ul>
-<li>Why: A lot of open source libraries already use SLF4J. Nice API. Zero dependency is not really a problem because your application's classpath will probably have SLF4J anyway because other open source libraries you depend on use it.</li>
-<li>Drawback: Non-zero API. People not familiar with setting up SLF4J might have difficulties to run their first Netty application.</li>
-</ul>
-</li>
-<li>Use java.util.logging.<ul>
-<li>Why: Zero dependency. Netty doesn't need to provide a logging layer.</li>
-<li>Drawback: Unfriendly API. jul-to-SLF4J bridge has <span class="wikiexternallink"><a href="http://www.slf4j.org/legacy.html#jul-to-slf4j">very poor performance</a></span>.</li>
-</ul>
-</li>
-</ul>
-<p>We are probably not going to choose java.util.logging, but we are undecided whether we should switch to SLF4J or not. What is your opinion? It is very likely for us to respect your comments as much as possible for decision making, so please feel free to leave a comment so that we listen to you and understand what you value more!</p>
-</div>
+
+
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-ohttp/issues?q=is%3Aclosed+milestone%3A0.0.14.Final">bug-tracker</a>.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2011/11/17/websockets.html">&larr; Older</a>
+<a href="../../../../news/2024/08/05/quic-0-0-66-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2011/11/23/3-2-7.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -321,9 +310,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2011/11/22/slf4j-or-not.html";
+            var disqus_url = "http://netty.io/news/2024/08/07/ohttp-0-0-14-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "1717291725751567689";
+            var disqus_identifier = "news/2024-08-07-ohttp-0-0-14-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
