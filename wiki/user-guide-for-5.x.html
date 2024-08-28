@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2024/08/26/4-2-0-Alpha3.html">
+<a href="../news/2024/08/28/quic-0-0-67-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -619,11 +619,11 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" aria-label="Permalink: One Small Caveat of Socket Buffer" href="#one-small-caveat-of-socket-buffer"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets:</p>
-<p><img src="https://camo.githubusercontent.com/6b97e1b759a9389fedfe81112d8bf802f97ffc02e07e5c088f9b069bb2744e21/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/01fcfb255b255596a9adac19741a3124eda502eb61b3ea22f4a18b8a91b5067e/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
-<p><img src="https://camo.githubusercontent.com/759375978c42439bca1a889e58e087a19d39cd4bfaac5c55cf8f16977e648774/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
+<p><img src="https://camo.githubusercontent.com/a976fb3f5009526da384448ed83ae014a18de0bd8a011367e1e830ca5d043a6c/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
 <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
-<p><img src="https://camo.githubusercontent.com/6b97e1b759a9389fedfe81112d8bf802f97ffc02e07e5c088f9b069bb2744e21/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/01fcfb255b255596a9adac19741a3124eda502eb61b3ea22f4a18b8a91b5067e/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <div class="markdown-heading">
 <h4 class="heading-element" id="wiki-h4-13">The First Solution</h4>
 <a id="user-content-the-first-solution" class="anchor" aria-label="Permalink: The First Solution" href="#the-first-solution"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
@@ -869,7 +869,7 @@ public class TimeEncoder extends ChannelHandlerAdapter {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 26-Aug-2024</small>
+<small>Last retrieved on 28-Aug-2024</small>
 </div>
 </div>
 </div>
