@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.63.Final released - Regression fix</title>
-<title>Netty: Netty 4.1.63.Final released - Regression fix</title>
+<title>Netty.news: Netty 4.1.113.Final released</title>
+<title>Netty: Netty 4.1.113.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.63.Final released - Regression fix
+Netty 4.1.113.Final released
 </h1>
 <p class="byline">
 <small>
@@ -276,24 +276,60 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2021-04-01">01-Apr-2021</time>
+<time datetime="2024-09-04">04-Sep-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>Today we decided that we should do another netty release as just after we released  <a href="https://github.com/netty/netty/milestone/237?closed=1">4.1.62.Final</a> we noticed another regression that could lead to an re-entrance problem in the <code>SslHandler</code>. This could cause encoding problems in some rare cases. As the <code>SslHandler</code> is a critical component of netty we think a quick release is warranted.</p>
+<p>We are happy to announce the release of netty 4.1.113.Final. This is a bug-fix release.</p>
 
-<p>For more details please see (<a href="https://github.com/netty/netty/pull/11133">#11133</a>).</p>
+<p>The most important changes are:</p>
+
+<ul>
+<li>feat: Support for IP_BIND_ADDRESS_NO_PORT socket option (<a href="https://github.com/netty/netty/pull/14200">#14200</a>)</li>
+<li>Ensure AbstractCoalescingBufferQueue does not end up in inconsistent state on error (<a href="https://github.com/netty/netty/pull/14220">#14220</a>)</li>
+<li>Add new SslHandler.isEncrypted(...) variant that will not produce false positives (<a href="https://github.com/netty/netty/pull/14243">#14243</a>)</li>
+<li>Ensure flushes are not discarded by ChunkedWriteHandler for passed through messages (<a href="https://github.com/netty/netty/pull/14248">#14248</a>)</li>
+<li>Remove reference to parent in recycled buffers for leak detection (<a href="https://github.com/netty/netty/pull/14250">#14250</a>)</li>
+<li>Upgrade to netty-tcnative 2.0.66.Final (<a href="https://github.com/netty/netty/pull/14254">#14254</a>)</li>
+<li>Cleanup fields on AdaptiveByteBuf::deallocate (<a href="https://github.com/netty/netty/pull/14273">#14273</a>)</li>
+</ul>
+
+
+<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.113.Final+is%3Aclosed">bug tracker</a></p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
+<li><a href="https://github.com/CLFutureX">@CLFutureX</a></li>
+<li><a href="https://github.com/elise700">@elise700</a></li>
+<li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/koo-taejin">@koo-taejin</a></li>
+<li><a href="https://github.com/lin233">@lin233</a></li>
+<li><a href="https://github.com/maczikasz">@maczikasz</a></li>
+<li><a href="https://github.com/Munoon">@Munoon</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/Roiocam">@Roiocam</a></li>
+<li><a href="https://github.com/slandelle">@slandelle</a></li>
+<li><a href="https://github.com/vietj">@vietj</a></li>
+<li><a href="https://github.com/yawkat">@yawkat</a></li>
+</ul>
+
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2021/03/31/release-day.html">&larr; Older</a>
+<a href="../../../../news/2024/09/02/ohttp-0-0-16-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2021/05/03/quic-0-0-11-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -302,9 +338,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2021/04/01/4-1-63-Final.html";
+            var disqus_url = "http://netty.io/news/2024/09/04/4-1-113-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2021-04-01-4-1-63-Final";
+            var disqus_identifier = "news/2024-09-04-4-1-113-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
