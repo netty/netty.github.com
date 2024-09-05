@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.43.Final and 4.1.7.Final released</title>
-<title>Netty: Netty 4.0.43.Final and 4.1.7.Final released</title>
+<title>Netty.news: Netty 4.2.0.Alpha4 released</title>
+<title>Netty: Netty 4.2.0.Alpha4 released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.43.Final and 4.1.7.Final released
+Netty 4.2.0.Alpha4 released
 </h1>
 <p class="byline">
 <small>
@@ -276,120 +276,55 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2017-01-12">12-Jan-2017</time>
+<time datetime="2024-09-05">05-Sep-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the latest bug-fix releases for our 4.0.x and 4.1.x series. These releases contains 100+ changes (including bug-fixes, performance enhancements and features) so we encourage everyone to upgrade.
-Also its worth noting that these releases include as many community contributed changes as never before. This makes me extremely proud of our community. With these words in mind, OSS FTW!</p>
+<p>We are happy to announce the release of the forth alpha for the upcoming netty version 4.2.0. Everyone using netty 4.1.x should be able to upgrade to 4.2.0.Alpha2 without any API breakage. The only new requirement is JDK8 or later.</p>
 
-<p>The most important changes for 4.0.43.Final and 4.1.7.Final are:</p>
+<p>We encourage users of netty 4.1.x to try out this alpha release and so provide feedback if any breakage is noticed. This will help us to be  aware of any problems early in the release cycle. That said, be aware that this is only an alpha release and so <strong>shouldn't</strong> be considered for production usage.</p>
+
+<p>Netty 4.2.0 will come with some exciting new features that you can learn more about in the announcement of <a href="https://netty.io/news/2024/06/12/4-2-0-Alpha1.html">netty 4.2.0.Alpha1</a>.</p>
+
+<p>The most important changes in this release are:</p>
 
 <ul>
-<li>OpenSSLContext Mutual Auth does not announce acceptable CAs (<a href="https://github.com/netty/netty/pull/6145">#6145</a>)</li>
-<li>Ensure ReferenceCountedOpenSslEngine not swallow the close_notify (<a href="https://github.com/netty/netty/pull/6189">#6189</a>)</li>
-<li>ByteBufUtil.compare int underflow (<a href="https://github.com/netty/netty/pull/6198">#6198</a>)</li>
-<li>Potential endless loop in Recycler.Stack.scavengeSome (<a href="https://github.com/netty/netty/issues/6153">#6153</a>)</li>
-<li>Ensure we use a MPMC queue in ThreadDeathWatcher as it may be used from multiple threads at the same time (<a href="https://github.com/netty/netty/pull/6149">#6149</a>)</li>
-<li>NIO ServerChannel shouldn't close because of Exception (<a href="https://github.com/netty/netty/pull/6107">#6107</a>)</li>
-<li>Regression: SSL session contains extraneous NULL entries in peer certificate chain (<a href="https://github.com/netty/netty/issues/6098">#6098</a>)</li>
-<li>Ensure alert is send when SSLException happens during calling SslHandler.unwrap(...) (<a href="https://github.com/netty/netty/pull/6047">#6047</a>)</li>
-<li>Use the correct alert depending on the CertificateException when using OpenSslEngine (<a href="https://github.com/netty/netty/pull/6046">#6046</a>)</li>
-<li>Adding ability to get Peer Creds on a UnixDomainSocket (<a href="https://github.com/netty/netty/pull/5940">#5940</a>)</li>
-<li>Reduce lock contention in resource leak (<a href="https://github.com/netty/netty/pull/5934">#5934</a>)</li>
-<li>Correct handle HttpMessage that is EOF terminated (<a href="https://github.com/netty/netty/pull/5957">#5957</a>)</li>
-<li>Fix unbalanced quotes in Bundle-NativeCode manifest header(<a href="https://github.com/netty/netty/pull/5949">#5949</a>)</li>
-<li>Fix false-positives when using ResourceLeakDetector (<a href="https://github.com/netty/netty/pull/6103">#6103</a>)</li>
+<li>Add io_uring transport to netty-all (<a href="https://github.com/netty/netty/pull/14266">#14266</a>)</li>
+<li>Add metrics to track chunk allocations and deallocations (<a href="https://github.com/netty/netty/pull/14262">#14262</a>)</li>
+<li>Explicit module support for Netty (<a href="https://github.com/netty/netty/pull/14267">#14267</a>)</li>
+<li>Adding the Modular Netty guide aimed at users and developers.(<a href="https://github.com/netty/netty/pull/14274">#14274</a>)</li>
 </ul>
 
 
-<p>The most important changes for 4.1.7.Final only are:</p>
-
-<ul>
-<li>DefaultHttp2Connection modifying child map while iterating (<a href="https://github.com/netty/netty/pull/6197">#6197</a>)</li>
-<li>Fix DefaultChannelId MAC address parsing bug (<a href="https://github.com/netty/netty/pull/6147">#6147</a>)</li>
-<li>Do not limit the PID to be &lt;= 4194304 (<a href="https://github.com/netty/netty/pull/6144">#6144</a>)</li>
-<li>Fix false-positives when using ResourceLeakDetector (<a href="https://github.com/netty/netty/pull/6087">#6087</a>)</li>
-<li>retained[Slice|Duplicate] buffer reference count bug (<a href="https://github.com/netty/netty/pull/6024">#6024</a>)</li>
-<li>PlatformDependent ASCII hash code broken on big endian machines (<a href="https://github.com/netty/netty/pull/5935">#5935</a>)</li>
-<li>HTTP/2 WeightedFairQueueByteDistributor Bug (<a href="https://github.com/netty/netty/pull/6004">#6004</a>)</li>
-</ul>
-
-
-<p>For the details and all changes, please browse our issue tracker for <a href="https://github.com/netty/netty/milestone/154?closed=1">4.0.43.Final</a> and <a href="https://github.com/netty/netty/milestone/155?closed=1">4.1.7.Final</a>.</p>
-
-<p>All changes that are in 4.0.43.Final are also included in 4.1.7.Final. All changes only have milestone 4.1.7.Final
-do not affect 4.0.43.Final.</p>
-
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Important note</h1>
-
-<p>This release fixes a bug which could lead to false-positives in leak reports. So if you see leak reports in previous versions please upgrade and see if these still show up. This is related to (<a href="https://github.com/netty/netty/pull/6087">#6087</a>) and (<a href="https://github.com/netty/netty/pull/6103">#6103</a>).</p>
+<p>For more details please visit our <a href="https://github.com/netty/netty/milestone/297?closed=1">bug tracker</a></p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.
-*<br/>
-* <a href="https://github.com/adrianluisgonzalez">@adrianluisgonzalez</a>
-* <a href="https://github.com/alkemist">@alkemist</a>
-* <a href="https://github.com/aniketbhatnagar">@aniketbhatnagar</a>
-* <a href="https://github.com/bm3780">@bm3780</a>
-* <a href="https://github.com/buchgr">@buchgr</a>
-* <a href="https://github.com/bryce-anderson">@bryce-anderson</a>
-* <a href="https://github.com/byoengguk">@byoengguk</a>
-* <a href="https://github.com/carl-mastrangelo">@carl-mastrangelo</a>
-* <a href="https://github.com/chringwer">@chringwer</a>
-* <a href="https://github.com/cmdc0de">@cmdc0de</a>
-* <a href="https://github.com/CodingFabian">@CodingFabian</a>
-* <a href="https://github.com/derbylock">@derbylock</a>
-* <a href="https://github.com/fredericBregier">@fredericBregier</a>
-* <a href="https://github.com/garydgregory">@garydgregory</a>
-* <a href="https://github.com/ichaki5748">@ichaki5748</a>
-* <a href="https://github.com/IgorAlelekov">@IgorAlelekov</a>
-* <a href="https://github.com/ijuma">@ijuma</a>
-* <a href="https://github.com/JackOfMostTrades">@JackOfMostTrades</a>
-* <a href="https://github.com/jasontedor">@jasontedor</a>
-* <a href="https://github.com/jchambers">@jchambers</a>
-* <a href="https://github.com/jellenelis">@jellenelis</a>
-* <a href="https://github.com/jo-kin">@jo-kin</a>
-* <a href="https://github.com/johnou">@johnou</a>
-* <a href="https://github.com/jrudolph">@jrudolph</a>
-* <a href="https://github.com/lowka">@lowka</a>
-* <a href="https://github.com/maliqq">@maliqq</a>
-* <a href="https://github.com/maseev">@maseev</a>
-* <a href="https://github.com/markdascher">@markdascher</a>
-* <a href="https://github.com/mosesn">@mosesn</a>
-* <a href="https://github.com/nhnFreespirit">@nhnFreespirit</a>
-* <a href="https://github.com/nmittler">@nmittler</a>
-* <a href="https://github.com/normanmaurer">@normanmaurer</a>
-* <a href="https://github.com/radai-rosenblatt">@radai-rosenblatt</a>
-* <a href="https://github.com/RevvyDevvyDoo">@RevvyDevvyDoo</a>
-* <a href="https://github.com/rkapsi">@rkapsi</a>
-* <a href="https://github.com/s1monw">@s1monw</a>
-* <a href="https://github.com/Scottmitch">@Scottmitch</a>
-* <a href="https://github.com/slandelle">@slandelle</a>
-* <a href="https://github.com/smaldini">@smaldini</a>
-* <a href="https://github.com/Spikhalskiy">@Spikhalskiy</a>
-* <a href="https://github.com/tjake">@tjake</a>
-* <a href="https://github.com/trustin">@trustin</a>
-* <a href="https://github.com/vkorenev">@vkorenev</a>
-* <a href="https://github.com/vkostyukov">@vkostyukov</a>
-* <a href="https://github.com/vonbarg">@vonbarg</a>
-* <a href="https://github.com/wangyuntao">@wangyuntao</a>
-* <a href="https://github.com/zsxwing">@zsxwing</a>
-* <a href="https://github.com/ZuluForce">@ZuluForce</a></p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
+<li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/raipc">@raipc</a></li>
+<li><a href="https://github.com/vietj">@vietj</a></li>
+</ul>
+
+
+<p>Beside this we also would like to thank everyone who took the time to test 4.2.0.Alpha* so far.</p>
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2016/10/14/4-0-42-Final-4-1-6-Final.html">&larr; Older</a>
+<a href="../../../../news/2024/09/04/4-1-113-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2017/01/30/4-0-44-Final-4-1-8-Final.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -398,9 +333,9 @@ do not affect 4.0.43.Final.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2017/01/12/4-0-43-Final-4-1-7-Final.html";
+            var disqus_url = "http://netty.io/news/2024/09/05/4-2-0-Alpha4.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2017-01-12-4-0-43-Final-4-1-7-Final";
+            var disqus_identifier = "news/2024-09-05-4-2-0-Alpha4";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
