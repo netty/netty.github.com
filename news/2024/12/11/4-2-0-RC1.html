@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.2.0.Beta1 released</title>
-<title>Netty: Netty 4.2.0.Beta1 released</title>
+<title>Netty.news: Netty 4.2.0.RC1 released</title>
+<title>Netty: Netty 4.2.0.RC1 released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.2.0.Beta1 released
+Netty 4.2.0.RC1 released
 </h1>
 <p class="byline">
 <small>
@@ -280,24 +280,50 @@ on
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of the first beta for the upcoming netty version 4.2.0. Everyone using netty 4.1.x should be able to upgrade to 4.2.0.Alpha4 without any API breakage. The only new requirement is JDK8 or later.</p>
+<p>We are happy to announce the release of the first release canidate for the upcoming netty version 4.2.0. Everyone using netty 4.1.x should be able to upgrade to 4.2.0.Alpha4 without any API breakage. The only new requirement is JDK8 or later.</p>
 
-<p>We encourage users of netty 4.1.x to try out this alpha release and so provide feedback if any breakage is noticed. This will help us to be  aware of any problems early in the release cycle. That said, be aware that this is only an alpha release and so <strong>shouldn't</strong> be considered for production usage.</p>
+<p>We encourage users of netty 4.1.x to try out this alpha release and so provide feedback if any breakage is noticed. This will help us to be  aware of any problems early in the release cycle. That said, be aware that this is only an release canidate and so <strong>shouldn't</strong> be considered for production usage yet.</p>
 
 <p>Netty 4.2.0 will come with some exciting new features that you can learn more about in the announcement of <a href="https://netty.io/news/2024/06/12/4-2-0-Alpha1.html">netty 4.2.0.Alpha1</a>.</p>
 
 <p>The most important changes in this release are:</p>
 
 <ul>
-<li>Fix SSL session resumption with ClientAuth.OPTIONAL and add tests with session tickets (<a href="https://github.com/netty/netty/pull/14404">#14404</a>)</li>
-<li>Fix incorrect cast in NioDomainSocketChannel.parent() (<a href="https://github.com/netty/netty/pull/14409">#14409</a>)</li>
-<li>Fix bug where SslHandler may stall after TLSv1.3 handshake with delegate tasks (<a href="https://github.com/netty/netty/pull/14411">#14411</a>)</li>
-<li>Log / include the correct error during handshake failure (<a href="https://github.com/netty/netty/pull/14428">#14428</a>)</li>
-<li>Update to netty-tcnative 2.0.69.Final (<a href="https://github.com/netty/netty/pull/14422">#14422</a>)</li>
-<li>Fix epoll_wait retry loop (<a href="https://github.com/netty/netty/pull/14425">#14425</a>)</li>
-<li>Allow MessageToMessageDecoder to take care of reading more data when needed (<a href="https://github.com/netty/netty/pull/14372">#14372</a>)</li>
+<li>Add a module for generating X.509 certificates for testing (<a href="https://github.com/netty/netty/pull/14263">#14263</a>)</li>
+<li>Include details on why it was not possible to configure accepted issuers in the SSLException (<a href="https://github.com/netty/netty/pull/14438">#14438</a>)</li>
+<li>Verify default named groups before using them with native SSL implementation (<a href="https://github.com/netty/netty/pull/14441">#14441</a>)</li>
+<li>Correctly detect if KeyManager is not supported by OpenSSL version (<a href="https://github.com/netty/netty/pull/14442">#14442</a>)</li>
+<li>Allow to set used named groups per OpenSslContext (<a href="https://github.com/netty/netty/pull/14443">#14443</a>)</li>
+<li>Preserve ordering of default named groups during conversation (<a href="https://github.com/netty/netty/pull/14449">#14449</a>)</li>
+<li>Specialize Adaptive's allocator Recycler based on magazine's owner (<a href="https://github.com/netty/netty/pull/14454">#14454</a>)</li>
+<li>PcapWriteHandler no longer ignores writePcapGlobalHeader (<a href="https://github.com/netty/netty/pull/14484">#14484</a>)</li>
+<li>IoUring: Add FileRegion support (<a href="https://github.com/netty/netty/pull/14487">#14487</a>)</li>
+<li>AdaptiveByteBufAllocator will not use threadlocal magazine if <code>FastThreadLocalThread.willCleanupFastThreadLocals()</code> returns false (<a href="https://github.com/netty/netty/pull/14490">#14490</a>)</li>
+<li>Add range check for AdaptivePoolingAllocator.CENTRAL_QUEUE_CAPACITY and MAGAZINE_BUFFER_QUEUE_CAPACITY (<a href="https://github.com/netty/netty/pull/14497">#14497</a>)</li>
+<li>Fix HTTP header validation bug (<a href="https://github.com/netty/netty/pull/14500">#14500</a>)</li>
+<li>Make sure the sentinel Magazine.MAGAZINE_FREED not be replaced (<a href="https://github.com/netty/netty/pull/14503">#14503</a>)</li>
+<li>Narrow the lock scope of <code>AdaptivePoolingAllocator.magazineExpandLock</code> (<a href="https://github.com/netty/netty/pull/14504">#14504</a>)</li>
+<li>IoUring: Fix AssertionError when closing IoUringServerChannel twice (<a href="https://github.com/netty/netty/pull/14506">#14506</a>)</li>
+<li>IoUring: Correcly handle double closure and always cancel submitted IO ops on deregistration (<a href="https://github.com/netty/netty/pull/14510">#14510</a>)</li>
+<li>fix: Don't make MqttPublishMessage ensure payload accessibility (<a href="https://github.com/netty/netty/pull/14512">#14512</a>)</li>
+<li>Decrease usedMemory of magazine when the chunk get deallocated or moved to central queue (<a href="https://github.com/netty/netty/pull/14515">#14515</a>)</li>
+<li>AdaptiveByteBufAllocator: Correctly manage used memory strategy in all cases (<a href="https://github.com/netty/netty/pull/14516">#14516</a>)</li>
+<li>Use StandardCompressionOptions in all constructors of <code>HttpContentCompressor</code> (<a href="https://github.com/netty/netty/pull/14517">#14517</a>)</li>
+<li>Only try to use Zstd and Brotli if we can load the native libs. (<a href="https://github.com/netty/netty/pull/14520">#14520</a>)</li>
+<li>IoUring: Refactor IoUringIoOps to better match the underlying io_uring_sqe (<a href="https://github.com/netty/netty/pull/14521">#14521</a>)</li>
+<li>IoUring: Ensure buffers don't leak if submission fails (<a href="https://github.com/netty/netty/pull/14525">#14525</a>)</li>
+<li>IoUring: Correct update internal state for cancelled operations (<a href="https://github.com/netty/netty/pull/14529">#14529</a>)</li>
+<li>IoUring: Correctly handle cancelletion of close and connect (<a href="https://github.com/netty/netty/pull/14531">#14531</a>)</li>
+<li>IoUring: Always cancel all ops on deregistration / close (<a href="https://github.com/netty/netty/pull/14537">#14537</a>)</li>
+<li>Deprecate ChannelPipeline.add*(EventExecutorGroup....) methods (<a href="https://github.com/netty/netty/pull/14538">#14538</a>)</li>
+<li>IoUring: IoUringHandler must not manually cancel IoUringHandle on teardown (<a href="https://github.com/netty/netty/pull/14539">#14539</a>)</li>
+<li>Implement 'inEventLoop' for UnorderedThreadPoolEventExecutor and deprecate it (<a href="https://github.com/netty/netty/pull/14544">#14544</a>)</li>
+<li>IoUring: Correctly handle accept submit failures (<a href="https://github.com/netty/netty/pull/14547">#14547</a>)</li>
+<li>IoUring: Make static methods of IoUringIoOps package-private (<a href="https://github.com/netty/netty/pull/14551">#14551</a>)</li>
 </ul>
 
+
+<p>For all the changes please vision our <a href="https://github.com/netty/netty/milestone/302?closed=1">issue-tracker</a>.</p>
 
 <h1>Thank You</h1>
 
@@ -306,17 +332,20 @@ on
 <p>Please report an unintended omission.</p>
 
 <ul>
+<li><a href="https://github.com/BradleyJ-SAIC">@BradleyJ-SAIC</a></li>
 <li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
 <li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/dsidorov">@dsidorov</a></li>
+<li><a href="https://github.com/dreamlike-ocean">@dreamlike-ocean</a></li>
 <li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/He-Pin">@He-Pin</a></li>
 <li><a href="https://github.com/laosijikaichele">@laosijikaichele</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/slandelle">@slandelle</a></li>
 <li><a href="https://github.com/yawkat">@yawkat</a></li>
 </ul>
 
 
-<p>Beside this we also would like to thank everyone who took the time to test 4.2.0.Alpha* so far.</p>
+<p>Beside this we also would like to thank everyone who took the time to test 4.2.0.* so far.</p>
 
 </div>
 <ul class="pager">
