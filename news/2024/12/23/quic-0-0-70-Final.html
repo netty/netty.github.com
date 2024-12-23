@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.0.32.Final released</title>
-<title>Netty: Netty 4.0.32.Final released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.70.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.70.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.0.32.Final released
+Netty/Incubator/Codec/Quic 0.0.70.Final released
 </h1>
 <p class="byline">
 <small>
@@ -276,74 +276,48 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2015-09-30">30-Sep-2015</time>
+<time datetime="2024-12-23">23-Dec-2024</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.0.32.Final.</p>
-
-<p>This release contains 30+ changes, including bug-fixes, improvements and new features.</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.70.Final. While containing bug-fixes it also comes with two new features that might come in handy for more advanced use cases.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Discard read bytes after X reads to guard against OOME.(<a href="https://github.com/netty/netty/pull/4157">#4281</a>) (<a href="https://github.com/netty/netty/issues/4275">#4275</a>)</li>
-<li>Correctly reset markers for all allocations when using PooledByteBufAllocator(<a href="https://github.com/netty/netty/pull/4278">#4278</a>)</li>
-<li>Ensure OpenSslEngine.unwrap(...) / wrap(...) correctly return HandshakeStatus.FINISHED (<a href="https://github.com/netty/netty/pull/4263">#4263</a>)(<a href="https://github.com/netty/netty/issues/4235">#4235</a>)</li>
-<li>Shutdown socket before close fd when using epoll transport (<a href="https://github.com/netty/netty/pull/4256">#4170</a>) (<a href="https://github.com/netty/netty/issues/4170">#4275</a>)</li>
-<li>Correctly set EPOLLOUT flag whe writeBytes(...) was not able to write everything (<a href="https://github.com/netty/netty/pull/4216">#4216</a>) (<a href="https://github.com/netty/netty/issues/4205">#4205</a>)</li>
-<li>Add support for RFC7413 on linux for server sockets (<a href="https://github.com/netty/netty/pull/4196">#4196</a>)</li>
-<li>Add support for RFC2385 on Linux (<a href="https://github.com/netty/netty/pull/4173">#4173</a>)</li>
+<li>Ensure native library is loaded before making calls in the static block (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/760">#760</a>)</li>
+<li>Allow the QuicConnectionIdGenerator also take the source connection id into account (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/766">#766</a>)</li>
+<li>New BoringSSL context option - SSL_CTX_set1_sigalgs (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/765">#765</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.32.Final+is%3Aclosed">our issue tracker</a>.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/milestone/68?closed=1">bug-tracker</a>.</p>
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Special Notes</h1>
-
-<p>With this release two new <code>EpollChannelOption</code>s are introduced that can be used if you use the native epoll transport that is shipped as part of Netty.</p>
-
-<p><code>EpollChannelOption.TCP_FASTOPEN</code> => TCP Fast Open allows data to be carried in the SYN and SYN-ACK packets and consumed by the receiving end during the initial connection handshake, and saves up to one full round-trip time (RTT) compared to the standard TCP, which requires a three-way handshake (3WHS) to complete before data can be exchanged.</p>
-
-<p><code>EpollChannelOption.TCP_MD5SIG</code> => enables TCP MD5 authentication to protect sessions from being hijacked/torn down by
-third parties.</p>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/almibe">@almibe</a></li>
-<li><a href="https://github.com/gbrd">@gbrd</a></li>
-<li><a href="https://github.com/ijuma">@ijuma</a></li>
-<li><a href="https://github.com/ninja-">@ninja-</a></li>
-<li><a href="https://github.com/Kenishi">@Kenishi</a></li>
-<li><a href="https://github.com/mrb-twx">@mrb-twx</a></li>
-<li><a href="https://github.com/myroch">@myroch</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
+<li><a href="https://github.com/jaymansfield">@jaymansfield</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/serioussam">@serioussam</a></li>
-<li><a href="https://github.com/shevek-nebula">@shevek-nebula</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/vargarob">@vargarob</a></li>
-<li><a href="https://github.com/WhiteTrashLord">@WhiteTrashLord</a></li>
-<li><a href="https://github.com/willisblackburn">@willisblackburn</a></li>
+<li><a href="https://github.com/varokas">@varokas</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2015/09/02/4-1-0-Beta6.html">&larr; Older</a>
+<a href="../../../../news/2024/12/17/4-1-116-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2015/10/05/4-1-0-Beta7.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -352,9 +326,9 @@ third parties.</p>
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2015/09/30/4-0-32-Final.html";
+            var disqus_url = "http://netty.io/news/2024/12/23/quic-0-0-70-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2015-09-30-4-0-32-Final";
+            var disqus_identifier = "news/2024-12-23-quic-0-0-70-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
