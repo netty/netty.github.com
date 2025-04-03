@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2025/04/01/http3-0-0-29-Final.html">
+<a href="../news/2025/04/03/4-2-0.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -68,10 +68,10 @@ Downloads
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.0.RC4.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.0.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.2.0.RC4
-<small>&dash; 07-Mar-2025</small>
+4.2.0.Final
+<small>&dash; 03-Apr-2025</small>
 </a>
 </li>
 <li>
@@ -310,7 +310,7 @@ You can improve it by yourself
 <li>Class names are now prefixed <code>IoUring</code> instead of <code>IOUring</code> (note the lower-case ‘o’).</li>
 <li>A number of io_uring channel options have changed.</li>
 <li>
-<code>IOUringEventLoopGroup</code> does not exist anymore and is superseded by <code>MultithreadedIoEventLoopGroup</code> and <code>IoUringIoHandler</code>.</li>
+<code>IOUringEventLoopGroup</code> does not exist anymore and is superseded by <code>MultiThreadIoEventLoopGroup</code> and <code>IoUringIoHandler</code>.</li>
 <li>Usage of io_uring now requires Java9+.</li>
 </ul>
 <div class="markdown-heading">
@@ -322,7 +322,11 @@ You can improve it by yourself
 <li>The <code>protobuf-java</code> dependency has received a major version bump from 2.6.1 to 3.25.5.</li>
 <li>The <code>netty-codec</code> module has been split into a number of different sub-modules, which the <code>netty-codec</code> module then depends on. In other words, <code>netty-codec</code> is now multiple jar files instead of one.</li>
 <li>We have dropped support for obsolete WebSocket draft specifications.</li>
+<li>Dropped support for Jetty alpn/npn as ALPN is supported out of the box when using Java8.</li>
 <li>The pipeline call-stack has been flattened, to reduce stack depths when processing messages through the pipeline. This may cause changes in behavior when messages are processed through the pipeline while the pipeline is concurrently modified, or when the pipeline makes use of child-executors.</li>
+<li>The minimum required GLibC version is bumped from 2.12 (May 2010, e.g. CentOS 6) to 2.17 (December 2012, e.g. CentOS 7).</li>
+<li>We are no longer testing our tcnative dynamic-linked OpenSSL integration with OpenSSL 1.0.1e (2013), and are now instead testing with OpenSSL 1.0.2k (2017).</li>
+<li>Switched from automatic to real modules for JPMS.</li>
 </ul>
 <p>The complete and exhaustive list of API breakages has been compiled by RevAPI:
 <a href="https://github.com/netty/netty/blob/3ca17a96cf84cbcb08776d3731b222b82814ead7/pom.xml#L1271-L7794">https://github.com/netty/netty/blob/3ca17a96cf84cbcb08776d3731b222b82814ead7/pom.xml#L1271-L7794</a></p>
@@ -396,7 +400,7 @@ If you need files for certificates, keys, or key stores, then the bundle objects
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 01-Apr-2025</small>
+<small>Last retrieved on 03-Apr-2025</small>
 </div>
 </div>
 </div>
