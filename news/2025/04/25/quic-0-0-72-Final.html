@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.1.0.CR4 released</title>
-<title>Netty: Netty 4.1.0.CR4 released</title>
+<title>Netty.news: Netty/Incubator/Codec/Quic 0.0.72.Final released</title>
+<title>Netty: Netty/Incubator/Codec/Quic 0.0.72.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.1.0.CR4 released
+Netty/Incubator/Codec/Quic 0.0.72.Final released
 </h1>
 <p class="byline">
 <small>
@@ -276,66 +276,47 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2016-03-21">21-Mar-2016</time>
+<time datetime="2025-04-25">25-Apr-2025</time>
 </small>
 </p>
 <div class="news-content">
-<p>I'm happy to announce the release of Netty 4.1.0.CR4 after 1 month of work. We also bumped the version of the next release out of the 4.1 branch to 4.1.0.Final-SNAPSHOT which means we are very close so please test ASAP :)</p>
+<p>We are happy to announce the release of netty-incubator-codec-quic 0.0.72.Final. This is a bug-fix release.</p>
 
-<p>The most important changes in this release are:</p>
+<p>The most important changes are:</p>
 
 <ul>
-<li>DnsNameResolver: makes possible to define additional records in DNS query (<a href="https://github.com/netty/netty/pull/4871">#4871</a>)</li>
-<li>DnsNameResolverContext infinite loop (<a href="https://github.com/netty/netty/issues/4771">#4771</a>)</li>
-<li>HTTP/2 stream removed from map before onStreamClosed called (<a href="https://github.com/netty/netty/pull/4888">#4888</a>)</li>
-<li>Add support for directly decoding/encoding DNS PTR Records (<a href="https://github.com/netty/netty/pull/4912">#4912</a>)</li>
-<li>EPOLL ET AutoRead (<a href="https://github.com/netty/netty/pull/4919">#4919</a>)</li>
-<li>HTTP/2 DefaultHttp2Connection NPE (<a href="https://github.com/netty/netty/pull/4933">#4933</a>)</li>
-<li>Netty 4.1.0.CR1: DNS resolver accepts invalid FQDN with label length > 63 octet (<a href="https://github.com/netty/netty/issues/4935">#4935</a>)</li>
-<li>Netty 4.1.0.CR1: DNS resolver do not treat non-ASCII characters correctly (<a href="https://github.com/netty/netty/issues/4937">#4937</a>)</li>
-<li>Fix potential infinite loop when resolving CNAME records (<a href="https://github.com/netty/netty/pull/4946">#4946</a>)</li>
-<li>HTTP/2 DefaultHttp2ConnectionEncoder data frame size incorrect if error (<a href="https://github.com/netty/netty/pull/4965">#4965</a>)</li>
+<li>Update to netty 4.1.121.Final (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/792">#792</a>)</li>
+<li>Correctly detect supported namedGroups during initialization (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/791">#791</a>)</li>
+<li>CEnsure we don't directly close the stream if we receive a STOP_SENDING frame as there might be data that was not read / processed yet. (<a href="https://github.com/netty/netty-incubator-codec-quic/pull/790">#790</a>)</li>
 </ul>
 
 
-<p>For the details and all changes, please browse <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.0.CR4+is%3Aclosed">our issue tracker</a>. Also most of the issues fixed for <a href="https://github.com/netty/netty/issues?q=milestone%3A4.0.35.Final+is%3Aclosed">netty-4.0.35.Final</a> are fixes as well for CR4.</p>
+<p>For more details related to this release see our <a href="https://github.com/netty/netty-incubator-codec-quic/issues?q=is%3Aclosed+milestone%3A0.0.72.Final">bug-tracker</a>.</p>
 
-<p>As always, please let us know if you find any issues. We love feedback!</p>
-
-<h1>Important notes</h1>
-
-<p>As our http2 and dns codecs are still quite new we "mark" these as experimental which means we may break the api's of these in later releases.</p>
+<p>For more details about this codec in general please read our <a href="https://netty.io/news/2020/12/09/quic-0-0-1-Final.html">initial announcement</a>.</p>
 
 <h1>Thank You</h1>
 
-<p>Every idea and bug-report counts and so we thought it is worth mentioning those who helped in this area. Please report an unintended omission.</p>
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/CodingFabian">@CodingFabian</a></li>
-<li><a href="https://github.com/ejona86">@ejona86</a></li>
-<li><a href="https://github.com/jonas-ren">@jonas-ren</a></li>
-<li><a href="https://github.com/Karry">@Karry</a></li>
-<li><a href="https://github.com/longkerdandy">@longkerdandy</a></li>
-<li><a href="https://github.com/nmittler">@nmittler</a></li>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/Scottmitch">@Scottmitch</a></li>
-<li><a href="https://github.com/serphacker">@serphacker</a></li>
-<li><a href="https://github.com/Spikhalskiy">@Spikhalskiy</a></li>
-<li><a href="https://github.com/trustin">@trustin</a></li>
-<li><a href="https://github.com/windie">@windie</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2016/03/21/4-0-35-Final.html">&larr; Older</a>
+<a href="../../../../news/2025/04/24/4-1-121-Final.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
-<li class="next">
-<a href="../../../../news/2016/03/29/4-1-0-CR5.html">Newer &rarr;</a>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
 </li>
 </ul>
 </div>
@@ -344,9 +325,9 @@ on
             <div id="disqus_thread"></div>
             <script type="text/javascript">
             var disqus_shortname = 'netty0';
-            var disqus_url = "http://netty.io/news/2016/03/21/4-1-0-CR4.html";
+            var disqus_url = "http://netty.io/news/2025/04/25/quic-0-0-72-Final.html";
             var disqus_developer = null;
-            var disqus_identifier = "news/2016-03-21-4-1-0-CR4";
+            var disqus_identifier = "news/2025-04-25-quic-0-0-72-Final";
             (function() {
               var dsq = document.createElement("script"); dsq.type = "text/javascript"; dsq.async = true;
               dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
