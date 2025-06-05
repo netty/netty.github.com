@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.2.1.Final released</title>
-<title>Netty: Netty 4.2.1.Final released</title>
+<title>Netty.news: Netty 4.2.2.Final released</title>
+<title>Netty: Netty 4.2.2.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.2.1.Final released
+Netty 4.2.2.Final released
 </h1>
 <p class="byline">
 <small>
@@ -280,39 +280,37 @@ on
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.2.1.Final. This is our first bug-fix release for the 4.2 release train.</p>
+<p>We are happy to announce the release of netty 4.2.2.Final. This is our second  release for the 4.2 release train, including bug-fixes, performance enhancement and new features.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>Add necessary native-image configuration files (<a href="https://github.com/netty/netty/issues/14928">#14928</a>)</li>
-<li>Graduate the QUIC codec from incubator to Netty Core (<a href="https://github.com/netty/netty/pull/14979">#14979</a>)</li>
-<li>IoUring: Share IovArray to reduce jitter and allocations (<a href="https://github.com/netty/netty/pull/14996">#14996</a>)</li>
-<li>Optionally depend on bctls-jdk15on, take 2 (<a href="https://github.com/netty/netty/pull/14998">#14998</a>)</li>
-<li>Fix the issue where pendingTimeouts may be incorrect in the HashedWheelTimer (<a href="https://github.com/netty/netty/pull/15000">#15000</a>)</li>
-<li>SSL: Clear native error if named group is not supported (<a href="https://github.com/netty/netty/pull/15001">#15001</a>)</li>
-<li>ManualIoEventLoop: Correctly calculate delayNanos and deadlineNanos (<a href="https://github.com/netty/netty/pull/15002">#15002</a>)</li>
-<li>Make public API specify explicit maxAllocation to prevent OOM (<a href="https://github.com/netty/netty/pull/15005">#15005</a>)</li>
-<li>fix: Crash early on custom native workdir failure (<a href="https://github.com/netty/netty/pull/15009">#15009</a>)</li>
-<li>Add support for ML-KEM in CertificateBuilder (<a href="https://github.com/netty/netty/pull/15012">#15012</a>)</li>
-<li>Correct computation for suboptimal chunk retirement probability (<a href="https://github.com/netty/netty/pull/15015">#15015</a>)</li>
-<li>fix: WebSocketClientCompressionHandler shouldn't claim window bits support when jzlib is not available (<a href="https://github.com/netty/netty/pull/15018">#15018</a>)</li>
-<li>Add  "unpadded" support to Base64 encoder/decoder (<a href="https://github.com/netty/netty/pull/15030">#15030</a>)</li>
-<li>Fix bug in method AdaptivePoolingAllocator.allocateWithoutLock(...) (<a href="https://github.com/netty/netty/pull/15031">#15031</a>)</li>
-<li>Fix a Bytebuf leak in TcpDnsQueryDecoder (<a href="https://github.com/netty/netty/pull/15033">#15033</a>)</li>
-<li>Add ticker to ManualIoEventLoop (<a href="https://github.com/netty/netty/pull/15043">#15043</a>)</li>
-<li>IoUring: Ensure that the buffer group is properly set before channel::read (<a href="https://github.com/netty/netty/pull/15054">#15054</a>)</li>
-<li>Fix transport-native-epoll Bundle-SymbolicNames (<a href="https://github.com/netty/netty/pull/15059">#15059</a>)</li>
-<li>ManualIoEventLoop.run(-1) should be handled like runNow() (<a href="https://github.com/netty/netty/pull/15064">#15064</a>)</li>
-<li>Fix transport-native-kqueue Bundle-SymbolicNames (<a href="https://github.com/netty/netty/pull/15065">#15065</a>)</li>
-<li>Fix transport-native-io_uring Bundle-SymbolicNames (<a href="https://github.com/netty/netty/pull/15066">#15066</a>)</li>
-<li>Fix resolver-dns-native-macos Bundle-SymbolicNames (<a href="https://github.com/netty/netty/pull/15067">#15067</a>)</li>
-<li>Fix init order of PlatformDependent0 fields (<a href="https://github.com/netty/netty/pull/15077">#15077</a>)</li>
-<li>Rename native lib so incubator version and new version can co-exists (<a href="https://github.com/netty/netty/pull/15098">#15098</a>)</li>
-<li>Update to netty-tcnative 2.0.71.Final (<a href="https://github.com/netty/netty/pull/15103">#15103</a>)</li>
-<li>IoUring: Disable support for RECVSEND_BUNDLE for now (<a href="https://github.com/netty/netty/pull/15104">#15104</a>)</li>
-<li>DirContextUtils.addNameServer(...) should just catch Exception internally (<a href="https://github.com/netty/netty/pull/15105">#15105</a>)</li>
-<li>Use keytool from java.home (<a href="https://github.com/netty/netty/pull/15121">#15121</a>)</li>
+<li>Graduate HTTP/3 from incubator (<a href="https://github.com/netty/netty/pull/15048">#15048</a>)</li>
+<li>Allows manually running tasks with timeout (in ns) (<a href="https://github.com/netty/netty/pull/15124">#15124</a>)</li>
+<li>Port over fix for crash in QUIC codec (in ns) (<a href="https://github.com/netty/netty/pull/15130">#15130</a>)</li>
+<li>Fix concurrent ByteBuf write access bug in adaptive allocator (<a href="https://github.com/netty/netty/pull/15131">#15131</a>)</li>
+<li>IoUring: Allow users to explicit enable RECVSEND_BUNDLE support (<a href="https://github.com/netty/netty/pull/15135">#15135</a>)</li>
+<li>Make EmbeddedChannel ticker configurable (<a href="https://github.com/netty/netty/pull/15141">#15141</a>)</li>
+<li>IoUring: Don't depend on the fact that ByteBuf.memoryAddress() works (<a href="https://github.com/netty/netty/pull/15142">#15142</a>)</li>
+<li>Always correctly calculate the memory address of the ByteBuf even if sun.misc.Unsafe is not usable (<a href="https://github.com/netty/netty/pull/15143">#15143</a>)</li>
+<li>Upgrade lz4 dependencies as the old version did not correctly handle ByteBuffer that have an arrayOffset > 0 (<a href="https://github.com/netty/netty/pull/15146">#15146</a>)</li>
+<li>Kqueue: Fix registration failure when fd is reused (<a href="https://github.com/netty/netty/pull/15150">#15150</a>)</li>
+<li>Fix incorrect assignment of SingleThreadIoEventLoop constructor (<a href="https://github.com/netty/netty/pull/15155">#15155</a>)</li>
+<li>Fix signing keys with ML-DSA in CertificateBuilder (<a href="https://github.com/netty/netty/pull/15156">#15156</a>)</li>
+<li>Optimize ByteBuf.setCharSequence for adaptive allocator (<a href="https://github.com/netty/netty/pull/15165">#15165</a>)</li>
+<li>IoUring: Providing Unix Domain Socket Support for IoUring (<a href="https://github.com/netty/netty/pull/15210">#15210</a>)</li>
+<li>Ensure OpenSsl.availableJavaCipherSuites does not contain null value (<a href="https://github.com/netty/netty/pull/15215">#15215</a>)</li>
+<li>Make JdkZlibEncoder accept Deflater.DEFAULT_COMPRESSION as level (<a href="https://github.com/netty/netty/pull/15217">#15217</a>)</li>
+<li>Add API to wrap virtual thread task for FastThreadLocal support (<a href="https://github.com/netty/netty/pull/15222">#15222</a>)</li>
+<li>Introduce ByteBuf.readString method (<a href="https://github.com/netty/netty/pull/15224">#15224</a>)</li>
+<li>Add support for creating direct ByteBuffers from MemorySegments (<a href="https://github.com/netty/netty/pull/15231">#15231</a>)</li>
+<li>Always prefer direct buffers for pooled allocators if not explicit disabled (<a href="https://github.com/netty/netty/pull/15232">#15232</a>)</li>
+<li>Update to netty-tcnative 2.0.72.Final (<a href="https://github.com/netty/netty/pull/15240">#15240</a>)</li>
+<li>IoUring:properly handle ERRNO_ECANCELED_NEGATIVE in splice (<a href="https://github.com/netty/netty/pull/15250">#15250</a>)</li>
+<li>Fix netty-buffer OSGi metadata (<a href="https://github.com/netty/netty/pull/15274">#15274</a>)</li>
+<li>Kqueue: Delay removal from registration map to fix noisy warnings (<a href="https://github.com/netty/netty/pull/15279">#15279</a>)</li>
+<li>StreamBufferingEncoder doesn't work when settings auto-ack is disabled (<a href="https://github.com/netty/netty/pull/15301">#15301</a>)</li>
+<li>Add SETTINGS_ENABLE_CONNECT_PROTOCOL to the default HTTP/2 settings (<a href="https://github.com/netty/netty/pull/15312">#15312</a>)</li>
 </ul>
 
 
@@ -322,23 +320,28 @@ on
 
 <p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
 
-<p>Please report an unintended omission.</p>
+<p>Please report an unintended omission</p>
 
 <ul>
+<li><a href="https://github.com/andilem">@andilem</a></li>
 <li><a href="https://github.com/asolntsev">@asolntsev</a></li>
-<li><a href="https://github.com/chiangzeon">@chiangzeon</a></li>
 <li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/DeviLab">@DeviLab</a></li>
+<li><a href="https://github.com/daschl">@daschl</a></li>
+<li><a href="https://github.com/doom369">@doom369</a></li>
 <li><a href="https://github.com/dreamlike-ocean">@dreamlike-ocean</a></li>
-<li><a href="https://github.com/ikhoon">@ikhoon</a></li>
-<li><a href="https://github.com/iTitus">@iTitus</a></li>
-<li><a href="https://github.com/j-bahr">@j-bahr</a></li>
-<li><a href="https://github.com/l2063610646">@l2063610646</a></li>
+<li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/gabor-farkas">@gabor-farkas</a></li>
+<li><a href="https://github.com/He-Pin">@He-Pin</a></li>
+<li><a href="https://github.com/huskar-t">@huskar-t</a></li>
+<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
 <li><a href="https://github.com/laosijikaichele">@laosijikaichele</a></li>
+<li><a href="https://github.com/m1ngyuan">@m1ngyuan</a></li>
+<li><a href="https://github.com/Munoon">@Munoon</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/NathanChan">@NathanChan</a></li>
 <li><a href="https://github.com/rovarga">@rovarga</a></li>
-<li><a href="https://github.com/slandelle">@slandelle</a></li>
-<li><a href="https://github.com/Spasi">@Spasi</a></li>
+<li><a href="https://github.com/schiemon">@schiemon</a></li>
+<li><a href="https://github.com/wendigo">@wendigo</a></li>
 <li><a href="https://github.com/violetagg">@violetagg</a></li>
 <li><a href="https://github.com/yawkat">@yawkat</a></li>
 </ul>
