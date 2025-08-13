@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2025/07/16/4-1-123-Final.html">
+<a href="../news/2025/08/13/4-2-4.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -68,17 +68,17 @@ Downloads
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.3.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.4.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.2.3.Final
-<small>&dash; 15-Jul-2025</small>
+4.2.4.Final
+<small>&dash; 13-Aug-2025</small>
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.123.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.124.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.123.Final
-<small>&dash; 16-Jul-2025</small>
+4.1.124.Final
+<small>&dash; 13-Aug-2025</small>
 </a>
 </li>
 <li>
@@ -282,7 +282,61 @@ You can improve it by yourself
 <p>Netty 4.2 is largely backwards compatible with Netty 4.1, but there are a few choice compatibility breakages to be aware of, and a couple of new features worth knowing about.</p>
 <p>From our (the Netty team) perspective, one of the biggest changes is that we are changing the minimum Java version requirement from Java 6 to Java 8. This upgrade is a big quality-of-life improvement for us, but it likely has no impact on anyone else because there are almost no regularly maintained Java projects left that still use Java versions older than Java 8.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-0">Compatibility highlights</h2>
+<h2 class="heading-element" id="wiki-h2-0">Recommended upgrade process</h2>
+<a id="user-content-recommended-upgrade-process" class="anchor" aria-label="Permalink: Recommended upgrade process" href="#recommended-upgrade-process"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>The following is the recommended process for upgrading systems to Netty 4.2, that we have developed from practical experience.
+The process described here is high-level and generic, to accommodate a wide range of systems.
+Please read through the other sections of this migration guide, for details and tips that may be relevant to your specific system.</p>
+<p>Before you begin, it is recommended that your systems use the dependency management best practices.
+Specifically, you should avoid shading as much as possible, since this process hides dependencies from dependency management tools like Maven and Gradle.
+You should also be using BOM files, such as <code>netty-bom</code>, to control your dependency versions.
+Following those practices will help you avoid ending up with a mix of versions at runtime.</p>
+<p>The Netty 4.2 upgrade may take multiple sprints and deployment cycles, depending on the size and complexity of your systems.
+Plan accordingly, to ensure you have the time and resources to see the project through to its completion.</p>
+<p>These are the recommended steps for upgrading to Netty 4.2:</p>
+<ol>
+<li>
+<strong>Upgrade to the latest Netty 4.1.x.</strong> <br>
+Before you begin upgrading to Netty 4.2, make sure your systems are working correctly with the latest 4.1.x version.</li>
+<li>
+<strong>Ensure endpoint validation is explicitly configured for client TLS connections.</strong> <br>
+In Netty 4.2, the default setting for endpoint validation (aka. hostname verification) changes.
+If you have TLS clients, make sure you explicitly configure endpoint validation to either <em>on</em> (recommended) or <em>off</em> (for niche use cases).
+The endpoint validation <em>must</em> be configured using the <a href="https://netty.io/4.1/api/io/netty/handler/ssl/SslContextBuilder.html#endpointIdentificationAlgorithm-java.lang.String-" rel="nofollow">SslContextBuilder.endpointIdentificationAlgorithm(String)</a> API that was added in Netty 4.1.112.</li>
+<li>
+<strong>Repeat step 1 and 2 for all your dependencies.</strong> <br>
+It is important to ensure that all the components of your system is using the same Netty version, and are all configuring endpoint validation correctly.
+First off, this avoids any surprises from older client libraries that configure endpoint validation incorrectly, and may as a result stop working after a Netty 4.2 upgrade.
+Secondly, Netty 4.1 and 4.2 cannot co-exist on the class path, so you need to ensure you do the upgrade in a single step.</li>
+<li>
+<strong>Explicitly configure your system to use the pooled allocator.</strong> <br>
+Netty 4.2 changes the default allocator to <code>adaptive</code>.
+To de-risk this change, it is recommended to first upgrade to 4.2 while explicitly configuring the pooled allocator, and then remove the allocator configuration as a second step.
+To explicitly configure the pooled allocator, set this system property: <code>io.netty.allocator.type=pooled</code>.</li>
+<li>
+<strong>Deploy your system with the above changes and make sure it works.</strong> <br>
+The changes described in the steps 1 through 4 can all be deployed in one go, with the caveat that you may have libraries and frameworks on their own upgrade and release cycle.
+At this point, your system is still running Netty 4.1, but you are now ready for the 4.2 upgrade.</li>
+<li>
+<strong>Upgrade to the latest Netty 4.2.x, and deploy it.</strong> <br>
+At this step, we just bump the Netty version to the last 4.2.x, and roll it out.
+Inspect your build and ensure that you have no Netty 4.1 dependencies left.
+As your build pipelines and deployments roll-out, watch out for errors related to endpoint validation in TLS clients, as this is the main risk for most systems.
+Once this is done and everything looks good, then you can choose to stop here if you are not interested in the <code>adaptive</code> allocator, otherwise you can proceed.</li>
+<li>
+<strong>Switch to the adaptive allocator.</strong> <br>
+The <code>adaptive</code> allocator is the new default, but it is not necessary the best choice for everyone.
+It will be better for some workloads, and worse for others.
+If you have a load-test or soak-test environment, try the <code>adaptive</code> allocator there first.
+Simply remove the <code>io.netty.allocator.type=pooled</code> system property that we added in step 4.
+If it looks good, then proceed with deploying the change through your environments to production, and watch out for heap and direct memory usage and GC activity as the changes rolls out.
+If you see a significant increase in memory usage from the <code>adaptive</code> allocator, feel free to obtain a flight recording using our <a href="https://github.com/netty/netty/blob/4.2/microbench/src/main/resources/Netty%20Allocator%20Events.jfc">Netty Allocator Events.jfc</a> recording profile, and open an issue about it with a recording attached.
+If the <code>adaptive</code> allocator is performing poorly for your workload, you can simply stay with the <code>pooled</code> allocator while we work to make the <code>adaptive</code> allocator better.</li>
+</ol>
+<p>Following the above steps will give you a good chance at successfully upgrading to Netty 4.2, with few or no surprises.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-1">Compatibility highlights</h2>
 <a id="user-content-compatibility-highlights" class="anchor" aria-label="Permalink: Compatibility highlights" href="#compatibility-highlights"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>These are the most important compatibility breakages. The Netty team has done extensive validation testing of 4.2 in a number of large and high-profile projects, and these are the things that integrators are most likely to run into when upgrading their Netty dependencies from 4.1 to 4.2:</p>
@@ -314,7 +368,7 @@ You can improve it by yourself
 <li>Usage of io_uring now requires Java9+.</li>
 </ul>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-1">Lesser compatibility changes</h2>
+<h2 class="heading-element" id="wiki-h2-2">Lesser compatibility changes</h2>
 <a id="user-content-lesser-compatibility-changes" class="anchor" aria-label="Permalink: Lesser compatibility changes" href="#lesser-compatibility-changes"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>Netty 4.2 also includes a number of compatibility breakages that are less likely to cause problems, but needs to be mentioned regardless.</p>
@@ -331,7 +385,7 @@ You can improve it by yourself
 <p>The complete and exhaustive list of API breakages has been compiled by RevAPI:
 <a href="https://github.com/netty/netty/blob/3ca17a96cf84cbcb08776d3731b222b82814ead7/pom.xml#L1271-L7794">https://github.com/netty/netty/blob/3ca17a96cf84cbcb08776d3731b222b82814ead7/pom.xml#L1271-L7794</a></p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-2">New best practices</h2>
+<h2 class="heading-element" id="wiki-h2-3">New best practices</h2>
 <a id="user-content-new-best-practices" class="anchor" aria-label="Permalink: New best practices" href="#new-best-practices"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>Netty 4.2 introduces some new APIs, and deprecates some old APIs. As part of your migration to Netty 4.2, we encourage you to look through your code base for opportunities to clean up any use of deprecated APIs.</p>
@@ -377,15 +431,15 @@ If you need files for certificates, keys, or key stores, then the bundle objects
 <div class="toc well">
 <ul class="nav nav-list nav-stacked">
 <li class="nav-header">Table of Contents
-</li><li><a href="#wiki-h2-0" title="Compatibility highlights">Compatibility highlights</a>
-</li><li><a href="#wiki-h2-1" title="Lesser compatibility changes">Lesser compatibility changes</a>
-</li><li><a href="#wiki-h2-2" title="New best practices">New best practices</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Toggle table of contents
+</li><li><a href="#wiki-h2-0" title="Recommended upgrade process">Recommended upgrade process</a>
+</li><li><a href="#wiki-h2-1" title="Compatibility highlights">Compatibility highlights</a>
+</li><li><a href="#wiki-h2-2" title="Lesser compatibility changes">Lesser compatibility changes</a>
+</li><li><a href="#wiki-h2-3" title="New best practices">New best practices</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Toggle table of contents
 
       Pages 32">Toggle table of contents
 
       Pages 32</a>
-</li><li><a href="#wiki-h3-4" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-5" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-6" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-7" title="Uh oh!">Uh oh!</a>
@@ -416,6 +470,7 @@ If you need files for certificates, keys, or key stores, then the bundle objects
 </li><li><a href="#wiki-h3-32" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-33" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-34" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-35" title="Uh oh!">Uh oh!</a>
 </li></ul>
 </li></ul>
 </div>
@@ -425,7 +480,7 @@ If you need files for certificates, keys, or key stores, then the bundle objects
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 16-Jul-2025</small>
+<small>Last retrieved on 13-Aug-2025</small>
 </div>
 </div>
 </div>
