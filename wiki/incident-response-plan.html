@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: Incident Response Plan</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2025/10/15/4-2-7.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha5.tar.gz">
+<i class="fa fa-cloud-download"></i>
+5.0.0.Alpha5
+<small>&dash; 28-Sep-2022</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.7.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.2.7.Final
+<small>&dash; 15-Oct-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.128.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.1.128.Final
+<small>&dash; 15-Oct-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.0.56.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-3.10.6.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/releases">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../5.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 5.0
+</a>
+</li>
+<li>
+<a href="../4.2/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.2
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://discord.gg/GkGzzdQM5d">
+<i class="fa fa-comment"></i>
+Discord Server
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>Incident Response Plan</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/Incident-Response-Plan">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/Incident-Response-Plan">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="gollum-markdown-content">
+              <div class="markdown-body">
+                <div class="markdown-heading">
+<h1 class="heading-element">Incident Response Plan (IRP)</h1>
+<a id="user-content-incident-response-plan-irp" class="anchor" aria-label="Permalink: Incident Response Plan (IRP)" href="#incident-response-plan-irp"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p><strong>Applies To:</strong> Netty organization and all associated repositories.</p>
+<p><strong>Purpose</strong></p>
+<p>This Incident Response Plan outlines the structured process for identifying, assessing, responding to, and recovering from security incidents affecting the Netty organization and so all its repositories. The goal is to minimize damage, restore service integrity, and maintain community trust.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-0">Incident Types Covered</h2>
+<a id="user-content-incident-types-covered" class="anchor" aria-label="Permalink: Incident Types Covered" href="#incident-types-covered"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>This IRP applies to the following categories:</p>
+<ul>
+<li>
+<strong>Security Vulnerabilities</strong> (e.g., RCE, DoS)</li>
+<li>
+<strong>Code Integrity Issues</strong> (e.g., malicious commits, supply chain attacks)</li>
+<li>
+<strong>Abuse or Misuse</strong> (e.g., spam PRs, malicious users)</li>
+<li>
+<strong>Dependency Compromise</strong> (e.g., third-party library CVEs)</li>
+</ul>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-1">Roles and Responsibilities</h2>
+<a id="user-content-roles-and-responsibilities" class="anchor" aria-label="Permalink: Roles and Responsibilities" href="#roles-and-responsibilities"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<table role="table">
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incident Lead</td>
+<td>Manages the response process, coordiniates.</td>
+</tr>
+<tr>
+<td>Security Response Team</td>
+<td>Investigates, triages, and remediates security issues.</td>
+</tr>
+<tr>
+<td>Maintainers</td>
+<td>Fixes issues, review PRs, communicate with users.</td>
+</tr>
+<tr>
+<td>Comms Liaison</td>
+<td>Manages public communication (blog, GitHub issues, mailing list).</td>
+</tr>
+<tr>
+<td>Infrastructure Lead</td>
+<td>Handles CI, GitHub access, project secrets.</td>
+</tr>
+</tbody>
+</table>
+<p>The same person might wear multiple hats here.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-2">Incident Response Phases</h2>
+<a id="user-content-incident-response-phases" class="anchor" aria-label="Permalink: Incident Response Phases" href="#incident-response-phases"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p><strong>Phase 1: Identification</strong></p>
+<ul>
+<li>Anyone can report an issue via:
+<ul>
+<li><strong>GitHub security advisory</strong></li>
+</ul>
+</li>
+<li>Triage team evaluates:
+<ul>
+<li>Severity (scoring, impact, exploitability)</li>
+<li>Affected versions</li>
+<li>Affected modules</li>
+<li>Reproducibility</li>
+</ul>
+</li>
+</ul>
+<p><strong>Phase 2: Containment</strong></p>
+<ul>
+<li>Restrict access if a maintainer account is compromised.</li>
+<li>Remove and convert GitHub Issues/PRs to private security reports when sensitive info is exposed.</li>
+</ul>
+<p><strong>Phase 3: Eradication &amp; Remediation</strong></p>
+<ul>
+<li>Develop and test a patch privately.</li>
+<li>Backport to supported branches.</li>
+<li>Prepare:
+<ul>
+<li>Fixed releases</li>
+<li>Security advisories (GHSA, CVE request)</li>
+<li>Upgrade instructions (if applicable)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Phase 4: Recovery</strong></p>
+<ul>
+<li>Publish fixed versions on Maven Central</li>
+<li>Publicly disclose:
+<ul>
+<li>GHSA</li>
+<li>Release announcement</li>
+<li>GitHub discussions or issues</li>
+</ul>
+</li>
+</ul>
+<p><strong>Phase 5: Post-Incident Review</strong></p>
+<ul>
+<li>Document:
+<ul>
+<li>Timeline of events</li>
+<li>Root cause</li>
+<li>Fixes implemented</li>
+<li>Lessons learned</li>
+</ul>
+</li>
+<li>Update:
+<ul>
+<li>Security policies</li>
+<li>Dependencies and tooling</li>
+</ul>
+</li>
+<li>Share summary with community (non-sensitive info only)</li>
+</ul>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-3">Supporting Infrastructure</h2>
+<a id="user-content-supporting-infrastructure" class="anchor" aria-label="Permalink: Supporting Infrastructure" href="#supporting-infrastructure"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<ul>
+<li>Disclosure Policy: <a href="https://github.com/netty/netty/security/policy">SECURITY.md</a>.</li>
+<li>Monitoring Tools:
+<ul>
+<li>GitHub Dependabot alerts</li>
+<li>OSS Index dependency scanning</li>
+</ul>
+</li>
+<li>Safeguards:
+<ul>
+<li>Enabled 2FA for all core maintainers.</li>
+<li>Using GPG signing for release artifacts.</li>
+<li>Enabled private security issue reporting.</li>
+</ul>
+</li>
+</ul>
+
+              </div>
+
+          </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="Incident Types Covered">Incident Types Covered</a>
+</li><li><a href="#wiki-h2-1" title="Roles and Responsibilities">Roles and Responsibilities</a>
+</li><li><a href="#wiki-h2-2" title="Incident Response Phases">Incident Response Phases</a>
+</li><li><a href="#wiki-h2-3" title="Supporting Infrastructure">Supporting Infrastructure</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-4" title="Toggle table of contents
+
+      Pages 34">Toggle table of contents
+
+      Pages 34</a>
+</li><li><a href="#wiki-h3-5" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-6" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-7" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-8" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-9" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-10" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-11" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-12" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-13" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-14" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-15" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-16" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-17" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-18" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-19" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-20" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-21" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-22" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-23" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-24" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-25" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-26" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-27" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-28" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-29" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-30" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-31" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-32" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-33" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-34" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-35" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-36" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-37" title="Uh oh!">Uh oh!</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 15-Oct-2025</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2025
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>

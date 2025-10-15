@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: Threat model</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2025/10/15/4-2-7.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha5.tar.gz">
+<i class="fa fa-cloud-download"></i>
+5.0.0.Alpha5
+<small>&dash; 28-Sep-2022</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.7.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.2.7.Final
+<small>&dash; 15-Oct-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.128.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.1.128.Final
+<small>&dash; 15-Oct-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.0.56.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-3.10.6.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/releases">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../5.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 5.0
+</a>
+</li>
+<li>
+<a href="../4.2/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.2
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://discord.gg/GkGzzdQM5d">
+<i class="fa fa-comment"></i>
+Discord Server
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>Threat model</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/Threat-model">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/Threat-model">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="gollum-markdown-content">
+              <div class="markdown-body">
+                <div class="markdown-heading">
+<h1 class="heading-element">Netty Threat Model</h1>
+<a id="user-content-netty-threat-model" class="anchor" aria-label="Permalink: Netty Threat Model" href="#netty-threat-model"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>Netty is an asynchronous event-driven network application framework for rapid development of maintainable high performance protocol servers &amp; clients.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-0">Architectural Overview</h2>
+<a id="user-content-architectural-overview" class="anchor" aria-label="Permalink: Architectural Overview" href="#architectural-overview"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>Netty's role in a typical application consists of:</p>
+<ol>
+<li>An event loop group, managing multiple event loops.</li>
+<li>Each event loop managing multiple channels.</li>
+<li>Each channel has a pipeline of handles.</li>
+<li>The handlers process input data, and produce output data.</li>
+<li>Netty includes a suite of standard handles for HTTP parsing/encoding, compression, DNS, and TLS, among others.</li>
+<li>The data is moved in from/out of the network through buffers from Netty's memory allocators.</li>
+</ol>
+<section class="js-render-needs-enrichment render-needs-enrichment position-relative" data-identity="a2a8cd0b-1255-4750-bcb6-1597b6a70854" data-host="https://viewscreen.githubusercontent.com" data-src="https://viewscreen.githubusercontent.com/markdown/mermaid?docs_host=https%3A%2F%2Fdocs.github.com" data-type="mermaid" aria-label="mermaid rendered output container">
+  <div class="js-render-enrichment-target" data-json='{"data":"block-beta\n    columns 1\n    block:loops\n        columns 5\n        space:2\n        evg(\"Event Loop Group\")\n        space:7\n        ev1(\"Event Loop\")\n        space\n        ev2(\"Event Loop\")\n        space\n        ev3(\"Event Loop\")\n        c1[[\"channel\"]]\n        space\n        c2[[\"channel\"]]\n        space\n        c3[[\"channel\"]]\n        p1[/\"pipeline\"/]\n        space\n        p2[/\"pipeline\"/]\n        space\n        p3[/\"pipeline\"/]\n    end\n    block:pipeline\n        columns 5\n        space:2\n        cp(\"Channel Pipeline\")\n        space:2\n        h1[/\"Head (I/O)\"/]\n        h2[/\"TLS\"/]\n        h3[/\"HTTP\"/]\n        h4[/\"App Logic\"/]\n        h5[/\"Tail (Errors)\"/]\n    end\n    p1 --&amp;gt; h1\n    h1--&amp;gt;h2\n    h2--&amp;gt;h1\n    h2--&amp;gt;h3\n    h3--&amp;gt;h2\n    h3--&amp;gt;h4\n    h4--&amp;gt;h3\n    h4--&amp;gt;h5\n    style evg fill:none,stroke:none;\n    style cp fill:none,stroke:none;\n"}' data-plain='block-beta
+    columns 1
+    block:loops
+        columns 5
+        space:2
+        evg("Event Loop Group")
+        space:7
+        ev1("Event Loop")
+        space
+        ev2("Event Loop")
+        space
+        ev3("Event Loop")
+        c1[["channel"]]
+        space
+        c2[["channel"]]
+        space
+        c3[["channel"]]
+        p1[/"pipeline"/]
+        space
+        p2[/"pipeline"/]
+        space
+        p3[/"pipeline"/]
+    end
+    block:pipeline
+        columns 5
+        space:2
+        cp("Channel Pipeline")
+        space:2
+        h1[/"Head (I/O)"/]
+        h2[/"TLS"/]
+        h3[/"HTTP"/]
+        h4[/"App Logic"/]
+        h5[/"Tail (Errors)"/]
+    end
+    p1 --&gt; h1
+    h1--&gt;h2
+    h2--&gt;h1
+    h2--&gt;h3
+    h3--&gt;h2
+    h3--&gt;h4
+    h4--&gt;h3
+    h4--&gt;h5
+    style evg fill:none,stroke:none;
+    style cp fill:none,stroke:none;
+'>
+    <div class="render-plaintext-hidden">
+      <pre lang="mermaid" aria-label="Raw mermaid code">block-beta&#x000A;    columns 1&#x000A;    block:loops&#x000A;        columns 5&#x000A;        space:2&#x000A;        evg("Event Loop Group")&#x000A;        space:7&#x000A;        ev1("Event Loop")&#x000A;        space&#x000A;        ev2("Event Loop")&#x000A;        space&#x000A;        ev3("Event Loop")&#x000A;        c1[["channel"]]&#x000A;        space&#x000A;        c2[["channel"]]&#x000A;        space&#x000A;        c3[["channel"]]&#x000A;        p1[/"pipeline"/]&#x000A;        space&#x000A;        p2[/"pipeline"/]&#x000A;        space&#x000A;        p3[/"pipeline"/]&#x000A;    end&#x000A;    block:pipeline&#x000A;        columns 5&#x000A;        space:2&#x000A;        cp("Channel Pipeline")&#x000A;        space:2&#x000A;        h1[/"Head (I/O)"/]&#x000A;        h2[/"TLS"/]&#x000A;        h3[/"HTTP"/]&#x000A;        h4[/"App Logic"/]&#x000A;        h5[/"Tail (Errors)"/]&#x000A;    end&#x000A;    p1 --&gt; h1&#x000A;    h1--&gt;h2&#x000A;    h2--&gt;h1&#x000A;    h2--&gt;h3&#x000A;    h3--&gt;h2&#x000A;    h3--&gt;h4&#x000A;    h4--&gt;h3&#x000A;    h4--&gt;h5&#x000A;    style evg fill:none,stroke:none;&#x000A;    style cp fill:none,stroke:none;</pre>
+    </div>
+  </div>
+  <span class="js-render-enrichment-loader d-flex flex-justify-center flex-items-center width-full" style="min-height:100px" role="presentation">
+    <span data-view-component="true">
+  <svg style="box-sizing: content-box; color: var(--color-icon-primary);" width="16" height="16" viewbox="0 0 16 16" fill="none" aria-hidden="true" data-view-component="true" class="octospinner mx-auto anim-rotate">
+    <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" vector-effect="non-scaling-stroke" fill="none"></circle>
+    <path d="M15 8a7.002 7.002 0 00-7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" vector-effect="non-scaling-stroke"></path>
+</svg>    <span class="sr-only">Loading</span>
+</span>
+  </span>
+</section>
+
+<p>Besides the prominent components above, Netty includes many other codecs; HTTP/2, HTTP/3, QUIC, DNS, JBoss Marshalling, MQTT, Protobuf, Redis, SMTP, SOCKS, STOMP, HAProxy, Memcache, JSON, XML, and length or delimiter based framing codecs.
+The event loops communicate with the operating system to perform I/O using various transports; epoll, kqueue, NIO, io_uring, most of which involve Netty-maintained native code.
+Lastly, Netty can make use of native TLS implementations, like BoringSSL, AWS-LC, and OpenSSL, which also involve native code.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-1">Boundaries and Scope</h2>
+<a id="user-content-boundaries-and-scope" class="anchor" aria-label="Permalink: Boundaries and Scope" href="#boundaries-and-scope"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>Netty, as a framework, operates with two boundaries:</p>
+<ol>
+<li>The external boundary, where calls are made into the operating system to perform I/O and move data into and out of the system process.</li>
+<li>The internal boundary, where the application is integrating with Netty and calling Netty APIs in order the serve their networking use cases.</li>
+</ol>
+<p>Data moving through the external boundary is generally untrusted, and must go through validation and authentication steps as appropriate for the application, before its processed by the application.</p>
+<p>Data moving through the internal boundary is generally trusted, but validated where possible.</p>
+<p>As a low-level networking API, we cannot stop integrators from sending arbitrary data on connections that are supposed to follow a specific protocol.
+However, we can, for instance, validate HTTP headers when these pass through our HTTP APIs.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-2">Assets, Risks, and Mitigations</h2>
+<a id="user-content-assets-risks-and-mitigations" class="anchor" aria-label="Permalink: Assets, Risks, and Mitigations" href="#assets-risks-and-mitigations"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p><strong>Private key material.</strong>
+When Netty is configured to use TLS in either server mode, or in authenticated client mode, it must be able to present a certificate and either have access to the corresponding private key, or have access to a TPM/HSM has manages the private key.</p>
+<p>The private key material is accessed either as files, as a <code>KeyManager</code> instance, or as an <code>OpenSslAsyncPrivateKeyMethod</code> callback.
+These types cannot normally be sent to the network through standard channel methods, e.g. files must be sent as <code>FileRegion</code> objects, and thus accidental leakage of this information is prevented.</p>
+<p><strong>Application data.</strong>
+Applications can configure their pipelines to handle arbitrary protocols, including completely custom protocols, and not just HTTP with or without TLS.</p>
+<p>Netty cannot tell what data is sensitive and what is not, or what data is intended for which peers.
+We can only encourage safe defaults, and design our APIs such that the easiest way to do something is also the safest way.</p>
+<p>To this end, codecs should validate all inputs, and apply sane resource limits when decoding.
+Resource limits include both limiting CPU expenditure relative to input size, i.e. preventing attacks like MadeYouReset, and memory consumption, i.e. zip-bombs.
+When encoding, all outbound objects should be validated, to prevent injection or parser-desync attacks.
+Netty also checks offset- and lifetime-bounds of every memory access through its <code>ByteBuf</code> type, ensuring memory safety of off-heap memory usage.</p>
+<p>Some codecs rely on discouraged technologies, such as Java serialization.
+We've deprecated all APIs that are considered a security liability, and encourage downstream projects to read our deprecation warnings.</p>
+<p>Tracking data provenance and access controls is, however, out of scope for Netty.</p>
+<p><strong>Process information.</strong>
+Netty does not expose or exfiltrate any information about the application process in any way.
+Netty make some JMX beans available, to expose metrics about its memory allocators for instance, but exposing these beans through the JMX metrics system is opt-in and requires intentional program code to make happen.</p>
+<p>Netty also include some JFR events, but these do not include any application information, and they are also disabled by default.
+Note that JFR, when using its default profiles, will include a wide range of process information, and may not be safe to share publicly.</p>
+<p><strong>Dependencies.</strong>
+Netty intentionally depend on as few other libraries as possible.
+This limits our exposure to supply-chain attacks.
+Our maven build tool binary is downloaded by <code>mvnw</code> over HTTPS and verified by a SHA-512 checksum.</p>
+<p>The main dependencies involved are JCTools, BoringSSL, and BouncyCastle.</p>
+<p>Our HTTP/3 and QUIC implementations depend on Quiche, by Cloudflare.</p>
+<p>Our compression codecs pull in dependencies for their respective compression algorithms.</p>
+<p>We rely on Dependabot for timely notification of security issues in these dependencies.</p>
+<p><strong>Network access.</strong>
+Netty inherently involves accessing the network, which is what Netty is managing on behalf of the application.
+Netty will only establish connections and perform I/O as instructed by the application.
+Preventing unauthorized access is generally out of scope for Netty, since Netty don't know what rules to apply.
+Applications that wish to guard against, e.g. Server-Side Request Forgery attacks, can install an <code>IpSubnetFilter</code> handler into their pipeline, to ensure that network communications are only directed to endpoints that are expected for a given application.</p>
+<p><strong>Netty Build Artifacts.</strong>
+As Netty is so widely used, and is a critical component of many application, it's important that people can trust the build artifacts we release.</p>
+<p>To ensure these are trustworthy, a number of checks and mechanisms are in place:</p>
+<ol>
+<li>Pull requests from people not in the "Owner" github group are always reviewed before merging.</li>
+<li>All release builds are signed.</li>
+<li>The release process is fully automated and runs on GitHub Actions, and are manually triggered by a maintainer.</li>
+<li>Maven Central authenticates the publishing user account and validates the build artifacts, before the artifacts become public.</li>
+<li>Publishing access is protected by GitHub Secrets.</li>
+</ol>
+
+              </div>
+
+          </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="Architectural Overview">Architectural Overview</a>
+</li><li><a href="#wiki-h2-1" title="Boundaries and Scope">Boundaries and Scope</a>
+</li><li><a href="#wiki-h2-2" title="Assets, Risks, and Mitigations">Assets, Risks, and Mitigations</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Toggle table of contents
+
+      Pages 34">Toggle table of contents
+
+      Pages 34</a>
+</li><li><a href="#wiki-h3-4" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-5" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-6" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-7" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-8" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-9" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-10" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-11" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-12" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-13" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-14" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-15" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-16" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-17" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-18" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-19" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-20" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-21" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-22" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-23" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-24" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-25" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-26" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-27" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-28" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-29" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-30" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-31" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-32" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-33" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-34" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-35" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-36" title="Uh oh!">Uh oh!</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 15-Oct-2025</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2025
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>
