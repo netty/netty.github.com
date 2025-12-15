@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Netty.docs: Analyzing Memory Allocator Behavior</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../news/2025/12/15/4-2-9.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha5.tar.gz">
+<i class="fa fa-cloud-download"></i>
+5.0.0.Alpha5
+<small>&dash; 28-Sep-2022</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.9.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.2.9.Final
+<small>&dash; 15-Dec-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.130.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.1.130.Final
+<small>&dash; 15-Dec-2025</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.0.56.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-3.10.6.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/releases">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../5.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 5.0
+</a>
+</li>
+<li>
+<a href="../4.2/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.2
+</a>
+</li>
+<li>
+<a href="../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://discord.gg/GkGzzdQM5d">
+<i class="fa fa-comment"></i>
+Discord Server
+</a>
+</li>
+<li>
+<a href="../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="wiki-item">
+<h1>Analyzing Memory Allocator Behavior</h1>
+<div class="alert alert-info">
+Did you know this page is automatically generated from
+<a href="https://github.com/netty/netty/wiki/Analyzing-Memory-Allocator-Behavior">a Github Wiki page?</a>
+You can improve it by yourself
+<a href="https://github.com/netty/netty/wiki/Analyzing-Memory-Allocator-Behavior">here!</a>
+</div>
+<div class="row">
+<div class="col-md-9">
+<div id="wiki-body" class="gollum-markdown-content">
+              <div class="markdown-body">
+                <p>Netty 4.2 include 3 different memory allocators for creating <code>ByteBuf</code> instances:</p>
+<ol>
+<li>The <code>unpooled</code> allocator will allocate from system memory on each call, and release it back immediately when a <code>ByteBuf</code> is no longer used.</li>
+<li>The <code>pooled</code> allocator will allocate <em>chunks</em> of system memory, and share and reuse it across multiple <code>ByteBuf</code> instances.
+It organizes memory into arenas, chunks, and size-classes, following the design of the <code>jemalloc</code> allocator.
+This allocator was the default in Netty 4.1.</li>
+<li>The <code>adaptive</code> allocator, like the <code>pooled</code> one, also allocates <em>chunks</em> of system memory.
+The chunks are typically smaller, and more numerous, and collected in groups called a magazine.
+Magazines are organized into magazine groups, with one group per size class.
+The groups grow in response to multithreaded contention.
+This is the default allocator in Netty 4.2.</li>
+</ol>
+<p>Each allocator has pros and cons that make them more suitable for some applications, and less so for others.</p>
+<p>The allocator that Netty will use by default is controlled by the <code>io.netty.allocator.type</code> system property, set to one of the <code>names</code> given above.</p>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-0">Recording FlightRecorder Events</h2>
+<a id="user-content-recording-flightrecorder-events" class="anchor" aria-label="Permalink: Recording FlightRecorder Events" href="#recording-flightrecorder-events"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>The <code>pooled</code> and <code>adaptive</code> allocators can emit Java FlightRecorder events when they allocator or free buffers or chunks.</p>
+<p>These events are not enabled by default, because they can have a rather high performance overhead.
+Instead, these events must be explicitly enabled by the FlightRecorder profile being used for the recording.</p>
+<p>The Netty team has put together a FlightRecorder profile which includes <em>only</em> the Netty allocator events, and disables all others.
+This profile can be downloaded here: <a href="https://github.com/netty/netty/blob/4.2/microbench/src/main/resources/Netty%20Allocator%20Events.jfc">https://github.com/netty/netty/blob/4.2/microbench/src/main/resources/Netty%20Allocator%20Events.jfc</a></p>
+<p>Using this profile also has the advantage that the produced recording can be shared publicly, as it will contain no personal or private information, and no intellectual property.</p>
+<p>Once the profile has been downloaded onto the system running your Netty application, you can obtain an allocation profile by running these commands:</p>
+<ul>
+<li>Obtain the PID of the Netty application you wish to profile, using:
+<ul>
+<li><code>$ jps</code></li>
+</ul>
+</li>
+<li>Start the profiling with a command similar to the following:
+<ul>
+<li><code>$ jcmd &lt;PID&gt; JFR.start name=netty-allocator-profiling duration=30s filename=netty-allocator.jfr settings=/path/to/netty.jfc maxsize=200m</code></li>
+</ul>
+</li>
+<li>Wait for the profiling to finish, periodically checking its status with:
+<ul>
+<li><code>$ jcmd &lt;PID&gt; JFR.check</code></li>
+</ul>
+</li>
+<li>When the recording is finished, your <code>.jfr</code> is ready for you to download and analyze.</li>
+</ul>
+<div class="markdown-heading">
+<h2 class="heading-element" id="wiki-h2-1">Analyzing Allocator Flight Recordings</h2>
+<a id="user-content-analyzing-allocator-flight-recordings" class="anchor" aria-label="Permalink: Analyzing Allocator Flight Recordings" href="#analyzing-allocator-flight-recordings"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>The <code>netty-microbench</code> module contain a program call the <code>AllocationPatternSimulator</code>.
+It can analyze the allocation profile, and simulate its allocation patterns simultaneously across the <code>pooled</code> and <code>adaptive</code> allocators, and show a comparison chart of their memory usage.</p>
+<p>To use it, you will have to check out and compile the Netty source code.
+Then run the <code>AllocationPatternSimulator</code> class, passing the allocation profile <code>.jfr</code> file as the first program argument.</p>
+
+              </div>
+
+          </div></div>
+<div class="toc-container col-md-3 hidden-xs hidden-sm hidden-print" role="complementary">
+<div class="toc well">
+<ul class="nav nav-list nav-stacked">
+<li class="nav-header">Table of Contents
+</li><li><a href="#wiki-h2-0" title="Recording FlightRecorder Events">Recording FlightRecorder Events</a>
+</li><li><a href="#wiki-h2-1" title="Analyzing Allocator Flight Recordings">Analyzing Allocator Flight Recordings</a>
+</li><li><a href="#wiki-h2-2" title="Toggle table of contents
+
+      Pages 35">Toggle table of contents
+
+      Pages 35</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-3" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-4" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-5" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-6" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-7" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-8" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-9" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-10" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-11" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-12" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-13" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-14" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-15" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-16" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-17" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-18" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-19" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-20" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-21" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-22" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-23" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-24" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-25" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-26" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-27" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-28" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-29" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-30" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-31" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-32" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-33" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-34" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-35" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-36" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-37" title="Clone this wiki locally">Clone this wiki locally</a>
+</li></ul>
+</li></ul>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-9">
+<div class="text-right">
+<small>Last retrieved on 15-Dec-2025</small>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2025
+<a href="../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../lib/common.footer.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>
