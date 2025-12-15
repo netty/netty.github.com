@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Netty.news: Netty 4.2.7.Final released</title>
-<title>Netty: Netty 4.2.7.Final released</title>
+<title>Netty.news: Netty 4.1.129.Final released</title>
+<title>Netty: Netty 4.1.129.Final released</title>
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <link href="../../../../images/favicon.ico" rel="shortcut icon">
 <link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
@@ -268,7 +268,7 @@ for a 37% discount!
 <div class="col-md-9">
 <div class="news-item" id="main-content">
 <h1>
-Netty 4.2.7.Final released
+Netty 4.1.129.Final released
 </h1>
 <p class="byline">
 <small>
@@ -276,85 +276,66 @@ by
 <a href="https://github.com/normanmaurer">normanmaurer</a>
 <br>
 on
-<time datetime="2025-10-15">15-Oct-2025</time>
+<time datetime="2025-12-11">11-Dec-2025</time>
 </small>
 </p>
 <div class="news-content">
-<p>We are happy to announce the release of netty 4.2.7.Final. This is a bug-fix release but also contains some new features. Beside this it also fixes <a href="https://github.com/netty/netty/security/advisories/GHSA-jq43-27x9-3v86">CVE-2025-59419</a> which might affect you if you make use
-of our SMTP implementation.</p>
+<p>We are happy to announce the release of netty 4.1.129.Final. This is a bug-fix release but also contains <a href="https://github.com/netty/netty/security/advisories/GHSA-84h7-rjj3-6jx4">CVE-2025-67735</a>.</p>
 
 <p>The most important changes are:</p>
 
 <ul>
-<li>SMTP Command Injection Vulnerability Allowing Email Forgery (<a href="https://github.com/netty/netty/security/advisories/GHSA-jq43-27x9-3v86">CVE-2025-59419</a>)</li>
-<li>Faster leak detector implementation for tests (<a href="https://github.com/netty/netty/pull/15622">#15622</a>)</li>
-<li>Expose metrics from AutoScalingEventExecutorChooserFactory (<a href="https://github.com/netty/netty/pull/15624">#15624</a>)</li>
-<li>Teach the BoringSSL implementation to use a java.security.Signature for keys that cannot be obtained directly (<a href="https://github.com/netty/netty/pull/15626">#15626</a>)</li>
-<li>Drop unknown frame on missing stream in first packet (<a href="https://github.com/netty/netty/pull/15646">#15646</a>)</li>
-<li>IoUring: Add support IntegerUnixChannelOption and RawUnixChannelOption (<a href="https://github.com/netty/netty/pull/15706">#15706</a>)</li>
-<li>IoUring: Don't delay close operation if we still wait for the second notification when using zero copy (<a href="https://github.com/netty/netty/pull/15709">#15709</a>)</li>
-<li>IoUring: Only free resourcees once we are sure no more events are handled by the handle (<a href="https://github.com/netty/netty/pull/15710">#15710</a>)</li>
-<li>Fix Snappy compression bug (<a href="https://github.com/netty/netty/pull/15712">#15712</a>)</li>
-<li>Allow CertificateBuilder to specify Provider instance to use (<a href="https://github.com/netty/netty/pull/15722">#15722</a>)</li>
-<li>Fix aligned off-heap zeroing (<a href="https://github.com/netty/netty/pull/15740">#15740</a>)</li>
-<li>buffer: Fix JFR deadlock during ReturnChunkEvent initialization (<a href="https://github.com/netty/netty/pull/15740">#15740</a>)</li>
-<li>Fix concurrent chunk data write bug in adaptive allocator (<a href="https://github.com/netty/netty/pull/15652">#15652</a>)</li>
-<li>OpenSSL: Allow to configure named groups via SSLParameters on Java20+ (<a href="https://github.com/netty/netty/pull/15660">#15660</a>)</li>
-<li>Move polymorphic VarHandle calls to separate class to avoid Android verification error (<a href="https://github.com/netty/netty/pull/15661">#15661</a>)</li>
-<li>Kqueue: Ensure classes can be loaded even if native lib is not on the classpath or platform not supported (<a href="https://github.com/netty/netty/pull/15669">#15669</a>)</li>
-<li>buffer: centralize VarHandle byte[] access in VarHandleByteBufferAccess (<a href="https://github.com/netty/netty/pull/15670">#15670</a>)</li>
-<li>Epoll: Ensure classes can be loaded even if native lib is not on the classpath or platform not supported (<a href="https://github.com/netty/netty/pull/15671">#15671</a>)</li>
-<li>IoUring: Ensure classes can be loaded even if native lib is not on the classpath or platform not supported (<a href="https://github.com/netty/netty/pull/15672">#15672</a>)</li>
-<li>Update jni-util version to clarify licensing (<a href="https://github.com/netty/netty/pull/15687">#15687</a>)</li>
-<li>IoUring: Always correctly handle IORING_CQE_F_MORE flag when using zero copy send (<a href="https://github.com/netty/netty/pull/15692">#15692</a>)</li>
-<li>IoUring: Fix debug log message which shows which features are supported (<a href="https://github.com/netty/netty/pull/15693">#15693</a>)</li>
+<li>RLF injection vulnerability in io.netty.handler.codec.http.HttpRequestEncoder (<a href="https://github.com/netty/netty/security/advisories/GHSA-84h7-rjj3-6jx4">CVE-2025-67735</a>)</li>
+<li>Update lz4-java version to 1.10.1 (<a href="https://github.com/netty/netty/pull/15981">#15981</a>)</li>
+<li>Close Channel and fail bootstrap when setting a ChannelOption causes an error (<a href="https://github.com/netty/netty/pull/15970">#15970</a>)</li>
+<li>Discard the following HttpContent for preflight request (<a href="https://github.com/netty/netty/pull/15962">#15962</a>)</li>
+<li>Fix race condition in NonStickyEventExecutorGroup causing incorrect inEventLoop() results (<a href="https://github.com/netty/netty/pull/15927">#15927</a>)</li>
+<li>Fix Zstd compression for large data (<a href="https://github.com/netty/netty/pull/15900">#15900</a>)</li>
+<li>Fix ZstdEncoder not producing data when source is smaller than block (<a href="https://github.com/netty/netty/pull/15894">#15894</a>)</li>
+<li>Make big endian ASCII hashcode consistent with little endian (<a href="https://github.com/netty/netty/pull/15846">#15846</a>)</li>
+<li>Fix reentrancy bug in ByteToMessageDecoder (<a href="https://github.com/netty/netty/pull/15834">#15834</a>)</li>
+<li>Add 32k and 64k size classes to adaptive allocator (<a href="https://github.com/netty/netty/pull/15800">#15800</a>)</li>
+<li>Re-enable reflective field accesses in native images (<a href="https://github.com/netty/netty/pull/15774">#15774</a>)</li>
+<li>Correct HTTP/2 padding length check (<a href="https://github.com/netty/netty/pull/15795">#15795</a>)</li>
 </ul>
 
 
-<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.2.7.Final+is%3Aclosed">bug tracker</a></p>
-
-<h1>Special notes</h1>
-
-<h2>Faster leak detector implementation for tests</h2>
-
-<p>If you are using paranoid leak detection for unit testing, consider trying LeakPresenceDetector for more efficient leak detection. See (<a href="https://github.com/netty/netty/pull/15622">#15622</a>) for more details.</p>
+<p>For more details please visit our <a href="https://github.com/netty/netty/issues?q=milestone%3A4.1.129.Final+is%3Aclosed">bug tracker</a></p>
 
 <h1>Thank You</h1>
 
 <p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
 
-<p>Please report an unintended omission</p>
+<p>Please report an unintended omission.</p>
 
 <ul>
-<li><a href="https://github.com/ajith211">@ajith211</a></li>
-<li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
 <li><a href="https://github.com/chrisvest">@chrisvest</a></li>
-<li><a href="https://github.com/dreamlike-ocean">@dreamlike-ocean</a></li>
 <li><a href="https://github.com/franz1981">@franz1981</a></li>
-<li><a href="https://github.com/georgebanasios">@georgebanasios</a></li>
+<li><a href="https://github.com/danfaer">@danfaer</a></li>
+<li><a href="https://github.com/He-Pin">@He-Pin</a></li>
 <li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
-<li><a href="https://github.com/ihrasko">@ihrasko</a></li>
-<li><a href="https://github.com/justinas-dabravolskas">@justinas-dabravolskas</a></li>
-<li><a href="https://github.com/leonchen83">@leonchen83</a></li>
-<li><a href="https://github.com/mateczagany">@mateczagany</a></li>
-<li><a href="https://github.com/matthew-js-porter">@matthew-js-porter</a></li>
-<li><a href="https://github.com/netudima">@netudima</a></li>
+<li><a href="https://github.com/leonard84">@leonard84</a></li>
 <li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
-<li><a href="https://github.com/reta">@reta</a></li>
+<li><a href="https://github.com/qnnn">@qnnn</a></li>
+<li><a href="https://github.com/rovarga">@rovarga</a></li>
+<li><a href="https://github.com/sephiroth-j">@sephiroth-j</a></li>
+<li><a href="https://github.com/skyguard1">@skyguard1</a></li>
+<li><a href="https://github.com/violetagg">@violetagg</a></li>
 <li><a href="https://github.com/yawkat">@yawkat</a></li>
+<li><a href="https://github.com/zakkak">@zakkak</a></li>
 </ul>
 
 
 </div>
 <ul class="pager">
 <li class="previous">
-<a href="../../../../news/2025/10/14/4-1-128-Final.html">&larr; Older</a>
+<a href="../../../../news/2025/10/15/4-2-7.html">&larr; Older</a>
 </li>
 <li>
 <a href="../../../index.html">List all news items</a>
 </li>
 <li class="next">
-<a href="../../../../news/2025/12/11/4-1-129-Final.html">Newer &rarr;</a>
+<a href="../../../../news/2025/12/11/4-2-8.html">Newer &rarr;</a>
 </li>
 </ul>
 </div>
