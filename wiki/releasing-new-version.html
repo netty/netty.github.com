@@ -276,105 +276,121 @@ You can improve it by yourself
 <div id="wiki-body" class="gollum-markdown-content">
               <div class="markdown-body">
                 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-0">Before getting started</h2>
-<a id="user-content-before-getting-started" class="anchor" aria-label="Permalink: Before getting started" href="#before-getting-started"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
-</div>
-<ul>
-<li>
-<p><a href="http://central.sonatype.org/pages/ossrh-guide.html" rel="nofollow">Read the OSSRH guide from Sonatype.</a></p>
-</li>
-<li>
-<p><a href="https://docs.sonatype.org/display/Repository/How+To+Generate+PGP+Signatures+With+Maven" rel="nofollow">Create a GnuPG key to sign the artifacts.</a></p>
-</li>
-<li>
-<p>Configure your <code>~/.m2/settings.xml</code> contains the following configuration:</p>
-<div class="highlight highlight-text-xml notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;settings&gt;
-  &lt;servers&gt;
-    &lt;server&gt;
-      &lt;id&gt;sonatype-nexus-snapshots&lt;/id&gt;
-      &lt;username&gt;myusername&lt;/username&gt;
-      &lt;password&gt;mypassword&lt;/password&gt;
-    &lt;/server&gt;
-    &lt;server&gt;
-      &lt;id&gt;sonatype-nexus-staging&lt;/id&gt;
-      &lt;username&gt;myusername&lt;/username&gt;
-      &lt;password&gt;mypassword&lt;/password&gt;
-    &lt;/server&gt;
-  &lt;/servers&gt;
-  ...
-&lt;/settings&gt;'><pre>&lt;?<span class="pl-ent">xml</span><span class="pl-e"> version</span>=<span class="pl-s"><span class="pl-pds">"</span>1.0<span class="pl-pds">"</span></span><span class="pl-e"> encoding</span>=<span class="pl-s"><span class="pl-pds">"</span>UTF-8<span class="pl-pds">"</span></span>?&gt;&#x000A;&lt;<span class="pl-ent">settings</span>&gt;&#x000A;  &lt;<span class="pl-ent">servers</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-snapshots&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;    &lt;<span class="pl-ent">server</span>&gt;&#x000A;      &lt;<span class="pl-ent">id</span>&gt;sonatype-nexus-staging&lt;/<span class="pl-ent">id</span>&gt;&#x000A;      &lt;<span class="pl-ent">username</span>&gt;myusername&lt;/<span class="pl-ent">username</span>&gt;&#x000A;      &lt;<span class="pl-ent">password</span>&gt;mypassword&lt;/<span class="pl-ent">password</span>&gt;&#x000A;    &lt;/<span class="pl-ent">server</span>&gt;&#x000A;  &lt;/<span class="pl-ent">servers</span>&gt;&#x000A;  ...&#x000A;&lt;/<span class="pl-ent">settings</span>&gt;</pre></div>
-</li>
-</ul>
-<div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-1"><a href="https://github.com/netty/netty">Netty 4.x</a></h2>
+<h2 class="heading-element" id="wiki-h2-0"><a href="https://github.com/netty/netty">Netty 4.x</a></h2>
 <a id="user-content-netty-4x" class="anchor" aria-label="Permalink: Netty 4.x" href="#netty-4x"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
-<p>The release procedure is currently a mix of executing a GitHub Action workflow and running a few scripts to finish the release process on macOS (64-bit). Install <a class="internal present" href="setting-up-development-environment#install-the-necessary-build-tools.html">the required packages</a> as well.</p>
+<p>The release procedure is currently an almost fully automated GitHub Action workflow.</p>
 <div class="markdown-heading">
-<h3 class="heading-element" id="wiki-h3-2">Start the release process using GitHub Actions</h3>
+<h3 class="heading-element" id="wiki-h3-1">Start the release process using GitHub Actions</h3>
 <a id="user-content-start-the-release-process-using-github-actions" class="anchor" aria-label="Permalink: Start the release process using GitHub Actions" href="#start-the-release-process-using-github-actions"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
-<p>The release is mostly automated these days (and will be fully automated in the future hopefully). To start a release all you need to do is to run the <a href="https://github.com/netty/netty/actions/workflows/ci-release.yml">GitHub Action release workflow</a>.
-The workflow will take care of building all the native libraries and also the normal jars. Once complete it will automatically stage everything to the <a href="https://oss.sonatype.org" rel="nofollow">nexus staging repository</a>.
-Monitor the <a href="https://github.com/netty/netty/actions/workflows/ci-release.yml">GitHub Action release workflow</a> and wait till it's complete.</p>
+<ol>
+<li>
+<p>The release is mostly automated these days. To start a release all you need to do is to run the GitHub Action release workflow for <a href="https://github.com/netty/netty/actions/workflows/ci-release.yml">4.1</a> or <a href="https://github.com/netty/netty/actions/workflows/ci-release-4.2.yml">4.2</a>.
+Use the 4.2-branch version of the workflow in both cases.</p>
+</li>
+<li>
+<p>The workflow will take care of building all the native libraries and the normal jars. Once complete it will automatically stage everything to Maven Central.</p>
+</li>
+<li>
+<p>Monitor the GitHub Action release workflow and wait till it's complete.</p>
+</li>
+</ol>
 <div class="markdown-heading">
-<h3 class="heading-element" id="wiki-h3-3">Finish the release</h3>
+<h3 class="heading-element" id="wiki-h3-2">Finish the release</h3>
 <a id="user-content-finish-the-release" class="anchor" aria-label="Permalink: Finish the release" href="#finish-the-release"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
-<p>Netty 4.x releases must be done by using OpenJDK8 which can be downloaded from <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a>. Once downloaded and installed create a <code>JAVA8_HOME</code> env which points to the installation.</p>
-<p>For example:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"><pre class="notranslate"><code>export JAVA8_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home&#x000A;</code></pre></div>
-<p>Once this is done you are ready to finish the release.</p>
-<p>First get the name of the current staged release (this release was staged by the GitHub workflow before).</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/list_staged_release.sh"><pre class="notranslate"><code>./scripts/list_staged_release.sh&#x000A;</code></pre></div>
-<p>Now with this staging id you can run the script to finish the release. The script takes the staging id as first argument and the name of the tag as the second. So for example if you would try to finish the release of netty 4.1.64.Final you would run the following command:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final"><pre class="notranslate"><code>./scripts/finish_release.sh ionetty-1395 netty-4.1.64.Final&#x000A;</code></pre></div>
-<p>Once the script completes the release of netty itself is done and it will be "promoted" to maven central.</p>
-<p>Now it's time to copy over all the apidocs and xref files to the netty website (if you didn't checkout the website yet read [Update the web site|Releasing-new-version#update-the-web-site]).</p>
-<p>For this we have another script that you need to run:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final"><pre class="notranslate"><code>./scripts/generate_docs.sh ../netty-website netty-4.1.64.Final&#x000A;</code></pre></div>
+<ol start="4">
+<li>
+<p>Go to the <a href="https://central.sonatype.com/publishing/deployments" rel="nofollow">Maven Central Deployments</a> page and click "Publish".</p>
+</li>
+<li>
+<p>Go to the newly created <a href="https://github.com/netty/netty/tags">git tag</a> and create a release for it. Have the release notes be auto-generated by 1) selecting the prior tag to compare with, and 2) clicking "Generate release notes". Add references to any new CVEs to the release notes. <strong>Important:</strong> Make sure that only <em>4.2.x</em> releases gets marked with "Set as the latest release" — the <em>4.1.x</em> series is no longer "latest".</p>
+</li>
+<li>
+<p>Update the website, following the instructions below.</p>
+</li>
+<li>
+<p>Create a new milestone for the next version, and close the old one. Move any outstanding issues and pull requests to the new milestone.</p>
+</li>
+<li>
+<p>Publish any CVEs that were private until now.</p>
+</li>
+<li>
+<p>Announce the release on various channels.</p>
+</li>
+</ol>
 <div class="markdown-heading">
-<h3 class="heading-element" id="wiki-h3-4">What to do in case of failure ?</h3>
+<h3 class="heading-element" id="wiki-h3-3">What to do in case of failure ?</h3>
 <a id="user-content-what-to-do-in-case-of-failure-" class="anchor" aria-label="Permalink: What to do in case of failure ?" href="#what-to-do-in-case-of-failure-"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
-<p>It is possible the <code>scripts/finish_release.sh</code> may fail as the validation failed:</p>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="[ERROR] Failed to execute goal org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8:rc-close (default-cli) on project netty-parent: Could not perform action: there are failing staging rules!: Staging rules failure! -&gt; [Help 1]
-[ERROR]
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR]
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
-[ERROR]
-[ERROR] After correcting the problems, you can resume the build with the command
-[ERROR]   mvn &lt;args&gt; -rf :netty-parent"><pre class="notranslate"><code>[ERROR] Failed to execute goal org.sonatype.plugins:nexus-staging-maven-plugin:1.6.8:rc-close (default-cli) on project netty-parent: Could not perform action: there are failing staging rules!: Staging rules failure! -&gt; [Help 1]&#x000A;[ERROR]&#x000A;[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.&#x000A;[ERROR] Re-run Maven using the -X switch to enable full debug logging.&#x000A;[ERROR]&#x000A;[ERROR] For more information about the errors and possible solutions, please read the following articles:&#x000A;[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException&#x000A;[ERROR]&#x000A;[ERROR] After correcting the problems, you can resume the build with the command&#x000A;[ERROR]   mvn &lt;args&gt; -rf :netty-parent&#x000A;</code></pre></div>
-<p>In this case login to <a href="https://oss.sonatype.org" rel="nofollow">https://oss.sonatype.org</a> and check why the validation failed and fix it. Once done re-run the script.</p>
+<p>It is possible that some step in the process may fail.</p>
+<ol>
+<li>If the release was staged to Maven Central but was generated incorrectly, you can "Drop" it.</li>
+<li>If version update commits were generated and pushed to the repository, you can revert them.</li>
+<li>If a tag was created, you can delete it with <code>git push --delete &lt;remote&gt; &lt;tagname&gt;</code>.</li>
+</ol>
+<p>Then fix the release blocking issue and rerun the release process.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-5">Update the web site</h2>
+<h2 class="heading-element" id="wiki-h2-4">Update the web site</h2>
 <a id="user-content-update-the-web-site" class="anchor" aria-label="Permalink: Update the web site" href="#update-the-web-site"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>Our official web site is built with <a href="http://awestruct.org/" rel="nofollow">Awestruct</a>. Please make sure you are familiar with Awestruct and its related markup languages such as <a href="http://haml.info/" rel="nofollow">HAML</a> and Markdown.</p>
+<div class="markdown-heading">
+<h3 class="heading-element" id="wiki-h3-5">Get the latest check-out</h3>
+<a id="user-content-get-the-latest-check-out" class="anchor" aria-label="Permalink: Get the latest check-out" href="#get-the-latest-check-out"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
 <p>If you did not yet, clone the web site project:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="git clone git@github.com:netty/netty-website.git
 cd netty-website"><pre class="notranslate"><code>git clone git@github.com:netty/netty-website.git&#x000A;cd netty-website&#x000A;</code></pre></div>
+<p>If you already have a check-out, make sure it's up to date:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="cd netty-webstie
+git checkout master
+git pull"><pre class="notranslate"><code>cd netty-webstie&#x000A;git checkout master&#x000A;git pull&#x000A;</code></pre></div>
+<div class="markdown-heading">
+<h3 class="heading-element" id="wiki-h3-6">Install the required tools</h3>
+<a id="user-content-install-the-required-tools" class="anchor" aria-label="Permalink: Install the required tools" href="#install-the-required-tools"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
 <p>If you don't have Awestruct installed yet the easiest way to do so is to use <a href="https://bundler.io" rel="nofollow">bundler</a>:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="gem install bundler"><pre class="notranslate"><code>gem install bundler&#x000A;</code></pre></div>
 <p>After this is done ensure you have all dependencies installed by executing bundle in the <code>netty-website</code> directory.
 This will take care of installing all the needed dependencies and Awestruct itself.
 Note, if you don't want bundler to install the dependencies system-wide, you can tell it to keep them local to the <code>netty-website</code> directory by running <code>bundle config set --local path .bundle</code> inside the <code>netty-website</code> directory.</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="bundle"><pre class="notranslate"><code>bundle&#x000A;</code></pre></div>
-<p><code>_config/site.yml</code> contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
+<div class="markdown-heading">
+<h3 class="heading-element" id="wiki-h3-7">Update the javadocs</h3>
+<a id="user-content-update-the-javadocs" class="anchor" aria-label="Permalink: Update the javadocs" href="#update-the-javadocs"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>From the main <code>netty/netty</code> project directory, run the script to update the javadocs:</p>
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="./scripts/generate_docs.sh ../netty-website netty-4.1.133.Final"><pre class="notranslate"><code>./scripts/generate_docs.sh ../netty-website netty-4.1.133.Final&#x000A;</code></pre></div>
+<p>The script takes a path to the <code>netty-website</code> check-out directory, and the newly released tag.</p>
+<p>Commit the javadoc changes as a separate commit.</p>
+<div class="markdown-heading">
+<h3 class="heading-element" id="wiki-h3-8">Write release notes</h3>
+<a id="user-content-write-release-notes" class="anchor" aria-label="Permalink: Write release notes" href="#write-release-notes"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
+</div>
+<p>The <code>_config/site.yml</code> file contains important metadata about the latest Netty versions.  For example, it has the following section:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content="releases:
-  - version: 4.1.65.Final
-    date: 19-May-2021
+  - version: 5.0.0.Alpha5
+    date: 28-Sep-2022
+    stable: false 
+    eol: false
+  - version: 4.2.13.Final
+    date: 04-May-2026
+    stable: true
+    eol: false
+  - version: 4.1.133.Final
+    date: 04-May-2026
     stable: stable
+    eol: false
   - version: 4.0.56.Final
     date: 05-Feb-2018
-    stable: true
+    stable: false
+    eol: true
   - version: 3.10.6.Final
     date: 29-Jun-2016
-    stable: true"><pre class="notranslate"><code>releases:&#x000A;  - version: 4.1.65.Final&#x000A;    date: 19-May-2021&#x000A;    stable: stable&#x000A;  - version: 4.0.56.Final&#x000A;    date: 05-Feb-2018&#x000A;    stable: true&#x000A;  - version: 3.10.6.Final&#x000A;    date: 29-Jun-2016&#x000A;    stable: true&#x000A;</code></pre></div>
+    stable: false
+    eol: true"><pre class="notranslate"><code>releases:&#x000A;  - version: 5.0.0.Alpha5&#x000A;    date: 28-Sep-2022&#x000A;    stable: false &#x000A;    eol: false&#x000A;  - version: 4.2.13.Final&#x000A;    date: 04-May-2026&#x000A;    stable: true&#x000A;    eol: false&#x000A;  - version: 4.1.133.Final&#x000A;    date: 04-May-2026&#x000A;    stable: stable&#x000A;    eol: false&#x000A;  - version: 4.0.56.Final&#x000A;    date: 05-Feb-2018&#x000A;    stable: false&#x000A;    eol: true&#x000A;  - version: 3.10.6.Final&#x000A;    date: 29-Jun-2016&#x000A;    stable: false&#x000A;    eol: true&#x000A;</code></pre></div>
 <p>Update it with the new version number and release date.</p>
 <p>After this add a new entry to the news/ folder which has the release details.
 Make sure the file name does not contains a dot (.) or a whitespace (e.g. OK: <code>2014-07-04-4-1-0-Beta1-released.html.md</code> NOT OK: <code>2014-07-04-4.1.0.Beta1-released.html.md</code></p>
@@ -384,49 +400,49 @@ Make sure the file name does not contains a dot (.) or a whitespace (e.g. OK: <c
 <p>Now you should be able to access the website via <a href="http://localhost:4242" rel="nofollow">http://localhost:4242</a>.</p>
 <p>If everything looks like expected its time to commit the changes:</p>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto" data-snippet-clipboard-copy-content='git add *
-git commit -m "Release 4.1.64.Final"
-git push'><pre class="notranslate"><code>git add *&#x000A;git commit -m "Release 4.1.64.Final"&#x000A;git push&#x000A;</code></pre></div>
+git commit -m "Release 4.1.133.Final"
+git push'><pre class="notranslate"><code>git add *&#x000A;git commit -m "Release 4.1.133.Final"&#x000A;git push&#x000A;</code></pre></div>
 <p>After this the website will be automatically build and deployed by a GitHub action.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-6"><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a></h2>
+<h2 class="heading-element" id="wiki-h2-9"><a class="internal present" href="forked-tomcat-native.html">Netty/TomcatNative</a></h2>
 <a id="user-content-nettytomcatnative" class="anchor" aria-label="Permalink: Netty/TomcatNative" href="#nettytomcatnative"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>TODO: Write me</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-7"><a href="https://github.com/netty/netty-incubator-transport-io_uring">Netty/Incubator/Transport/Native/io_uring</a></h2>
+<h2 class="heading-element" id="wiki-h2-10"><a href="https://github.com/netty/netty-incubator-transport-io_uring">Netty/Incubator/Transport/Native/io_uring</a></h2>
 <a id="user-content-nettyincubatortransportnativeio_uring" class="anchor" aria-label="Permalink: Netty/Incubator/Transport/Native/io_uring" href="#nettyincubatortransportnativeio_uring"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>The release procedure is fully automated via GitHub Actions. To start a release all you need to do is to run the <a href="https://github.com/netty/netty-incubator-transport-io_uring/actions/workflows/ci-release.yml">GitHub Action release workflow</a>.
 The workflow will take care of building all the native libraries and also the normal jars. Once complete it will automatically stage everything to the <a href="https://oss.sonatype.org" rel="nofollow">nexus staging repository</a> and release it to central maven.</p>
 <p>Nothing needs to be done manually, that said you may consider writing a release announcement and push it to the website.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-8"><a href="https://github.com/netty/netty-incubator-codec-http3">Netty/Incubator/Codec/Http3</a></h2>
+<h2 class="heading-element" id="wiki-h2-11"><a href="https://github.com/netty/netty-incubator-codec-http3">Netty/Incubator/Codec/Http3</a></h2>
 <a id="user-content-nettyincubatorcodechttp3" class="anchor" aria-label="Permalink: Netty/Incubator/Codec/Http3" href="#nettyincubatorcodechttp3"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>The release procedure is fully automated via GitHub Actions. To start a release all you need to do is to run the <a href="https://github.com/netty/netty-incubator-codec-http3/actions/workflows/ci-release.yml">GitHub Action release workflow</a>.
 The workflow will take care of building all the native libraries and also the normal jars. Once complete it will automatically stage everything to the <a href="https://oss.sonatype.org" rel="nofollow">nexus staging repository</a> and release it to central maven.</p>
 <p>Nothing needs to be done manually, that said you may consider writing a release announcement and push it to the website.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-9"><a href="https://github.com/netty/netty-incubator-h3spec-maven-plugin">h3spec-maven-plugin</a></h2>
+<h2 class="heading-element" id="wiki-h2-12"><a href="https://github.com/netty/netty-incubator-h3spec-maven-plugin">h3spec-maven-plugin</a></h2>
 <a id="user-content-h3spec-maven-plugin" class="anchor" aria-label="Permalink: h3spec-maven-plugin" href="#h3spec-maven-plugin"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>The release procedure is fully automated via GitHub Actions. To start a release all you need to do is to run the <a href="https://github.com/netty/netty-incubator-h3spec-maven-plugin/actions/workflows/ci-release.yml">GitHub Action release workflow</a>.
 The workflow will take care of building all the native libraries and also the normal jars. Once complete it will automatically stage everything to the <a href="https://oss.sonatype.org" rel="nofollow">nexus staging repository</a> and release it to central maven.</p>
 <p>Nothing needs to be done manually, that said you may consider writing a release announcement and push it to the website.</p>
 <div class="markdown-heading">
-<h2 class="heading-element" id="wiki-h2-10"><a href="https://github.com/netty/netty-incubator-codec-quic">Netty/Incubator/Codec/Quic</a></h2>
+<h2 class="heading-element" id="wiki-h2-13"><a href="https://github.com/netty/netty-incubator-codec-quic">Netty/Incubator/Codec/Quic</a></h2>
 <a id="user-content-nettyincubatorcodecquic" class="anchor" aria-label="Permalink: Netty/Incubator/Codec/Quic" href="#nettyincubatorcodecquic"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>The release procedure is currently a mix of executing a GitHub Action workflow and running a few scripts to finish the release process on macOS (64-bit). Install <a class="internal present" href="setting-up-development-environment#install-the-necessary-build-tools.html">the required packages</a> as well.</p>
 <div class="markdown-heading">
-<h3 class="heading-element" id="wiki-h3-11">Start the release process using GitHub Actions</h3>
+<h3 class="heading-element" id="wiki-h3-14">Start the release process using GitHub Actions</h3>
 <a id="user-content-start-the-release-process-using-github-actions-1" class="anchor" aria-label="Permalink: Start the release process using GitHub Actions" href="#start-the-release-process-using-github-actions-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>The release is mostly automated these days (and will be fully automated in the future hopefully). To start a release all you need to do is to run the <a href="https://github.com/netty/netty-incubator-codec-quic/actions/workflows/ci-release.yml">GitHub Action release workflow</a>.
 The workflow will take care of building all the native libraries and also the normal jars. Once complete it will automatically stage everything to the <a href="https://oss.sonatype.org" rel="nofollow">nexus staging repository</a>.
 Monitor the <a href="https://github.com/netty/netty-incubator-codec-quic/actions/workflows/ci-release.yml">GitHub Action release workflow</a> and wait till it's complete.</p>
 <div class="markdown-heading">
-<h3 class="heading-element" id="wiki-h3-12">Finish the release</h3>
+<h3 class="heading-element" id="wiki-h3-15">Finish the release</h3>
 <a id="user-content-finish-the-release-1" class="anchor" aria-label="Permalink: Finish the release" href="#finish-the-release-1"><svg class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>Netty/Incubator/Codec/Quic releases must be done by using OpenJDK8 which can be downloaded from <a href="https://adoptopenjdk.net" rel="nofollow">AdoptOpenJDK</a>. Once downloaded and installed create a <code>JAVA8_HOME</code> env which points to the installation.</p>
@@ -446,28 +462,28 @@ Monitor the <a href="https://github.com/netty/netty-incubator-codec-quic/actions
 <div class="toc well">
 <ul class="nav nav-list nav-stacked">
 <li class="nav-header">Table of Contents
-</li><li><a href="#wiki-h2-0" title="Before getting started">Before getting started</a>
-</li><li><a href="#wiki-h2-1" title="Netty 4.x">Netty 4.x</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-2" title="Start the release process using GitHub Actions">Start the release process using GitHub Actions</a>
-</li><li><a href="#wiki-h3-3" title="Finish the release">Finish the release</a>
-</li><li><a href="#wiki-h3-4" title="What to do in case of failure ?">What to do in case of failure ?</a>
-</li></ul></li><li><a href="#wiki-h2-5" title="Update the web site">Update the web site</a>
-</li><li><a href="#wiki-h2-6" title="Netty/TomcatNative">Netty/TomcatNative</a>
-</li><li><a href="#wiki-h2-7" title="Netty/Incubator/Transport/Native/io_uring">Netty/Incubator/Transport/Native/io_uring</a>
-</li><li><a href="#wiki-h2-8" title="Netty/Incubator/Codec/Http3">Netty/Incubator/Codec/Http3</a>
-</li><li><a href="#wiki-h2-9" title="h3spec-maven-plugin">h3spec-maven-plugin</a>
-</li><li><a href="#wiki-h2-10" title="Netty/Incubator/Codec/Quic">Netty/Incubator/Codec/Quic</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-11" title="Start the release process using GitHub Actions">Start the release process using GitHub Actions</a>
-</li><li><a href="#wiki-h3-12" title="Finish the release">Finish the release</a>
-</li></ul></li><li><a href="#wiki-h2-13" title="Toggle table of contents
+</li><li><a href="#wiki-h2-0" title="Netty 4.x">Netty 4.x</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-1" title="Start the release process using GitHub Actions">Start the release process using GitHub Actions</a>
+</li><li><a href="#wiki-h3-2" title="Finish the release">Finish the release</a>
+</li><li><a href="#wiki-h3-3" title="What to do in case of failure ?">What to do in case of failure ?</a>
+</li></ul></li><li><a href="#wiki-h2-4" title="Update the web site">Update the web site</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-5" title="Get the latest check-out">Get the latest check-out</a>
+</li><li><a href="#wiki-h3-6" title="Install the required tools">Install the required tools</a>
+</li><li><a href="#wiki-h3-7" title="Update the javadocs">Update the javadocs</a>
+</li><li><a href="#wiki-h3-8" title="Write release notes">Write release notes</a>
+</li></ul></li><li><a href="#wiki-h2-9" title="Netty/TomcatNative">Netty/TomcatNative</a>
+</li><li><a href="#wiki-h2-10" title="Netty/Incubator/Transport/Native/io_uring">Netty/Incubator/Transport/Native/io_uring</a>
+</li><li><a href="#wiki-h2-11" title="Netty/Incubator/Codec/Http3">Netty/Incubator/Codec/Http3</a>
+</li><li><a href="#wiki-h2-12" title="h3spec-maven-plugin">h3spec-maven-plugin</a>
+</li><li><a href="#wiki-h2-13" title="Netty/Incubator/Codec/Quic">Netty/Incubator/Codec/Quic</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="Start the release process using GitHub Actions">Start the release process using GitHub Actions</a>
+</li><li><a href="#wiki-h3-15" title="Finish the release">Finish the release</a>
+</li></ul></li><li><a href="#wiki-h2-16" title="Toggle table of contents
 
       Pages 35">Toggle table of contents
 
       Pages 35</a>
-<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-14" title="Uh oh!">Uh oh!</a>
-</li><li><a href="#wiki-h3-15" title="Uh oh!">Uh oh!</a>
-</li><li><a href="#wiki-h3-16" title="Uh oh!">Uh oh!</a>
-</li><li><a href="#wiki-h3-17" title="Uh oh!">Uh oh!</a>
+<ul class="nav nav-list nav-stacked"><li><a href="#wiki-h3-17" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-18" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-19" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-20" title="Uh oh!">Uh oh!</a>
@@ -498,7 +514,10 @@ Monitor the <a href="https://github.com/netty/netty-incubator-codec-quic/actions
 </li><li><a href="#wiki-h3-45" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-46" title="Uh oh!">Uh oh!</a>
 </li><li><a href="#wiki-h3-47" title="Uh oh!">Uh oh!</a>
-</li><li><a href="#wiki-h3-48" title="Clone this wiki locally">Clone this wiki locally</a>
+</li><li><a href="#wiki-h3-48" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-49" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-50" title="Uh oh!">Uh oh!</a>
+</li><li><a href="#wiki-h3-51" title="Clone this wiki locally">Clone this wiki locally</a>
 </li></ul>
 </li></ul>
 </div>
