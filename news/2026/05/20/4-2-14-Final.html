@@ -285,29 +285,29 @@ on
 <p>We recommend upgrading to this version to get the following fixes:</p>
 
 <ul>
-<li>HTTP: Re-add constructor to <code>HttpProxyHandler</code> that was removed by mistake [#16747](https://github.com/netty/netty/pull/16747</li>
-<li>Marshalling: Explicit document security requirements [#16752](https://github.com/netty/netty/pull/16752</li>
-<li>Fix <code>io_uring</code> op completion <code>TRACE</code> logging [#16755](https://github.com/netty/netty/pull/16755</li>
-<li>Quic: Ensure writes are done before notify close promise of <code>QuicheQuicChannel</code> [#16758](https://github.com/netty/netty/pull/16758</li>
-<li>Avoid re-parsing openssl key material with non-cached provider [#16759](https://github.com/netty/netty/pull/16759</li>
-<li>Pin HTTP/RTSP version + method normalization to <code>Locale.US</code> [#16765](https://github.com/netty/netty/pull/16765</li>
-<li>Fill <code>MsgHdrMemoryArray#hdrs</code> with null entry on release [#16764](https://github.com/netty/netty/pull/16764</li>
-<li>Adaptive: Fix concurrency issue in adaptive allocator [#16767](https://github.com/netty/netty/pull/16767</li>
-<li>Make bulk byte moving in <code>ByteBuf</code> faster [#16781](https://github.com/netty/netty/pull/16781</li>
-<li>Pin multipart <code>Content-Type</code> / <code>Content-Transfer-Encoding</code> case folding to <code>Locale.US</code> [#16768](https://github.com/netty/netty/pull/16768</li>
-<li>Remove dead native declarations [#16783](https://github.com/netty/netty/pull/16783</li>
-<li>Enable <code>OpenSslCachingKeyMaterialProvider</code> to evict stale entries after cert rotation [#16523](https://github.com/netty/netty/pull/16523</li>
-<li>IoUring: extend user data from <code>short</code> to <code>long</code> [#16682](https://github.com/netty/netty/pull/16682</li>
-<li>Revert <code>CompositeByteBuf</code> component search fast path [#16811](https://github.com/netty/netty/pull/16811</li>
-<li>HTTP2: Use 100 as default max concurrent streams setting [#16804](https://github.com/netty/netty/pull/16804</li>
-<li>Fix <code>ResumptionController</code> wrapping [#16815](https://github.com/netty/netty/pull/16815</li>
-<li>Resolve all localhost addresses without querying DNS servers [#16749](https://github.com/netty/netty/pull/16749</li>
-<li>IpFilter: Fix <code>ClassCastException</code> caused by <code>IpSubnetFilter</code> if only ipv6 rules are configured but remote peer is using ipv4 [#16803](https://github.com/netty/netty/pull/16803</li>
-<li>Fix <code>memoryAddress()</code> for direct <code>ByteBuffers</code> wrapped by <code>Unpooled</code> without <code>Unsafe</code> [#16788](https://github.com/netty/netty/pull/16788</li>
-<li>Route synchronous <code>onLookupComplete</code> exceptions via <code>fireExceptionCaught</code> [#16794](https://github.com/netty/netty/pull/16794</li>
-<li>IoUring: Stop generic <code>FileRegion</code> drain loop when <code>transferred()</code> reaches <code>count()</code> [#16826](https://github.com/netty/netty/pull/16826</li>
-<li>MQTT: Allow MQTT 5 CONNECT with password only [#16833](https://github.com/netty/netty/pull/16833</li>
-<li>Fix MQTT decoder size check after variable header replay [#16787](https://github.com/netty/netty/pull/16787</li>
+<li>HTTP: Re-add constructor to <code>HttpProxyHandler</code> that was removed by mistake <a href="https://github.com/netty/netty/pull/16747">#16747</a></li>
+<li>Marshalling: Explicit document security requirements <a href="https://github.com/netty/netty/pull/16752">#16752</a></li>
+<li>Fix <code>io_uring</code> op completion <code>TRACE</code> logging <a href="https://github.com/netty/netty/pull/16755">#16755</a></li>
+<li>Quic: Ensure writes are done before notify close promise of <code>QuicheQuicChannel</code> <a href="https://github.com/netty/netty/pull/16758">#16758</a></li>
+<li>Avoid re-parsing openssl key material with non-cached provider <a href="https://github.com/netty/netty/pull/16759">#16759</a></li>
+<li>Pin HTTP/RTSP version + method normalization to <code>Locale.US</code> <a href="https://github.com/netty/netty/pull/16765">#16765</a></li>
+<li>Fill <code>MsgHdrMemoryArray#hdrs</code> with null entry on release <a href="https://github.com/netty/netty/pull/16764">#16764</a></li>
+<li>Adaptive: Fix concurrency issue in adaptive allocator <a href="https://github.com/netty/netty/pull/16767">#16767</a></li>
+<li>Make bulk byte moving in <code>ByteBuf</code> faster <a href="https://github.com/netty/netty/pull/16781">#16781</a></li>
+<li>Pin multipart <code>Content-Type</code> / <code>Content-Transfer-Encoding</code> case folding to <code>Locale.US</code> <a href="https://github.com/netty/netty/pull/16768">#16768</a></li>
+<li>Remove dead native declarations <a href="https://github.com/netty/netty/pull/16783">#16783</a></li>
+<li>Enable <code>OpenSslCachingKeyMaterialProvider</code> to evict stale entries after cert rotation <a href="https://github.com/netty/netty/pull/16523">#16523</a></li>
+<li>IoUring: extend user data from <code>short</code> to <code>long</code> <a href="https://github.com/netty/netty/pull/16682">#16682</a></li>
+<li>Revert <code>CompositeByteBuf</code> component search fast path <a href="https://github.com/netty/netty/pull/16811">#16811</a></li>
+<li>HTTP2: Use 100 as default max concurrent streams setting <a href="https://github.com/netty/netty/pull/16804">#16804</a></li>
+<li>Fix <code>ResumptionController</code> wrapping <a href="https://github.com/netty/netty/pull/16815">#16815</a></li>
+<li>Resolve all localhost addresses without querying DNS servers <a href="https://github.com/netty/netty/pull/16749">#16749</a></li>
+<li>IpFilter: Fix <code>ClassCastException</code> caused by <code>IpSubnetFilter</code> if only ipv6 rules are configured but remote peer is using ipv4 <a href="https://github.com/netty/netty/pull/16803">#16803</a></li>
+<li>Fix <code>memoryAddress()</code> for direct <code>ByteBuffers</code> wrapped by <code>Unpooled</code> without <code>Unsafe</code> <a href="https://github.com/netty/netty/pull/16788">#16788</a></li>
+<li>Route synchronous <code>onLookupComplete</code> exceptions via <code>fireExceptionCaught</code> <a href="https://github.com/netty/netty/pull/16794">#16794</a></li>
+<li>IoUring: Stop generic <code>FileRegion</code> drain loop when <code>transferred()</code> reaches <code>count()</code> <a href="https://github.com/netty/netty/pull/16826">#16826</a></li>
+<li>MQTT: Allow MQTT 5 CONNECT with password only <a href="https://github.com/netty/netty/pull/16833">#16833</a></li>
+<li>Fix MQTT decoder size check after variable header replay <a href="https://github.com/netty/netty/pull/16787">#16787</a></li>
 </ul>
 
 
