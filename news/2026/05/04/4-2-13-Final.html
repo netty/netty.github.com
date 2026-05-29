@@ -301,6 +301,15 @@ on
 </ul>
 
 
+<p><em>Breaking Changes</em></p>
+
+<p><a href="https://github.com/netty/netty/commit/84530fa81e12dcd1d42310bb20c1385cb44128d8">The patch</a> for
+<a href="https://github.com/netty/netty/security/advisories/GHSA-xxqh-mfjm-7mv9">CVE-2026-42581</a> prohibits HTTP/1.1 requests
+containing both the <code>Transfer-Encoding</code> and <code>Content-Length</code> headers, in line with RFC 9112.
+Previous versions of HTTP/1.1 (RFC 7230) permitted this combination. You can restore the old behavior with the
+<code>-Dio.netty.handler.codec.http.rfc9112TransferEncoding=false</code> system property or with <code>HttpDecoderConfig</code>.
+Note that disabling this check may lead to request smuggling vulnerabilities.</p>
+
 <p>Other significant changes are:</p>
 
 <ul>
