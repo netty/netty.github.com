@@ -620,7 +620,7 @@
 <a class="jxr_linenumber" name="L612" href="#L612">612</a>                 segmentSize = 0;
 <a class="jxr_linenumber" name="L613" href="#L613">613</a>             }
 <a class="jxr_linenumber" name="L614" href="#L614">614</a> 
-<a class="jxr_linenumber" name="L615" href="#L615">615</a>             <strong class="jxr_keyword">long</strong> bufferAddress = IoUring.memoryAddress(data);
+<a class="jxr_linenumber" name="L615" href="#L615">615</a>             <strong class="jxr_keyword">long</strong> bufferAddress = IoUring.memoryAddress(data) + data.readerIndex();
 <a class="jxr_linenumber" name="L616" href="#L616">616</a>             <strong class="jxr_keyword">return</strong> scheduleSendmsg(remoteAddress, bufferAddress, data.readableBytes(), segmentSize, first);
 <a class="jxr_linenumber" name="L617" href="#L617">617</a>         }
 <a class="jxr_linenumber" name="L618" href="#L618">618</a> 

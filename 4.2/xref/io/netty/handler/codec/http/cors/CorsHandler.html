@@ -163,7 +163,7 @@
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>             <strong class="jxr_keyword">if</strong> (corsConfig.origins().contains(requestOrigin)) {
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>                 <strong class="jxr_keyword">return</strong> corsConfig;
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>             }
-<a class="jxr_linenumber" name="L158" href="#L158">158</a>             <strong class="jxr_keyword">if</strong> (corsConfig.isNullOriginAllowed() || NULL_ORIGIN.equals(requestOrigin)) {
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>             <strong class="jxr_keyword">if</strong> (corsConfig.isNullOriginAllowed() &amp;&amp; NULL_ORIGIN.equals(requestOrigin)) {
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>                 <strong class="jxr_keyword">return</strong> corsConfig;
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>             }
 <a class="jxr_linenumber" name="L161" href="#L161">161</a>         }

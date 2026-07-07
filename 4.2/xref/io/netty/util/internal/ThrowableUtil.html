@@ -96,14 +96,15 @@
 <a class="jxr_linenumber" name="L88" href="#L88">88</a>  <em class="jxr_javadoccomment">     * @param cause The cause to attach a stack trace to.</em>
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> interruptAndAttachAsyncStackTrace(Thread thread, Throwable cause) {
-<a class="jxr_linenumber" name="L91" href="#L91">91</a>          StackTraceElement[] stackTrace = thread.getStackTrace();
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>          InterruptedException asyncIE = <strong class="jxr_keyword">new</strong> InterruptedException(
-<a class="jxr_linenumber" name="L93" href="#L93">93</a>                  <span class="jxr_string">"Asynchronous interruption: "</span> + thread);
-<a class="jxr_linenumber" name="L94" href="#L94">94</a>          thread.interrupt();
-<a class="jxr_linenumber" name="L95" href="#L95">95</a>          asyncIE.setStackTrace(stackTrace);
-<a class="jxr_linenumber" name="L96" href="#L96">96</a>          addSuppressed(cause, asyncIE);
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>      }
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  }
+<a class="jxr_linenumber" name="L91" href="#L91">91</a>          Thread.State state = thread.getState();
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>          StackTraceElement[] stackTrace = thread.getStackTrace();
+<a class="jxr_linenumber" name="L93" href="#L93">93</a>          InterruptedException asyncIE = <strong class="jxr_keyword">new</strong> InterruptedException(
+<a class="jxr_linenumber" name="L94" href="#L94">94</a>                  <span class="jxr_string">"Asynchronous interruption: "</span> + thread + <span class="jxr_string">" ("</span> + state + ')');
+<a class="jxr_linenumber" name="L95" href="#L95">95</a>          thread.interrupt();
+<a class="jxr_linenumber" name="L96" href="#L96">96</a>          asyncIE.setStackTrace(stackTrace);
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          addSuppressed(cause, asyncIE);
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      }
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>  }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

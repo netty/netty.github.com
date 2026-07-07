@@ -416,156 +416,175 @@
 <a class="jxr_linenumber" name="L408" href="#L408">408</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L409" href="#L409">409</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> decompress(<strong class="jxr_keyword">final</strong> <a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> input, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> inOffset, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> inLength,
 <a class="jxr_linenumber" name="L410" href="#L410">410</a>                           <strong class="jxr_keyword">final</strong> <a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> output, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> outOffset, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> outLength) {
-<a class="jxr_linenumber" name="L411" href="#L411">411</a>         <em class="jxr_comment">//int level = ((*(const flzuint8*)input) &gt;&gt; 5) + 1;</em>
-<a class="jxr_linenumber" name="L412" href="#L412">412</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> level = (input.getByte(inOffset) &gt;&gt; 5) + 1;
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>         <strong class="jxr_keyword">if</strong> (level != LEVEL_1 &amp;&amp; level != LEVEL_2) {
-<a class="jxr_linenumber" name="L414" href="#L414">414</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="DecompressionException" href="../../../../../io/netty/handler/codec/compression/DecompressionException.html#DecompressionException">DecompressionException</a>(String.format(
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>                     <span class="jxr_string">"invalid level: %d (expected: %d or %d)"</span>, level, LEVEL_1, LEVEL_2
-<a class="jxr_linenumber" name="L416" href="#L416">416</a>             ));
-<a class="jxr_linenumber" name="L417" href="#L417">417</a>         }
-<a class="jxr_linenumber" name="L418" href="#L418">418</a> 
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>         <em class="jxr_comment">// const flzuint8* ip = (const flzuint8*) input;</em>
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>         <strong class="jxr_keyword">int</strong> ip = 0;
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>         <em class="jxr_comment">// flzuint8* op = (flzuint8*) output;</em>
-<a class="jxr_linenumber" name="L422" href="#L422">422</a>         <strong class="jxr_keyword">int</strong> op = 0;
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <em class="jxr_comment">// flzuint32 ctrl = (*ip++) &amp; 31;</em>
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>         <strong class="jxr_keyword">long</strong> ctrl = input.getByte(inOffset + ip++) &amp; 31;
-<a class="jxr_linenumber" name="L425" href="#L425">425</a> 
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>         <strong class="jxr_keyword">int</strong> loop = 1;
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>         <strong class="jxr_keyword">do</strong> {
-<a class="jxr_linenumber" name="L428" href="#L428">428</a>             <em class="jxr_comment">//  const flzuint8* ref = op;</em>
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>             <strong class="jxr_keyword">int</strong> ref = op;
-<a class="jxr_linenumber" name="L430" href="#L430">430</a>             <em class="jxr_comment">// flzuint32 len = ctrl &gt;&gt; 5;</em>
-<a class="jxr_linenumber" name="L431" href="#L431">431</a>             <strong class="jxr_keyword">long</strong> len = ctrl &gt;&gt; 5;
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>             <em class="jxr_comment">// flzuint32 ofs = (ctrl &amp; 31) &lt;&lt; 8;</em>
-<a class="jxr_linenumber" name="L433" href="#L433">433</a>             <strong class="jxr_keyword">long</strong> ofs = (ctrl &amp; 31) &lt;&lt; 8;
-<a class="jxr_linenumber" name="L434" href="#L434">434</a> 
-<a class="jxr_linenumber" name="L435" href="#L435">435</a>             <strong class="jxr_keyword">if</strong> (ctrl &gt;= 32) {
-<a class="jxr_linenumber" name="L436" href="#L436">436</a>                 len--;
-<a class="jxr_linenumber" name="L437" href="#L437">437</a>                 <em class="jxr_comment">// ref -= ofs;</em>
-<a class="jxr_linenumber" name="L438" href="#L438">438</a>                 ref -= ofs;
-<a class="jxr_linenumber" name="L439" href="#L439">439</a> 
-<a class="jxr_linenumber" name="L440" href="#L440">440</a>                 <strong class="jxr_keyword">int</strong> code;
-<a class="jxr_linenumber" name="L441" href="#L441">441</a>                 <strong class="jxr_keyword">if</strong> (len == 6) {
-<a class="jxr_linenumber" name="L442" href="#L442">442</a>                     <strong class="jxr_keyword">if</strong> (level == LEVEL_1) {
-<a class="jxr_linenumber" name="L443" href="#L443">443</a>                         <em class="jxr_comment">// len += *ip++;</em>
-<a class="jxr_linenumber" name="L444" href="#L444">444</a>                         len += input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L445" href="#L445">445</a>                     } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L446" href="#L446">446</a>                         <strong class="jxr_keyword">do</strong> {
-<a class="jxr_linenumber" name="L447" href="#L447">447</a>                             code = input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L448" href="#L448">448</a>                             len += code;
-<a class="jxr_linenumber" name="L449" href="#L449">449</a>                         } <strong class="jxr_keyword">while</strong> (code == 255);
-<a class="jxr_linenumber" name="L450" href="#L450">450</a>                     }
-<a class="jxr_linenumber" name="L451" href="#L451">451</a>                 }
-<a class="jxr_linenumber" name="L452" href="#L452">452</a>                 <strong class="jxr_keyword">if</strong> (level == LEVEL_1) {
-<a class="jxr_linenumber" name="L453" href="#L453">453</a>                     <em class="jxr_comment">//  ref -= *ip++;</em>
-<a class="jxr_linenumber" name="L454" href="#L454">454</a>                     ref -= input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L455" href="#L455">455</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L456" href="#L456">456</a>                     code = input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L457" href="#L457">457</a>                     ref -= code;
-<a class="jxr_linenumber" name="L458" href="#L458">458</a> 
-<a class="jxr_linenumber" name="L459" href="#L459">459</a>                     <em class="jxr_comment">/* match from 16-bit distance */</em>
-<a class="jxr_linenumber" name="L460" href="#L460">460</a>                     <em class="jxr_comment">// if(FASTLZ_UNEXPECT_CONDITIONAL(code==255))</em>
-<a class="jxr_linenumber" name="L461" href="#L461">461</a>                     <em class="jxr_comment">// if(FASTLZ_EXPECT_CONDITIONAL(ofs==(31 &lt;&lt; 8)))</em>
-<a class="jxr_linenumber" name="L462" href="#L462">462</a>                     <strong class="jxr_keyword">if</strong> (code == 255 &amp;&amp; ofs == 31 &lt;&lt; 8) {
-<a class="jxr_linenumber" name="L463" href="#L463">463</a>                         ofs = input.getUnsignedByte(inOffset + ip++) &lt;&lt; 8;
-<a class="jxr_linenumber" name="L464" href="#L464">464</a>                         ofs += input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L465" href="#L465">465</a> 
-<a class="jxr_linenumber" name="L466" href="#L466">466</a>                         ref = (<strong class="jxr_keyword">int</strong>) (op - ofs - MAX_DISTANCE);
-<a class="jxr_linenumber" name="L467" href="#L467">467</a>                     }
-<a class="jxr_linenumber" name="L468" href="#L468">468</a>                 }
-<a class="jxr_linenumber" name="L469" href="#L469">469</a> 
-<a class="jxr_linenumber" name="L470" href="#L470">470</a>                 <em class="jxr_comment">// if the output index + length of block(?) + 3(?) is over the output limit?</em>
-<a class="jxr_linenumber" name="L471" href="#L471">471</a>                 <strong class="jxr_keyword">if</strong> (op + len + 3 &gt; outLength) {
-<a class="jxr_linenumber" name="L472" href="#L472">472</a>                     <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L473" href="#L473">473</a>                 }
+<a class="jxr_linenumber" name="L411" href="#L411">411</a>         <strong class="jxr_keyword">if</strong> (inLength == 0) {
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>             <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>         }
+<a class="jxr_linenumber" name="L414" href="#L414">414</a> 
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>         <em class="jxr_comment">//int level = ((*(const flzuint8*)input) &gt;&gt; 5) + 1;</em>
+<a class="jxr_linenumber" name="L416" href="#L416">416</a>         <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> level = (input.getByte(inOffset) &gt;&gt; 5) + 1;
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>         <strong class="jxr_keyword">if</strong> (level != LEVEL_1 &amp;&amp; level != LEVEL_2) {
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="DecompressionException" href="../../../../../io/netty/handler/codec/compression/DecompressionException.html#DecompressionException">DecompressionException</a>(String.format(
+<a class="jxr_linenumber" name="L419" href="#L419">419</a>                     <span class="jxr_string">"invalid level: %d (expected: %d or %d)"</span>, level, LEVEL_1, LEVEL_2
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>             ));
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>         }
+<a class="jxr_linenumber" name="L422" href="#L422">422</a> 
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>         <em class="jxr_comment">// const flzuint8* ip = (const flzuint8*) input;</em>
+<a class="jxr_linenumber" name="L424" href="#L424">424</a>         <strong class="jxr_keyword">int</strong> ip = 0;
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         <em class="jxr_comment">// flzuint8* op = (flzuint8*) output;</em>
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         <strong class="jxr_keyword">int</strong> op = 0;
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>         <em class="jxr_comment">// flzuint32 ctrl = (*ip++) &amp; 31;</em>
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>         <strong class="jxr_keyword">long</strong> ctrl = input.getByte(inOffset + ip++) &amp; 31;
+<a class="jxr_linenumber" name="L429" href="#L429">429</a> 
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>         <strong class="jxr_keyword">int</strong> loop = 1;
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         <strong class="jxr_keyword">do</strong> {
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>             <em class="jxr_comment">//  const flzuint8* ref = op;</em>
+<a class="jxr_linenumber" name="L433" href="#L433">433</a>             <strong class="jxr_keyword">int</strong> ref = op;
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>             <em class="jxr_comment">// flzuint32 len = ctrl &gt;&gt; 5;</em>
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>             <strong class="jxr_keyword">long</strong> len = ctrl &gt;&gt; 5;
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>             <em class="jxr_comment">// flzuint32 ofs = (ctrl &amp; 31) &lt;&lt; 8;</em>
+<a class="jxr_linenumber" name="L437" href="#L437">437</a>             <strong class="jxr_keyword">long</strong> ofs = (ctrl &amp; 31) &lt;&lt; 8;
+<a class="jxr_linenumber" name="L438" href="#L438">438</a> 
+<a class="jxr_linenumber" name="L439" href="#L439">439</a>             <strong class="jxr_keyword">if</strong> (ctrl &gt;= 32) {
+<a class="jxr_linenumber" name="L440" href="#L440">440</a>                 len--;
+<a class="jxr_linenumber" name="L441" href="#L441">441</a>                 <em class="jxr_comment">// ref -= ofs;</em>
+<a class="jxr_linenumber" name="L442" href="#L442">442</a>                 ref -= ofs;
+<a class="jxr_linenumber" name="L443" href="#L443">443</a> 
+<a class="jxr_linenumber" name="L444" href="#L444">444</a>                 <strong class="jxr_keyword">int</strong> code;
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>                 <strong class="jxr_keyword">if</strong> (len == 6) {
+<a class="jxr_linenumber" name="L446" href="#L446">446</a>                     <strong class="jxr_keyword">if</strong> (level == LEVEL_1) {
+<a class="jxr_linenumber" name="L447" href="#L447">447</a>                         <strong class="jxr_keyword">if</strong> (ip &gt;= inLength) {
+<a class="jxr_linenumber" name="L448" href="#L448">448</a>                             <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L449" href="#L449">449</a>                         }
+<a class="jxr_linenumber" name="L450" href="#L450">450</a>                         <em class="jxr_comment">// len += *ip++;</em>
+<a class="jxr_linenumber" name="L451" href="#L451">451</a>                         len += input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L452" href="#L452">452</a>                     } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L453" href="#L453">453</a>                         <strong class="jxr_keyword">do</strong> {
+<a class="jxr_linenumber" name="L454" href="#L454">454</a>                             <strong class="jxr_keyword">if</strong> (ip &gt;= inLength) {
+<a class="jxr_linenumber" name="L455" href="#L455">455</a>                                 <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L456" href="#L456">456</a>                             }
+<a class="jxr_linenumber" name="L457" href="#L457">457</a>                             code = input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L458" href="#L458">458</a>                             len += code;
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>                         } <strong class="jxr_keyword">while</strong> (code == 255);
+<a class="jxr_linenumber" name="L460" href="#L460">460</a>                     }
+<a class="jxr_linenumber" name="L461" href="#L461">461</a>                 }
+<a class="jxr_linenumber" name="L462" href="#L462">462</a>                 <strong class="jxr_keyword">if</strong> (level == LEVEL_1) {
+<a class="jxr_linenumber" name="L463" href="#L463">463</a>                     <strong class="jxr_keyword">if</strong> (ip &gt;= inLength) {
+<a class="jxr_linenumber" name="L464" href="#L464">464</a>                         <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L465" href="#L465">465</a>                     }
+<a class="jxr_linenumber" name="L466" href="#L466">466</a>                     <em class="jxr_comment">//  ref -= *ip++;</em>
+<a class="jxr_linenumber" name="L467" href="#L467">467</a>                     ref -= input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L468" href="#L468">468</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L469" href="#L469">469</a>                     <strong class="jxr_keyword">if</strong> (ip &gt;= inLength) {
+<a class="jxr_linenumber" name="L470" href="#L470">470</a>                         <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L471" href="#L471">471</a>                     }
+<a class="jxr_linenumber" name="L472" href="#L472">472</a>                     code = input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>                     ref -= code;
 <a class="jxr_linenumber" name="L474" href="#L474">474</a> 
-<a class="jxr_linenumber" name="L475" href="#L475">475</a>                 <em class="jxr_comment">// if (FASTLZ_UNEXPECT_CONDITIONAL(ref-1 &lt; (flzuint8 *)output))</em>
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>                 <em class="jxr_comment">// if the address space of ref-1 is &lt; the address of output?</em>
-<a class="jxr_linenumber" name="L477" href="#L477">477</a>                 <em class="jxr_comment">// if we are still at the beginning of the output address?</em>
-<a class="jxr_linenumber" name="L478" href="#L478">478</a>                 <strong class="jxr_keyword">if</strong> (ref - 1 &lt; 0) {
-<a class="jxr_linenumber" name="L479" href="#L479">479</a>                     <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L480" href="#L480">480</a>                 }
-<a class="jxr_linenumber" name="L481" href="#L481">481</a> 
-<a class="jxr_linenumber" name="L482" href="#L482">482</a>                 <strong class="jxr_keyword">if</strong> (ip &lt; inLength) {
-<a class="jxr_linenumber" name="L483" href="#L483">483</a>                     ctrl = input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L484" href="#L484">484</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L485" href="#L485">485</a>                     loop = 0;
-<a class="jxr_linenumber" name="L486" href="#L486">486</a>                 }
-<a class="jxr_linenumber" name="L487" href="#L487">487</a> 
-<a class="jxr_linenumber" name="L488" href="#L488">488</a>                 <strong class="jxr_keyword">if</strong> (ref == op) {
-<a class="jxr_linenumber" name="L489" href="#L489">489</a>                     <em class="jxr_comment">/* optimize copy for a run */</em>
-<a class="jxr_linenumber" name="L490" href="#L490">490</a>                     <em class="jxr_comment">// flzuint8 b = ref[-1];</em>
-<a class="jxr_linenumber" name="L491" href="#L491">491</a>                     byte b = output.getByte(outOffset + ref - 1);
-<a class="jxr_linenumber" name="L492" href="#L492">492</a>                     output.setByte(outOffset + op++, b);
-<a class="jxr_linenumber" name="L493" href="#L493">493</a>                     output.setByte(outOffset + op++, b);
-<a class="jxr_linenumber" name="L494" href="#L494">494</a>                     output.setByte(outOffset + op++, b);
-<a class="jxr_linenumber" name="L495" href="#L495">495</a>                     <strong class="jxr_keyword">while</strong> (len != 0) {
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>                         output.setByte(outOffset + op++, b);
-<a class="jxr_linenumber" name="L497" href="#L497">497</a>                         --len;
-<a class="jxr_linenumber" name="L498" href="#L498">498</a>                     }
-<a class="jxr_linenumber" name="L499" href="#L499">499</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L500" href="#L500">500</a>                     <em class="jxr_comment">/* copy from reference */</em>
-<a class="jxr_linenumber" name="L501" href="#L501">501</a>                     ref--;
-<a class="jxr_linenumber" name="L502" href="#L502">502</a> 
-<a class="jxr_linenumber" name="L503" href="#L503">503</a>                     <em class="jxr_comment">// *op++ = *ref++;</em>
-<a class="jxr_linenumber" name="L504" href="#L504">504</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
-<a class="jxr_linenumber" name="L505" href="#L505">505</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
-<a class="jxr_linenumber" name="L506" href="#L506">506</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
-<a class="jxr_linenumber" name="L507" href="#L507">507</a> 
-<a class="jxr_linenumber" name="L508" href="#L508">508</a>                     <strong class="jxr_keyword">while</strong> (len != 0) {
-<a class="jxr_linenumber" name="L509" href="#L509">509</a>                         output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
-<a class="jxr_linenumber" name="L510" href="#L510">510</a>                         --len;
-<a class="jxr_linenumber" name="L511" href="#L511">511</a>                     }
-<a class="jxr_linenumber" name="L512" href="#L512">512</a>                 }
-<a class="jxr_linenumber" name="L513" href="#L513">513</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L514" href="#L514">514</a>                 ctrl++;
-<a class="jxr_linenumber" name="L515" href="#L515">515</a> 
-<a class="jxr_linenumber" name="L516" href="#L516">516</a>                 <strong class="jxr_keyword">if</strong> (op + ctrl &gt; outLength) {
-<a class="jxr_linenumber" name="L517" href="#L517">517</a>                     <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L518" href="#L518">518</a>                 }
-<a class="jxr_linenumber" name="L519" href="#L519">519</a>                 <strong class="jxr_keyword">if</strong> (ip + ctrl &gt; inLength) {
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>                     <strong class="jxr_keyword">return</strong> 0;
-<a class="jxr_linenumber" name="L521" href="#L521">521</a>                 }
-<a class="jxr_linenumber" name="L522" href="#L522">522</a> 
-<a class="jxr_linenumber" name="L523" href="#L523">523</a>                 <em class="jxr_comment">//*op++ = *ip++;</em>
-<a class="jxr_linenumber" name="L524" href="#L524">524</a>                 output.setByte(outOffset + op++, input.getByte(inOffset + ip++));
-<a class="jxr_linenumber" name="L525" href="#L525">525</a> 
-<a class="jxr_linenumber" name="L526" href="#L526">526</a>                 <strong class="jxr_keyword">for</strong> (--ctrl; ctrl != 0; ctrl--) {
-<a class="jxr_linenumber" name="L527" href="#L527">527</a>                     <em class="jxr_comment">// *op++ = *ip++;</em>
-<a class="jxr_linenumber" name="L528" href="#L528">528</a>                     output.setByte(outOffset + op++, input.getByte(inOffset + ip++));
-<a class="jxr_linenumber" name="L529" href="#L529">529</a>                 }
-<a class="jxr_linenumber" name="L530" href="#L530">530</a> 
-<a class="jxr_linenumber" name="L531" href="#L531">531</a>                 loop = ip &lt; inLength ? 1 : 0;
-<a class="jxr_linenumber" name="L532" href="#L532">532</a>                 <strong class="jxr_keyword">if</strong> (loop != 0) {
-<a class="jxr_linenumber" name="L533" href="#L533">533</a>                     <em class="jxr_comment">//  ctrl = *ip++;</em>
-<a class="jxr_linenumber" name="L534" href="#L534">534</a>                     ctrl = input.getUnsignedByte(inOffset + ip++);
-<a class="jxr_linenumber" name="L535" href="#L535">535</a>                 }
-<a class="jxr_linenumber" name="L536" href="#L536">536</a>             }
-<a class="jxr_linenumber" name="L537" href="#L537">537</a> 
-<a class="jxr_linenumber" name="L538" href="#L538">538</a>         <em class="jxr_comment">// while(FASTLZ_EXPECT_CONDITIONAL(loop));</em>
-<a class="jxr_linenumber" name="L539" href="#L539">539</a>         } <strong class="jxr_keyword">while</strong> (loop != 0);
-<a class="jxr_linenumber" name="L540" href="#L540">540</a> 
-<a class="jxr_linenumber" name="L541" href="#L541">541</a>         <em class="jxr_comment">//  return op - (flzuint8*)output;</em>
-<a class="jxr_linenumber" name="L542" href="#L542">542</a>         <strong class="jxr_keyword">return</strong> op;
-<a class="jxr_linenumber" name="L543" href="#L543">543</a>     }
+<a class="jxr_linenumber" name="L475" href="#L475">475</a>                     <em class="jxr_comment">/* match from 16-bit distance */</em>
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>                     <em class="jxr_comment">// if(FASTLZ_UNEXPECT_CONDITIONAL(code==255))</em>
+<a class="jxr_linenumber" name="L477" href="#L477">477</a>                     <em class="jxr_comment">// if(FASTLZ_EXPECT_CONDITIONAL(ofs==(31 &lt;&lt; 8)))</em>
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>                     <strong class="jxr_keyword">if</strong> (code == 255 &amp;&amp; ofs == 31 &lt;&lt; 8) {
+<a class="jxr_linenumber" name="L479" href="#L479">479</a>                         <strong class="jxr_keyword">if</strong> (ip + 2 &gt; inLength) {
+<a class="jxr_linenumber" name="L480" href="#L480">480</a>                             <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L481" href="#L481">481</a>                         }
+<a class="jxr_linenumber" name="L482" href="#L482">482</a>                         ofs = input.getUnsignedByte(inOffset + ip++) &lt;&lt; 8;
+<a class="jxr_linenumber" name="L483" href="#L483">483</a>                         ofs += input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L484" href="#L484">484</a> 
+<a class="jxr_linenumber" name="L485" href="#L485">485</a>                         ref = (<strong class="jxr_keyword">int</strong>) (op - ofs - MAX_DISTANCE);
+<a class="jxr_linenumber" name="L486" href="#L486">486</a>                     }
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>                 }
+<a class="jxr_linenumber" name="L488" href="#L488">488</a> 
+<a class="jxr_linenumber" name="L489" href="#L489">489</a>                 <em class="jxr_comment">// if the output index + length of block(?) + 3(?) is over the output limit?</em>
+<a class="jxr_linenumber" name="L490" href="#L490">490</a>                 <strong class="jxr_keyword">if</strong> (op + len + 3 &gt; outLength) {
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>                     <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>                 }
+<a class="jxr_linenumber" name="L493" href="#L493">493</a> 
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>                 <em class="jxr_comment">// if (FASTLZ_UNEXPECT_CONDITIONAL(ref-1 &lt; (flzuint8 *)output))</em>
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>                 <em class="jxr_comment">// if the address space of ref-1 is &lt; the address of output?</em>
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>                 <em class="jxr_comment">// if we are still at the beginning of the output address?</em>
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>                 <strong class="jxr_keyword">if</strong> (ref - 1 &lt; 0) {
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>                     <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>                 }
+<a class="jxr_linenumber" name="L500" href="#L500">500</a> 
+<a class="jxr_linenumber" name="L501" href="#L501">501</a>                 <strong class="jxr_keyword">if</strong> (ip &lt; inLength) {
+<a class="jxr_linenumber" name="L502" href="#L502">502</a>                     ctrl = input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L503" href="#L503">503</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L504" href="#L504">504</a>                     loop = 0;
+<a class="jxr_linenumber" name="L505" href="#L505">505</a>                 }
+<a class="jxr_linenumber" name="L506" href="#L506">506</a> 
+<a class="jxr_linenumber" name="L507" href="#L507">507</a>                 <strong class="jxr_keyword">if</strong> (ref == op) {
+<a class="jxr_linenumber" name="L508" href="#L508">508</a>                     <em class="jxr_comment">/* optimize copy for a run */</em>
+<a class="jxr_linenumber" name="L509" href="#L509">509</a>                     <em class="jxr_comment">// flzuint8 b = ref[-1];</em>
+<a class="jxr_linenumber" name="L510" href="#L510">510</a>                     byte b = output.getByte(outOffset + ref - 1);
+<a class="jxr_linenumber" name="L511" href="#L511">511</a>                     output.setByte(outOffset + op++, b);
+<a class="jxr_linenumber" name="L512" href="#L512">512</a>                     output.setByte(outOffset + op++, b);
+<a class="jxr_linenumber" name="L513" href="#L513">513</a>                     output.setByte(outOffset + op++, b);
+<a class="jxr_linenumber" name="L514" href="#L514">514</a>                     <strong class="jxr_keyword">while</strong> (len != 0) {
+<a class="jxr_linenumber" name="L515" href="#L515">515</a>                         output.setByte(outOffset + op++, b);
+<a class="jxr_linenumber" name="L516" href="#L516">516</a>                         --len;
+<a class="jxr_linenumber" name="L517" href="#L517">517</a>                     }
+<a class="jxr_linenumber" name="L518" href="#L518">518</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L519" href="#L519">519</a>                     <em class="jxr_comment">/* copy from reference */</em>
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>                     ref--;
+<a class="jxr_linenumber" name="L521" href="#L521">521</a> 
+<a class="jxr_linenumber" name="L522" href="#L522">522</a>                     <em class="jxr_comment">// *op++ = *ref++;</em>
+<a class="jxr_linenumber" name="L523" href="#L523">523</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
+<a class="jxr_linenumber" name="L524" href="#L524">524</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
+<a class="jxr_linenumber" name="L525" href="#L525">525</a>                     output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
+<a class="jxr_linenumber" name="L526" href="#L526">526</a> 
+<a class="jxr_linenumber" name="L527" href="#L527">527</a>                     <strong class="jxr_keyword">while</strong> (len != 0) {
+<a class="jxr_linenumber" name="L528" href="#L528">528</a>                         output.setByte(outOffset + op++, output.getByte(outOffset + ref++));
+<a class="jxr_linenumber" name="L529" href="#L529">529</a>                         --len;
+<a class="jxr_linenumber" name="L530" href="#L530">530</a>                     }
+<a class="jxr_linenumber" name="L531" href="#L531">531</a>                 }
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>                 ctrl++;
+<a class="jxr_linenumber" name="L534" href="#L534">534</a> 
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>                 <strong class="jxr_keyword">if</strong> (op + ctrl &gt; outLength) {
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>                     <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>                 }
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>                 <strong class="jxr_keyword">if</strong> (ip + ctrl &gt; inLength) {
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>                     <strong class="jxr_keyword">return</strong> 0;
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>                 }
+<a class="jxr_linenumber" name="L541" href="#L541">541</a> 
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>                 <em class="jxr_comment">//*op++ = *ip++;</em>
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>                 output.setByte(outOffset + op++, input.getByte(inOffset + ip++));
 <a class="jxr_linenumber" name="L544" href="#L544">544</a> 
-<a class="jxr_linenumber" name="L545" href="#L545">545</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> hashFunction(<a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> p, <strong class="jxr_keyword">int</strong> offset) {
-<a class="jxr_linenumber" name="L546" href="#L546">546</a>         <strong class="jxr_keyword">int</strong> v = readU16(p, offset);
-<a class="jxr_linenumber" name="L547" href="#L547">547</a>         v ^= readU16(p, offset + 1) ^ v &gt;&gt; 16 - HASH_LOG;
-<a class="jxr_linenumber" name="L548" href="#L548">548</a>         v &amp;= HASH_MASK;
-<a class="jxr_linenumber" name="L549" href="#L549">549</a>         <strong class="jxr_keyword">return</strong> v;
-<a class="jxr_linenumber" name="L550" href="#L550">550</a>     }
-<a class="jxr_linenumber" name="L551" href="#L551">551</a> 
-<a class="jxr_linenumber" name="L552" href="#L552">552</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> readU16(<a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> data, <strong class="jxr_keyword">int</strong> offset) {
-<a class="jxr_linenumber" name="L553" href="#L553">553</a>         <strong class="jxr_keyword">if</strong> (offset + 1 &gt;= data.readableBytes()) {
-<a class="jxr_linenumber" name="L554" href="#L554">554</a>             <strong class="jxr_keyword">return</strong> data.getUnsignedByte(offset);
-<a class="jxr_linenumber" name="L555" href="#L555">555</a>         }
-<a class="jxr_linenumber" name="L556" href="#L556">556</a>         <strong class="jxr_keyword">return</strong> data.getUnsignedByte(offset + 1) &lt;&lt; 8 | data.getUnsignedByte(offset);
-<a class="jxr_linenumber" name="L557" href="#L557">557</a>     }
-<a class="jxr_linenumber" name="L558" href="#L558">558</a> 
-<a class="jxr_linenumber" name="L559" href="#L559">559</a>     <strong class="jxr_keyword">private</strong> <a name="FastLz" href="../../../../../io/netty/handler/codec/compression/FastLz.html#FastLz">FastLz</a>() { }
-<a class="jxr_linenumber" name="L560" href="#L560">560</a> }
+<a class="jxr_linenumber" name="L545" href="#L545">545</a>                 <strong class="jxr_keyword">for</strong> (--ctrl; ctrl != 0; ctrl--) {
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>                     <em class="jxr_comment">// *op++ = *ip++;</em>
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>                     output.setByte(outOffset + op++, input.getByte(inOffset + ip++));
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>                 }
+<a class="jxr_linenumber" name="L549" href="#L549">549</a> 
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>                 loop = ip &lt; inLength ? 1 : 0;
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>                 <strong class="jxr_keyword">if</strong> (loop != 0) {
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>                     <em class="jxr_comment">//  ctrl = *ip++;</em>
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>                     ctrl = input.getUnsignedByte(inOffset + ip++);
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>                 }
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>             }
+<a class="jxr_linenumber" name="L556" href="#L556">556</a> 
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>         <em class="jxr_comment">// while(FASTLZ_EXPECT_CONDITIONAL(loop));</em>
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>         } <strong class="jxr_keyword">while</strong> (loop != 0);
+<a class="jxr_linenumber" name="L559" href="#L559">559</a> 
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>         <em class="jxr_comment">//  return op - (flzuint8*)output;</em>
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>         <strong class="jxr_keyword">return</strong> op;
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>     }
+<a class="jxr_linenumber" name="L563" href="#L563">563</a> 
+<a class="jxr_linenumber" name="L564" href="#L564">564</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> hashFunction(<a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> p, <strong class="jxr_keyword">int</strong> offset) {
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>         <strong class="jxr_keyword">int</strong> v = readU16(p, offset);
+<a class="jxr_linenumber" name="L566" href="#L566">566</a>         v ^= readU16(p, offset + 1) ^ v &gt;&gt; 16 - HASH_LOG;
+<a class="jxr_linenumber" name="L567" href="#L567">567</a>         v &amp;= HASH_MASK;
+<a class="jxr_linenumber" name="L568" href="#L568">568</a>         <strong class="jxr_keyword">return</strong> v;
+<a class="jxr_linenumber" name="L569" href="#L569">569</a>     }
+<a class="jxr_linenumber" name="L570" href="#L570">570</a> 
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> readU16(<a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> data, <strong class="jxr_keyword">int</strong> offset) {
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>         <strong class="jxr_keyword">if</strong> (offset + 1 &gt;= data.readableBytes()) {
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>             <strong class="jxr_keyword">return</strong> data.getUnsignedByte(offset);
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>         }
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>         <strong class="jxr_keyword">return</strong> data.getUnsignedByte(offset + 1) &lt;&lt; 8 | data.getUnsignedByte(offset);
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>     }
+<a class="jxr_linenumber" name="L577" href="#L577">577</a> 
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>     <strong class="jxr_keyword">private</strong> <a name="FastLz" href="../../../../../io/netty/handler/codec/compression/FastLz.html#FastLz">FastLz</a>() { }
+<a class="jxr_linenumber" name="L579" href="#L579">579</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

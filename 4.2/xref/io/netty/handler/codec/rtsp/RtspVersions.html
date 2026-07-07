@@ -47,19 +47,22 @@
 <a class="jxr_linenumber" name="L39" href="#L39">39</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a name="HttpVersion" href="../../../../../io/netty/handler/codec/http/HttpVersion.html#HttpVersion">HttpVersion</a> valueOf(String text) {
 <a class="jxr_linenumber" name="L40" href="#L40">40</a>          ObjectUtil.checkNotNull(text, <span class="jxr_string">"text"</span>);
 <a class="jxr_linenumber" name="L41" href="#L41">41</a>  
-<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <em class="jxr_comment">// toUpperCase() must specify Locale.US so the comparison against "RTSP/1.0" is not</em>
-<a class="jxr_linenumber" name="L43" href="#L43">43</a>          <em class="jxr_comment">// affected by the JVM default locale (e.g. Turkish, where 'i' uppercases to 'İ').</em>
-<a class="jxr_linenumber" name="L44" href="#L44">44</a>          text = text.trim().toUpperCase(Locale.US);
-<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"RTSP/1.0"</span>.equals(text)) {
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>              <strong class="jxr_keyword">return</strong> RTSP_1_0;
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>          }
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>  
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a name="HttpVersion" href="../../../../../io/netty/handler/codec/http/HttpVersion.html#HttpVersion">HttpVersion</a>(text, <strong class="jxr_keyword">true</strong>);
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>      }
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>          <strong class="jxr_keyword">if</strong> (text.isEmpty()) {
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"text must not be empty"</span>);
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>          }
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>          <em class="jxr_comment">// toUpperCase() must specify Locale.US so the comparison against "RTSP/1.0" is not</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          <em class="jxr_comment">// affected by the JVM default locale (e.g. Turkish, where 'i' uppercases to 'İ').</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>          String upper = text.toUpperCase(Locale.US);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">if</strong> (<span class="jxr_string">"RTSP/1.0"</span>.equals(upper)) {
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>              <strong class="jxr_keyword">return</strong> RTSP_1_0;
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>          }
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>  
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <a name="RtspVersions" href="../../../../../io/netty/handler/codec/rtsp/RtspVersions.html#RtspVersions">RtspVersions</a>() {
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a name="HttpVersion" href="../../../../../io/netty/handler/codec/http/HttpVersion.html#HttpVersion">HttpVersion</a>(upper, <strong class="jxr_keyword">true</strong>);
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>      }
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>  }
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>      <strong class="jxr_keyword">private</strong> <a name="RtspVersions" href="../../../../../io/netty/handler/codec/rtsp/RtspVersions.html#RtspVersions">RtspVersions</a>() {
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>      }
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

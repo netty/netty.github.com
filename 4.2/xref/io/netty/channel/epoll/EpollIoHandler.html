@@ -493,18 +493,18 @@
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>                 <strong class="jxr_keyword">default</strong>:
 <a class="jxr_linenumber" name="L486" href="#L486">486</a>             }
 <a class="jxr_linenumber" name="L487" href="#L487">487</a>             <strong class="jxr_keyword">if</strong> (strategy &gt; 0) {
-<a class="jxr_linenumber" name="L488" href="#L488">488</a>                 handled = strategy;
+<a class="jxr_linenumber" name="L488" href="#L488">488</a>                 <strong class="jxr_keyword">int</strong> packed;
 <a class="jxr_linenumber" name="L489" href="#L489">489</a>                 <strong class="jxr_keyword">if</strong> (context.shouldReportActiveIoTime()) {
 <a class="jxr_linenumber" name="L490" href="#L490">490</a>                     <strong class="jxr_keyword">long</strong> activeIoStartTimeNanos = System.nanoTime();
-<a class="jxr_linenumber" name="L491" href="#L491">491</a>                     <strong class="jxr_keyword">if</strong> (processReady(events, strategy)) {
-<a class="jxr_linenumber" name="L492" href="#L492">492</a>                         prevDeadlineNanos = NONE;
-<a class="jxr_linenumber" name="L493" href="#L493">493</a>                     }
-<a class="jxr_linenumber" name="L494" href="#L494">494</a>                     <strong class="jxr_keyword">long</strong> activeIoEndTimeNanos = System.nanoTime();
-<a class="jxr_linenumber" name="L495" href="#L495">495</a>                     context.reportActiveIoTime(activeIoEndTimeNanos - activeIoStartTimeNanos);
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L497" href="#L497">497</a>                     <strong class="jxr_keyword">if</strong> (processReady(events, strategy)) {
-<a class="jxr_linenumber" name="L498" href="#L498">498</a>                         prevDeadlineNanos = NONE;
-<a class="jxr_linenumber" name="L499" href="#L499">499</a>                     }
+<a class="jxr_linenumber" name="L491" href="#L491">491</a>                     packed = processReady(events, strategy);
+<a class="jxr_linenumber" name="L492" href="#L492">492</a>                     <strong class="jxr_keyword">long</strong> activeIoEndTimeNanos = System.nanoTime();
+<a class="jxr_linenumber" name="L493" href="#L493">493</a>                     context.reportActiveIoTime(activeIoEndTimeNanos - activeIoStartTimeNanos);
+<a class="jxr_linenumber" name="L494" href="#L494">494</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L495" href="#L495">495</a>                     packed = processReady(events, strategy);
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>                 }
+<a class="jxr_linenumber" name="L497" href="#L497">497</a>                 handled = packed &gt;&gt;&gt; 1;
+<a class="jxr_linenumber" name="L498" href="#L498">498</a>                 <strong class="jxr_keyword">if</strong> ((packed &amp; 1) != 0) {
+<a class="jxr_linenumber" name="L499" href="#L499">499</a>                     prevDeadlineNanos = NONE;
 <a class="jxr_linenumber" name="L500" href="#L500">500</a>                 }
 <a class="jxr_linenumber" name="L501" href="#L501">501</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (context.shouldReportActiveIoTime()) {
 <a class="jxr_linenumber" name="L502" href="#L502">502</a>                 context.reportActiveIoTime(0);
@@ -537,81 +537,83 @@
 <a class="jxr_linenumber" name="L529" href="#L529">529</a>         }
 <a class="jxr_linenumber" name="L530" href="#L530">530</a>     }
 <a class="jxr_linenumber" name="L531" href="#L531">531</a> 
-<a class="jxr_linenumber" name="L532" href="#L532">532</a>     <em class="jxr_comment">// Returns true if a timerFd event was encountered</em>
-<a class="jxr_linenumber" name="L533" href="#L533">533</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> processReady(<a name="EpollEventArray" href="../../../../io/netty/channel/epoll/EpollEventArray.html#EpollEventArray">EpollEventArray</a> events, <strong class="jxr_keyword">int</strong> ready) {
-<a class="jxr_linenumber" name="L534" href="#L534">534</a>         <strong class="jxr_keyword">boolean</strong> timerFired = false;
-<a class="jxr_linenumber" name="L535" href="#L535">535</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; ready; i ++) {
-<a class="jxr_linenumber" name="L536" href="#L536">536</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> fd = events.fd(i);
-<a class="jxr_linenumber" name="L537" href="#L537">537</a>             <strong class="jxr_keyword">if</strong> (fd == eventFd.intValue()) {
-<a class="jxr_linenumber" name="L538" href="#L538">538</a>                 pendingWakeup = false;
-<a class="jxr_linenumber" name="L539" href="#L539">539</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fd == timerFd.intValue()) {
-<a class="jxr_linenumber" name="L540" href="#L540">540</a>                 timerFired = <strong class="jxr_keyword">true</strong>;
-<a class="jxr_linenumber" name="L541" href="#L541">541</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L542" href="#L542">542</a>                 <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> ev = events.events(i);
-<a class="jxr_linenumber" name="L543" href="#L543">543</a> 
-<a class="jxr_linenumber" name="L544" href="#L544">544</a>                 DefaultEpollIoRegistration registration = registrations.get(fd);
-<a class="jxr_linenumber" name="L545" href="#L545">545</a>                 <strong class="jxr_keyword">if</strong> (registration != <strong class="jxr_keyword">null</strong>) {
-<a class="jxr_linenumber" name="L546" href="#L546">546</a>                     registration.handle(ev);
-<a class="jxr_linenumber" name="L547" href="#L547">547</a>                 } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L548" href="#L548">548</a>                     <em class="jxr_comment">// We received an event for an fd which we not use anymore. Remove it from the epoll_event set.</em>
-<a class="jxr_linenumber" name="L549" href="#L549">549</a>                     <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L550" href="#L550">550</a>                         Native.epollCtlDel(epollFd.intValue(), fd);
-<a class="jxr_linenumber" name="L551" href="#L551">551</a>                     } <strong class="jxr_keyword">catch</strong> (IOException ignore) {
-<a class="jxr_linenumber" name="L552" href="#L552">552</a>                         <em class="jxr_comment">// This can happen but is nothing we need to worry about as we only try to delete</em>
-<a class="jxr_linenumber" name="L553" href="#L553">553</a>                         <em class="jxr_comment">// the fd from the epoll set as we not found it in our mappings. So this call to</em>
-<a class="jxr_linenumber" name="L554" href="#L554">554</a>                         <em class="jxr_comment">// epollCtlDel(...) is just to ensure we cleanup stuff and so may fail if it was</em>
-<a class="jxr_linenumber" name="L555" href="#L555">555</a>                         <em class="jxr_comment">// deleted before or the file descriptor was closed before.</em>
-<a class="jxr_linenumber" name="L556" href="#L556">556</a>                     }
-<a class="jxr_linenumber" name="L557" href="#L557">557</a>                 }
-<a class="jxr_linenumber" name="L558" href="#L558">558</a>             }
-<a class="jxr_linenumber" name="L559" href="#L559">559</a>         }
-<a class="jxr_linenumber" name="L560" href="#L560">560</a>         <strong class="jxr_keyword">return</strong> timerFired;
-<a class="jxr_linenumber" name="L561" href="#L561">561</a>     }
-<a class="jxr_linenumber" name="L562" href="#L562">562</a> 
-<a class="jxr_linenumber" name="L563" href="#L563">563</a>     <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L564" href="#L564">564</a> <em class="jxr_javadoccomment">     * This method is intended for use by process checkpoint/restore</em>
-<a class="jxr_linenumber" name="L565" href="#L565">565</a> <em class="jxr_javadoccomment">     * integration, such as OpenJDK CRaC.</em>
-<a class="jxr_linenumber" name="L566" href="#L566">566</a> <em class="jxr_javadoccomment">     * It's up to the caller to ensure that there is no concurrent use</em>
-<a class="jxr_linenumber" name="L567" href="#L567">567</a> <em class="jxr_javadoccomment">     * of the FDs while these are closed, e.g. by blocking the executor.</em>
-<a class="jxr_linenumber" name="L568" href="#L568">568</a> <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L569" href="#L569">569</a>     @UnstableApi
-<a class="jxr_linenumber" name="L570" href="#L570">570</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> closeFileDescriptors() {
-<a class="jxr_linenumber" name="L571" href="#L571">571</a>         <em class="jxr_comment">// Ensure any in-flight wakeup writes have been performed prior to closing eventFd.</em>
-<a class="jxr_linenumber" name="L572" href="#L572">572</a>         <strong class="jxr_keyword">while</strong> (pendingWakeup) {
-<a class="jxr_linenumber" name="L573" href="#L573">573</a>             <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L574" href="#L574">574</a>                 <strong class="jxr_keyword">int</strong> count = epollWaitTimeboxed();
-<a class="jxr_linenumber" name="L575" href="#L575">575</a>                 <strong class="jxr_keyword">if</strong> (count == 0) {
-<a class="jxr_linenumber" name="L576" href="#L576">576</a>                     <em class="jxr_comment">// We timed-out so assume that the write we're expecting isn't coming</em>
-<a class="jxr_linenumber" name="L577" href="#L577">577</a>                     <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L578" href="#L578">578</a>                 }
-<a class="jxr_linenumber" name="L579" href="#L579">579</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; i++) {
-<a class="jxr_linenumber" name="L580" href="#L580">580</a>                     <strong class="jxr_keyword">if</strong> (events.fd(i) == eventFd.intValue()) {
-<a class="jxr_linenumber" name="L581" href="#L581">581</a>                         pendingWakeup = false;
-<a class="jxr_linenumber" name="L582" href="#L582">582</a>                         <strong class="jxr_keyword">break</strong>;
-<a class="jxr_linenumber" name="L583" href="#L583">583</a>                     }
-<a class="jxr_linenumber" name="L584" href="#L584">584</a>                 }
-<a class="jxr_linenumber" name="L585" href="#L585">585</a>             } <strong class="jxr_keyword">catch</strong> (IOException ignore) {
-<a class="jxr_linenumber" name="L586" href="#L586">586</a>                 <em class="jxr_comment">// ignore</em>
-<a class="jxr_linenumber" name="L587" href="#L587">587</a>             }
-<a class="jxr_linenumber" name="L588" href="#L588">588</a>         }
-<a class="jxr_linenumber" name="L589" href="#L589">589</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L590" href="#L590">590</a>             eventFd.close();
-<a class="jxr_linenumber" name="L591" href="#L591">591</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L592" href="#L592">592</a>             logger.warn(<span class="jxr_string">"Failed to close the event fd."</span>, e);
-<a class="jxr_linenumber" name="L593" href="#L593">593</a>         }
-<a class="jxr_linenumber" name="L594" href="#L594">594</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L595" href="#L595">595</a>             timerFd.close();
-<a class="jxr_linenumber" name="L596" href="#L596">596</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L597" href="#L597">597</a>             logger.warn(<span class="jxr_string">"Failed to close the timer fd."</span>, e);
-<a class="jxr_linenumber" name="L598" href="#L598">598</a>         }
-<a class="jxr_linenumber" name="L599" href="#L599">599</a> 
-<a class="jxr_linenumber" name="L600" href="#L600">600</a>         <strong class="jxr_keyword">try</strong> {
-<a class="jxr_linenumber" name="L601" href="#L601">601</a>             epollFd.close();
-<a class="jxr_linenumber" name="L602" href="#L602">602</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
-<a class="jxr_linenumber" name="L603" href="#L603">603</a>             logger.warn(<span class="jxr_string">"Failed to close the epoll fd."</span>, e);
-<a class="jxr_linenumber" name="L604" href="#L604">604</a>         }
-<a class="jxr_linenumber" name="L605" href="#L605">605</a>     }
-<a class="jxr_linenumber" name="L606" href="#L606">606</a> }
+<a class="jxr_linenumber" name="L532" href="#L532">532</a>     <em class="jxr_comment">// Returns packed int: each real I/O event adds 2, timer fired adds 1.</em>
+<a class="jxr_linenumber" name="L533" href="#L533">533</a>     <em class="jxr_comment">// Unpack: real events = result &gt;&gt;&gt; 1, timer fired = (result &amp; 1) != 0.</em>
+<a class="jxr_linenumber" name="L534" href="#L534">534</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> processReady(<a name="EpollEventArray" href="../../../../io/netty/channel/epoll/EpollEventArray.html#EpollEventArray">EpollEventArray</a> events, <strong class="jxr_keyword">int</strong> ready) {
+<a class="jxr_linenumber" name="L535" href="#L535">535</a>         <strong class="jxr_keyword">int</strong> result = 0;
+<a class="jxr_linenumber" name="L536" href="#L536">536</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; ready; i ++) {
+<a class="jxr_linenumber" name="L537" href="#L537">537</a>             <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">int</strong> fd = events.fd(i);
+<a class="jxr_linenumber" name="L538" href="#L538">538</a>             <strong class="jxr_keyword">if</strong> (fd == eventFd.intValue()) {
+<a class="jxr_linenumber" name="L539" href="#L539">539</a>                 pendingWakeup = false;
+<a class="jxr_linenumber" name="L540" href="#L540">540</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (fd == timerFd.intValue()) {
+<a class="jxr_linenumber" name="L541" href="#L541">541</a>                 result |= 1;
+<a class="jxr_linenumber" name="L542" href="#L542">542</a>             } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L543" href="#L543">543</a>                 result += 2;
+<a class="jxr_linenumber" name="L544" href="#L544">544</a>                 <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> ev = events.events(i);
+<a class="jxr_linenumber" name="L545" href="#L545">545</a> 
+<a class="jxr_linenumber" name="L546" href="#L546">546</a>                 DefaultEpollIoRegistration registration = registrations.get(fd);
+<a class="jxr_linenumber" name="L547" href="#L547">547</a>                 <strong class="jxr_keyword">if</strong> (registration != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L548" href="#L548">548</a>                     registration.handle(ev);
+<a class="jxr_linenumber" name="L549" href="#L549">549</a>                 } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L550" href="#L550">550</a>                     <em class="jxr_comment">// We received an event for an fd which we not use anymore. Remove it from the epoll_event set.</em>
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>                     <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>                         Native.epollCtlDel(epollFd.intValue(), fd);
+<a class="jxr_linenumber" name="L553" href="#L553">553</a>                     } <strong class="jxr_keyword">catch</strong> (IOException ignore) {
+<a class="jxr_linenumber" name="L554" href="#L554">554</a>                         <em class="jxr_comment">// This can happen but is nothing we need to worry about as we only try to delete</em>
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>                         <em class="jxr_comment">// the fd from the epoll set as we not found it in our mappings. So this call to</em>
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>                         <em class="jxr_comment">// epollCtlDel(...) is just to ensure we cleanup stuff and so may fail if it was</em>
+<a class="jxr_linenumber" name="L557" href="#L557">557</a>                         <em class="jxr_comment">// deleted before or the file descriptor was closed before.</em>
+<a class="jxr_linenumber" name="L558" href="#L558">558</a>                     }
+<a class="jxr_linenumber" name="L559" href="#L559">559</a>                 }
+<a class="jxr_linenumber" name="L560" href="#L560">560</a>             }
+<a class="jxr_linenumber" name="L561" href="#L561">561</a>         }
+<a class="jxr_linenumber" name="L562" href="#L562">562</a>         <strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L563" href="#L563">563</a>     }
+<a class="jxr_linenumber" name="L564" href="#L564">564</a> 
+<a class="jxr_linenumber" name="L565" href="#L565">565</a>     <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L566" href="#L566">566</a> <em class="jxr_javadoccomment">     * This method is intended for use by process checkpoint/restore</em>
+<a class="jxr_linenumber" name="L567" href="#L567">567</a> <em class="jxr_javadoccomment">     * integration, such as OpenJDK CRaC.</em>
+<a class="jxr_linenumber" name="L568" href="#L568">568</a> <em class="jxr_javadoccomment">     * It's up to the caller to ensure that there is no concurrent use</em>
+<a class="jxr_linenumber" name="L569" href="#L569">569</a> <em class="jxr_javadoccomment">     * of the FDs while these are closed, e.g. by blocking the executor.</em>
+<a class="jxr_linenumber" name="L570" href="#L570">570</a> <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L571" href="#L571">571</a>     @UnstableApi
+<a class="jxr_linenumber" name="L572" href="#L572">572</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> closeFileDescriptors() {
+<a class="jxr_linenumber" name="L573" href="#L573">573</a>         <em class="jxr_comment">// Ensure any in-flight wakeup writes have been performed prior to closing eventFd.</em>
+<a class="jxr_linenumber" name="L574" href="#L574">574</a>         <strong class="jxr_keyword">while</strong> (pendingWakeup) {
+<a class="jxr_linenumber" name="L575" href="#L575">575</a>             <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L576" href="#L576">576</a>                 <strong class="jxr_keyword">int</strong> count = epollWaitTimeboxed();
+<a class="jxr_linenumber" name="L577" href="#L577">577</a>                 <strong class="jxr_keyword">if</strong> (count == 0) {
+<a class="jxr_linenumber" name="L578" href="#L578">578</a>                     <em class="jxr_comment">// We timed-out so assume that the write we're expecting isn't coming</em>
+<a class="jxr_linenumber" name="L579" href="#L579">579</a>                     <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L580" href="#L580">580</a>                 }
+<a class="jxr_linenumber" name="L581" href="#L581">581</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; count; i++) {
+<a class="jxr_linenumber" name="L582" href="#L582">582</a>                     <strong class="jxr_keyword">if</strong> (events.fd(i) == eventFd.intValue()) {
+<a class="jxr_linenumber" name="L583" href="#L583">583</a>                         pendingWakeup = false;
+<a class="jxr_linenumber" name="L584" href="#L584">584</a>                         <strong class="jxr_keyword">break</strong>;
+<a class="jxr_linenumber" name="L585" href="#L585">585</a>                     }
+<a class="jxr_linenumber" name="L586" href="#L586">586</a>                 }
+<a class="jxr_linenumber" name="L587" href="#L587">587</a>             } <strong class="jxr_keyword">catch</strong> (IOException ignore) {
+<a class="jxr_linenumber" name="L588" href="#L588">588</a>                 <em class="jxr_comment">// ignore</em>
+<a class="jxr_linenumber" name="L589" href="#L589">589</a>             }
+<a class="jxr_linenumber" name="L590" href="#L590">590</a>         }
+<a class="jxr_linenumber" name="L591" href="#L591">591</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L592" href="#L592">592</a>             eventFd.close();
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>             logger.warn(<span class="jxr_string">"Failed to close the event fd."</span>, e);
+<a class="jxr_linenumber" name="L595" href="#L595">595</a>         }
+<a class="jxr_linenumber" name="L596" href="#L596">596</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L597" href="#L597">597</a>             timerFd.close();
+<a class="jxr_linenumber" name="L598" href="#L598">598</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L599" href="#L599">599</a>             logger.warn(<span class="jxr_string">"Failed to close the timer fd."</span>, e);
+<a class="jxr_linenumber" name="L600" href="#L600">600</a>         }
+<a class="jxr_linenumber" name="L601" href="#L601">601</a> 
+<a class="jxr_linenumber" name="L602" href="#L602">602</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L603" href="#L603">603</a>             epollFd.close();
+<a class="jxr_linenumber" name="L604" href="#L604">604</a>         } <strong class="jxr_keyword">catch</strong> (IOException e) {
+<a class="jxr_linenumber" name="L605" href="#L605">605</a>             logger.warn(<span class="jxr_string">"Failed to close the epoll fd."</span>, e);
+<a class="jxr_linenumber" name="L606" href="#L606">606</a>         }
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>     }
+<a class="jxr_linenumber" name="L608" href="#L608">608</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

@@ -396,8 +396,8 @@
 <a class="jxr_linenumber" name="L388" href="#L388">388</a>             }
 <a class="jxr_linenumber" name="L389" href="#L389">389</a>         }
 <a class="jxr_linenumber" name="L390" href="#L390">390</a> 
-<a class="jxr_linenumber" name="L391" href="#L391">391</a>         <em class="jxr_comment">// terminate trailing token</em>
-<a class="jxr_linenumber" name="L392" href="#L392">392</a>         <strong class="jxr_keyword">return</strong> tokenStart != -1 &amp;&amp; parseToken(txt, tokenStart, txt.length());
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>         <em class="jxr_comment">// terminate trailing token at end, not txt.length(), so a substring parse doesn't overrun</em>
+<a class="jxr_linenumber" name="L392" href="#L392">392</a>         <strong class="jxr_keyword">return</strong> tokenStart != -1 &amp;&amp; parseToken(txt, tokenStart, end);
 <a class="jxr_linenumber" name="L393" href="#L393">393</a>     }
 <a class="jxr_linenumber" name="L394" href="#L394">394</a> 
 <a class="jxr_linenumber" name="L395" href="#L395">395</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> normalizeAndValidate() {

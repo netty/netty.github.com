@@ -161,10 +161,15 @@
 <a class="jxr_linenumber" name="L153" href="#L153">153</a>     <strong class="jxr_keyword">static</strong> <a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> decompressDomainName(<a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> compression) {
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         String domainName = decodeDomainName(compression);
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>         <a name="ByteBuf" href="../../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a> result = compression.alloc().buffer(domainName.length() &lt;&lt; 1);
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>         encodeDomainName(domainName, result);
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>         <strong class="jxr_keyword">return</strong> result;
-<a class="jxr_linenumber" name="L158" href="#L158">158</a>     }
-<a class="jxr_linenumber" name="L159" href="#L159">159</a> }
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>         <strong class="jxr_keyword">try</strong> {
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>             encodeDomainName(domainName, result);
+<a class="jxr_linenumber" name="L158" href="#L158">158</a>         } <strong class="jxr_keyword">catch</strong> (Throwable cause) {
+<a class="jxr_linenumber" name="L159" href="#L159">159</a>             result.release();
+<a class="jxr_linenumber" name="L160" href="#L160">160</a>             <strong class="jxr_keyword">throw</strong> cause;
+<a class="jxr_linenumber" name="L161" href="#L161">161</a>         }
+<a class="jxr_linenumber" name="L162" href="#L162">162</a>         <strong class="jxr_keyword">return</strong> result;
+<a class="jxr_linenumber" name="L163" href="#L163">163</a>     }
+<a class="jxr_linenumber" name="L164" href="#L164">164</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>
