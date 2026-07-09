@@ -343,7 +343,7 @@
 <a class="jxr_linenumber" name="L335" href="#L335">335</a>     <strong class="jxr_keyword">void</strong> setMaxHeaderListSize(<strong class="jxr_keyword">long</strong> maxHeaderListSize) <strong class="jxr_keyword">throws</strong> <a name="Http2Exception" href="../../../../../io/netty/handler/codec/http2/Http2Exception.html#Http2Exception">Http2Exception</a> {
 <a class="jxr_linenumber" name="L336" href="#L336">336</a>         <strong class="jxr_keyword">if</strong> (maxHeaderListSize &lt; MIN_HEADER_LIST_SIZE || maxHeaderListSize &gt; MAX_HEADER_LIST_SIZE) {
 <a class="jxr_linenumber" name="L337" href="#L337">337</a>             <strong class="jxr_keyword">throw</strong> connectionError(PROTOCOL_ERROR, <span class="jxr_string">"Header List Size must be &gt;= %d and &lt;= %d but was %d"</span>,
-<a class="jxr_linenumber" name="L338" href="#L338">338</a>                     MIN_HEADER_TABLE_SIZE, MAX_HEADER_TABLE_SIZE, maxHeaderListSize);
+<a class="jxr_linenumber" name="L338" href="#L338">338</a>                     MIN_HEADER_LIST_SIZE, MAX_HEADER_LIST_SIZE, maxHeaderListSize);
 <a class="jxr_linenumber" name="L339" href="#L339">339</a>         }
 <a class="jxr_linenumber" name="L340" href="#L340">340</a>         <strong class="jxr_keyword">this</strong>.maxHeaderListSize = maxHeaderListSize;
 <a class="jxr_linenumber" name="L341" href="#L341">341</a>     }

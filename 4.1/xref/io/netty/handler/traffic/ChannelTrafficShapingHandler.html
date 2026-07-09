@@ -23,10 +23,10 @@
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <em class="jxr_comment"> */</em>
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">package</strong> io.netty.handler.traffic;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.buffer.ByteBuf;
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPromise;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelHandlerContext;
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <strong class="jxr_keyword">import</strong> io.netty.channel.ChannelPromise;
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <strong class="jxr_keyword">import</strong> java.nio.channels.ClosedChannelException;
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <strong class="jxr_keyword">import</strong> java.util.ArrayDeque;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">import</strong> java.util.concurrent.TimeUnit;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  
@@ -156,12 +156,12 @@
 <a class="jxr_linenumber" name="L148" href="#L148">148</a>                     queueSize -= size;
 <a class="jxr_linenumber" name="L149" href="#L149">149</a>                     ctx.write(toSend.toSend, toSend.promise);
 <a class="jxr_linenumber" name="L150" href="#L150">150</a>                 }
-<a class="jxr_linenumber" name="L151" href="#L151">151</a>             } <strong class="jxr_keyword">else</strong> {
-<a class="jxr_linenumber" name="L152" href="#L152">152</a>                 <strong class="jxr_keyword">for</strong> (ToSend toSend : messagesQueue) {
-<a class="jxr_linenumber" name="L153" href="#L153">153</a>                     <strong class="jxr_keyword">if</strong> (toSend.toSend instanceof <a name="ByteBuf" href="../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a>) {
-<a class="jxr_linenumber" name="L154" href="#L154">154</a>                         ((<a name="ByteBuf" href="../../../../io/netty/buffer/ByteBuf.html#ByteBuf">ByteBuf</a>) toSend.toSend).release();
-<a class="jxr_linenumber" name="L155" href="#L155">155</a>                     }
-<a class="jxr_linenumber" name="L156" href="#L156">156</a>                 }
+<a class="jxr_linenumber" name="L151" href="#L151">151</a>             } <strong class="jxr_keyword">else</strong> <strong class="jxr_keyword">if</strong> (!messagesQueue.isEmpty()) {
+<a class="jxr_linenumber" name="L152" href="#L152">152</a>                 ClosedChannelException cause = <strong class="jxr_keyword">new</strong> ClosedChannelException();
+<a class="jxr_linenumber" name="L153" href="#L153">153</a>                 <strong class="jxr_keyword">for</strong> (ToSend toSend : messagesQueue) {
+<a class="jxr_linenumber" name="L154" href="#L154">154</a>                     releaseAndFailQueuedWrite(toSend.toSend, toSend.promise, cause);
+<a class="jxr_linenumber" name="L155" href="#L155">155</a>                 }
+<a class="jxr_linenumber" name="L156" href="#L156">156</a>                 queueSize = 0;
 <a class="jxr_linenumber" name="L157" href="#L157">157</a>             }
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>             messagesQueue.clear();
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>         }

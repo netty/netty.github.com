@@ -971,7 +971,7 @@
 <a class="jxr_linenumber" name="L963" href="#L963">963</a>                     <strong class="jxr_keyword">if</strong> (logger.isDebugEnabled()) {
 <a class="jxr_linenumber" name="L964" href="#L964">964</a>                         logger.debug(<span class="jxr_string">"{} Sent GOAWAY: lastStreamId '{}', errorCode '{}', "</span> +
 <a class="jxr_linenumber" name="L965" href="#L965">965</a>                                      <span class="jxr_string">"debugData '{}'. Forcing shutdown of the connection."</span>,
-<a class="jxr_linenumber" name="L966" href="#L966">966</a>                                      ctx.channel(), lastStreamId, errorCode, debugData.toString(UTF_8), future.cause());
+<a class="jxr_linenumber" name="L966" href="#L966">966</a>                                      ctx.channel(), lastStreamId, errorCode, debugData.toString(UTF_8));
 <a class="jxr_linenumber" name="L967" href="#L967">967</a>                     }
 <a class="jxr_linenumber" name="L968" href="#L968">968</a>                     ctx.close();
 <a class="jxr_linenumber" name="L969" href="#L969">969</a>                 }
