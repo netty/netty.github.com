@@ -112,7 +112,7 @@
 <a class="jxr_linenumber" name="L104" href="#L104">104</a> <em class="jxr_javadoccomment">     * @param issuer                {@link X509Certificate} issuer of client certificate</em>
 <a class="jxr_linenumber" name="L105" href="#L105">105</a> <em class="jxr_javadoccomment">     * @param validateResponseNonce Set to {@code true} to enable OCSP response validation</em>
 <a class="jxr_linenumber" name="L106" href="#L106">106</a> <em class="jxr_javadoccomment">     * @param ioTransport           {@link IoTransport} to use</em>
-<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     * @return                      {@link Promise} of {@link BasicOCSPResp}</em>
+<a class="jxr_linenumber" name="L107" href="#L107">107</a> <em class="jxr_javadoccomment">     * @param responsePromise      {@link Promise} of {@link BasicOCSPResp}</em>
 <a class="jxr_linenumber" name="L108" href="#L108">108</a> <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L109" href="#L109">109</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> query(<strong class="jxr_keyword">final</strong> X509Certificate x509Certificate,
 <a class="jxr_linenumber" name="L110" href="#L110">110</a>                                         <strong class="jxr_keyword">final</strong> X509Certificate issuer, <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">boolean</strong> validateResponseNonce,
@@ -409,38 +409,40 @@
 <a class="jxr_linenumber" name="L401" href="#L401">401</a>         AuthorityInformationAccess aiaExtension = AuthorityInformationAccess.fromExtensions(holder.getExtensions());
 <a class="jxr_linenumber" name="L402" href="#L402">402</a> 
 <a class="jxr_linenumber" name="L403" href="#L403">403</a>         <em class="jxr_comment">// Lookup for OCSP responder url</em>
-<a class="jxr_linenumber" name="L404" href="#L404">404</a>         <strong class="jxr_keyword">for</strong> (AccessDescription accessDescription : aiaExtension.getAccessDescriptions()) {
-<a class="jxr_linenumber" name="L405" href="#L405">405</a>             <strong class="jxr_keyword">if</strong> (accessDescription.getAccessMethod().equals(id_ad_ocsp)) {
-<a class="jxr_linenumber" name="L406" href="#L406">406</a>                 <strong class="jxr_keyword">return</strong> accessDescription.getAccessLocation().getName().toASN1Primitive().toString();
-<a class="jxr_linenumber" name="L407" href="#L407">407</a>             }
-<a class="jxr_linenumber" name="L408" href="#L408">408</a>         }
-<a class="jxr_linenumber" name="L409" href="#L409">409</a> 
-<a class="jxr_linenumber" name="L410" href="#L410">410</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> NullPointerException(<span class="jxr_string">"Unable to find OCSP responder URL in Certificate"</span>);
-<a class="jxr_linenumber" name="L411" href="#L411">411</a>     }
-<a class="jxr_linenumber" name="L412" href="#L412">412</a> 
-<a class="jxr_linenumber" name="L413" href="#L413">413</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> Initializer <strong class="jxr_keyword">extends</strong> ChannelInitializer&lt;SocketChannel&gt; {
+<a class="jxr_linenumber" name="L404" href="#L404">404</a>         <strong class="jxr_keyword">if</strong> (aiaExtension != <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L405" href="#L405">405</a>             <strong class="jxr_keyword">for</strong> (AccessDescription accessDescription : aiaExtension.getAccessDescriptions()) {
+<a class="jxr_linenumber" name="L406" href="#L406">406</a>                 <strong class="jxr_keyword">if</strong> (accessDescription.getAccessMethod().equals(id_ad_ocsp)) {
+<a class="jxr_linenumber" name="L407" href="#L407">407</a>                     <strong class="jxr_keyword">return</strong> accessDescription.getAccessLocation().getName().toASN1Primitive().toString();
+<a class="jxr_linenumber" name="L408" href="#L408">408</a>                 }
+<a class="jxr_linenumber" name="L409" href="#L409">409</a>             }
+<a class="jxr_linenumber" name="L410" href="#L410">410</a>         }
+<a class="jxr_linenumber" name="L411" href="#L411">411</a> 
+<a class="jxr_linenumber" name="L412" href="#L412">412</a>         <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="NoOcspResponderException" href="../../../../../io/netty/handler/ssl/ocsp/NoOcspResponderException.html#NoOcspResponderException">NoOcspResponderException</a>(<span class="jxr_string">"Unable to find OCSP responder URL in Certificate"</span>);
+<a class="jxr_linenumber" name="L413" href="#L413">413</a>     }
 <a class="jxr_linenumber" name="L414" href="#L414">414</a> 
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Promise&lt;OCSPResp&gt; responsePromise;
-<a class="jxr_linenumber" name="L416" href="#L416">416</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> timeoutMillis;
-<a class="jxr_linenumber" name="L417" href="#L417">417</a> 
-<a class="jxr_linenumber" name="L418" href="#L418">418</a>         Initializer(Promise&lt;OCSPResp&gt; responsePromise, <strong class="jxr_keyword">long</strong> timeoutMillis) {
-<a class="jxr_linenumber" name="L419" href="#L419">419</a>             <strong class="jxr_keyword">this</strong>.responsePromise = checkNotNull(responsePromise, <span class="jxr_string">"responsePromise"</span>);
-<a class="jxr_linenumber" name="L420" href="#L420">420</a>             <strong class="jxr_keyword">this</strong>.timeoutMillis = ObjectUtil.checkPositive(timeoutMillis, <span class="jxr_string">"timeoutMillis"</span>);
-<a class="jxr_linenumber" name="L421" href="#L421">421</a>         }
-<a class="jxr_linenumber" name="L422" href="#L422">422</a> 
-<a class="jxr_linenumber" name="L423" href="#L423">423</a>         @Override
-<a class="jxr_linenumber" name="L424" href="#L424">424</a>         <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> initChannel(<a name="SocketChannel" href="../../../../../io/netty/channel/socket/SocketChannel.html#SocketChannel">SocketChannel</a> socketChannel) {
-<a class="jxr_linenumber" name="L425" href="#L425">425</a>             <a name="ChannelPipeline" href="../../../../../io/netty/channel/ChannelPipeline.html#ChannelPipeline">ChannelPipeline</a> pipeline = socketChannel.pipeline();
-<a class="jxr_linenumber" name="L426" href="#L426">426</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="HttpClientCodec" href="../../../../../io/netty/handler/codec/http/HttpClientCodec.html#HttpClientCodec">HttpClientCodec</a>());
-<a class="jxr_linenumber" name="L427" href="#L427">427</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="HttpObjectAggregator" href="../../../../../io/netty/handler/codec/http/HttpObjectAggregator.html#HttpObjectAggregator">HttpObjectAggregator</a>(OCSP_RESPONSE_MAX_SIZE));
-<a class="jxr_linenumber" name="L428" href="#L428">428</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="OcspHttpHandler" href="../../../../../io/netty/handler/ssl/ocsp/OcspHttpHandler.html#OcspHttpHandler">OcspHttpHandler</a>(responsePromise, timeoutMillis));
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>         }
-<a class="jxr_linenumber" name="L430" href="#L430">430</a>     }
-<a class="jxr_linenumber" name="L431" href="#L431">431</a> 
-<a class="jxr_linenumber" name="L432" href="#L432">432</a>     <strong class="jxr_keyword">private</strong> <a name="OcspClient" href="../../../../../io/netty/handler/ssl/ocsp/OcspClient.html#OcspClient">OcspClient</a>() {
-<a class="jxr_linenumber" name="L433" href="#L433">433</a>         <em class="jxr_comment">// Prevent outside initialization</em>
-<a class="jxr_linenumber" name="L434" href="#L434">434</a>     }
-<a class="jxr_linenumber" name="L435" href="#L435">435</a> }
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>     <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">class</strong> Initializer <strong class="jxr_keyword">extends</strong> ChannelInitializer&lt;SocketChannel&gt; {
+<a class="jxr_linenumber" name="L416" href="#L416">416</a> 
+<a class="jxr_linenumber" name="L417" href="#L417">417</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Promise&lt;OCSPResp&gt; responsePromise;
+<a class="jxr_linenumber" name="L418" href="#L418">418</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <strong class="jxr_keyword">long</strong> timeoutMillis;
+<a class="jxr_linenumber" name="L419" href="#L419">419</a> 
+<a class="jxr_linenumber" name="L420" href="#L420">420</a>         Initializer(Promise&lt;OCSPResp&gt; responsePromise, <strong class="jxr_keyword">long</strong> timeoutMillis) {
+<a class="jxr_linenumber" name="L421" href="#L421">421</a>             <strong class="jxr_keyword">this</strong>.responsePromise = checkNotNull(responsePromise, <span class="jxr_string">"responsePromise"</span>);
+<a class="jxr_linenumber" name="L422" href="#L422">422</a>             <strong class="jxr_keyword">this</strong>.timeoutMillis = ObjectUtil.checkPositive(timeoutMillis, <span class="jxr_string">"timeoutMillis"</span>);
+<a class="jxr_linenumber" name="L423" href="#L423">423</a>         }
+<a class="jxr_linenumber" name="L424" href="#L424">424</a> 
+<a class="jxr_linenumber" name="L425" href="#L425">425</a>         @Override
+<a class="jxr_linenumber" name="L426" href="#L426">426</a>         <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> initChannel(<a name="SocketChannel" href="../../../../../io/netty/channel/socket/SocketChannel.html#SocketChannel">SocketChannel</a> socketChannel) {
+<a class="jxr_linenumber" name="L427" href="#L427">427</a>             <a name="ChannelPipeline" href="../../../../../io/netty/channel/ChannelPipeline.html#ChannelPipeline">ChannelPipeline</a> pipeline = socketChannel.pipeline();
+<a class="jxr_linenumber" name="L428" href="#L428">428</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="HttpClientCodec" href="../../../../../io/netty/handler/codec/http/HttpClientCodec.html#HttpClientCodec">HttpClientCodec</a>());
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="HttpObjectAggregator" href="../../../../../io/netty/handler/codec/http/HttpObjectAggregator.html#HttpObjectAggregator">HttpObjectAggregator</a>(OCSP_RESPONSE_MAX_SIZE));
+<a class="jxr_linenumber" name="L430" href="#L430">430</a>             pipeline.addLast(<strong class="jxr_keyword">new</strong> <a name="OcspHttpHandler" href="../../../../../io/netty/handler/ssl/ocsp/OcspHttpHandler.html#OcspHttpHandler">OcspHttpHandler</a>(responsePromise, timeoutMillis));
+<a class="jxr_linenumber" name="L431" href="#L431">431</a>         }
+<a class="jxr_linenumber" name="L432" href="#L432">432</a>     }
+<a class="jxr_linenumber" name="L433" href="#L433">433</a> 
+<a class="jxr_linenumber" name="L434" href="#L434">434</a>     <strong class="jxr_keyword">private</strong> <a name="OcspClient" href="../../../../../io/netty/handler/ssl/ocsp/OcspClient.html#OcspClient">OcspClient</a>() {
+<a class="jxr_linenumber" name="L435" href="#L435">435</a>         <em class="jxr_comment">// Prevent outside initialization</em>
+<a class="jxr_linenumber" name="L436" href="#L436">436</a>     }
+<a class="jxr_linenumber" name="L437" href="#L437">437</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

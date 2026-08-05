@@ -57,7 +57,7 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>              DEFAULT_CACHE_SIZE = 20480;
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>          }
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      }
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Map&lt;Long, ReferenceCountedOpenSslEngine&gt; engines;
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> <a name="OpenSslEngineMap" href="../../../../io/netty/handler/ssl/OpenSslEngineMap.html#OpenSslEngineMap">OpenSslEngineMap</a> engines;
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>  
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> Map&lt;OpenSslSessionId, NativeSslSession&gt; sessions =
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>              <strong class="jxr_keyword">new</strong> LinkedHashMap&lt;OpenSslSessionId, NativeSslSession&gt;() {
@@ -82,7 +82,7 @@
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">final</strong> AtomicInteger sessionTimeout = <strong class="jxr_keyword">new</strong> AtomicInteger(300);
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> sessionCounter;
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>  
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <a name="OpenSslSessionCache" href="../../../../io/netty/handler/ssl/OpenSslSessionCache.html#OpenSslSessionCache">OpenSslSessionCache</a>(Map&lt;Long, ReferenceCountedOpenSslEngine&gt; engines) {
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>      <a name="OpenSslSessionCache" href="../../../../io/netty/handler/ssl/OpenSslSessionCache.html#OpenSslSessionCache">OpenSslSessionCache</a>(<a name="OpenSslEngineMap" href="../../../../io/netty/handler/ssl/OpenSslEngineMap.html#OpenSslEngineMap">OpenSslEngineMap</a> engines) {
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>          <strong class="jxr_keyword">this</strong>.engines = engines;
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>      }
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>  

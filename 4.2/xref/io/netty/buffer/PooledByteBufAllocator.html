@@ -368,7 +368,7 @@
 <a class="jxr_linenumber" name="L360" href="#L360">360</a>     }
 <a class="jxr_linenumber" name="L361" href="#L361">361</a> 
 <a class="jxr_linenumber" name="L362" href="#L362">362</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">int</strong> validateAndCalculateChunkSize(<strong class="jxr_keyword">int</strong> pageSize, <strong class="jxr_keyword">int</strong> maxOrder) {
-<a class="jxr_linenumber" name="L363" href="#L363">363</a>         <strong class="jxr_keyword">if</strong> (maxOrder &gt; 14) {
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         <strong class="jxr_keyword">if</strong> (maxOrder &lt; 0 || maxOrder &gt; 14) {
 <a class="jxr_linenumber" name="L364" href="#L364">364</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> IllegalArgumentException(<span class="jxr_string">"maxOrder: "</span> + maxOrder + <span class="jxr_string">" (expected: 0-14)"</span>);
 <a class="jxr_linenumber" name="L365" href="#L365">365</a>         }
 <a class="jxr_linenumber" name="L366" href="#L366">366</a> 

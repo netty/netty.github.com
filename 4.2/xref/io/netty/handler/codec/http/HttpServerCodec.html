@@ -290,11 +290,17 @@
 <a class="jxr_linenumber" name="L282" href="#L282">282</a> 
 <a class="jxr_linenumber" name="L283" href="#L283">283</a>         @Override
 <a class="jxr_linenumber" name="L284" href="#L284">284</a>         <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">boolean</strong> isContentAlwaysEmpty(<a name="HttpResponse" href="../../../../../io/netty/handler/codec/http/HttpResponse.html#HttpResponse">HttpResponse</a> msg) {
-<a class="jxr_linenumber" name="L285" href="#L285">285</a>             methodFlag = pollMethod();
-<a class="jxr_linenumber" name="L286" href="#L286">286</a>             <strong class="jxr_keyword">return</strong> methodFlag == METHOD_FLAG_HEAD || <strong class="jxr_keyword">super</strong>.isContentAlwaysEmpty(msg);
-<a class="jxr_linenumber" name="L287" href="#L287">287</a>         }
-<a class="jxr_linenumber" name="L288" href="#L288">288</a>     }
-<a class="jxr_linenumber" name="L289" href="#L289">289</a> }
+<a class="jxr_linenumber" name="L285" href="#L285">285</a>             <strong class="jxr_keyword">if</strong> (msg.status().codeClass() == HttpStatusClass.INFORMATIONAL) {
+<a class="jxr_linenumber" name="L286" href="#L286">286</a>                 <em class="jxr_comment">// An informational response should be excluded from paired comparison. This covers 101 as well:</em>
+<a class="jxr_linenumber" name="L287" href="#L287">287</a>                 <em class="jxr_comment">// once the protocol is switched this handler is removed from the pipeline, so the entry that is</em>
+<a class="jxr_linenumber" name="L288" href="#L288">288</a>                 <em class="jxr_comment">// left behind goes away with it. Just delegate to super method which has all the needed handling.</em>
+<a class="jxr_linenumber" name="L289" href="#L289">289</a>                 <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">super</strong>.isContentAlwaysEmpty(msg);
+<a class="jxr_linenumber" name="L290" href="#L290">290</a>             }
+<a class="jxr_linenumber" name="L291" href="#L291">291</a>             methodFlag = pollMethod();
+<a class="jxr_linenumber" name="L292" href="#L292">292</a>             <strong class="jxr_keyword">return</strong> methodFlag == METHOD_FLAG_HEAD || <strong class="jxr_keyword">super</strong>.isContentAlwaysEmpty(msg);
+<a class="jxr_linenumber" name="L293" href="#L293">293</a>         }
+<a class="jxr_linenumber" name="L294" href="#L294">294</a>     }
+<a class="jxr_linenumber" name="L295" href="#L295">295</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>

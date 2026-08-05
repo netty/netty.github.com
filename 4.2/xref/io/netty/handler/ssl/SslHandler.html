@@ -893,10 +893,10 @@
 <a class="jxr_linenumber" name="L885" href="#L885">885</a>                         }
 <a class="jxr_linenumber" name="L886" href="#L886">886</a>                         result = wrap(alloc, engine, buf, out);
 <a class="jxr_linenumber" name="L887" href="#L887">887</a>                     }
-<a class="jxr_linenumber" name="L888" href="#L888">888</a>                 } <strong class="jxr_keyword">catch</strong> (SSLException e) {
-<a class="jxr_linenumber" name="L889" href="#L889">889</a>                     <em class="jxr_comment">// Either wrapMultiple(...) or wrap(...) did throw. In this case we need to release the buffer</em>
-<a class="jxr_linenumber" name="L890" href="#L890">890</a>                     <em class="jxr_comment">// that we removed from pendingUnencryptedWrites before failing the promise and rethrowing it.</em>
-<a class="jxr_linenumber" name="L891" href="#L891">891</a>                     <em class="jxr_comment">// Failing to do so would result in a buffer leak.</em>
+<a class="jxr_linenumber" name="L888" href="#L888">888</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable e) {
+<a class="jxr_linenumber" name="L889" href="#L889">889</a>                     <em class="jxr_comment">// Either wrapMultiple(...), wrap(...) or allocateOutNetBuf(...) did throw.</em>
+<a class="jxr_linenumber" name="L890" href="#L890">890</a>                     <em class="jxr_comment">// In this case we need to release the buffer that we removed from pendingUnencryptedWrites</em>
+<a class="jxr_linenumber" name="L891" href="#L891">891</a>                     <em class="jxr_comment">// before failing the promise and rethrowing it. Failing to do so would result in a buffer leak.</em>
 <a class="jxr_linenumber" name="L892" href="#L892">892</a>                     <em class="jxr_comment">// See https://github.com/netty/netty/issues/14644</em>
 <a class="jxr_linenumber" name="L893" href="#L893">893</a>                     <em class="jxr_comment">//</em>
 <a class="jxr_linenumber" name="L894" href="#L894">894</a>                     <em class="jxr_comment">// We don't need to release out here as this is done in a finally block already.</em>

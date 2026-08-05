@@ -102,11 +102,21 @@
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>  
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>          <strong class="jxr_keyword">final</strong> <a name="Socks5AddressType" href="../../../../../../io/netty/handler/codec/socksx/v5/Socks5AddressType.html#Socks5AddressType">Socks5AddressType</a> bndAddrType = msg.bndAddrType();
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>          out.writeByte(bndAddrType.byteValue());
-<a class="jxr_linenumber" name="L97" href="#L97">97</a>          addressEncoder.encodeAddress(bndAddrType, msg.bndAddr(), out);
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>  
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          ByteBufUtil.writeShortBE(out, msg.bndPort());
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>     }
-<a class="jxr_linenumber" name="L101" href="#L101">101</a> }
+<a class="jxr_linenumber" name="L97" href="#L97">97</a>          String addrValue = msg.bndAddr();
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>          <strong class="jxr_keyword">if</strong> (addrValue != <strong class="jxr_keyword">null</strong> &amp;&amp; bndAddrType == Socks5AddressType.DOMAIN) {
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>              checkFieldLength(addrValue.length());
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         }
+<a class="jxr_linenumber" name="L101" href="#L101">101</a>         addressEncoder.encodeAddress(bndAddrType, addrValue, out);
+<a class="jxr_linenumber" name="L102" href="#L102">102</a> 
+<a class="jxr_linenumber" name="L103" href="#L103">103</a>         ByteBufUtil.writeShortBE(out, msg.bndPort());
+<a class="jxr_linenumber" name="L104" href="#L104">104</a>     }
+<a class="jxr_linenumber" name="L105" href="#L105">105</a> 
+<a class="jxr_linenumber" name="L106" href="#L106">106</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">void</strong> checkFieldLength(<strong class="jxr_keyword">int</strong> length) {
+<a class="jxr_linenumber" name="L107" href="#L107">107</a>         <strong class="jxr_keyword">if</strong> (length &gt; 255 || length &lt; 0) {
+<a class="jxr_linenumber" name="L108" href="#L108">108</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="EncoderException" href="../../../../../../io/netty/handler/codec/EncoderException.html#EncoderException">EncoderException</a>(<span class="jxr_string">"Invalid field length value: "</span> + length);
+<a class="jxr_linenumber" name="L109" href="#L109">109</a>         }
+<a class="jxr_linenumber" name="L110" href="#L110">110</a>     }
+<a class="jxr_linenumber" name="L111" href="#L111">111</a> }
 </pre>
 <hr/>
 <div id="footer">© 2008–2026 <a href="https://netty.io/">The Netty Project</a></div>
