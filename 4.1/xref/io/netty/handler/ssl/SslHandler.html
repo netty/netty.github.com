@@ -857,7 +857,7 @@
 <a class="jxr_linenumber" name="L849" href="#L849">849</a>                     <strong class="jxr_keyword">break</strong>;
 <a class="jxr_linenumber" name="L850" href="#L850">850</a>                 }
 <a class="jxr_linenumber" name="L851" href="#L851">851</a> 
-<a class="jxr_linenumber" name="L852" href="#L852">852</a>                 SSLEngineResult result;
+<a class="jxr_linenumber" name="L852" href="#L852">852</a>                 SSLEngineResult result = <strong class="jxr_keyword">null</strong>;
 <a class="jxr_linenumber" name="L853" href="#L853">853</a> 
 <a class="jxr_linenumber" name="L854" href="#L854">854</a>                 <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L855" href="#L855">855</a>                     <strong class="jxr_keyword">if</strong> (buf.readableBytes() &gt; MAX_PLAINTEXT_LENGTH) {
@@ -882,16 +882,16 @@
 <a class="jxr_linenumber" name="L874" href="#L874">874</a>                         }
 <a class="jxr_linenumber" name="L875" href="#L875">875</a>                         result = wrap(alloc, engine, buf, out);
 <a class="jxr_linenumber" name="L876" href="#L876">876</a>                     }
-<a class="jxr_linenumber" name="L877" href="#L877">877</a>                 } <strong class="jxr_keyword">catch</strong> (SSLException e) {
-<a class="jxr_linenumber" name="L878" href="#L878">878</a>                     <em class="jxr_comment">// Either wrapMultiple(...) or wrap(...) did throw. In this case we need to release the buffer</em>
-<a class="jxr_linenumber" name="L879" href="#L879">879</a>                     <em class="jxr_comment">// that we removed from pendingUnencryptedWrites before failing the promise and rethrowing it.</em>
-<a class="jxr_linenumber" name="L880" href="#L880">880</a>                     <em class="jxr_comment">// Failing to do so would result in a buffer leak.</em>
+<a class="jxr_linenumber" name="L877" href="#L877">877</a>                 } <strong class="jxr_keyword">catch</strong> (Throwable e) {
+<a class="jxr_linenumber" name="L878" href="#L878">878</a>                     <em class="jxr_comment">// Either wrapMultiple(...), wrap(...) or allocateOutNetBuf(...) did throw.</em>
+<a class="jxr_linenumber" name="L879" href="#L879">879</a>                     <em class="jxr_comment">// In this case we need to release the buffer that we removed from pendingUnencryptedWrites</em>
+<a class="jxr_linenumber" name="L880" href="#L880">880</a>                     <em class="jxr_comment">// before failing the promise and rethrowing it. Failing to do so would result in a buffer leak.</em>
 <a class="jxr_linenumber" name="L881" href="#L881">881</a>                     <em class="jxr_comment">// See https://github.com/netty/netty/issues/14644</em>
 <a class="jxr_linenumber" name="L882" href="#L882">882</a>                     <em class="jxr_comment">//</em>
 <a class="jxr_linenumber" name="L883" href="#L883">883</a>                     <em class="jxr_comment">// We don't need to release out here as this is done in a finally block already.</em>
 <a class="jxr_linenumber" name="L884" href="#L884">884</a>                     buf.release();
 <a class="jxr_linenumber" name="L885" href="#L885">885</a>                     promise.setFailure(e);
-<a class="jxr_linenumber" name="L886" href="#L886">886</a>                     <strong class="jxr_keyword">throw</strong> e;
+<a class="jxr_linenumber" name="L886" href="#L886">886</a>                     PlatformDependent.throwException(e);
 <a class="jxr_linenumber" name="L887" href="#L887">887</a>                 }
 <a class="jxr_linenumber" name="L888" href="#L888">888</a> 
 <a class="jxr_linenumber" name="L889" href="#L889">889</a>                 <strong class="jxr_keyword">if</strong> (buf.isReadable()) {

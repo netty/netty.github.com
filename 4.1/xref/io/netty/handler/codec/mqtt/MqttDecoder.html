@@ -560,8 +560,8 @@
 <a class="jxr_linenumber" name="L552" href="#L552">552</a>         <strong class="jxr_keyword">final</strong> String decodedClientIdValue = decodedClientId.value;
 <a class="jxr_linenumber" name="L553" href="#L553">553</a>         <strong class="jxr_keyword">final</strong> <a name="MqttVersion" href="../../../../../io/netty/handler/codec/mqtt/MqttVersion.html#MqttVersion">MqttVersion</a> mqttVersion = MqttVersion.fromProtocolNameAndLevel(mqttConnectVariableHeader.name(),
 <a class="jxr_linenumber" name="L554" href="#L554">554</a>                 (byte) mqttConnectVariableHeader.version());
-<a class="jxr_linenumber" name="L555" href="#L555">555</a>         <strong class="jxr_keyword">if</strong> (!isValidClientId(mqttVersion, maxClientIdLength, decodedClientIdValue)) {
-<a class="jxr_linenumber" name="L556" href="#L556">556</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="MqttIdentifierRejectedException" href="../../../../../io/netty/handler/codec/mqtt/MqttIdentifierRejectedException.html#MqttIdentifierRejectedException">MqttIdentifierRejectedException</a>(<span class="jxr_string">"invalid clientIdentifier: "</span> + decodedClientIdValue);
+<a class="jxr_linenumber" name="L555" href="#L555">555</a>         <strong class="jxr_keyword">if</strong> (!isValidClientId(mqttVersion, maxClientIdLength, decodedClientIdValue, !strictUtf8Validation)) {
+<a class="jxr_linenumber" name="L556" href="#L556">556</a>             <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> <a name="MqttIdentifierRejectedException" href="../../../../../io/netty/handler/codec/mqtt/MqttIdentifierRejectedException.html#MqttIdentifierRejectedException">MqttIdentifierRejectedException</a>(<span class="jxr_string">"invalid clientIdentifier"</span>);
 <a class="jxr_linenumber" name="L557" href="#L557">557</a>         }
 <a class="jxr_linenumber" name="L558" href="#L558">558</a>         <strong class="jxr_keyword">int</strong> numberOfBytesConsumed = decodedClientId.numberOfBytesConsumed;
 <a class="jxr_linenumber" name="L559" href="#L559">559</a> 

@@ -525,7 +525,7 @@
 <a class="jxr_linenumber" name="L517" href="#L517">517</a> 
 <a class="jxr_linenumber" name="L518" href="#L518">518</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">boolean</strong> doesSupportOcsp() {
 <a class="jxr_linenumber" name="L519" href="#L519">519</a>         <strong class="jxr_keyword">boolean</strong> supportsOcsp = false;
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>         <strong class="jxr_keyword">if</strong> (version() &gt;= 0x10002000L) {
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>         <strong class="jxr_keyword">if</strong> (isBoringSSL() || isAWSLC()) {
 <a class="jxr_linenumber" name="L521" href="#L521">521</a>             <strong class="jxr_keyword">long</strong> sslCtx = -1;
 <a class="jxr_linenumber" name="L522" href="#L522">522</a>             <strong class="jxr_keyword">try</strong> {
 <a class="jxr_linenumber" name="L523" href="#L523">523</a>                 sslCtx = SSLContext.make(SSL.SSL_PROTOCOL_TLSV1_2, SSL.SSL_MODE_SERVER);

@@ -93,7 +93,7 @@
 <a class="jxr_linenumber" name="L85" href="#L85">85</a>                      WebSocketServerProtocolHandler.setHandshaker(ctx.channel(), handshaker);
 <a class="jxr_linenumber" name="L86" href="#L86">86</a>                      ctx.pipeline().remove(<strong class="jxr_keyword">this</strong>);
 <a class="jxr_linenumber" name="L87" href="#L87">87</a>  
-<a class="jxr_linenumber" name="L88" href="#L88">88</a>                      <strong class="jxr_keyword">final</strong> <a name="ChannelFuture" href="../../../../../../io/netty/channel/ChannelFuture.html#ChannelFuture">ChannelFuture</a> handshakeFuture = handshaker.handshake(ctx.channel(), req);
+<a class="jxr_linenumber" name="L88" href="#L88">88</a>                      <strong class="jxr_keyword">final</strong> <a name="ChannelFuture" href="../../../../../../io/netty/channel/ChannelFuture.html#ChannelFuture">ChannelFuture</a> handshakeFuture = handshaker.handshake(ctx, req);
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>                      handshakeFuture.addListener(<strong class="jxr_keyword">new</strong> <a name="ChannelFutureListener" href="../../../../../../io/netty/channel/ChannelFutureListener.html#ChannelFutureListener">ChannelFutureListener</a>() {
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>                          @Override
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>                          <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> operationComplete(<a name="ChannelFuture" href="../../../../../../io/netty/channel/ChannelFuture.html#ChannelFuture">ChannelFuture</a> future) {
