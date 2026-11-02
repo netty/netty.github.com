@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Netty.news: Netty 4.2.20.Final released</title>
+<title>Netty: Netty 4.2.20.Final released</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link href="../../../../images/favicon.ico" rel="shortcut icon">
+<link href="//feeds.feedburner.com/netty_project" rel="alternate" title="News Feed" type="application/rss+xml">
+<style>
+  body {
+    padding-top: 60px;
+  }
+</style>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" media="screen" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" media="screen" rel="stylesheet" type="text/css">
+<script src="../../../../lib/sh/scripts/shCore.js" type="text/javascript"></script>
+<script src="../../../../lib/sh/scripts/shBrushXml.js" type="text/javascript"></script>
+<link href="../../../../lib/sh/styles/shCore.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/sh/styles/shThemeDefault.css" rel="stylesheet" type="text/css">
+<link href="../../../../lib/common.css" rel="stylesheet" type="text/css">
+<script src="../../../../lib/common.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js" type="text/javascript"></script>
+<![endif]-->
+</head>
+<body>
+<a class="sr-only" href="#content" id="top">Skip navigation</a>
+<nav class="navbar navbar-default navbar-fixed-top hidden-print" id="header" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../index.html">
+<span class="navbar-brand-logo"></span>
+Netty project
+</a>
+</div>
+<div class="navbar-collapse collapse">
+<ul class="nav navbar-nav">
+<li class="dropdown">
+<a href="../../../../news/2026/11/02/4-2-20-Final.html">
+News
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../news/index.html">
+<i class="fa fa-archive"></i>
+Archive
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../downloads.html">
+Downloads
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-5.0.0.Alpha5.tar.gz">
+<i class="fa fa-cloud-download"></i>
+5.0.0.Alpha5
+<small>&dash; 28-Sep-2022</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.20.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.2.20.Final
+<small>&dash; 02-Nov-2026</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.140.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.1.140.Final
+<small>&dash; 02-Nov-2026</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.0.56.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+4.0.56.Final
+<small>&dash; 05-Feb-2018</small>
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-3.10.6.Final.tar.gz">
+<i class="fa fa-cloud-download"></i>
+3.10.6.Final
+<small>&dash; 29-Jun-2016</small>
+</a>
+</li>
+<li>
+<a href="https://www.tldrlegal.com/l/APACHE2">
+<i class="fa fa-gavel"></i>
+Apache License 2.0
+</a>
+</li>
+<li>
+<a href="https://github.com/netty/netty/releases">
+<i class="fa fa-archive"></i>
+Previous Releases
+</a>
+</li>
+<li>
+<a href="https://oss.sonatype.org/content/repositories/snapshots/io/netty/">
+<i class="fa fa-flask"></i>
+Nightly Builds
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../wiki/index.html">
+Documentation
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../../../wiki/user-guide.html">
+<i class="fa fa-book"></i>
+User guide
+</a>
+</li>
+<li>
+<a href="../../../../5.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 5.0
+</a>
+</li>
+<li>
+<a href="../../../../4.2/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.2
+</a>
+</li>
+<li>
+<a href="../../../../4.1/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.1
+</a>
+</li>
+<li>
+<a href="../../../../4.0/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 4.0
+</a>
+</li>
+<li>
+<a href="../../../../3.10/api/index.html">
+<i class="fa fa-file-text"></i>
+Javadoc - 3.10
+</a>
+</li>
+<li>
+<a href="../../../../wiki/all-documents.html">
+<i class="fa fa-list"></i>
+All Documents
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-articles.html">
+<i class="fa fa-bookmark"></i>
+Related Articles
+</a>
+</li>
+<li class="hidden-xs" id="bookpromo-dropdown">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="../../../../community.html">
+Get Involved
+</a>
+<ul class="dropdown-menu">
+<li>
+<a href="https://github.com/netty/netty">
+<i class="fa fa-github-square"></i>
+Github
+</a>
+</li>
+<li>
+<a href="https://stackoverflow.com/questions/tagged/netty">
+<i class="fa fa-stack-overflow"></i>
+StackOverflow
+</a>
+</li>
+<li>
+<a href="https://twitter.com/netty_project">
+<i class="fa fa-twitter-square"></i>
+@netty_project
+</a>
+</li>
+<li>
+<a href="../../../../wiki/developer-guide.html">
+<i class="fa fa-cogs"></i>
+Developer Guide
+</a>
+</li>
+<li>
+<a href="https://discord.gg/GkGzzdQM5d">
+<i class="fa fa-comment"></i>
+Discord Server
+</a>
+</li>
+<li>
+<a href="../../../../sponsor/thanks.html">
+<i class="fa fa-usd"></i>
+Sponsors
+</a>
+</li>
+<li>
+<a href="../../../../wiki/adopters.html">
+<i class="fa fa-users"></i>
+Adopters
+</a>
+</li>
+<li>
+<a href="../../../../wiki/related-projects.html">
+<i class="fa fa-chain"></i>
+Related Projects
+</a>
+</li>
+</ul>
+</li>
+<li class="visible-xs" id="bookpromo-nav">
+<a href="https://www.manning.com/maurer/">
+<img src="../../../../images/netty-in-action.gif">
+<br>
+<small>
+Use code <strong>mlnettyco</strong>
+<br>
+for a 37% discount!
+</small>
+</a>
+</li>
+<li>
+<a href="https://feeds.feedburner.com/netty_project">
+<i class="fa fa-rss"></i>
+</a>
+</li>
+</ul>
+<form action="../../../../search.html" class="navbar-form navbar-right hidden-sm" method="GET" onsubmit="return validateGlobalSearchQuery()" role="search">
+<div class="form-group">
+<input class="search-query form-control" id="global-search-query" name="q" placeholder="Search" type="text">
+</div>
+</form>
+</div>
+</div>
+</nav>
+<div id="content">
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+<div class="news-item" id="main-content">
+<h1>
+Netty 4.2.20.Final released
+</h1>
+<p class="byline">
+<small>
+by
+<a href="https://github.com/chrisvest">chrisvest</a>
+<br>
+on
+<time datetime="2026-11-02">02-Nov-2026</time>
+</small>
+</p>
+<div class="news-content">
+<p>We are happy to announce the release of Netty 4.2.20.Final. This is a bug-fix and security release.</p>
+
+<p><strong>Note that <a href="https://netty.io/news/2026/09/09/4-1-EOL-announcement.html">Netty 4.1 will be End-of-Life on July 1st, 2027</a>.</strong></p>
+
+<p>We strongly recommend upgrading to this version to get the following security fixes:</p>
+
+<ul>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-m77g-r4c7-3w77">CVE-2026-XXXXX</a> : out-of-bounds read in <code>netty-buffer</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-v2v6-vch9-4pcg">CVE-2026-XXXXX</a> : inefficient CPU computation in <code>netty-codec-http3</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-rx4g-qxm6-238r">CVE-2026-XXXXX</a> : out-of-bounds read in <code>netty-buffer</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-cqmg-wc9g-fpj8">CVE-2026-XXXXX</a> : insufficient entropy in <code>netty-resolver-dns</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-hc9x-r52h-gh4x">CVE-2026-XXXXX</a> : unbounded memory usage in <code>netty-codec-http2</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-42mp-m8rq-6rgj">CVE-2026-XXXXX</a> : insufficient control character neutralization in <code>netty-codec-http</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-w53r-xhgx-8582">CVE-2026-XXXXX</a> : use-after-free in <code>netty-codec-classes-quic</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-qhw9-p586-v948">CVE-2026-XXXXX</a> : out-of-bounds read in <code>netty-buffer</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-84gx-4cj4-rm7q">CVE-2026-XXXXX</a> : unbounded memory usage in <code>netty-codec-mqtt</code></li>
+<li><a href="https://github.com/netty/netty/security/advisories/GHSA-6xv6-9mgg-mfvc">CVE-2026-XXXXX</a> : mTLS auth bypass via session resumption in <code>netty-handler</code> and <code>netty-codec-quic</code></li>
+</ul>
+
+
+<p>Other significant changes are:</p>
+
+<ul>
+<li>IoUring: Fix empty <code>writev</code> submissions after <code>sendmsg_zc</code> <a href="https://github.com/netty/netty/pull/17782">#17782</a></li>
+<li>Do not let a negatively cached search domain shadow a positive one <a href="https://github.com/netty/netty/pull/17623">#17623</a></li>
+<li>Reject Redis lines that start with <code>LF</code> <a href="https://github.com/netty/netty/pull/17793">#17793</a></li>
+<li>Choose server key types from client's signature algorithms for TLS 1.3 <a href="https://github.com/netty/netty/pull/17764">#17764</a></li>
+<li>LocalChannel: Deliver data written by the peer before it closed <a href="https://github.com/netty/netty/pull/17816">#17816</a></li>
+<li>Validate padding of <code>HEADERS</code> frames without priority <a href="https://github.com/netty/netty/pull/17817">#17817</a></li>
+<li>Don't spin in <code>SslHandler.wrapMultiple(...)</code> when the engine consumes nothing <a href="https://github.com/netty/netty/pull/17728">#17728</a></li>
+<li>Preserve invalid SNI names in <code>ReferenceCountedOpenSslEngine</code> <a href="https://github.com/netty/netty/pull/17781">#17781</a></li>
+<li>Optimize redundant bounds checking in <code>ByteBuf.setBytes</code> <a href="https://github.com/netty/netty/pull/17023">#17023</a></li>
+<li>Respect <code>SETTINGS_QPACK_BLOCKED_STREAMS</code> for unacknowledged QPACK entries <a href="https://github.com/netty/netty/pull/17754">#17754</a></li>
+<li>Release the DNS response when a query future loses a cancel race <a href="https://github.com/netty/netty/pull/17475">#17475</a></li>
+<li>Lazily instantiate VarHandle JCTools queues via holder class <a href="https://github.com/netty/netty/pull/17750">#17750</a></li>
+<li>Keep reading a closed QUIC stream until the end of its input <a href="https://github.com/netty/netty/pull/17755">#17755</a></li>
+<li>Throw <code>UnsupportedOperationException</code> from <code>AdaptiveByteBuf.memoryAddress()</code> without an address <a href="https://github.com/netty/netty/pull/17820">#17820</a></li>
+<li>HAProxyMessage: validate the length of all TLV types <a href="https://github.com/netty/netty/pull/17834">#17834</a></li>
+<li>Fix <code>HpackDynamicTable</code> losing entries when filled to capacity <a href="https://github.com/netty/netty/pull/17831">#17831</a></li>
+<li>Make <code>AdaptiveByteBuf.memoryAddress()</code> faster <a href="https://github.com/netty/netty/pull/17767">#17767</a></li>
+<li>Validate bzip2 Huffman code lengths before building decode tables <a href="https://github.com/netty/netty/pull/17812">#17812</a></li>
+<li>Validate header values on <code>DefaultHeaders.copy()</code>, bulk <code>add</code>, entry <code>setValue</code> and <code>ReadOnlyHttpHeaders</code> <a href="https://github.com/netty/netty/pull/17841">#17841</a></li>
+<li>Throw <code>DecompressionException</code> on <code>JdkZlib</code> preset dictionary mismatch <a href="https://github.com/netty/netty/pull/17838">#17838</a></li>
+<li>Reject HTTP version numbers that overflow int <a href="https://github.com/netty/netty/pull/17836">#17836</a></li>
+<li>Apply certificate list size floor <a href="https://github.com/netty/netty/pull/17674">#17674</a></li>
+<li>HAProxyMessageEncoder: encode v1 <code>PROXY UNKNOWN</code> headers <a href="https://github.com/netty/netty/pull/17837">#17837</a></li>
+<li>HAProxyMessage: decode TLVs with an empty value at the end of the header <a href="https://github.com/netty/netty/pull/17835">#17835</a></li>
+<li>Reject invalid content-length in <code>PUSH_PROMISE</code> with a stream error <a href="https://github.com/netty/netty/pull/17867">#17867</a></li>
+<li>Honor <code>maxAllocation</code> for brotli in <code>DelegatingDecompressorFrameListener</code> <a href="https://github.com/netty/netty/pull/17866">#17866</a></li>
+<li>HAProxyMessageDecoder: fix v2 header framing with a non-zero reader index <a href="https://github.com/netty/netty/pull/17832">#17832</a></li>
+<li>Avoid allocating NIO buffer views in <code>AdaptiveByteBuf.setBytes(int, ByteBuf, int, int)</code> <a href="https://github.com/netty/netty/pull/17840">#17840</a></li>
+<li>Skip JNDI nameserver lookup on IBM i <a href="https://github.com/netty/netty/pull/17872">#17872</a></li>
+<li>Reset the <code>h2c</code> upgrade stream if the request can not be converted <a href="https://github.com/netty/netty/pull/17869">#17869</a></li>
+<li>Don't size <code>ZstdDecoder</code> output buffers from the frame content size <a href="https://github.com/netty/netty/pull/17896">#17896</a></li>
+<li>Fix NPE in <code>Http2FrameCodec</code> when <code>h2c</code> upgrade fails <a href="https://github.com/netty/netty/pull/17871">#17871</a></li>
+<li>GroupsConverter: fix the <code>x25519mlkem768</code> group name <a href="https://github.com/netty/netty/pull/17898">#17898</a></li>
+<li>Don't count insertions twice in QPACK Insert Count Increments <a href="https://github.com/netty/netty/pull/17756">#17756</a></li>
+<li>Don't lose frames when a delimiter is split across reads <a href="https://github.com/netty/netty/pull/17665">#17665</a></li>
+<li>Register JFR events only once a Flight Recorder exists <a href="https://github.com/netty/netty/pull/17614">#17614</a></li>
+<li>Read SOCKS5 length octets unsigned in the legacy socks decoders <a href="https://github.com/netty/netty/pull/17912">#17912</a></li>
+<li>Fix truncated output in Brotli decoders <a href="https://github.com/netty/netty/pull/17870">#17870</a></li>
+<li>Reject truncated QPACK prefixed integers in field section decode <a href="https://github.com/netty/netty/pull/17778">#17778</a></li>
+<li>Resolve malloc/free via <code>dlsym(RTLD_DEFAULT)</code> in <code>CleanerJava24Linker</code> <a href="https://github.com/netty/netty/pull/17811">#17811</a></li>
+<li>Wrap trailing ';' in <code>Content-Disposition</code> as <code>ErrorDataDecoderException</code> <a href="https://github.com/netty/netty/pull/17895">#17895</a></li>
+<li>Avoid reflection when obtaining the process ID on Java 9+ <a href="https://github.com/netty/netty/pull/17873">#17873</a></li>
+<li>Keep <code>WINDOW_UPDATE</code> credit of reserved HTTP/2 streams on activation <a href="https://github.com/netty/netty/pull/17611">#17611</a></li>
+<li>IoUring: Apply <code>IOV_MAX</code> to each write instead of to all writes until submit <a href="https://github.com/netty/netty/pull/17932">#17932</a></li>
+<li>Add consistent TLS certificate compression support <a href="https://github.com/netty/netty/pull/17548">#17548</a></li>
+<li>Avoid unnecessary String allocation in <code>WebSocketServerProtocolHandshakeHandler</code> <a href="https://github.com/netty/netty/pull/16666">#16666</a></li>
+<li>io_uring: Don't let <code>msgHdrMemoryArray()</code> clear the iovecs of a pending zero-copy write <a href="https://github.com/netty/netty/pull/17946">#17946</a></li>
+<li>Refresh CA bundle before downloading the aarch64 GCC toolchain <a href="https://github.com/netty/netty/pull/17948">#17948</a></li>
+<li>Accept empty non-final fragments in <code>PerMessageDeflateEncoder</code> <a href="https://github.com/netty/netty/pull/17943">#17943</a></li>
+<li>Exclude the <code>ProcessHandle</code> stub from Surefire in common and buffer <a href="https://github.com/netty/netty/pull/17949">#17949</a></li>
+<li>Verify toolchain downloads in release Dockerfiles against pinned SHA-256 <a href="https://github.com/netty/netty/pull/17940">#17940</a></li>
+<li>HTTP/2: Don't pass the close promise to a deferred close <a href="https://github.com/netty/netty/pull/17955">#17955</a></li>
+<li>Fix endless value iterators in <code>ReadOnlyHttpHeaders</code> <a href="https://github.com/netty/netty/pull/17961">#17961</a></li>
+<li>Hash all 8-byte blocks in <code>SipHash.macHash(...)</code> when position is not 0 <a href="https://github.com/netty/netty/pull/17974">#17974</a></li>
+<li>Fix <code>AsciiString.contains(...)</code> false negatives after a partial match <a href="https://github.com/netty/netty/pull/17975">#17975</a></li>
+<li>Don't invert <code>IP_MULTICAST_LOOP_DISABLED</code> in <code>NioDatagramChannelConfig</code> <a href="https://github.com/netty/netty/pull/17969">#17969</a></li>
+<li>Don't drop the last character in <code>AsciiString.trim(CharSequence)</code> <a href="https://github.com/netty/netty/pull/17968">#17968</a></li>
+<li>Fix the region copied by <code>Unpooled.copiedBuffer(CharSequence, int, int, Charset)</code> <a href="https://github.com/netty/netty/pull/17971">#17971</a></li>
+<li>Don't invert <code>IP_MULTICAST_LOOP_DISABLED</code> in <code>NioDatagramChann…</code> <a href="https://github.com/netty/netty/pull/17991">#17991</a></li>
+<li>Treat DATA frames on reserved HTTP/2 streams as a connection error <a href="https://github.com/netty/netty/pull/17868">#17868</a></li>
+<li>Http2: reject generic frames whose payload exceeds <code>SETTINGS_MAX_FRAME_SIZE</code> <a href="https://github.com/netty/netty/pull/17779">#17779</a></li>
+<li>Don't loop forever in <code>AbstractDiskHttpData</code> when the file is short <a href="https://github.com/netty/netty/pull/17973">#17973</a></li>
+<li>Check the second gzip magic byte in <code>JdkZlibDecoder</code> <a href="https://github.com/netty/netty/pull/17972">#17972</a></li>
+<li>Reject reply codes with non-digit characters in <code>SmtpResponseDecoder</code> <a href="https://github.com/netty/netty/pull/17970">#17970</a></li>
+<li>Return <code>null</code> or the default from read-only headers for invalid values <a href="https://github.com/netty/netty/pull/17967">#17967</a></li>
+<li>MqttEncoder: Reject Variable Byte Integers larger than 268435455 <a href="https://github.com/netty/netty/pull/17984">#17984</a></li>
+<li>Fix server-initiated WebSocket close handshake failing with "promise already done" <a href="https://github.com/netty/netty/pull/17983">#17983</a></li>
+<li>Fix <code>Snappy.encode(...)</code> for input with a non-zero reader index <a href="https://github.com/netty/netty/pull/18019">#18019</a></li>
+<li>Fill every remaining byte in the Java 8 <code>SplittableRandom.nextBytes</code> fallback <a href="https://github.com/netty/netty/pull/18009">#18009</a></li>
+<li>Complete the TCP fast open connect before notifying the initial write <a href="https://github.com/netty/netty/pull/18008">#18008</a></li>
+<li>Only delete socket files when binding and closing UDS channels <a href="https://github.com/netty/netty/pull/17980">#17980</a></li>
+<li>Complete the TCP fast open connect before notifying the initial write… <a href="https://github.com/netty/netty/pull/18039">#18039</a></li>
+<li>Use a long file offset when splicing a <code>DefaultFileRegion</code> with io_uring <a href="https://github.com/netty/netty/pull/18018">#18018</a></li>
+<li>Read <code>tv_nsec</code> from the correct offset in <code>QuicheSendInfo.getAtNanos</code> <a href="https://github.com/netty/netty/pull/18045">#18045</a></li>
+<li>Don't truncate the token length of QUIC Initial packets to an <code>int</code> <a href="https://github.com/netty/netty/pull/18046">#18046</a></li>
+<li>Don't use a negative index in <code>QuicCodecDispatcher</code> <a href="https://github.com/netty/netty/pull/18048">#18048</a></li>
+<li>Reject too long UDS paths in sendTo instead of truncating them <a href="https://github.com/netty/netty/pull/18022">#18022</a></li>
+<li>Fix <code>FastLz.readU16</code> when the reader index is not 0 <a href="https://github.com/netty/netty/pull/18054">#18054</a></li>
+<li>Fail to encode DNS messages that are too large for TCP <a href="https://github.com/netty/netty/pull/18058">#18058</a></li>
+<li>Return the haystack's reader index from <code>ByteBufUtil.indexOf(...)</code> for an empty needle <a href="https://github.com/netty/netty/pull/18073">#18073</a></li>
+<li>Return -1 from <code>StringUtil.decodeHexNibble(byte)</code> for non-ASCII bytes <a href="https://github.com/netty/netty/pull/18072">#18072</a></li>
+<li>Fix <code>FastLz.readU16</code> when the reader index is not 0 <a href="https://github.com/netty/netty/pull/18077">#18077</a></li>
+<li>Reject too long UDS paths in sendTo instead of truncating t… <a href="https://github.com/netty/netty/pull/18076">#18076</a></li>
+<li>Don't return an entry twice when removing while iterating a primitive map <a href="https://github.com/netty/netty/pull/18070">#18070</a></li>
+<li>Mark disk-based <code>HttpData</code> as completed after setting empty content <a href="https://github.com/netty/netty/pull/18069">#18069</a></li>
+<li>Don't sign-extend the trailing bytes in <code>SipHash</code> <a href="https://github.com/netty/netty/pull/18047">#18047</a></li>
+<li>Release a SPDY DATA frame that exceeds the session window <a href="https://github.com/netty/netty/pull/18089">#18089</a></li>
+<li>Fix out-of-bounds read when validating UDS paths in the native code <a href="https://github.com/netty/netty/pull/18096">#18096</a></li>
+<li>Update Brotli4j version to 1.24.0 <a href="https://github.com/netty/netty/pull/18097">#18097</a></li>
+<li>Grow <code>KQueueEventArray</code> correctly in realloc <a href="https://github.com/netty/netty/pull/18102">#18102</a></li>
+<li>Update Brotli4j version to 1.24.0 <a href="https://github.com/netty/netty/pull/18104">#18104</a></li>
+<li>Grow <code>KQueueEventArray</code> correctly in realloc <a href="https://github.com/netty/netty/pull/18106">#18106</a></li>
+<li>Send zero-length datagrams instead of dropping or duplicating them <a href="https://github.com/netty/netty/pull/18098">#18098</a></li>
+<li>Read all pending data when the EOF is received before the connect is complete in <code>kqueue</code> <a href="https://github.com/netty/netty/pull/18091">#18091</a></li>
+<li>Reject request-only and response-only pseudo-headers in invalid contexts (RFC 9113) <a href="https://github.com/netty/netty/pull/17752">#17752</a></li>
+<li>Read the 4 byte Snappy literal length as unsigned <a href="https://github.com/netty/netty/pull/18056">#18056</a></li>
+<li>Call FFM directly in the cleaners and link <code>malloc</code>/<code>free</code> on first use <a href="https://github.com/netty/netty/pull/17791">#17791</a></li>
+<li>Deliver all data a <code>LocalChannel</code> peer wrote before it closed <a href="https://github.com/netty/netty/pull/18127">#18127</a></li>
+<li>Make <code>ZlibCertificateCompressionAlgorithm</code> public <a href="https://github.com/netty/netty/pull/18131">#18131</a></li>
+<li>Round up the NIO select timeout again to not busy spin <a href="https://github.com/netty/netty/pull/18138">#18138</a></li>
+<li>Close an HTTP/2 stream only after its last merged <code>DATA</code> frame was written <a href="https://github.com/netty/netty/pull/18126">#18126</a></li>
+<li>Use <code>IP_MULTICAST_IF</code> in <code>leaveGroup</code> and block without an interface <a href="https://github.com/netty/netty/pull/18122">#18122</a></li>
+<li>Add opt-in Origin validation to <code>WebSocketServerProtocolHandler</code> (hardening) <a href="https://github.com/netty/netty/pull/17944">#17944</a></li>
+<li>Add JDK27 profiles <a href="https://github.com/netty/netty/pull/18148">#18148</a></li>
+<li>IoUring:Refactor <code>io_uring</code> write lifecycle management <a href="https://github.com/netty/netty/pull/17757">#17757</a></li>
+<li>Don't lose the alert when the handshake fails in <code>ReferenceCountedOpen…</code> <a href="https://github.com/netty/netty/pull/18155">#18155</a></li>
+<li>Fix buffer over-read in <code>netty_boringssl_password_callback</code> <a href="https://github.com/netty/netty/pull/18163">#18163</a></li>
+<li>Fix freeing of invalid <code>EVP_PKEY</code> handle when parsing a private key fails <a href="https://github.com/netty/netty/pull/18159">#18159</a></li>
+<li>Fix use of out-of-scope variable in <code>netty_quiche_conn_new_scid</code> <a href="https://github.com/netty/netty/pull/18162">#18162</a></li>
+<li>Fix freeing of uninitialized <code>dynamicMethods</code> in <code>netty_quiche_JNI_OnLoad</code> <a href="https://github.com/netty/netty/pull/18161">#18161</a></li>
+<li>Fix use of uninitialized pointers in <code>quic_certificate_cb</code> <a href="https://github.com/netty/netty/pull/18160">#18160</a></li>
+<li>SslHandler: Size the <code>unwrap</code> output buffer for the plaintext, not the record <a href="https://github.com/netty/netty/pull/18028">#18028</a></li>
+<li>Send <code>bad_certificate</code> alert when the <code>TrustManager</code> rejects the certificate <a href="https://github.com/netty/netty/pull/18164">#18164</a></li>
+<li>IoUring: Verify the <code>FileChannel</code> is a <code>FileChannelImpl</code> before reading its <code>fd</code> <a href="https://github.com/netty/netty/pull/18192">#18192</a></li>
+<li>Fix reporting of the wrong error when setting flags on an accepted <code>fd</code> fails <a href="https://github.com/netty/netty/pull/18201">#18201</a></li>
+<li>KQueue: Verify the <code>FileChannel</code> is a <code>FileChannelImpl</code> before reading its <code>fd</code> <a href="https://github.com/netty/netty/pull/18204">#18204</a></li>
+<li>Do not send uninitialized stack memory when sending a <code>fd</code> over a domain socket <a href="https://github.com/netty/netty/pull/18209">#18209</a></li>
+<li>Fix underflow detection in <code>netty_unix_util_timespec_subtract_ns</code> <a href="https://github.com/netty/netty/pull/18214">#18214</a></li>
+<li>Epoll: Verify the <code>FileChannel</code> is a <code>FileChannelImpl</code> before reading its <code>fd</code> <a href="https://github.com/netty/netty/pull/18202">#18202</a></li>
+<li>Epoll: Fix signed integer overflow when calculating the <code>epoll_wait</code> timeout <a href="https://github.com/netty/netty/pull/18213">#18213</a></li>
+<li>Fix read of uninitialized memory when accepting a connection on a domain socket <a href="https://github.com/netty/netty/pull/18212">#18212</a></li>
+<li>Don't encode Snappy copies with an offset that does not fit into 16 bits <a href="https://github.com/netty/netty/pull/18055">#18055</a></li>
+<li>Don't truncate binary memcache key and extras lengths <a href="https://github.com/netty/netty/pull/18041">#18041</a></li>
+<li>Update to latest netty-tcnative release <a href="https://github.com/netty/netty/pull/18231">#18231</a></li>
+<li>Security fixes <a href="https://github.com/netty/netty/pull/18237">#18237</a></li>
+</ul>
+
+
+<p>For more details please see the <a href="https://github.com/netty/netty/releases/tag/netty-4.2.20.Final">complete release notes</a>.</p>
+
+<h1>Thank You</h1>
+
+<p>Every idea and bug-report counts, and so we thought it is worth mentioning those who helped in this area.</p>
+
+<p>Please report an unintended omission.</p>
+
+<ul>
+<li><a href="https://github.com/chrisvest">@chrisvest</a></li>
+<li><a href="https://github.com/daschl">@daschl</a></li>
+<li><a href="https://github.com/lhotari">@lhotari</a></li>
+<li><a href="https://github.com/gavinbunney">@gavinbunney</a></li>
+<li><a href="https://github.com/normanmaurer">@normanmaurer</a></li>
+<li><a href="https://github.com/DavideD">@DavideD</a></li>
+<li><a href="https://github.com/jwils">@jwils</a></li>
+<li><a href="https://github.com/vpelikh">@vpelikh</a></li>
+<li><a href="https://github.com/yawkat">@yawkat</a></li>
+<li><a href="https://github.com/bryce-anderson">@bryce-anderson</a></li>
+<li><a href="https://github.com/idelpivnitskiy">@idelpivnitskiy</a></li>
+<li><a href="https://github.com/arnabnandy7">@arnabnandy7</a></li>
+<li><a href="https://github.com/cj848">@cj848</a></li>
+<li><a href="https://github.com/akilegaspi">@akilegaspi</a></li>
+<li><a href="https://github.com/Marti2203">@Marti2203</a></li>
+<li><a href="https://github.com/franz1981">@franz1981</a></li>
+<li><a href="https://github.com/rajan-github">@rajan-github</a></li>
+<li><a href="https://github.com/AbhishekShukla1289">@AbhishekShukla1289</a></li>
+<li><a href="https://github.com/hyperxpro">@hyperxpro</a></li>
+<li><a href="https://github.com/watson-ryan">@watson-ryan</a></li>
+<li><a href="https://github.com/CCCLL">@CCCLL</a></li>
+<li><a href="https://github.com/allthingssecurity">@allthingssecurity</a></li>
+<li><a href="https://github.com/dreamlike-ocean">@dreamlike-ocean</a></li>
+<li><a href="https://github.com/manish-9245">@manish-9245</a></li>
+<li><a href="https://github.com/eager-signal">@eager-signal</a></li>
+<li><a href="https://github.com/fru1tworld">@fru1tworld</a></li>
+<li><a href="https://github.com/HwangRock">@HwangRock</a></li>
+<li><a href="https://github.com/zsewasdsdsd">@zsewasdsdsd</a></li>
+<li><a href="https://github.com/Raghuvardhan-Reddy78">@Raghuvardhan-Reddy78</a></li>
+</ul>
+
+
+</div>
+<ul class="pager">
+<li class="previous">
+<a href="../../../../news/2026/11/02/4-1-140-Final.html">&larr; Older</a>
+</li>
+<li>
+<a href="../../../index.html">List all news items</a>
+</li>
+<li class="next disabled">
+<a href="#">Newer &rarr;</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<div class="container">
+<hr>
+<div id="footer">
+<p>
+Copyright &copy; 2026
+<a href="../../../../index.html">The Netty project</a>
+</p>
+</div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js" type="text/javascript"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../../../../lib/common.footer.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-95307-5', 'auto');
+ga('require', 'displayfeatures');
+ga('require', 'linkid', 'linkid.js');
+ga('send', 'pageview');
+</script>
+</body>
+</html>
