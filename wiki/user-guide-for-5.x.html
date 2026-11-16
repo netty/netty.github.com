@@ -43,7 +43,7 @@ Netty project
 <div class="navbar-collapse collapse">
 <ul class="nav navbar-nav">
 <li class="dropdown">
-<a href="../news/2026/11/02/4-2-20-Final.html">
+<a href="../news/2026/11/16/4-2-21-Final.html">
 News
 </a>
 <ul class="dropdown-menu">
@@ -68,17 +68,17 @@ Downloads
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.20.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.2.21.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.2.20.Final
-<small>&dash; 02-Nov-2026</small>
+4.2.21.Final
+<small>&dash; 16-Nov-2026</small>
 </a>
 </li>
 <li>
-<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.140.Final.tar.gz">
+<a href="https://github.com/netty/netty/archive/refs/tags/netty-4.1.141.Final.tar.gz">
 <i class="fa fa-cloud-download"></i>
-4.1.140.Final
-<small>&dash; 02-Nov-2026</small>
+4.1.141.Final
+<small>&dash; 16-Nov-2026</small>
 </a>
 </li>
 <li>
@@ -619,11 +619,11 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
 <a id="user-content-one-small-caveat-of-socket-buffer" class="anchor" aria-label="Permalink: One Small Caveat of Socket Buffer" href="#one-small-caveat-of-socket-buffer"><svg data-component="Octicon" class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
 </div>
 <p>In a stream-based transport such as TCP/IP, received data is stored into a socket receive buffer. Unfortunately, the buffer of a stream-based transport is not a queue of packets but a queue of bytes. It means, even if you sent two messages as two independent packets, an operating system will not treat them as two messages but as just a bunch of bytes. Therefore, there is no guarantee that what you read is exactly what your remote peer wrote. For example, let us assume that the TCP/IP stack of an operating system has received three packets:</p>
-<p><img src="https://camo.githubusercontent.com/682186d40ca3f3440994317e4813e3357cc9244f6a7f6741b150b7d519a76bdc/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/96dd1cb24f2a870b0ac184a3d9017d1207fb7fd015a9e1817da1bea6dfe22585/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Three packets received as they were sent" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <p>Because of this general property of a stream-based protocol, there's high chance of reading them in the following fragmented form in your application:</p>
-<p><img src="https://camo.githubusercontent.com/ff2660c2adcf086edf51b4a6c57b45bd9d523597f356a76084427c18272a6a49/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
+<p><img src="https://camo.githubusercontent.com/44fd2906807e0252c2c0ecc205ee73fa833a439db32ca42b5ca26de9fb030c50/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f6233316330626437626266633639666438326436" alt="Three packets split and merged into four buffers" data-canonical-src="http://uml.mvnsearch.org/gist/b31c0bd7bbfc69fd82d6"></p>
 <p>Therefore, a receiving part, regardless it is server-side or client-side, should defrag the received data into one or more meaningful frames that could be easily understood by the application logic. In case of the example above, the received data should be framed like the following:</p>
-<p><img src="https://camo.githubusercontent.com/682186d40ca3f3440994317e4813e3357cc9244f6a7f6741b150b7d519a76bdc/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
+<p><img src="https://camo.githubusercontent.com/96dd1cb24f2a870b0ac184a3d9017d1207fb7fd015a9e1817da1bea6dfe22585/687474703a2f2f756d6c2e6d766e7365617263682e6f72672f676973742f3832653366626530653264346466323833323262" alt="Four buffers defragged into three" data-canonical-src="http://uml.mvnsearch.org/gist/82e3fbe0e2d4df28322b"></p>
 <div class="markdown-heading">
 <h4 class="heading-element" id="wiki-h4-13">The First Solution</h4>
 <a id="user-content-the-first-solution" class="anchor" aria-label="Permalink: The First Solution" href="#the-first-solution"><svg data-component="Octicon" class="octicon octicon-link" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="m7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z"></path></svg></a>
@@ -898,7 +898,7 @@ public class TimeEncoder extends ChannelHandlerAdapter {
 <div class="row">
 <div class="col-md-9">
 <div class="text-right">
-<small>Last retrieved on 02-Nov-2026</small>
+<small>Last retrieved on 16-Nov-2026</small>
 </div>
 </div>
 </div>
